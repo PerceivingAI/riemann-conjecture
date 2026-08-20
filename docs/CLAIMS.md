@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T20:37:00Z`
+- **Last updated:** `2026-08-20T20:49:00Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -60,16 +60,16 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Source:** `R-0008`
 - **Verification notes:** Checked directly against NIST DLMF 25.16.4.
 
-### C-0005 — Laguerre generating function and fixed-argument asymptotic
+### C-0005 — Laguerre generating function, contiguous relation, and fixed-argument asymptotic
 
-- **Statement:** The generalized Laguerre polynomials satisfy `(1-z)^(-alpha-1) exp(xz/(z-1)) = sum L_n^(alpha)(x) z^n` for `|z|<1`; for fixed positive `x` and fixed `alpha`, their large-degree asymptotic has envelope proportional to `e^(x/2)` with the DLMF-stated power and oscillatory factors.
+- **Statement:** The generalized Laguerre polynomials satisfy `(1-z)^(-alpha-1) exp(xz/(z-1)) = sum L_n^(alpha)(x) z^n`, the contiguous relation `L_n^(alpha)=L_n^(alpha+1)-L_(n-1)^(alpha+1)`, and for fixed positive `x` and fixed `alpha` the large-degree asymptotic has envelope proportional to `e^(x/2)` with the DLMF-stated power and oscillatory factors.
 - **Type:** `ESTABLISHED_THEOREM`
 - **Status:** `VERIFIED`
 - **First recorded:** `2026-08-20T20:37:00Z`
-- **Last verified:** `2026-08-20T20:37:00Z`
+- **Last verified:** `2026-08-20T20:49:00Z`
 - **Dependencies:** none
 - **Source:** `R-0007`
-- **Verification notes:** The compact-`x` uniformity restriction is part of this claim and must be preserved in later use.
+- **Verification notes:** The compact-`x` uniformity restriction belongs to the asymptotic claim and must be preserved in later use. The contiguous relation was checked against DLMF 18.9.13.
 
 ### C-0006 — Exact generalized prime-Laguerre component
 
@@ -103,6 +103,50 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0005`, `C-0006`
 - **Source:** `A-20260820-001`, `F-20260820-003`
 - **Verification notes:** Algebraic exponent cancellation checked; DLMF compact-argument limitation recorded explicitly.
+
+### C-0009 — Deterministic zeta-pole mode in the raw generalized prime trace
+
+- **Statement:** For fixed `s0>1`, with `q=-s0/(s0-1)`, the raw prime-Laguerre sequence `P_n` from `C-0006` contains the exact pole contribution `1-q^n`. Since `|q|>1`, `P_n` is not subexponential even under RH.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T20:49:00Z`
+- **Last verified:** `2026-08-20T20:49:00Z`
+- **Dependencies:** `C-0006`
+- **Source:** `A-20260820-002`, `F-20260820-005`, `R-0010`
+- **Verification notes:** Derived by mapping `s=1` to `z=-(s0-1)/s0` and extracting coefficients of `s'(z)/(s(z)-1)`.
+
+### C-0010 — Pole-subtracted prime-Laguerre root criterion
+
+- **Statement:** For fixed `s0>1`, define `S_n=P_n-(1-q^n)` with `q=-s0/(s0-1)`. Then `RH` is equivalent to `limsup |S_n|^(1/n)<=1`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T20:49:00Z`
+- **Last verified:** `2026-08-20T20:49:00Z`
+- **Dependencies:** `C-0002`, `C-0006`, `C-0009`
+- **Source:** `A-20260820-002`, `F-20260820-006`, `R-0010`
+- **Verification notes:** `-S_n` are the Taylor coefficients of `d/dz log[(s(z)-1)zeta(s(z))]`; analyticity in the Cayley disk is equivalent to absence of zeros with `Re(rho)>1/2`, hence to RH by zero symmetry.
+
+### C-0011 — Pole subtraction equals the `d(psi-x)` discrepancy transform
+
+- **Statement:** With `f_n(x)=x^(-s0)L_(n-1)^(1)((2s0-1)log x)`, the pole-subtracted sequence is exactly `S_n=(2s0-1) integral_[1,infinity) f_n(x) d(psi(x)-x)`. The continuous density integral equals `1-q^n` exactly.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T20:49:00Z`
+- **Last verified:** `2026-08-20T20:49:00Z`
+- **Dependencies:** `C-0005`, `C-0006`, `C-0009`
+- **Source:** `A-20260820-002`, `F-20260820-007`
+- **Verification notes:** Derived by `t=(2s0-1)log x` and exact Laguerre generating-function coefficient extraction.
+
+### C-0012 — Exact pole-annihilating shift filter
+
+- **Statement:** With forward shift `E` and `q=-s0/(s0-1)`, `T=(E-1)(E-q)` annihilates `1-q^n` and gives `T P_n=A sum Lambda(m)m^(-s0)[L_(n+1)^(0)(A log m)-qL_n^(0)(A log m)]`. RH is equivalent to `limsup |T P_n|^(1/n)<=1`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T20:49:00Z`
+- **Last verified:** `2026-08-20T20:49:00Z`
+- **Dependencies:** `C-0005`, `C-0009`, `C-0010`
+- **Source:** `A-20260820-002`, `F-20260820-008`, `R-0007`
+- **Verification notes:** Shift algebra is exact. The filter zeros correspond only to `z=1` and `z=z(1)`, so it cannot cancel an interior pole from a nontrivial zero.
 
 ## Entry format
 

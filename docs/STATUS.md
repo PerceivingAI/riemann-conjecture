@@ -1,58 +1,99 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T20:37:00Z`
+- **Last updated:** `2026-08-20T20:49:00Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
 
 ## Current state
 
-The first research route has been formally imported and source-checked as `A-20260820-001`:
+Two formal research attempts are now recorded:
 
-- [`attempts/2026-08-20T203700Z-li-laguerre-prime-trace-route.md`](attempts/2026-08-20T203700Z-li-laguerre-prime-trace-route.md)
-
-It studies standard and generalized Li coefficients, their Möbius zero geometry, and their Laguerre-weighted prime representation.
+- [`A-20260820-001`](attempts/2026-08-20T203700Z-li-laguerre-prime-trace-route.md) — generalized Li/Laguerre route; status `BLOCKED` with a timestamped correction.
+- [`A-20260820-002`](attempts/2026-08-20T204900Z-pole-subtracted-prime-laguerre-route.md) — exact pole subtraction and shift filtering; intermediate target `COMPLETE`.
 
 No proof of RH has been obtained.
 
 ## Active leads
 
-### L1 — Filtered Li/Laguerre prime trace
+### L1 — Pole-subtracted prime-discrepancy trace
 
-**Status:** `ACTIVE / NEXT`
+**Status:** `ACTIVE / PRIMARY`
 
-The strongest surviving direction is to apply an explicit finite-difference filter to the Li or generalized-Li sequence so that:
+For fixed `s0>1`, define
 
-- the known archimedean `n log n` trend is strongly suppressed;
-- an off-unit-circle zero mode remains exponentially visible;
-- the prime side becomes one explicit filtered Laguerre trace;
-- the sufficient bound on that trace can be compared against known RH equivalents before any proof attempt.
+```text
+A=2s0-1,
+q=-s0/(s0-1),
 
-### L2 — Generalized center `s0>1`
+S_n
+= A sum_{m>=2} Lambda(m)m^(-s0)L_(n-1)^(1)(A log m)
+  -(1-q^n).
+```
+
+`A-20260820-002` proves the exact reformulation
+
+```text
+RH <=> limsup |S_n|^(1/n) <= 1.
+```
+
+More importantly for further work,
+
+```text
+S_n
+= A integral x^(-s0)L_(n-1)^(1)(A log x) d(psi(x)-x).
+```
+
+The deterministic prime-density contribution has therefore been removed exactly. The next task is to study cancellation of this discrepancy transform without importing an RH-equivalent pointwise bound.
+
+### L2 — Exact pole-annihilating shift filter
+
+**Status:** `AVAILABLE TOOL`
+
+The shift operator
+
+```text
+T=(E-1)(E-q)
+```
+
+annihilates the known pole sequence `1-q^n` exactly and converts the prime kernel to
+
+```text
+L_(n+1)^(0)(A log m)-q L_n^(0)(A log m).
+```
+
+This is retained as an alternative if order-zero Laguerre estimates are more tractable than the direct discrepancy form.
+
+### L3 — Generalized center `s0>1`
 
 **Status:** `USEFUL TOOL, NOT SOLUTION`
 
-Moving the generating center into the Euler-product half-plane gives an absolutely convergent prime series for each fixed coefficient and may be useful for rigorous manipulations. It does not provide a simple large-`n` decay gain: the fixed-prime Laguerre envelope restores the `m^(-1/2)` scale (`F-20260820-003`).
+The generalized center keeps every fixed-`n` prime series absolutely convergent. It does not by itself improve the critical fixed-prime `m^(-1/2)` envelope.
 
 ## Strongest verified intermediate results
 
-1. By Voros's established asymptotic dichotomy, any proved subexponential bound `lambda_n=exp(o(n))` would imply RH (`F-20260820-002`).
-2. The generalized coefficients centered at `s0>1` have an exact absolutely convergent prime-Laguerre component for every fixed `n` (`C-0006`).
-3. The critical-line zero contribution has been corrected to the distinct-pair value `4 sin^2(n theta/2)`; the earlier factor `8` was double counting (`F-20260820-001`).
-4. Moving `s0` right does not improve the fixed-prime exponential envelope: `m^(-s0)m^((2s0-1)/2)=m^(-1/2)` (`F-20260820-003`).
+1. `S_n=P_n-(1-q^n)` removes the zeta pole exactly, not heuristically (`F-20260820-005`, `F-20260820-006`).
+2. For every fixed `s0>1`, `RH <=> limsup |S_n|^(1/n)<=1` (`C-0010`).
+3. `S_n` is exactly a Laguerre transform of the prime-counting discrepancy measure `d(psi-x)` (`C-0011`).
+4. `(E-1)(E-q)` annihilates the full deterministic pole sequence and preserves every nontrivial-zero singularity inside the Cayley disk (`C-0012`).
+5. The earlier critical-line pair correction remains `4 sin^2(n theta/2)`, not `8 sin^2(n theta/2)` (`F-20260820-001`).
 
 ## Open requirements / blockers
 
-The primary blocker is an unconditional, `n`-uniform cancellation bound for the relevant prime-Laguerre trace (or a rigorously filtered version of it) that is strong enough to rule out off-critical exponential modes but does **not** assume a known RH-equivalent estimate.
+The primary blocker is now precise:
 
-In particular, directly inserting
+> Prove the subexponential root-growth bound for the **pole-subtracted** discrepancy sequence `S_n`, or an equivalent pole-annihilated version, by exploiting cancellation of the Laguerre kernel against `d(psi-x)` without assuming RH or an RH-equivalent estimate.
+
+The standard input
 
 ```text
 psi(x)=x+O(x^(1/2+epsilon))
 ```
 
-for every `epsilon>0` is circular because that statement is equivalent to RH (`F-20260820-004`).
+for every `epsilon>0` remains circular (`C-0004`).
+
+The root-growth target itself is RH-equivalent. It is allowed as the theorem we are trying to prove; it is not allowed as an assumed estimate.
 
 ## Invalidated or closed directions
 
@@ -60,20 +101,26 @@ for every `epsilon>0` is circular because that statement is equivalent to RH (`F
 
 **Status:** `INVALIDATED / CORRECTED`
 
-The critical-line symmetry orbit has two distinct zeros, not four. Correct contribution: `4 sin^2(n theta/2)`.
+Correct distinct-pair contribution: `4 sin^2(n theta/2)`.
 
-### I2 — Move the Li center right and gain an arbitrarily stronger prime decay exponent
+### I2 — Move the Li center right and gain arbitrarily stronger prime decay
 
 **Status:** `CLOSED AS A SIMPLE ASYMPTOTIC SHORTCUT`
 
-Although the fixed-`n` Dirichlet series becomes absolutely convergent, the fixed-prime large-`n` Laguerre envelope exactly cancels the apparent extra `s0` decay down to the `m^(-1/2)` scale. This does not close all uses of generalized centers; it closes the naive decay-gain argument.
+The fixed-prime Laguerre envelope restores the `m^(-1/2)` scale.
+
+### I3 — Raw generalized prime trace is subexponential
+
+**Status:** `INVALIDATED / CORRECTED`
+
+For every `s0>1`, the raw trace `P_n` contains `1-q^n` with `|q|>1`, coming from the known pole of `zeta` at `s=1`. A raw subexponential bound is impossible even if RH holds. The authoritative target is `S_n=P_n-(1-q^n)` or an exact pole-annihilated filter.
 
 ## Next research action
 
-Create `A-20260820-002` for the finite-difference-filter route. Before attempting any bound:
+Create `A-20260820-003` for the discrepancy-kernel analysis:
 
-1. derive the filter exactly on the zero side;
-2. derive it exactly on the generalized prime-Laguerre side;
-3. identify the weakest bound that would exclude an off-unit-circle singularity;
-4. run a circularity comparison against established RH equivalents;
-5. only then attempt analytic or computational estimates.
+1. transform `S_n` to the logarithmic coordinate `t=A log x`;
+2. derive exact integration-by-parts forms and boundary terms;
+3. determine the dominant kernel region as `n` grows using uniform Laguerre asymptotics rather than fixed-argument extrapolation;
+4. test orthogonality/oscillatory cancellation against unconditional information on `psi(x)-x`;
+5. isolate the first estimate that is genuinely unavailable rather than replacing it with a known RH equivalent.

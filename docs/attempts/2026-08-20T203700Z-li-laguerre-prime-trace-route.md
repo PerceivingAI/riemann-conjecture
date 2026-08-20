@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260820-001`
 - **Created:** `2026-08-20T20:37:00Z`
-- **Last updated:** `2026-08-20T20:37:00Z`
+- **Last updated:** `2026-08-20T20:49:00Z`
 - **Status:** `BLOCKED`
 - **Success target:** Prove an unconditional subexponential bound for the standard Li coefficients, or an equivalent generalized-Li bound, from an explicit prime-side representation without assuming an estimate already equivalent to RH.
 
@@ -370,3 +370,15 @@ The key acceptance test for the next route is that its missing estimate must be 
 ### 2026-08-20T20:37:00Z — Import correction
 
 The pre-protocol informal discussion stated that a critical-line "quartet" contributes `8 sin^2(n theta/2)`. That wording double-counted the symmetry orbit because on the critical line `1-rho=conjugate(rho)`. The repository record corrects this to the distinct-pair contribution `4 sin^2(n theta/2)`.
+
+### 2026-08-20T20:49:00Z — Raw-prime-trace target corrected
+
+`A-20260820-002` identified a structural issue in this attempt's blocker wording. For `s0>1`, the raw prime-Laguerre sequence `P_n(s0)` contains the deterministic exponential mode `1-q^n`, `q=-s0/(s0-1)`, coming from the known pole of `zeta(s)` at `s=1`. Therefore `P_n=exp(o(n))` is impossible even under RH.
+
+Future references to a subexponential generalized prime trace must mean either the exact pole-subtracted sequence
+
+```text
+S_n=P_n-(1-q^n)
+```
+
+or an exact pole-annihilated filter such as `(E-1)(E-q)P_n`. The broader raw-trace target is invalidated, while the underlying generalized-center representation remains valid.

@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T20:37:00Z`
+- **Last updated:** `2026-08-20T20:49:00Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -84,13 +84,13 @@ This is the authoritative source registry for literature materially used in the 
 ### R-0007 — NIST DLMF Laguerre formulas
 
 - **Authors:** NIST Digital Library of Mathematical Functions
-- **Title:** Chapter 18, Orthogonal Polynomials — Laguerre generating functions and asymptotics
+- **Title:** Chapter 18, Orthogonal Polynomials — Laguerre generating functions, contiguous relations, and asymptotics
 - **Publication:** NIST DLMF
 - **Year:** continuously maintained
-- **Stable identifier:** https://dlmf.nist.gov/18.12.E13 and https://dlmf.nist.gov/18.15.E14
+- **Stable identifier:** https://dlmf.nist.gov/18.12.E13 ; https://dlmf.nist.gov/18.9.E13 ; https://dlmf.nist.gov/18.15.E14
 - **First verified/accessed:** `2026-08-20T20:37:00Z`
-- **Used for:** Exact generating function `(1-z)^(-alpha-1) exp(xz/(z-1))` and the fixed-positive-argument large-degree Laguerre asymptotic with `e^(x/2)` envelope.
-- **Verification notes:** Scope checked carefully: DLMF 18.15.14 is uniform on compact positive `x` intervals, not for unbounded `x=A log m` across the full prime sum.
+- **Used for:** Exact Laguerre generating function, the degree/parameter contiguous identity used by the shift filter, and fixed-positive-argument large-degree asymptotics.
+- **Verification notes:** The contiguous relation was rechecked on `2026-08-20T20:49:00Z`. The asymptotic remains restricted to compact positive `x` intervals and is not uniform across the full prime sum.
 
 ### R-0008 — NIST DLMF Chebyshev-psi RH equivalence
 
@@ -113,6 +113,17 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-08-20T20:37:00Z`
 - **Used for:** Authoritative current status that RH remains an unsolved Millennium Prize Problem.
 - **Verification notes:** Clay's current Millennium Problems page lists RH among the unsolved problems.
+
+### R-0010 — NIST DLMF zeta analytic structure at `s=1`
+
+- **Authors:** NIST Digital Library of Mathematical Functions
+- **Title:** Section 25.2, Definition and Expansions — Riemann Zeta Function
+- **Publication:** NIST DLMF
+- **Year:** continuously maintained
+- **Stable identifier:** https://dlmf.nist.gov/25.2 and https://dlmf.nist.gov/25.2.E4
+- **First verified/accessed:** `2026-08-20T20:49:00Z`
+- **Used for:** The fact that `zeta(s)` is meromorphic with its only singularity a simple pole at `s=1` of residue `1`, and for the Laurent expansion used to isolate the exact pole mode.
+- **Verification notes:** DLMF section and equation were checked directly. The pole-removal derivation in `A-20260820-002` is repository work based on this standard analytic fact.
 
 ## Entry format
 
