@@ -43,7 +43,7 @@ Start here depending on what you need:
 3. Follow links to the relevant attempt/finding records.
 4. Check `docs/CLAIMS.md` before relying on an important intermediate statement.
 5. Check the bibliography when a step depends on known literature.
-6. If a computation is involved, read its record first and use the exact script/parameters under `scripts/`; never treat numerical output as proof.
+6. If a computation is involved, read its record first and use the exact versioned CLI/parameters recorded there (`scripts/` or `crates/`); never treat numerical output as proof.
 7. Create a new timestamped attempt/computation/finding record rather than appending unrelated work to an older artifact.
 8. At the end of the session, update `docs/LOG.md`, `docs/STATUS.md`, and any affected claim entries.
 
@@ -57,6 +57,7 @@ Start here depending on what you need:
 ├── pyproject.toml
 ├── requirements.txt
 ├── requirements.lock
+├── uv.lock
 ├── attempts/
 │   └── README.md
 ├── computations/
@@ -96,8 +97,21 @@ Start here depending on what you need:
 └── tests/
     ├── __init__.py
     ├── test_identities.py
+    ├── test_properties.py
     └── test_rh_tools.py
 ```
+
+## Python research environment
+
+The supported project baseline is **Python 3.12+**; the currently verified local environment is CPython 3.14.0. Scientific and testing dependencies are declared in `pyproject.toml` and resolved in `uv.lock`. `requirements.lock` preserves the currently verified `.venv` package snapshot.
+
+Preferred setup:
+
+```text
+uv sync --extra test
+```
+
+The `.venv/` directory is intentionally gitignored. Historical computation records remain authoritative about the exact environment used for each retained run.
 
 ## Testing & Verification
 
@@ -113,6 +127,7 @@ Tests cover:
 - Exact shift filter $T = (E-1)(E-q)$ annihilation of the pole mode $1 - q^n$.
 - Sieve and von Mangoldt $\Lambda(m)$ generator properties.
 - Numerical quadrature, scaling variables, and Float/Decimal consistency.
+- Hypothesis property tests for exact Laguerre, pole-density, shift-filter, and small-`u` diagnostic identities.
 
 
 ## Native Calculation Engine (`crates/rh_engine`)

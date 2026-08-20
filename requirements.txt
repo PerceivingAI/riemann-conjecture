@@ -1,5 +1,5 @@
 # Research dependencies for Riemann Hypothesis investigation
-# Compatible with CPython 3.14 (and >=3.10)
+# Compatible with CPython 3.14; project minimum is Python >=3.12
 
 # Core mathematical & interval/ball arithmetic
 mpmath>=1.3.0

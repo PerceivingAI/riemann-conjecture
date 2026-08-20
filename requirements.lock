@@ -1,5 +1,5 @@
 # Locked research dependencies for Riemann Hypothesis investigation
-# Compatible with CPython 3.14 (and >=3.10)
+# Compatible with CPython 3.14; locked stack requires Python >=3.12
 # Generated via pip freeze from .venv
 
 colorama==0.4.6

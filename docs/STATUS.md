@@ -1,7 +1,7 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T21:20:00Z`
+- **Last updated:** `2026-08-20T22:10:00Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
@@ -15,7 +15,7 @@ Four formal research attempts are recorded:
 - [`A-20260820-003`](../attempts/2026-08-20T210531Z-airy-saddle-discrepancy-kernel-route.md) — uniform asymptotic saddle analysis; now `SUPERSEDED` as the active frontier by the phase-sensitive refinement in `A-004`.
 - [`A-20260820-004`](../attempts/2026-08-20T212000Z-post-turning-phase-aware-discrepancy-route.md) — post-turning saddle geometry, region-splitting test, exact zero-mode response, and averaging barriers; intermediate target `COMPLETE`.
 
-The dependency-free Python toolkit under [`../scripts/`](../scripts/) now has six retained computation records under [`../computations/`](../computations/).
+The versioned Python research environment (`pyproject.toml`, lockfiles, `.venv`) and native Rust engine under [`../crates/rh_engine/`](../crates/rh_engine/) support the six retained computation records under [`../computations/`](../computations/). The current small-`u` phase helpers are explicitly diagnostic only; `A-005` must derive the uniform pre-turning phase before they can be generalized.
 
 No proof of RH has been obtained.
 

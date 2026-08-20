@@ -29,11 +29,11 @@ computations/
 
 ### Visual and Data Artifact Rules
 1. **Static Plot Artifacts:** Save plots directly into `plots/` within the computation bundle. Prefer `.svg` for line plots/asymptotics; use fixed DPI `.png` (`dpi=200`) for dense 2D rasters.
-2. **No Interactive Notebooks:** All computations run from deterministic CLI scripts under `scripts/`.
+2. **No Interactive Notebooks:** All computations run from deterministic, versioned CLI entry points under `scripts/` or `crates/`.
 3. **Data Threshold:** Datasets $\le 2\text{ MB}$ can be saved to `data/`. Large raw datasets must be regenerable on demand via CLI arguments documented in `record.md`.
 ## Code
 
-Authoritative research scripts are under [`../scripts/`](../scripts/). They intentionally use only the Python standard library.
+Authoritative computation entry points live under [`../scripts/`](../scripts/) and [`../crates/rh_engine/`](../crates/rh_engine/). Core Python prime/Laguerre routines remain standard-library based where practical; selected helpers use the scientific environment pinned by `pyproject.toml` and the project lockfiles.
 
 When a script is modified after a recorded experiment, the computation record retains the command, relevant environment, and script hash/version information needed to distinguish the historical run.
 

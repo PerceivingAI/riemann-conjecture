@@ -1,8 +1,9 @@
-"""Dependency-free numerical helpers for the Riemann-conjecture research repo.
+"""Numerical helpers for the Riemann-conjecture research repo.
 
-The module intentionally uses only the Python standard library. Decimal is used
-where cancellation can be severe; float helpers are reserved for exploratory
-kernel scans where the result is explicitly numerical evidence only.
+The core prime/Laguerre routines remain standard-library based for reproducibility.
+Selected research helpers may use dependencies pinned by the project environment;
+in particular, zeta-zero evaluation uses mpmath. Decimal is used where cancellation
+can be severe, while binary64 helpers are reserved for exploratory diagnostics.
 """
 
 from __future__ import annotations
@@ -188,62 +189,51 @@ def turning_u(n: int, t: float) -> float:
 
 
 def get_zeta_zeros(count: int, dps: int = 25) -> list[float]:
-    """Return the first `count` imaginary ordinates gamma_k of non-trivial zeta zeros.
+    """Numerically evaluate the first `count` non-trivial zero ordinates.
 
-    Zeros are indexed from k=1: rho_k = 1/2 + i * gamma_k.
-    Uses `mpmath.zetazero` for high-precision root finding.
+    Zeros are indexed from k=1 and evaluated with ``mpmath.zetazero`` at the
+    requested working precision. Returned floats are numerical research values,
+    not certificates of zero existence or location.
     """
     if count < 1:
         return []
+
+    import mpmath
+
+    old_dps = mpmath.mp.dps
     try:
-        import mpmath
-        old_dps = mpmath.mp.dps
         mpmath.mp.dps = dps
-        zeros = [float(mpmath.im(mpmath.zetazero(k))) for k in range(1, count + 1)]
+        return [float(mpmath.im(mpmath.zetazero(k))) for k in range(1, count + 1)]
+    finally:
         mpmath.mp.dps = old_dps
-        return zeros
-    except ImportError:
-        # Fallback table of first 10 certified zero ordinates (Odlyzko / LMFDB)
-        fallback = [
-            14.134725141734693790,
-            21.022039638771554993,
-            25.010857580145688763,
-            30.424876125859513210,
-            32.935061587739189691,
-            37.586178158825677257,
-            40.918719012147495187,
-            43.327073280914999519,
-            48.005150881167159728,
-            49.773832477672302182,
-        ]
-        if count <= len(fallback):
-            return fallback[:count]
-        raise RuntimeError(
-            f"mpmath is required to compute {count} zeta zeros beyond fallback table"
-        )
 
 
-def stationary_t_from_gamma(gamma: float, n: int, s0: float) -> float:
-    """Return stationary phase location t_*(gamma, n) = n * (2s0-1)^2 / gamma^2.
+def small_u_stationary_t_from_gamma(gamma: float, n: int, s0: float) -> float:
+    """Small-u Bessel-phase diagnostic t ~= n A^2/gamma^2.
 
-    Matches the frequency d/dt[2 sqrt(nt)] of L_{n-1}^(1)(t) to the zero oscillation gamma * t / A.
+    This matches d/dt[2 sqrt(n t)] to gamma/A. It is an approximation associated
+    with the small-u/fixed-argument Bessel phase and MUST NOT be treated as the
+    uniform stationary-phase map for an arbitrary fixed 0<u<1. A-005 is tasked
+    with deriving the uniform pre-turning phase before any such generalization.
     """
     if gamma <= 0.0 or n < 1 or s0 <= 1.0:
         raise ValueError("require gamma > 0, n >= 1, s0 > 1")
     A = 2.0 * s0 - 1.0
-    return (float(n)) * (A * A) / (gamma * gamma)
+    return float(n) * (A * A) / (gamma * gamma)
 
-def stationary_u_from_gamma(gamma: float, s0: float) -> float:
-    """Return uniform coordinate u_*(gamma) = t_* / (4n) = (2s0-1)^2 / (4 * gamma^2)."""
+
+def small_u_stationary_u_from_gamma(gamma: float, s0: float) -> float:
+    """Small-u diagnostic u ~= A^2/(4 gamma^2), derived from t/(4n)."""
     if gamma <= 0.0 or s0 <= 1.0:
         raise ValueError("require gamma > 0, s0 > 1")
     A = 2.0 * s0 - 1.0
     return (A * A) / (4.0 * gamma * gamma)
 
 
-def gamma_from_stationary_u(u: float, s0: float) -> float:
-    """Inverse mapping: return zero height gamma that has stationary point at u."""
+def gamma_from_small_u_stationary_u(u: float, s0: float) -> float:
+    """Algebraic inverse of ``small_u_stationary_u_from_gamma`` only."""
     if u <= 0.0 or s0 <= 1.0:
         raise ValueError("require u > 0, s0 > 1")
     A = 2.0 * s0 - 1.0
+    return A / (2.0 * sqrt(u))
     return A / (2.0 * sqrt(u))

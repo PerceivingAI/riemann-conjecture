@@ -1,10 +1,30 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T21:20:00Z`
+- **Last updated:** `2026-08-20T22:10:00Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+---
+
+## 2026-08-20T22:10:00Z — Research environment and phase-helper contract hardened
+
+**Type:** Research infrastructure / reproducibility / correctness guard
+
+Verified the project `.venv` on CPython 3.14.0 with the pinned scientific stack, including `mpmath`, SciPy, NumPy, SymPy, Matplotlib, python-flint/Arb, GMPY2, pytest, and Hypothesis. The Python test suite and Rust workspace tests were passing before this cleanup.
+
+Corrected the maintained environment contract to Python `>=3.12`, aligned repository documentation with the scientific environment and native `crates/rh_engine` CLI, and added `uv.lock` as the resolver lockfile.
+
+Removed the unregistered hard-coded zeta-zero fallback from `scripts/rh_tools.py`; zero ordinates are now explicitly numerical values produced by the pinned `mpmath` dependency, not described as certified data.
+
+Hard-cut the provisional phase API from generic `stationary_*` names to `small_u_stationary_*`. These formulas only encode the small-`u` approximation obtained from the phase `2 sqrt(n t)` and are not accepted as the uniform pre-turning stationary map. `A-20260820-005` remains responsible for deriving the genuine uniform Bessel phase before any broader phase helper is introduced.
+
+Historical computation records that truthfully used only the standard library were left unchanged.
+
+Post-change verification: `uv sync --extra test --locked` completed without environment changes, all research scripts compiled, the Python suite passed `273/273`, and the Rust workspace passed `13/13` tests.
+
+**Outcome:** infrastructure corrected without changing any RH claim or research conclusion.
 
 ---
 

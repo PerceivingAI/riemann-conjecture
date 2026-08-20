@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T21:20:00Z`
+- **Last updated:** `2026-08-20T22:10:00Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -18,7 +18,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`../findings/`](../findings/) — atomic findings, lemmas, obstructions, and negative results.
 - [`../computations/`](../computations/) — reproducible numerical or symbolic experiments.
 - [`../references/BIBLIOGRAPHY.md`](../references/BIBLIOGRAPHY.md) — literature and external sources used by the research.
-- [`../scripts/`](../scripts/) — dependency-free research tooling used by computation records.
+- [`../scripts/`](../scripts/) — versioned Python research tooling used by computation records.
 - [`../crates/rh_engine/`](../crates/rh_engine/) — high-throughput native multi-threaded calculation engine.
 - [`../tests/`](../tests/) — property-based and exact algebraic identity test suite.
 

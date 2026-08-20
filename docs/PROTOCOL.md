@@ -1,7 +1,7 @@
 # Research Documentation Protocol
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T21:30:00Z`
+- **Last updated:** `2026-08-20T22:10:00Z`
 - **Status:** Authoritative
 
 This document defines how all Riemann Hypothesis research in this repository must be recorded.
@@ -110,7 +110,7 @@ Required content in `record.md`:
 
 Visual & Data Artifact Rules:
 - **Static figures:** Generated figures must be saved directly into `plots/` within the computation bundle. Prefer `.svg` for line plots, phase functions, and asymptotic curves; use fixed-DPI `.png` (`dpi=200`) for dense 2D rasters.
-- **Reproducible CLI execution:** Computations must run from deterministic scripts under `scripts/` with explicit CLI arguments. Interactive notebooks are prohibited.
+- **Reproducible CLI execution:** Computations must run from a deterministic, versioned CLI entry point: either a script under `scripts/` or a native tool under `crates/`, with explicit CLI arguments. Interactive notebooks are prohibited.
 - **Data size threshold:** Keep small summary outputs ($\le 2\text{ MB}$) in `data/`. Large raw datasets must be regenerable on demand via CLI arguments documented in `record.md`.
 
 A numerical experiment must never be described as proving RH.
@@ -215,7 +215,7 @@ When external numerical or certified datasets are used (such as verified zeta-ze
 2. **Dataset registration:** Any imported static dataset must be registered in `references/BIBLIOGRAPHY.md` with its canonical source, publication/retrieval timestamp, and SHA-256 cryptographic checksum.
 3. **Repository size threshold:**
    - Small tables ($\le 2\text{ MB}$) may reside under `references/data/`.
-   - Large tables ($> 2\text{ MB}$) must remain gitignored and be generated or downloaded on demand via a deterministic script under `scripts/` with SHA-256 verification.
+   - Large tables ($> 2\text{ MB}$) must remain gitignored and be generated or downloaded on demand via a deterministic versioned CLI under `scripts/` or `crates/`, with SHA-256 verification when external data is retrieved.
 ## 8. Circularity test
 
 Every serious attempt must explicitly answer:

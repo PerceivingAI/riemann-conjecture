@@ -1,7 +1,7 @@
 //! Cross-validation of the native Rust engine against mathematical invariants.
 
 use rh_engine::bins::compute_range_bins;
-use rh_engine::laguerre::{laguerre_alpha, laguerre_l1};
+use rh_engine::laguerre::laguerre_alpha;
 use rh_engine::sieve::{higher_prime_powers, simple_sieve};
 use rh_engine::trace::compute_prime_trace;
 

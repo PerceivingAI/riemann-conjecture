@@ -3,7 +3,7 @@
 - **Created:** `2026-08-20T20:59:00Z`
 - **Last updated:** `2026-08-20T21:20:00Z`
 
-These scripts are research instruments for the timestamped RH attempts. They use only the Python standard library so the numerical work does not depend on an unrecorded scientific-Python environment.
+These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
 ## Scripts
 
@@ -66,7 +66,7 @@ Synthetic beta/gamma inputs are diagnostics only and are not asserted to be actu
 
 ## Shared implementation
 
-`rh_tools.py` contains the standard-library Laguerre recurrence, prime sieve, von Mangoldt prime-power enumeration, pole parameters, high-precision trace accumulation, Simpson integration, and turning-scale helpers.
+`rh_tools.py` contains the standard-library Laguerre recurrence, prime sieve, von Mangoldt prime-power enumeration, pole parameters, high-precision trace accumulation, Simpson integration, turning-scale helpers, numerical zeta-zero evaluation via pinned `mpmath`, and explicitly **small-`u` only** phase diagnostics. The small-`u` formulas must not be treated as the uniform pre-turning stationary-phase map; `A-20260820-005` owns that derivation.
 
 ## Interpretation rule
 
