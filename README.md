@@ -53,6 +53,7 @@ Start here depending on what you need:
 .
 ├── README.md
 ├── .gitignore
+├── Cargo.toml
 ├── pyproject.toml
 ├── requirements.txt
 ├── requirements.lock
@@ -64,6 +65,11 @@ Start here depending on what you need:
 │       ├── record.md
 │       ├── plots/
 │       └── data/
+├── crates/
+│   └── rh_engine/
+│       ├── Cargo.toml
+│       ├── src/
+│       └── tests/
 ├── docs/
 │   ├── INDEX.md
 │   ├── PROTOCOL.md
@@ -108,6 +114,21 @@ Tests cover:
 - Sieve and von Mangoldt $\Lambda(m)$ generator properties.
 - Numerical quadrature, scaling variables, and Float/Decimal consistency.
 
+
+## Native Calculation Engine (`crates/rh_engine`)
+
+For large cutoffs ($X \ge 10^7, 10^8$) where Python becomes a bottleneck, the multi-threaded Rayon engine provides high-throughput segmented sieving and batch Laguerre recurrences:
+
+```text
+# Prime-Laguerre trace calculation across cutoffs
+cargo run --release -- prime-trace --s0 3 --n-max 16 --cutoffs 1000000,10000000 --output-json computations/.../data/trace.json
+
+# Range decomposition in turning-scale u=t/(4n) bins
+cargo run --release -- range-bins --s0 3 --n 8,12,16 --max-m 5000000
+
+# Throughput benchmark across cores
+cargo run --release -- benchmark --cutoffs 1000000,10000000,50000000
+```
 ## Artifact naming
 
 Timestamped artifacts use:

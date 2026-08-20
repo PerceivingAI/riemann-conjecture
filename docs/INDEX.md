@@ -19,6 +19,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`../computations/`](../computations/) — reproducible numerical or symbolic experiments.
 - [`../references/BIBLIOGRAPHY.md`](../references/BIBLIOGRAPHY.md) — literature and external sources used by the research.
 - [`../scripts/`](../scripts/) — dependency-free research tooling used by computation records.
+- [`../crates/rh_engine/`](../crates/rh_engine/) — high-throughput native multi-threaded calculation engine.
 - [`../tests/`](../tests/) — property-based and exact algebraic identity test suite.
 
 ## Landmark attempt records

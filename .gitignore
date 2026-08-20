@@ -22,6 +22,7 @@ env/
 # Build and distribution artifacts
 build/
 dist/
+target/
 *.egg-info/
 *.egg
 # OS generated files
