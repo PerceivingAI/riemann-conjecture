@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-20T21:20:00Z`
+- **Last updated:** `2026-08-20T22:15:00Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -64,9 +64,25 @@ python scripts/zero_mode_bins.py --s0 3 --beta 0.6 --gamma 5 --n 16,32,64 --step
 
 Synthetic beta/gamma inputs are diagnostics only and are not asserted to be actual zeta zeros.
 
+### `uniform_phase_diagnostics.py`
+
+Supports `A-20260820-005`. It evaluates the exact uniform pre-turning stationary map
+
+```text
+u_gamma=A^2/(A^2+4gamma^2)
+```
+
+against the older small-`u` approximation, checks the critical Cayley phase identity and unit stationary normalization, and can save JSON plus a static SVG plot.
+
+```text
+python scripts/uniform_phase_diagnostics.py --s0 3 --zeros 8 --dps 40 --output-json computations/.../data/s0-3.json --plot computations/.../plots/stationary-map-s0-3.svg
+```
+
+The zero ordinates are numerical `mpmath.zetazero` evaluations, not certificates.
+
 ## Shared implementation
 
-`rh_tools.py` contains the standard-library Laguerre recurrence, prime sieve, von Mangoldt prime-power enumeration, pole parameters, high-precision trace accumulation, Simpson integration, turning-scale helpers, numerical zeta-zero evaluation via pinned `mpmath`, and explicitly **small-`u` only** phase diagnostics. The small-`u` formulas must not be treated as the uniform pre-turning stationary-phase map; `A-20260820-005` owns that derivation.
+`rh_tools.py` contains the standard-library Laguerre recurrence, prime sieve, von Mangoldt prime-power enumeration, pole parameters, high-precision trace accumulation, Simpson integration, turning-scale helpers, numerical zeta-zero evaluation via pinned `mpmath`, the retained small-`u` phase approximation, and the exact uniform pre-turning stationary map derived in `A-20260820-005`.
 
 ## Interpretation rule
 

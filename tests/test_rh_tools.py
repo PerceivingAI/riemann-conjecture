@@ -23,6 +23,11 @@ from scripts.rh_tools import (
     small_u_stationary_t_from_gamma,
     small_u_stationary_u_from_gamma,
     gamma_from_small_u_stationary_u,
+    laguerre_uniform_xi,
+    uniform_preturning_stationary_t_from_gamma,
+    uniform_preturning_stationary_u_from_gamma,
+    gamma_from_uniform_preturning_u,
+    critical_cayley_phase_per_n,
 )
 class TestPrimesAndVonMangoldt:
     """Tests for sieve and prime power generator invariants."""
@@ -163,6 +168,30 @@ class TestZetaZerosAndSmallUPhaseDiagnostic:
             u = small_u_stationary_u_from_gamma(gamma, s0)
             recovered = gamma_from_small_u_stationary_u(u, s0)
             assert abs(gamma - recovered) < 1e-11 * gamma
+
+    def test_uniform_preturning_stationary_map(self) -> None:
+        """Verify the DLMF-phase stationary map and its inverse."""
+        s0 = 3.0
+        n = 64
+        gamma = 14.1347251417347
+        A = 5.0
+        u = uniform_preturning_stationary_u_from_gamma(gamma, s0)
+        expected = A * A / (A * A + 4.0 * gamma * gamma)
+        assert abs(u - expected) < 1e-15
+        t = uniform_preturning_stationary_t_from_gamma(gamma, n, s0)
+        assert abs(t - 4.0 * n * u) < 1e-13
+        recovered = gamma_from_uniform_preturning_u(u, s0)
+        assert abs(recovered - gamma) < 1e-12
+
+    def test_uniform_stationary_phase_matches_cayley_phase(self) -> None:
+        """At the stationary point the Bessel phase equals arg(z_rho^-1)."""
+        s0 = 3.0
+        gamma = 14.1347251417347
+        A = 5.0
+        u = uniform_preturning_stationary_u_from_gamma(gamma, s0)
+        xi = laguerre_uniform_xi(u)
+        saddle_phase_per_n = 4.0 * (gamma * u / A - xi)
+        assert abs(saddle_phase_per_n - critical_cayley_phase_per_n(gamma, s0)) < 1e-12
 
     def test_small_u_formula_gamma_decay(self) -> None:
         """The small-u diagnostic scales algebraically as gamma^-2."""

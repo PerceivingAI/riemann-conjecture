@@ -10,8 +10,10 @@ pub mod trace;
 pub use bins::{compute_range_bins, BinEntry, RangeBinResult};
 pub use laguerre::{laguerre_alpha, laguerre_l1, laguerre_l1_batch};
 pub use phase::{
-    gamma_from_small_u_stationary_u, small_u_stationary_t_from_gamma,
-    small_u_stationary_u_from_gamma,
+    critical_cayley_phase_per_n, gamma_from_small_u_stationary_u,
+    gamma_from_uniform_preturning_u, laguerre_uniform_xi, small_u_stationary_t_from_gamma,
+    small_u_stationary_u_from_gamma, uniform_preturning_stationary_t_from_gamma,
+    uniform_preturning_stationary_u_from_gamma,
 };
 pub use sieve::{higher_prime_powers, sieve_segment, simple_sieve, PrimePower};
 pub use summation::NeumaierSum;

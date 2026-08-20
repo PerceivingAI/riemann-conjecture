@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T21:20:00Z`
+- **Last updated:** `2026-08-20T22:15:00Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -179,6 +179,39 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-08-20T21:20:00Z`
 - **Used for:** Current unconditional PNT-error scale derived from zero-free regions and zero-density estimates; in particular the Vinogradov-Korobov form `|psi(x)-x|/x <= exp[-c(log x)^(3/5)(log log x)^(-1/5)]` up to polylogarithmic factors.
 - **Verification notes:** Current arXiv version, abstract, Theorem 2.1 framework, and Corollary 2.3 discussion checked. At `log x~cn`, this contributes only `exp[-o(n)]` and therefore cannot by itself remove a positive fixed root rate.
+
+### R-0016 — Lagarias on Li coefficients and Weil's quadratic functional
+
+- **Authors:** Jeffrey C. Lagarias
+- **Title:** Li coefficients for automorphic L-functions
+- **Publication:** Annales de l'Institut Fourier, 57(5), 1689-1740
+- **Year:** 2007
+- **Stable identifier:** DOI `10.5802/aif.2311` — https://doi.org/10.5802/aif.2311
+- **First verified/accessed:** `2026-08-20T22:15:00Z`
+- **Used for:** Spectral/explicit-formula context: Li coefficients are related to values of Weil's quadratic functional on suitable test functions, and their positivity gives an RH criterion in the automorphic setting.
+- **Verification notes:** Publisher/Numdam metadata and abstract were checked. This source is contextual support for interpreting the Laguerre phase as spectral structure; the stationary-map derivation in `A-005` is repository work and does not depend on Lagarias for its algebra.
+
+### R-0017 — Arias de Reyna on an ell2 Keiper-Li equivalent of RH
+
+- **Authors:** Juan Arias de Reyna
+- **Title:** Asymptotics of Keiper-Li coefficients
+- **Publication:** Functiones et Approximatio Commentarii Mathematici, 45(1), 7-21
+- **Year:** 2011
+- **Stable identifier:** DOI `10.7169/facm/1317045228` — https://doi.org/10.7169/facm/1317045228
+- **First verified/accessed:** `2026-08-20T22:15:00Z`
+- **Used for:** Circularity/literature guard: the paper proves that a specific `ell^2` condition on the normalized Keiper-Li asymptotic error is equivalent to RH, illustrating that Hilbert-space or square-summability formulations can retain the full conjecture.
+- **Verification notes:** Project Euclid DOI metadata and abstract were checked directly. The repository's block-`L2` equivalence `C-0024` is proved independently by elementary inequalities.
+
+### R-0018 — NIST DLMF Bessel large-argument asymptotics and stationary phase
+
+- **Authors:** NIST Digital Library of Mathematical Functions
+- **Title:** Sections 10.17(i) and 2.3(iv) — Bessel large-argument expansions and method of stationary phase
+- **Publication:** NIST DLMF
+- **Year:** continuously maintained; version checked 2026-08-20
+- **Stable identifier:** https://dlmf.nist.gov/10.17 and https://dlmf.nist.gov/2.3.iv
+- **First verified/accessed:** `2026-08-20T22:15:00Z`
+- **Used for:** `J_1(z)` large-positive-argument phase `z-3pi/4` and the standard stationary-phase asymptotic used to analyze the fixed-frequency pre-turning saddle.
+- **Verification notes:** Equations 10.17.2-3 and DLMF section 2.3(iv) were checked directly. These are combined with the Laguerre Bessel expansion already registered as `R-0011`.
 
 ## Entry format
 

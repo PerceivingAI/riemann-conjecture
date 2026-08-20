@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260820-004`
 - **Created:** `2026-08-20T21:20:00Z`
-- **Last updated:** `2026-08-20T21:20:00Z`
+- **Last updated:** `2026-08-20T22:15:00Z`
 - **Status:** `COMPLETE`
 - **Success target:** Determine whether the `A-003` plan can reduce the remaining RH problem to independent control of a narrow Airy/turning window, quantify the actual saddle width and suppressible regions, test generic averaged information on `psi(x)-x`, and identify the next mathematically valid target without discarding phase information.
 
@@ -515,4 +515,14 @@ Create `A-20260820-005` for a **phase-aware pre-turning / full-transform analysi
 
 ## Timestamped addenda / corrections
 
-None yet.
+### 2026-08-20T22:15:00Z — Opening-recap notation correction
+
+The opening historical recap contains a text-rendering/transcription defect in the `nu,u_*` notation. The intended definitions are
+
+```text
+nu=4n,
+u_*=A^2/(A^2-1),
+A=2s0-1.
+```
+
+Here `nu` is the DLMF large parameter and `u_*` is the dimensionless post-turning saddle coordinate. No derivation, claim, or conclusion of `A-004` changes; this addendum exists only to prevent the malformed opening line from being reused.

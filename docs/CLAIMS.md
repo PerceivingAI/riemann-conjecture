@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T21:20:00Z`
+- **Last updated:** `2026-08-20T22:15:00Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -235,6 +235,61 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** none
 - **Source:** `R-0014`, `F-20260820-016`
 - **Verification notes:** Zhao (2025), Lemma 8, checked directly in the open-access published article.
+
+### C-0021 — Uniform pre-turning stationary-frequency map
+
+- **Statement:** For `L_(n-1)^(1)(4n*u)` on fixed compact subintervals of `0<u<1`, the leading Bessel phase is `4n*xi(u)-3pi/4`, where `xi(u)=1/2[sqrt(u-u^2)+asin(sqrt(u))]`. A positive Mellin frequency `gamma` has the unique stationary coordinate `u_gamma=A^2/(A^2+4gamma^2)`, with inverse `gamma=A/2 sqrt((1-u)/u)` and prime scale `log x_gamma=4nA/(A^2+4gamma^2)`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T22:15:00Z`
+- **Last verified:** `2026-08-20T22:15:00Z`
+- **Dependencies:** `C-0011`
+- **Source:** `A-20260820-005`, `F-20260820-017`, `R-0011`, `R-0018`
+- **Verification notes:** Derived from DLMF 18.15.17-19 plus 10.17.2-3; symbolic differentiation and Python/Rust inverse tests passed. The previous `A^2/(4gamma^2)` helper is only its small-`u` asymptotic.
+
+### C-0022 — Critical stationary saddle reproduces the Cayley mode
+
+- **Statement:** For fixed `rho=1/2+i gamma`, the real pre-turning stationary point satisfies `4n[gamma*u_gamma/A-xi(u_gamma)]=n arg(z_rho^(-1))`, and its leading stationary amplitude normalizes exactly to `1`; after phase constants and signs are included, the localized saddle contributes `z_rho^(-n)` to leading stationary-phase order.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T22:15:00Z`
+- **Last verified:** `2026-08-20T22:15:00Z`
+- **Dependencies:** `C-0019`, `C-0021`
+- **Source:** `A-20260820-005`, `F-20260820-018`, `R-0018`
+- **Verification notes:** Phase, curvature, and unit normalization simplified algebraically and with SymPy; phase identity is covered by Python/Hypothesis and Rust tests. This is a fixed-critical-mode real stationary-phase result, not a uniform infinite-zero summation theorem.
+
+### C-0023 — Critical-half-weight nonlinear Laguerre chirp
+
+- **Statement:** On fixed compact pre-turning `u` intervals, the leading kernel in the exact `d(psi-x)` representation has logarithmic-variable phase `Phi_n(y)=4n xi(Ay/(4n))-3pi/4`, instantaneous Mellin frequency `Phi_n'(y)=A/2 sqrt((1-u)/u)`, and acts on the signed arithmetic measure `dmu(y)=exp(-y/2)d(psi(e^y)-e^y)`. Thus the local kernel is a nonlinear Fourier/Mellin chirp at the critical half-weight.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T22:15:00Z`
+- **Last verified:** `2026-08-20T22:15:00Z`
+- **Dependencies:** `C-0011`, `C-0021`
+- **Source:** `A-20260820-005`, `F-20260820-019`, `R-0011`, `R-0018`
+- **Verification notes:** This is a kernel-level fixed-interior asymptotic. A full prime-side asymptotic still requires arithmetic control of the accumulated DLMF remainder.
+
+### C-0024 — Coefficient-block L2 root criterion is RH-equivalent
+
+- **Statement:** If `M_N=sum_(n=N)^(2N)|S_n|^2`, then `RH <=> limsup M_N^(1/(2N))<=1`. Hence a coefficient-space Parseval or large-sieve reformulation whose terminal claim is only this block `L2` subexponentiality is not weaker than RH.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T22:15:00Z`
+- **Last verified:** `2026-08-20T22:15:00Z`
+- **Dependencies:** `C-0010`
+- **Source:** `A-20260820-005`, `F-20260820-020`
+- **Verification notes:** One direction follows from `|S_n|=e^{o(n)}` on `N<=n<=2N`; the converse follows immediately from `|S_N|^2<=M_N`. Arias de Reyna's `ell^2` Keiper-Li equivalence is related literature context, not a dependency of the derivation.
+
+### C-0025 — High-frequency stationary saddles coalesce with the left endpoint
+
+- **Statement:** At the critical stationary point, the Gaussian relative width satisfies `sigma_u/u_gamma=sqrt(2gamma/(A n))`, while `4n xi(u_gamma)~2An/gamma` as `gamma->infinity`. Thus fixed-interior large-argument stationary phase is valid for each fixed `gamma` and remains separated when `gamma=o(n)`, but it is not uniform through the `gamma~n` endpoint/high-frequency transition.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T22:15:00Z`
+- **Last verified:** `2026-08-20T22:15:00Z`
+- **Dependencies:** `C-0021`, `C-0022`
+- **Source:** `A-20260820-005`, `F-20260820-021`, `R-0011`, `R-0018`
+- **Verification notes:** Exact width ratio follows from the derived curvature; the Bessel-argument statement uses `xi(u)~sqrt(u)` as `u->0`. The endpoint transition remains an open analytic subproblem.
 
 ## Entry format
 

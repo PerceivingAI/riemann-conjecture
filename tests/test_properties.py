@@ -7,8 +7,12 @@ from fractions import Fraction
 from hypothesis import given, settings, strategies as st
 
 from scripts.rh_tools import (
+    critical_cayley_phase_per_n,
     gamma_from_small_u_stationary_u,
+    gamma_from_uniform_preturning_u,
+    laguerre_uniform_xi,
     small_u_stationary_u_from_gamma,
+    uniform_preturning_stationary_u_from_gamma,
 )
 from scripts.verify_identities import (
     laguerre_coeffs,
@@ -63,6 +67,23 @@ def test_shift_filter_annihilation_property(numerator: int, denominator: int, n:
     m1 = Fraction(1) - q ** (n + 1)
     m2 = Fraction(1) - q ** (n + 2)
     assert m2 - (Fraction(1) + q) * m1 + q * m0 == 0
+
+
+@settings(max_examples=100, deadline=None)
+@given(
+    gamma=st.floats(min_value=0.1, max_value=1.0e5, allow_nan=False, allow_infinity=False),
+    s0=st.floats(min_value=1.01, max_value=100.0, allow_nan=False, allow_infinity=False),
+)
+def test_uniform_preturning_map_inverse_and_phase(gamma: float, s0: float) -> None:
+    """Uniform stationary map inverts and reproduces the critical Cayley phase."""
+    u = uniform_preturning_stationary_u_from_gamma(gamma, s0)
+    recovered = gamma_from_uniform_preturning_u(u, s0)
+    assert abs(recovered - gamma) <= 2e-11 * max(1.0, gamma)
+    A = 2.0 * s0 - 1.0
+    xi = laguerre_uniform_xi(u)
+    saddle_phase = 4.0 * (gamma * u / A - xi)
+    cayley_phase = critical_cayley_phase_per_n(gamma, s0)
+    assert abs(saddle_phase - cayley_phase) <= 2e-11
 
 
 @settings(max_examples=100, deadline=None)

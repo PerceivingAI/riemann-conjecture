@@ -236,4 +236,47 @@ def gamma_from_small_u_stationary_u(u: float, s0: float) -> float:
         raise ValueError("require u > 0, s0 > 1")
     A = 2.0 * s0 - 1.0
     return A / (2.0 * sqrt(u))
-    return A / (2.0 * sqrt(u))
+
+
+def laguerre_uniform_xi(u: float) -> float:
+    """DLMF pre-turning Laguerre phase coordinate xi(u), 0 <= u <= 1."""
+    if u < 0.0 or u > 1.0:
+        raise ValueError("require 0 <= u <= 1")
+    return 0.5 * (sqrt(u * (1.0 - u)) + __import__("math").asin(sqrt(u)))
+
+
+def uniform_preturning_stationary_u_from_gamma(gamma: float, s0: float) -> float:
+    """Uniform pre-turning stationary coordinate u_gamma=A^2/(A^2+4 gamma^2).
+
+    Derived from the DLMF Bessel phase 4n*xi(u) for L_(n-1)^(1)(4nu),
+    by matching xi'(u)=gamma/A for the stationary branch.
+    """
+    if gamma <= 0.0 or s0 <= 1.0:
+        raise ValueError("require gamma > 0, s0 > 1")
+    A = 2.0 * s0 - 1.0
+    return (A * A) / (A * A + 4.0 * gamma * gamma)
+
+
+def uniform_preturning_stationary_t_from_gamma(gamma: float, n: int, s0: float) -> float:
+    """Return t_gamma=4n*u_gamma for the uniform pre-turning phase."""
+    if n < 1:
+        raise ValueError("require n >= 1")
+    return 4.0 * n * uniform_preturning_stationary_u_from_gamma(gamma, s0)
+
+
+def gamma_from_uniform_preturning_u(u: float, s0: float) -> float:
+    """Inverse of the uniform pre-turning stationary map."""
+    if u <= 0.0 or u >= 1.0 or s0 <= 1.0:
+        raise ValueError("require 0 < u < 1, s0 > 1")
+    A = 2.0 * s0 - 1.0
+    return 0.5 * A * sqrt((1.0 - u) / u)
+
+
+def critical_cayley_phase_per_n(gamma: float, s0: float) -> float:
+    """Principal phase of z_rho^(-1) for rho=1/2+i gamma, gamma>0."""
+    if gamma <= 0.0 or s0 <= 1.0:
+        raise ValueError("require gamma > 0, s0 > 1")
+    from math import atan
+
+    A = 2.0 * s0 - 1.0
+    return -2.0 * atan(A / (2.0 * gamma))

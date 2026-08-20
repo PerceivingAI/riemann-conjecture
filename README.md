@@ -89,7 +89,8 @@ Start here depending on what you need:
 │   ├── kernel_scan.py
 │   ├── prime_range_decomposition.py
 │   ├── window_diagnostics.py
-│   └── zero_mode_bins.py
+│   ├── zero_mode_bins.py
+│   └── uniform_phase_diagnostics.py
 ├── templates/
 │   ├── ATTEMPT.md
 │   ├── FINDING.md
@@ -127,7 +128,7 @@ Tests cover:
 - Exact shift filter $T = (E-1)(E-q)$ annihilation of the pole mode $1 - q^n$.
 - Sieve and von Mangoldt $\Lambda(m)$ generator properties.
 - Numerical quadrature, scaling variables, and Float/Decimal consistency.
-- Hypothesis property tests for exact Laguerre, pole-density, shift-filter, and small-`u` diagnostic identities.
+- Hypothesis property tests for exact Laguerre, pole-density, shift-filter, small-`u` diagnostic identities, and the uniform pre-turning stationary/Cayley phase map.
 
 
 ## Native Calculation Engine (`crates/rh_engine`)

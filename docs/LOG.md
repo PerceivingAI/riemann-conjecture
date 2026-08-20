@@ -1,10 +1,64 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T22:10:00Z`
+- **Last updated:** `2026-08-20T22:15:00Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+---
+
+## 2026-08-20T22:15:00Z — Uniform pre-turning phase derived; arithmetic chirp becomes frontier
+
+**Type:** Research attempt / asymptotic derivation / computation / circularity check
+
+Completed `A-20260820-005`.
+
+DLMF's uniform Laguerre Bessel expansion gives, for `L_(n-1)^(1)(4n*u)`, the phase
+
+```text
+4n xi(u)-3pi/4,
+xi(u)=1/2[sqrt(u-u^2)+asin(sqrt(u))].
+```
+
+The exact frequency derivative is
+
+```text
+xi'(u)=1/2 sqrt((1-u)/u),
+```
+
+so a Mellin frequency `gamma>0` is matched at
+
+```text
+u_gamma=A^2/(A^2+4gamma^2),
+A=2s0-1.
+```
+
+The earlier `A^2/(4gamma^2)` helper is exactly the large-`gamma` / small-`u` approximation of this uniform map.
+
+For a fixed critical-line mode, the stationary phase equals the exact Cayley phase `n arg(z_rho^(-1))`, and the leading stationary amplitude simplifies exactly to `1`. This gives a local asymptotic mechanism for the `z_rho^(-n)` term in the exact zero response `z_rho^(-n)-1`.
+
+On the prime side, the pre-turning kernel becomes an explicit nonlinear Mellin chirp acting on the critical-half-weight signed measure
+
+```text
+exp(-y/2)d(psi(e^y)-e^y).
+```
+
+A new limitation was also isolated: the relative stationary width is
+
+```text
+sigma_u/u_gamma=sqrt(2gamma/(A n)),
+```
+
+so high zero frequencies coalesce with the `u=0` endpoint when `gamma` is of order `n`; fixed-frequency stationary formulas cannot simply be summed over the entire zero spectrum.
+
+Finally, if `M_N=sum_(n=N)^(2N)|S_n|^2`, then `limsup M_N^(1/(2N))<=1` is itself equivalent to RH. Generic coefficient-space Parseval/`L2` control is therefore a circular reformulation unless an independent arithmetic prime-side estimate is proved.
+
+Created `F-20260820-017` through `F-20260820-021`, `C-0021` through `C-0025`, and computation `X-20260820-007`. Added `R-0016` through `R-0018` for Lagarias, Arias de Reyna, and the DLMF Bessel/stationary-phase sources.
+
+Automated verification after the phase-tooling changes: Python `276/276` tests passed and the Rust workspace passed `15/15` tests.
+
+**Outcome:** RH remains unresolved. The active target is now an unconditional arithmetic cancellation theorem for the critical-half-weight nonlinear prime chirp, together with a valid high-frequency endpoint treatment.
 
 ---
 

@@ -1,0 +1,103 @@
+{
+  "s0": 2.0,
+  "A": 3.0,
+  "dps": 40,
+  "zero_source": "mpmath.zetazero numerical evaluation; not a certificate",
+  "rows": [
+    {
+      "gamma": 14.134725141734695,
+      "u_uniform": 0.011136383561730764,
+      "u_small": 0.011261799278086761,
+      "small_u_relative_error": 0.01126179927808681,
+      "log_x_per_n": 0.014848511415641018,
+      "saddle_phase_per_n": -0.21145184365485756,
+      "cayley_phase_per_n": -0.21145184365485759,
+      "phase_residual": 2.7755575615628914e-17,
+      "stationary_normalization": 0.9999999999999999
+    },
+    {
+      "gamma": 21.022039638771556,
+      "u_uniform": 0.005065557880791104,
+      "u_small": 0.005091348400806664,
+      "small_u_relative_error": 0.005091348400806711,
+      "log_x_per_n": 0.006754077174388139,
+      "saddle_phase_per_n": -0.14246591671505296,
+      "cayley_phase_per_n": -0.14246591671505296,
+      "phase_residual": 0.0,
+      "stationary_normalization": 1.0
+    },
+    {
+      "gamma": 25.01085758014569,
+      "u_uniform": 0.003583983910509782,
+      "u_small": 0.003596875052827229,
+      "small_u_relative_error": 0.003596875052827284,
+      "log_x_per_n": 0.004778645214013042,
+      "saddle_phase_per_n": -0.11980440326620868,
+      "cayley_phase_per_n": -0.11980440326620867,
+      "phase_residual": -1.3877787807814457e-17,
+      "stationary_normalization": 1.0000000000000002
+    },
+    {
+      "gamma": 30.424876125859512,
+      "u_uniform": 0.0024247699306740762,
+      "u_small": 0.0024306637310005865,
+      "small_u_relative_error": 0.0024306637310005643,
+      "log_x_per_n": 0.0032330265742321015,
+      "saddle_phase_per_n": -0.09852374953316463,
+      "cayley_phase_per_n": -0.09852374953316466,
+      "phase_residual": 2.7755575615628914e-17,
+      "stationary_normalization": 1.0
+    },
+    {
+      "gamma": 32.93506158773919,
+      "u_uniform": 0.0020699776044049057,
+      "u_small": 0.0020742712995404145,
+      "small_u_relative_error": 0.0020742712995405906,
+      "log_x_per_n": 0.0027599701392065413,
+      "saddle_phase_per_n": -0.09102543495952113,
+      "cayley_phase_per_n": -0.09102543495952112,
+      "phase_residual": -1.3877787807814457e-17,
+      "stationary_normalization": 1.0
+    },
+    {
+      "gamma": 37.586178158825675,
+      "u_uniform": 0.0015901388340651833,
+      "u_small": 0.0015926714027125416,
+      "small_u_relative_error": 0.0015926714027125763,
+      "log_x_per_n": 0.002120185112086911,
+      "saddle_phase_per_n": -0.07977424137562304,
+      "cayley_phase_per_n": -0.07977424137562304,
+      "phase_residual": 0.0,
+      "stationary_normalization": 1.0
+    },
+    {
+      "gamma": 40.9187190121475,
+      "u_uniform": 0.0013420084212348974,
+      "u_small": 0.0013438118280246617,
+      "small_u_relative_error": 0.0013438118280247608,
+      "log_x_per_n": 0.00178934456164653,
+      "saddle_phase_per_n": -0.07328326357775221,
+      "cayley_phase_per_n": -0.07328326357775222,
+      "phase_residual": 1.3877787807814457e-17,
+      "stationary_normalization": 1.0
+    },
+    {
+      "gamma": 43.327073280915,
+      "u_uniform": 0.0011971362718465445,
+      "u_small": 0.001198571124814448,
+      "small_u_relative_error": 0.0011985711248145145,
+      "log_x_per_n": 0.0015961816957953928,
+      "saddle_phase_per_n": -0.06921312848986089,
+      "cayley_phase_per_n": -0.06921312848986089,
+      "phase_residual": 0.0,
+      "stationary_normalization": 0.9999999999999998
+    }
+  ],
+  "formulas": {
+    "xi": "0.5*(sqrt(u-u^2)+asin(sqrt(u)))",
+    "u_uniform": "A^2/(A^2+4 gamma^2)",
+    "u_small": "A^2/(4 gamma^2)",
+    "log_x_per_n": "4A/(A^2+4 gamma^2)",
+    "critical_phase_per_n": "-2 atan(A/(2 gamma))"
+  }
+}

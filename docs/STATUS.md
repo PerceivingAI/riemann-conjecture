@@ -1,35 +1,37 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T22:10:00Z`
+- **Last updated:** `2026-08-20T22:15:00Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
 
 ## Current state
 
-Four formal research attempts are recorded:
+Five formal research attempts are recorded:
 
 - [`A-20260820-001`](../attempts/2026-08-20T203700Z-li-laguerre-prime-trace-route.md) — generalized Li/Laguerre route; `BLOCKED`, with later corrections preserved.
 - [`A-20260820-002`](../attempts/2026-08-20T204900Z-pole-subtracted-prime-laguerre-route.md) — exact zeta-pole subtraction and discrepancy criterion; `COMPLETE` intermediate target.
-- [`A-20260820-003`](../attempts/2026-08-20T210531Z-airy-saddle-discrepancy-kernel-route.md) — uniform asymptotic saddle analysis; now `SUPERSEDED` as the active frontier by the phase-sensitive refinement in `A-004`.
-- [`A-20260820-004`](../attempts/2026-08-20T212000Z-post-turning-phase-aware-discrepancy-route.md) — post-turning saddle geometry, region-splitting test, exact zero-mode response, and averaging barriers; intermediate target `COMPLETE`.
+- [`A-20260820-003`](../attempts/2026-08-20T210531Z-airy-saddle-discrepancy-kernel-route.md) — uniform post-turning saddle analysis; `SUPERSEDED` as active frontier by later phase-sensitive work.
+- [`A-20260820-004`](../attempts/2026-08-20T212000Z-post-turning-phase-aware-discrepancy-route.md) — region-splitting test, exact zero-mode response, and averaging barriers; `COMPLETE` intermediate target.
+- [`A-20260820-005`](../attempts/2026-08-20T221500Z-uniform-preturning-laguerre-phase-route.md) — exact uniform pre-turning phase, zero-frequency matching, Cayley saddle structure, and coefficient-`L2` circularity guard; `COMPLETE` intermediate target.
 
-The versioned Python research environment (`pyproject.toml`, lockfiles, `.venv`) and native Rust engine under [`../crates/rh_engine/`](../crates/rh_engine/) support the six retained computation records under [`../computations/`](../computations/). The current small-`u` phase helpers are explicitly diagnostic only; `A-005` must derive the uniform pre-turning phase before they can be generalized.
+The versioned Python environment, pytest/Hypothesis suite, and native Rust engine support seven retained computation records under [`../computations/`](../computations/).
 
 No proof of RH has been obtained.
 
 ## Active leads
 
-### L1 — Phase-aware full Laguerre transform
+### L1 — Prime-side nonlinear chirp / Dirichlet-polynomial reduction
 
-**Status:** `ACTIVE / PRIMARY`
+**Status:** `ACTIVE / PRIMARY / NEXT`
 
 The authoritative sequence remains
 
 ```text
 S_n
-= A integral x^(-s0)L_(n-1)^(1)(A log x) d(psi(x)-x),
+= A integral x^(-s0)L_(n-1)^(1)(A log x)
+    d(psi(x)-x),
 A=2s0-1,
 ```
 
@@ -39,65 +41,115 @@ with
 RH <=> limsup |S_n|^(1/n) <= 1.
 ```
 
-`A-004` shows that the decisive object must retain complex phase. For a single explicit-formula zero mode,
+`A-005` gives the fixed-interior pre-turning phase explicitly. With
 
 ```text
-rho=beta+i gamma,
-z_rho=(rho-s0)/(rho+s0-1),
+y=log x,
+u=Ay/(4n),
+xi(u)=1/2[sqrt(u-u^2)+asin(sqrt(u))],
 ```
 
-the transform is exactly
+the leading phase is
 
 ```text
-S_(n,rho)=z_rho^(-n)-1.
+Phi_n(y)=4n xi(u)-3pi/4,
 ```
 
-The imaginary part `gamma` can reduce the exact exponential rate dramatically relative to a beta-only absolute envelope (`F-20260820-015`).
+and its local Mellin frequency is
 
-### L2 — Pre-turning/Bessel-phase analysis
+```text
+Phi_n'(y)=A/2 sqrt((1-u)/u).
+```
 
-**Status:** `ACTIVE / NEXT`
+The arithmetic measure appears at the critical half-weight:
 
-The pre-turning region `0<u<1`, with
+```text
+dmu(y)=exp(-y/2)d(psi(e^y)-e^y).
+```
+
+The next task is to microlocalize this chirp and determine whether known unconditional estimates for weighted `Lambda(m)m^(-1/2)` Dirichlet/exponential sums can yield the required cancellation without importing an RH-equivalent statement.
+
+### L2 — Endpoint / high-frequency regime
+
+**Status:** `ACTIVE / REQUIRED`
+
+A zero frequency `gamma>0` is matched at
+
+```text
+u_gamma=A^2/(A^2+4gamma^2).
+```
+
+The stationary relative width satisfies
+
+```text
+sigma_u/u_gamma=sqrt(2gamma/(A n)).
+```
+
+Therefore high frequencies accumulate at `u=0`, and the fixed-interior cosine/stationary-phase reduction is not uniform when `gamma` is of order `n`. The exact DLMF Bessel representation must be retained for this endpoint transition (`C-0025`).
+
+### L3 — Uniform pre-turning stationary map
+
+**Status:** `CLOSED / AVAILABLE TOOL`
+
+The phase derivation itself is complete:
 
 ```text
 nu=4n,
-u=t/nu=t/(4n),
+nu*u=t,
+u=t/(4n),
 ```
 
-cannot be discarded by inserting current unconditional PNT error bounds into an absolute-value estimate. Its Bessel phase must be retained.
+```text
+u_gamma=A^2/(A^2+4gamma^2),
+log x_gamma=4nA/(A^2+4gamma^2).
+```
 
-The next attempt should derive the phase explicitly and test phase-sensitive transform estimates rather than `|E|` bounds.
+For a fixed critical-line mode, the saddle phase is exactly the Cayley phase and the leading normalization is `1` (`C-0021`, `C-0022`).
 
-### L3 — Far post-turning tail
+The old helper
+
+```text
+u_small=A^2/(4gamma^2)
+```
+
+is retained only as the large-`gamma` / small-`u` approximation.
+
+### L4 — Far post-turning tail
 
 **Status:** `CLOSED / AVAILABLE BOUND`
 
-For the smooth-density exponent there is a unique `u_0(A)>u_*` with `Phi_A(u_0)=0`. Any fixed region `u>=u_0+delta` is exponentially suppressed using the uniform post-turning Laguerre expansion and only `E(x)=o(x)` (`F-20260820-014`).
+For the smooth-density exponent there is a unique post-turning `u_0(A)` beyond which the relevant exponential rate is negative. Any fixed region `u>=u_0+delta` is exponentially suppressed using uniform Laguerre decay and only the ordinary PNT (`C-0018`).
 
-### L4 — Generic averaging
+### L5 — Generic averaging / Parseval
 
 **Status:** `CIRCULARITY GUARD`
 
-A dyadic mean-square bound at square-root scale is not a free input. Known mean-square theory gives exponent `2Theta+1` when the rightmost zero abscissa is `Theta>1/2`; therefore an `X^(2+epsilon)`-scale bound for every epsilon would force RH (`F-20260820-016`).
+Two generic Hilbert-space shortcuts are now closed as independent intermediate targets:
 
-Recent smooth-weighted PNT converse results provide an additional warning that sufficiently strong smoothed prime-error estimates can directly encode zero-free regions.
+1. RH-scale dyadic mean-square control of `psi-x` already forces the rightmost-zero boundary (`C-0020`).
+2. For `M_N=sum_(n=N)^(2N)|S_n|^2`, the condition `limsup M_N^(1/(2N))<=1` is itself equivalent to RH (`C-0024`).
+
+Large-sieve or Parseval machinery can still be useful **only if it proves a genuinely arithmetic prime-side estimate independently**.
 
 ## Strongest verified intermediate results
 
 1. `RH <=> limsup |S_n|^(1/n)<=1` for every fixed `s0>1` (`C-0010`).
-2. `S_n` is exactly the `d(psi-x)` Laguerre transform (`C-0011`).
-3. The density mode `1-q^n` is removed exactly (`C-0009`, `C-0011`).
-4. The smooth-density maximum is a post-turning Laplace saddle separated from the true Airy transition; its width is explicit (`C-0017`).
-5. The sufficiently far post-turning tail is absolutely suppressible, but the pre-turning region is not controlled at root-growth level by current unconditional PNT errors (`C-0018`).
-6. A single zero mode has the exact response `z_rho^(-n)-1`, proving that phase is structurally essential (`C-0019`).
-7. Generic RH-scale dyadic mean-square control of `psi-x` already forces the RH zero boundary (`C-0020`).
+2. `S_n` is exactly the `d(psi-x)` Laguerre transform after the deterministic zeta-pole mode is removed (`C-0011`).
+3. The smooth-density pole mode is the post-turning saddle removed in `A-002`/`A-003` (`C-0014`).
+4. Current pointwise PNT bounds cannot control the pre-turning region after absolute values (`C-0018`).
+5. A single zero mode has exact response `z_rho^(-n)-1` (`C-0019`).
+6. The uniform pre-turning stationary map is `u_gamma=A^2/(A^2+4gamma^2)` (`C-0021`).
+7. A fixed critical-line saddle reproduces the exact Cayley phase with unit leading normalization (`C-0022`).
+8. The prime discrepancy is probed by an explicit nonlinear chirp at the critical half-weight (`C-0023`).
+9. Coefficient-block `L2` root control is RH-equivalent (`C-0024`).
+10. High zero frequencies coalesce with the left endpoint on the joint `gamma~n` scale (`C-0025`).
 
 ## Computational observations
 
-- `X-005` confirms the `n^(-1/2)` post-turning saddle width and quantifies the gap between beta-only envelopes and exact complex-phase rates.
-- At `s0=3`, synthetic `beta=0.6`, `gamma=15` has beta-only envelope rate `1.08333...` but exact Cayley rate `1.002164...`.
-- `X-006` reproduces the exact single-mode Laplace transform numerically and shows material cancellation between regional pieces.
+- `X-005` quantified the loss from discarding complex zero phase.
+- `X-006` numerically reproduced exact single-zero transforms and regional cancellation.
+- `X-007` evaluated the new uniform stationary map for the first eight numerically computed zero ordinates at `s0=2,3,4`; phase residuals were at roundoff scale and the derived stationary normalization evaluated to `1` for every retained row.
+- At `s0=3`, the first numerical zero gives `u_gamma=0.03033384878...`, versus the old small-`u` approximation `0.03128277577...`, a relative error of about `3.128%`.
 
 These are diagnostics only, not proof claims.
 
@@ -105,11 +157,11 @@ These are diagnostics only, not proof claims.
 
 The primary blocker is now:
 
-> Prove a phase-sensitive arithmetic estimate for the full generalized Laguerre transform of `Lambda-1` / `d(psi-x)` that excludes exponential root growth without replacing the transform by absolute values or importing a norm estimate already equivalent to the RH zero boundary.
+> Prove an unconditional, phase-sensitive cancellation estimate for the critical-half-weight prime discrepancy against the explicit nonlinear Laguerre chirp, with accumulated kernel error controlled at exponential-root scale and with a separate valid treatment of the `u->0`, `gamma~n` endpoint regime.
 
-Pointwise square-root control and generic RH-scale mean-square control remain forbidden as assumptions.
+The phase formula itself is no longer missing.
 
-## Invalidated or closed directions
+## Invalidated, corrected, or closed directions
 
 ### I1 — Critical-line quartet contribution `8 sin^2(...)`
 
@@ -127,7 +179,7 @@ The fixed-prime Laguerre envelope restores the `m^(-1/2)` scale.
 
 **Status:** `INVALIDATED / CORRECTED`
 
-The raw trace contains the deterministic `1-q^n` pole mode. The authoritative target is the pole-subtracted `S_n`.
+The raw trace contains the deterministic `1-q^n` pole mode. The authoritative target is pole-subtracted `S_n`.
 
 ### I4 — Finish with any fixed pointwise PNT exponent above `1/2`
 
@@ -135,24 +187,37 @@ The raw trace contains the deterministic `1-q^n` pole mode. The authoritative ta
 
 Absolute-value insertion leaves exponential growth.
 
-### I5 — Reduce the problem to one narrow Airy-transition window and bound all other regions absolutely
+### I5 — Reduce the problem to one narrow Airy window and bound all other regions absolutely
 
 **Status:** `INVALIDATED / REFINED`
 
-The smooth-density maximum is actually a post-turning Laplace saddle. The pre-turning region retains positive absolute-envelope root growth under current unconditional PNT errors, while phase-sensitive cancellations couple different regions. Only the sufficiently far post-turning tail is independently closed.
+Only the sufficiently far post-turning tail closes independently; pre-turning cancellation is phase-sensitive.
 
 ### I6 — Use a generic square-root-scale dyadic mean-square estimate as a weaker averaging input
 
 **Status:** `CIRCULAR`
 
-Such a bound already forces `Theta=1/2` by known mean-square theory.
+Such a bound already forces the RH zero boundary.
+
+### I7 — Treat `A^2/(4gamma^2)` as the uniform pre-turning stationary map
+
+**Status:** `CORRECTED / RETAINED ONLY AS ASYMPTOTIC`
+
+The exact map is
+
+```text
+u_gamma=A^2/(A^2+4gamma^2).
+```
+
+The previous formula is its large-`gamma`, small-`u` expansion.
 
 ## Next research action
 
-Create `A-20260820-005` for the phase-aware pre-turning/full-transform route:
+Create `A-20260820-006` for the prime-side nonlinear chirp / Dirichlet-polynomial route:
 
-1. derive the DLMF Bessel-phase approximation explicitly for `0<u<1`;
-2. derive the stationary-phase relation between `gamma` and `u` while retaining `x^(i gamma)`;
-3. reformulate the prime side as a phase-sensitive transform rather than a norm of `E`;
-4. investigate large-sieve/Parseval/correlation estimates tailored to that transform;
-5. compare every candidate estimate against smooth-weighted-PNT converse theory and `C-0020` before attempting a proof.
+1. derive a rigorously accumulated DLMF-kernel remainder on compact pre-turning windows;
+2. partition `y=log m` into windows on which the chirp can be linearized with controlled quadratic error;
+3. express each discrete window as a weighted Dirichlet/exponential sum with coefficients `Lambda(m)m^(-1/2)`;
+4. compare unconditional mean-value, large-sieve, van der Corput, exponent-pair, and zero-density estimates with the exact root-growth target;
+5. separately analyze the `u->0`, `gamma~n` endpoint using the uniform Bessel representation rather than the cosine approximation;
+6. apply `C-0020`, `C-0024`, and smooth-weighted-PNT converse results as circularity guards before accepting any proposed estimate.
