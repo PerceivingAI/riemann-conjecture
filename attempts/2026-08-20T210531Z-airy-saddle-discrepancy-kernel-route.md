@@ -2,8 +2,8 @@
 
 - **Attempt ID:** `A-20260820-003`
 - **Created:** `2026-08-20T21:05:31Z`
-- **Last updated:** `2026-08-20T21:05:31Z`
-- **Status:** `PROMISING`
+- **Last updated:** `2026-08-20T21:20:00Z`
+- **Status:** `SUPERSEDED`
 - **Success target:** Put the exact discrepancy transform from `A-20260820-002` into a rigorous large-`n` uniform-asymptotic framework, identify the exponential saddle responsible for the removed zeta-pole mode, and isolate the first remaining estimate that cannot be supplied by a pointwise prime-number-theorem bound.
 
 ## Question / goal
@@ -71,9 +71,9 @@ nu = 4(n-1)+2(1)+2 = 4n.
 It is therefore natural to define
 
 ```text
-u = 4n,
-u u = t,
-u u = 4n u.
+nu = 4n,
+u = t/nu = t/(4n),
+t = nu*u = 4n*u.
 ```
 
 The Airy transition occurs at `u=1`.
@@ -442,4 +442,10 @@ Create a new attempt focused narrowly on the **Airy-window discrepancy**:
 
 ## Timestamped addenda / corrections
 
-None yet.
+### 2026-08-20T21:20:00Z — Terminology and localization correction from `A-20260820-004`
+
+The smooth-density maximum derived in this attempt remains mathematically valid, but the phrase **Airy-window saddle** is too narrow. For fixed `s0`, `u_*-1=1/(A^2-1)` is constant, whereas the genuine Airy transition around `u=1` shrinks like `O(n^(-2/3))`. The maximum is therefore asymptotically a **post-turning Laplace saddle represented by the uniform Airy formula**, with Gaussian width `O(n^(-1/2))` in `u`.
+
+`A-20260820-004` also shows that the pre-turning region cannot be discarded by current absolute PNT estimates and that phase-sensitive cancellation couples regions. The active frontier is therefore the full phase-aware transform, not a narrow Airy-transition window.
+
+No formula established earlier in this attempt is invalidated by this terminology/strategy correction. The malformed notation block near the original uniform-variable definition was also normalized here to `nu=4n`, `u=t/nu=t/(4n)`, `t=nu*u=4n*u`; this is a transcription repair, not a change of mathematical content.

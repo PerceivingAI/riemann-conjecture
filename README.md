@@ -73,7 +73,9 @@ Start here depending on what you need:
 │   ├── verify_identities.py
 │   ├── prime_trace.py
 │   ├── kernel_scan.py
-│   └── prime_range_decomposition.py
+│   ├── prime_range_decomposition.py
+│   ├── window_diagnostics.py
+│   └── zero_mode_bins.py
 └── templates/
     ├── ATTEMPT.md
     ├── FINDING.md

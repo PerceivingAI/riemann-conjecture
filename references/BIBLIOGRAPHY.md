@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T21:05:31Z`
+- **Last updated:** `2026-08-20T21:20:00Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -146,6 +146,39 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-08-20T21:05:31Z`
 - **Used for:** `psi(x)=x+o(x)`, sufficient to close the integration-by-parts boundary at infinity for every fixed `n` and `s0>1`.
 - **Verification notes:** This is only the prime number theorem, not an RH-strength error estimate.
+
+### R-0013 — Smooth weighted PNT error and zero-free-region converses
+
+- **Authors:** Songlin Han
+- **Title:** The Error in a Smooth Weighted Prime Number Formula and Zero-free Regions for the Riemann Zeta Function
+- **Publication:** arXiv preprint
+- **Year:** 2025; current version checked dated 2026-03-22
+- **Stable identifier:** arXiv `2505.23795` — https://arxiv.org/abs/2505.23795
+- **First verified/accessed:** `2026-08-20T21:20:00Z`
+- **Used for:** Literature guard showing that sufficiently strong errors in a smooth weighted prime number formula have converse implications for zero-free regions; smoothing does not automatically make the zero-location problem weaker.
+- **Verification notes:** Current arXiv text and Theorem 1.1 discussion checked. No novelty claim is made for the general principle.
+
+### R-0014 — Mean-square size of the PNT error versus rightmost zeros
+
+- **Authors:** Tianyu Zhao
+- **Title:** On the mean values of the error terms in Mertens’ theorems
+- **Publication:** Research in Number Theory, 11, article 62
+- **Year:** 2025
+- **Stable identifier:** DOI `10.1007/s40993-025-00640-y` — https://doi.org/10.1007/s40993-025-00640-y
+- **First verified/accessed:** `2026-08-20T21:20:00Z`
+- **Used for:** Lemma 8: dyadic mean-square order of `psi(x)-x` in terms of `Theta=sup Re(rho)`, used as a circularity guard against importing RH-scale generic `L^2` bounds.
+- **Verification notes:** Open-access published article checked directly, especially Lemma 8 and its two cases.
+
+### R-0015 — Current zero-density/PNT-error framework
+
+- **Authors:** Daniel R. Johnston
+- **Title:** Zero-density estimates and the optimality of the error term in the prime number theorem
+- **Publication:** arXiv preprint
+- **Year:** 2024; current version checked dated 2026-03-22
+- **Stable identifier:** arXiv `2411.13791` — https://arxiv.org/abs/2411.13791
+- **First verified/accessed:** `2026-08-20T21:20:00Z`
+- **Used for:** Current unconditional PNT-error scale derived from zero-free regions and zero-density estimates; in particular the Vinogradov-Korobov form `|psi(x)-x|/x <= exp[-c(log x)^(3/5)(log log x)^(-1/5)]` up to polylogarithmic factors.
+- **Verification notes:** Current arXiv version, abstract, Theorem 2.1 framework, and Corollary 2.3 discussion checked. At `log x~cn`, this contributes only `exp[-o(n)]` and therefore cannot by itself remove a positive fixed root rate.
 
 ## Entry format
 

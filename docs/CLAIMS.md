@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T21:05:31Z`
+- **Last updated:** `2026-08-20T21:20:00Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -191,6 +191,50 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0004`, `C-0013`, `C-0014`
 - **Source:** `A-20260820-003`, `F-20260820-012`
 - **Verification notes:** The remaining positive exponential factor is proportional to `(theta-1/2)/A`; the limiting square-root exponent is RH-strength pointwise information.
+
+### C-0017 — Post-turning saddle classification and Gaussian width
+
+- **Statement:** For fixed `s0>1`, the smooth-density maximum `u_*=A^2/(A^2-1)` is separated by a fixed distance from the true Airy transition at `u=1`. Its exponent has curvature `Phi_A''(u_*)=-(A^2-1)^2/(4A^3)`, so its natural width is `O(n^(-1/2))` in `u`, `O(sqrt(n))` in `t`, with `delta log x ~ 4 sqrt(2A n)/(A^2-1)` at the `e^(-1)` scale.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T21:20:00Z`
+- **Last verified:** `2026-08-20T21:20:00Z`
+- **Dependencies:** `C-0014`
+- **Source:** `A-20260820-004`, `F-20260820-013`, `R-0011`
+- **Verification notes:** Direct differentiation plus DLMF Airy-transition scaling; numerically cross-checked in `X-20260820-005`.
+
+### C-0018 — Regionwise absolute-control barrier
+
+- **Statement:** There is a unique post-turning `u_0(A)>u_*` with `Phi_A(u_0)=0`; every fixed region `u>=u_0+delta` is exponentially suppressible using uniform Laguerre decay and the ordinary PNT. In contrast, current unconditional Vinogradov-Korobov-scale bounds inserted absolutely in any fixed pre-turning region `u>0` leave positive root rate `exp(2u/A)>1`, because their relative-error improvement is only `exp[-o(n)]` on the moving scale `log x~cn`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T21:20:00Z`
+- **Last verified:** `2026-08-20T21:20:00Z`
+- **Dependencies:** `C-0013`, `C-0014`
+- **Source:** `A-20260820-004`, `F-20260820-014`, `R-0011`, `R-0015`
+- **Verification notes:** Exponential rate signs derived analytically; `u_0` and sample rates checked in `X-20260820-005`.
+
+### C-0019 — Exact phase-aware single-zero transform
+
+- **Statement:** For any nontrivial zero `rho` and fixed `s0>1`, with `z_rho=(rho-s0)/(rho+s0-1)`, the explicit-formula mode `-x^rho/rho` contributes exactly `z_rho^(-n)-1` to the generalized pole-subtracted Laguerre transform. Hence critical-line modes have unit exponential rate while every right-of-line mode has rate `|z_rho|^(-1)>1`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T21:20:00Z`
+- **Last verified:** `2026-08-20T21:20:00Z`
+- **Dependencies:** `C-0011`
+- **Source:** `A-20260820-004`, `F-20260820-015`, `R-0007`
+- **Verification notes:** Exact Laguerre Laplace transform; complex numerical checks in `X-20260820-006`.
+
+### C-0020 — Dyadic mean-square exponent detects the rightmost-zero boundary
+
+- **Statement:** Let `Theta=sup Re(rho)`. Established mean-square theory gives `integral_X^(2X)(psi(x)-x)^2 dx asymp X^2` when `Theta=1/2`, while for `Theta>1/2` it lies between `X^(2Theta+1-epsilon)` and `X^(2Theta+1)`. Therefore an upper bound `<<_epsilon X^(2+epsilon)` for every epsilon would force `Theta=1/2` and hence RH.
+- **Type:** `ESTABLISHED_THEOREM`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T21:20:00Z`
+- **Last verified:** `2026-08-20T21:20:00Z`
+- **Dependencies:** none
+- **Source:** `R-0014`, `F-20260820-016`
+- **Verification notes:** Zhao (2025), Lemma 8, checked directly in the open-access published article.
 
 ## Entry format
 
