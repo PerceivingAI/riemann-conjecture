@@ -11,10 +11,11 @@ This script is exploratory support, not proof. It reports:
 from __future__ import annotations
 
 import argparse
+import json
 from math import acosh, atanh, exp, log, sqrt
+from pathlib import Path
 
 from rh_tools import density_kernel
-
 
 def airy_bracket(u: float) -> float:
     if u < 1.0:
@@ -64,8 +65,9 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--s0", type=float, default=3.0)
     parser.add_argument("--n", default="64,128,256")
-    parser.add_argument("--gammas", default="0,5,15")
     parser.add_argument("--betas", default="0.5,0.6,0.9,1.0")
+    parser.add_argument("--gammas", default="0,5,15")
+    parser.add_argument("--output-json", type=str, default=None, help="Optional output JSON path")
     args = parser.parse_args()
 
     if args.s0 <= 1.0:
@@ -136,6 +138,23 @@ def main() -> None:
     print("NOTE: beta-only envelope rates discard oscillatory phase and are upper-envelope diagnostics.")
     print("For beta=1/2 the exact Cayley amplification is 1 for every gamma, as required by the critical line.")
 
+
+    if args.output_json:
+        out_path = Path(args.output_json)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        payload = {
+            "s0": args.s0,
+            "A": A,
+            "q_abs": q_abs,
+            "u_star": u_star,
+            "u_post_root1": u_zero,
+            "curvature_k": curvature_k,
+            "ns": ns,
+            "betas": betas,
+            "gammas": gammas,
+        }
+        out_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        print(f"\nWrote summary data to {out_path}")
 
 if __name__ == "__main__":
     main()

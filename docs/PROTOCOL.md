@@ -1,7 +1,7 @@
 # Research Documentation Protocol
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T20:33:00Z`
+- **Last updated:** `2026-08-20T21:30:00Z`
 - **Status:** Authoritative
 
 This document defines how all Riemann Hypothesis research in this repository must be recorded.
@@ -25,7 +25,9 @@ Example:
 Timestamped artifact filenames omit the punctuation in the time component:
 
 ```text
-YYYY-MM-DDTHHMMSSZ-short-title.md
+attempts/YYYY-MM-DDTHHMMSSZ-short-title.md
+findings/YYYY-MM-DDTHHMMSSZ-short-title.md
+computations/YYYY-MM-DDTHHMMSSZ-short-title/record.md
 ```
 
 Every new attempt, finding, or computation must have:
@@ -85,7 +87,16 @@ A finding must state exactly what kind of evidence supports it.
 
 Use for numerical, symbolic, or programmatic experiments.
 
-It must document enough information to reproduce the result:
+Each computation run is stored as a self-contained **directory bundle**:
+
+```text
+computations/YYYY-MM-DDTHHMMSSZ-<short-title>/
+├── record.md          # Primary computation record
+├── plots/             # (Optional) Generated static visual artifacts (.svg, .png)
+└── data/              # (Optional) Summary datasets or parameter tables (.json, .csv)
+```
+
+Required content in `record.md`:
 
 - objective;
 - code/script and revision when applicable;
@@ -96,6 +107,11 @@ It must document enough information to reproduce the result:
 - interpretation;
 - limitations;
 - whether the result is evidence only or proves something.
+
+Visual & Data Artifact Rules:
+- **Static figures:** Generated figures must be saved directly into `plots/` within the computation bundle. Prefer `.svg` for line plots, phase functions, and asymptotic curves; use fixed-DPI `.png` (`dpi=200`) for dense 2D rasters.
+- **Reproducible CLI execution:** Computations must run from deterministic scripts under `scripts/` with explicit CLI arguments. Interactive notebooks are prohibited.
+- **Data size threshold:** Keep small summary outputs ($\le 2\text{ MB}$) in `data/`. Large raw datasets must be regenerable on demand via CLI arguments documented in `record.md`.
 
 A numerical experiment must never be described as proving RH.
 

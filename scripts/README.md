@@ -77,5 +77,4 @@ These scripts can:
 - expose phase loss caused by absolute values;
 - identify unstable cutoff regimes;
 - guide which analytic lemma is worth attempting.
-
-They cannot prove RH by numerical verification. Every retained run belongs in `computations/` with exact parameters and limitations.
+They cannot prove RH by numerical verification. Every retained run belongs in `computations/` as a self-contained directory bundle (`record.md`, `plots/`, `data/`) with exact parameters and limitations.

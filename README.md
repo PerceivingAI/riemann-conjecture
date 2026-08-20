@@ -53,10 +53,16 @@ Start here depending on what you need:
 .
 ├── README.md
 ├── .gitignore
+├── pyproject.toml
+├── requirements.lock
 ├── attempts/
 │   └── README.md
 ├── computations/
-│   └── README.md
+│   ├── README.md
+│   └── YYYY-MM-DDTHHMMSSZ-<title>/
+│       ├── record.md
+│       ├── plots/
+│       └── data/
 ├── docs/
 │   ├── INDEX.md
 │   ├── PROTOCOL.md
@@ -76,11 +82,30 @@ Start here depending on what you need:
 │   ├── prime_range_decomposition.py
 │   ├── window_diagnostics.py
 │   └── zero_mode_bins.py
-└── templates/
-    ├── ATTEMPT.md
-    ├── FINDING.md
-    └── COMPUTATION.md
+├── templates/
+│   ├── ATTEMPT.md
+│   ├── FINDING.md
+│   └── COMPUTATION.md
+└── tests/
+    ├── __init__.py
+    ├── test_identities.py
+    └── test_rh_tools.py
 ```
+
+## Testing & Verification
+
+Property-based and exact algebraic tests are executed with `pytest`:
+
+```text
+pytest
+```
+
+Tests cover:
+- Laguerre polynomial contiguous relations $L_n^{(\alpha)} = L_n^{(\alpha+1)} - L_{n-1}^{(\alpha+1)}$ across randomized $(n, \alpha)$ pairs.
+- Exact rational Laplace pole/density integrals $1 - q^n$ for randomized rational $s_0 > 1$ and degrees $n$.
+- Exact shift filter $T = (E-1)(E-q)$ annihilation of the pole mode $1 - q^n$.
+- Sieve and von Mangoldt $\Lambda(m)$ generator properties.
+- Numerical quadrature, scaling variables, and Float/Decimal consistency.
 
 ## Artifact naming
 

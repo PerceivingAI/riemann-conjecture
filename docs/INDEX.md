@@ -19,6 +19,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`../computations/`](../computations/) — reproducible numerical or symbolic experiments.
 - [`../references/BIBLIOGRAPHY.md`](../references/BIBLIOGRAPHY.md) — literature and external sources used by the research.
 - [`../scripts/`](../scripts/) — dependency-free research tooling used by computation records.
+- [`../tests/`](../tests/) — property-based and exact algebraic identity test suite.
 
 ## Landmark attempt records
 
@@ -48,12 +49,12 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Computations
 
-- [`X-20260820-001`](../computations/2026-08-20T210531Z-exact-identity-verification.md) — exact finite identity checks.
-- [`X-20260820-002`](../computations/2026-08-20T210531Z-airy-kernel-localization.md) — saddle localization scan.
-- [`X-20260820-003`](../computations/2026-08-20T210531Z-prime-trace-cutoff-study.md) — high-precision cutoff study.
-- [`X-20260820-004`](../computations/2026-08-20T210531Z-prime-density-turning-window.md) — prime-density turning-window decomposition.
-- [`X-20260820-005`](../computations/2026-08-20T212000Z-saddle-window-phase-loss.md) — saddle width and phase-loss diagnostics.
-- [`X-20260820-006`](../computations/2026-08-20T212000Z-single-zero-regional-cancellation.md) — regional cancellation in exact zero modes.
+- [`X-20260820-001`](../computations/2026-08-20T210531Z-exact-identity-verification/record.md) — exact finite identity checks.
+- [`X-20260820-002`](../computations/2026-08-20T210531Z-airy-kernel-localization/record.md) — saddle localization scan.
+- [`X-20260820-003`](../computations/2026-08-20T210531Z-prime-trace-cutoff-study/record.md) — high-precision cutoff study.
+- [`X-20260820-004`](../computations/2026-08-20T210531Z-prime-density-turning-window/record.md) — prime-density turning-window decomposition.
+- [`X-20260820-005`](../computations/2026-08-20T212000Z-saddle-window-phase-loss/record.md) — saddle width and phase-loss diagnostics.
+- [`X-20260820-006`](../computations/2026-08-20T212000Z-single-zero-regional-cancellation/record.md) — regional cancellation in exact zero modes.
 
 ## Templates
 
