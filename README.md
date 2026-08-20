@@ -31,6 +31,7 @@ Start here depending on what you need:
 | Proof/research attempts | [`docs/attempts/`](docs/attempts/) |
 | Atomic findings, lemmas, negative results, observations | [`docs/findings/`](docs/findings/) |
 | Numerical/symbolic experiments | [`docs/computations/`](docs/computations/) |
+| Research scripts used by computations | [`scripts/`](scripts/) |
 | Sources and literature | [`docs/references/BIBLIOGRAPHY.md`](docs/references/BIBLIOGRAPHY.md) |
 | Naming, timestamps, status rules, update procedure | [`docs/PROTOCOL.md`](docs/PROTOCOL.md) |
 | Templates for new records | [`docs/templates/`](docs/templates/) |
@@ -42,14 +43,22 @@ Start here depending on what you need:
 3. Follow links to the relevant attempt/finding records.
 4. Check `docs/CLAIMS.md` before relying on an important intermediate statement.
 5. Check the bibliography when a step depends on known literature.
-6. Create a new timestamped attempt/computation/finding record rather than appending unrelated work to an older artifact.
-7. At the end of the session, update `docs/LOG.md`, `docs/STATUS.md`, and any affected claim entries.
+6. If a computation is involved, read its record first and use the exact script/parameters under `scripts/`; never treat numerical output as proof.
+7. Create a new timestamped attempt/computation/finding record rather than appending unrelated work to an older artifact.
+8. At the end of the session, update `docs/LOG.md`, `docs/STATUS.md`, and any affected claim entries.
 
 ## Directory model
 
 ```text
 .
 ├── README.md
+├── scripts/
+│   ├── README.md
+│   ├── rh_tools.py
+│   ├── verify_identities.py
+│   ├── prime_trace.py
+│   ├── kernel_scan.py
+│   └── prime_range_decomposition.py
 └── docs/
     ├── INDEX.md
     ├── PROTOCOL.md

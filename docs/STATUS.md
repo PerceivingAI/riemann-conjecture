@@ -1,99 +1,116 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T20:49:00Z`
+- **Last updated:** `2026-08-20T21:05:31Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
 
 ## Current state
 
-Two formal research attempts are now recorded:
+Three formal research attempts are recorded:
 
-- [`A-20260820-001`](attempts/2026-08-20T203700Z-li-laguerre-prime-trace-route.md) — generalized Li/Laguerre route; status `BLOCKED` with a timestamped correction.
-- [`A-20260820-002`](attempts/2026-08-20T204900Z-pole-subtracted-prime-laguerre-route.md) — exact pole subtraction and shift filtering; intermediate target `COMPLETE`.
+- [`A-20260820-001`](attempts/2026-08-20T203700Z-li-laguerre-prime-trace-route.md) — generalized Li/Laguerre route; `BLOCKED`, with later corrections preserved.
+- [`A-20260820-002`](attempts/2026-08-20T204900Z-pole-subtracted-prime-laguerre-route.md) — exact zeta-pole subtraction and discrepancy criterion; `COMPLETE` intermediate target.
+- [`A-20260820-003`](attempts/2026-08-20T210531Z-airy-saddle-discrepancy-kernel-route.md) — uniform Airy-saddle analysis of the pole-subtracted discrepancy kernel; `PROMISING`.
+
+A dependency-free Python research toolkit now lives in [`../scripts/`](../scripts/) and has four retained computation records under [`computations/`](computations/).
 
 No proof of RH has been obtained.
 
 ## Active leads
 
-### L1 — Pole-subtracted prime-discrepancy trace
+### L1 — Airy-window prime discrepancy
 
 **Status:** `ACTIVE / PRIMARY`
 
-For fixed `s0>1`, define
-
-```text
-A=2s0-1,
-q=-s0/(s0-1),
-
-S_n
-= A sum_{m>=2} Lambda(m)m^(-s0)L_(n-1)^(1)(A log m)
-  -(1-q^n).
-```
-
-`A-20260820-002` proves the exact reformulation
-
-```text
-RH <=> limsup |S_n|^(1/n) <= 1.
-```
-
-More importantly for further work,
+For fixed `s0>1`, the authoritative sequence remains
 
 ```text
 S_n
-= A integral x^(-s0)L_(n-1)^(1)(A log x) d(psi(x)-x).
+= A integral x^(-s0)L_(n-1)^(1)(A log x) d(psi(x)-x),
+A=2s0-1.
 ```
 
-The deterministic prime-density contribution has therefore been removed exactly. The next task is to study cancellation of this discrepancy transform without importing an RH-equivalent pointwise bound.
-
-### L2 — Exact pole-annihilating shift filter
-
-**Status:** `AVAILABLE TOOL`
-
-The shift operator
+`A-003` identifies the correct uniform variable
 
 ```text
-T=(E-1)(E-q)
+nu=4n,
+u=t/(4n),
+t=A log x,
 ```
 
-annihilates the known pole sequence `1-q^n` exactly and converts the prime kernel to
+and proves that the smooth prime-density kernel has its exponential saddle at
 
 ```text
-L_(n+1)^(0)(A log m)-q L_n^(0)(A log m).
+u_* = A^2/(A^2-1),
 ```
 
-This is retained as an alternative if order-zero Laguerre estimates are more tractable than the direct discrepancy form.
+with growth exactly
 
-### L3 — Generalized center `s0>1`
+```text
+[s0/(s0-1)]^n=|q|^n.
+```
 
-**Status:** `USEFUL TOOL, NOT SOLUTION`
+That is precisely the deterministic zeta-pole rate removed in `A-002`.
 
-The generalized center keeps every fixed-`n` prime series absolutely convergent. It does not by itself improve the critical fixed-prime `m^(-1/2)` envelope.
+The remaining target is therefore not the smooth prime density: it is the signed discrepancy `psi(x)-x` in the Airy transition window around the moving scale
+
+```text
+x_*(n;s0)=exp[4nA/(A^2-1)].
+```
+
+### L2 — Exact integration-by-parts form
+
+**Status:** `ACTIVE TOOL`
+
+Using only the prime number theorem to close the boundary terms,
+
+```text
+S_n = A n - A integral E(x) f_n'(x) dx,
+E(x)=psi(x)-x.
+```
+
+This exposes `E(x)` directly and is the preferred starting point for averaged or oscillatory estimates (`F-20260820-009`).
+
+### L3 — Generalized center selection
+
+**Status:** `NUMERICAL TOOL, NOT ASYMPTOTIC SHORTCUT`
+
+Larger `s0` reduces the prime scale needed to resolve a given coefficient numerically, but it simultaneously moves any hypothetical off-line zero closer to the Cayley unit circle. The two effects scale together (`F-20260820-011`).
 
 ## Strongest verified intermediate results
 
-1. `S_n=P_n-(1-q^n)` removes the zeta pole exactly, not heuristically (`F-20260820-005`, `F-20260820-006`).
-2. For every fixed `s0>1`, `RH <=> limsup |S_n|^(1/n)<=1` (`C-0010`).
-3. `S_n` is exactly a Laguerre transform of the prime-counting discrepancy measure `d(psi-x)` (`C-0011`).
-4. `(E-1)(E-q)` annihilates the full deterministic pole sequence and preserves every nontrivial-zero singularity inside the Cayley disk (`C-0012`).
-5. The earlier critical-line pair correction remains `4 sin^2(n theta/2)`, not `8 sin^2(n theta/2)` (`F-20260820-001`).
+1. `RH <=> limsup |S_n|^(1/n)<=1` for every fixed `s0>1` (`C-0010`).
+2. `S_n` is exactly the `d(psi-x)` Laguerre transform (`C-0011`).
+3. The exact integration-by-parts form requires only the ordinary prime number theorem for its boundary terms (`C-0013`).
+4. The uniform Airy saddle of the smooth density kernel is `u_*=A^2/(A^2-1)` and has rate exactly `|q|^n` (`C-0014`).
+5. Any direct absolute-value argument based only on a fixed pointwise exponent `|psi(x)-x|=O(x^theta)`, `theta>1/2`, still leaves exponential growth (`C-0016`).
+6. Exact script-based checks found no sign/index error in the core identities through `n=40` at four rational centers (`X-20260820-001`).
+
+## Computational observations
+
+- Kernel maxima for `s0=3` move toward the predicted `u_*=25/24`: sampled `u_max=1.0211,1.0310,1.0362` for `n=64,128,256` (`X-002`).
+- At `s0=3`, `n=16`, turning-region prime and continuous-density contributions of magnitude `~3.26e2` differed by only `~2.0e-2` in the `u in [0.75,1]` bin; doubling quadrature resolution preserved the difference (`X-004`).
+- Fixed prime cutoffs lose convergence as `n` rises; moving `s0` right extends the numerically stable range, matching the analytic moving-scale prediction (`X-003`).
+
+These are evidence and diagnostics only, not proof claims.
 
 ## Open requirements / blockers
 
-The primary blocker is now precise:
+The primary blocker is now localized:
 
-> Prove the subexponential root-growth bound for the **pole-subtracted** discrepancy sequence `S_n`, or an equivalent pole-annihilated version, by exploiting cancellation of the Laguerre kernel against `d(psi-x)` without assuming RH or an RH-equivalent estimate.
+> Prove sufficiently strong signed/averaged cancellation of `E(x)=psi(x)-x` against the uniform Airy-window kernel near `t=4nA^2/(A^2-1)`, without assuming square-root pointwise control of `E`.
 
-The standard input
+The standard RH-equivalent input
 
 ```text
 psi(x)=x+O(x^(1/2+epsilon))
 ```
 
-for every `epsilon>0` remains circular (`C-0004`).
+for every `epsilon>0` remains forbidden as an assumption.
 
-The root-growth target itself is RH-equivalent. It is allowed as the theorem we are trying to prove; it is not allowed as an assumed estimate.
+A fixed pointwise exponent above `1/2` is also insufficient if inserted only through absolute values; `A-003` records this barrier explicitly.
 
 ## Invalidated or closed directions
 
@@ -113,14 +130,20 @@ The fixed-prime Laguerre envelope restores the `m^(-1/2)` scale.
 
 **Status:** `INVALIDATED / CORRECTED`
 
-For every `s0>1`, the raw trace `P_n` contains `1-q^n` with `|q|>1`, coming from the known pole of `zeta` at `s=1`. A raw subexponential bound is impossible even if RH holds. The authoritative target is `S_n=P_n-(1-q^n)` or an exact pole-annihilated filter.
+The raw trace contains the deterministic `1-q^n` pole mode. The authoritative target is the pole-subtracted `S_n`.
+
+### I4 — Finish the discrepancy bound with any fixed pointwise PNT exponent above `1/2`
+
+**Status:** `CLOSED AS SOLE MECHANISM`
+
+Such an absolute bound still leaves positive exponential growth in the uniform Airy regime (`F-20260820-012`). Pointwise estimates may still be used as auxiliary bounds outside the critical window.
 
 ## Next research action
 
-Create `A-20260820-003` for the discrepancy-kernel analysis:
+Create `A-20260820-004` focused only on the Airy-window discrepancy:
 
-1. transform `S_n` to the logarithmic coordinate `t=A log x`;
-2. derive exact integration-by-parts forms and boundary terms;
-3. determine the dominant kernel region as `n` grows using uniform Laguerre asymptotics rather than fixed-argument extrapolation;
-4. test orthogonality/oscillatory cancellation against unconditional information on `psi(x)-x`;
-5. isolate the first estimate that is genuinely unavailable rather than replacing it with a known RH equivalent.
+1. write the leading uniform Airy approximation with explicit error control on a fixed neighborhood of `u_*`;
+2. split the discrepancy integral into pre-turning, Airy-window, and post-turning regions;
+3. prove unconditional exponential suppression outside the critical region where possible;
+4. investigate averaged/smoothed information on `psi(x)-x` matched to the Airy-window width;
+5. use the scripts to reject false candidate estimates before formal proof work.

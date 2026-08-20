@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T20:49:00Z`
+- **Last updated:** `2026-08-20T21:05:31Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -124,6 +124,28 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-08-20T20:49:00Z`
 - **Used for:** The fact that `zeta(s)` is meromorphic with its only singularity a simple pole at `s=1` of residue `1`, and for the Laurent expansion used to isolate the exact pole mode.
 - **Verification notes:** DLMF section and equation were checked directly. The pole-removal derivation in `A-20260820-002` is repository work based on this standard analytic fact.
+
+### R-0011 — NIST DLMF uniform Laguerre asymptotics and derivatives
+
+- **Authors:** NIST Digital Library of Mathematical Functions
+- **Title:** Sections 18.15(iv) and 18.9(iii) — Laguerre asymptotic approximations and derivatives
+- **Publication:** NIST DLMF
+- **Year:** continuously maintained; version checked released 2026-06-15
+- **Stable identifier:** https://dlmf.nist.gov/18.15 and https://dlmf.nist.gov/18.9.E23
+- **First verified/accessed:** `2026-08-20T21:05:31Z`
+- **Used for:** Uniform scaling `nu=4N+2alpha+2`, Bessel expansion below the turning point, Airy expansion through and beyond the turning point, and `dL_n^(alpha)/dx=-L_(n-1)^(alpha+1)`.
+- **Verification notes:** DLMF 18.15.17, 18.15.19, 18.15.21-22, and 18.9.23 were checked directly. For `N=n-1`, `alpha=1`, `nu=4n` exactly.
+
+### R-0012 — NIST DLMF prime number theorem in Chebyshev-psi form
+
+- **Authors:** NIST Digital Library of Mathematical Functions
+- **Title:** Section 25.16(i), Distribution of Primes
+- **Publication:** NIST DLMF
+- **Year:** continuously maintained
+- **Stable identifier:** https://dlmf.nist.gov/25.16.E3
+- **First verified/accessed:** `2026-08-20T21:05:31Z`
+- **Used for:** `psi(x)=x+o(x)`, sufficient to close the integration-by-parts boundary at infinity for every fixed `n` and `s0>1`.
+- **Verification notes:** This is only the prime number theorem, not an RH-strength error estimate.
 
 ## Entry format
 

@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T20:49:00Z`
+- **Last updated:** `2026-08-20T21:05:31Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -147,6 +147,50 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0005`, `C-0009`, `C-0010`
 - **Source:** `A-20260820-002`, `F-20260820-008`, `R-0007`
 - **Verification notes:** Shift algebra is exact. The filter zeros correspond only to `z=1` and `z=z(1)`, so it cannot cancel an interior pole from a nontrivial zero.
+
+### C-0013 — Exact integration-by-parts discrepancy formula
+
+- **Statement:** For fixed `s0>1`, the pole-subtracted discrepancy sequence satisfies `S_n=A n-A integral E(x)f_n'(x)dx`, equivalently the explicit `t`-coordinate formula in `F-20260820-009` involving `L_(n-1)^(1)` and `L_(n-2)^(2)`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T21:05:31Z`
+- **Last verified:** `2026-08-20T21:05:31Z`
+- **Dependencies:** `C-0011`
+- **Source:** `A-20260820-003`, `F-20260820-009`, `R-0011`, `R-0012`
+- **Verification notes:** The upper boundary uses only `psi(x)=x+o(x)` and `s0>1`; the lower boundary is `A n`.
+
+### C-0014 — Smooth-density Airy saddle equals the pole rate
+
+- **Statement:** For `D_n(t)=exp[-(s0-1)t/A]L_(n-1)^(1)(t)`, `A=2s0-1`, the uniform Airy exponential envelope has its unique maximum at `u_*=A^2/(A^2-1)` in `u=t/(4n)`, with exponential rate exactly `[s0/(s0-1)]^n=|q|^n`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T21:05:31Z`
+- **Last verified:** `2026-08-20T21:05:31Z`
+- **Dependencies:** `C-0009`
+- **Source:** `A-20260820-003`, `F-20260820-010`, `R-0011`
+- **Verification notes:** Derived from DLMF's uniform Airy exponent; numerically cross-checked in `X-20260820-002` but not dependent on that computation.
+
+### C-0015 — Generalized-center signal/prime-scale tradeoff
+
+- **Statement:** The Airy saddle prime scale is `x_*=exp[4nA/(A^2-1)]`. For fixed off-critical `rho=beta+i gamma`, the Cayley amplification obeys `log R_rho=(2beta-1)/s0+O(s0^-2)` while `log x_*=2n/s0+O(ns0^-2)`, so `log(R_rho^n)/log x_* -> (2beta-1)/2` as `s0->infinity`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T21:05:31Z`
+- **Last verified:** `2026-08-20T21:05:31Z`
+- **Dependencies:** `C-0002`, `C-0014`
+- **Source:** `A-20260820-003`, `F-20260820-011`
+- **Verification notes:** Direct algebra and large-`s0` expansion.
+
+### C-0016 — Pointwise-error absolute-bound barrier
+
+- **Statement:** Applying the `C-0013` integral with an absolute pointwise bound `|psi(x)-x|=O(x^theta)` for any fixed `theta>1/2` leaves a positive exponential rate in the uniform Laguerre/Airy regime; such a bound alone cannot yield `limsup |S_n|^(1/n)<=1` by absolute-value estimation.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T21:05:31Z`
+- **Last verified:** `2026-08-20T21:05:31Z`
+- **Dependencies:** `C-0004`, `C-0013`, `C-0014`
+- **Source:** `A-20260820-003`, `F-20260820-012`
+- **Verification notes:** The remaining positive exponential factor is proportional to `(theta-1/2)/A`; the limiting square-root exponent is RH-strength pointwise information.
 
 ## Entry format
 
