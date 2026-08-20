@@ -54,6 +54,7 @@ Start here depending on what you need:
 ├── README.md
 ├── .gitignore
 ├── pyproject.toml
+├── requirements.txt
 ├── requirements.lock
 ├── attempts/
 │   └── README.md
