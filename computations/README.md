@@ -14,7 +14,7 @@ This directory contains timestamped numerical and symbolic experiments. Every re
 
 ## Code
 
-Authoritative research scripts are under [`../../scripts/`](../../scripts/). They intentionally use only the Python standard library.
+Authoritative research scripts are under [`../scripts/`](../scripts/). They intentionally use only the Python standard library.
 
 When a script is modified after a recorded experiment, the computation record retains the command, relevant environment, and script hash/version information needed to distinguish the historical run.
 

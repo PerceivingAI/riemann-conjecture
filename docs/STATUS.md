@@ -10,11 +10,11 @@ This file is the maintained snapshot of the current research frontier. Historica
 
 Three formal research attempts are recorded:
 
-- [`A-20260820-001`](attempts/2026-08-20T203700Z-li-laguerre-prime-trace-route.md) — generalized Li/Laguerre route; `BLOCKED`, with later corrections preserved.
-- [`A-20260820-002`](attempts/2026-08-20T204900Z-pole-subtracted-prime-laguerre-route.md) — exact zeta-pole subtraction and discrepancy criterion; `COMPLETE` intermediate target.
-- [`A-20260820-003`](attempts/2026-08-20T210531Z-airy-saddle-discrepancy-kernel-route.md) — uniform Airy-saddle analysis of the pole-subtracted discrepancy kernel; `PROMISING`.
+- [`A-20260820-001`](../attempts/2026-08-20T203700Z-li-laguerre-prime-trace-route.md) — generalized Li/Laguerre route; `BLOCKED`, with later corrections preserved.
+- [`A-20260820-002`](../attempts/2026-08-20T204900Z-pole-subtracted-prime-laguerre-route.md) — exact zeta-pole subtraction and discrepancy criterion; `COMPLETE` intermediate target.
+- [`A-20260820-003`](../attempts/2026-08-20T210531Z-airy-saddle-discrepancy-kernel-route.md) — uniform Airy-saddle analysis of the pole-subtracted discrepancy kernel; `PROMISING`.
 
-A dependency-free Python research toolkit now lives in [`../scripts/`](../scripts/) and has four retained computation records under [`computations/`](computations/).
+A dependency-free Python research toolkit now lives in [`../scripts/`](../scripts/) and has four retained computation records under [`../computations/`](../computations/).
 
 No proof of RH has been obtained.
 

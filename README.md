@@ -14,7 +14,7 @@ The governing rules are:
 4. **Record dependencies.** A result is only as strong as the claims it depends on. Important claims must be registered in `docs/CLAIMS.md`.
 5. **Record failure usefully.** A failed proof attempt is valuable if the exact obstruction, circular dependency, invalid inference, or missing theorem is documented.
 6. **Do not call something a proof until the dependency chain is closed.** A reformulation equivalent to RH is not progress toward a proof unless some part of the new formulation is established independently of RH.
-7. **Verify external facts.** Literature claims, known theorems, formulas, and equivalences must be tied to a source in `docs/references/BIBLIOGRAPHY.md` or directly cited in the research record.
+7. **Verify external facts.** Literature claims, known theorems, formulas, and equivalences must be tied to a source in `references/BIBLIOGRAPHY.md` or directly cited in the research record.
 8. **Keep the current state separate from history.** `docs/STATUS.md` is the maintained snapshot; timestamped files and `docs/LOG.md` preserve the history.
 
 The full documentation protocol is in [`docs/PROTOCOL.md`](docs/PROTOCOL.md).
@@ -28,13 +28,13 @@ Start here depending on what you need:
 | Current research state, active leads, blockers | [`docs/STATUS.md`](docs/STATUS.md) |
 | Chronological record of all research activity | [`docs/LOG.md`](docs/LOG.md) |
 | Registry of important mathematical claims and dependencies | [`docs/CLAIMS.md`](docs/CLAIMS.md) |
-| Proof/research attempts | [`docs/attempts/`](docs/attempts/) |
-| Atomic findings, lemmas, negative results, observations | [`docs/findings/`](docs/findings/) |
-| Numerical/symbolic experiments | [`docs/computations/`](docs/computations/) |
+| Proof/research attempts | [`attempts/`](attempts/) |
+| Atomic findings, lemmas, negative results, observations | [`findings/`](findings/) |
+| Numerical/symbolic experiments | [`computations/`](computations/) |
 | Research scripts used by computations | [`scripts/`](scripts/) |
-| Sources and literature | [`docs/references/BIBLIOGRAPHY.md`](docs/references/BIBLIOGRAPHY.md) |
+| Sources and literature | [`references/BIBLIOGRAPHY.md`](references/BIBLIOGRAPHY.md) |
 | Naming, timestamps, status rules, update procedure | [`docs/PROTOCOL.md`](docs/PROTOCOL.md) |
-| Templates for new records | [`docs/templates/`](docs/templates/) |
+| Templates for new records | [`templates/`](templates/) |
 
 ### Recommended reading order for a new research session
 
@@ -52,6 +52,21 @@ Start here depending on what you need:
 ```text
 .
 ├── README.md
+├── .gitignore
+├── attempts/
+│   └── README.md
+├── computations/
+│   └── README.md
+├── docs/
+│   ├── INDEX.md
+│   ├── PROTOCOL.md
+│   ├── STATUS.md
+│   ├── LOG.md
+│   └── CLAIMS.md
+├── findings/
+│   └── README.md
+├── references/
+│   └── BIBLIOGRAPHY.md
 ├── scripts/
 │   ├── README.md
 │   ├── rh_tools.py
@@ -59,24 +74,10 @@ Start here depending on what you need:
 │   ├── prime_trace.py
 │   ├── kernel_scan.py
 │   └── prime_range_decomposition.py
-└── docs/
-    ├── INDEX.md
-    ├── PROTOCOL.md
-    ├── STATUS.md
-    ├── LOG.md
-    ├── CLAIMS.md
-    ├── attempts/
-    │   └── README.md
-    ├── findings/
-    │   └── README.md
-    ├── computations/
-    │   └── README.md
-    ├── references/
-    │   └── BIBLIOGRAPHY.md
-    └── templates/
-        ├── ATTEMPT.md
-        ├── FINDING.md
-        └── COMPUTATION.md
+└── templates/
+    ├── ATTEMPT.md
+    ├── FINDING.md
+    └── COMPUTATION.md
 ```
 
 ## Artifact naming

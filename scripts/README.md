@@ -77,4 +77,4 @@ These scripts can:
 - identify unstable cutoff regimes;
 - guide which analytic lemma is worth attempting.
 
-They cannot prove RH by numerical verification. Every retained run belongs in `docs/computations/` with exact parameters and limitations.
+They cannot prove RH by numerical verification. Every retained run belongs in `computations/` with exact parameters and limitations.
