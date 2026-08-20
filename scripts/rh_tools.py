@@ -8,7 +8,7 @@ kernel scans where the result is explicitly numerical evidence only.
 from __future__ import annotations
 
 from decimal import Decimal, localcontext
-from math import exp, isfinite, log
+from math import exp, isfinite, log, sqrt
 from typing import Callable, Iterable
 
 
@@ -185,3 +185,65 @@ def t_from_m(m: int, s0: float) -> float:
 def turning_u(n: int, t: float) -> float:
     """Return u=t/(4n), the DLMF turning-scale variable for L_{n-1}^{(1)}."""
     return t / (4.0 * n)
+
+
+def get_zeta_zeros(count: int, dps: int = 25) -> list[float]:
+    """Return the first `count` imaginary ordinates gamma_k of non-trivial zeta zeros.
+
+    Zeros are indexed from k=1: rho_k = 1/2 + i * gamma_k.
+    Uses `mpmath.zetazero` for high-precision root finding.
+    """
+    if count < 1:
+        return []
+    try:
+        import mpmath
+        old_dps = mpmath.mp.dps
+        mpmath.mp.dps = dps
+        zeros = [float(mpmath.im(mpmath.zetazero(k))) for k in range(1, count + 1)]
+        mpmath.mp.dps = old_dps
+        return zeros
+    except ImportError:
+        # Fallback table of first 10 certified zero ordinates (Odlyzko / LMFDB)
+        fallback = [
+            14.134725141734693790,
+            21.022039638771554993,
+            25.010857580145688763,
+            30.424876125859513210,
+            32.935061587739189691,
+            37.586178158825677257,
+            40.918719012147495187,
+            43.327073280914999519,
+            48.005150881167159728,
+            49.773832477672302182,
+        ]
+        if count <= len(fallback):
+            return fallback[:count]
+        raise RuntimeError(
+            f"mpmath is required to compute {count} zeta zeros beyond fallback table"
+        )
+
+
+def stationary_t_from_gamma(gamma: float, n: int, s0: float) -> float:
+    """Return stationary phase location t_*(gamma, n) = n * (2s0-1)^2 / gamma^2.
+
+    Matches the frequency d/dt[2 sqrt(nt)] of L_{n-1}^(1)(t) to the zero oscillation gamma * t / A.
+    """
+    if gamma <= 0.0 or n < 1 or s0 <= 1.0:
+        raise ValueError("require gamma > 0, n >= 1, s0 > 1")
+    A = 2.0 * s0 - 1.0
+    return (float(n)) * (A * A) / (gamma * gamma)
+
+def stationary_u_from_gamma(gamma: float, s0: float) -> float:
+    """Return uniform coordinate u_*(gamma) = t_* / (4n) = (2s0-1)^2 / (4 * gamma^2)."""
+    if gamma <= 0.0 or s0 <= 1.0:
+        raise ValueError("require gamma > 0, s0 > 1")
+    A = 2.0 * s0 - 1.0
+    return (A * A) / (4.0 * gamma * gamma)
+
+
+def gamma_from_stationary_u(u: float, s0: float) -> float:
+    """Inverse mapping: return zero height gamma that has stationary point at u."""
+    if u <= 0.0 or s0 <= 1.0:
+        raise ValueError("require u > 0, s0 > 1")
+    A = 2.0 * s0 - 1.0
+    return A / (2.0 * sqrt(u))

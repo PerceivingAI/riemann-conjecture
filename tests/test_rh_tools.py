@@ -19,9 +19,11 @@ from scripts.rh_tools import (
     density_kernel,
     t_from_m,
     turning_u,
+    get_zeta_zeros,
+    stationary_t_from_gamma,
+    stationary_u_from_gamma,
+    gamma_from_stationary_u,
 )
-
-
 class TestPrimesAndVonMangoldt:
     """Tests for sieve and prime power generator invariants."""
 
@@ -122,3 +124,50 @@ class TestCompositeSimpson:
         """int_0^1 e^x dx = e - 1."""
         result = composite_simpson(math.exp, 0.0, 1.0, steps=100)
         assert abs(result - (math.e - 1.0)) < 1e-8
+
+
+class TestZetaZerosAndStationaryPhase:
+    """Verify zero ordinate computation and stationary-phase mappings."""
+
+    def test_first_zeta_zeros(self) -> None:
+        """Check first three non-trivial zero ordinates against certified values."""
+        zeros = get_zeta_zeros(5)
+        assert len(zeros) == 5
+
+        # Known certified ordinates (Odlyzko / Riemann-Siegel)
+        assert abs(zeros[0] - 14.1347251417) < 1e-8
+        assert abs(zeros[1] - 21.0220396388) < 1e-8
+        assert abs(zeros[2] - 25.0108575801) < 1e-8
+        assert abs(zeros[3] - 30.4248761258) < 1e-8
+        assert abs(zeros[4] - 32.9350615877) < 1e-8
+
+    def test_stationary_phase_scaling(self) -> None:
+        """Verify t_* = n * A^2 / gamma^2 and u_* = A^2 / (4 * gamma^2)."""
+        s0 = 3.0
+        n = 16
+        gamma = 25.0
+        A = 5.0
+
+        t_star = stationary_t_from_gamma(gamma, n, s0)
+        expected_t = 16.0 * (25.0) / (625.0)  # 16 * 25 / 625 = 0.64
+        assert abs(t_star - expected_t) < 1e-12
+
+        u_star = stationary_u_from_gamma(gamma, s0)
+        assert abs(u_star - (t_star / 64.0)) < 1e-12
+        assert abs(u_star - (25.0 / (4.0 * 625.0))) < 1e-12
+
+    def test_stationary_inversion_property(self) -> None:
+        """Verify gamma_from_stationary_u is the exact left and right inverse."""
+        s0 = 2.5
+        for gamma in [14.1347, 21.0220, 50.0, 100.0, 1000.0]:
+            u = stationary_u_from_gamma(gamma, s0)
+            recovered = gamma_from_stationary_u(u, s0)
+            assert abs(gamma - recovered) < 1e-11 * gamma
+
+    def test_asymptotic_stationary_decay(self) -> None:
+        """As gamma increases, stationary location u_* must decay as 1 / gamma^2."""
+        s0 = 3.0
+        u1 = stationary_u_from_gamma(10.0, s0)
+        u2 = stationary_u_from_gamma(100.0, s0)
+        # u2 / u1 should be 10^2 / 100^2 = 1 / 100 = 0.01
+        assert abs((u2 / u1) - 0.01) < 1e-12

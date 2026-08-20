@@ -207,6 +207,15 @@ Bibliography entries should record:
 - first verified/accessed timestamp;
 - exact reason the source matters here.
 
+### 7.1 External mathematical dataset provenance
+
+When external numerical or certified datasets are used (such as verified zeta-zero tables, prime tables, or Dirichlet coefficients):
+
+1. **Exploratory evaluation:** For standard ranges (e.g., first $10^2$–$10^3$ zeros), dynamic on-the-fly calculation via verified libraries (`mpmath.zetazero()`) is preferred over committing static data files.
+2. **Dataset registration:** Any imported static dataset must be registered in `references/BIBLIOGRAPHY.md` with its canonical source, publication/retrieval timestamp, and SHA-256 cryptographic checksum.
+3. **Repository size threshold:**
+   - Small tables ($\le 2\text{ MB}$) may reside under `references/data/`.
+   - Large tables ($> 2\text{ MB}$) must remain gitignored and be generated or downloaded on demand via a deterministic script under `scripts/` with SHA-256 verification.
 ## 8. Circularity test
 
 Every serious attempt must explicitly answer:
