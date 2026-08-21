@@ -321,3 +321,12 @@ class TestExportCertificate:
         outcome = json.loads(proc.stdout)
         assert outcome["passed"] is True
         assert outcome["ldl_report"]["is_positive_definite"] is True
+
+    def test_formal_schema_file_validation(self) -> None:
+        schema_path = Path("docs/contracts/rh-weil-certificate-v1.json")
+        assert schema_path.exists()
+        schema_data = json.loads(schema_path.read_text(encoding="utf-8"))
+        assert schema_data["title"] == "RH Weil Matrix Positivity Certificate Format v1"
+        assert "format" in schema_data["required"]
+        assert "matrix" in schema_data["required"]
+        assert schema_data["properties"]["format"]["const"] == "rh-weil-certificate-v1"

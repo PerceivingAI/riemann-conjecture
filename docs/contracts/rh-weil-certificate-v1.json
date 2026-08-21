@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/carlon/riemann-conjecture/docs/contracts/rh-weil-certificate-v1.json",
+  "title": "RH Weil Matrix Positivity Certificate Format v1",
+  "description": "Authoritative contract for exact rational interval mathematical proof certificates.",
+  "type": "object",
+  "required": [
+    "format",
+    "claim",
+    "support_T",
+    "basis",
+    "parity_sector",
+    "dimension",
+    "constants",
+    "matrix",
+    "tail_bound",
+    "generator_metadata"
+  ],
+  "properties": {
+    "format": {
+      "type": "string",
+      "const": "rh-weil-certificate-v1",
+      "description": "Identifier of the certificate specification version."
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable description of the mathematical claim certified by this artifact."
+    },
+    "support_T": {
+      "type": "object",
+      "required": ["num", "den", "frac"],
+      "properties": {
+        "num": {
+          "type": "integer",
+          "description": "Numerator of the exact support half-width T."
+        },
+        "den": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "description": "Denominator of the exact support half-width T."
+        },
+        "frac": {
+          "type": "string",
+          "pattern": "^[0-9]+/[0-9]+$",
+          "description": "Exact rational representation string 'num/den'."
+        }
+      },
+      "additionalProperties": false
+    },
+    "basis": {
+      "type": "object",
+      "required": ["type", "dimension", "domain"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["legendre", "chebyshev", "monomial", "fourier", "laguerre"],
+          "description": "Type of orthonormal or polynomial basis functions."
+        },
+        "dimension": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of basis functions in the finite block."
+        },
+        "domain": {
+          "type": "string",
+          "description": "Domain of definition, typically '[-T, T]' or '[-1, 1]'."
+        }
+      },
+      "additionalProperties": false
+    },
+    "parity_sector": {
+      "type": "string",
+      "enum": ["even", "odd", "both"],
+      "description": "Parity subspace sector under verification."
+    },
+    "dimension": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Dimension N of the N x N finite-block matrix."
+    },
+    "constants": {
+      "type": "object",
+      "description": "Bundle of transcendental constants with verified outward rational interval bounds."
+    },
+    "matrix": {
+      "type": "object",
+      "required": ["dimension", "is_symmetric", "entries"],
+      "properties": {
+        "dimension": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Dimension of the square matrix."
+        },
+        "is_symmetric": {
+          "type": "boolean",
+          "description": "Flag indicating that the matrix is mathematically self-adjoint/symmetric."
+        },
+        "entries": {
+          "type": "array",
+          "description": "Row-major or coordinate array of all N x N rational interval entries.",
+          "items": {
+            "type": "object",
+            "required": ["row", "col", "lo_num", "lo_den", "hi_num", "hi_den"],
+            "properties": {
+              "row": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "0-indexed row coordinate."
+              },
+              "col": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "0-indexed column coordinate."
+              },
+              "lo_num": {
+                "type": "string",
+                "pattern": "^-?[0-9]+$",
+                "description": "Numerator of lower rational interval endpoint."
+              },
+              "lo_den": {
+                "type": "string",
+                "pattern": "^[0-9]+$",
+                "description": "Denominator of lower rational interval endpoint (must be > 0)."
+              },
+              "hi_num": {
+                "type": "string",
+                "pattern": "^-?[0-9]+$",
+                "description": "Numerator of upper rational interval endpoint."
+              },
+              "hi_den": {
+                "type": "string",
+                "pattern": "^[0-9]+$",
+                "description": "Denominator of upper rational interval endpoint (must be > 0)."
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "tail_bound": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Type of infinite-dimensional remainder or tail bound applied."
+        }
+      },
+      "additionalProperties": true
+    },
+    "internal_ldl_verification": {
+      "type": "object",
+      "description": "Optional generator-side LDL check metadata (informational only; verifier recomputes independently)."
+    },
+    "generator_metadata": {
+      "type": "object",
+      "required": ["generator", "version"],
+      "properties": {
+        "generator": {
+          "type": "string",
+          "description": "Module or script identifier that generated the certificate."
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of the generator tool."
+        },
+        "flint_version": {
+          "type": "string",
+          "description": "Underlying FLINT version used for enclosure arithmetic."
+        },
+        "prec_bits": {
+          "type": "integer",
+          "description": "Bit precision used during rigorous integration and interval evaluation."
+        },
+        "timestamp_utc": {
+          "type": "string",
+          "description": "ISO 8601 UTC timestamp of artifact creation."
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
