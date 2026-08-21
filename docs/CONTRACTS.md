@@ -1,7 +1,7 @@
 # Repository Architecture & Proof Contracts
 
 - **Created:** `2026-08-21T06:00:00Z`
-- **Last updated:** `2026-08-21T06:00:00Z`
+- **Last updated:** `2026-08-21T13:52:37Z`
 - **Status:** Authoritative
 
 This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
@@ -53,27 +53,34 @@ All mathematical certificates produced by the repository must conform to the JSO
 | :--- | :--- | :--- |
 | `format` | `string` | Must be strictly `"rh-weil-certificate-v1"`. |
 | `claim` | `string` | Non-empty certificate identifier. It does not select verifier behavior. |
-| `claim_profile` | `string` | Closed verifier profile: `synthetic_matrix` or `digamma_finite_block`. |
+| `claim_profile` | `string` | Closed verifier profile: `synthetic_matrix`, `digamma_finite_block`, or `exact_prime_legendre_schur`. |
 | `support_T` | `object` | Canonical exact rational support parameter $T$ (`num`, `den`, `frac`). |
 | `basis` | `object` | Closed basis parameterization (`type`, `dimension`, `domain`). |
 | `parity_sector`| `string` | Parity sector under verification: `"even"`, `"odd"`, or `"both"`. |
 | `dimension` | `integer` | Finite block matrix dimension $N \ge 1$. |
 | `constants` | `object` | Closed set of rational intervals required by the selected claim profile. |
 | `matrix` | `object` | Exactly $N^2$ rational interval entries. |
-| `tail_bound` | `object` | Closed proof rule from which Rust derives a scalar identity lower bound. |
+| `tail_bound` | `object` | Closed profile-specific proof rule. Depending on the claim profile, Rust derives either a scalar identity remainder, a nonnegative remainder, or the Legendre complement/Schur factor. |
+| `schur_proof` | `object` | Required only by `exact_prime_legendre_schur`; contains rigorous component tail-Gram matrices and exact rational parity congruence witnesses. |
 | `generator_metadata` | `object` | Generator, script, versions, Git commit and dirty state, precision, and UTC timestamp. |
 
 ### 2.2 PASS semantics
 
-Let $\mathcal A$ be the set of exact symmetric rational matrices represented by the serialized entry intervals. The verifier first validates every structural and cross-field invariant. It then evaluates the selected tail rule to obtain an exact rational $\lambda_{\rm tail}$ and forms
-$$\mathcal A_{\rm adjusted}=\{A+\lambda_{\rm tail}I:A\in\mathcal A\}.$$
-PASS means exact interval LDL proves every matrix in $\mathcal A_{\rm adjusted}$ positive definite.
+The verifier first validates every structural and cross-field invariant, then executes only the proof rule associated with the closed `claim_profile`. There is no generic free-form theorem assertion.
 
-For `digamma_finite_block`, the nonnegative omitted-bracket theorem extends this conclusion from the serialized partial sum to the full digamma series on the selected finite basis. It does not prove positivity on the infinite-dimensional basis complement. It therefore cannot certify `A-004`.
+For `synthetic_matrix`, let $\mathcal A$ be the exact symmetric matrix family represented by the serialized intervals. `exact_scalar_identity` supplies an exact rational $\lambda$, Rust forms
+$$\mathcal A_{\rm adjusted}=\{A+\lambda I:A\in\mathcal A\},$$
+and PASS means exact interval $LDL^T$ proves every adjusted matrix positive definite. This profile exists only to test verifier arithmetic.
 
-For `synthetic_matrix`, `exact_scalar_identity` defines the remainder exactly as $\lambda I$. This profile exists only to test verifier arithmetic. It is not an analytic proof claim.
+For `digamma_finite_block`, the serialized finite partial-sum matrix is checked by exact interval $LDL^T$. The `nonnegative_digamma_remainder` theorem gives zero as a rigorous lower bound for the omitted brackets, extending the result to the full digamma series on the selected finite basis. It does not control an infinite-dimensional basis complement and is not a full localized-Weil profile.
 
-Rust must reject the certificate before LDL if the claim profile, support, basis, parity, constants, matrix, tail witness, or provenance is invalid or inconsistent. A finite-block diagnostic must not be reported as a full-operator result.
+For `exact_prime_legendre_schur`, v1 is deliberately locked to `T=7/20`, Legendre dimension `N=32`, both parity sectors, residual order `32`, and Schur factor `3`. Rust does **not** trust a precomputed Schur matrix. From the certified intervals it derives
+$$\mu_{32}=H_{32}-c_T^{\rm hi}-c_2^{\rm hi}-\rho_R^{\rm hi},$$
+requires $\mu_{32}>0$, and forms
+$$S_{32}=A_{32}-\frac{3}{\mu_{32}}(G_V+G_2+G_R).$$
+The certificate supplies exact rational invertible lower-triangular congruence witnesses for the even and odd `16 x 16` blocks. Rust recomputes each interval congruence $CSC^T$ and requires every row to have a strictly positive Gershgorin lower margin. PASS therefore certifies positivity of the full localized operator through the separately proved complement/Schur reduction, not merely positivity of a finite Ritz block.
+
+Rust must reject the certificate before theorem verification if the claim profile, support, basis, parity, constants, matrices, proof witness, or provenance is invalid or inconsistent. A finite-block diagnostic must not be reported as a full-operator result.
 
 ### 2.3 Rational interval entry semantics
 Every matrix entry is serialized as an exact rational interval $[lo, hi]$ using integer string numerators and denominators:
@@ -113,9 +120,9 @@ The certificate normalization comes from these equations:
 
 Any certificate profile that names the Suzuki residual must use this normalization. A later paper version requires a new source hash and an explicit normalization review before use.
 
-### 2.5 Initial tail proof rules
+### 2.5 Closed proof rules
 
-Version 1 starts with two closed tail rules.
+Version 1 contains three closed proof rules.
 
 `exact_scalar_identity` defines the certified operator remainder to be exactly $\lambda I$, where $\lambda$ is an exact rational in the certificate. This rule is restricted to synthetic verifier claims. Rust adds $\lambda$ to every diagonal entry before LDL.
 
@@ -127,11 +134,15 @@ where $K_k$ has kernel $e^{-2a_k|t-s|}$. Zero extension to the real line and the
 $$\int_{\mathbb R}e^{-2a_k|u|}\,du=\frac1{a_k}$$
 give $\langle f,K_kf\rangle\le a_k^{-1}\lVert f\rVert_2^2$. Hence every omitted $B_k$ is nonnegative and the verifier-derived tail lower bound is exactly zero. The witness contains `k_max` and `first_omitted_k`; Rust must check `first_omitted_k = k_max + 1`.
 
-No other tail type is valid. In particular, v1 does not accept a free-form description or an asserted lower bound for an unspecified operator.
+`legendre_component_gram_schur` applies only to `exact_prime_legendre_schur`. In v1 it is locked to `harmonic_index=32` and exact rational factor `3`. The required constants are only `c2`, `c_T`, and `rho_R`; the required proof matrices are `GV`, `G2`, and `GR`. Opposite-parity entries in `A`, `GV`, `G2`, and `GR` must be exactly zero. Rust derives the lower complement constant from the upper endpoints of those scalar intervals, reconstructs the factor-3 Schur matrix, extracts its even and odd blocks, and checks the supplied exact rational lower-triangular congruence witnesses for invertibility before applying exact interval Gershgorin positivity.
+
+The retained `C-0050` certificate uses this rule and is proof-bearing only because `C-0045`, `C-0047`, and `C-0048` provide the analytic complement and Schur semantics encoded by the profile.
+
+No other tail/proof type is valid. In particular, v1 does not accept a free-form description, an asserted lower bound for an unspecified operator, or a precomputed eigenvalue/positive-definite flag.
 
 ### 2.6 Locked adversarial cases
 
-The Python and Rust validators must reject the following cases before adjusted LDL unless the row explicitly names an LDL failure:
+The Python and Rust validators must reject the following cases before theorem verification unless the row explicitly names a theorem-verification failure:
 
 | Case | Required result |
 | :--- | :--- |
@@ -144,6 +155,11 @@ The Python and Rust validators must reject the following cases before adjusted L
 | Zero interval denominator or reversed interval | Semantic validation failure |
 | Unknown, missing, or inconsistent tail witness | Schema or semantic validation failure |
 | Ordinary floating-point proof data | Schema validation failure |
+| `exact_prime_legendre_schur` with factor other than exact `3` | Semantic validation failure |
+| `exact_prime_legendre_schur` with nonpositive derived `mu_32` | Semantic validation failure |
+| Singular/non-lower-triangular congruence witness | Semantic validation failure |
+| Nonzero opposite-parity proof entry | Semantic validation failure |
+| Contract-valid exact-prime perturbation that destroys a Gershgorin margin | Theorem failure, not contract failure |
 | Matrix `[1]` with `exact_scalar_identity` value `-2` | Adjusted LDL failure |
 
 ---

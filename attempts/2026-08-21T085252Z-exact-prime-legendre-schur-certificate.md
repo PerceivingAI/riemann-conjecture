@@ -2,8 +2,8 @@
 
 - **Attempt ID:** `A-20260821-004`
 - **Created:** `2026-08-21T08:52:52Z`
-- **Last updated:** `2026-08-21T08:56:20Z`
-- **Status:** `PROMISING`
+- **Last updated:** `2026-08-21T13:52:37Z`
+- **Status:** `COMPLETE`
 - **Success target:** Prove strict positivity of the full localized Weil quadratic form at `T=7/20` by retaining the exact `p=2` compressed translation, using Legendre harmonic-number coercivity on the infinite complement, and reducing the remaining problem to a finite rigorous Schur certificate.
 
 ## Question / goal
@@ -417,4 +417,63 @@ Build rigorous finite `N=32` matrices for `A_N`, `G_V`, and `G_2`; derive a cert
 
 ## Timestamped addenda / corrections
 
-None yet.
+### 2026-08-21T13:52:37Z — N=32 exact-prime Schur certificate closes the attempt
+
+The unresolved step above has now been completed without changing the earlier derivation or the recorded failure of the global `0.69V` target.
+
+A rigorous `N=32` implementation was added in `scripts/cert/legendre_schur.py` and `scripts/cert/exact_prime_schur_certificate.py`.
+
+The finite component Grams are no longer truncated reconnaissance objects:
+
+```text
+G_V=P_32 V Q_32 V P_32,
+G_2=P_32 P_2 Q_32 P_2 P_32,
+G_R=P_32 R_T Q_32 R_T P_32
+```
+
+are enclosed rigorously by exact polynomial identities plus Arb transcendental/remainder bounds. In particular:
+
+- `G_V` is reduced to closed logarithmic and logarithm-squared moments;
+- because `1<tau<2`, the squared first-prime compressed shift reduces to exact edge-interval polynomial overlaps;
+- the Suzuki residual uses an order-32 exact-polynomial truncation with a rigorous operator remainder of order `10^-22`.
+
+The retained certificate gives
+
+```text
+mu_32 > 0.8709101235096008.
+```
+
+The closed `rh-weil-certificate-v1` profile
+
+```text
+exact_prime_legendre_schur
+```
+
+requires the verifier to derive the complement bound and factor-3 Schur correction from the serialized exact intervals. Rust then reconstructs the even and odd `16 x 16` Schur blocks and applies exact rational congruence witnesses followed by exact interval Gershgorin verification.
+
+A clean-state certificate was regenerated at Git commit
+
+```text
+d620aa649a2d0291e407d4c0c8bc7360b67efc38
+```
+
+with `git_dirty=false`. The independent Rust verifier returns `passed=true` with exact positive Gershgorin margins approximately
+
+```text
+even  > 0.01153505500311919
+odd   > 0.04939032559587724.
+```
+
+Adversarial replays distinguish malformed-contract failure (exit `2`) from theorem failure after a contract-valid negative perturbation (exit `1`). The retained certificate returns exit `0`.
+
+The normalization was re-audited against Suzuki's pinned v2 equation (4.5): the scalar `c_T=log(2*pi*T)+EulerGamma`, first-prime sign/coefficient, and residual `-T r''(T(x-y))` scaling match the authoritative localized form.
+
+The new Lean file `formal/Cert/Gershgorin.lean` proves the finite-dimensional soundness of strict positive row Gershgorin dominance and invertible congruence transfer. The full formal build completed successfully with `8711` jobs.
+
+Registered closure artifacts:
+
+- `F-20260821-021` — strict first-prime localized Weil positivity at `T=7/20`;
+- `C-0050` — verified finite-support positivity theorem;
+- `X-20260821-005` — clean exact certificate and independent replay.
+
+**Final outcome:** the success target of `A-20260821-004` is achieved. Suzuki's localized Weil quadratic form is strictly positive at `T=7/20`. This is a finite-support theorem only; RH remains unresolved. The next research frontier is continuation in `T` through the one-prime window toward `(1/2)log 3`.

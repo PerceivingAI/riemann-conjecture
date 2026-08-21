@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T08:56:20Z`
+- **Last updated:** `2026-08-21T13:52:37Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -554,6 +554,17 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0047`, `C-0048`
 - **Source:** `A-20260821-004`, `F-20260821-020`, `X-20260821-004`
 - **Verification notes:** NumPy/SciPy reconnaissance only. The tail Grams are finitely truncated and therefore do not constitute rigorous infinite-tail upper bounds. `N=32` is selected only as the first certificate target.
+
+### C-0050 — Strict localized Weil positivity at T=7/20
+
+- **Statement:** For Suzuki's scaled localized Weil quadratic form at `T=7/20`, including the exact `p=2` compressed-translation contribution and the mandatory finite-support residual kernel, one has `Q_T(w)>0` for every nonzero admissible localized test function `w`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T13:52:37Z`
+- **Last verified:** `2026-08-21T13:52:37Z`
+- **Dependencies:** `C-0039`, `C-0040`, `C-0044`, `C-0045`, `C-0047`, `C-0048`
+- **Source:** `A-20260821-004`, `F-20260821-021`, `X-20260821-005`, `R-0028`, `R-0032`, `R-0033`
+- **Verification notes:** The clean-state `N=32` certificate was generated at commit `d620aa649a2d0291e407d4c0c8bc7360b67efc38` with `git_dirty=false`. Arb/exact-polynomial assembly encloses `A_32`, `G_V`, `G_2`, and `G_R`; the exact complement bound satisfies `mu_32>0.8709101235096008`. The independent zero-float Rust verifier reconstructs the factor-3 Schur matrix and proves the two parity blocks positive by exact rational congruence and interval Gershgorin, with margins approximately `0.01153505500311919` and `0.04939032559587724`. Adversarial tests distinguish contract errors from theorem failure. Lean formalizes the Gershgorin/congruence soundness used by the judge and `lake build` passes. This is finite-support positivity at one support value and does not imply RH.
 
 ## Entry format
 

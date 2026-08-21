@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/carlon/riemann-conjecture/docs/contracts/rh-weil-certificate-v1.json",
   "title": "RH Weil exact interval certificate format v1",
-  "description": "Closed syntax contract for exact rational interval certificates. PASS means exact interval LDL proves positivity after the verifier derives and absorbs the selected tail rule.",
+  "description": "Closed syntax contract for exact rational interval certificates. PASS semantics are profile-specific: exact interval LDL for scalar/digamma profiles, or verifier-derived Legendre complement plus exact Schur congruence/Gershgorin positivity for the locked exact-prime profile.",
   "type": "object",
   "required": [
     "format",

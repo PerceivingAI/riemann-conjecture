@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-21T08:56:20Z`
+- **Last updated:** `2026-08-21T13:52:37Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -159,6 +159,20 @@ python -m scripts.weil_legendre_schur_scout --max-mode 120 --quadrature-order 70
 ```
 
 This script is reconnaissance only. Its finite tail truncation is not an infinite-dimensional bound and cannot certify positivity.
+
+### `cert/exact_prime_schur_certificate.py`
+
+Closes `A-20260821-004`. This proof-path module assembles the rigorous `N=32` exact-prime Legendre-Schur certificate at `T=7/20`, outward-rounds Arb matrices to exact dyadic rational intervals, derives exact rational parity congruence witnesses from rational midpoint `LDL^T`, and exports the closed `exact_prime_legendre_schur` certificate profile.
+
+```text
+python -m scripts.cert.exact_prime_schur_certificate --claim C-0050 --prec 160 --matrix-bits 64 --witness-bits 32 --output-json computations/.../data/certificate.json
+```
+
+The generator does not decide the theorem. `crates/rh_cert` independently reconstructs the complement lower bound and factor-3 Schur matrix and proves the parity blocks positive using exact rational interval congruence/Gershgorin checks. The retained clean run is `X-20260821-005`.
+
+### `cert/legendre_schur.py`
+
+Rigorous shared assembly for the exact-prime Legendre-Schur proof. It uses exact rational polynomial algebra for Legendre actions and overlap identities, Arb only for transcendental enclosures, closed logarithmic/log-squared moments for `G_V`, exact edge-overlap geometry for `G_2`, and the canonical Suzuki residual series plus rigorous remainder for `G_R`.
 
 ## Shared implementation
 

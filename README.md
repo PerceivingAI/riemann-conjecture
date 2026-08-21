@@ -34,7 +34,7 @@ Start here depending on what you need:
 | Research scripts used by computations | [`scripts/`](scripts/) |
 | Rigorous certificate contract and PASS semantics | [`docs/CONTRACTS.md`](docs/CONTRACTS.md) |
 | Exact Rust certificate verifier | [`crates/rh_cert/`](crates/rh_cert/) |
-| Lean formalization of interval/LDL/endpoint theorems | [`formal/`](formal/) |
+| Lean formalization of interval/LDL/endpoint/Gershgorin soundness | [`formal/`](formal/) |
 | Sources and literature | [`references/BIBLIOGRAPHY.md`](references/BIBLIOGRAPHY.md) |
 | Naming, timestamps, status rules, update procedure | [`docs/PROTOCOL.md`](docs/PROTOCOL.md) |
 | Templates for new records | [`templates/`](templates/) |
@@ -91,7 +91,8 @@ Start here depending on what you need:
 │   ├── Cert/
 │   │   ├── Interval.lean
 │   │   ├── EndpointAbsorption.lean
-│   │   └── LDL.lean
+│   │   ├── LDL.lean
+│   │   └── Gershgorin.lean
 │   ├── Cert.lean
 │   ├── lakefile.lean
 │   └── lean-toolchain
@@ -116,6 +117,8 @@ Start here depending on what you need:
 │   │   ├── quadrature.py
 │   │   ├── residual_kernel.py
 │   │   ├── matrices.py
+│   │   ├── legendre_schur.py
+│   │   ├── exact_prime_schur_certificate.py
 │   │   └── export_certificate.py
 │   ├── positivity_kernel_diagnostics.py
 │   ├── weil_support_geometry.py
@@ -131,6 +134,7 @@ Start here depending on what you need:
     ├── __init__.py
     ├── certificate_conformance.json
     ├── test_cert_pipeline.py
+    ├── test_exact_prime_schur_certificate.py
     ├── test_identities.py
     ├── test_properties.py
     └── test_rh_tools.py
@@ -180,12 +184,12 @@ Proof-oriented finite-dimensional calculations use a deliberately separated trus
 Python + python-flint/Arb
     -> exact rational interval certificate
     -> crates/rh_cert zero-float Rust verifier
-    -> Lean proof of interval/LDL/endpoint soundness
+    -> Lean proof of interval/LDL/endpoint/Gershgorin-congruence soundness
 ```
 
-The closed certificate syntax and exact PASS semantics are authoritative in [`docs/CONTRACTS.md`](docs/CONTRACTS.md) and [`docs/contracts/rh-weil-certificate-v1.json`](docs/contracts/rh-weil-certificate-v1.json). The current v1 verifier intentionally certifies only its named finite-dimensional claim profiles; it does not promote a finite block to full Weil positivity without a separately encoded and verified infinite-dimensional complement rule.
+The closed certificate syntax and exact PASS semantics are authoritative in [`docs/CONTRACTS.md`](docs/CONTRACTS.md) and [`docs/contracts/rh-weil-certificate-v1.json`](docs/contracts/rh-weil-certificate-v1.json). The v1 `exact_prime_legendre_schur` profile is deliberately locked to the proved `T=7/20`, `N=32` semantics: it derives the Legendre complement bound, reconstructs the factor-3 component-Gram Schur matrix, and verifies exact rational congruence/Gershgorin witnesses. It therefore certifies `C-0050` as a full localized finite-support theorem, while the other v1 profiles remain finite-block/testing profiles.
 
-The Lean project in `formal/` now deliberately uses **Mathlib**, pinned to `v4.33.0` in `formal/lakefile.lean` and resolved by `formal/lake-manifest.json`. This is a larger formal dependency than the original lightweight-Core-only idea, but it supports the current general finite-dimensional LDL theorem and analytic endpoint-absorption proof. `lake build` is the authoritative formal acceptance check.
+The Lean project in `formal/` now deliberately uses **Mathlib**, pinned to `v4.33.0` in `formal/lakefile.lean` and resolved by `formal/lake-manifest.json`. This is a larger formal dependency than the original lightweight-Core-only idea, but it supports the current general finite-dimensional LDL theorem, analytic endpoint-absorption proof, and exact-prime Gershgorin/invertible-congruence soundness theorem. `lake build` is the authoritative formal acceptance check.
 
 ## Native Calculation Engine (`crates/rh_engine`)
 

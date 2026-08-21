@@ -35919,11 +35919,11 @@
     "generator": "scripts.cert",
     "script": "scripts.cert.exact_prime_schur_certificate",
     "version": "0.1.0",
-    "git_commit": "3111accb59df57d7976540bef29d38c817b80825",
-    "git_dirty": true,
+    "git_commit": "d620aa649a2d0291e407d4c0c8bc7360b67efc38",
+    "git_dirty": false,
     "flint_version": "3.6.0",
     "python_flint_version": "0.9.0",
     "prec_bits": 160,
-    "timestamp_utc": "2026-08-21T12:35:10.667588Z"
+    "timestamp_utc": "2026-08-21T13:53:08.231353Z"
   }
 }

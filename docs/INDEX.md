@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T08:56:20Z`
+- **Last updated:** `2026-08-21T13:52:37Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -38,7 +38,7 @@ This is the compact index of the Riemann Conjecture research repository.
 
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit, Weil support thresholds, and first-prime compressed-translation mechanism; `COMPLETE`.
 - [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — first-prime support continuation; exact endpoint absorption, digamma kernel decomposition, residual-term correction, and external-certificate audit; `COMPLETE` intermediate.
-- [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; harmonic high-mode coercivity, rigorous failure of the global `0.69V` target, positive complement bound, and finite tail-Gram Schur reduction; `PROMISING`.
+- [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; global `0.69V` target refuted as too lossy, exact high-mode complement and tail-Gram reduction proved, and a clean `N=32` exact certificate establishes strict localized Weil positivity at `T=7/20`; `COMPLETE`.
 
 ## Landmark findings
 
@@ -92,6 +92,8 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`F-20260821-019`](../findings/2026-08-21T085252Z-component-tail-gram-schur-reduction.md) — component tail-Gram Schur reduction converts the remaining infinite cross problem to finite matrices.
 - [`F-20260821-020`](../findings/2026-08-21T085252Z-schur-dimension-scout.md) — floating scout suggests `N=32` as a practical first rigorous Schur target.
 
+- [`F-20260821-021`](../findings/2026-08-21T135237Z-first-prime-localized-weil-positivity.md) — clean exact-prime `N=32` Schur certificate proves strict localized Weil positivity at `T=7/20`.
+
 ## Computations
 
 - [`X-20260820-001`](../computations/2026-08-20T210531Z-exact-identity-verification/record.md) — exact finite identity checks.
@@ -110,6 +112,8 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`X-20260821-003`](../computations/2026-08-21T034825Z-first-prime-weil-continuation/record.md) — exact rational endpoint-absorption certificate and Arb enclosures for first-prime constants.
 - [`X-20260821-004`](../computations/2026-08-21T085252Z-exact-prime-legendre-schur/record.md) — Arb-certified `0.69V` obstruction and high-mode complement bound, plus separately labeled floating exact-prime Schur-dimension reconnaissance.
 
+- [`X-20260821-005`](../computations/2026-08-21T123446Z-exact-prime-schur-certificate/record.md) — clean exact-prime `N=32` rational interval certificate, independent Rust Schur/Gershgorin replay, and formal soundness build supporting `C-0050`.
+
 ## Templates
 
 - [`../templates/ATTEMPT.md`](../templates/ATTEMPT.md)
@@ -118,4 +122,4 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Current state
 
-RH remains unresolved. The exact endpoint theorem remains proved, but `A-20260821-004` shows its global `0.69V` use is too lossy. The active route now retains the exact `p=2` translation, uses harmonic-number Legendre coercivity for the infinite complement, and targets a rigorous `N=32` component tail-Gram Schur certificate; see [`STATUS.md`](STATUS.md).
+RH remains unresolved. `A-20260821-004` is complete: the exact-prime Legendre-Schur mechanism proves strict localized Weil positivity at `T=7/20` (`C-0050`) using a clean `N=32` certificate and independent Rust verification. The active frontier is support continuation in `T` through the one-prime window toward `(1/2)log 3`; see [`STATUS.md`](STATUS.md).

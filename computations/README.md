@@ -1,7 +1,7 @@
 # Computations
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T08:56:20Z`
+- **Last updated:** `2026-08-21T13:52:37Z`
 
 This directory contains timestamped numerical and symbolic experiments. Every retained computation must be reproducible and must distinguish numerical evidence from proof.
 
@@ -22,6 +22,8 @@ This directory contains timestamped numerical and symbolic experiments. Every re
 - [`X-20260821-002`](2026-08-21T022600Z-positivity-kernel-audit/record.md) — finite Li Gram/Schoenberg diagnostics, prime-atom sign checks, and exact Weil support/translation geometry.
 - [`X-20260821-003`](2026-08-21T034825Z-first-prime-weil-continuation/record.md) — exact rational endpoint absorption at `T=7/20` and certified Arb enclosures for `tau`, `log(2)/sqrt(2)`, and the Suzuki Weil constant.
 - [`X-20260821-004`](2026-08-21T085252Z-exact-prime-legendre-schur/record.md) — proof-path Arb certificate for the `0.69V` obstruction and exact-prime high-mode complement, plus a separate floating Schur-dimension scout.
+
+- [`X-20260821-005`](2026-08-21T123446Z-exact-prime-schur-certificate/record.md) — clean exact-prime `N=32` rational interval Schur certificate and independent Rust PASS proving strict localized Weil positivity at `T=7/20` (`C-0050`).
 
 ## Directory Bundle Standard
 

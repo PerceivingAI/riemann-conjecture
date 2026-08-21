@@ -1,10 +1,63 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T08:56:20Z`
+- **Last updated:** `2026-08-21T13:52:37Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-08-21T13:52:37Z — A-004 closes with strict localized Weil positivity at T=7/20
+
+**Type:** Research attempt completion / rigorous infinite-dimensional reduction / exact rational certificate / independent verifier / formal soundness
+
+Completed `A-20260821-004`.
+
+The exact-prime Legendre-Schur route now proves strict positivity of Suzuki's full scaled localized Weil quadratic form at
+
+```text
+T=7/20,
+```
+
+including the exact `p=2` compressed translation and the mandatory finite-support residual kernel.
+
+The proof retains the earlier exact Legendre complement theorem and component tail-Gram Schur reduction. At `N=32`, the rigorous generator encloses `A_32`, `G_V`, `G_2`, and `G_R` using exact rational polynomial identities plus python-flint/Arb enclosures. The certified complement constant satisfies
+
+```text
+mu_32 > 0.8709101235096008.
+```
+
+The closed `rh-weil-certificate-v1` profile `exact_prime_legendre_schur` requires Rust to reconstruct
+
+```text
+S_32=A_32-(3/mu_32)(G_V+G_2+G_R)
+```
+
+rather than trusting a precomputed Schur matrix or eigenvalue. The even and odd `16 x 16` blocks are transformed by exact rational lower-triangular congruence witnesses and verified with exact interval Gershgorin bounds.
+
+A final retained certificate was regenerated from clean commit
+
+```text
+d620aa649a2d0291e407d4c0c8bc7360b67efc38
+```
+
+with `git_dirty=false`. The independent Rust verifier returns `passed=true`, with exact positive margins approximately
+
+```text
+even > 0.01153505500311919
+odd  > 0.04939032559587724.
+```
+
+Adversarial integration checks distinguish malformed contract data (exit `2`) from a contract-valid perturbation that destroys positivity (exit `1`); the retained theorem certificate exits `0`.
+
+The Suzuki normalization was re-audited against pinned `R-0028`, including `c_T=log(2*pi*T)+EulerGamma`, the first-prime sign/coefficient, and the residual `-T r''(T(x-y))` scaling.
+
+The formal layer was extended with `formal/Cert/Gershgorin.lean`, proving strict positive row Gershgorin dominance implies positive definiteness and that invertible congruence transfers positivity back to the original matrix. The full Lean build completed successfully with `8711` jobs.
+
+Recorded `F-20260821-021`, `C-0050`, and computation `X-20260821-005`.
+
+**Outcome:** `A-20260821-004` is `COMPLETE`; the fixed support theorem at `T=7/20` is `VERIFIED`. RH remains unresolved. The next frontier is support continuation in `T` through the one-prime window toward `(1/2)log 3`, where the `p=3` translation enters.
+
+---
 
 ---
 
