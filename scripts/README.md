@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-21T02:26:00Z`
+- **Last updated:** `2026-08-21T08:56:20Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -139,6 +139,26 @@ Supports `A-20260821-003`. It uses python-flint/Arb to enclose the exact transce
 ```text
 python scripts/weil_exact_constants.py --prec 256 --output-json computations/.../data/exact-constants-arb.json
 ```
+
+### `weil_exact_prime_complement_certificate.py`
+
+Supports `A-20260821-004`. This is a proof-path Arb script with exact rational inputs. It certifies that the globally absorbed `0.69V` residual target is negative on `P_0-P_2`, verifies the exact-prime value is positive on that same test, and derives the crude rigorous Legendre-complement bound `mu_N=H_N-c_T-c_2-rho_R`.
+
+```text
+python -m scripts.weil_exact_prime_complement_certificate --prec 224 --max-n 30 --residual-order 32 --output-json computations/.../data/certified-complement.json
+```
+
+Its retained JSON uses exact rational interval endpoints for proof quantities. It does not prove full first-prime positivity.
+
+### `weil_legendre_schur_scout.py`
+
+Supports dimension selection for `A-20260821-004`. It uses NumPy/SciPy floating point to assemble normalized-Legendre exact-prime finite matrices and **finitely truncated** tail Grams for the factor-3 Schur reduction.
+
+```text
+python -m scripts.weil_legendre_schur_scout --max-mode 120 --quadrature-order 700 --shift-order 350 --n 18,20,22,24,28,32,40,50 --output-json computations/.../data/schur-scout.json
+```
+
+This script is reconnaissance only. Its finite tail truncation is not an infinite-dimensional bound and cannot certify positivity.
 
 ## Shared implementation
 

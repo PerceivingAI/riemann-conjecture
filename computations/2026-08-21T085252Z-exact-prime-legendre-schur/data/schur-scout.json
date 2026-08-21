@@ -1,0 +1,68 @@
+{
+  "role": "floating_reconnaissance_only",
+  "warning": "Tail Grams are truncated at max_mode and are not infinite-dimensional bounds.",
+  "support_T": 0.35,
+  "max_mode": 120,
+  "quadrature_order": 700,
+  "shift_order": 350,
+  "lowest_full_finite_ritz_values": [
+    0.0011935706307466965,
+    0.06546996445205762,
+    0.6493959753565501,
+    0.9195783121595144,
+    1.1766022730535286,
+    1.3721636655421525,
+    1.5338134007279605,
+    1.6827159504446791
+  ],
+  "schur_rows": [
+    {
+      "N": 18,
+      "mu_scout": 0.307523006269399,
+      "finite_block_min_eigenvalue": 0.0011949834817174209,
+      "factor3_truncated_schur_min_eigenvalue": -4.271302924955137
+    },
+    {
+      "N": 20,
+      "mu_scout": 0.4101545852167674,
+      "finite_block_min_eigenvalue": 0.0011949004872976977,
+      "factor3_truncated_schur_min_eigenvalue": -2.318836912914932
+    },
+    {
+      "N": 22,
+      "mu_scout": 0.5032281782903603,
+      "finite_block_min_eigenvalue": 0.0011947547157104802,
+      "factor3_truncated_schur_min_eigenvalue": -1.176998657887772
+    },
+    {
+      "N": 24,
+      "mu_scout": 0.5883731058265922,
+      "finite_block_min_eigenvalue": 0.001194557948441882,
+      "factor3_truncated_schur_min_eigenvalue": -0.40310960984184313
+    },
+    {
+      "N": 28,
+      "mu_scout": 0.7395859670394533,
+      "finite_block_min_eigenvalue": 0.0011941267548836634,
+      "factor3_truncated_schur_min_eigenvalue": 0.001170810148666603
+    },
+    {
+      "N": 32,
+      "mu_scout": 0.8709101235096055,
+      "finite_block_min_eigenvalue": 0.0011938334990933654,
+      "factor3_truncated_schur_min_eigenvalue": 0.0011848485105394218
+    },
+    {
+      "N": 40,
+      "mu_scout": 1.0909579670094613,
+      "finite_block_min_eigenvalue": 0.0011937316043941367,
+      "factor3_truncated_schur_min_eigenvalue": 0.0011895510752796422
+    },
+    {
+      "N": 50,
+      "mu_scout": 1.3116202664025103,
+      "finite_block_min_eigenvalue": 0.0011937191284850494,
+      "factor3_truncated_schur_min_eigenvalue": 0.0011917834667505727
+    }
+  ]
+}

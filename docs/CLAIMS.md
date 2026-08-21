@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T04:09:56Z`
+- **Last updated:** `2026-08-21T08:56:20Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -499,6 +499,61 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** none
 - **Source:** `A-20260821-003`, `F-20260821-014`, `R-0028`
 - **Verification notes:** Checked against Suzuki's 2026 finite-support formulas. An exploratory multiplier-plus-prime Galerkin scout was discarded before registration after this guard exposed the normalization omission.
+
+### C-0045 — Legendre jump modes have harmonic-number coercivity
+
+- **Statement:** For `J(w)=(1/4)∫∫|w(x)-w(y)|^2/|x-y| dxdy` on `[-1,1]`, `J(P_n)=H_n||P_n||_2^2`, where `H_n=sum_(k=1)^n 1/k`. Hence the Legendre complement orthogonal to modes `0,...,N-1` satisfies `J(q)>=H_N||q||_2^2`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T08:52:52Z`
+- **Last verified:** `2026-08-21T08:56:20Z`
+- **Dependencies:** none
+- **Source:** `A-20260821-004`, `F-20260821-016`, `R-0032`, `R-0033`
+- **Verification notes:** Tuck's Legendre integral identity was checked through a modern published source and the original source metadata; the factor in the quadratic form follows by direct symmetrization.
+
+### C-0046 — The 69-percent absorbed residual operator is not positive
+
+- **Statement:** At `T=7/20`, the operator lower bound obtained by replacing `V+P_2` globally with `(69/100)V` is not positive semidefinite. The explicit polynomial `w=P_0-P_2=(3/2)(1-x^2)` satisfies `J(w)+(69/100)V(w)+R_T(w)-c_T||w||^2<0`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T08:52:52Z`
+- **Last verified:** `2026-08-21T08:56:20Z`
+- **Dependencies:** `C-0042`, `C-0044`
+- **Source:** `A-20260821-004`, `F-20260821-017`, `X-20260821-004`
+- **Verification notes:** Exact test-function identities plus a 224-bit Arb residual enclosure give a strictly negative upper endpoint near `-0.05275381732676`. `C-0042` remains valid; only this proposed global use of it is closed.
+
+### C-0047 — Exact-prime high-mode Legendre complement is coercive
+
+- **Statement:** For the exact first-prime localized Weil form at `T=7/20`, the Legendre complement satisfies `Q_T(q)>=mu_N||q||^2` with `mu_N=H_N-c_T-c_2-rho_R` and `rho_R=2T sup_(|u|<=2T)|r''(u)|`. The retained Arb certificate proves `mu_14>0`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T08:52:52Z`
+- **Last verified:** `2026-08-21T08:56:20Z`
+- **Dependencies:** `C-0040`, `C-0045`, `C-0044`
+- **Source:** `A-20260821-004`, `F-20260821-018`, `X-20260821-004`
+- **Verification notes:** `V>=0`; the prime shift is bounded below by `-c_2I`; the Suzuki residual is bounded by the Schur test using its rigorous Taylor/Bernoulli remainder. The first certified positive cutoff is `N=14`.
+
+### C-0048 — Component tail-Gram Schur criterion
+
+- **Statement:** If the exact-prime complement obeys `C_N>=mu_N I`, `mu_N>0`, and the low-to-tail cross block decomposes as `B_N=B_V+B_2+B_R`, then full positivity follows from `A_N-(3/mu_N)(G_V+G_2+G_R)>0`, where `G_X=B_XB_X*=P_N X Q_N X P_N=P_NX^2P_N-(P_NXP_N)^2` on the finite polynomial subspace.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T08:52:52Z`
+- **Last verified:** `2026-08-21T08:56:20Z`
+- **Dependencies:** `C-0047`
+- **Source:** `A-20260821-004`, `F-20260821-019`
+- **Verification notes:** Elementary Hilbert-space Cauchy-Schwarz and completing-the-square argument; no numerical premise.
+
+### C-0049 — N around 28-32 is a promising exact-prime Schur certificate scale
+
+- **Statement:** Floating Legendre reconnaissance with tail Grams truncated at mode `120` gives a positive factor-3 Schur surrogate from the tested `N=28` onward, with values around `1.17e-3` at `N=28` and `1.18e-3` at `N=32`; the finite exact-prime Ritz minimum is around `1.19e-3`.
+- **Type:** `COMPUTATIONAL_OBSERVATION`
+- **Status:** `PROVISIONAL`
+- **First recorded:** `2026-08-21T08:52:52Z`
+- **Last verified:** `2026-08-21T08:56:20Z`
+- **Dependencies:** `C-0047`, `C-0048`
+- **Source:** `A-20260821-004`, `F-20260821-020`, `X-20260821-004`
+- **Verification notes:** NumPy/SciPy reconnaissance only. The tail Grams are finitely truncated and therefore do not constitute rigorous infinite-tail upper bounds. `N=32` is selected only as the first certificate target.
 
 ## Entry format
 

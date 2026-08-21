@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T06:00:00Z`
+- **Last updated:** `2026-08-21T08:56:20Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -38,6 +38,7 @@ This is the compact index of the Riemann Conjecture research repository.
 
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit, Weil support thresholds, and first-prime compressed-translation mechanism; `COMPLETE`.
 - [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — first-prime support continuation; exact endpoint absorption, digamma kernel decomposition, residual-term correction, and external-certificate audit; `COMPLETE` intermediate.
+- [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; harmonic high-mode coercivity, rigorous failure of the global `0.69V` target, positive complement bound, and finite tail-Gram Schur reduction; `PROMISING`.
 
 ## Landmark findings
 
@@ -85,6 +86,11 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`F-20260821-013`](../findings/2026-08-21T040654Z-digamma-positive-kernel-decomposition.md) — digamma multiplier decomposes into monotone nonnegative kernel corrections.
 - [`F-20260821-014`](../findings/2026-08-21T040654Z-finite-support-residual-is-mandatory.md) — Suzuki finite-support residual kernel is mandatory in the exact localized Weil form.
 - [`F-20260821-015`](../findings/2026-08-21T040654Z-external-fp035-certificate-not-verified.md) — public FP-0.35 certificate architecture audited but not accepted as verified.
+- [`F-20260821-016`](../findings/2026-08-21T085252Z-legendre-jump-harmonic-coercivity.md) — Legendre jump modes have harmonic-number coercivity.
+- [`F-20260821-017`](../findings/2026-08-21T085252Z-uniform-endpoint-absorption-is-too-lossy.md) — the valid `69%` endpoint absorption is too lossy as a global full-proof lower target.
+- [`F-20260821-018`](../findings/2026-08-21T085252Z-exact-prime-high-mode-complement.md) — exact-prime high Legendre modes are rigorously coercive from `N=14`.
+- [`F-20260821-019`](../findings/2026-08-21T085252Z-component-tail-gram-schur-reduction.md) — component tail-Gram Schur reduction converts the remaining infinite cross problem to finite matrices.
+- [`F-20260821-020`](../findings/2026-08-21T085252Z-schur-dimension-scout.md) — floating scout suggests `N=32` as a practical first rigorous Schur target.
 
 ## Computations
 
@@ -102,6 +108,7 @@ This is the compact index of the Riemann Conjecture research repository.
 
 - [`X-20260821-002`](../computations/2026-08-21T022600Z-positivity-kernel-audit/record.md) — Li Gram/Schoenberg finite diagnostics and Weil support/translation geometry.
 - [`X-20260821-003`](../computations/2026-08-21T034825Z-first-prime-weil-continuation/record.md) — exact rational endpoint-absorption certificate and Arb enclosures for first-prime constants.
+- [`X-20260821-004`](../computations/2026-08-21T085252Z-exact-prime-legendre-schur/record.md) — Arb-certified `0.69V` obstruction and high-mode complement bound, plus separately labeled floating exact-prime Schur-dimension reconnaissance.
 
 ## Templates
 
@@ -111,4 +118,4 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Current state
 
-RH remains unresolved. Exact endpoint absorption at `T=7/20` is now proved, but the full finite-support Weil form still requires an independent rigorous residual/Schur certificate including Suzuki's mandatory residual kernel; see [`STATUS.md`](STATUS.md).
+RH remains unresolved. The exact endpoint theorem remains proved, but `A-20260821-004` shows its global `0.69V` use is too lossy. The active route now retains the exact `p=2` translation, uses harmonic-number Legendre coercivity for the infinite complement, and targets a rigorous `N=32` component tail-Gram Schur certificate; see [`STATUS.md`](STATUS.md).

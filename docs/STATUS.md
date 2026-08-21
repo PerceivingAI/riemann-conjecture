@@ -1,14 +1,14 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T04:09:56Z`
+- **Last updated:** `2026-08-21T08:56:20Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
 
 ## Current state
 
-Nine formal research attempts are recorded:
+Ten formal research attempts are recorded:
 
 - [`A-20260820-001`](../attempts/2026-08-20T203700Z-li-laguerre-prime-trace-route.md) — generalized Li/Laguerre route; `BLOCKED`, with later corrections preserved.
 - [`A-20260820-002`](../attempts/2026-08-20T204900Z-pole-subtracted-prime-laguerre-route.md) — exact zeta-pole subtraction and discrepancy criterion; `COMPLETE` intermediate target.
@@ -19,64 +19,65 @@ Nine formal research attempts are recorded:
 - [`A-20260821-001`](../attempts/2026-08-21T020900Z-global-bilinear-vaughan-chirp-route.md) — global Vaughan/Heath-Brown phase test; `COMPLETE` negative diagnostic.
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit and restricted-support Weil operator mechanism; `COMPLETE`.
 - [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — exact first-prime endpoint absorption, finite-support normalization guard, and external FP-0.35 source audit; `COMPLETE` intermediate target.
+- [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; the uniform 69% residual target is rigorously refuted, while high-mode complement coercivity and a finite Schur reduction make the exact-prime route `PROMISING`.
 
-The repository now contains eleven retained computation records. No proof of RH has been obtained.
+The repository now contains twelve retained computation records. No proof of RH has been obtained.
 
 ## Active leads
 
-### L1 — Independent residual Weil certificate at `T=7/20`
+### L1 — Exact-prime Legendre-Schur certificate at `T=7/20`
 
-**Status:** `ACTIVE / PRIMARY / NEXT`
+**Status:** `ACTIVE / PRIMARY / PROMISING`
 
 The current primary route is finite-scale and deliberately does **not** claim an RH implication.
 
-For support half-width
+`A-20260821-004` has materially changed the target. The exact endpoint inequality
 
 ```text
-T=7/20,
+V+P_2 >= (69/100)V
 ```
 
-only the first prime is active. `A-20260821-003` proves exactly
+remains verified (`C-0042`), but using it globally is too lossy: the explicit polynomial
 
 ```text
-V + P_2 >= (69/100)V >= 0,
+w=P_0-P_2=(3/2)(1-x^2)
 ```
 
-where
+rigorously satisfies
 
 ```text
-V(x)=-(1/2)log(1-x^2)
+J(w)+(69/100)V(w)+R_T(w)-c_T||w||^2 < 0
 ```
 
-is the endpoint potential in the scaled first-prime Weil form and `P_2` is the `p=2` compressed-translation contribution (`C-0042`).
+(`C-0046`). Therefore the former plan to prove the globally absorbed residual operator positive is closed.
 
-The proof is self-contained exact rational arithmetic. It proves the required `log 2` bounds from the atanh series with a rigorous rational remainder and obtains
+The new route retains the **exact** `p=2` compressed translation in the low-mode block. The jump component has the exact Legendre spectrum
 
 ```text
-kappa_edge > 8/5,
-c_2=log2/sqrt2 < 62/125,
-c_2/kappa_edge < 31/100.
+J(P_n)=H_n||P_n||^2,
+H_n=sum_(k=1)^n 1/k,
 ```
 
-The remaining task is therefore not to re-bound the first-prime translation globally. It is to prove positivity of the **residual** finite-support form after this absorption.
-
-In Suzuki's scaled normalization, the remaining target is schematically
+so the complement above the first `N` modes obeys `J>=H_N I` (`C-0045`). With the prime norm and a rigorous Schur bound for Suzuki's residual,
 
 ```text
-kinetic/logarithmic form
-+ (69/100)V
-+ finite-support residual kernel
-- c_T I
-> 0,
+C_N >= mu_N I,
+mu_N=H_N-c_T-c_2-rho_R.
 ```
 
-on the correct domain/parity constraints, with
+`X-20260821-004` certifies `mu_14>0` (`C-0047`). Thus high modes are already rigorously coercive.
+
+Writing the cross block as `B_V+B_2+B_R`, full positivity follows from the finite sufficient condition
 
 ```text
-c_T=log(2*pi*T)+EulerGamma.
+A_N-(3/mu_N)(G_V+G_2+G_R)>0,
+G_X=P_N X Q_N X P_N
+   =P_N X^2 P_N-(P_N X P_N)^2.
 ```
 
-The next attempt must construct this exact residual form, prove an infinite-dimensional complement bound, and certify the finite block with interval/exact arithmetic.
+This reduction is rigorous (`C-0048`). Floating reconnaissance with finitely truncated tail Grams becomes positive near `N=28`; `N=32` is the recommended first rigorous target (`C-0049`).
+
+The immediate research task is therefore to enclose `A_32`, `G_V`, `G_2`, and `G_R` rigorously and certify the finite Schur matrix. The certificate contract should be extended only after those mathematical semantics are fixed.
 
 ### L2 — Exact transcendental interval inputs
 
@@ -199,12 +200,17 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 11. At `T=7/20`, the first-prime endpoint term is absorbed rigorously: `V+P_2 >= (69/100)V` (`C-0042`).
 12. The pure digamma multiplier admits monotone nonnegative-kernel lower bounds (`C-0043`).
 13. The finite-support residual kernel is mandatory in any full localized Weil computation (`C-0044`).
+14. The logarithmic jump form is Legendre-diagonal with harmonic-number coercivity on high modes (`C-0045`).
+15. The globally absorbed `0.69V` residual operator is rigorously not positive; the endpoint theorem remains valid but is too lossy for this use (`C-0046`).
+16. The exact-prime Legendre complement has a rigorous positive lower bound already from `N=14` (`C-0047`).
+17. Full exact-prime positivity reduces to a finite component tail-Gram Schur condition (`C-0048`).
 
 ## Computational observations and certificates
 
 - `X-20260821-001` checks dyadic bilinear phase separability.
 - `X-20260821-002` checks Li Gram/Schoenberg synthetic examples and exact compressed-shift support geometry.
 - `X-20260821-003` contains the exact rational first-prime absorption certificate and exact Arb constant enclosures.
+- `X-20260821-004` contains the proof-path obstruction/complement certificate and a separately labeled floating Legendre-Schur dimension scout.
 
 The exact rational certificate is a proof of `C-0042`; the Arb constants are certified scalar enclosures. Neither constitutes a proof of full first-prime positivity.
 
@@ -212,17 +218,18 @@ The exact rational certificate is a proof of `C-0042`; the Arb constants are cer
 
 The primary blocker is now:
 
-> Prove the residual localized Weil quadratic form at `T=7/20` positive after the rigorous replacement `V+P_2 >= (69/100)V`, with a mathematically justified infinite-dimensional complement bound and a finite interval/exact positive-definiteness certificate.
+> Prove the exact-prime component tail-Gram Schur matrix at `T=7/20` positive, using the already-certified high-mode Legendre complement bound and rigorous infinite-tail Gram enclosures.
 
 Required pieces:
 
-1. authoritative Suzuki scaled normalization;
-2. parity-adapted finite block;
-3. exact/certified residual-kernel matrix entries;
-4. independent complement/tail lower bound;
-5. interval `LDL^T`, exact rational Schur test, or equivalent rigorous positivity judge;
-6. robustness to all transcendental interval widths;
-7. no reliance on a finite matrix alone.
+1. rigorous `N=32` low matrix `A_N` with exact endpoint, exact `p=2` translation, Suzuki residual, jump diagonal, and `c_T`;
+2. rigorous finite matrix `G_V=P_N V Q_N V P_N`, preferably via `P_NV^2P_N-(P_NVP_N)^2`;
+3. rigorous `G_2` from the explicit compressed-shift overlap geometry;
+4. rigorous `G_R`, using the residual series structure plus a certified analytic tail bound;
+5. propagation of the certified `mu_N` interval into the factor-3 Schur correction;
+6. exact-rational/interval positive-definiteness verification with a margin surviving all interval widths;
+7. only after these semantics are fixed, a closed `rh-weil-certificate-v1` exact-prime Schur profile;
+8. no reliance on a positive finite Ritz matrix or a finitely truncated tail Gram alone.
 
 ## Invalidated, corrected, or closed directions
 
@@ -274,16 +281,20 @@ Required pieces:
 
 `REJECTED AS PROOF DEPENDENCY`: the current public source tree is useful architecture but has not passed this repository's independent exact replay standard.
 
+### I13 — Use `V+P_2 >= (69/100)V` globally and prove the remaining residual operator positive
+
+`REFUTED AS SUFFICIENT LOWER TARGET`: `C-0042` remains correct, but `C-0046` gives the explicit polynomial `P_0-P_2` on which the resulting lower operator is strictly negative. The exact-prime translation must be retained more faithfully.
+
 ## Next research action
 
-Create `A-20260821-004` for an **independent rigorous residual certificate at `T=7/20`**:
+Continue `A-20260821-004` with a rigorous **exact-prime `N=32` Legendre-Schur certificate**:
 
-1. use Suzuki's scaled finite-support form as authoritative;
-2. insert `V+P_2 >= (69/100)V` exactly;
-3. choose a parity-adapted Legendre or comparable basis;
-4. derive the residual finite matrix from scratch, including the finite-support residual kernel;
-5. derive an independent complement/tail lower bound;
-6. evaluate every `tau`, `c_2`, `c_T`, and residual-kernel dependency with Arb balls or proven rational intervals;
-7. prove the finite Schur/Gram matrix positive by interval `LDL^T` or exact rational inequalities;
-8. require positivity to survive all interval widths and truncation errors;
+1. retain Suzuki's full scaled form and the exact `p=2` translation;
+2. assemble `A_32` with Arb interval entries;
+3. derive and enclose `G_V=P_32 V Q_32 V P_32` using finite `log^2(1-x^2)` moments;
+4. derive and enclose `G_2` from exact shifted-polynomial overlap integrals;
+5. derive `G_R` from the Suzuki residual series plus a rigorous operator/matrix tail bound;
+6. use the certified `mu_32` complement lower bound and form `A_32-(3/mu_32)(G_V+G_2+G_R)`;
+7. require positive definiteness to survive all Arb widths and rational outward rounding;
+8. only then add a closed exact-prime Schur profile to `rh-weil-certificate-v1` and verify it independently in Rust;
 9. if successful, record only finite-scale positivity at `T=7/20` — not RH.

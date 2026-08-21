@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T04:09:56Z`
+- **Last updated:** `2026-08-21T08:56:20Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -355,6 +355,28 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-08-21T04:06:54Z`
 - **Used for:** External proof-architecture comparison and adversarial source audit only. The project claims finite-scale positivity at `T=7/20`; this repository does not import that theorem status.
 - **Verification notes:** A temporary isolated clone of the pinned commit was inspected. The README currently reports FP-0.35 as holding while also listing the trusted proof-chain/replay work as in progress. Specific checker-path inconsistencies are documented in `F-20260821-015`. Treat this source as unverified proof code, not mathematical authority.
+
+### R-0032 — Gerontogiannis-Mesland logarithmic Dirichlet Laplacian
+
+- **Authors:** Dimitris Michail Gerontogiannis; Bram Mesland
+- **Title:** The logarithmic Dirichlet Laplacian on Ahlfors regular spaces
+- **Publication:** Transactions of the American Mathematical Society, volume 378, pp. 651-678; arXiv preprint `2309.16636`
+- **Year:** 2025 journal volume; preprint first posted 2023
+- **Stable identifier:** DOI `10.1090/tran/9277`; arXiv `2309.16636`
+- **First verified/accessed:** `2026-08-21T08:52:52Z`
+- **Used for:** Modern published statement of Tuck's Legendre identity for the logarithmic Dirichlet operator on `[-1,1]`, giving eigenvalues `2H_n` for the unscaled integral operator and hence harmonic-number coercivity for Suzuki's jump quadratic form.
+- **Verification notes:** Current arXiv metadata and publication metadata were checked. The repository independently checks the normalization factor converting the integral-operator identity to `J(P_n)=H_n||P_n||^2`.
+
+### R-0033 — Tuck 1964 Legendre integral identity source
+
+- **Author:** E. O. Tuck
+- **Title:** Some methods for flows past blunt slender bodies
+- **Publication:** Journal of Fluid Mechanics, volume 18, issue 4, pp. 619-635
+- **Year:** 1964
+- **Stable identifier:** DOI `10.1017/S0022112064000453`
+- **First verified/accessed:** `2026-08-21T08:52:52Z`
+- **Used for:** Original source of the simple Legendre-polynomial integral formulas later used in logarithmic-Laplacian spectral analysis.
+- **Verification notes:** Cambridge metadata confirms the 1964 article, pages, DOI, and that the paper derives and rigorously proves new Legendre-polynomial formulas.
 
 ## Entry format
 

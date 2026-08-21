@@ -120,7 +120,9 @@ Start here depending on what you need:
 │   ├── positivity_kernel_diagnostics.py
 │   ├── weil_support_geometry.py
 │   ├── weil_endpoint_absorption_certificate.py
-│   └── weil_exact_constants.py
+│   ├── weil_exact_constants.py
+│   ├── weil_exact_prime_complement_certificate.py
+│   └── weil_legendre_schur_scout.py
 ├── templates/
 │   ├── ATTEMPT.md
 │   ├── FINDING.md

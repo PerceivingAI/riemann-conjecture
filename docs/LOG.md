@@ -1,10 +1,74 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T04:47:19Z`
+- **Last updated:** `2026-08-21T08:56:20Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+---
+
+## 2026-08-21T08:52:52Z — A-004 pivots to exact-prime Legendre-Schur route
+
+**Type:** Research attempt / rigorous obstruction / infinite-complement theorem / Schur reduction / numerical reconnaissance
+
+Started `A-20260821-004`.
+
+The initially planned target after `A-003` was to replace the exact first-prime pair by
+
+```text
+V+P_2 >= (69/100)V
+```
+
+and prove the remaining residual lower operator positive. This target is now rigorously refuted without invalidating the endpoint theorem itself. For the explicit polynomial
+
+```text
+w=P_0-P_2=(3/2)(1-x^2),
+```
+
+224-bit Arb computation with exact rational identities and the canonical Suzuki residual proves
+
+```text
+J(w)+(69/100)V(w)+R_T(w)-c_T||w||^2 < 0,
+```
+
+with value near `-0.05275381732676`. The critical retained scalar fraction for this direction lies between `0.93` and `0.94`.
+
+Retaining the exact `p=2` translation instead changes the picture: the prime loss on this same smooth direction is only about `5.05e-5` of `V`, and the full exact-prime value is rigorously positive near `0.0143337515668`.
+
+The decisive structural input is Tuck's Legendre identity. In Suzuki's jump normalization,
+
+```text
+J(P_n)=H_n||P_n||^2.
+```
+
+Therefore the high-mode Legendre complement has explicit logarithmically growing coercivity. Combining this with the exact prime norm and a rigorous Schur bound for Suzuki's residual gives
+
+```text
+C_N >= mu_N I,
+mu_N=H_N-c_T-c_2-rho_R,
+```
+
+and `X-20260821-004` certifies `mu_14>0`.
+
+The remaining infinite-dimensional cross problem is reduced to finite component tail Grams:
+
+```text
+G_X=P_N X Q_N X P_N
+   =P_N X^2 P_N-(P_N X P_N)^2,
+```
+
+with the sufficient finite condition
+
+```text
+A_N-(3/mu_N)(G_V+G_2+G_R)>0.
+```
+
+A deliberately non-rigorous floating scout with tail Grams truncated at mode `120` becomes positive around `N=28`; `N=32` is selected as the first rigorous target, with an observed margin around `1.18e-3`.
+
+Recorded `F-20260821-016` through `F-20260821-020`, `C-0045` through `C-0049`, computation `X-20260821-004`, and references `R-0032` through `R-0033`.
+
+**Outcome:** RH remains unresolved. `A-20260821-004` is `PROMISING`. The next task is rigorous Arb assembly of `A_32`, `G_V`, `G_2`, and `G_R`, followed by exact interval Schur verification. The certificate contract will not be extended until those mathematical semantics are fixed.
 
 ---
 
