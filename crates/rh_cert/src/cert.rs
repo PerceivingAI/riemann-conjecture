@@ -3,11 +3,13 @@
 use std::fs;
 use std::path::Path;
 
+use num_bigint::BigInt;
 use num_rational::BigRational;
 use num_traits::Zero;
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
 
+use crate::gershgorin::{verify_congruence_gershgorin, GershgorinBlockReport, GershgorinError};
 use crate::interval::{parse_canonical_rational, IntervalError, RationalInterval};
 use crate::ldl::{LdlError, LdlVerificationReport, RationalIntervalMatrix};
 
@@ -57,6 +59,9 @@ pub enum CertificateError {
 
     #[error("LDL error in certificate: {0}")]
     Ldl(#[from] LdlError),
+
+    #[error("Gershgorin certificate error: {0}")]
+    Gershgorin(#[from] GershgorinError),
 }
 
 fn validation_error(field: &str, message: impl Into<String>) -> CertificateError {
@@ -71,6 +76,7 @@ fn validation_error(field: &str, message: impl Into<String>) -> CertificateError
 enum ClaimProfile {
     SyntheticMatrix,
     DigammaFiniteBlock,
+    ExactPrimeLegendreSchur,
 }
 
 impl ClaimProfile {
@@ -78,6 +84,7 @@ impl ClaimProfile {
         match self {
             Self::SyntheticMatrix => "synthetic_matrix",
             Self::DigammaFiniteBlock => "digamma_finite_block",
+            Self::ExactPrimeLegendreSchur => "exact_prime_legendre_schur",
         }
     }
 
@@ -85,6 +92,7 @@ impl ClaimProfile {
         match self {
             Self::SyntheticMatrix => "synthetic_matrix",
             Self::DigammaFiniteBlock => "finite_basis_full_digamma_series",
+            Self::ExactPrimeLegendreSchur => "localized_weil_positivity_T_7_20",
         }
     }
 }
@@ -194,6 +202,8 @@ struct ConstantsJson {
     c2: Option<RationalIntervalJson>,
     #[serde(rename = "c_T")]
     c_t: Option<RationalIntervalJson>,
+    #[serde(rename = "rho_R")]
+    rho_r: Option<RationalIntervalJson>,
     m0_digamma: Option<RationalIntervalJson>,
 }
 
@@ -207,6 +217,7 @@ impl ConstantsJson {
             self.tau.is_some(),
             self.c2.is_some(),
             self.c_t.is_some(),
+            self.rho_r.is_some(),
             self.m0_digamma.is_some(),
         ]
         .into_iter()
@@ -223,6 +234,7 @@ impl ConstantsJson {
             self.tau.as_ref(),
             self.c2.as_ref(),
             self.c_t.as_ref(),
+            self.rho_r.as_ref(),
             self.m0_digamma.as_ref(),
         ]
         .into_iter()
@@ -265,6 +277,36 @@ impl MatrixEntryJson {
 }
 
 #[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ExactMatrixJson {
+    dimension: usize,
+    entries: Vec<ExactMatrixEntryJson>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ExactMatrixEntryJson {
+    row: usize,
+    col: usize,
+    num: String,
+    den: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct SchurProofJson {
+    residual_order: usize,
+    #[serde(rename = "GV")]
+    gv: MatrixJson,
+    #[serde(rename = "G2")]
+    g2: MatrixJson,
+    #[serde(rename = "GR")]
+    gr: MatrixJson,
+    even_witness: ExactMatrixJson,
+    odd_witness: ExactMatrixJson,
+}
+
+#[derive(Debug, Clone, Deserialize)]
 #[serde(tag = "type", deny_unknown_fields)]
 enum TailBoundJson {
     #[serde(rename = "exact_scalar_identity")]
@@ -274,6 +316,11 @@ enum TailBoundJson {
         k_max: usize,
         first_omitted_k: usize,
     },
+    #[serde(rename = "legendre_component_gram_schur")]
+    LegendreComponentGramSchur {
+        harmonic_index: usize,
+        factor: ExactRationalJson,
+    },
 }
 
 impl TailBoundJson {
@@ -281,6 +328,7 @@ impl TailBoundJson {
         match self {
             Self::ExactScalarIdentity { .. } => "exact_scalar_identity",
             Self::NonnegativeDigammaRemainder { .. } => "nonnegative_digamma_remainder",
+            Self::LegendreComponentGramSchur { .. } => "legendre_component_gram_schur",
         }
     }
 }
@@ -313,6 +361,7 @@ struct CertificateDocument {
     constants: ConstantsJson,
     matrix: MatrixJson,
     tail_bound: TailBoundJson,
+    schur_proof: Option<SchurProofJson>,
     generator_metadata: GeneratorMetadataJson,
 }
 
@@ -322,6 +371,26 @@ pub struct CertificateJson {
     document: CertificateDocument,
     matrix: RationalIntervalMatrix,
     tail_lower_bound: BigRational,
+    schur_proof: Option<ValidatedSchurProof>,
+}
+
+#[derive(Debug, Clone)]
+struct ValidatedSchurProof {
+    gv: RationalIntervalMatrix,
+    g2: RationalIntervalMatrix,
+    gr: RationalIntervalMatrix,
+    even_witness: Vec<Vec<BigRational>>,
+    odd_witness: Vec<Vec<BigRational>>,
+    factor: BigRational,
+}
+
+#[derive(Debug, Clone, Serialize)]
+pub struct SchurVerificationReport {
+    pub is_positive_definite: bool,
+    pub complement_lower_bound: String,
+    pub schur_factor: String,
+    pub even: GershgorinBlockReport,
+    pub odd: GershgorinBlockReport,
 }
 
 /// Final outcome of whole-certificate verification.
@@ -339,7 +408,8 @@ pub struct VerificationOutcome {
     pub support_t: String,
     pub tail_rule: String,
     pub tail_lower_bound: String,
-    pub ldl_report: LdlVerificationReport,
+    pub ldl_report: Option<LdlVerificationReport>,
+    pub schur_report: Option<SchurVerificationReport>,
     pub notes: Vec<String>,
 }
 
@@ -409,6 +479,166 @@ fn valid_utc_timestamp(value: &str) -> bool {
             && suffix[1..].bytes().all(|byte| byte.is_ascii_digit()))
 }
 
+fn harmonic_rational(n: usize) -> BigRational {
+    let mut total = BigRational::zero();
+    for k in 1..=n {
+        total += BigRational::new(BigInt::from(1), BigInt::from(k));
+    }
+    total
+}
+
+fn extract_interval_matrix(
+    matrix_json: &MatrixJson,
+    dimension: usize,
+) -> Result<RationalIntervalMatrix, CertificateError> {
+    if matrix_json.dimension != dimension {
+        return Err(CertificateError::DimensionMismatch {
+            header_dim: dimension,
+            matrix_dim: matrix_json.dimension,
+        });
+    }
+    let expected = dimension
+        .checked_mul(dimension)
+        .ok_or_else(|| validation_error("$.dimension", "dimension squared overflows usize"))?;
+    if matrix_json.entries.len() != expected {
+        return Err(CertificateError::EntryCountMismatch {
+            expected,
+            found: matrix_json.entries.len(),
+        });
+    }
+
+    let mut grid = vec![vec![None; dimension]; dimension];
+    for entry in &matrix_json.entries {
+        if entry.row >= dimension || entry.col >= dimension {
+            return Err(CertificateError::CoordinateOutOfRange {
+                row: entry.row,
+                col: entry.col,
+                dimension,
+            });
+        }
+        if grid[entry.row][entry.col].is_some() {
+            return Err(CertificateError::DuplicateEntry {
+                row: entry.row,
+                col: entry.col,
+            });
+        }
+        grid[entry.row][entry.col] = Some(entry.parse_interval()?);
+    }
+
+    let mut rows = Vec::with_capacity(dimension);
+    for (row_index, grid_row) in grid.into_iter().enumerate() {
+        let mut row = Vec::with_capacity(dimension);
+        for (col_index, cell) in grid_row.into_iter().enumerate() {
+            row.push(cell.ok_or(CertificateError::MissingEntry {
+                row: row_index,
+                col: col_index,
+            })?);
+        }
+        rows.push(row);
+    }
+    let matrix = RationalIntervalMatrix::new(dimension, rows)?;
+    for row in 0..dimension {
+        for col in (row + 1)..dimension {
+            if matrix.rows[row][col] != matrix.rows[col][row] {
+                return Err(CertificateError::NonSymmetric { row, col });
+            }
+        }
+    }
+    Ok(matrix)
+}
+
+fn extract_exact_matrix(
+    matrix_json: &ExactMatrixJson,
+    dimension: usize,
+    field: &str,
+) -> Result<Vec<Vec<BigRational>>, CertificateError> {
+    if matrix_json.dimension != dimension {
+        return Err(validation_error(
+            field,
+            format!("dimension must equal {dimension}"),
+        ));
+    }
+    let expected = dimension
+        .checked_mul(dimension)
+        .ok_or_else(|| validation_error(field, "dimension squared overflows usize"))?;
+    if matrix_json.entries.len() != expected {
+        return Err(validation_error(
+            field,
+            format!("must contain exactly {expected} entries"),
+        ));
+    }
+
+    let mut grid = vec![vec![None; dimension]; dimension];
+    for entry in &matrix_json.entries {
+        if entry.row >= dimension || entry.col >= dimension {
+            return Err(validation_error(field, "matrix coordinate is out of range"));
+        }
+        if grid[entry.row][entry.col].is_some() {
+            return Err(validation_error(field, "duplicate matrix coordinate"));
+        }
+        let value = parse_canonical_rational(&entry.num, &entry.den, field)?;
+        grid[entry.row][entry.col] = Some(value);
+    }
+
+    let mut rows = Vec::with_capacity(dimension);
+    for grid_row in grid {
+        let mut row = Vec::with_capacity(dimension);
+        for cell in grid_row {
+            row.push(cell.ok_or_else(|| validation_error(field, "missing matrix coordinate"))?);
+        }
+        rows.push(row);
+    }
+
+    for (row_index, row_values) in rows.iter().enumerate() {
+        for value in row_values.iter().skip(row_index + 1) {
+            if !value.is_zero() {
+                return Err(validation_error(field, "witness must be lower triangular"));
+            }
+        }
+        if row_values[row_index].is_zero() {
+            return Err(validation_error(field, "witness diagonal must be nonzero"));
+        }
+    }
+    Ok(rows)
+}
+
+fn require_parity_block_diagonal(
+    matrix: &RationalIntervalMatrix,
+    field: &str,
+) -> Result<(), CertificateError> {
+    for row in 0..matrix.dim {
+        for col in 0..matrix.dim {
+            if (row % 2) != (col % 2) {
+                let value = &matrix.rows[row][col];
+                if !value.lo.is_zero() || !value.hi.is_zero() {
+                    return Err(validation_error(
+                        field,
+                        format!("opposite-parity entry ({row}, {col}) must be exactly zero"),
+                    ));
+                }
+            }
+        }
+    }
+    Ok(())
+}
+
+fn parity_block(
+    matrix: &RationalIntervalMatrix,
+    parity: usize,
+) -> Result<RationalIntervalMatrix, CertificateError> {
+    let indices: Vec<usize> = (parity..matrix.dim).step_by(2).collect();
+    let rows = indices
+        .iter()
+        .map(|&row| {
+            indices
+                .iter()
+                .map(|&col| matrix.rows[row][col].clone())
+                .collect::<Vec<_>>()
+        })
+        .collect::<Vec<_>>();
+    Ok(RationalIntervalMatrix::new(indices.len(), rows)?)
+}
+
 impl CertificateDocument {
     fn validate_metadata(&self) -> Result<(), CertificateError> {
         let metadata = &self.generator_metadata;
@@ -453,72 +683,14 @@ impl CertificateDocument {
         Ok(())
     }
 
-    fn extract_matrix(&self) -> Result<RationalIntervalMatrix, CertificateError> {
-        if self.dimension != self.matrix.dimension {
-            return Err(CertificateError::DimensionMismatch {
-                header_dim: self.dimension,
-                matrix_dim: self.matrix.dimension,
-            });
-        }
-        if self.basis.dimension != self.dimension {
+    fn validate_standard_tail(&self) -> Result<BigRational, CertificateError> {
+        self.constants.validate_intervals()?;
+        if self.schur_proof.is_some() {
             return Err(validation_error(
-                "$.basis.dimension",
-                "must equal the certificate dimension",
+                "$.schur_proof",
+                "is only valid for exact_prime_legendre_schur",
             ));
         }
-        let expected = self
-            .dimension
-            .checked_mul(self.dimension)
-            .ok_or_else(|| validation_error("$.dimension", "dimension squared overflows usize"))?;
-        if self.matrix.entries.len() != expected {
-            return Err(CertificateError::EntryCountMismatch {
-                expected,
-                found: self.matrix.entries.len(),
-            });
-        }
-
-        let mut grid = vec![vec![None; self.dimension]; self.dimension];
-        for entry in &self.matrix.entries {
-            if entry.row >= self.dimension || entry.col >= self.dimension {
-                return Err(CertificateError::CoordinateOutOfRange {
-                    row: entry.row,
-                    col: entry.col,
-                    dimension: self.dimension,
-                });
-            }
-            if grid[entry.row][entry.col].is_some() {
-                return Err(CertificateError::DuplicateEntry {
-                    row: entry.row,
-                    col: entry.col,
-                });
-            }
-            grid[entry.row][entry.col] = Some(entry.parse_interval()?);
-        }
-
-        let mut rows = Vec::with_capacity(self.dimension);
-        for (row_index, grid_row) in grid.into_iter().enumerate() {
-            let mut row = Vec::with_capacity(self.dimension);
-            for (col_index, cell) in grid_row.into_iter().enumerate() {
-                row.push(cell.ok_or(CertificateError::MissingEntry {
-                    row: row_index,
-                    col: col_index,
-                })?);
-            }
-            rows.push(row);
-        }
-        let matrix = RationalIntervalMatrix::new(self.dimension, rows)?;
-        for row in 0..self.dimension {
-            for col in (row + 1)..self.dimension {
-                if matrix.rows[row][col] != matrix.rows[col][row] {
-                    return Err(CertificateError::NonSymmetric { row, col });
-                }
-            }
-        }
-        Ok(matrix)
-    }
-
-    fn validate_and_derive_tail(&self) -> Result<BigRational, CertificateError> {
-        self.constants.validate_intervals()?;
         match (self.claim_profile, &self.tail_bound) {
             (ClaimProfile::SyntheticMatrix, TailBoundJson::ExactScalarIdentity { lambda }) => {
                 if self.constants.present_count() != 0 {
@@ -567,7 +739,125 @@ impl CertificateDocument {
                 "$.tail_bound",
                 "digamma_finite_block requires nonnegative_digamma_remainder",
             )),
+            (ClaimProfile::ExactPrimeLegendreSchur, _) => Err(validation_error(
+                "$.tail_bound",
+                "exact-prime profile is validated by its dedicated Schur rule",
+            )),
         }
+    }
+
+    fn validate_exact_prime_schur(
+        &self,
+        matrix: &RationalIntervalMatrix,
+    ) -> Result<(BigRational, ValidatedSchurProof), CertificateError> {
+        self.constants.validate_intervals()?;
+        if self.dimension != 32 {
+            return Err(validation_error(
+                "$.dimension",
+                "v1 exact-prime profile is locked to 32",
+            ));
+        }
+        if self.basis.r#type != BasisType::Legendre
+            || self.basis.domain != BasisDomain::ScaledUnitInterval
+            || self.parity_sector != ParitySector::Both
+        {
+            return Err(validation_error(
+                "$.basis",
+                "exact-prime profile requires Legendre basis on [-1, 1] with both parity sectors",
+            ));
+        }
+        if self.constants.present_count() != 3
+            || self.constants.c2.is_none()
+            || self.constants.c_t.is_none()
+            || self.constants.rho_r.is_none()
+        {
+            return Err(validation_error(
+                "$.constants",
+                "exact-prime profile requires exactly c2, c_T, and rho_R",
+            ));
+        }
+
+        let (harmonic_index, factor_json) = match &self.tail_bound {
+            TailBoundJson::LegendreComponentGramSchur {
+                harmonic_index,
+                factor,
+            } => (*harmonic_index, factor),
+            _ => {
+                return Err(validation_error(
+                    "$.tail_bound",
+                    "exact-prime profile requires legendre_component_gram_schur",
+                ));
+            }
+        };
+        if harmonic_index != self.dimension {
+            return Err(validation_error(
+                "$.tail_bound.harmonic_index",
+                "must equal the finite dimension",
+            ));
+        }
+        let factor = factor_json.parse("$.tail_bound.factor")?;
+        if factor != BigRational::from_integer(BigInt::from(3)) {
+            return Err(validation_error(
+                "$.tail_bound.factor",
+                "v1 exact-prime profile is locked to factor 3",
+            ));
+        }
+
+        let proof = self.schur_proof.as_ref().ok_or_else(|| {
+            validation_error("$.schur_proof", "is required for exact-prime profile")
+        })?;
+        if proof.residual_order != 32 {
+            return Err(validation_error(
+                "$.schur_proof.residual_order",
+                "v1 exact-prime profile is locked to residual order 32",
+            ));
+        }
+        let gv = extract_interval_matrix(&proof.gv, self.dimension)?;
+        let g2 = extract_interval_matrix(&proof.g2, self.dimension)?;
+        let gr = extract_interval_matrix(&proof.gr, self.dimension)?;
+        require_parity_block_diagonal(matrix, "$.matrix")?;
+        require_parity_block_diagonal(&gv, "$.schur_proof.GV")?;
+        require_parity_block_diagonal(&g2, "$.schur_proof.G2")?;
+        require_parity_block_diagonal(&gr, "$.schur_proof.GR")?;
+
+        let half = self.dimension / 2;
+        let even_witness =
+            extract_exact_matrix(&proof.even_witness, half, "$.schur_proof.even_witness")?;
+        let odd_witness =
+            extract_exact_matrix(&proof.odd_witness, half, "$.schur_proof.odd_witness")?;
+
+        let c2 = self.constants.c2.as_ref().expect("validated c2").parse()?;
+        let c_t = self
+            .constants
+            .c_t
+            .as_ref()
+            .expect("validated c_T")
+            .parse()?;
+        let rho_r = self
+            .constants
+            .rho_r
+            .as_ref()
+            .expect("validated rho_R")
+            .parse()?;
+        let mu_lower = harmonic_rational(self.dimension) - c_t.hi - c2.hi - rho_r.hi;
+        if mu_lower <= BigRational::zero() {
+            return Err(validation_error(
+                "$.constants",
+                "derived Legendre complement lower bound must be strictly positive",
+            ));
+        }
+
+        Ok((
+            mu_lower,
+            ValidatedSchurProof {
+                gv,
+                g2,
+                gr,
+                even_witness,
+                odd_witness,
+                factor,
+            },
+        ))
     }
 
     fn validate(self) -> Result<CertificateJson, CertificateError> {
@@ -588,13 +878,34 @@ impl CertificateDocument {
                 "must equal canonical num/den",
             ));
         }
+        if self.claim_profile == ClaimProfile::ExactPrimeLegendreSchur
+            && support != BigRational::new(BigInt::from(7), BigInt::from(20))
+        {
+            return Err(validation_error(
+                "$.support_T",
+                "v1 exact-prime profile is locked to T=7/20",
+            ));
+        }
+        if self.basis.dimension != self.dimension {
+            return Err(validation_error(
+                "$.basis.dimension",
+                "must equal the certificate dimension",
+            ));
+        }
         self.validate_metadata()?;
-        let matrix = self.extract_matrix()?;
-        let tail_lower_bound = self.validate_and_derive_tail()?;
+        let matrix = extract_interval_matrix(&self.matrix, self.dimension)?;
+        let (tail_lower_bound, schur_proof) =
+            if self.claim_profile == ClaimProfile::ExactPrimeLegendreSchur {
+                let (mu, proof) = self.validate_exact_prime_schur(&matrix)?;
+                (mu, Some(proof))
+            } else {
+                (self.validate_standard_tail()?, None)
+            };
         Ok(CertificateJson {
             document: self,
             matrix,
             tail_lower_bound,
+            schur_proof,
         })
     }
 }
@@ -612,31 +923,84 @@ impl CertificateJson {
         document.validate()
     }
 
-    /// Verify the tail-adjusted matrix using zero-float exact interval LDL.
+    fn verify_exact_prime_schur(
+        &self,
+        proof: &ValidatedSchurProof,
+    ) -> Result<SchurVerificationReport, CertificateError> {
+        let coefficient = &proof.factor / &self.tail_lower_bound;
+        let coefficient_interval = RationalInterval::point(coefficient.clone());
+        let mut rows = vec![vec![RationalInterval::zero(); self.matrix.dim]; self.matrix.dim];
+        for (row_index, row) in rows.iter_mut().enumerate() {
+            for (col_index, value) in row.iter_mut().enumerate() {
+                let gram = &proof.gv.rows[row_index][col_index]
+                    + &proof.g2.rows[row_index][col_index]
+                    + proof.gr.rows[row_index][col_index].clone();
+                *value = &self.matrix.rows[row_index][col_index] - (&coefficient_interval * &gram);
+            }
+        }
+        let schur = RationalIntervalMatrix::new(self.matrix.dim, rows)?;
+        let even_block = parity_block(&schur, 0)?;
+        let odd_block = parity_block(&schur, 1)?;
+        let even = verify_congruence_gershgorin(&even_block, &proof.even_witness)?;
+        let odd = verify_congruence_gershgorin(&odd_block, &proof.odd_witness)?;
+        Ok(SchurVerificationReport {
+            is_positive_definite: even.is_positive_definite && odd.is_positive_definite,
+            complement_lower_bound: canonical_fraction(&self.tail_lower_bound),
+            schur_factor: canonical_fraction(&coefficient),
+            even,
+            odd,
+        })
+    }
+
+    /// Verify the complete closed certificate profile using exact rational arithmetic.
     pub fn verify(&self) -> Result<VerificationOutcome, CertificateError> {
-        let adjusted = self.matrix.with_diagonal_shift(&self.tail_lower_bound);
-        let report = adjusted.verify_positivity();
-        let passed = report.is_symmetric && report.is_positive_definite;
-        let mut notes = Vec::new();
-        notes.push(format!(
-            "Tail rule '{}' produced exact lower bound {} and was absorbed before LDL",
-            self.document.tail_bound.rule_name(),
-            canonical_fraction(&self.tail_lower_bound)
-        ));
-        notes.push(format!(
+        let mut notes = vec![format!(
             "Generator working tree dirty at generation: {}",
             self.document.generator_metadata.git_dirty
-        ));
-        if passed {
-            notes.push(format!(
-                "PASS: adjusted exact interval LDL has minimum diagonal lower bound {}",
-                report.min_diagonal_lower_bound
-            ));
-        } else {
-            notes.push(
-                "FAILURE: adjusted LDL diagonal intervals are not strictly positive".to_string(),
-            );
-        }
+        )];
+
+        let (passed, ldl_report, schur_report) = match &self.schur_proof {
+            Some(proof) => {
+                let report = self.verify_exact_prime_schur(proof)?;
+                if report.is_positive_definite {
+                    notes.push(format!(
+                        "PASS: exact-prime Schur certificate has even/odd Gershgorin margins {} and {}",
+                        report.even.min_margin, report.odd.min_margin
+                    ));
+                } else {
+                    notes.push(
+                        "FAILURE: one or both exact congruence/Gershgorin parity blocks are not strictly positive"
+                            .to_string(),
+                    );
+                }
+                (report.is_positive_definite, None, Some(report))
+            }
+            None => {
+                let adjusted = self.matrix.with_diagonal_shift(&self.tail_lower_bound);
+                let report = adjusted.verify_positivity();
+                let standard_passed = report.is_symmetric && report.is_positive_definite;
+                notes.insert(
+                    0,
+                    format!(
+                        "Tail rule '{}' produced exact lower bound {} and was absorbed before LDL",
+                        self.document.tail_bound.rule_name(),
+                        canonical_fraction(&self.tail_lower_bound)
+                    ),
+                );
+                if standard_passed {
+                    notes.push(format!(
+                        "PASS: adjusted exact interval LDL has minimum diagonal lower bound {}",
+                        report.min_diagonal_lower_bound
+                    ));
+                } else {
+                    notes.push(
+                        "FAILURE: adjusted LDL diagonal intervals are not strictly positive"
+                            .to_string(),
+                    );
+                }
+                (standard_passed, Some(report), None)
+            }
+        };
 
         Ok(VerificationOutcome {
             passed,
@@ -650,7 +1014,8 @@ impl CertificateJson {
             support_t: self.document.support_t.frac.clone(),
             tail_rule: self.document.tail_bound.rule_name().to_string(),
             tail_lower_bound: canonical_fraction(&self.tail_lower_bound),
-            ldl_report: report,
+            ldl_report,
+            schur_report,
             notes,
         })
     }

@@ -7,9 +7,11 @@
 #![deny(clippy::float_arithmetic)]
 
 pub mod cert;
+pub mod gershgorin;
 pub mod interval;
 pub mod ldl;
 
 pub use cert::{CertificateError, CertificateJson, VerificationOutcome, EXPECTED_FORMAT_V1};
+pub use gershgorin::{GershgorinBlockReport, GershgorinError};
 pub use interval::{IntervalError, RationalInterval};
 pub use ldl::{LdlError, LdlVerificationReport, RationalIntervalMatrix};

@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "claim": "C-0050",
+  "format": "rh-weil-certificate-v1",
+  "claim_profile": "exact_prime_legendre_schur",
+  "verified_scope": "localized_weil_positivity_T_7_20",
+  "basis_type": "legendre",
+  "parity_sector": "both",
+  "dimension": 32,
+  "support_T": "7/20",
+  "tail_rule": "legendre_component_gram_schur",
+  "tail_lower_bound": "36248577317193051188471141673041/41621490368165930842884302438400",
+  "ldl_report": null,
+  "schur_report": {
+    "is_positive_definite": true,
+    "complement_lower_bound": "36248577317193051188471141673041/41621490368165930842884302438400",
+    "schur_factor": "124864471104497792528652907315200/36248577317193051188471141673041",
+    "even": {
+      "dimension": 16,
+      "witness_lower_triangular": true,
+      "witness_invertible": true,
+      "min_margin": "17785254894936271196540587522097070225539421283851593653545177761745/1541843960876386629300146791416119282611162473685916984640787512819712",
+      "is_positive_definite": true
+    },
+    "odd": {
+      "dimension": 16,
+      "witness_lower_triangular": true,
+      "witness_invertible": true,
+      "min_margin": "304608700982886967968984979448175382184720119319084245444424500463795/6167375843505546517200587165664477130444649894743667938563150051278848",
+      "is_positive_definite": true
+    }
+  },
+  "notes": [
+    "Generator working tree dirty at generation: true",
+    "PASS: exact-prime Schur certificate has even/odd Gershgorin margins 17785254894936271196540587522097070225539421283851593653545177761745/1541843960876386629300146791416119282611162473685916984640787512819712 and 304608700982886967968984979448175382184720119319084245444424500463795/6167375843505546517200587165664477130444649894743667938563150051278848"
+  ]
+}

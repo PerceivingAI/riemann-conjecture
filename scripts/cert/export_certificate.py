@@ -79,6 +79,81 @@ def _parse_canonical_interval(value: dict[str, Any], path: str) -> tuple[Fractio
     return lo, hi
 
 
+def _parse_interval_matrix_object(
+    value: dict[str, Any],
+    dimension: int,
+    path: str,
+) -> dict[tuple[int, int], tuple[Fraction, Fraction]]:
+    if value["dimension"] != dimension:
+        raise ValueError(f"{path}.dimension must equal {dimension}")
+    expected_count = dimension * dimension
+    entries = value["entries"]
+    if len(entries) != expected_count:
+        raise ValueError(f"{path}.entries must contain exactly {expected_count} entries")
+
+    matrix: dict[tuple[int, int], tuple[Fraction, Fraction]] = {}
+    for index, entry in enumerate(entries):
+        row = entry["row"]
+        col = entry["col"]
+        if row >= dimension or col >= dimension:
+            raise ValueError(f"{path}.entries[{index}] coordinate is outside the matrix")
+        coordinate = (row, col)
+        if coordinate in matrix:
+            raise ValueError(f"{path}.entries contains duplicate coordinate {coordinate}")
+        matrix[coordinate] = _parse_canonical_interval(entry, f"{path}.entries[{index}]")
+
+    for row in range(dimension):
+        for col in range(dimension):
+            coordinate = (row, col)
+            if coordinate not in matrix:
+                raise ValueError(f"{path}.entries is missing coordinate {coordinate}")
+            if matrix[coordinate] != matrix[(col, row)]:
+                raise ValueError(f"{path} is not exactly symmetric at {coordinate}")
+    return matrix
+
+
+def _parse_exact_witness(
+    value: dict[str, Any],
+    dimension: int,
+    path: str,
+) -> dict[tuple[int, int], Fraction]:
+    if value["dimension"] != dimension:
+        raise ValueError(f"{path}.dimension must equal {dimension}")
+    if len(value["entries"]) != dimension * dimension:
+        raise ValueError(f"{path}.entries must contain exactly {dimension * dimension} entries")
+    matrix: dict[tuple[int, int], Fraction] = {}
+    for index, entry in enumerate(value["entries"]):
+        row = entry["row"]
+        col = entry["col"]
+        if row >= dimension or col >= dimension:
+            raise ValueError(f"{path}.entries[{index}] coordinate is outside the matrix")
+        coordinate = (row, col)
+        if coordinate in matrix:
+            raise ValueError(f"{path}.entries contains duplicate coordinate {coordinate}")
+        matrix[coordinate] = _parse_canonical_rational(entry, f"{path}.entries[{index}]")
+    for row in range(dimension):
+        for col in range(dimension):
+            coordinate = (row, col)
+            if coordinate not in matrix:
+                raise ValueError(f"{path}.entries is missing coordinate {coordinate}")
+            if col > row and matrix[coordinate] != 0:
+                raise ValueError(f"{path} must be lower triangular")
+        if matrix[(row, row)] == 0:
+            raise ValueError(f"{path} diagonal must be nonzero")
+    return matrix
+
+
+def _require_parity_block_diagonal(
+    matrix: dict[tuple[int, int], tuple[Fraction, Fraction]],
+    dimension: int,
+    path: str,
+) -> None:
+    for row in range(dimension):
+        for col in range(dimension):
+            if (row % 2) != (col % 2) and matrix[(row, col)] != (Fraction(0), Fraction(0)):
+                raise ValueError(f"{path} opposite-parity entry ({row}, {col}) must be exactly zero")
+
+
 def _validate_certificate_semantics(cert: dict[str, Any]) -> None:
     support = _parse_canonical_rational(cert["support_T"], "$.support_T")
     if support <= 0:
@@ -90,32 +165,7 @@ def _validate_certificate_semantics(cert: dict[str, Any]) -> None:
     dimension = cert["dimension"]
     if cert["basis"]["dimension"] != dimension:
         raise ValueError("$.basis.dimension must equal $.dimension")
-    if cert["matrix"]["dimension"] != dimension:
-        raise ValueError("$.matrix.dimension must equal $.dimension")
-
-    expected_count = dimension * dimension
-    entries = cert["matrix"]["entries"]
-    if len(entries) != expected_count:
-        raise ValueError(f"$.matrix.entries must contain exactly {expected_count} entries")
-
-    matrix: dict[tuple[int, int], tuple[Fraction, Fraction]] = {}
-    for index, entry in enumerate(entries):
-        row = entry["row"]
-        col = entry["col"]
-        if row >= dimension or col >= dimension:
-            raise ValueError(f"$.matrix.entries[{index}] coordinate is outside the matrix")
-        coordinate = (row, col)
-        if coordinate in matrix:
-            raise ValueError(f"$.matrix.entries contains duplicate coordinate {coordinate}")
-        matrix[coordinate] = _parse_canonical_interval(entry, f"$.matrix.entries[{index}]")
-
-    for row in range(dimension):
-        for col in range(dimension):
-            coordinate = (row, col)
-            if coordinate not in matrix:
-                raise ValueError(f"$.matrix.entries is missing coordinate {coordinate}")
-            if matrix[coordinate] != matrix[(col, row)]:
-                raise ValueError(f"$.matrix is not exactly symmetric at {coordinate}")
+    matrix = _parse_interval_matrix_object(cert["matrix"], dimension, "$.matrix")
 
     for name, interval in cert["constants"].items():
         _parse_canonical_interval(interval, f"$.constants.{name}")
@@ -123,12 +173,16 @@ def _validate_certificate_semantics(cert: dict[str, Any]) -> None:
     profile = cert["claim_profile"]
     tail = cert["tail_bound"]
     if profile == "synthetic_matrix":
+        if "schur_proof" in cert:
+            raise ValueError("$.schur_proof is only valid for exact_prime_legendre_schur")
         if cert["constants"]:
             raise ValueError("$.constants must be empty for synthetic_matrix")
         if tail["type"] != "exact_scalar_identity":
             raise ValueError("$.tail_bound is incompatible with synthetic_matrix")
         _parse_canonical_rational(tail["lambda"], "$.tail_bound.lambda")
     elif profile == "digamma_finite_block":
+        if "schur_proof" in cert:
+            raise ValueError("$.schur_proof is only valid for exact_prime_legendre_schur")
         if set(cert["constants"]) != {"m0_digamma"}:
             raise ValueError("$.constants must contain only m0_digamma for digamma_finite_block")
         if cert["basis"]["domain"] != "[-T, T]":
@@ -137,6 +191,42 @@ def _validate_certificate_semantics(cert: dict[str, Any]) -> None:
             raise ValueError("$.tail_bound is incompatible with digamma_finite_block")
         if tail["first_omitted_k"] != tail["k_max"] + 1:
             raise ValueError("$.tail_bound.first_omitted_k must equal k_max + 1")
+    elif profile == "exact_prime_legendre_schur":
+        if support != Fraction(7, 20):
+            raise ValueError("$.support_T must equal 7/20 for exact-prime profile")
+        if dimension != 32:
+            raise ValueError("$.dimension must equal 32 for exact-prime profile")
+        if cert["basis"] != {"type": "legendre", "dimension": 32, "domain": "[-1, 1]"}:
+            raise ValueError("$.basis must be the 32-dimensional Legendre basis on [-1, 1]")
+        if cert["parity_sector"] != "both":
+            raise ValueError("$.parity_sector must be both for exact-prime profile")
+        if set(cert["constants"]) != {"c2", "c_T", "rho_R"}:
+            raise ValueError("$.constants must contain exactly c2, c_T, and rho_R")
+        if tail["type"] != "legendre_component_gram_schur":
+            raise ValueError("$.tail_bound is incompatible with exact-prime profile")
+        if tail["harmonic_index"] != dimension:
+            raise ValueError("$.tail_bound.harmonic_index must equal dimension")
+        if _parse_canonical_rational(tail["factor"], "$.tail_bound.factor") != Fraction(3):
+            raise ValueError("$.tail_bound.factor must equal 3")
+        proof = cert["schur_proof"]
+        if proof["residual_order"] != 32:
+            raise ValueError("$.schur_proof.residual_order must equal 32")
+        _require_parity_block_diagonal(matrix, dimension, "$.matrix")
+        for name in ("GV", "G2", "GR"):
+            component = _parse_interval_matrix_object(
+                proof[name], dimension, f"$.schur_proof.{name}"
+            )
+            _require_parity_block_diagonal(
+                component, dimension, f"$.schur_proof.{name}"
+            )
+        _parse_exact_witness(proof["even_witness"], dimension // 2, "$.schur_proof.even_witness")
+        _parse_exact_witness(proof["odd_witness"], dimension // 2, "$.schur_proof.odd_witness")
+        c2_hi = _parse_canonical_interval(cert["constants"]["c2"], "$.constants.c2")[1]
+        c_t_hi = _parse_canonical_interval(cert["constants"]["c_T"], "$.constants.c_T")[1]
+        rho_hi = _parse_canonical_interval(cert["constants"]["rho_R"], "$.constants.rho_R")[1]
+        harmonic_n = sum((Fraction(1, k) for k in range(1, dimension + 1)), Fraction(0))
+        if harmonic_n - c2_hi - c_t_hi - rho_hi <= 0:
+            raise ValueError("derived exact-prime complement lower bound must be positive")
     else:
         raise ValueError(f"unsupported claim profile: {profile}")
 
@@ -176,7 +266,10 @@ def validate_certificate_schema(cert: dict[str, Any]) -> tuple[bool, str]:
     return True, "Certificate conforms to rh-weil-certificate-v1."
 
 
-def _generator_metadata(prec_bits: int) -> dict[str, Any]:
+def _generator_metadata(
+    prec_bits: int,
+    script: str = "scripts.cert.export_certificate",
+) -> dict[str, Any]:
     try:
         commit = subprocess.run(
             ["git", "rev-parse", "HEAD"],
@@ -201,7 +294,7 @@ def _generator_metadata(prec_bits: int) -> dict[str, Any]:
     timestamp = datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z")
     return {
         "generator": "scripts.cert",
-        "script": "scripts.cert.export_certificate",
+        "script": script,
         "version": __version__,
         "git_commit": commit,
         "git_dirty": bool(status.strip()),

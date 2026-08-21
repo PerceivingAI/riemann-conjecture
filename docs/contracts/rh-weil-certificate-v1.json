@@ -28,7 +28,8 @@
     "claim_profile": {
       "enum": [
         "synthetic_matrix",
-        "digamma_finite_block"
+        "digamma_finite_block",
+        "exact_prime_legendre_schur"
       ]
     },
     "support_T": {
@@ -59,6 +60,9 @@
     },
     "generator_metadata": {
       "$ref": "#/$defs/generatorMetadata"
+    },
+    "schur_proof": {
+      "$ref": "#/$defs/schurProof"
     }
   },
   "allOf": [
@@ -113,6 +117,38 @@
           },
           "tail_bound": {
             "$ref": "#/$defs/nonnegativeDigammaTail"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "claim_profile": {
+            "const": "exact_prime_legendre_schur"
+          }
+        },
+        "required": ["claim_profile"]
+      },
+      "then": {
+        "required": ["schur_proof"],
+        "properties": {
+          "basis": {
+            "properties": {
+              "type": {"const": "legendre"},
+              "dimension": {"const": 32},
+              "domain": {"const": "[-1, 1]"}
+            }
+          },
+          "parity_sector": {"const": "both"},
+          "dimension": {"const": 32},
+          "constants": {
+            "required": ["c2", "c_T", "rho_R"],
+            "minProperties": 3,
+            "maxProperties": 3
+          },
+          "tail_bound": {
+            "$ref": "#/$defs/legendreSchurTail"
           }
         }
       }
@@ -243,6 +279,9 @@
         },
         "m0_digamma": {
           "$ref": "#/$defs/interval"
+        },
+        "rho_R": {
+          "$ref": "#/$defs/interval"
         }
       },
       "additionalProperties": false
@@ -302,6 +341,53 @@
       },
       "additionalProperties": false
     },
+    "exactMatrixEntry": {
+      "type": "object",
+      "required": ["row", "col", "num", "den"],
+      "properties": {
+        "row": {"type": "integer", "minimum": 0},
+        "col": {"type": "integer", "minimum": 0},
+        "num": {"$ref": "#/$defs/canonicalInteger"},
+        "den": {"$ref": "#/$defs/positiveInteger"}
+      },
+      "additionalProperties": false
+    },
+    "exactMatrix": {
+      "type": "object",
+      "required": ["dimension", "entries"],
+      "properties": {
+        "dimension": {"type": "integer", "minimum": 1},
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/exactMatrixEntry"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "schurProof": {
+      "type": "object",
+      "required": ["residual_order", "GV", "G2", "GR", "even_witness", "odd_witness"],
+      "properties": {
+        "residual_order": {"const": 32},
+        "GV": {"$ref": "#/$defs/matrix"},
+        "G2": {"$ref": "#/$defs/matrix"},
+        "GR": {"$ref": "#/$defs/matrix"},
+        "even_witness": {"$ref": "#/$defs/exactMatrix"},
+        "odd_witness": {"$ref": "#/$defs/exactMatrix"}
+      },
+      "additionalProperties": false
+    },
+    "legendreSchurTail": {
+      "type": "object",
+      "required": ["type", "harmonic_index", "factor"],
+      "properties": {
+        "type": {"const": "legendre_component_gram_schur"},
+        "harmonic_index": {"const": 32},
+        "factor": {"$ref": "#/$defs/rational"}
+      },
+      "additionalProperties": false
+    },
     "exactScalarIdentityTail": {
       "type": "object",
       "required": [
@@ -347,6 +433,9 @@
         },
         {
           "$ref": "#/$defs/nonnegativeDigammaTail"
+        },
+        {
+          "$ref": "#/$defs/legendreSchurTail"
         }
       ]
     },

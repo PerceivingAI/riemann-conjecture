@@ -57,12 +57,17 @@ fn main() -> ExitCode {
                         println!("Parity:      {}", outcome.parity_sector);
                         println!("Tail rule:   {}", outcome.tail_rule);
                         println!("Tail bound:  {}", outcome.tail_lower_bound);
-                        println!("Symmetric:   {}", outcome.ldl_report.is_symmetric);
-                        println!("Positive:    {}", outcome.ldl_report.is_positive_definite);
-                        println!(
-                            "Min D bound: {}",
-                            outcome.ldl_report.min_diagonal_lower_bound
-                        );
+                        if let Some(report) = &outcome.ldl_report {
+                            println!("Symmetric:   {}", report.is_symmetric);
+                            println!("Positive:    {}", report.is_positive_definite);
+                            println!("Min D bound: {}", report.min_diagonal_lower_bound);
+                        }
+                        if let Some(report) = &outcome.schur_report {
+                            println!("Schur positive: {}", report.is_positive_definite);
+                            println!("Schur factor:   {}", report.schur_factor);
+                            println!("Even margin:    {}", report.even.min_margin);
+                            println!("Odd margin:     {}", report.odd.min_margin);
+                        }
                         println!("------------------------------------------------------------");
                         for note in &outcome.notes {
                             println!("{}", note);

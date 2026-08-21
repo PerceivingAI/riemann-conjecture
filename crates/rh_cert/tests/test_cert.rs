@@ -117,7 +117,12 @@ fn tail_lower_bound_is_absorbed_before_ldl() {
     assert!(!outcome.passed);
     assert_eq!(outcome.tail_lower_bound, "-2/1");
     assert_eq!(
-        outcome.ldl_report.min_diagonal_lower_bound.to_string(),
+        outcome
+            .ldl_report
+            .as_ref()
+            .expect("LDL report")
+            .min_diagonal_lower_bound
+            .to_string(),
         "-1"
     );
 }
