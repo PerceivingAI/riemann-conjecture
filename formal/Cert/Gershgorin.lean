@@ -54,20 +54,10 @@ def StrictPositiveRowDominant (A : Matrix n n ℝ) : Prop :=
 
  theorem posDef_of_invertible_congruence
     {A C : Matrix n n ℝ}
-    (hA : A.IsSymm)
     (hC : IsUnit C)
     (hCong : (C * A * C.transpose).PosDef) :
     A.PosDef := by
-  have hCt : IsUnit C.transpose := by
-    simpa using hC.transpose
-  have hAeq : A = C⁻¹ * (C * A * C.transpose) * (C.transpose)⁻¹ := by
-    calc
-      A = 1 * A * 1 := by simp
-      _ = (C⁻¹ * C) * A * (C.transpose * (C.transpose)⁻¹) := by
-        rw [hC.inv_mul, hCt.mul_inv]
-      _ = C⁻¹ * (C * A * C.transpose) * (C.transpose)⁻¹ := by
-        simp [Matrix.mul_assoc]
-  rw [hAeq]
-  exact hCong.posDef_conjTranspose hC.inv
+  apply (hC.posDef_star_right_conjugate_iff (x := A)).mp
+  simpa [star_eq_conjTranspose] using hCong
 
 end GershgorinCert
