@@ -1,10 +1,42 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T02:26:00Z`
+- **Last updated:** `2026-08-21T04:47:19Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+---
+
+## 2026-08-21T04:06:54Z — First-prime continuation sharpened; exact endpoint absorption proved
+
+**Type:** Research attempt / exact rational certificate / finite-support normalization / external proof-code audit
+
+Completed `A-20260821-003`.
+
+At `T=7/20`, an exact rational certificate now proves the first-prime endpoint absorption estimate
+
+```text
+V + P_2 >= (69/100) V >= 0.
+```
+
+The proof establishes the required bounds for `log 2`, the endpoint parameter, and `log(2)/sqrt(2)` using exact `Fraction` arithmetic and a rational atanh-series remainder; no floating approximation is treated as a certificate.
+
+The exact digamma multiplier also admits a monotone positive-kernel decomposition into terms
+
+```text
+(1/a_k)||f||^2 - integral integral exp[-2a_k|t-s|] f(t) conjugate(f(s)) dt ds >= 0.
+```
+
+A normalization audit of Suzuki's finite-support formula established that its residual finite-support kernel is mandatory. An exploratory Galerkin model that omitted this residual was therefore discarded before being registered as evidence.
+
+The public `weil-first-prime` FP-0.35 proof-code architecture was audited at pinned commit `e66f467bc4447c5b2491577cbb6c3ae0e721fb43`. It is retained only as an unverified proof candidate: the inspected full-constant replay paths use point approximations or non-final LDL paths, while the more exact prime-layer gate corresponds to an easier `c_L=0` auxiliary problem. No external `FP-0.35 HOLDS` status was imported into this repository.
+
+`X-20260821-003` retains the exact endpoint certificate and 256-bit Arb enclosures for `tau`, `c_2`, and the exact Suzuki Weil constant.
+
+Recorded `F-20260821-012` through `F-20260821-015`, `C-0042` through `C-0044`, computation `X-20260821-003`, and references `R-0028` through `R-0031`.
+
+**Outcome:** RH remains unresolved. The next target is an independent rigorous residual/Schur certificate at `T=7/20`, with exact transcendental intervals, the mandatory finite-support residual, parity-adapted finite blocks, and a justified infinite-dimensional complement bound.
 
 ---
 

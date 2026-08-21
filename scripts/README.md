@@ -112,13 +112,33 @@ The zero orbits are synthetic diagnostics only.
 
 ### `weil_support_geometry.py`
 
-Supports `A-20260821-002`. It records the half-log prime-power support thresholds and the exact path-graph norm of symmetrized compressed translations on `L2([-T,T])`.
+Supports `A-20260821-002`. It records the half-log prime-power support thresholds and the exact path-graph norm of symmetrized compressed translations on `L2([-T,T])`. The later `A-20260821-003` work adds the exact finite-support normalization and residual-term requirements.
 
 ```text
 python scripts/weil_support_geometry.py --T 0.45 --max-m 20 --output-json computations/.../data/support-T045.json
 ```
 
 It does not approximate the archimedean Weil operator.
+
+### `weil_endpoint_absorption_certificate.py`
+
+Supports `A-20260821-003`. It proves the `T=7/20` first-prime endpoint absorption inequality using exact `Fraction` arithmetic, including certified rational logarithm bounds derived from the atanh series:
+
+```text
+V + P_2 >= (69/100) V >= 0.
+```
+
+```text
+python scripts/weil_endpoint_absorption_certificate.py --output-json computations/.../data/endpoint-absorption-rational.json
+```
+
+### `weil_exact_constants.py`
+
+Supports `A-20260821-003`. It uses python-flint/Arb to enclose the exact transcendental constants needed by future interval certificates, including `tau=log(2)/T`, `c_2=log(2)/sqrt(2)`, and `c_T=log(2*pi*T)+EulerGamma` at `T=7/20`.
+
+```text
+python scripts/weil_exact_constants.py --prec 256 --output-json computations/.../data/exact-constants-arb.json
+```
 
 ## Shared implementation
 

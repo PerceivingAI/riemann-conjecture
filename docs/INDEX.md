@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T02:26:00Z`
+- **Last updated:** `2026-08-21T04:47:19Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -35,6 +35,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260821-001`](../attempts/2026-08-21T020900Z-global-bilinear-vaughan-chirp-route.md) — global Vaughan/Heath-Brown bilinear phase test; rank-one/separability and square-root-saving barriers; `COMPLETE` negative diagnostic.
 
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit, Weil support thresholds, and first-prime compressed-translation mechanism; `COMPLETE`.
+- [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — first-prime support continuation; exact endpoint absorption, digamma kernel decomposition, residual-term correction, and external-certificate audit; `COMPLETE` intermediate.
 
 ## Landmark findings
 
@@ -78,6 +79,10 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`F-20260821-009`](../findings/2026-08-21T022600Z-weil-primes-are-thresholded-compressed-translations.md) — prime powers enter Weil support as compressed translations.
 - [`F-20260821-010`](../findings/2026-08-21T022600Z-first-prime-compressed-shift-norm.md) — exact compressed-shift norm and first-prime perturbation size.
 - [`F-20260821-011`](../findings/2026-08-21T022600Z-restricted-weil-positivity-is-genuine-foothold.md) — restricted-support Weil positivity supplies an unconditional base regime.
+- [`F-20260821-012`](../findings/2026-08-21T040654Z-first-prime-endpoint-absorption.md) — exact rational endpoint absorption at `T=7/20`: `V+P_2 >= (69/100)V`.
+- [`F-20260821-013`](../findings/2026-08-21T040654Z-digamma-positive-kernel-decomposition.md) — digamma multiplier decomposes into monotone nonnegative kernel corrections.
+- [`F-20260821-014`](../findings/2026-08-21T040654Z-finite-support-residual-is-mandatory.md) — Suzuki finite-support residual kernel is mandatory in the exact localized Weil form.
+- [`F-20260821-015`](../findings/2026-08-21T040654Z-external-fp035-certificate-not-verified.md) — public FP-0.35 certificate architecture audited but not accepted as verified.
 
 ## Computations
 
@@ -94,6 +99,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`X-20260821-001`](../computations/2026-08-21T020900Z-bilinear-chirp-geometry/record.md) — dyadic cross-defect, separability, and bilinear nonseparability-scale diagnostics.
 
 - [`X-20260821-002`](../computations/2026-08-21T022600Z-positivity-kernel-audit/record.md) — Li Gram/Schoenberg finite diagnostics and Weil support/translation geometry.
+- [`X-20260821-003`](../computations/2026-08-21T034825Z-first-prime-weil-continuation/record.md) — exact rational endpoint-absorption certificate and Arb enclosures for first-prime constants.
 
 ## Templates
 
@@ -103,4 +109,4 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Current state
 
-RH remains unresolved. The positivity audit found a genuine unconditional base regime in restricted-support Weil positivity; the active frontier is continuation across the first prime threshold using the exact `m=2` compressed-translation operator; see [`STATUS.md`](STATUS.md).
+RH remains unresolved. Exact endpoint absorption at `T=7/20` is now proved, but the full finite-support Weil form still requires an independent rigorous residual/Schur certificate including Suzuki's mandatory residual kernel; see [`STATUS.md`](STATUS.md).

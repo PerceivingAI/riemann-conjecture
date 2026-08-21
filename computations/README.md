@@ -1,7 +1,7 @@
 # Computations
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T02:26:00Z`
+- **Last updated:** `2026-08-21T04:47:19Z`
 
 This directory contains timestamped numerical and symbolic experiments. Every retained computation must be reproducible and must distinguish numerical evidence from proof.
 
@@ -20,6 +20,7 @@ This directory contains timestamped numerical and symbolic experiments. Every re
 - [`X-20260821-001`](2026-08-21T020900Z-bilinear-chirp-geometry/record.md) — dyadic Type-II cross-defect, rank-one phase geometry, and `sqrt(n)` nonseparability-scale diagnostics.
 
 - [`X-20260821-002`](2026-08-21T022600Z-positivity-kernel-audit/record.md) — finite Li Gram/Schoenberg diagnostics, prime-atom sign checks, and exact Weil support/translation geometry.
+- [`X-20260821-003`](2026-08-21T034825Z-first-prime-weil-continuation/record.md) — exact rational endpoint absorption at `T=7/20` and certified Arb enclosures for `tau`, `log(2)/sqrt(2)`, and the Suzuki Weil constant.
 
 ## Directory Bundle Standard
 

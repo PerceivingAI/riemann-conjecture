@@ -94,7 +94,9 @@ Start here depending on what you need:
 │   ├── chirp_window_diagnostics.py
 │   ├── bilinear_chirp_geometry.py
 │   ├── positivity_kernel_diagnostics.py
-│   └── weil_support_geometry.py
+│   ├── weil_support_geometry.py
+│   ├── weil_endpoint_absorption_certificate.py
+│   └── weil_exact_constants.py
 ├── templates/
 │   ├── ATTEMPT.md
 │   ├── FINDING.md
