@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-21T02:09:00Z`
+- **Last updated:** `2026-08-21T02:26:00Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -99,6 +99,26 @@ python scripts/bilinear_chirp_geometry.py --s0 3 --n 1024 --output-json computat
 ```
 
 The script is deterministic phase geometry only; it does not enumerate primes or test arithmetic cancellation.
+
+### `positivity_kernel_diagnostics.py`
+
+Supports `A-20260821-002`. It checks synthetic Li Gram and Schoenberg matrices and the deterministic negative-diagonal structure of generalized prime-atom Gram contributions.
+
+```text
+python scripts/positivity_kernel_diagnostics.py --n-dim 8 --theta 0.7 --r 1.2 --search-n 100 --t 0.5 --x 0,1,5,10 --output-json computations/.../data/kernel-diagnostics.json
+```
+
+The zero orbits are synthetic diagnostics only.
+
+### `weil_support_geometry.py`
+
+Supports `A-20260821-002`. It records the half-log prime-power support thresholds and the exact path-graph norm of symmetrized compressed translations on `L2([-T,T])`.
+
+```text
+python scripts/weil_support_geometry.py --T 0.45 --max-m 20 --output-json computations/.../data/support-T045.json
+```
+
+It does not approximate the archimedean Weil operator.
 
 ## Shared implementation
 

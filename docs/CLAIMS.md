@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T02:09:00Z`
+- **Last updated:** `2026-08-21T02:26:00Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -400,6 +400,72 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0031`, `C-0032`, `C-0034`
 - **Source:** `A-20260821-001`, `F-20260821-005`, `R-0021`, `R-0022`, `R-0023`
 - **Verification notes:** This closes the proposed new bilinear **phase** mechanism; it does not claim that every specialized arithmetic use of Vaughan/Heath-Brown coefficients is impossible.
+
+### C-0036 — Exact Li Gram kernel is RH-equivalent
+
+- **Statement:** With `lambda_0=0`, the matrices `K^(N)=[lambda_j+lambda_k-lambda_|j-k|]_(1<=j,k<=N)` are PSD for every `N` under RH, because they are Gram matrices of the vectors `1-w_rho^j` on the Cayley zero phases. Conversely `K_nn=2lambda_n`, so PSD of all finite matrices implies Li positivity and RH.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T02:26:00Z`
+- **Last verified:** `2026-08-21T02:26:00Z`
+- **Dependencies:** `C-0001`
+- **Source:** `A-20260821-002`, `F-20260821-006`, `R-0001`, `R-0002`
+- **Verification notes:** Exact expansion and diagonal converse; synthetic unit-circle Gram matrix checked in `X-20260821-002`.
+
+### C-0037 — Li conditional-negative-definite / Schoenberg-Herglotz equivalence
+
+- **Statement:** Under RH, `psi(n)=lambda_|n|` is conditionally negative definite on `Z`. Hence `exp[-t lambda_|n|]` is positive definite for every `t>0`, is the Fourier sequence of a probability measure on the unit circle, and these measures form a convolution semigroup. Conversely conditional negative definiteness already implies every `lambda_n>=0`, hence RH.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T02:26:00Z`
+- **Last verified:** `2026-08-21T02:26:00Z`
+- **Dependencies:** `C-0001`
+- **Source:** `A-20260821-002`, `F-20260821-007`, `R-0026`
+- **Verification notes:** Zero-sum quadratic form becomes a negative sum of squares; Schoenberg/Herglotz are standard harmonic-analysis theorems. Converse follows from the two-point test `(1,-1)`.
+
+### C-0038 — Natural generalized prime Gram atoms are not PSD
+
+- **Statement:** For the generalized Li kernel at `s0>1`, one prime-power atom contributes `-c_m[B_j(x)+B_k(x)-B_|j-k|(x)]`, where `c_m=A Lambda(m)m^(-s0)>0`, `B_n=L_(n-1)^(1)(x)`, and `B_0=0`. Its first diagonal entry is always `-2c_m<0`; therefore prime powers are not positive Gram atoms in this natural basis.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T02:26:00Z`
+- **Last verified:** `2026-08-21T02:26:00Z`
+- **Dependencies:** `C-0006`
+- **Source:** `A-20260821-002`, `F-20260821-008`, `X-20260821-002`
+- **Verification notes:** Exact `B_1=1`, `B_0=0` calculation; sampled finite matrices agree.
+
+### C-0039 — Weil prime powers enter as thresholded compressed translations
+
+- **Statement:** If the logarithmic test function is supported in `[-T,T]`, its autocorrelation is supported in `[-2T,2T]`, so prime power `m` enters the Weil quadratic form only when `T>(1/2)log m`. Its quadratic contribution is `-[Lambda(m)/sqrt(m)] P_T(U_(log m)+U_(log m)^*)P_T` on `L2([-T,T])` (with the standard pole constraints imposed on the admissible subspace).
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T02:26:00Z`
+- **Last verified:** `2026-08-21T02:26:00Z`
+- **Dependencies:** none
+- **Source:** `A-20260821-002`, `F-20260821-009`, `R-0024`, `R-0025`
+- **Verification notes:** Direct convolution-support and correlation-operator calculation.
+
+### C-0040 — Exact compressed-shift norm and first-prime perturbation
+
+- **Statement:** For `S_(T,a)=P_T(U_a+U_a^*)P_T`, let `L=ceil(2T/a)` be the essential maximal translation-chain length. Then `||S_(T,a)||=2cos(pi/(L+1))`. Hence throughout `(1/2)log2<T<(1/2)log3`, only `m=2` is active, `||S_(T,log2)||=1`, and its exact scalar perturbation norm is `log2/sqrt2=0.4901290717...`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T02:26:00Z`
+- **Last verified:** `2026-08-21T02:26:00Z`
+- **Dependencies:** `C-0039`
+- **Source:** `A-20260821-002`, `F-20260821-010`, `X-20260821-002`
+- **Verification notes:** Direct-integral decomposition into finite path adjacency matrices; deterministic support diagnostics checked at `T=0.34,0.45,0.60`.
+
+### C-0041 — Restricted-support Weil positivity gives an unconditional base regime
+
+- **Statement:** Full positive semidefiniteness of Weil's quadratic functional on the admissible test class is equivalent to RH, but positivity is established unconditionally on a proper small-support class. Bombieri reproves the restricted-support result of Yoshida, and Connes-Consani provide an operator-theoretic explanation for the archimedean-place positivity in the prime-free support regime. Thus support continuation has an unconditional starting point unlike the Li Gram reformulations.
+- **Type:** `ESTABLISHED_THEOREM`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T02:26:00Z`
+- **Last verified:** `2026-08-21T02:26:00Z`
+- **Dependencies:** none
+- **Source:** `A-20260821-002`, `F-20260821-011`, `R-0024`, `R-0025`, `R-0027`
+- **Verification notes:** Bombieri's published quadratic-functional study and Connes-Consani's published archimedean-place positivity paper were checked; Suzuki provides a modern integral-operator form of Weil positivity.
 
 ## Entry format
 

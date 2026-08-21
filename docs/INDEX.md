@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T02:09:00Z`
+- **Last updated:** `2026-08-21T02:26:00Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -33,6 +33,8 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260820-006`](../attempts/2026-08-20T224400Z-prime-side-chirp-dirichlet-reduction.md) — endpoint closure, microlocal prime Dirichlet reduction, and generic one-dimensional mean-value barrier; `COMPLETE`.
 
 - [`A-20260821-001`](../attempts/2026-08-21T020900Z-global-bilinear-vaughan-chirp-route.md) — global Vaughan/Heath-Brown bilinear phase test; rank-one/separability and square-root-saving barriers; `COMPLETE` negative diagnostic.
+
+- [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit, Weil support thresholds, and first-prime compressed-translation mechanism; `COMPLETE`.
 
 ## Landmark findings
 
@@ -70,6 +72,13 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`F-20260821-004`](../findings/2026-08-21T020900Z-square-root-saving-threshold.md) — direct fixed-interior prime estimates require square-root saving.
 - [`F-20260821-005`](../findings/2026-08-21T020900Z-vaughan-phase-route-blocked.md) — generic Vaughan/Heath-Brown phase route is blocked.
 
+- [`F-20260821-006`](../findings/2026-08-21T022600Z-exact-li-gram-kernel.md) — exact finite Li Gram kernel is RH-equivalent.
+- [`F-20260821-007`](../findings/2026-08-21T022600Z-li-schoenberg-herglotz-equivalence.md) — Li sequence is CND/Schoenberg-Herglotz exactly under RH.
+- [`F-20260821-008`](../findings/2026-08-21T022600Z-prime-atoms-not-positive-gram-pieces.md) — generalized prime atoms are not PSD Gram pieces.
+- [`F-20260821-009`](../findings/2026-08-21T022600Z-weil-primes-are-thresholded-compressed-translations.md) — prime powers enter Weil support as compressed translations.
+- [`F-20260821-010`](../findings/2026-08-21T022600Z-first-prime-compressed-shift-norm.md) — exact compressed-shift norm and first-prime perturbation size.
+- [`F-20260821-011`](../findings/2026-08-21T022600Z-restricted-weil-positivity-is-genuine-foothold.md) — restricted-support Weil positivity supplies an unconditional base regime.
+
 ## Computations
 
 - [`X-20260820-001`](../computations/2026-08-20T210531Z-exact-identity-verification/record.md) — exact finite identity checks.
@@ -84,6 +93,8 @@ This is the compact index of the Riemann Conjecture research repository.
 
 - [`X-20260821-001`](../computations/2026-08-21T020900Z-bilinear-chirp-geometry/record.md) — dyadic cross-defect, separability, and bilinear nonseparability-scale diagnostics.
 
+- [`X-20260821-002`](../computations/2026-08-21T022600Z-positivity-kernel-audit/record.md) — Li Gram/Schoenberg finite diagnostics and Weil support/translation geometry.
+
 ## Templates
 
 - [`../templates/ATTEMPT.md`](../templates/ATTEMPT.md)
@@ -92,4 +103,4 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Current state
 
-RH remains unresolved. The direct Li/Laguerre prime-cancellation branch is now blocked at an essentially square-root arithmetic requirement; the next frontier is a mechanism pivot to positivity/moment formulations of the Cayley/Li zero moments; see [`STATUS.md`](STATUS.md).
+RH remains unresolved. The positivity audit found a genuine unconditional base regime in restricted-support Weil positivity; the active frontier is continuation across the first prime threshold using the exact `m=2` compressed-translation operator; see [`STATUS.md`](STATUS.md).

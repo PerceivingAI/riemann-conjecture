@@ -1,280 +1,260 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T02:09:00Z`
+- **Last updated:** `2026-08-21T02:26:00Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
 
 ## Current state
 
-Seven formal research attempts are recorded:
+Eight formal research attempts are recorded:
 
 - [`A-20260820-001`](../attempts/2026-08-20T203700Z-li-laguerre-prime-trace-route.md) — generalized Li/Laguerre route; `BLOCKED`, with later corrections preserved.
 - [`A-20260820-002`](../attempts/2026-08-20T204900Z-pole-subtracted-prime-laguerre-route.md) — exact zeta-pole subtraction and discrepancy criterion; `COMPLETE` intermediate target.
-- [`A-20260820-003`](../attempts/2026-08-20T210531Z-airy-saddle-discrepancy-kernel-route.md) — uniform post-turning saddle analysis; `SUPERSEDED` as active frontier by later phase-sensitive work.
-- [`A-20260820-004`](../attempts/2026-08-20T212000Z-post-turning-phase-aware-discrepancy-route.md) — region-splitting test, exact zero-mode response, and averaging barriers; `COMPLETE` intermediate target.
-- [`A-20260820-005`](../attempts/2026-08-20T221500Z-uniform-preturning-laguerre-phase-route.md) — exact uniform pre-turning phase, stationary-frequency map, Cayley saddle structure, and coefficient-`L2` circularity guard; `COMPLETE` intermediate target.
-- [`A-20260820-006`](../attempts/2026-08-20T224400Z-prime-side-chirp-dirichlet-reduction.md) — endpoint closure, microlocal Dirichlet-polynomial reduction, and generic one-dimensional mean-value barrier; `COMPLETE` intermediate target.
-- [`A-20260821-001`](../attempts/2026-08-21T020900Z-global-bilinear-vaughan-chirp-route.md) — global Vaughan/Heath-Brown bilinear phase test; rank-one/separability and square-root-saving barriers; `COMPLETE` negative diagnostic.
+- [`A-20260820-003`](../attempts/2026-08-20T210531Z-airy-saddle-discrepancy-kernel-route.md) — uniform post-turning saddle analysis; `SUPERSEDED` as active frontier.
+- [`A-20260820-004`](../attempts/2026-08-20T212000Z-post-turning-phase-aware-discrepancy-route.md) — exact zero-mode response and phase-sensitive averaging barriers; `COMPLETE`.
+- [`A-20260820-005`](../attempts/2026-08-20T221500Z-uniform-preturning-laguerre-phase-route.md) — exact uniform pre-turning phase and Cayley saddle structure; `COMPLETE`.
+- [`A-20260820-006`](../attempts/2026-08-20T224400Z-prime-side-chirp-dirichlet-reduction.md) — endpoint closure and microlocal Dirichlet reduction; `COMPLETE`.
+- [`A-20260821-001`](../attempts/2026-08-21T020900Z-global-bilinear-vaughan-chirp-route.md) — global Vaughan/Heath-Brown phase test; `COMPLETE` negative diagnostic.
+- [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit and restricted-support Weil operator mechanism; `COMPLETE`.
 
-The versioned Python environment, pytest/Hypothesis suite, and native Rust engine support nine retained computation records under [`../computations/`](../computations/).
+The repository now contains ten retained computation records. No proof of RH has been obtained.
 
-No proof of RH has been obtained.
+## Active leads
 
-## Active frontier
-
-### L1 — Mechanism pivot: positivity / moment-matrix structure
+### L1 — First-prime Weil support continuation
 
 **Status:** `ACTIVE / PRIMARY / NEXT`
 
-The direct Li/Laguerre prime-cancellation branch has now been pushed to a clear boundary. The exact Cayley/Laguerre sequence remains useful:
+The positivity audit found the first mechanism in this project with a genuinely unconditional base regime.
+
+For logarithmic support
 
 ```text
-RH <=> limsup |S_n|^(1/n) <= 1,
+supp f subset [-T,T],
 ```
 
-and a single zero mode contributes
+the autocorrelation is supported in `[-2T,2T]`, so prime power `m` enters Weil's explicit-formula quadratic form only at
 
 ```text
-z_rho^(-n)-1.
+T>(1/2)log m.
 ```
 
-But `A-006` and `A-20260821-001` show that direct prime-side magnitude estimates require essentially square-root cancellation at exponentially large prime scales, while standard multiplicative convolution identities do not create new independent oscillatory phase directions.
-
-The next attempt should therefore change mechanism rather than further refactor `Lambda`.
-
-Concrete target:
-
-1. derive the exact generalized-Cayley moment sequence associated with the zero multiset;
-2. determine the natural Toeplitz/Herglotz or Weil quadratic form built from those moments;
-3. characterize precisely what positivity/positive-semidefiniteness means in terms of zeros lying on the critical line;
-4. inspect the prime plus archimedean explicit-formula side for any structural positivity that is not merely an immediate restatement of RH;
-5. stop immediately if the proposed PSD condition is just another equivalent criterion with no new unconditional mechanism.
-
-### L2 — Direct Li/Laguerre prime cancellation
-
-**Status:** `BLOCKED AS CURRENT PROOF MECHANISM / RESULTS RETAINED`
-
-The authoritative prime-discrepancy transform is still
+The prime-free regime is
 
 ```text
-S_n
-= A integral x^(-s0)L_(n-1)^(1)(A log x)
-    d(psi(x)-x),
-A=2s0-1.
+T<(1/2)log2.
 ```
 
-Established structural results remain valid:
+Restricted-support archimedean Weil positivity is known unconditionally (`C-0041`).
 
-- exact zeta-pole subtraction (`C-0009`-`C-0011`);
-- exact zero-mode response (`C-0019`);
-- uniform pre-turning stationary map (`C-0021`);
-- critical-half-weight nonlinear chirp (`C-0023`);
-- shrinking endpoint closure and prime-frequency cap (`C-0026`, `C-0027`);
-- microlocal Dirichlet reduction (`C-0028`).
-
-But the direct cancellation target now has two independent barriers:
-
-1. matched local smooth cells are zero-sensitive (`C-0030`);
-2. any direct fixed-interior magnitude estimate `X^(1-delta)` must have `delta>=1/2` to reach root `1` (`C-0034`).
-
-No currently identified unconditional arithmetic input supplies that scale without approaching an RH-equivalent prime error estimate.
-
-### L3 — Vaughan / Heath-Brown finite convolution route
-
-**Status:** `CLOSED AS NEW PHASE MECHANISM`
-
-For a finite factorization
+The first arithmetic window is
 
 ```text
-m=a_1...a_k,
-r_j=log a_j,
+(1/2)log2 < T < (1/2)log3,
 ```
 
-the phase is
+where only `m=2` is active.
+
+On the standard constrained Weil space, the full operator has the form
 
 ```text
-F_k(r_1,...,r_k)=Phi_n(r_1+...+r_k)
+A_infinity(T)
+- [log2/sqrt2] S_(T,log2),
 ```
 
-and
+where
 
 ```text
-Hess F_k=Phi_n'' 1 1^T.
+S_(T,a)=P_T(U_a+U_a^*)P_T.
 ```
 
-Thus its logarithmic Hessian has rank at most one (`C-0031`). The `k-1` directions preserving the product are phase-flat.
-
-On standard dyadic Type-II boxes,
+Throughout this entire first-prime window,
 
 ```text
-|Delta F|=O(1/n),
+||S_(T,log2)||=1,
 ```
 
-so the kernel is asymptotically separable (`C-0032`). Generic arbitrary-coefficient bilinear estimates therefore cannot obtain exponential saving from this phase alone.
-
-Balanced `O(1)` cross-phase coupling first appears on factor log-widths of order `sqrt(n)` (`C-0033`), but this does not create exponentially many independent oscillations. The formal total pre-turning phase excursion is only `pi n`.
-
-Further finite divisor identities are not a justified next step unless a genuinely new arithmetic mechanism is identified.
-
-### L4 — Generic one-dimensional mean values / large sieve
-
-**Status:** `CLOSED AS SOLE MECHANISM`
-
-`A-006` established that a fixed-interior chirp cell has exponentially long Dirichlet-polynomial length
+so the exact scalar size of the first arithmetic perturbation is
 
 ```text
-N=exp(4n*u/A+o(n)),
+log2/sqrt2
+=0.4901290717... .
 ```
 
-while the available Mellin-frequency range is subexponential. The Montgomery-Vaughan length term therefore leaves RMS root base
+The next task is a **relative operator comparison**, not another global prime bound.
+
+### L2 — Li Gram / moment formulations
+
+**Status:** `CLOSED AS EQUIVALENT CRITERIA / AVAILABLE STRUCTURE`
+
+The finite kernel
 
 ```text
-exp(2u/A)>1
+K_jk=lambda_j+lambda_k-lambda_|j-k|
 ```
 
-(`C-0029`).
-
-### L5 — Left endpoint / high-frequency prime side
-
-**Status:** `CLOSED AS PRIMARY BLOCKER / AVAILABLE BOUNDS`
-
-Actual prime atoms begin at
+is a Gram matrix under RH, but
 
 ```text
-u_2=A log 2/(4n),
+K_nn=2lambda_n.
 ```
 
-so their maximum local Mellin frequency is only
+Hence
 
 ```text
-gamma_2(n)~sqrt(A n/log 2)=O(sqrt(n)).
+RH <=> K^(N) PSD for every N.
 ```
 
-The deterministic interval `[1,2)` is polynomially bounded and every shrinking `u=o(1)` endpoint is subexponential (`C-0026`, `C-0027`).
+The matrix criterion contains Li positivity directly on its diagonal (`C-0036`).
 
-### L6 — Far post-turning tail
+Likewise,
 
-**Status:** `CLOSED / AVAILABLE BOUND`
+```text
+psi(n)=lambda_|n|
+```
 
-Any fixed region beyond the post-turning root-one crossing is exponentially suppressed using uniform Laguerre decay and only the ordinary PNT (`C-0018`).
+is conditionally negative definite under RH, so
+
+```text
+exp[-t lambda_|n|]
+```
+
+is positive definite and gives a Herglotz probability-measure convolution semigroup. But the two-point CND test immediately gives `lambda_n>=0`, so this is again exactly RH (`C-0037`).
+
+These formulations are structural tools, not independent progress toward RH.
+
+### L3 — Prime/archimedean compensation in the generalized Li basis
+
+**Status:** `STRUCTURAL OBSTRUCTION`
+
+A single generalized prime-power atom contributes to the natural Li Gram kernel with
+
+```text
+K_11^(m)=-2A Lambda(m)m^(-s0)<0.
+```
+
+Thus the prime side is not a sum of positive Gram pieces (`C-0038`). Full positivity must come from compensation with pole/archimedean terms.
+
+This supports the pivot toward Weil's full quadratic operator, where that compensation is explicit.
+
+### L4 — Direct Li/Laguerre prime cancellation
+
+**Status:** `BLOCKED AS CURRENT MECHANISM`
+
+The earlier branch established:
+
+- exact pole-subtracted discrepancy transform (`C-0010`, `C-0011`);
+- explicit nonlinear critical-half-weight chirp (`C-0023`);
+- fixed-interior microlocal Dirichlet reduction (`C-0028`);
+- generic one-dimensional mean values leave positive exponential root growth (`C-0029`);
+- finite multiplicative divisor decompositions preserve rank-one phase geometry (`C-0031`);
+- dyadic Type-II chirp kernels are asymptotically separable (`C-0032`);
+- direct magnitude estimates need essentially square-root saving (`C-0034`).
+
+Therefore the conventional Vaughan/Heath-Brown phase route is closed as a demonstrably weaker mechanism (`C-0035`).
+
+### L5 — Restricted Weil positivity / operator literature
+
+**Status:** `AVAILABLE TOOLKIT`
+
+Bombieri's Weil-functional work provides the variational/finite-truncation framework and restricted-support positivity. Connes-Consani give a conceptual archimedean positivity mechanism using compressed scaling, Sonin/prolate structure, and Hermitian Toeplitz matrices. Suzuki supplies a modern integral-operator/hermitian-form formulation.
+
+These are the main external tools for the next attempt (`R-0024` through `R-0027`).
 
 ## Strongest verified intermediate results
 
-1. `RH <=> limsup |S_n|^(1/n)<=1` for every fixed `s0>1` (`C-0010`).
+1. `RH <=> limsup |S_n|^(1/n)<=1` for fixed `s0>1` (`C-0010`).
 2. `S_n` is exactly the pole-subtracted `d(psi-x)` Laguerre transform (`C-0011`).
 3. A single zero mode has exact response `z_rho^(-n)-1` (`C-0019`).
 4. The uniform pre-turning stationary map is `u_gamma=A^2/(A^2+4gamma^2)` (`C-0021`).
-5. A fixed critical-line saddle reproduces the Cayley phase with unit leading normalization (`C-0022`).
-6. The prime discrepancy is probed by a nonlinear chirp at the critical half-weight (`C-0023`).
-7. Coefficient-block `L2` root control is RH-equivalent (`C-0024`).
-8. Every shrinking left endpoint is subexponential, and `[1,2)` is polynomially bounded (`C-0026`).
-9. Actual prime atoms sample only `O(sqrt(n))` Mellin frequencies (`C-0027`).
-10. A fixed-interior chirp cell reduces to a smooth critical-half-weight prime Dirichlet polynomial (`C-0028`).
-11. Classical one-dimensional mean values retain a positive exponential root base (`C-0029`).
-12. Uniform independent subexponential control of matched local cells is zero-sensitive (`C-0030`).
-13. Every finite multiplicative convolution preserves rank-one phase geometry (`C-0031`).
-14. Standard dyadic Type-II chirp kernels are asymptotically separable (`C-0032`).
-15. Balanced bilinear nonseparability begins only at `sqrt(n)` logarithmic scale; total formal phase excursion is `pi n` (`C-0033`).
-16. Direct prime magnitude estimates require square-root saving `delta>=1/2` (`C-0034`).
-17. The generic Vaughan/Heath-Brown phase route is blocked (`C-0035`).
+5. The prime discrepancy is probed by a nonlinear critical-half-weight chirp (`C-0023`).
+6. Direct fixed-interior prime magnitude estimates require square-root saving (`C-0034`).
+7. Generic Vaughan/Heath-Brown phase decomposition is blocked (`C-0035`).
+8. `K_jk=lambda_j+lambda_k-lambda_|j-k|` gives an exact Li Gram criterion, but it is immediately RH-equivalent (`C-0036`).
+9. Li CND/Schoenberg-Herglotz structure is also exactly RH-equivalent (`C-0037`).
+10. Natural generalized prime Gram atoms are not PSD (`C-0038`).
+11. Weil prime powers enter at thresholds `T=(1/2)log m` as compressed translations (`C-0039`).
+12. The first-prime compressed shift has exact norm `1` and perturbation size `log2/sqrt2` (`C-0040`).
+13. Restricted-support Weil positivity provides a genuine unconditional base regime (`C-0041`).
 
 ## Computational observations
 
-- `X-005` quantified phase loss caused by absolute values.
-- `X-006` reproduced exact single-zero transforms and cross-region cancellation.
-- `X-007` checked the uniform stationary map and Cayley phase on numerical zero ordinates.
-- `X-008` checked prime-frequency caps, chirp-cell scales, and the one-dimensional mean-value root barrier.
-- `X-20260821-001` checks dyadic bilinear cross defects and `sqrt(n)` nonseparability scales.
-- At `s0=3`, `u=0.25`, the dyadic four-corner defect decreases from about `2.709e-2` at `n=256` to `6.772e-3` at `n=1024` and `1.693e-3` at `n=4096`, matching `1/n` scaling.
-- The formal pre-turning phase count is exactly `n/2`; `X-20260821-001` returns `512` cycles at `n=1024`.
+- `X-20260821-001` verified `1/n` dyadic bilinear phase separability and the `sqrt(n)` nonseparability scale.
+- `X-20260821-002` checked the finite Li Gram/Schoenberg behavior on synthetic on-line/off-line orbits and the deterministic Weil support geometry.
+- In the synthetic off-line quartet diagnostic (`r=1.2`, `theta=0.7`), the first negative Li coefficient occurred at `n=8`, and both Gram and Schoenberg matrices became indefinite.
+- At `T=0.34`, no prime powers are active.
+- At `T=0.45`, only `m=2` is active with compressed-shift norm `1` and scalar penalty `0.490129071734...`.
+- At `T=0.60`, `m=2,3` are active; the crude sum of individual operator-norm penalties is `1.124413172332...`.
 
-These are diagnostics only, not proof claims.
+These are diagnostics only, not evidence for RH.
 
-## Primary blocker
+## Open requirements / blockers
 
-The Li/Laguerre prime route is now blocked at an RH-scale arithmetic boundary:
+The primary blocker is now sharply localized:
 
-> Direct fixed-interior magnitude control requires essentially square-root cancellation at `X=exp(cn)`, while finite multiplicative divisor decompositions preserve a rank-one, asymptotically separable phase and do not supply that saving through new oscillatory dimensions.
+> Prove nonnegativity of the constrained first-prime Weil operator `A_infinity(T)-(log2/sqrt2)S_(T,log2)` for `(1/2)log2<T<(1/2)log3`, or identify the exact point/mechanism at which such continuation fails.
 
-Continuing to refactor `Lambda` without a new mechanism would risk producing further equivalent restatements rather than proof progress.
+The crude sufficient condition
+
+```text
+lambda_min(A_infinity(T)) > log2/sqrt2
+```
+
+may be too strong. A successful proof should preferably exploit the **relative geometry** of the archimedean operator and the compressed shift.
 
 ## Invalidated, corrected, or closed directions
 
 ### I1 — Critical-line quartet contribution `8 sin^2(...)`
 
-**Status:** `INVALIDATED / CORRECTED`
+`INVALIDATED / CORRECTED`: correct distinct-pair contribution is `4 sin^2(n theta/2)`.
 
-Correct distinct-pair contribution: `4 sin^2(n theta/2)`.
+### I2 — Raw generalized prime trace is subexponential
 
-### I2 — Move the Li center right for arbitrarily stronger prime decay
+`INVALIDATED / CORRECTED`: the zeta pole contributes the exact exponential mode `1-q^n`.
 
-**Status:** `CLOSED`
+### I3 — Fixed pointwise PNT exponent above `1/2` closes the Laguerre transform
 
-Fixed-prime Laguerre asymptotics restore the half-weight.
+`CLOSED`: absolute values retain exponential growth.
 
-### I3 — Raw generalized prime trace is subexponential
+### I4 — One narrow Airy window plus absolute bounds elsewhere
 
-**Status:** `INVALIDATED`
+`INVALIDATED / REFINED`: pre-turning cross-region phase matters.
 
-The raw trace contains the deterministic zeta-pole mode.
+### I5 — Generic square-root dyadic mean-square bound as a weaker input
 
-### I4 — Finish with a fixed pointwise PNT exponent above `1/2`
+`CIRCULAR`: it already detects the RH zero boundary.
 
-**Status:** `CLOSED AS SOLE MECHANISM`
+### I6 — Generic Montgomery-Vaughan / large-sieve control of independent chirp cells
 
-Absolute-value insertion leaves exponential growth.
+`CLOSED`: exponential length term leaves root base greater than `1`.
 
-### I5 — Reduce to a single narrow Airy window
+### I7 — Vaughan/Heath-Brown divisor identities create a new multidimensional oscillatory phase
 
-**Status:** `INVALIDATED / REFINED`
+`CLOSED`: logarithmic Hessian remains rank one and dyadic boxes become asymptotically separable.
 
-Cross-region phase matters; only the sufficiently far tail closes independently.
+### I8 — Li Gram PSD is a new weaker positivity mechanism
 
-### I6 — Use RH-scale dyadic mean square as a weaker input
+`CLOSED AS EQUIVALENT`: `K_nn=2lambda_n`.
 
-**Status:** `CIRCULAR`
+### I9 — Schoenberg/Herglotz positivity weakens Li's criterion
 
-It already forces the RH zero boundary.
+`CLOSED AS EQUIVALENT`: conditional negative definiteness already implies every `lambda_n>=0`.
 
-### I7 — Treat `A^2/(4gamma^2)` as the uniform stationary map
+### I10 — Prime-side Gram atoms are individually positive
 
-**Status:** `CORRECTED / ASYMPTOTIC ONLY`
-
-Exact map: `A^2/(A^2+4gamma^2)`.
-
-### I8 — Treat `gamma~n` as the main discrete-prime endpoint difficulty
-
-**Status:** `REFINED / CLOSED AS PRIMARY BLOCKER`
-
-Actual prime atoms only reach `O(sqrt(n))` frequencies.
-
-### I9 — Generic one-dimensional Montgomery-Vaughan mean values
-
-**Status:** `CLOSED AS SOLE MECHANISM`
-
-The length term leaves a positive exponential root base.
-
-### I10 — Prove every microlocal cell independently subexponential
-
-**Status:** `TOO STRONG / ZERO-SENSITIVE`
-
-Matched cells directly detect right-of-line zeros.
-
-### I11 — Obtain the missing saving from Vaughan/Heath-Brown phase geometry
-
-**Status:** `CLOSED AS NEW PHASE MECHANISM`
-
-Finite multiplicative convolutions retain rank-one logarithmic phase geometry; dyadic Type-II boxes are asymptotically separable and direct magnitude estimates still require square-root saving.
+`REFUTED IN NATURAL BASIS`: the first diagonal entry of every generalized prime atom is negative.
 
 ## Next research action
 
-Create `A-20260821-002` for a **positivity / moment-matrix mechanism audit**:
+Create `A-20260821-003` for the **first-prime Weil support-continuation problem**:
 
-1. define the generalized Cayley moments of the zero multiset with the same regularization used by the Li coefficients;
-2. derive the Toeplitz/Herglotz moment matrices or the corresponding Weil quadratic form;
-3. prove exactly which positivity condition is equivalent to all zero images lying on the unit circle;
-4. derive the explicit prime plus archimedean form for finite quadratic test vectors;
-5. search for a structural Gram/sum-of-squares decomposition or other unconditional positivity mechanism;
-6. apply a strict circularity check: if the PSD condition is simply another immediate RH equivalent with no weaker verifiable subclaim, record that and do not count it as progress.
+1. fix the precise Bombieri/Connes-Consani normalization and the admissible pole-constraint subspace;
+2. construct the constrained archimedean operator `A_infinity(T)` for `(1/2)log2<T<(1/2)log3`;
+3. represent the only arithmetic perturbation as `(log2/sqrt2)S_(T,log2)`;
+4. derive the relative operator `A_infinity(T)^(-1/2) S A_infinity(T)^(-1/2)` where justified;
+5. use the Sonin/prolate/Toeplitz representation if it improves control;
+6. build certified Galerkin lower bounds with python-flint/Arb and a rigorous truncation/tail estimate;
+7. distinguish finite-dimensional certified positivity from the infinite-dimensional theorem;
+8. if scalar gap comparison fails, identify whether the extremal direction is controlled by the pole constraints or by a low-dimensional relative-shift subspace.

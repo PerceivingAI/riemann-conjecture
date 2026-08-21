@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T02:09:00Z`
+- **Last updated:** `2026-08-21T02:26:00Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -267,6 +267,50 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-08-21T02:09:00Z`
 - **Used for:** Current standard context for van der Corput estimates, estimates for sums over primes, the large sieve, and bilinear-form bounds.
 - **Verification notes:** Publisher chapter metadata and summaries were checked. No theorem from this source is used to assert a stronger bound than what is derived explicitly in the repository.
+
+### R-0024 — Bombieri on Weil's quadratic functional
+
+- **Authors:** Enrico Bombieri
+- **Title:** Remarks on Weil's quadratic functional in the theory of prime numbers, I
+- **Publication:** Rendiconti Lincei - Matematica e Applicazioni, 11(3), 183-233
+- **Year:** 2000
+- **Stable identifier:** EuDML record `252338` — https://eudml.org/doc/252338
+- **First verified/accessed:** `2026-08-21T02:26:00Z`
+- **Used for:** Full Weil-functional PSD iff RH; variational formulation on compact-support Hilbert spaces; unconditional positive-definiteness for sufficiently small support; finite truncation/eigenvalue context.
+- **Verification notes:** Published metadata and abstract checked directly through EuDML/BDIM. The repository's compressed-translation norm formula is derived independently.
+
+### R-0025 — Connes and Consani on archimedean Weil positivity
+
+- **Authors:** Alain Connes; Caterina Consani
+- **Title:** Weil positivity and trace formula, the archimedean place
+- **Publication:** Selecta Mathematica (N.S.) 27(4), Paper 77
+- **Year:** 2021
+- **Stable identifier:** DOI `10.1007/s00029-021-00689-4`; arXiv `2006.13771`
+- **First verified/accessed:** `2026-08-21T02:26:00Z`
+- **Used for:** Conceptual operator-theoretic explanation of archimedean-place Weil positivity, using compressed scaling, Sonin/prolate structure, and Hermitian Toeplitz matrices; prime-free support context.
+- **Verification notes:** Publisher/author metadata, abstract, and arXiv record checked. Their result supplies literature context and a possible operator toolkit for `A-20260821-003`.
+
+### R-0026 — Berg, Christensen, and Ressel on positive/negative definite kernels
+
+- **Authors:** Christian Berg; Jens Peter Reus Christensen; Paul Ressel
+- **Title:** Harmonic Analysis on Semigroups: Theory of Positive Definite and Related Functions
+- **Publication:** Graduate Texts in Mathematics 100, Springer
+- **Year:** 1984
+- **Stable identifier:** DOI `10.1007/978-1-4612-1128-0`
+- **First verified/accessed:** `2026-08-21T02:26:00Z`
+- **Used for:** Standard positive-definite, negative-definite, moment, Bochner/Herglotz, and Schoenberg-type harmonic-analysis framework used to interpret the Li sequence.
+- **Verification notes:** Springer book metadata and chapter structure checked; the Li CND calculation itself is repository-derived.
+
+### R-0027 — Suzuki on screw functions and Weil hermitian forms
+
+- **Authors:** Masatoshi Suzuki
+- **Title:** Aspects of the screw function corresponding to the Riemann zeta-function
+- **Publication:** Journal of the London Mathematical Society
+- **Year:** 2023
+- **Stable identifier:** DOI `10.1112/jlms.12785`
+- **First verified/accessed:** `2026-08-21T02:26:00Z`
+- **Used for:** Modern integral-operator/hermitian-form versions of Weil positivity and nondegeneracy criteria on compact-support spaces.
+- **Verification notes:** Published theorem summaries checked; used as operator-framework context, not as a dependency of the elementary compressed-shift derivation.
 
 ## Entry format
 

@@ -1,10 +1,38 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T02:09:00Z`
+- **Last updated:** `2026-08-21T02:26:00Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+---
+
+## 2026-08-21T02:26:00Z — Positivity audit completed; first-prime Weil continuation becomes frontier
+
+**Type:** Research attempt / positivity mechanism audit / operator reduction / literature cross-check
+
+Completed `A-20260821-002`.
+
+The ordinary Li coefficients admit the exact finite Gram kernel
+
+```text
+K_jk=lambda_j+lambda_k-lambda_|j-k|.
+```
+
+Under RH this is a sum of rank-one Gram matrices over Cayley zero phases. However `K_nn=2lambda_n`, so PSD of all finite matrices is immediately equivalent to Li's criterion rather than a weaker positivity theorem.
+
+Likewise, under RH `lambda_|n|` is conditionally negative definite on `Z`; Schoenberg and Herglotz then produce the positive-definite semigroup `exp[-t lambda_|n|]` and a convolution semigroup of probability measures on the circle. The converse two-point CND test gives `lambda_n>=0`, so this structure is also exactly RH-equivalent.
+
+The natural generalized prime contribution is not positive atom-by-atom: every prime-power Gram atom has first diagonal entry `-2A Lambda(m)m^(-s0)<0`.
+
+The useful pivot is Weil's support formulation. For `supp f subset [-T,T]`, prime power `m` enters only at `T>(1/2)log m` and contributes a compressed translation operator. Restricted-support archimedean Weil positivity is known unconditionally from the Bombieri/Yoshida line and receives an operator-theoretic explanation in Connes-Consani.
+
+For one shift `a`, the symmetrized compression decomposes into finite path graphs and has exact norm `2cos(pi/(L+1))`, `L=ceil(2T/a)`. Throughout the first-prime window `(1/2)log2<T<(1/2)log3`, only `m=2` is active and the shift norm is exactly `1`. The scalar size of the first arithmetic perturbation is therefore `log2/sqrt2=0.4901290717...`.
+
+Recorded `F-20260821-006` through `F-20260821-011`, `C-0036` through `C-0041`, computation `X-20260821-002`, and references `R-0024` through `R-0027`.
+
+**Outcome:** RH remains unresolved. The active target is now the constrained first-prime Weil operator `A_infinity(T)-(log2/sqrt2)S_(T,log2)` on `(1/2)log2<T<(1/2)log3`, preferably via a relative operator/Gram argument rather than a crude scalar norm comparison.
 
 ---
 

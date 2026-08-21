@@ -92,7 +92,9 @@ Start here depending on what you need:
 │   ├── zero_mode_bins.py
 │   ├── uniform_phase_diagnostics.py
 │   ├── chirp_window_diagnostics.py
-│   └── bilinear_chirp_geometry.py
+│   ├── bilinear_chirp_geometry.py
+│   ├── positivity_kernel_diagnostics.py
+│   └── weil_support_geometry.py
 ├── templates/
 │   ├── ATTEMPT.md
 │   ├── FINDING.md
