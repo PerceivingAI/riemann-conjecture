@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "crates/rh_engine",
+    "crates/rh_cert",
 ]
 resolver = "2"
 

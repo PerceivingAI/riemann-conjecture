@@ -81,8 +81,8 @@ where
         return;
     }
     // Adjust low/high to odd boundaries
-    let odd_low = if low % 2 == 0 { low + 1 } else { low };
-    let odd_high = if high % 2 == 0 { high.saturating_sub(1) } else { high };
+    let odd_low = if low.is_multiple_of(2) { low + 1 } else { low };
+    let odd_high = if high.is_multiple_of(2) { high.saturating_sub(1) } else { high };
 
     if odd_low > odd_high {
         return;
@@ -109,8 +109,8 @@ where
         }
 
         // Find smallest odd multiple of p >= start_odd
-        let mut first_mult = ((start_odd + p - 1) / p) * p;
-        if first_mult % 2 == 0 {
+        let mut first_mult = start_odd.div_ceil(p) * p;
+        if first_mult.is_multiple_of(2) {
             first_mult += p;
         }
         if first_mult < p * p {

@@ -286,3 +286,38 @@ class TestExportCertificate:
         assert loaded["format"] == export_certificate.CERTIFICATE_FORMAT_V1
         assert loaded["dimension"] == 1
         assert len(loaded["matrix"]["entries"]) == 1
+
+    def test_rust_verifier_integration(self, tmp_path: Path) -> None:
+        import shutil
+        import subprocess
+
+        # Check if cargo is available
+        cargo_bin = shutil.which("cargo")
+        if not cargo_bin:
+            pytest.skip("cargo not found in PATH")
+
+        out_file = tmp_path / "synthetic_pos_cert.json"
+        rows = [
+            [matrices.RationalInterval(4), matrices.RationalInterval(1)],
+            [matrices.RationalInterval(1), matrices.RationalInterval(3)],
+        ]
+        mat = matrices.RationalIntervalMatrix(rows)
+        cert = export_certificate.build_certificate(
+            claim="Pytest to Rust integration test",
+            matrix=mat,
+            basis_type="legendre",
+            parity_sector="both",
+            support_num=7,
+            support_den=20,
+            tail_bound={"type": "test"},
+            prec_bits=64,
+        )
+        out_file.write_text(json.dumps(cert, indent=2) + "\n", encoding="utf-8")
+
+        # Run cargo run -p rh_cert -- verify --cert <path> --json
+        cmd = [cargo_bin, "run", "-q", "-p", "rh_cert", "--", "verify", "--cert", str(out_file), "--json"]
+        proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
+        assert proc.returncode == 0
+        outcome = json.loads(proc.stdout)
+        assert outcome["passed"] is True
+        assert outcome["ldl_report"]["is_positive_definite"] is True
