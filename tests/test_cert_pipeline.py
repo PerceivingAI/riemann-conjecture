@@ -330,3 +330,17 @@ class TestExportCertificate:
         assert "format" in schema_data["required"]
         assert "matrix" in schema_data["required"]
         assert schema_data["properties"]["format"]["const"] == "rh-weil-certificate-v1"
+
+    def test_lean4_formal_build(self) -> None:
+        import shutil
+        import subprocess
+
+        lake_bin = shutil.which("lake")
+        if not lake_bin:
+            pytest.skip("lake (Lean 4 build tool) not found in PATH")
+
+        formal_dir = Path("formal")
+        assert formal_dir.exists()
+        cmd = [lake_bin, "build"]
+        proc = subprocess.run(cmd, cwd=str(formal_dir), capture_output=True, text=True, check=False)
+        assert proc.returncode == 0, f"lake build failed: {proc.stderr}\n{proc.stdout}"

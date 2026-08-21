@@ -25,6 +25,11 @@ dist/
 target/
 *.egg-info/
 *.egg
+
+# Lean 4 build artifacts
+.lake/
+*.olean
+*.ilean
 # OS generated files
 .DS_Store
 Thumbs.db
