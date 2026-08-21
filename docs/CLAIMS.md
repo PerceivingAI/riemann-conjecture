@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T22:15:00Z`
+- **Last updated:** `2026-08-21T02:09:00Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -290,6 +290,116 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0021`, `C-0022`
 - **Source:** `A-20260820-005`, `F-20260820-021`, `R-0011`, `R-0018`
 - **Verification notes:** Exact width ratio follows from the derived curvature; the Bessel-argument statement uses `xi(u)~sqrt(u)` as `u->0`. The endpoint transition remains an open analytic subproblem.
+
+### C-0026 — Shrinking left endpoint is subexponential
+
+- **Statement:** For fixed `s0>1`, the exact discrepancy contribution on `1<=x<2` satisfies `|S_n^[1,2)|<=2A(sqrt(2)-1)n`. More generally, for any `eta_n=o(1)`, the region `u<=eta_n` satisfies `|S_n^(u<=eta_n)|<=exp(2n eta_n/A+o(n))=exp(o(n))` using only the global Laguerre inequality and trivial `Lambda(m)<=log m`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T22:44:00Z`
+- **Last verified:** `2026-08-20T22:44:00Z`
+- **Dependencies:** `C-0011`
+- **Source:** `A-20260820-006`, `F-20260820-022`, `R-0019`
+- **Verification notes:** DLMF 18.14.8 gives `e^(-t/2)|L_(n-1)^(1)(t)|<=n`; the critical half-weight identity reduces the remaining endpoint bound to elementary sums/integrals.
+
+### C-0027 — Prime-side Mellin frequency cap
+
+- **Statement:** Actual prime atoms start at `u_2=A log 2/(4n)`. Since `gamma(u)=A/2 sqrt((1-u)/u)` decreases in `u`, the largest Mellin frequency sampled by a prime atom is `gamma_2(n)=A/2 sqrt(4n/(A log 2)-1)~sqrt(A n/log 2)=O(sqrt(n))`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T22:44:00Z`
+- **Last verified:** `2026-08-20T22:44:00Z`
+- **Dependencies:** `C-0021`, `C-0026`
+- **Source:** `A-20260820-006`, `F-20260820-023`, `X-20260820-008`
+- **Verification notes:** Direct substitution of the first-prime coordinate into the uniform stationary-frequency map; numerical scaling checked at `s0=2,3,4`, `n=1024`.
+
+### C-0028 — Microlocal critical-half-weight Dirichlet reduction
+
+- **Statement:** Fix `u_0` in a compact subinterval of `(0,1)`, `y_0=4n u_0/A`, and `gamma_0=A/2 sqrt((1-u_0)/u_0)`. Since `Phi_n''(y_0)=-A^2/[16n u_0^(3/2)sqrt(1-u_0)]`, a logarithmic window of half-width `H=o(sqrt(n))` linearizes the chirp with `o(1)` phase error. One cosine branch then reduces, up to algebraic prefactors and controlled local errors, to a smooth discrepancy `sum Lambda(m)m^(-1/2+i gamma_0)W((log m-y_0)/H)` minus its continuous density term.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T22:44:00Z`
+- **Last verified:** `2026-08-20T22:44:00Z`
+- **Dependencies:** `C-0023`
+- **Source:** `A-20260820-006`, `F-20260820-024`, `R-0011`, `R-0018`
+- **Verification notes:** Exact differentiation and Taylor scaling; `X-008` checks the deterministic window scales.
+
+### C-0029 — Montgomery-Vaughan exponential-length barrier
+
+- **Statement:** A fixed-interior chirp cell centered at `u_0>0` has Dirichlet-polynomial length `N=exp(4n u_0/A+o(n))`, while its available Mellin-frequency range is only `exp(o(n))`. The classical Montgomery-Vaughan mean-value length term `O(N)` therefore yields at best RMS scale `exp(2n u_0/A+o(n))`, with root base `exp(2u_0/A)>1`; generic one-dimensional Dirichlet-polynomial `L2`/large-sieve machinery does not reach the RH root target.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T22:44:00Z`
+- **Last verified:** `2026-08-20T22:44:00Z`
+- **Dependencies:** `C-0027`, `C-0028`
+- **Source:** `A-20260820-006`, `F-20260820-025`, `R-0020`, `X-20260820-008`
+- **Verification notes:** Apply the standard mean-value theorem with `sum |a_m|^2=exp(o(n))`; the `N` term dominates any polynomial frequency range.
+
+### C-0030 — Independent microlocal subexponential control is zero-sensitive
+
+- **Statement:** A smooth fixed-interior chirp cell centered at `X=exp(4n u_0/A)` and Mellin frequency `gamma_0` is a smooth weighted prime discrepancy on the critical half-weight. Under the standard smooth Mellin explicit-formula hypotheses, a zero `rho=beta+i gamma_0` with `beta>1/2` and nonzero response under the chosen weight contributes at scale `X^(beta-1/2)=exp[4n u_0(beta-1/2)/A]`. Hence uniform `exp(o(n))` control for a sufficiently rich family of matched local cells would itself exclude right-of-line zeros in that frequency band.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-20T22:44:00Z`
+- **Last verified:** `2026-08-20T22:44:00Z`
+- **Dependencies:** `C-0019`, `C-0028`
+- **Source:** `A-20260820-006`, `F-20260820-026`, `R-0013`
+- **Verification notes:** Smooth Mellin inversion couples the local weighted prime sum to `-zeta'/zeta`; this is a qualified zero-sensitivity statement, not a claim that every arbitrary single-window bound is exactly equivalent to RH.
+
+### C-0031 — Finite multiplicative convolutions preserve rank-one phase geometry
+
+- **Statement:** For any finite factorization `m=a_1...a_k`, with `r_j=log a_j`, the Laguerre phase is `F_k(r_1,...,r_k)=Phi_n(r_1+...+r_k)` and `Hess F_k=Phi_n'' 1 1^T`, hence has rank at most one. The `k-1` logarithmic directions preserving the product are exactly phase-flat.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T02:09:00Z`
+- **Last verified:** `2026-08-21T02:09:00Z`
+- **Dependencies:** `C-0023`
+- **Source:** `A-20260821-001`, `F-20260821-001`, `R-0021`
+- **Verification notes:** Direct differentiation. The result applies to Vaughan, Heath-Brown, and any other finite multiplicative convolution decomposition using the same product-phase weight.
+
+### C-0032 — Dyadic Type-II chirp is asymptotically separable
+
+- **Statement:** On every fixed-interior dyadic box `a~M`, `b~N`, the four-corner logarithmic phase defect satisfies `|Delta F|<=C(log 2)^2/n`. Hence `exp(iPhi_n(log ab))=C_0 P(a)Q(b)[1+O(1/n)]` for unimodular one-variable factors `P,Q`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T02:09:00Z`
+- **Last verified:** `2026-08-21T02:09:00Z`
+- **Dependencies:** `C-0023`, `C-0031`
+- **Source:** `A-20260821-001`, `F-20260821-002`, `X-20260821-001`
+- **Verification notes:** The cross defect is the double integral of `Phi_n''`; numerical checks at `n=256,1024,4096` confirm `1/n` scaling.
+
+### C-0033 — Bilinear nonseparability scale and total phase complexity
+
+- **Statement:** On a fixed-interior product scale, logarithmic factor widths `H_r,H_s` produce cross phase of size `~|Phi_n''|H_rH_s` with `|Phi_n''|~c/n`; thus `O(1)` balanced bilinear nonseparability begins at `H_r~H_s~sqrt(n)`. The formal pre-turning Bessel phase excursion is exactly `pi n`, i.e. `n/2` full cycles.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T02:09:00Z`
+- **Last verified:** `2026-08-21T02:09:00Z`
+- **Dependencies:** `C-0023`
+- **Source:** `A-20260821-001`, `F-20260821-003`, `X-20260821-001`
+- **Verification notes:** Uses `xi(0)=0`, `xi(1)=pi/4`. The phase-excursion statement concerns the formal Bessel phase; the cosine asymptotic is not claimed uniform at both endpoints.
+
+### C-0034 — Direct fixed-interior prime estimates require square-root saving
+
+- **Statement:** At `X=exp(4n*u/A)`, an unweighted prime-discrepancy bound `X^(1-delta+o(1))` becomes `X^(1/2-delta+o(1))` after the critical half-weight. Reaching the required `X^o(1)=exp(o(n))` therefore requires `delta>=1/2`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T02:09:00Z`
+- **Last verified:** `2026-08-21T02:09:00Z`
+- **Dependencies:** `C-0010`, `C-0023`
+- **Source:** `A-20260821-001`, `F-20260821-004`
+- **Verification notes:** Exact exponent bookkeeping; this is a necessity for direct magnitude estimates, not a statement about every conceivable proof architecture.
+
+### C-0035 — Generic Vaughan/Heath-Brown phase route is blocked
+
+- **Statement:** Finite divisor decompositions preserve rank-one phase geometry, standard dyadic Type-II boxes are asymptotically separable, and direct fixed-interior magnitude estimates need square-root saving. Therefore a conventional Vaughan/Heath-Brown decomposition followed by generic separate Type I/II phase bounds does not provide a demonstrably weaker route to the RH root target. Any further use must add genuinely new arithmetic cancellation beyond the Laguerre phase geometry and generic coefficient norms.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T02:09:00Z`
+- **Last verified:** `2026-08-21T02:09:00Z`
+- **Dependencies:** `C-0031`, `C-0032`, `C-0034`
+- **Source:** `A-20260821-001`, `F-20260821-005`, `R-0021`, `R-0022`, `R-0023`
+- **Verification notes:** This closes the proposed new bilinear **phase** mechanism; it does not claim that every specialized arithmetic use of Vaughan/Heath-Brown coefficients is impossible.
 
 ## Entry format
 

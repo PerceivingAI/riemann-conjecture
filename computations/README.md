@@ -1,7 +1,7 @@
 # Computations
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T22:15:00Z`
+- **Last updated:** `2026-08-21T02:09:00Z`
 
 This directory contains timestamped numerical and symbolic experiments. Every retained computation must be reproducible and must distinguish numerical evidence from proof.
 
@@ -14,6 +14,10 @@ This directory contains timestamped numerical and symbolic experiments. Every re
 - [`X-20260820-005`](2026-08-20T212000Z-saddle-window-phase-loss/record.md) — post-turning saddle width, pre-turning envelope rates, and phase-loss diagnostics.
 - [`X-20260820-006`](2026-08-20T212000Z-single-zero-regional-cancellation/record.md) — regional decomposition of exact complex zero-mode Laguerre transforms.
 - [`X-20260820-007`](2026-08-20T221500Z-uniform-preturning-phase/record.md) — uniform pre-turning stationary map, small-`u` comparison, Cayley phase, and stationary-normalization diagnostics.
+
+- [`X-20260820-008`](2026-08-20T224400Z-chirp-window-reduction/record.md) — first-prime frequency cap, local chirp linearization scales, and generic Dirichlet-polynomial mean-value root barrier.
+
+- [`X-20260821-001`](2026-08-21T020900Z-bilinear-chirp-geometry/record.md) — dyadic Type-II cross-defect, rank-one phase geometry, and `sqrt(n)` nonseparability-scale diagnostics.
 
 ## Directory Bundle Standard
 

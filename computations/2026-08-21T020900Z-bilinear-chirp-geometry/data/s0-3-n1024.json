@@ -1,0 +1,65 @@
+{
+  "s0": 3.0,
+  "A": 5.0,
+  "n": 1024,
+  "log_width": 0.6931471805599453,
+  "total_preturning_phase_excursion": 3216.990877275948,
+  "total_preturning_cycles": 512.0,
+  "rows": [
+    {
+      "u": 0.05,
+      "y0": 40.96,
+      "phi_second_y": -0.14002425162998153,
+      "dyadic_bound_abs": 0.06727507371726525,
+      "cross_defect": -0.06728097172640446,
+      "cross_defect_abs": 0.06728097172640446,
+      "balanced_log_width_for_unit_cross_phase": 2.6723809663102003,
+      "hcrit_over_sqrt_n": 0.08351190519719376,
+      "multiplicative_ratio_hcrit_log10": 1.1606003072117999
+    },
+    {
+      "u": 0.1,
+      "y0": 81.92,
+      "phi_second_y": -0.05086263020833333,
+      "dyadic_bound_abs": 0.024437103979400705,
+      "cross_defect": -0.02443762777693337,
+      "cross_defect_abs": 0.02443762777693337,
+      "balanced_log_width_for_unit_cross_phase": 4.434050067376326,
+      "hcrit_over_sqrt_n": 0.13856406460551018,
+      "multiplicative_ratio_hcrit_log10": 1.92568347674428
+    },
+    {
+      "u": 0.25,
+      "y0": 204.8,
+      "phi_second_y": -0.014095465556387349,
+      "dyadic_bound_abs": 0.0067722089091464995,
+      "cross_defect": -0.00677223045795472,
+      "cross_defect_abs": 0.00677223045795472,
+      "balanced_log_width_for_unit_cross_phase": 8.422873682895952,
+      "hcrit_over_sqrt_n": 0.2632148025904985,
+      "multiplicative_ratio_hcrit_log10": 3.658007562249832
+    },
+    {
+      "u": 0.5,
+      "y0": 409.6,
+      "phi_second_y": -0.006103515624999998,
+      "dyadic_bound_abs": 0.002932452477528084,
+      "cross_defect": -0.002932454576693999,
+      "cross_defect_abs": 0.002932454576693999,
+      "balanced_log_width_for_unit_cross_phase": 12.800000000000002,
+      "hcrit_over_sqrt_n": 0.4000000000000001,
+      "multiplicative_ratio_hcrit_log10": 5.558969368361624
+    },
+    {
+      "u": 0.75,
+      "y0": 614.4,
+      "phi_second_y": -0.004698488518795782,
+      "dyadic_bound_abs": 0.0022574029697154992,
+      "cross_defect": -0.0022574044064640475,
+      "cross_defect_abs": 0.0022574044064640475,
+      "balanced_log_width_for_unit_cross_phase": 14.588845164510579,
+      "hcrit_over_sqrt_n": 0.4559014113909556,
+      "multiplicative_ratio_hcrit_log10": 6.335854952287882
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-20T22:15:00Z`
+- **Last updated:** `2026-08-21T02:09:00Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -79,6 +79,26 @@ python scripts/uniform_phase_diagnostics.py --s0 3 --zeros 8 --dps 40 --output-j
 ```
 
 The zero ordinates are numerical `mpmath.zetazero` evaluations, not certificates.
+
+### `chirp_window_diagnostics.py`
+
+Supports `A-20260820-006`. It records the first-prime coordinate/frequency cap, the local chirp curvature and linearization width, and the exponential root base left by a generic Montgomery-Vaughan Dirichlet-polynomial length term.
+
+```text
+python scripts/chirp_window_diagnostics.py --s0 3 --n 1024 --output-json computations/.../data/s0-3-n1024.json
+```
+
+The script does not enumerate primes; it checks deterministic scale formulas only.
+
+### `bilinear_chirp_geometry.py`
+
+Supports `A-20260821-001`. It computes the four-corner nonseparability defect for `F(r,s)=Phi_n(r+s)`, checks its `1/n` decay on dyadic logarithmic boxes, records the balanced `sqrt(n)` log-width needed for unit cross phase, and verifies the formal pre-turning phase excursion `pi n`.
+
+```text
+python scripts/bilinear_chirp_geometry.py --s0 3 --n 1024 --output-json computations/.../data/s0-3-n1024.json
+```
+
+The script is deterministic phase geometry only; it does not enumerate primes or test arithmetic cancellation.
 
 ## Shared implementation
 

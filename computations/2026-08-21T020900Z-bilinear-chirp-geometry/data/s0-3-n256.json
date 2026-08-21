@@ -1,0 +1,43 @@
+{
+  "s0": 3.0,
+  "A": 5.0,
+  "n": 256,
+  "log_width": 0.6931471805599453,
+  "total_preturning_phase_excursion": 804.247719318987,
+  "total_preturning_cycles": 128.0,
+  "rows": [
+    {
+      "u": 0.1,
+      "y0": 20.48,
+      "phi_second_y": -0.20345052083333331,
+      "dyadic_bound_abs": 0.09774841591760282,
+      "cross_defect": -0.09778195781558452,
+      "cross_defect_abs": 0.09778195781558452,
+      "balanced_log_width_for_unit_cross_phase": 2.217025033688163,
+      "hcrit_over_sqrt_n": 0.13856406460551018,
+      "multiplicative_ratio_hcrit_log10": 0.96284173837214
+    },
+    {
+      "u": 0.25,
+      "y0": 51.2,
+      "phi_second_y": -0.056381862225549396,
+      "dyadic_bound_abs": 0.027088835636585998,
+      "cross_defect": -0.027090214877432572,
+      "cross_defect_abs": 0.027090214877432572,
+      "balanced_log_width_for_unit_cross_phase": 4.211436841447976,
+      "hcrit_over_sqrt_n": 0.2632148025904985,
+      "multiplicative_ratio_hcrit_log10": 1.829003781124916
+    },
+    {
+      "u": 0.5,
+      "y0": 102.4,
+      "phi_second_y": -0.024414062499999993,
+      "dyadic_bound_abs": 0.011729809910112335,
+      "cross_defect": -0.011729944276794413,
+      "cross_defect_abs": 0.011729944276794413,
+      "balanced_log_width_for_unit_cross_phase": 6.400000000000001,
+      "hcrit_over_sqrt_n": 0.4000000000000001,
+      "multiplicative_ratio_hcrit_log10": 2.779484684180812
+    }
+  ]
+}

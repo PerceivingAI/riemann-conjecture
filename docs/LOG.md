@@ -1,12 +1,68 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T22:15:00Z`
+- **Last updated:** `2026-08-21T02:09:00Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
 
 ---
+
+## 2026-08-21T02:09:00Z — Vaughan bilinear phase route closed; mechanism pivot required
+
+**Type:** Research attempt / bilinear geometry / scale barrier / route closure
+
+The UTC date rolled over before execution, so the item previously planned informally as `A-20260820-007` is formally recorded as `A-20260821-001` under the repository ID convention.
+
+Completed `A-20260821-001`.
+
+A Vaughan/Heath-Brown factorization of `Lambda` does not create new independent Laguerre phase directions. For `m=a_1...a_k` and `r_j=log a_j`, the phase is `Phi_n(r_1+...+r_k)` and its logarithmic Hessian is `Phi_n'' 1 1^T`, of rank one. The factor-redistribution directions preserving the product are exactly phase-flat.
+
+On standard dyadic Type-II boxes the four-corner phase defect is `O(1/n)`, so the kernel is asymptotically separable into one-variable phases. `X-20260821-001` verifies the predicted `1/n` scaling. An `O(1)` cross phase first appears when balanced factor log-widths are of order `sqrt(n)`.
+
+The formal full pre-turning Bessel phase has excursion `pi n`, only `n/2` full cycles, while fixed-interior prime scales are `X=exp(cn)`.
+
+Most importantly, an unweighted prime estimate `X^(1-delta+o(1))` becomes `X^(1/2-delta+o(1))` after the critical half-weight. Reaching `exp(o(n))` therefore requires `delta>=1/2`: essentially square-root cancellation. A conventional fixed power saving below square-root remains exponentially too large.
+
+Recorded `F-20260821-001` through `F-20260821-005`, `C-0031` through `C-0035`, computation `X-20260821-001`, and references `R-0021` through `R-0023`.
+
+**Outcome:** RH remains unresolved. The direct Li/Laguerre prime-cancellation branch is blocked at an RH-scale arithmetic boundary; the next research action is a mechanism pivot to positivity/moment-matrix formulations rather than another finite divisor decomposition.
+
+---
+
+## 2026-08-20T22:44:00Z — Microlocal Dirichlet reduction completed; global bilinear structure becomes frontier
+
+**Type:** Research attempt / endpoint closure / mean-value barrier / circularity check
+
+Completed `A-20260820-006`.
+
+The below-first-prime segment was closed exactly using DLMF 18.14.8:
+
+```text
+|S_n^[1,2)| <= 2A(sqrt(2)-1)n.
+```
+
+More generally, every shrinking endpoint `u<=eta_n=o(1)` is `exp(o(n))` by the same global Laguerre inequality and trivial `Lambda(m)<=log m`.
+
+Actual prime atoms begin at `m=2`, so their maximal local Mellin frequency is
+
+```text
+gamma_2(n)
+= A/2 sqrt(4n/(A log 2)-1)
+~ sqrt(A n/log 2).
+```
+
+Thus the discrete prime side carries only `O(sqrt(n))` frequencies; the formal `gamma~n` endpoint from `A-005` lies below the first prime and is not the primary prime-sum obstruction.
+
+On a fixed interior chirp cell, Taylor expansion in `y=log x` gives `Phi_n''(y)=O(1/n)`, so windows `H=o(sqrt(n))` linearize to smooth prime Dirichlet polynomials with coefficients `Lambda(m)m^(-1/2+i gamma_0)`.
+
+The classical Montgomery-Vaughan mean-value theorem was then tested at the exact exponential scale. A cell centered at `u_0` has length `N=exp(4n u_0/A+o(n))`; because the available frequency range is only subexponential, the `O(N)` length term dominates and leaves RMS scale `exp(2n u_0/A+o(n))`, root base `exp(2u_0/A)>1`. Generic one-dimensional large-sieve/Dirichlet-polynomial `L2` machinery therefore does not close the route (`R-0020`).
+
+A second guard was recorded: a matched smooth local cell is itself zero-sensitive through the Mellin explicit formula. Demanding `exp(o(n))` control independently for every such cell can reconstruct a zero-free statement window-by-window, consistent with the smooth-weighted PNT converse literature.
+
+Created `F-20260820-022` through `F-20260820-026`, `C-0026` through `C-0030`, computation `X-20260820-008`, source `R-0019` for the DLMF Laguerre inequality, and `R-0020` for Montgomery-Vaughan.
+
+**Outcome:** RH remains unresolved. The active target is now global arithmetic cancellation that preserves cross-cell structure, beginning with a Vaughan/Heath-Brown bilinear decomposition of the nonlinear chirp.
 
 ## 2026-08-20T22:15:00Z — Uniform pre-turning phase derived; arithmetic chirp becomes frontier
 

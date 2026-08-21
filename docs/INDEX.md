@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T22:15:00Z`
+- **Last updated:** `2026-08-21T02:09:00Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -30,6 +30,10 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260820-004`](../attempts/2026-08-20T212000Z-post-turning-phase-aware-discrepancy-route.md) — post-turning geometry, phase-sensitive single-zero response, and averaging barriers; `COMPLETE`.
 - [`A-20260820-005`](../attempts/2026-08-20T221500Z-uniform-preturning-laguerre-phase-route.md) — uniform pre-turning phase, exact zero-frequency stationary map, Cayley saddle matching, and `L2` circularity guard; `COMPLETE`.
 
+- [`A-20260820-006`](../attempts/2026-08-20T224400Z-prime-side-chirp-dirichlet-reduction.md) — endpoint closure, microlocal prime Dirichlet reduction, and generic one-dimensional mean-value barrier; `COMPLETE`.
+
+- [`A-20260821-001`](../attempts/2026-08-21T020900Z-global-bilinear-vaughan-chirp-route.md) — global Vaughan/Heath-Brown bilinear phase test; rank-one/separability and square-root-saving barriers; `COMPLETE` negative diagnostic.
+
 ## Landmark findings
 
 - [`F-20260820-001`](../findings/2026-08-20T203700Z-critical-line-zero-orbit-contribution.md) — corrected critical-line zero-orbit contribution.
@@ -54,6 +58,18 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`F-20260820-020`](../findings/2026-08-20T221500Z-coefficient-block-l2-is-rh-equivalent.md) — coefficient-block `L2` root criterion is RH-equivalent.
 - [`F-20260820-021`](../findings/2026-08-20T221500Z-high-zero-endpoint-coalescence.md) — high zero frequencies coalesce with the pre-turning endpoint.
 
+- [`F-20260820-022`](../findings/2026-08-20T224400Z-below-first-prime-endpoint-bound.md) — below-first-prime endpoint is polynomial; shrinking endpoints are subexponential.
+- [`F-20260820-023`](../findings/2026-08-20T224400Z-prime-frequency-cap.md) — actual prime-side Mellin frequency is only `O(sqrt(n))`.
+- [`F-20260820-024`](../findings/2026-08-20T224400Z-microlocal-dirichlet-reduction.md) — fixed-interior chirp cell reduces to a critical-half-weight prime Dirichlet polynomial.
+- [`F-20260820-025`](../findings/2026-08-20T224400Z-montgomery-vaughan-length-barrier.md) — classical mean-value length term retains a positive exponential root base.
+- [`F-20260820-026`](../findings/2026-08-20T224400Z-microlocal-subexponential-is-zero-sensitive.md) — independent matched-cell subexponential control is zero-sensitive.
+
+- [`F-20260821-001`](../findings/2026-08-21T020900Z-finite-convolutions-preserve-rank-one-chirp.md) — every finite multiplicative convolution preserves rank-one phase geometry.
+- [`F-20260821-002`](../findings/2026-08-21T020900Z-dyadic-type-ii-chirp-is-separable.md) — dyadic Type-II chirp kernels are asymptotically separable.
+- [`F-20260821-003`](../findings/2026-08-21T020900Z-bilinear-nonseparability-scale.md) — unit cross phase requires `sqrt(n)` logarithmic scale; total formal phase excursion is `pi n`.
+- [`F-20260821-004`](../findings/2026-08-21T020900Z-square-root-saving-threshold.md) — direct fixed-interior prime estimates require square-root saving.
+- [`F-20260821-005`](../findings/2026-08-21T020900Z-vaughan-phase-route-blocked.md) — generic Vaughan/Heath-Brown phase route is blocked.
+
 ## Computations
 
 - [`X-20260820-001`](../computations/2026-08-20T210531Z-exact-identity-verification/record.md) — exact finite identity checks.
@@ -64,6 +80,10 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`X-20260820-006`](../computations/2026-08-20T212000Z-single-zero-regional-cancellation/record.md) — regional cancellation in exact zero modes.
 - [`X-20260820-007`](../computations/2026-08-20T221500Z-uniform-preturning-phase/record.md) — uniform stationary map, small-`u` comparison, Cayley phase, and unit-normalization diagnostics.
 
+- [`X-20260820-008`](../computations/2026-08-20T224400Z-chirp-window-reduction/record.md) — first-prime frequency cap, chirp-cell scales, and generic mean-value root diagnostics.
+
+- [`X-20260821-001`](../computations/2026-08-21T020900Z-bilinear-chirp-geometry/record.md) — dyadic cross-defect, separability, and bilinear nonseparability-scale diagnostics.
+
 ## Templates
 
 - [`../templates/ATTEMPT.md`](../templates/ATTEMPT.md)
@@ -72,4 +92,4 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Current state
 
-RH remains unresolved. The active frontier is the prime-side critical-half-weight nonlinear chirp and its high-frequency endpoint regime; see [`STATUS.md`](STATUS.md).
+RH remains unresolved. The direct Li/Laguerre prime-cancellation branch is now blocked at an essentially square-root arithmetic requirement; the next frontier is a mechanism pivot to positivity/moment formulations of the Cayley/Li zero moments; see [`STATUS.md`](STATUS.md).

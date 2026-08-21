@@ -90,7 +90,9 @@ Start here depending on what you need:
 │   ├── prime_range_decomposition.py
 │   ├── window_diagnostics.py
 │   ├── zero_mode_bins.py
-│   └── uniform_phase_diagnostics.py
+│   ├── uniform_phase_diagnostics.py
+│   ├── chirp_window_diagnostics.py
+│   └── bilinear_chirp_geometry.py
 ├── templates/
 │   ├── ATTEMPT.md
 │   ├── FINDING.md

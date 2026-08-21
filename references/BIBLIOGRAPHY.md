@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-20T22:15:00Z`
+- **Last updated:** `2026-08-21T02:09:00Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -212,6 +212,61 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-08-20T22:15:00Z`
 - **Used for:** `J_1(z)` large-positive-argument phase `z-3pi/4` and the standard stationary-phase asymptotic used to analyze the fixed-frequency pre-turning saddle.
 - **Verification notes:** Equations 10.17.2-3 and DLMF section 2.3(iv) were checked directly. These are combined with the Laguerre Bessel expansion already registered as `R-0011`.
+
+### R-0019 — NIST DLMF global Laguerre inequality
+
+- **Authors:** NIST Digital Library of Mathematical Functions
+- **Title:** Section 18.14(i), Inequalities for Laguerre Polynomials
+- **Publication:** NIST DLMF
+- **Year:** continuously maintained; version checked 2026-08-20
+- **Stable identifier:** https://dlmf.nist.gov/18.14.E8
+- **First verified/accessed:** `2026-08-20T22:44:00Z`
+- **Used for:** The global bound `e^(-x/2)|L_n^(alpha)(x)|<=L_n^(alpha)(0)` for `x>=0`, `alpha>=0`, used to close the below-first-prime and shrinking-left-endpoint contributions without RH-strength prime information.
+- **Verification notes:** Equation 18.14.8 checked directly; for `alpha=1`, `L_(n-1)^(1)(0)=n`.
+
+### R-0020 — Montgomery and Vaughan mean-value length term
+
+- **Authors:** H. L. Montgomery; R. C. Vaughan
+- **Title:** Hilbert's Inequality
+- **Publication:** Journal of the London Mathematical Society, Series 2, 8(1), 73-82
+- **Year:** 1974
+- **Stable identifier:** DOI `10.1112/jlms/s2-8.1.73` — https://doi.org/10.1112/jlms/s2-8.1.73
+- **First verified/accessed:** `2026-08-20T22:44:00Z`
+- **Used for:** Classical Hilbert-inequality/Dirichlet-polynomial mean-value framework yielding the standard `(T+O(N)) sum |a_n|^2` scale, used to quantify why generic one-dimensional mean values retain the exponential polynomial-length barrier in `A-006`.
+- **Verification notes:** Publisher metadata and the original paper were checked; a modern published statement of the Dirichlet-polynomial mean-value theorem was also cross-checked.
+
+### R-0021 — Helfgott treatment of Vaughan's identity and Type I/II sums
+
+- **Authors:** Harald Andrés Helfgott
+- **Title:** The ternary Goldbach problem
+- **Publication:** monograph/preprint
+- **Year:** 2015
+- **Stable identifier:** arXiv `1501.05438` — https://arxiv.org/abs/1501.05438
+- **First verified/accessed:** `2026-08-21T02:09:00Z`
+- **Used for:** Explicit Vaughan identity, free truncation parameters `U,V`, and the standard Type I/Type II decomposition of prime exponential sums.
+- **Verification notes:** Section 3.3.1 and the surrounding Type I/II discussion were checked directly; equation (3.6) gives the convolution identity used as literature context in `A-20260821-001`.
+
+### R-0022 — Graham and Kolesnik on two-dimensional van der Corput methods
+
+- **Authors:** S. W. Graham; Grigori Kolesnik
+- **Title:** Van der Corput's Method of Exponential Sums
+- **Publication:** London Mathematical Society Lecture Note Series 126, Cambridge University Press
+- **Year:** 1991; digital edition 2010
+- **Stable identifier:** DOI `10.1017/CBO9780511661976`
+- **First verified/accessed:** `2026-08-21T02:09:00Z`
+- **Used for:** Standard reference context for one- and two-dimensional exponential-sum methods and the idea that multidimensional phase curvature can yield cancellation when genuinely present.
+- **Verification notes:** Book metadata and Chapter 6, "Two Dimensional Exponential Sums," were checked. The rank-one obstruction in `A-20260821-001` is derived independently.
+
+### R-0023 — Montgomery and Vaughan modern framework for prime exponential and bilinear sums
+
+- **Authors:** Hugh L. Montgomery; Robert C. Vaughan
+- **Title:** Multiplicative Number Theory II: Primes and Sieves — Chapters 16-17 and Appendix G
+- **Publication:** Cambridge University Press
+- **Year:** 2026
+- **Stable identifier:** Chapter 16 DOI `10.1017/9781009445030.002`; Chapter 17 DOI `10.1017/9781009445030.003`
+- **First verified/accessed:** `2026-08-21T02:09:00Z`
+- **Used for:** Current standard context for van der Corput estimates, estimates for sums over primes, the large sieve, and bilinear-form bounds.
+- **Verification notes:** Publisher chapter metadata and summaries were checked. No theorem from this source is used to assert a stronger bound than what is derived explicitly in the repository.
 
 ## Entry format
 
