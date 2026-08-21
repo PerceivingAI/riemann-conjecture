@@ -119,7 +119,7 @@ Version 1 starts with two closed tail rules.
 
 `exact_scalar_identity` defines the certified operator remainder to be exactly $\lambda I$, where $\lambda$ is an exact rational in the certificate. This rule is restricted to synthetic verifier claims. Rust adds $\lambda$ to every diagonal entry before LDL.
 
-`nonnegative_digamma_remainder` applies only to the `digamma_partial_sum` claim profile. For
+`nonnegative_digamma_remainder` applies only to the `digamma_finite_block` claim profile. For
 $$a_k=k+\frac14,$$
 the omitted bracket is
 $$B_k=\frac{1}{a_k}I-K_k,$$

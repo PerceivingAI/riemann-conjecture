@@ -32,6 +32,9 @@ Start here depending on what you need:
 | Atomic findings, lemmas, negative results, observations | [`findings/`](findings/) |
 | Numerical/symbolic experiments | [`computations/`](computations/) |
 | Research scripts used by computations | [`scripts/`](scripts/) |
+| Rigorous certificate contract and PASS semantics | [`docs/CONTRACTS.md`](docs/CONTRACTS.md) |
+| Exact Rust certificate verifier | [`crates/rh_cert/`](crates/rh_cert/) |
+| Lean formalization of interval/LDL/endpoint theorems | [`formal/`](formal/) |
 | Sources and literature | [`references/BIBLIOGRAPHY.md`](references/BIBLIOGRAPHY.md) |
 | Naming, timestamps, status rules, update procedure | [`docs/PROTOCOL.md`](docs/PROTOCOL.md) |
 | Templates for new records | [`templates/`](templates/) |
@@ -67,16 +70,31 @@ Start here depending on what you need:
 │       ├── plots/
 │       └── data/
 ├── crates/
-│   └── rh_engine/
+│   ├── rh_engine/
+│   │   ├── Cargo.toml
+│   │   ├── src/
+│   │   └── tests/
+│   └── rh_cert/
 │       ├── Cargo.toml
 │       ├── src/
 │       └── tests/
 ├── docs/
+│   ├── contracts/
+│   │   └── rh-weil-certificate-v1.json
+│   ├── CONTRACTS.md
 │   ├── INDEX.md
 │   ├── PROTOCOL.md
 │   ├── STATUS.md
 │   ├── LOG.md
 │   └── CLAIMS.md
+├── formal/
+│   ├── Cert/
+│   │   ├── Interval.lean
+│   │   ├── EndpointAbsorption.lean
+│   │   └── LDL.lean
+│   ├── Cert.lean
+│   ├── lakefile.lean
+│   └── lean-toolchain
 ├── findings/
 │   └── README.md
 ├── references/
@@ -93,6 +111,12 @@ Start here depending on what you need:
 │   ├── uniform_phase_diagnostics.py
 │   ├── chirp_window_diagnostics.py
 │   ├── bilinear_chirp_geometry.py
+│   ├── cert/
+│   │   ├── constants.py
+│   │   ├── quadrature.py
+│   │   ├── residual_kernel.py
+│   │   ├── matrices.py
+│   │   └── export_certificate.py
 │   ├── positivity_kernel_diagnostics.py
 │   ├── weil_support_geometry.py
 │   ├── weil_endpoint_absorption_certificate.py
@@ -103,6 +127,8 @@ Start here depending on what you need:
 │   └── COMPUTATION.md
 └── tests/
     ├── __init__.py
+    ├── certificate_conformance.json
+    ├── test_cert_pipeline.py
     ├── test_identities.py
     ├── test_properties.py
     └── test_rh_tools.py
@@ -133,9 +159,31 @@ Tests cover:
 - Exact rational Laplace pole/density integrals $1 - q^n$ for randomized rational $s_0 > 1$ and degrees $n$.
 - Exact shift filter $T = (E-1)(E-q)$ annihilation of the pole mode $1 - q^n$.
 - Sieve and von Mangoldt $\Lambda(m)$ generator properties.
-- Numerical quadrature, scaling variables, and Float/Decimal consistency.
+- Rigorous Arb/Acb certificate generation, exact-input quadrature guards, Suzuki residual-kernel checks, and shared Python/Rust certificate conformance cases.
 - Hypothesis property tests for exact Laguerre, pole-density, shift-filter, small-`u` diagnostic identities, and the uniform pre-turning stationary/Cayley phase map.
 
+The certificate verifier and formal layer have separate acceptance checks:
+
+```text
+cargo test -p rh_cert
+cargo clippy -p rh_cert --all-targets -- -D warnings
+cd formal && lake build
+```
+
+## Rigorous certificate trust chain
+
+Proof-oriented finite-dimensional calculations use a deliberately separated trust chain:
+
+```text
+Python + python-flint/Arb
+    -> exact rational interval certificate
+    -> crates/rh_cert zero-float Rust verifier
+    -> Lean proof of interval/LDL/endpoint soundness
+```
+
+The closed certificate syntax and exact PASS semantics are authoritative in [`docs/CONTRACTS.md`](docs/CONTRACTS.md) and [`docs/contracts/rh-weil-certificate-v1.json`](docs/contracts/rh-weil-certificate-v1.json). The current v1 verifier intentionally certifies only its named finite-dimensional claim profiles; it does not promote a finite block to full Weil positivity without a separately encoded and verified infinite-dimensional complement rule.
+
+The Lean project in `formal/` now deliberately uses **Mathlib**, pinned to `v4.33.0` in `formal/lakefile.lean` and resolved by `formal/lake-manifest.json`. This is a larger formal dependency than the original lightweight-Core-only idea, but it supports the current general finite-dimensional LDL theorem and analytic endpoint-absorption proof. `lake build` is the authoritative formal acceptance check.
 
 ## Native Calculation Engine (`crates/rh_engine`)
 

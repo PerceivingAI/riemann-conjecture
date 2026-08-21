@@ -17,8 +17,14 @@ fn test_interval_construction() {
 #[test]
 fn test_fraction_string_parsing() {
     let interval = RationalInterval::from_fraction_strings("1", "2", "3", "4").unwrap();
-    assert_eq!(interval.lo, BigRational::new(BigInt::from(1), BigInt::from(2)));
-    assert_eq!(interval.hi, BigRational::new(BigInt::from(3), BigInt::from(4)));
+    assert_eq!(
+        interval.lo,
+        BigRational::new(BigInt::from(1), BigInt::from(2))
+    );
+    assert_eq!(
+        interval.hi,
+        BigRational::new(BigInt::from(3), BigInt::from(4))
+    );
 
     let err = RationalInterval::from_fraction_strings("1", "0", "3", "4");
     assert!(matches!(err, Err(IntervalError::ParseError(_))));
