@@ -1,0 +1,26 @@
+{
+  "theorem": "first-prime endpoint absorption at T=7/20",
+  "arithmetic": "exact Fraction only",
+  "T": "7/20",
+  "log2_series_terms": 4,
+  "log2_series_lower": "53056/76545",
+  "log2_series_upper": "1910051/2755620",
+  "log2_target_lower": "842/1215",
+  "log2_target_upper": "23581/34020",
+  "epsilon_upper": "34/1701",
+  "bridge_power_inequality": {
+    "left": "(1701/68)^5",
+    "right": "(87/32)^16",
+    "verified": true
+  },
+  "bridge_log_terms": 5,
+  "log_87_over_32_lower": "43074487021243080590/43069037068120272111",
+  "log_87_over_32_upper": "79950047338858944684415/79936132798431225038016",
+  "kappa_edge_lower": "8/5",
+  "sqrt2_lower": "7/5",
+  "c2_upper_intermediate": "23581/47628",
+  "c2_upper": "62/125",
+  "c2_over_kappa_upper": "31/100",
+  "retained_V_fraction_lower": "69/100",
+  "conclusion": "V + P_2 >= (69/100) V >= 0"
+}

@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T02:26:00Z`
+- **Last updated:** `2026-08-21T04:09:56Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -311,6 +311,50 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-08-21T02:26:00Z`
 - **Used for:** Modern integral-operator/hermitian-form versions of Weil positivity and nondegeneracy criteria on compact-support spaces.
 - **Verification notes:** Published theorem summaries checked; used as operator-framework context, not as a dependency of the elementary compressed-shift derivation.
+
+### R-0028 — Suzuki 2026 finite-support Weil quadratic form
+
+- **Authors:** Masatoshi Suzuki
+- **Title:** Weil's quadratic form via the screw function
+- **Publication:** arXiv preprint
+- **Year:** 2026; version checked dated `2026-08-19`
+- **Stable identifier:** arXiv `2606.09096` — https://arxiv.org/abs/2606.09096
+- **First verified/accessed:** `2026-08-21T04:06:54Z`
+- **Used for:** Authoritative finite-support normalization in `A-20260821-003`, including the self-adjoint localized operator, the prime-power finite symbol, the separate finite-support residual kernel, the scaled Rayleigh-quotient form, and `c_T=log(2*pi*T)+EulerGamma` normalization.
+- **Verification notes:** Current arXiv text was checked directly. The paper explicitly emphasizes that its results do not assume RH and places Bombieri, Yoshida, and Connes-Consani in a unified finite-support framework.
+
+### R-0029 — Connes and Consani on prime-threshold numerical compensation
+
+- **Authors:** Alain Connes; Caterina Consani
+- **Title:** Spectral triples and zeta-cycles
+- **Publication:** L'Enseignement Mathématique, 69(1/2), 93-148
+- **Year:** 2023
+- **Stable identifier:** DOI `10.4171/LEM/1049`
+- **First verified/accessed:** `2026-08-21T04:06:54Z`
+- **Used for:** Published finite-matrix/core context and numerical observation that the localized archimedean low eigenvalue deteriorates at the first prime threshold while adding the `p=2` term restores positivity through the interval before `p=3` in their support convention.
+- **Verification notes:** EMS Press metadata and the open-access paper were checked. The numerical compensation is literature context only, not a proof of first-prime positivity.
+
+### R-0030 — NIST DLMF digamma representations
+
+- **Authors:** NIST Digital Library of Mathematical Functions
+- **Title:** Section 5.9(ii) — Psi Function, Euler's Constant, and Derivatives
+- **Publication:** NIST DLMF
+- **Year:** continuously maintained; version checked `2026-08-21`
+- **Stable identifier:** https://dlmf.nist.gov/5.9.ii
+- **First verified/accessed:** `2026-08-21T04:06:54Z`
+- **Used for:** Standard digamma representations supporting the positive exponential-kernel decomposition in `C-0043`.
+- **Verification notes:** Section 5.9(ii), including the standard integral/series representations for `psi`, was checked directly. The nonnegative-kernel decomposition is derived in the repository.
+
+### R-0031 — Public `weil-first-prime` proof-code candidate
+
+- **Authors:** GitHub repository `telleroutlook/weil-first-prime`
+- **Title:** `weil-first-prime` — certificate-first proof infrastructure for FP-0.35
+- **Publication:** Public source-code repository
+- **Year:** 2026
+- **Stable identifier:** https://github.com/telleroutlook/weil-first-prime ; pinned source audit commit `e66f467bc4447c5b2491577cbb6c3ae0e721fb43`
+- **First verified/accessed:** `2026-08-21T04:06:54Z`
+- **Used for:** External proof-architecture comparison and adversarial source audit only. The project claims finite-scale positivity at `T=7/20`; this repository does not import that theorem status.
+- **Verification notes:** A temporary isolated clone of the pinned commit was inspected. The README currently reports FP-0.35 as holding while also listing the trusted proof-chain/replay work as in progress. Specific checker-path inconsistencies are documented in `F-20260821-015`. Treat this source as unverified proof code, not mathematical authority.
 
 ## Entry format
 

@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T02:26:00Z`
+- **Last updated:** `2026-08-21T04:09:56Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -466,6 +466,39 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** none
 - **Source:** `A-20260821-002`, `F-20260821-011`, `R-0024`, `R-0025`, `R-0027`
 - **Verification notes:** Bombieri's published quadratic-functional study and Connes-Consani's published archimedean-place positivity paper were checked; Suzuki provides a modern integral-operator form of Weil positivity.
+
+### C-0042 — Exact first-prime endpoint absorption at T=7/20
+
+- **Statement:** In the scaled first-prime Weil form at `T=7/20`, let `V(x)=-(1/2)log(1-x^2)` and let `P_2` denote the `p=2` compressed-translation contribution. Then `V+P_2 >= (69/100)V >= 0` as quadratic forms.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T04:06:54Z`
+- **Last verified:** `2026-08-21T04:06:54Z`
+- **Dependencies:** `C-0039`, `C-0040`
+- **Source:** `A-20260821-003`, `F-20260821-012`, `X-20260821-003`
+- **Verification notes:** The retained certificate proves the needed `log 2`, edge-potential, and `sqrt(2)` bounds with exact `Fraction` arithmetic and rigorous atanh-series remainder bounds; no floating-point number is used as a proof premise. This is finite-support only and does not imply RH.
+
+### C-0043 — Positive-kernel decomposition of the digamma multiplier
+
+- **Statement:** Writing `a_k=k+1/4` and `m_0=psi(1/4)-log pi`, one has `Re psi(1/4+i xi/2)-log pi = m_0 + sum_(k>=0)[1/a_k - 4a_k/(xi^2+4a_k^2)]`. Under the repository Fourier convention, each summand contributes the nonnegative quadratic form `(1/a_k)||f||_2^2 - double_integral exp(-2a_k|t-s|) f(t)conj(f(s)) dt ds`; finite partial sums therefore give monotone lower bounds for the pure digamma-multiplier component.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T04:06:54Z`
+- **Last verified:** `2026-08-21T04:06:54Z`
+- **Dependencies:** none
+- **Source:** `A-20260821-003`, `F-20260821-013`, `R-0030`
+- **Verification notes:** Derived from the standard digamma series plus `Fourier[exp(-2a|t|)] = 4a/(xi^2+4a^2)`. This is only one component of the finite-support Weil form; `C-0044` is a mandatory guard.
+
+### C-0044 — The finite-support Weil residual kernel is mandatory
+
+- **Statement:** In Suzuki's exact finite-support Weil quadratic form, the digamma Fourier multiplier and finite prime-power symbol do not constitute the whole operator. A separate finite-support residual kernel involving the truncated `r_0''` term is present; in the scaled formula this appears as a double-integral residual term. Any finite-dimensional calculation omitting it is not a calculation of the full finite-support Weil form.
+- **Type:** `ESTABLISHED_THEOREM`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-21T04:06:54Z`
+- **Last verified:** `2026-08-21T04:06:54Z`
+- **Dependencies:** none
+- **Source:** `A-20260821-003`, `F-20260821-014`, `R-0028`
+- **Verification notes:** Checked against Suzuki's 2026 finite-support formulas. An exploratory multiplier-plus-prime Galerkin scout was discarded before registration after this guard exposed the normalization omission.
 
 ## Entry format
 

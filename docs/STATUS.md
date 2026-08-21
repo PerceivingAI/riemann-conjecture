@@ -1,14 +1,14 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T02:26:00Z`
+- **Last updated:** `2026-08-21T04:09:56Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
 
 ## Current state
 
-Eight formal research attempts are recorded:
+Nine formal research attempts are recorded:
 
 - [`A-20260820-001`](../attempts/2026-08-20T203700Z-li-laguerre-prime-trace-route.md) — generalized Li/Laguerre route; `BLOCKED`, with later corrections preserved.
 - [`A-20260820-002`](../attempts/2026-08-20T204900Z-pole-subtracted-prime-laguerre-route.md) — exact zeta-pole subtraction and discrepancy criterion; `COMPLETE` intermediate target.
@@ -18,150 +18,171 @@ Eight formal research attempts are recorded:
 - [`A-20260820-006`](../attempts/2026-08-20T224400Z-prime-side-chirp-dirichlet-reduction.md) — endpoint closure and microlocal Dirichlet reduction; `COMPLETE`.
 - [`A-20260821-001`](../attempts/2026-08-21T020900Z-global-bilinear-vaughan-chirp-route.md) — global Vaughan/Heath-Brown phase test; `COMPLETE` negative diagnostic.
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit and restricted-support Weil operator mechanism; `COMPLETE`.
+- [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — exact first-prime endpoint absorption, finite-support normalization guard, and external FP-0.35 source audit; `COMPLETE` intermediate target.
 
-The repository now contains ten retained computation records. No proof of RH has been obtained.
+The repository now contains eleven retained computation records. No proof of RH has been obtained.
 
 ## Active leads
 
-### L1 — First-prime Weil support continuation
+### L1 — Independent residual Weil certificate at `T=7/20`
 
 **Status:** `ACTIVE / PRIMARY / NEXT`
 
-The positivity audit found the first mechanism in this project with a genuinely unconditional base regime.
+The current primary route is finite-scale and deliberately does **not** claim an RH implication.
 
-For logarithmic support
+For support half-width
 
 ```text
-supp f subset [-T,T],
+T=7/20,
 ```
 
-the autocorrelation is supported in `[-2T,2T]`, so prime power `m` enters Weil's explicit-formula quadratic form only at
+only the first prime is active. `A-20260821-003` proves exactly
 
 ```text
-T>(1/2)log m.
-```
-
-The prime-free regime is
-
-```text
-T<(1/2)log2.
-```
-
-Restricted-support archimedean Weil positivity is known unconditionally (`C-0041`).
-
-The first arithmetic window is
-
-```text
-(1/2)log2 < T < (1/2)log3,
-```
-
-where only `m=2` is active.
-
-On the standard constrained Weil space, the full operator has the form
-
-```text
-A_infinity(T)
-- [log2/sqrt2] S_(T,log2),
+V + P_2 >= (69/100)V >= 0,
 ```
 
 where
 
 ```text
-S_(T,a)=P_T(U_a+U_a^*)P_T.
+V(x)=-(1/2)log(1-x^2)
 ```
 
-Throughout this entire first-prime window,
+is the endpoint potential in the scaled first-prime Weil form and `P_2` is the `p=2` compressed-translation contribution (`C-0042`).
+
+The proof is self-contained exact rational arithmetic. It proves the required `log 2` bounds from the atanh series with a rigorous rational remainder and obtains
 
 ```text
-||S_(T,log2)||=1,
+kappa_edge > 8/5,
+c_2=log2/sqrt2 < 62/125,
+c_2/kappa_edge < 31/100.
 ```
 
-so the exact scalar size of the first arithmetic perturbation is
+The remaining task is therefore not to re-bound the first-prime translation globally. It is to prove positivity of the **residual** finite-support form after this absorption.
+
+In Suzuki's scaled normalization, the remaining target is schematically
 
 ```text
-log2/sqrt2
-=0.4901290717... .
+kinetic/logarithmic form
++ (69/100)V
++ finite-support residual kernel
+- c_T I
+> 0,
 ```
 
-The next task is a **relative operator comparison**, not another global prime bound.
-
-### L2 — Li Gram / moment formulations
-
-**Status:** `CLOSED AS EQUIVALENT CRITERIA / AVAILABLE STRUCTURE`
-
-The finite kernel
+on the correct domain/parity constraints, with
 
 ```text
-K_jk=lambda_j+lambda_k-lambda_|j-k|
+c_T=log(2*pi*T)+EulerGamma.
 ```
 
-is a Gram matrix under RH, but
+The next attempt must construct this exact residual form, prove an infinite-dimensional complement bound, and certify the finite block with interval/exact arithmetic.
+
+### L2 — Exact transcendental interval inputs
+
+**Status:** `CLOSED / AVAILABLE TOOL`
+
+At `T=7/20`, `X-20260821-003` records 256-bit Arb enclosures for
 
 ```text
-K_nn=2lambda_n.
+tau=log2/T,
+c_2=log2/sqrt2,
+c_T=log(2*pi*T)+EulerGamma.
 ```
 
-Hence
+Selected values are
 
 ```text
-RH <=> K^(N) PSD for every N.
+tau
+= [1.98042051588555802690637748988050448021571466960072929748766 +/- 2.84e-60]
+
+c_2
+= [0.490129071734273595856950861817616690645730349549527360521123 +/- 1.24e-61]
+
+c_T
+= [1.36527060681220065583730073019427666472543738980832338274545 +/- 2.56e-60].
 ```
 
-The matrix criterion contains Li positivity directly on its diagonal (`C-0036`).
+These are scalar inputs only; they do not certify the full operator.
 
-Likewise,
+### L3 — Positive-kernel decomposition of the digamma multiplier
+
+**Status:** `ACTIVE TOOL / COMPONENT ONLY`
+
+Let
 
 ```text
-psi(n)=lambda_|n|
+a_k=k+1/4,
+m_0=psi(1/4)-log pi.
 ```
 
-is conditionally negative definite under RH, so
+Then (`C-0043`)
 
 ```text
-exp[-t lambda_|n|]
+Re psi(1/4+i xi/2)-log pi
+=m_0
++sum_(k>=0)
+ [1/a_k - 4a_k/(xi^2+4a_k^2)].
 ```
 
-is positive definite and gives a Herglotz probability-measure convolution semigroup. But the two-point CND test immediately gives `lambda_n>=0`, so this is again exactly RH (`C-0037`).
-
-These formulations are structural tools, not independent progress toward RH.
-
-### L3 — Prime/archimedean compensation in the generalized Li basis
-
-**Status:** `STRUCTURAL OBSTRUCTION`
-
-A single generalized prime-power atom contributes to the natural Li Gram kernel with
+Under the repository Fourier convention, each summand contributes
 
 ```text
-K_11^(m)=-2A Lambda(m)m^(-s0)<0.
+(1/a_k)||f||_2^2
+- double_integral exp(-2a_k|t-s|)
+    f(t)conj(f(s)) dt ds,
 ```
 
-Thus the prime side is not a sum of positive Gram pieces (`C-0038`). Full positivity must come from compensation with pole/archimedean terms.
+which is nonnegative. Finite partial sums therefore give monotone lower bounds for the pure digamma-multiplier component.
 
-This supports the pivot toward Weil's full quadratic operator, where that compensation is explicit.
+This may be useful for the residual certificate, but it is **not** the whole finite-support Weil operator.
 
-### L4 — Direct Li/Laguerre prime cancellation
+### L4 — Mandatory finite-support residual kernel
+
+**Status:** `CORRECTNESS GUARD`
+
+Suzuki's exact localized form contains, in addition to the digamma multiplier and finite prime-power symbol, a separate finite-support residual kernel (`C-0044`). In the scaled formula it appears as a double-integral residual term.
+
+Any finite-dimensional scout or certificate that omits this term is rejected as a model of the full localized Weil form.
+
+An exploratory sine-Galerkin calculation created during `A-20260821-003` was deleted before registration after this guard exposed the omission. No eigenvalue from that scout is retained as evidence.
+
+### L5 — Public FP-0.35 certificate project
+
+**Status:** `EXTERNAL / UNVERIFIED / BLUEPRINT ONLY`
+
+The public `telleroutlook/weil-first-prime` repository claims strict finite-scale positivity at `T=7/20`. The pinned source audit in `A-20260821-003` does not accept that theorem as verified here.
+
+At pinned commit
+
+```text
+e66f467bc4447c5b2491577cbb6c3ae0e721fb43
+```
+
+the inspected source paths are not a single internally consistent exact full-`c_T` replay:
+
+- the advertised replay injects point approximations for `tau` and `c_2` into Arb;
+- the full-`c_T` recomputation path uses floating `tau`, floating `c_2`, and a numerical LDL pivot;
+- the exact-prime path sets `c_L=0`, so it is the easier O1-B gate rather than the full FP-0.35 form;
+- lower-level source comments still distinguish interim interval-LDL machinery from the intended final exact certification;
+- the repository README simultaneously reports FP-0.35 as holding while listing the trusted replay/release chain as in progress.
+
+This is a source-audit conclusion only. It does **not** assert FP-0.35 is false.
+
+The external code may be mined for proof architecture, but theorem status is not imported.
+
+### L6 — Li/Laguerre direct prime cancellation
 
 **Status:** `BLOCKED AS CURRENT MECHANISM`
 
-The earlier branch established:
+The earlier branch remains mathematically useful but blocked at an essentially square-root prime-cancellation requirement. The most important retained facts are:
 
-- exact pole-subtracted discrepancy transform (`C-0010`, `C-0011`);
-- explicit nonlinear critical-half-weight chirp (`C-0023`);
-- fixed-interior microlocal Dirichlet reduction (`C-0028`);
-- generic one-dimensional mean values leave positive exponential root growth (`C-0029`);
+- exact pole-subtracted `d(psi-x)` transform (`C-0010`, `C-0011`);
+- exact single-zero response (`C-0019`);
+- explicit critical-half-weight nonlinear chirp (`C-0023`);
+- direct fixed-interior magnitude estimates require square-root saving (`C-0034`);
 - finite multiplicative divisor decompositions preserve rank-one phase geometry (`C-0031`);
-- dyadic Type-II chirp kernels are asymptotically separable (`C-0032`);
-- direct magnitude estimates need essentially square-root saving (`C-0034`).
-
-Therefore the conventional Vaughan/Heath-Brown phase route is closed as a demonstrably weaker mechanism (`C-0035`).
-
-### L5 — Restricted Weil positivity / operator literature
-
-**Status:** `AVAILABLE TOOLKIT`
-
-Bombieri's Weil-functional work provides the variational/finite-truncation framework and restricted-support positivity. Connes-Consani give a conceptual archimedean positivity mechanism using compressed scaling, Sonin/prolate structure, and Hermitian Toeplitz matrices. Suzuki supplies a modern integral-operator/hermitian-form formulation.
-
-These are the main external tools for the next attempt (`R-0024` through `R-0027`).
+- generic Vaughan/Heath-Brown phase decomposition is blocked (`C-0035`).
 
 ## Strongest verified intermediate results
 
@@ -169,40 +190,39 @@ These are the main external tools for the next attempt (`R-0024` through `R-0027
 2. `S_n` is exactly the pole-subtracted `d(psi-x)` Laguerre transform (`C-0011`).
 3. A single zero mode has exact response `z_rho^(-n)-1` (`C-0019`).
 4. The uniform pre-turning stationary map is `u_gamma=A^2/(A^2+4gamma^2)` (`C-0021`).
-5. The prime discrepancy is probed by a nonlinear critical-half-weight chirp (`C-0023`).
-6. Direct fixed-interior prime magnitude estimates require square-root saving (`C-0034`).
-7. Generic Vaughan/Heath-Brown phase decomposition is blocked (`C-0035`).
-8. `K_jk=lambda_j+lambda_k-lambda_|j-k|` gives an exact Li Gram criterion, but it is immediately RH-equivalent (`C-0036`).
-9. Li CND/Schoenberg-Herglotz structure is also exactly RH-equivalent (`C-0037`).
-10. Natural generalized prime Gram atoms are not PSD (`C-0038`).
-11. Weil prime powers enter at thresholds `T=(1/2)log m` as compressed translations (`C-0039`).
-12. The first-prime compressed shift has exact norm `1` and perturbation size `log2/sqrt2` (`C-0040`).
-13. Restricted-support Weil positivity provides a genuine unconditional base regime (`C-0041`).
+5. Direct fixed-interior prime magnitude estimates require square-root saving (`C-0034`).
+6. Generic Vaughan/Heath-Brown phase decomposition is blocked (`C-0035`).
+7. Li Gram and Schoenberg/Herglotz positivity formulations are exact RH equivalents, not weaker mechanisms (`C-0036`, `C-0037`).
+8. Prime powers enter the localized Weil form as thresholded compressed translations (`C-0039`).
+9. The first-prime compressed shift has exact norm `1` throughout its support window (`C-0040`).
+10. Restricted-support Weil positivity gives a genuine unconditional base regime (`C-0041`).
+11. At `T=7/20`, the first-prime endpoint term is absorbed rigorously: `V+P_2 >= (69/100)V` (`C-0042`).
+12. The pure digamma multiplier admits monotone nonnegative-kernel lower bounds (`C-0043`).
+13. The finite-support residual kernel is mandatory in any full localized Weil computation (`C-0044`).
 
-## Computational observations
+## Computational observations and certificates
 
-- `X-20260821-001` verified `1/n` dyadic bilinear phase separability and the `sqrt(n)` nonseparability scale.
-- `X-20260821-002` checked the finite Li Gram/Schoenberg behavior on synthetic on-line/off-line orbits and the deterministic Weil support geometry.
-- In the synthetic off-line quartet diagnostic (`r=1.2`, `theta=0.7`), the first negative Li coefficient occurred at `n=8`, and both Gram and Schoenberg matrices became indefinite.
-- At `T=0.34`, no prime powers are active.
-- At `T=0.45`, only `m=2` is active with compressed-shift norm `1` and scalar penalty `0.490129071734...`.
-- At `T=0.60`, `m=2,3` are active; the crude sum of individual operator-norm penalties is `1.124413172332...`.
+- `X-20260821-001` checks dyadic bilinear phase separability.
+- `X-20260821-002` checks Li Gram/Schoenberg synthetic examples and exact compressed-shift support geometry.
+- `X-20260821-003` contains the exact rational first-prime absorption certificate and exact Arb constant enclosures.
 
-These are diagnostics only, not evidence for RH.
+The exact rational certificate is a proof of `C-0042`; the Arb constants are certified scalar enclosures. Neither constitutes a proof of full first-prime positivity.
 
 ## Open requirements / blockers
 
-The primary blocker is now sharply localized:
+The primary blocker is now:
 
-> Prove nonnegativity of the constrained first-prime Weil operator `A_infinity(T)-(log2/sqrt2)S_(T,log2)` for `(1/2)log2<T<(1/2)log3`, or identify the exact point/mechanism at which such continuation fails.
+> Prove the residual localized Weil quadratic form at `T=7/20` positive after the rigorous replacement `V+P_2 >= (69/100)V`, with a mathematically justified infinite-dimensional complement bound and a finite interval/exact positive-definiteness certificate.
 
-The crude sufficient condition
+Required pieces:
 
-```text
-lambda_min(A_infinity(T)) > log2/sqrt2
-```
-
-may be too strong. A successful proof should preferably exploit the **relative geometry** of the archimedean operator and the compressed shift.
+1. authoritative Suzuki scaled normalization;
+2. parity-adapted finite block;
+3. exact/certified residual-kernel matrix entries;
+4. independent complement/tail lower bound;
+5. interval `LDL^T`, exact rational Schur test, or equivalent rigorous positivity judge;
+6. robustness to all transcendental interval widths;
+7. no reliance on a finite matrix alone.
 
 ## Invalidated, corrected, or closed directions
 
@@ -234,27 +254,36 @@ may be too strong. A successful proof should preferably exploit the **relative g
 
 `CLOSED`: logarithmic Hessian remains rank one and dyadic boxes become asymptotically separable.
 
-### I8 — Li Gram PSD is a new weaker positivity mechanism
+### I8 — Li Gram or Schoenberg positivity is a weaker criterion
 
-`CLOSED AS EQUIVALENT`: `K_nn=2lambda_n`.
+`CLOSED AS EQUIVALENT`: both immediately contain Li positivity.
 
-### I9 — Schoenberg/Herglotz positivity weakens Li's criterion
+### I9 — Prime-side Gram atoms are individually positive
 
-`CLOSED AS EQUIVALENT`: conditional negative definiteness already implies every `lambda_n>=0`.
+`REFUTED IN NATURAL BASIS`: their first diagonal entry is negative.
 
-### I10 — Prime-side Gram atoms are individually positive
+### I10 — Digamma multiplier minus `p=2` is the full first-prime Weil operator
 
-`REFUTED IN NATURAL BASIS`: the first diagonal entry of every generalized prime atom is negative.
+`INVALIDATED / NORMALIZATION ERROR`: Suzuki's localized formula contains an additional residual kernel.
+
+### I11 — A positive finite Galerkin matrix proves first-prime positivity
+
+`INVALIDATED AS SUFFICIENT EVIDENCE`: a rigorous infinite-dimensional complement bound is mandatory.
+
+### I12 — Import the public FP-0.35 repository's PASS status
+
+`REJECTED AS PROOF DEPENDENCY`: the current public source tree is useful architecture but has not passed this repository's independent exact replay standard.
 
 ## Next research action
 
-Create `A-20260821-003` for the **first-prime Weil support-continuation problem**:
+Create `A-20260821-004` for an **independent rigorous residual certificate at `T=7/20`**:
 
-1. fix the precise Bombieri/Connes-Consani normalization and the admissible pole-constraint subspace;
-2. construct the constrained archimedean operator `A_infinity(T)` for `(1/2)log2<T<(1/2)log3`;
-3. represent the only arithmetic perturbation as `(log2/sqrt2)S_(T,log2)`;
-4. derive the relative operator `A_infinity(T)^(-1/2) S A_infinity(T)^(-1/2)` where justified;
-5. use the Sonin/prolate/Toeplitz representation if it improves control;
-6. build certified Galerkin lower bounds with python-flint/Arb and a rigorous truncation/tail estimate;
-7. distinguish finite-dimensional certified positivity from the infinite-dimensional theorem;
-8. if scalar gap comparison fails, identify whether the extremal direction is controlled by the pole constraints or by a low-dimensional relative-shift subspace.
+1. use Suzuki's scaled finite-support form as authoritative;
+2. insert `V+P_2 >= (69/100)V` exactly;
+3. choose a parity-adapted Legendre or comparable basis;
+4. derive the residual finite matrix from scratch, including the finite-support residual kernel;
+5. derive an independent complement/tail lower bound;
+6. evaluate every `tau`, `c_2`, `c_T`, and residual-kernel dependency with Arb balls or proven rational intervals;
+7. prove the finite Schur/Gram matrix positive by interval `LDL^T` or exact rational inequalities;
+8. require positivity to survive all interval widths and truncation errors;
+9. if successful, record only finite-scale positivity at `T=7/20` — not RH.
