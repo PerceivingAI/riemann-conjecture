@@ -10,6 +10,9 @@ numpy>=2.0.0
 sympy>=1.13.0
 matplotlib>=3.9.0
 
+# Certificate schema validation
+jsonschema>=4.23.0
+
 # Testing & property-based validation
 pytest>=8.0.0
 hypothesis>=6.100.0

@@ -51,11 +51,14 @@ fn main() -> ExitCode {
                         println!("Format:      {}", outcome.format);
                         println!("Dimension:   {}x{}", outcome.dimension, outcome.dimension);
                         println!("Support T:   {}", outcome.support_t);
+                        println!("Profile:     {}", outcome.claim_profile);
+                        println!("Scope:       {}", outcome.verified_scope);
+                        println!("Basis:       {}", outcome.basis_type);
+                        println!("Parity:      {}", outcome.parity_sector);
+                        println!("Tail rule:   {}", outcome.tail_rule);
+                        println!("Tail bound:  {}", outcome.tail_lower_bound);
                         println!("Symmetric:   {}", outcome.ldl_report.is_symmetric);
-                        println!(
-                            "Positive:    {}",
-                            outcome.ldl_report.is_positive_definite
-                        );
+                        println!("Positive:    {}", outcome.ldl_report.is_positive_definite);
                         println!(
                             "Min D bound: {}",
                             outcome.ldl_report.min_diagonal_lower_bound

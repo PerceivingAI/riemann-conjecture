@@ -8,12 +8,17 @@ This module computes verified Arb interval matrices for:
 
 from __future__ import annotations
 
-from typing import Callable
+import math
+from functools import lru_cache
 
 from flint import acb, arb, arb_mat, ctx, fmpq
 
 from scripts.cert.constants import digamma_ak, m0_digamma_enclosure
-from scripts.cert.quadrature import evaluate_basis_acb, rigorous_real_integral_1d
+from scripts.cert.quadrature import (
+    evaluate_basis_acb,
+    require_real_enclosure,
+    rigorous_real_integral_1d,
+)
 
 
 def digamma_inner_products_matrix(
@@ -92,9 +97,14 @@ def exponential_convolution_matrix(
                     i_right = acb.integral(right_inner, t, t_acb)
                     return phi_i_t * (i_left + i_right)
 
-                val_acb = acb.integral(outer_integrand, -t_acb, t_acb)
-                mat[i, j] = val_acb.real
-                mat[j, i] = val_acb.real
+                value = rigorous_real_integral_1d(
+                    outer_integrand,
+                    -t_acb,
+                    t_acb,
+                    prec=prec,
+                )
+                mat[i, j] = value
+                mat[j, i] = value
 
         return mat
 
@@ -160,35 +170,164 @@ def digamma_positive_operator_matrix(
         return total
 
 
+@lru_cache(maxsize=None)
+def _bernoulli_at_three_quarters(n: int) -> fmpq:
+    x = fmpq(3, 4)
+    return sum(
+        (
+            fmpq(math.comb(n, k))
+            * fmpq.bernoulli(k)
+            * (x ** (n - k))
+            for k in range(n + 1)
+        ),
+        fmpq(0),
+    )
+
+
+@lru_cache(maxsize=None)
+def _suzuki_residual_series_coefficients(order: int) -> tuple[fmpq, ...]:
+    """Return exact Taylor coefficients for the positive-side analytic branch.
+
+    Suzuki's decomposition gives
+    `r0''(u) = -2 cosh(u/2)` and
+    `r1''(u) = sum B_(m+1)(3/4) (2u)^m / (m+1)!`.
+    """
+    coefficients: list[fmpq] = []
+    for degree in range(order + 1):
+        r_zero = (
+            fmpq(-2, (2**degree) * math.factorial(degree))
+            if degree % 2 == 0
+            else fmpq(0)
+        )
+        r_one = (
+            _bernoulli_at_three_quarters(degree + 1)
+            * (2**degree)
+            / math.factorial(degree + 1)
+        )
+        coefficients.append(r_zero + r_one)
+    return tuple(coefficients)
+
+
+def _suzuki_residual_tail_radius(u: acb, order: int) -> arb:
+    """Bound every omitted Taylor coefficient on `|u| < pi`.
+
+    For `m >= 1`, the Fourier bound for Bernoulli polynomials gives
+    `|B_(m+1)(3/4)| <= 2 (m+1)! / (2*pi)^(m+1)`.
+    This reduces the `r1''` remainder to the geometric bound below.
+    The `r0''` remainder uses the exponential-series term ratio.
+    """
+    magnitude = abs(u).upper()
+    pi = arb.pi()
+    if not magnitude < pi:
+        raise ValueError("Suzuki residual series requires |T(x-y)| < pi")
+
+    ratio = magnitude / pi
+    r_one_tail = (arb(2) / pi) * (ratio ** (order + 1)) / (1 - ratio)
+
+    half_magnitude = magnitude / 2
+    first_exp_term = (
+        arb(2)
+        * (half_magnitude ** (order + 1))
+        / math.factorial(order + 1)
+    )
+    r_zero_tail = first_exp_term / (
+        1 - half_magnitude / (order + 2)
+    )
+    return r_zero_tail + r_one_tail
+
+
+def _suzuki_residual_r_second_positive_acb(
+    u: acb,
+    *,
+    order: int = 32,
+) -> acb:
+    coefficients = _suzuki_residual_series_coefficients(order)
+    value = acb(0)
+    for coefficient in reversed(coefficients):
+        value = value * u + acb(coefficient)
+
+    try:
+        error = _suzuki_residual_tail_radius(u, order)
+    except ValueError:
+        return acb("nan")
+    error_ball = arb(0, error)
+    return value + acb(error_ball, error_ball)
+
+
+def suzuki_residual_r_second(
+    t: arb | fmpq | int,
+    prec: int = 128,
+) -> arb:
+    """Evaluate Suzuki's canonical even residual second derivative."""
+    if isinstance(t, bool) or isinstance(t, float):
+        raise TypeError("t must be int, fmpq, or arb, not an ordinary float")
+    if not isinstance(t, (int, fmpq, arb)):
+        raise TypeError("t must be int, fmpq, or arb")
+    if isinstance(prec, bool) or not isinstance(prec, int) or prec < 32:
+        raise TypeError("prec must be an integer of at least 32 bits")
+
+    with ctx.workprec(prec):
+        positive_t = abs(arb(t))
+        result = _suzuki_residual_r_second_positive_acb(acb(positive_t))
+        return require_real_enclosure(result, "Suzuki residual second derivative")
+
+
 def suzuki_residual_kernel_matrix(
-    r_second_deriv: Callable[[acb, bool], acb],
     basis_type: str,
     dim: int,
     T_val: arb,
     prec: int = 128,
 ) -> arb_mat:
-    """Compute Suzuki residual kernel matrix:
+    """Compute the canonical Suzuki residual matrix from equation (4.5)."""
+    if dim < 1:
+        raise ValueError(f"Dimension must be positive, got {dim}")
+    if not T_val > 0:
+        raise ValueError("T_val must be strictly positive")
+    if not 2 * abs(T_val).upper() < arb.pi():
+        raise ValueError("T_val must satisfy 2*T < pi for residual series evaluation")
 
-    R_{i,j} = -T int_{-1}^1 int_{-1}^1 r''(T(x - y)) phi_i(x) phi_j(y) dx dy.
-    """
     with ctx.workprec(prec):
-        mat = arb_mat(dim, dim)
+        matrix = arb_mat(dim, dim)
         t_acb = acb(T_val)
 
         for i in range(dim):
             for j in range(i, dim):
-                def outer(x: acb, analytic: bool) -> acb:
+                if (i % 2) != (j % 2):
+                    matrix[i, j] = arb(0)
+                    matrix[j, i] = arb(0)
+                    continue
+
+                def outer(x: acb, _: bool) -> acb:
                     phi_i_x = evaluate_basis_acb(basis_type, i, x)
 
-                    def inner(y: acb, a_in: bool) -> acb:
-                        phi_j_y = evaluate_basis_acb(basis_type, j, y)
-                        u = t_acb * (x - y)
-                        return r_second_deriv(u, analytic and a_in) * phi_j_y
+                    def left(y: acb, _: bool) -> acb:
+                        distance = t_acb * (x - y)
+                        kernel = _suzuki_residual_r_second_positive_acb(distance)
+                        return (
+                            kernel
+                            * evaluate_basis_acb(basis_type, j, y)
+                        )
 
-                    return phi_i_x * acb.integral(inner, -1, 1)
+                    def right(y: acb, _: bool) -> acb:
+                        distance = t_acb * (y - x)
+                        kernel = _suzuki_residual_r_second_positive_acb(distance)
+                        return (
+                            kernel
+                            * evaluate_basis_acb(basis_type, j, y)
+                        )
 
-                val_acb = -t_acb * acb.integral(outer, -1, 1)
-                mat[i, j] = val_acb.real
-                mat[j, i] = val_acb.real
+                    left_integral = acb.integral(left, -1, x)
+                    right_integral = acb.integral(right, x, 1)
+                    return phi_i_x * (left_integral + right_integral)
 
-        return mat
+                value = rigorous_real_integral_1d(
+                    outer,
+                    -1,
+                    1,
+                    prec=prec,
+                )
+                value *= -T_val
+                matrix[i, j] = value
+                matrix[j, i] = value
+
+        return matrix

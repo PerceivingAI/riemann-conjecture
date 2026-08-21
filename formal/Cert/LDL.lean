@@ -1,81 +1,91 @@
-/-
-Formal verification of exact rational LDL^T decomposition and positive definiteness soundness.
+import Cert.Interval
+import Mathlib.LinearAlgebra.Matrix.Block
+import Mathlib.LinearAlgebra.Matrix.Nondegenerate
 
-This module proves the algebraic soundness theorems for 2x2 symmetric matrices:
-  If a symmetric matrix has strictly positive LDL^T diagonal elements (D > 0),
-  then its associated quadratic form is strictly positive on non-zero vectors.
+/-!
+Arbitrary finite-dimensional soundness of exact and interval-certified LDL factorizations.
 -/
 
-import Cert.Interval
+open Matrix
 
 namespace LDL
 
-open ExactRat
+variable {n : Type*} [Fintype n] [LinearOrder n]
 
-structure SymMatrix2x2 where
-  a00 : ExactRat
-  a01 : ExactRat
-  a11 : ExactRat
-deriving Repr, DecidableEq
+def IsUnitLowerTriangular (L : Matrix n n ℚ) : Prop :=
+  Matrix.IsLowerTriangular L ∧ ∀ i, L i i = 1
 
-namespace SymMatrix2x2
+def RationalPosDef (A : Matrix n n ℚ) : Prop :=
+  ∀ ⦃x : n → ℚ⦄, x ≠ 0 → 0 < x ⬝ᵥ (A *ᵥ x)
 
-/-- Quadratic form evaluation on integer coordinates:
-    Q(x, y) = a00 * x^2 + 2 * a01 * x * y + a11 * y^2. -/
-def quadFormInt (A : SymMatrix2x2) (x y : Int) : Int :=
-  A.a00.num * x * x + 2 * A.a01.num * x * y + A.a11.num * y * y
+theorem unitLower_mulVec_injective
+    {L : Matrix n n ℚ} (hL : IsUnitLowerTriangular L) :
+    Function.Injective L.mulVec := by
+  have hdet : L.det ≠ 0 := by
+    rw [Matrix.det_of_isLowerTriangular L hL.1]
+    simp [hL.2]
+  exact Matrix.mulVec_injective_of_det_ne_zero hdet
 
-/-- LDL^T decomposition diagonal elements D0 and D1 positivity conditions. -/
-def d0_pos (A : SymMatrix2x2) : Prop :=
-  0 < A.a00.num
+theorem unitLower_transpose_mulVec_injective
+    {L : Matrix n n ℚ} (hL : IsUnitLowerTriangular L) :
+    Function.Injective L.transpose.mulVec := by
+  have hdet : L.transpose.det ≠ 0 := by
+    rw [Matrix.det_transpose]
+    rw [Matrix.det_of_isLowerTriangular L hL.1]
+    simp [hL.2]
+  exact Matrix.mulVec_injective_of_det_ne_zero hdet
 
-def d1_condition (A : SymMatrix2x2) : Prop :=
-  0 < A.a00.num * A.a11.num - A.a01.num * A.a01.num
+theorem diagonal_quadratic_form
+    (d y : n → ℚ) :
+    y ⬝ᵥ (Matrix.diagonal d *ᵥ y) = ∑ i, d i * (y i) ^ 2 := by
+  simp only [dotProduct, Matrix.mulVec_diagonal, pow_two]
+  apply Finset.sum_congr rfl
+  intro i _
+  ring
 
-instance (A : SymMatrix2x2) : Decidable A.d0_pos :=
-  inferInstanceAs (Decidable (0 < A.a00.num))
+theorem diagonal_quadratic_form_positive
+    {d y : n → ℚ} (hd : ∀ i, 0 < d i) (hy : y ≠ 0) :
+    0 < y ⬝ᵥ (Matrix.diagonal d *ᵥ y) := by
+  rw [diagonal_quadratic_form]
+  obtain ⟨i, hi⟩ := Function.ne_iff.mp hy
+  exact Finset.sum_pos'
+    (fun j _ => mul_nonneg (hd j).le (sq_nonneg (y j)))
+    ⟨i, Finset.mem_univ i, mul_pos (hd i) (sq_pos_of_ne_zero hi)⟩
 
-instance (A : SymMatrix2x2) : Decidable A.d1_condition :=
-  inferInstanceAs (Decidable (0 < A.a00.num * A.a11.num - A.a01.num * A.a01.num))
+theorem ldl_posDef
+    {A L : Matrix n n ℚ} {d : n → ℚ}
+    (hfactor : A = L * Matrix.diagonal d * L.transpose)
+    (hL : IsUnitLowerTriangular L)
+    (hd : ∀ i, 0 < d i) :
+    RationalPosDef A := by
+  intro x hx
+  let y := L.transpose *ᵥ x
+  have hy : y ≠ 0 := by
+    intro hyzero
+    apply hx
+    apply unitLower_transpose_mulVec_injective hL
+    simpa [y] using hyzero
+  have hpositive := diagonal_quadratic_form_positive hd hy
+  rw [hfactor, ← Matrix.mulVec_mulVec, ← Matrix.mulVec_mulVec,
+    Matrix.dotProduct_mulVec, ← Matrix.mulVec_transpose]
+  exact hpositive
 
-/-- Concrete verified 2x2 matrix from synthetic test certificate: [[4, 1], [1, 3]]. -/
-def testMatrix : SymMatrix2x2 where
-  a00 := ofFrac 4 1
-  a01 := ofFrac 1 1
-  a11 := ofFrac 3 1
+omit [Fintype n] [LinearOrder n] in
+theorem interval_diagonal_positive
+    {d : n → ℚ} {D : n → RatInterval}
+    (henclosed : ∀ i, RatInterval.contains (D i) (d i))
+    (hstrict : ∀ i, RatInterval.isStrictlyPositive (D i)) :
+    ∀ i, 0 < d i :=
+  fun i => RatInterval.strictly_positive_sound (henclosed i) (hstrict i)
 
-/-- Theorem: The synthetic test matrix has verified D0 > 0. -/
-theorem testMatrix_d0_pos : testMatrix.d0_pos := by
-  decide
+theorem interval_ldl_posDef
+    {A L : Matrix n n ℚ} {d : n → ℚ} {D : n → RatInterval}
+    (hfactor : A = L * Matrix.diagonal d * L.transpose)
+    (hL : IsUnitLowerTriangular L)
+    (henclosed : ∀ i, RatInterval.contains (D i) (d i))
+    (hstrict : ∀ i, RatInterval.isStrictlyPositive (D i)) :
+    RationalPosDef A :=
+  ldl_posDef hfactor hL (interval_diagonal_positive henclosed hstrict)
 
-/-- Theorem: The synthetic test matrix has verified Schur complement D1 > 0 (4*3 - 1*1 = 11 > 0). -/
-theorem testMatrix_d1_pos : testMatrix.d1_condition := by
-  decide
-
-/-- Theorem: For the test matrix, the quadratic form evaluated on basis vector (1, 0) is strictly positive (Q = 4 > 0). -/
-theorem testMatrix_quad_form_e1 : 0 < testMatrix.quadFormInt 1 0 := by
-  decide
-
-/-- Theorem: For the test matrix, the quadratic form evaluated on basis vector (0, 1) is strictly positive (Q = 3 > 0). -/
-theorem testMatrix_quad_form_e2 : 0 < testMatrix.quadFormInt 0 1 := by
-  decide
-
-/-- Theorem: For the test matrix, the quadratic form evaluated on diagonal vector (1, 1) is strictly positive (Q = 9 > 0). -/
-theorem testMatrix_quad_form_diag1 : 0 < testMatrix.quadFormInt 1 1 := by
-  decide
-
-/-- Theorem: For the test matrix, the quadratic form evaluated on diagonal vector (1, -1) is strictly positive (Q = 5 > 0). -/
-theorem testMatrix_quad_form_diag2 : 0 < testMatrix.quadFormInt 1 (-1) := by
-  decide
-
-/-- Theorem: For the test matrix, the quadratic form evaluated on vector (2, -3) is strictly positive (Q = 31 > 0). -/
-theorem testMatrix_quad_form_vec3 : 0 < testMatrix.quadFormInt 2 (-3) := by
-  decide
-
-/-- Theorem: For the test matrix, the quadratic form evaluated on vector (5, 2) is strictly positive (Q = 132 > 0). -/
-theorem testMatrix_quad_form_vec4 : 0 < testMatrix.quadFormInt 5 2 := by
-  decide
-
-end SymMatrix2x2
 
 end LDL

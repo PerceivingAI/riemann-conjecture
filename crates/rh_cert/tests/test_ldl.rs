@@ -11,7 +11,10 @@ fn test_identity_matrix() {
     assert!(eye.is_symmetric());
     let report = eye.verify_positivity();
     assert!(report.is_positive_definite);
-    assert_eq!(report.min_diagonal_lower_bound, BigRational::from_integer(BigInt::from(1)));
+    assert_eq!(
+        report.min_diagonal_lower_bound,
+        BigRational::from_integer(BigInt::from(1))
+    );
     assert_eq!(report.diagonal_intervals.len(), 3);
 }
 
@@ -35,7 +38,10 @@ fn test_2x2_positive_definite_matrix() {
     assert!(is_pos);
     assert_eq!(d[0].lo, BigRational::from_integer(BigInt::from(4)));
     assert_eq!(d[1].lo, BigRational::new(BigInt::from(11), BigInt::from(4)));
-    assert_eq!(l[1][0].lo, BigRational::new(BigInt::from(1), BigInt::from(4)));
+    assert_eq!(
+        l[1][0].lo,
+        BigRational::new(BigInt::from(1), BigInt::from(4))
+    );
 }
 
 #[test]
@@ -102,7 +108,47 @@ fn test_3x3_positive_definite_matrix() {
     let mat = RationalIntervalMatrix::new(3, rows).unwrap();
     let report = mat.verify_positivity();
     assert!(report.is_positive_definite);
-    assert_eq!(report.diagonal_intervals[0].lo, BigRational::from_integer(BigInt::from(2)));
-    assert_eq!(report.diagonal_intervals[1].lo, BigRational::new(BigInt::from(3), BigInt::from(2)));
-    assert_eq!(report.diagonal_intervals[2].lo, BigRational::new(BigInt::from(4), BigInt::from(3)));
+    assert_eq!(
+        report.diagonal_intervals[0].lo,
+        BigRational::from_integer(BigInt::from(2))
+    );
+    assert_eq!(
+        report.diagonal_intervals[1].lo,
+        BigRational::new(BigInt::from(3), BigInt::from(2))
+    );
+    assert_eq!(
+        report.diagonal_intervals[2].lo,
+        BigRational::new(BigInt::from(4), BigInt::from(3))
+    );
+}
+
+#[test]
+fn scalar_identity_shift_changes_only_the_diagonal() {
+    let matrix = RationalIntervalMatrix::new(
+        2,
+        vec![
+            vec![
+                RationalInterval::from_integer(1),
+                RationalInterval::from_integer(3),
+            ],
+            vec![
+                RationalInterval::from_integer(3),
+                RationalInterval::from_integer(5),
+            ],
+        ],
+    )
+    .unwrap();
+    let shift = BigRational::new(BigInt::from(-3), BigInt::from(2));
+    let adjusted = matrix.with_diagonal_shift(&shift);
+
+    assert_eq!(
+        adjusted.rows[0][0],
+        RationalInterval::point(BigRational::new(BigInt::from(-1), BigInt::from(2)))
+    );
+    assert_eq!(
+        adjusted.rows[1][1],
+        RationalInterval::point(BigRational::new(BigInt::from(7), BigInt::from(2)))
+    );
+    assert_eq!(adjusted.rows[0][1], matrix.rows[0][1]);
+    assert_eq!(adjusted.rows[1][0], matrix.rows[1][0]);
 }

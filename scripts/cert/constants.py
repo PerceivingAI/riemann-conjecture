@@ -35,17 +35,14 @@ def arb_to_rational_enclosure(x: arb) -> tuple[Fraction, Fraction]:
     return lo, hi
 
 
-def rational_enclosure_dict(x: arb) -> dict[str, Any]:
-    """Serialize an Arb ball into an exact rational enclosure dictionary."""
+def rational_enclosure_dict(x: arb) -> dict[str, str]:
+    """Serialize an Arb ball using only exact rational endpoints."""
     lo, hi = arb_to_rational_enclosure(x)
     return {
         "lo_num": str(lo.numerator),
         "lo_den": str(lo.denominator),
         "hi_num": str(hi.numerator),
         "hi_den": str(hi.denominator),
-        "mid_approx": float(x.mid().fmpq()),
-        "rad_approx": float(x.rad().fmpq()),
-        "ball_str": x.str(50, radius=True),
     }
 
 
@@ -114,7 +111,7 @@ def digamma_ak(k: int) -> fmpq:
 
 
 def get_certified_constants_bundle(prec: int = 256, num: int = 7, den: int = 20) -> dict[str, Any]:
-    """Generate a certified bundle of constants with both Arb balls and exact rational bounds."""
+    """Generate exact rational interval enclosures for certified constants."""
     with ctx.workprec(prec):
         log2_val = log2_enclosure(prec)
         sqrt2_val = sqrt2_enclosure(prec)

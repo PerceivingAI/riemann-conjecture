@@ -23,6 +23,54 @@ pub enum IntervalError {
     ParseError(String),
 }
 
+fn is_canonical_integer(value: &str) -> bool {
+    let digits = value.strip_prefix('-').unwrap_or(value);
+    if digits.is_empty() || !digits.bytes().all(|byte| byte.is_ascii_digit()) {
+        return false;
+    }
+    if digits == "0" {
+        return value == "0";
+    }
+    !digits.starts_with('0')
+}
+
+fn is_canonical_positive_integer(value: &str) -> bool {
+    !value.is_empty() && !value.starts_with('0') && value.bytes().all(|byte| byte.is_ascii_digit())
+}
+
+pub(crate) fn parse_canonical_rational(
+    numerator: &str,
+    denominator: &str,
+    field: &str,
+) -> Result<BigRational, IntervalError> {
+    if !is_canonical_integer(numerator) {
+        return Err(IntervalError::ParseError(format!(
+            "{field} numerator is not a canonical integer: '{numerator}'"
+        )));
+    }
+    if !is_canonical_positive_integer(denominator) {
+        return Err(IntervalError::ParseError(format!(
+            "{field} denominator must be a canonical positive integer: '{denominator}'"
+        )));
+    }
+
+    let num = BigInt::from_str(numerator).map_err(|error| {
+        IntervalError::ParseError(format!("invalid {field} numerator '{numerator}': {error}"))
+    })?;
+    let den = BigInt::from_str(denominator).map_err(|error| {
+        IntervalError::ParseError(format!(
+            "invalid {field} denominator '{denominator}': {error}"
+        ))
+    })?;
+    let rational = BigRational::new(num, den);
+    if rational.numer().to_string() != numerator || rational.denom().to_string() != denominator {
+        return Err(IntervalError::ParseError(format!(
+            "{field} must be a reduced canonical rational"
+        )));
+    }
+    Ok(rational)
+}
+
 /// An exact rational interval `[lo, hi]` backed by arbitrary-precision `BigRational`.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct RationalInterval {
@@ -63,31 +111,15 @@ impl RationalInterval {
         Self::new(lo_r, hi_r)
     }
 
-    /// Construct an interval from string fractions (e.g. from JSON certificate entries).
+    /// Construct an interval from canonical, reduced string fractions.
     pub fn from_fraction_strings(
         lo_num: &str,
         lo_den: &str,
         hi_num: &str,
         hi_den: &str,
     ) -> Result<Self, IntervalError> {
-        let l_num = BigInt::from_str(lo_num)
-            .map_err(|e| IntervalError::ParseError(format!("invalid lo_num '{lo_num}': {e}")))?;
-        let l_den = BigInt::from_str(lo_den)
-            .map_err(|e| IntervalError::ParseError(format!("invalid lo_den '{lo_den}': {e}")))?;
-        let h_num = BigInt::from_str(hi_num)
-            .map_err(|e| IntervalError::ParseError(format!("invalid hi_num '{hi_num}': {e}")))?;
-        let h_den = BigInt::from_str(hi_den)
-            .map_err(|e| IntervalError::ParseError(format!("invalid hi_den '{hi_den}': {e}")))?;
-
-        if l_den.is_zero() {
-            return Err(IntervalError::ParseError("lo_den cannot be zero".into()));
-        }
-        if h_den.is_zero() {
-            return Err(IntervalError::ParseError("hi_den cannot be zero".into()));
-        }
-
-        let lo = BigRational::new(l_num, l_den);
-        let hi = BigRational::new(h_num, h_den);
+        let lo = parse_canonical_rational(lo_num, lo_den, "lo endpoint")?;
+        let hi = parse_canonical_rational(hi_num, hi_den, "hi endpoint")?;
         Self::new(lo, hi)
     }
 

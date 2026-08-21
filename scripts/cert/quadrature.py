@@ -1,18 +1,48 @@
-"""Rigorous integration and quadrature enclosures backed by Arb.
-
-This module provides verified integral evaluations using python-flint's
-acb.integral(...) backed by Arb's contour/interval integration algorithms.
-"""
+"""Rigorous Arb integration with an exact-input proof interface."""
 
 from __future__ import annotations
 
 from typing import Callable
 
-from flint import acb, arb, ctx
+from flint import acb, arb, ctx, fmpq
+
+
+ExactIntegrationInput = acb | arb | fmpq | int
+ExactTolerance = arb | fmpq | int
+
+
+def _validate_precision(prec: int) -> None:
+    if isinstance(prec, bool) or not isinstance(prec, int) or prec < 32:
+        raise TypeError("prec must be an integer of at least 32 bits")
+
+
+def _to_exact_acb(value: ExactIntegrationInput, name: str) -> acb:
+    if isinstance(value, bool) or isinstance(value, float):
+        raise TypeError(f"{name} must not be an ordinary float")
+    if not isinstance(value, (int, fmpq, arb, acb)):
+        raise TypeError(f"{name} must be int, fmpq, arb, or acb")
+    return acb(value)
+
+
+def _to_exact_tolerance(value: ExactTolerance, name: str) -> arb:
+    if isinstance(value, bool) or isinstance(value, float):
+        raise TypeError(f"{name} must not be an ordinary float")
+    if not isinstance(value, (int, fmpq, arb)):
+        raise TypeError(f"{name} must be int, fmpq, or arb")
+    return arb(value)
+
+
+def require_real_enclosure(value: acb, context: str) -> arb:
+    """Return the real enclosure only when the imaginary enclosure contains zero."""
+    if arb(0) not in value.imag:
+        raise ValueError(
+            f"{context} produced an enclosure whose imaginary part excludes zero: {value.imag}"
+        )
+    return value.real
 
 
 def legendre_p_acb(n: int, x: acb) -> acb:
-    """Evaluate Legendre polynomial P_n(x) using the 3-term recurrence."""
+    """Evaluate Legendre polynomial P_n(x) using the three-term recurrence."""
     if n < 0:
         raise ValueError(f"Degree n must be non-negative, got {n}")
     if n == 0:
@@ -22,13 +52,12 @@ def legendre_p_acb(n: int, x: acb) -> acb:
     p0 = acb(1)
     p1 = x
     for k in range(1, n):
-        p2 = ((2 * k + 1) * x * p1 - k * p0) / (k + 1)
-        p0, p1 = p1, p2
+        p0, p1 = p1, ((2 * k + 1) * x * p1 - k * p0) / (k + 1)
     return p1
 
 
 def chebyshev_t_acb(n: int, x: acb) -> acb:
-    """Evaluate Chebyshev polynomial T_n(x) using the 3-term recurrence."""
+    """Evaluate Chebyshev polynomial T_n(x) using the three-term recurrence."""
     if n < 0:
         raise ValueError(f"Degree n must be non-negative, got {n}")
     if n == 0:
@@ -38,8 +67,7 @@ def chebyshev_t_acb(n: int, x: acb) -> acb:
     t0 = acb(1)
     t1 = x
     for _ in range(1, n):
-        t2 = 2 * x * t1 - t0
-        t0, t1 = t1, t2
+        t0, t1 = t1, 2 * x * t1 - t0
     return t1
 
 
@@ -51,38 +79,42 @@ def monomial_acb(n: int, x: acb) -> acb:
 
 
 def evaluate_basis_acb(basis_type: str, n: int, x: acb) -> acb:
-    """Evaluate a named basis function of index n at x."""
-    b_type = basis_type.lower()
-    if b_type in ("legendre", "p"):
+    """Evaluate one of the basis types admitted by the certificate schema."""
+    if basis_type == "legendre":
         return legendre_p_acb(n, x)
-    if b_type in ("chebyshev", "t"):
+    if basis_type == "chebyshev":
         return chebyshev_t_acb(n, x)
-    if b_type in ("monomial", "power", "poly"):
+    if basis_type == "monomial":
         return monomial_acb(n, x)
-    raise ValueError(f"Unknown basis type '{basis_type}'. Expected 'legendre', 'chebyshev', or 'monomial'.")
+    raise ValueError(
+        f"Unknown basis type '{basis_type}'. Expected 'legendre', 'chebyshev', or 'monomial'."
+    )
 
 
 def rigorous_integral_1d(
     func: Callable[[acb, bool], acb],
-    a: acb | arb | float | int,
-    b: acb | arb | float | int,
+    a: ExactIntegrationInput,
+    b: ExactIntegrationInput,
     prec: int = 128,
-    rel_tol: arb | float | None = None,
-    abs_tol: arb | float | None = None,
+    rel_tol: ExactTolerance | None = None,
+    abs_tol: ExactTolerance | None = None,
     eval_limit: int | None = None,
 ) -> acb:
-    """Compute a rigorous 1D integral enclosure int_a^b func(x, analytic) dx.
+    """Compute a rigorous one-dimensional Acb integral enclosure."""
+    _validate_precision(prec)
+    a_acb = _to_exact_acb(a, "a")
+    b_acb = _to_exact_acb(b, "b")
+    if eval_limit is not None and (
+        isinstance(eval_limit, bool) or not isinstance(eval_limit, int) or eval_limit < 1
+    ):
+        raise TypeError("eval_limit must be a positive integer")
 
-    Backed by Arb's acb.integral machinery.
-    """
     with ctx.workprec(prec):
-        a_acb = acb(a)
-        b_acb = acb(b)
-        kwargs = {}
+        kwargs: dict[str, arb | int] = {}
         if rel_tol is not None:
-            kwargs["rel_tol"] = rel_tol
+            kwargs["rel_tol"] = _to_exact_tolerance(rel_tol, "rel_tol")
         if abs_tol is not None:
-            kwargs["abs_tol"] = abs_tol
+            kwargs["abs_tol"] = _to_exact_tolerance(abs_tol, "abs_tol")
         if eval_limit is not None:
             kwargs["eval_limit"] = eval_limit
         return acb.integral(func, a_acb, b_acb, **kwargs)
@@ -90,38 +122,40 @@ def rigorous_integral_1d(
 
 def rigorous_real_integral_1d(
     func: Callable[[acb, bool], acb],
-    a: acb | arb | float | int,
-    b: acb | arb | float | int,
+    a: ExactIntegrationInput,
+    b: ExactIntegrationInput,
     prec: int = 128,
-    rel_tol: arb | float | None = None,
-    abs_tol: arb | float | None = None,
+    rel_tol: ExactTolerance | None = None,
+    abs_tol: ExactTolerance | None = None,
 ) -> arb:
-    """Compute a rigorous real 1D integral enclosure int_a^b func(x, analytic) dx.
-
-    Checks that the imaginary enclosure contains zero and returns the real enclosure.
-    """
-    with ctx.workprec(prec):
-        res = rigorous_integral_1d(func, a, b, prec=prec, rel_tol=rel_tol, abs_tol=abs_tol)
-        if not (arb(0) in res.imag or abs(res.imag) < arb(2) ** (-prec + 10)):
-            raise ValueError(f"Integration produced non-real enclosure with imaginary part: {res.imag}")
-        return res.real
+    """Compute a rigorous real integral and prove realness by zero containment."""
+    result = rigorous_integral_1d(
+        func,
+        a,
+        b,
+        prec=prec,
+        rel_tol=rel_tol,
+        abs_tol=abs_tol,
+    )
+    return require_real_enclosure(result, "one-dimensional integral")
 
 
 def rigorous_double_integral_2d(
     func2d: Callable[[acb, acb, bool], acb],
-    x_a: acb | arb | float | int,
-    x_b: acb | arb | float | int,
-    y_a: acb | arb | float | int,
-    y_b: acb | arb | float | int,
+    x_a: ExactIntegrationInput,
+    x_b: ExactIntegrationInput,
+    y_a: ExactIntegrationInput,
+    y_b: ExactIntegrationInput,
     prec: int = 128,
 ) -> acb:
-    """Compute a rigorous 2D integral enclosure int_{x_a}^{x_b} ( int_{y_a}^{y_b} func2d(x, y, a) dy ) dx."""
-    with ctx.workprec(prec):
-        x_a_acb = acb(x_a)
-        x_b_acb = acb(x_b)
-        y_a_acb = acb(y_a)
-        y_b_acb = acb(y_b)
+    """Compute a rigorous iterated two-dimensional Acb integral enclosure."""
+    _validate_precision(prec)
+    x_a_acb = _to_exact_acb(x_a, "x_a")
+    x_b_acb = _to_exact_acb(x_b, "x_b")
+    y_a_acb = _to_exact_acb(y_a, "y_a")
+    y_b_acb = _to_exact_acb(y_b, "y_b")
 
+    with ctx.workprec(prec):
         def outer_integrand(x: acb, analytic: bool) -> acb:
             def inner_integrand(y: acb, analytic_inner: bool) -> acb:
                 return func2d(x, y, analytic and analytic_inner)
@@ -135,14 +169,13 @@ def rigorous_kernel_matrix_element(
     kernel: Callable[[acb, acb, bool], acb],
     phi_i: Callable[[acb], acb],
     phi_j: Callable[[acb], acb],
-    a: acb | arb | float | int,
-    b: acb | arb | float | int,
+    a: ExactIntegrationInput,
+    b: ExactIntegrationInput,
     prec: int = 128,
 ) -> arb:
-    """Compute verified matrix element M_{i,j} = int_a^b int_a^b kernel(x, y) phi_i(x) phi_j(y) dx dy."""
-    with ctx.workprec(prec):
-        def integrand(x: acb, y: acb, analytic: bool) -> acb:
-            return kernel(x, y, analytic) * phi_i(x) * phi_j(y)
+    """Compute a real rigorous kernel matrix element."""
+    def integrand(x: acb, y: acb, analytic: bool) -> acb:
+        return kernel(x, y, analytic) * phi_i(x) * phi_j(y)
 
-        res_2d = rigorous_double_integral_2d(integrand, a, b, a, b, prec=prec)
-        return res_2d.real
+    result = rigorous_double_integral_2d(integrand, a, b, a, b, prec=prec)
+    return require_real_enclosure(result, "kernel matrix element")

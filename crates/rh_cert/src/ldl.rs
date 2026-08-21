@@ -9,7 +9,9 @@ use crate::interval::{IntervalError, RationalInterval};
 
 #[derive(Debug, Error, Clone, PartialEq, Eq)]
 pub enum LdlError {
-    #[error("matrix dimension mismatch: expected {expected}x{expected}, got {got_rows}x{got_cols}")]
+    #[error(
+        "matrix dimension mismatch: expected {expected}x{expected}, got {got_rows}x{got_cols}"
+    )]
     DimensionMismatch {
         expected: usize,
         got_rows: usize,
@@ -95,6 +97,16 @@ impl RationalIntervalMatrix {
         Self { dim, rows }
     }
 
+    /// Return a copy with an exact scalar identity term added to the diagonal.
+    pub fn with_diagonal_shift(&self, shift: &BigRational) -> Self {
+        let mut adjusted = self.clone();
+        let shift_interval = RationalInterval::point(shift.clone());
+        for index in 0..adjusted.dim {
+            adjusted.rows[index][index] = &adjusted.rows[index][index] + &shift_interval;
+        }
+        adjusted
+    }
+
     /// Check if the matrix is exactly symmetric.
     pub fn is_symmetric(&self) -> bool {
         for i in 0..self.dim {
@@ -178,7 +190,10 @@ impl RationalIntervalMatrix {
                 let reason = if is_pos {
                     None
                 } else {
-                    Some("One or more LDL^T diagonal intervals fail strict positivity (lo <= 0)".to_string())
+                    Some(
+                        "One or more LDL^T diagonal intervals fail strict positivity (lo <= 0)"
+                            .to_string(),
+                    )
                 };
 
                 LdlVerificationReport {

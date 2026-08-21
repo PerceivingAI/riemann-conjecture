@@ -1,12 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/carlon/riemann-conjecture/docs/contracts/rh-weil-certificate-v1.json",
-  "title": "RH Weil Matrix Positivity Certificate Format v1",
-  "description": "Authoritative contract for exact rational interval mathematical proof certificates.",
+  "title": "RH Weil exact interval certificate format v1",
+  "description": "Closed syntax contract for exact rational interval certificates. PASS means exact interval LDL proves positivity after the verifier derives and absorbs the selected tail rule.",
   "type": "object",
   "required": [
     "format",
     "claim",
+    "claim_profile",
     "support_T",
     "basis",
     "parity_sector",
@@ -18,170 +19,389 @@
   ],
   "properties": {
     "format": {
-      "type": "string",
-      "const": "rh-weil-certificate-v1",
-      "description": "Identifier of the certificate specification version."
+      "const": "rh-weil-certificate-v1"
     },
     "claim": {
       "type": "string",
-      "minLength": 1,
-      "description": "Human-readable description of the mathematical claim certified by this artifact."
+      "minLength": 1
+    },
+    "claim_profile": {
+      "enum": [
+        "synthetic_matrix",
+        "digamma_finite_block"
+      ]
     },
     "support_T": {
+      "$ref": "#/$defs/support"
+    },
+    "basis": {
+      "$ref": "#/$defs/basis"
+    },
+    "parity_sector": {
+      "enum": [
+        "even",
+        "odd",
+        "both"
+      ]
+    },
+    "dimension": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "constants": {
+      "$ref": "#/$defs/constants"
+    },
+    "matrix": {
+      "$ref": "#/$defs/matrix"
+    },
+    "tail_bound": {
+      "$ref": "#/$defs/tailBound"
+    },
+    "generator_metadata": {
+      "$ref": "#/$defs/generatorMetadata"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "claim_profile": {
+            "const": "synthetic_matrix"
+          }
+        },
+        "required": [
+          "claim_profile"
+        ]
+      },
+      "then": {
+        "properties": {
+          "constants": {
+            "maxProperties": 0
+          },
+          "tail_bound": {
+            "$ref": "#/$defs/exactScalarIdentityTail"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "claim_profile": {
+            "const": "digamma_finite_block"
+          }
+        },
+        "required": [
+          "claim_profile"
+        ]
+      },
+      "then": {
+        "properties": {
+          "basis": {
+            "properties": {
+              "domain": {
+                "const": "[-T, T]"
+              }
+            }
+          },
+          "constants": {
+            "required": [
+              "m0_digamma"
+            ],
+            "minProperties": 1,
+            "maxProperties": 1
+          },
+          "tail_bound": {
+            "$ref": "#/$defs/nonnegativeDigammaTail"
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "canonicalInteger": {
+      "type": "string",
+      "pattern": "^-?(0|[1-9][0-9]*)$"
+    },
+    "positiveInteger": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*$"
+    },
+    "rational": {
       "type": "object",
-      "required": ["num", "den", "frac"],
+      "required": [
+        "num",
+        "den"
+      ],
       "properties": {
         "num": {
-          "type": "integer",
-          "description": "Numerator of the exact support half-width T."
+          "$ref": "#/$defs/canonicalInteger"
         },
         "den": {
-          "type": "integer",
-          "exclusiveMinimum": 0,
-          "description": "Denominator of the exact support half-width T."
+          "$ref": "#/$defs/positiveInteger"
+        }
+      },
+      "additionalProperties": false
+    },
+    "interval": {
+      "type": "object",
+      "required": [
+        "lo_num",
+        "lo_den",
+        "hi_num",
+        "hi_den"
+      ],
+      "properties": {
+        "lo_num": {
+          "$ref": "#/$defs/canonicalInteger"
+        },
+        "lo_den": {
+          "$ref": "#/$defs/positiveInteger"
+        },
+        "hi_num": {
+          "$ref": "#/$defs/canonicalInteger"
+        },
+        "hi_den": {
+          "$ref": "#/$defs/positiveInteger"
+        }
+      },
+      "additionalProperties": false
+    },
+    "support": {
+      "type": "object",
+      "required": [
+        "num",
+        "den",
+        "frac"
+      ],
+      "properties": {
+        "num": {
+          "$ref": "#/$defs/canonicalInteger"
+        },
+        "den": {
+          "$ref": "#/$defs/positiveInteger"
         },
         "frac": {
           "type": "string",
-          "pattern": "^[0-9]+/[0-9]+$",
-          "description": "Exact rational representation string 'num/den'."
+          "pattern": "^-?(0|[1-9][0-9]*)/[1-9][0-9]*$"
         }
       },
       "additionalProperties": false
     },
     "basis": {
       "type": "object",
-      "required": ["type", "dimension", "domain"],
+      "required": [
+        "type",
+        "dimension",
+        "domain"
+      ],
       "properties": {
         "type": {
-          "type": "string",
-          "enum": ["legendre", "chebyshev", "monomial", "fourier", "laguerre"],
-          "description": "Type of orthonormal or polynomial basis functions."
+          "enum": [
+            "legendre",
+            "chebyshev",
+            "monomial"
+          ]
         },
         "dimension": {
           "type": "integer",
-          "minimum": 1,
-          "description": "Number of basis functions in the finite block."
+          "minimum": 1
         },
         "domain": {
-          "type": "string",
-          "description": "Domain of definition, typically '[-T, T]' or '[-1, 1]'."
+          "enum": [
+            "[-T, T]",
+            "[-1, 1]"
+          ]
         }
       },
       "additionalProperties": false
     },
-    "parity_sector": {
-      "type": "string",
-      "enum": ["even", "odd", "both"],
-      "description": "Parity subspace sector under verification."
-    },
-    "dimension": {
-      "type": "integer",
-      "minimum": 1,
-      "description": "Dimension N of the N x N finite-block matrix."
-    },
     "constants": {
       "type": "object",
-      "description": "Bundle of transcendental constants with verified outward rational interval bounds."
+      "properties": {
+        "log2": {
+          "$ref": "#/$defs/interval"
+        },
+        "sqrt2": {
+          "$ref": "#/$defs/interval"
+        },
+        "pi": {
+          "$ref": "#/$defs/interval"
+        },
+        "euler_gamma": {
+          "$ref": "#/$defs/interval"
+        },
+        "tau": {
+          "$ref": "#/$defs/interval"
+        },
+        "c2": {
+          "$ref": "#/$defs/interval"
+        },
+        "c_T": {
+          "$ref": "#/$defs/interval"
+        },
+        "m0_digamma": {
+          "$ref": "#/$defs/interval"
+        }
+      },
+      "additionalProperties": false
+    },
+    "matrixEntry": {
+      "type": "object",
+      "required": [
+        "row",
+        "col",
+        "lo_num",
+        "lo_den",
+        "hi_num",
+        "hi_den"
+      ],
+      "properties": {
+        "row": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "col": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "lo_num": {
+          "$ref": "#/$defs/canonicalInteger"
+        },
+        "lo_den": {
+          "$ref": "#/$defs/positiveInteger"
+        },
+        "hi_num": {
+          "$ref": "#/$defs/canonicalInteger"
+        },
+        "hi_den": {
+          "$ref": "#/$defs/positiveInteger"
+        }
+      },
+      "additionalProperties": false
     },
     "matrix": {
       "type": "object",
-      "required": ["dimension", "is_symmetric", "entries"],
+      "required": [
+        "dimension",
+        "entries"
+      ],
       "properties": {
         "dimension": {
           "type": "integer",
-          "minimum": 1,
-          "description": "Dimension of the square matrix."
-        },
-        "is_symmetric": {
-          "type": "boolean",
-          "description": "Flag indicating that the matrix is mathematically self-adjoint/symmetric."
+          "minimum": 1
         },
         "entries": {
           "type": "array",
-          "description": "Row-major or coordinate array of all N x N rational interval entries.",
+          "minItems": 1,
           "items": {
-            "type": "object",
-            "required": ["row", "col", "lo_num", "lo_den", "hi_num", "hi_den"],
-            "properties": {
-              "row": {
-                "type": "integer",
-                "minimum": 0,
-                "description": "0-indexed row coordinate."
-              },
-              "col": {
-                "type": "integer",
-                "minimum": 0,
-                "description": "0-indexed column coordinate."
-              },
-              "lo_num": {
-                "type": "string",
-                "pattern": "^-?[0-9]+$",
-                "description": "Numerator of lower rational interval endpoint."
-              },
-              "lo_den": {
-                "type": "string",
-                "pattern": "^[0-9]+$",
-                "description": "Denominator of lower rational interval endpoint (must be > 0)."
-              },
-              "hi_num": {
-                "type": "string",
-                "pattern": "^-?[0-9]+$",
-                "description": "Numerator of upper rational interval endpoint."
-              },
-              "hi_den": {
-                "type": "string",
-                "pattern": "^[0-9]+$",
-                "description": "Denominator of upper rational interval endpoint (must be > 0)."
-              }
-            },
-            "additionalProperties": false
+            "$ref": "#/$defs/matrixEntry"
           }
         }
       },
       "additionalProperties": false
     },
-    "tail_bound": {
+    "exactScalarIdentityTail": {
       "type": "object",
-      "required": ["type"],
+      "required": [
+        "type",
+        "lambda"
+      ],
       "properties": {
         "type": {
-          "type": "string",
-          "description": "Type of infinite-dimensional remainder or tail bound applied."
+          "const": "exact_scalar_identity"
+        },
+        "lambda": {
+          "$ref": "#/$defs/rational"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
-    "internal_ldl_verification": {
+    "nonnegativeDigammaTail": {
       "type": "object",
-      "description": "Optional generator-side LDL check metadata (informational only; verifier recomputes independently)."
+      "required": [
+        "type",
+        "k_max",
+        "first_omitted_k"
+      ],
+      "properties": {
+        "type": {
+          "const": "nonnegative_digamma_remainder"
+        },
+        "k_max": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "first_omitted_k": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
     },
-    "generator_metadata": {
+    "tailBound": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/exactScalarIdentityTail"
+        },
+        {
+          "$ref": "#/$defs/nonnegativeDigammaTail"
+        }
+      ]
+    },
+    "generatorMetadata": {
       "type": "object",
-      "required": ["generator", "version"],
+      "required": [
+        "generator",
+        "script",
+        "version",
+        "git_commit",
+        "git_dirty",
+        "flint_version",
+        "python_flint_version",
+        "prec_bits",
+        "timestamp_utc"
+      ],
       "properties": {
         "generator": {
           "type": "string",
-          "description": "Module or script identifier that generated the certificate."
+          "minLength": 1
+        },
+        "script": {
+          "type": "string",
+          "minLength": 1
         },
         "version": {
           "type": "string",
-          "description": "Version of the generator tool."
+          "minLength": 1
+        },
+        "git_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "git_dirty": {
+          "type": "boolean"
         },
         "flint_version": {
           "type": "string",
-          "description": "Underlying FLINT version used for enclosure arithmetic."
+          "minLength": 1
+        },
+        "python_flint_version": {
+          "type": "string",
+          "minLength": 1
         },
         "prec_bits": {
           "type": "integer",
-          "description": "Bit precision used during rigorous integration and interval evaluation."
+          "minimum": 32
         },
         "timestamp_utc": {
           "type": "string",
-          "description": "ISO 8601 UTC timestamp of artifact creation."
+          "format": "date-time",
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?Z$"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     }
-  },
-  "additionalProperties": false
+  }
 }

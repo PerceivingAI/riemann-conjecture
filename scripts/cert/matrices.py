@@ -262,7 +262,7 @@ def arb_mat_eigenvalue_cross_check(mat: arb_mat, prec: int = 128) -> dict[str, A
         try:
             eigs = mat.eig()
             eig_balls = [e.str(30, radius=True) for e in eigs]
-            all_real_pos = all(arb(0) < e.real for e in eigs)
+            all_real_pos = all(arb(0) in e.imag and arb(0) < e.real for e in eigs)
             return {
                 "status": "computed",
                 "eigenvalues": eig_balls,

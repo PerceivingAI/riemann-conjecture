@@ -1,0 +1,400 @@
+{
+  "base_certificate": {
+    "format": "rh-weil-certificate-v1",
+    "claim": "conformance-synthetic",
+    "claim_profile": "synthetic_matrix",
+    "support_T": {
+      "num": "7",
+      "den": "20",
+      "frac": "7/20"
+    },
+    "basis": {
+      "type": "legendre",
+      "dimension": 1,
+      "domain": "[-T, T]"
+    },
+    "parity_sector": "both",
+    "dimension": 1,
+    "constants": {},
+    "matrix": {
+      "dimension": 1,
+      "entries": [
+        {
+          "row": 0,
+          "col": 0,
+          "lo_num": "1",
+          "lo_den": "1",
+          "hi_num": "1",
+          "hi_den": "1"
+        }
+      ]
+    },
+    "tail_bound": {
+      "type": "exact_scalar_identity",
+      "lambda": {
+        "num": "0",
+        "den": "1"
+      }
+    },
+    "generator_metadata": {
+      "generator": "conformance-corpus",
+      "script": "tests/certificate_conformance.json",
+      "version": "1",
+      "git_commit": "0000000000000000000000000000000000000000",
+      "git_dirty": false,
+      "flint_version": "3.6.0",
+      "python_flint_version": "0.9.0",
+      "prec_bits": 64,
+      "timestamp_utc": "2026-08-21T00:00:00Z"
+    }
+  },
+  "cases": [
+    {
+      "name": "valid synthetic certificate",
+      "valid": true,
+      "verification_passes": true,
+      "operations": []
+    },
+    {
+      "name": "valid digamma finite block",
+      "valid": true,
+      "verification_passes": true,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["claim_profile"],
+          "value": "digamma_finite_block"
+        },
+        {
+          "op": "set",
+          "path": ["constants"],
+          "value": {
+            "m0_digamma": {
+              "lo_num": "-6",
+              "lo_den": "1",
+              "hi_num": "-5",
+              "hi_den": "1"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": ["tail_bound"],
+          "value": {
+            "type": "nonnegative_digamma_remainder",
+            "k_max": 0,
+            "first_omitted_k": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "wrong format",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["format"],
+          "value": "rh-weil-certificate-v0"
+        }
+      ]
+    },
+    {
+      "name": "missing generator metadata",
+      "valid": false,
+      "operations": [
+        {
+          "op": "delete",
+          "path": ["generator_metadata"]
+        }
+      ]
+    },
+    {
+      "name": "zero support denominator",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["support_T", "den"],
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "name": "inconsistent support fraction",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["support_T", "frac"],
+          "value": "8/20"
+        }
+      ]
+    },
+    {
+      "name": "unknown basis",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["basis", "type"],
+          "value": "nonsense"
+        }
+      ]
+    },
+    {
+      "name": "basis dimension mismatch",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["basis", "dimension"],
+          "value": 999
+        }
+      ]
+    },
+    {
+      "name": "invalid parity",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["parity_sector"],
+          "value": "invalid-sector"
+        }
+      ]
+    },
+    {
+      "name": "matrix dimension mismatch",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["matrix", "dimension"],
+          "value": 999
+        }
+      ]
+    },
+    {
+      "name": "out of range coordinate",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["matrix", "entries", 0, "row"],
+          "value": 123
+        }
+      ]
+    },
+    {
+      "name": "zero interval denominator",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["matrix", "entries", 0, "lo_den"],
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "name": "noncanonical interval fraction",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["matrix", "entries", 0, "lo_num"],
+          "value": "2"
+        },
+        {
+          "op": "set",
+          "path": ["matrix", "entries", 0, "lo_den"],
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "name": "reversed interval",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["matrix", "entries", 0, "lo_num"],
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "name": "duplicate and missing matrix coordinate",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["dimension"],
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": ["basis", "dimension"],
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": ["matrix", "dimension"],
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": ["matrix", "entries"],
+          "value": [
+            {"row": 0, "col": 0, "lo_num": "1", "lo_den": "1", "hi_num": "1", "hi_den": "1"},
+            {"row": 0, "col": 1, "lo_num": "0", "lo_den": "1", "hi_num": "0", "hi_den": "1"},
+            {"row": 1, "col": 0, "lo_num": "0", "lo_den": "1", "hi_num": "0", "hi_den": "1"},
+            {"row": 1, "col": 0, "lo_num": "0", "lo_den": "1", "hi_num": "0", "hi_den": "1"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "asymmetric matrix",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["dimension"],
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": ["basis", "dimension"],
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": ["matrix", "dimension"],
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": ["matrix", "entries"],
+          "value": [
+            {"row": 0, "col": 0, "lo_num": "1", "lo_den": "1", "hi_num": "1", "hi_den": "1"},
+            {"row": 0, "col": 1, "lo_num": "1", "lo_den": "1", "hi_num": "1", "hi_den": "1"},
+            {"row": 1, "col": 0, "lo_num": "2", "lo_den": "1", "hi_num": "2", "hi_den": "1"},
+            {"row": 1, "col": 1, "lo_num": "1", "lo_den": "1", "hi_num": "1", "hi_den": "1"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "unknown tail rule",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["tail_bound"],
+          "value": {"type": "unverified_tail", "lambda": {"num": "0", "den": "1"}}
+        }
+      ]
+    },
+    {
+      "name": "inconsistent digamma tail witness",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["claim_profile"],
+          "value": "digamma_finite_block"
+        },
+        {
+          "op": "set",
+          "path": ["constants"],
+          "value": {
+            "m0_digamma": {
+              "lo_num": "-6",
+              "lo_den": "1",
+              "hi_num": "-5",
+              "hi_den": "1"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": ["tail_bound"],
+          "value": {
+            "type": "nonnegative_digamma_remainder",
+            "k_max": 0,
+            "first_omitted_k": 2
+          }
+        }
+      ]
+    },
+    {
+      "name": "unexpected proof field",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["unexpected"],
+          "value": "not allowed"
+        }
+      ]
+    },
+    {
+      "name": "malformed commit hash",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["generator_metadata", "git_commit"],
+          "value": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "invalid UTC calendar date",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["generator_metadata", "timestamp_utc"],
+          "value": "2026-02-30T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "non-UTC timestamp offset",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["generator_metadata", "timestamp_utc"],
+          "value": "2026-08-21T00:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "name": "ordinary floating metadata",
+      "valid": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["generator_metadata", "prec_bits"],
+          "value": 64.0
+        }
+      ]
+    },
+    {
+      "name": "tail absorption destroys positivity",
+      "valid": true,
+      "verification_passes": false,
+      "operations": [
+        {
+          "op": "set",
+          "path": ["tail_bound", "lambda", "num"],
+          "value": "-2"
+        }
+      ]
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import copy
 import json
 from fractions import Fraction
 from pathlib import Path
@@ -117,13 +118,49 @@ class TestQuadrature:
             # int P1^2 = 2/3
             assert arb(66) / 100 < i11 < arb(67) / 100
             # int P0*P1 = 0
-            assert arb(0) in i01 or abs(i01) < arb(1e-15)
+            assert arb(0) in i01 or abs(i01) < arb(1) / (arb(10) ** 15)
 
     def test_double_integral(self) -> None:
         with ctx.workprec(80):
             res = quadrature.rigorous_double_integral_2d(lambda x, y, _: x + y, 0, 1, 0, 1, prec=80)
             # int_0^1 int_0^1 (x+y) dx dy = 1
             assert arb(99) / 100 < res.real < arb(101) / 100
+
+    @pytest.mark.parametrize(
+        ("a", "b", "kwargs"),
+        [
+            (0.1, 1, {}),
+            (0, 0.7, {}),
+            (0, 1, {"rel_tol": 1e-12}),
+            (0, 1, {"abs_tol": 1e-12}),
+            (False, 1, {}),
+        ],
+    )
+    def test_float_and_boolean_inputs_are_rejected(
+        self,
+        a: object,
+        b: object,
+        kwargs: dict[str, object],
+    ) -> None:
+        with pytest.raises(TypeError):
+            quadrature.rigorous_integral_1d(lambda x, _: x, a, b, **kwargs)
+
+    def test_exact_endpoint_types_are_accepted(self) -> None:
+        inputs = [
+            (0, 1),
+            (fmpq(0), fmpq(1)),
+            (arb(0), arb(1)),
+            (acb(0), acb(1)),
+        ]
+        for lower, upper in inputs:
+            result = quadrature.rigorous_integral_1d(lambda x, _: x, lower, upper)
+            assert arb(1) / 2 in result.real
+
+    def test_real_projection_requires_zero_containment(self) -> None:
+        assert quadrature.require_real_enclosure(acb(1), "real test") == arb(1)
+        tiny_nonzero_imaginary = acb(arb(1), arb(1) / (arb(10) ** 100))
+        with pytest.raises(ValueError, match="excludes zero"):
+            quadrature.require_real_enclosure(tiny_nonzero_imaginary, "non-real test")
 
 
 class TestResidualKernel:
@@ -146,6 +183,46 @@ class TestResidualKernel:
             b0 = residual_kernel.digamma_bracket_matrix(0, "legendre", 2, t_val, prec=64)
             assert b0[0, 0] > arb(0)
             assert b0[1, 1] > arb(0)
+
+    def test_suzuki_residual_second_derivative_identities(self) -> None:
+        zero_value = residual_kernel.suzuki_residual_r_second(0, prec=96)
+        assert arb(-7) / 4 in zero_value
+
+        argument = fmpq(1, 5)
+        positive = residual_kernel.suzuki_residual_r_second(argument, prec=96)
+        negative = residual_kernel.suzuki_residual_r_second(-argument, prec=96)
+        assert positive.overlaps(negative)
+
+        u = arb(1) / 5
+        direct = -((u / 2).exp() + (-u / 2).exp())
+        direct += (-u / 2).exp() / (1 - (-2 * u).exp()) - 1 / (2 * u)
+        assert positive.overlaps(direct)
+
+    def test_suzuki_residual_rejects_float_input(self) -> None:
+        with pytest.raises(TypeError):
+            residual_kernel.suzuki_residual_r_second(0.1)
+
+    def test_suzuki_matrix_rejects_caller_kernel_substitution(self) -> None:
+        with pytest.raises(TypeError, match="r_second_deriv"):
+            residual_kernel.suzuki_residual_kernel_matrix(
+                basis_type="legendre",
+                dim=1,
+                T_val=arb(7) / 20,
+                prec=64,
+                r_second_deriv=lambda value, analytic: value,
+            )
+
+    def test_canonical_suzuki_residual_matrix(self) -> None:
+        matrix = residual_kernel.suzuki_residual_kernel_matrix(
+            basis_type="legendre",
+            dim=2,
+            T_val=arb(7) / 20,
+            prec=64,
+        )
+        assert matrix[0, 1] == arb(0)
+        assert matrix[1, 0] == arb(0)
+        assert matrix[0, 0].is_finite()
+        assert matrix[1, 1].is_finite()
 
 
 class TestMatrices:
@@ -226,52 +303,35 @@ class TestMatrices:
 
 
 class TestExportCertificate:
-    def test_validate_certificate_schema(self) -> None:
-        valid_cert = {
-            "format": export_certificate.CERTIFICATE_FORMAT_V1,
-            "claim": "Test claim",
-            "support_T": {"num": 7, "den": 20, "frac": "7/20"},
-            "basis": {"type": "legendre", "dimension": 1, "domain": "[-T, T]"},
-            "parity_sector": "both",
-            "dimension": 1,
-            "constants": {},
-            "matrix": {
-                "dimension": 1,
-                "is_symmetric": True,
-                "entries": [
-                    {
-                        "row": 0,
-                        "col": 0,
-                        "lo_num": "1",
-                        "lo_den": "1",
-                        "hi_num": "2",
-                        "hi_den": "1",
-                    }
-                ],
-            },
-            "tail_bound": {"type": "none"},
-            "generator_metadata": {},
-        }
-        ok, msg = export_certificate.validate_certificate_schema(valid_cert)
-        assert ok is True
+    @staticmethod
+    def _apply_operations(base: dict[str, object], operations: list[dict[str, object]]) -> dict[str, object]:
+        certificate = copy.deepcopy(base)
+        for operation in operations:
+            path = operation["path"]
+            assert isinstance(path, list)
+            target: object = certificate
+            for part in path[:-1]:
+                target = target[part]  # type: ignore[index]
+            final = path[-1]
+            if operation["op"] == "set":
+                target[final] = copy.deepcopy(operation["value"])  # type: ignore[index]
+            elif operation["op"] == "delete":
+                del target[final]  # type: ignore[index]
+            else:
+                raise AssertionError(f"Unknown conformance operation: {operation['op']}")
+        return certificate
 
-        # Test invalid format
-        invalid_cert = dict(valid_cert)
-        invalid_cert["format"] = "wrong-v0"
-        ok, msg = export_certificate.validate_certificate_schema(invalid_cert)
-        assert ok is False
-        assert "Unsupported format" in msg
-
-        # Test missing field
-        missing_cert = dict(valid_cert)
-        del missing_cert["claim"]
-        ok, msg = export_certificate.validate_certificate_schema(missing_cert)
-        assert ok is False
-        assert "Missing required fields" in msg
+    def test_shared_conformance_corpus(self) -> None:
+        corpus = json.loads(Path("tests/certificate_conformance.json").read_text(encoding="utf-8"))
+        for case in corpus["cases"]:
+            certificate = self._apply_operations(corpus["base_certificate"], case["operations"])
+            valid, message = export_certificate.validate_certificate_schema(certificate)
+            assert valid is case["valid"], f"{case['name']}: {message}"
 
     def test_export_and_roundtrip(self, tmp_path: Path) -> None:
         out_file = tmp_path / "cert.json"
         cert = export_certificate.export_digamma_operator_certificate(
+            claim="audit-claim-sentinel",
             k_max=0,
             dimension=1,
             basis_type="legendre",
@@ -281,55 +341,70 @@ class TestExportCertificate:
             output_path=out_file,
         )
 
-        assert out_file.exists()
         loaded = json.loads(out_file.read_text(encoding="utf-8"))
+        assert loaded == cert
+        assert loaded["claim"] == "audit-claim-sentinel"
         assert loaded["format"] == export_certificate.CERTIFICATE_FORMAT_V1
-        assert loaded["dimension"] == 1
-        assert len(loaded["matrix"]["entries"]) == 1
+        assert loaded["claim_profile"] == "digamma_finite_block"
+        assert loaded["tail_bound"]["type"] == "nonnegative_digamma_remainder"
+        assert loaded["matrix"]["dimension"] == 1
+
+        def assert_no_float(value: object) -> None:
+            assert not isinstance(value, float)
+            if isinstance(value, dict):
+                for child in value.values():
+                    assert_no_float(child)
+            elif isinstance(value, list):
+                for child in value:
+                    assert_no_float(child)
+
+        assert_no_float(loaded)
 
     def test_rust_verifier_integration(self, tmp_path: Path) -> None:
         import shutil
         import subprocess
 
-        # Check if cargo is available
         cargo_bin = shutil.which("cargo")
         if not cargo_bin:
             pytest.skip("cargo not found in PATH")
 
         out_file = tmp_path / "synthetic_pos_cert.json"
-        rows = [
-            [matrices.RationalInterval(4), matrices.RationalInterval(1)],
-            [matrices.RationalInterval(1), matrices.RationalInterval(3)],
-        ]
-        mat = matrices.RationalIntervalMatrix(rows)
+        matrix = matrices.RationalIntervalMatrix(
+            [
+                [matrices.RationalInterval(4), matrices.RationalInterval(1)],
+                [matrices.RationalInterval(1), matrices.RationalInterval(3)],
+            ]
+        )
         cert = export_certificate.build_certificate(
             claim="Pytest to Rust integration test",
-            matrix=mat,
+            claim_profile="synthetic_matrix",
+            matrix=matrix,
             basis_type="legendre",
+            basis_domain="[-T, T]",
             parity_sector="both",
             support_num=7,
             support_den=20,
-            tail_bound={"type": "test"},
+            constants={},
+            tail_bound={"type": "exact_scalar_identity", "lambda": {"num": "0", "den": "1"}},
             prec_bits=64,
         )
         out_file.write_text(json.dumps(cert, indent=2) + "\n", encoding="utf-8")
 
-        # Run cargo run -p rh_cert -- verify --cert <path> --json
         cmd = [cargo_bin, "run", "-q", "-p", "rh_cert", "--", "verify", "--cert", str(out_file), "--json"]
         proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
-        assert proc.returncode == 0
+        assert proc.returncode == 0, proc.stderr
         outcome = json.loads(proc.stdout)
         assert outcome["passed"] is True
+        assert outcome["tail_lower_bound"] == "0/1"
         assert outcome["ldl_report"]["is_positive_definite"] is True
 
     def test_formal_schema_file_validation(self) -> None:
         schema_path = Path("docs/contracts/rh-weil-certificate-v1.json")
-        assert schema_path.exists()
         schema_data = json.loads(schema_path.read_text(encoding="utf-8"))
-        assert schema_data["title"] == "RH Weil Matrix Positivity Certificate Format v1"
-        assert "format" in schema_data["required"]
-        assert "matrix" in schema_data["required"]
+        assert schema_data["title"] == "RH Weil exact interval certificate format v1"
+        assert "claim_profile" in schema_data["required"]
         assert schema_data["properties"]["format"]["const"] == "rh-weil-certificate-v1"
+        assert schema_data["additionalProperties"] is False
 
     def test_lean4_formal_build(self) -> None:
         import shutil
