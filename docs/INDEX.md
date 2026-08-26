@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-26T18:31:25Z`
+- **Last updated:** `2026-08-26T19:05:17Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -99,6 +99,8 @@ This is the compact index of the Riemann Conjecture research repository.
 
 - [`F-20260826-003`](../findings/2026-08-26T183125Z-localized-weil-positivity-at-seventeen-fortieths.md) — high-precision exact `N=48` certificate plus independent Rust replay proves strict localized Weil positivity at `T=17/40`.
 
+- [`F-20260826-004`](../findings/2026-08-26T190517Z-localized-weil-positivity-at-nine-twentieths.md) — 512-bit exact `N=56` certificate plus independent Rust replay proves strict localized Weil positivity at `T=9/20`.
+
 ## Computations
 
 - [`X-20260820-001`](../computations/2026-08-20T210531Z-exact-identity-verification/record.md) — exact finite identity checks.
@@ -122,6 +124,8 @@ This is the compact index of the Riemann Conjecture research repository.
 
 - [`X-20260826-002`](../computations/2026-08-26T183125Z-seventeen-fortieths-schur-certificate/record.md) — 384-bit full-tail `N=48` assembly, exact rational certificate, adversarial replay, and independent Rust PASS supporting `C-0052` at `T=17/40`.
 
+- [`X-20260826-003`](../computations/2026-08-26T190517Z-nine-twentieths-schur-certificate/record.md) — 512-bit full-tail `N=56` assembly, exact rational certificate, adversarial replay, and independent Rust PASS supporting `C-0053` at `T=9/20`.
+
 ## Templates
 
 - [`../templates/ATTEMPT.md`](../templates/ATTEMPT.md)
@@ -130,4 +134,4 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Current state
 
-RH remains unresolved. `C-0050` at `T=7/20`, `C-0051` at `T=2/5`, and `C-0052` at `T=17/40` are independently verified finite-support theorems. `A-20260826-001` remains active; the immediate frontier is a fresh high-precision `T=9/20,N≈56` exact candidate check, followed by an independent replay only if that candidate survives. See [`STATUS.md`](STATUS.md).
+RH remains unresolved. `C-0050` at `T=7/20`, `C-0051` at `T=2/5`, `C-0052` at `T=17/40`, and `C-0053` at `T=9/20` are independently verified finite-support theorems. `A-20260826-001` remains active; the immediate frontier is dimension selection for `T=19/40=0.475`, followed by a fresh high-precision full-tail exact candidate at the selected cutoff. See [`STATUS.md`](STATUS.md).

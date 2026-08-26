@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-08-26T18:31:25Z`
+- **Last updated:** `2026-08-26T19:05:17Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -178,6 +178,33 @@ The real-certificate adversarial replay again distinguishes malformed proof data
 
 This establishes `F-20260826-003` / `C-0052`: strict localized Weil positivity at `T=17/40`.
 
+## Independent certification at T=9/20
+
+The next selected support `T=9/20` was tested at `N=56` with 512-bit Arb precision to control the increasing high-degree monomial conditioning.
+
+The rigorous full-tail assembly gives reconnaissance midpoints
+
+```text
+finite A_56 minimum ~ 1.61824684632997e-5
+Schur minimum       ~ 1.50101270255024e-5,
+```
+
+while the exact rational candidate survives 104-bit outward dyadic matrix rounding and 56-bit exact rational congruence witnesses.
+
+The closed v1 whitelist was then extended by **only** `(T,N)=(9/20,56)`. The full retained certificate is independently accepted by Rust with
+
+```text
+passed=true
+verified_scope=localized_weil_positivity_T_9_20
+mu_56 > 0.7060951994695617
+even margin > 0.003888027441177187
+odd  margin > 0.004366893328949625.
+```
+
+The real-certificate adversarial replay again distinguishes malformed proof data (`exit 2`) from a contract-valid theorem failure (`exit 1`).
+
+This establishes `F-20260826-004` / `C-0053`: strict localized Weil positivity at `T=9/20`.
+
 ## Circularity check
 
 No RH input is used.
@@ -195,14 +222,15 @@ Current results:
 3. increasing to `N=40` restores the rigorous full-tail Schur mechanism at `T=0.375` and `T=0.4`;
 4. `C-0051` is `VERIFIED`: the independent Rust verifier proves strict localized Weil positivity at `T=2/5,N=40`;
 5. `C-0052` is `VERIFIED`: high-precision `N=48` assembly plus a fresh exact certificate and independent Rust replay prove strict localized Weil positivity at `T=17/40`;
-6. the natural required dimension continues to grow with support; earlier reconnaissance suggests roughly `N~56` at `T=9/20=0.45`.
+6. `C-0053` is `VERIFIED`: 512-bit `N=56` assembly plus a fresh exact certificate and independent Rust replay prove strict localized Weil positivity at `T=9/20`;
+7. the natural required dimension continues to grow with support, so the next slice must select a fresh cutoff for `T=19/40=0.475` rather than extrapolating `N=56`.
 
 ## Next action
 
 Continue toward
 
 ```text
-T=9/20=0.45.
+T=19/40=0.475.
 ```
 
-Earlier stable dimension reconnaissance suggests a cutoff near `N=56`. The next slice must begin with a high-precision full-tail `N=56` exact candidate check; if it survives outward rounding and exact congruence/Gershgorin verification, extend the closed whitelist by only `(T,N)=(9/20,56)` and require a fresh independent Rust replay. Do not extrapolate `C-0052` to nearby supports.
+Do not guess the next cutoff from the earlier pattern. First run stable orthonormal-Legendre dimension reconnaissance at `T=19/40`, then perform a high-precision full-tail exact candidate at the smallest practical dimension that survives the tail correction. Any theorem at `T=19/40` requires a fresh explicitly whitelisted pair and independent Rust replay. Do not extrapolate `C-0053` to nearby supports.

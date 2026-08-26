@@ -1,10 +1,45 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-26T18:31:25Z`
+- **Last updated:** `2026-08-26T19:05:17Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-08-26T19:05:17Z — One-prime continuation reaches T=9/20 with 512-bit N=56 certificate
+
+**Type:** Research continuation / high-precision full-tail assembly / closed contract extension / exact rational certificate / independent verifier
+
+Continued `A-20260826-001` from the verified `T=17/40,N=48` support theorem.
+
+At
+
+```text
+T=9/20,
+N=56,
+```
+
+the exact-polynomial/Arb full-tail assembly was run at 512-bit precision to control high-degree monomial conditioning. The Schur midpoint remains positive near `1.50e-5`, and the generator-side exact candidate survives 104-bit outward dyadic matrix rounding plus 56-bit rational congruence witnesses.
+
+The closed `exact_prime_legendre_schur` v1 whitelist was extended by **only** `(T,N)=(9/20,56)` in addition to the three previously certified pairs.
+
+The full `C-0053` certificate is independently accepted by Rust. The verifier derives
+
+```text
+mu_56 > 0.7060951994695617
+even margin > 0.003888027441177187
+odd  margin > 0.004366893328949625,
+```
+
+reconstructs the factor-3 Schur matrix, and returns `passed=true` with scope `localized_weil_positivity_T_9_20`.
+
+The real certificate was adversarially replayed: a wrong factor is rejected as a contract error (`exit 2`), while a contract-valid negative finite-matrix perturbation produces theorem failure (`exit 1`). The retained certificate exits `0`.
+
+Recorded `F-20260826-004`, `C-0053`, and `X-20260826-003`. The retained certificate SHA-256 is `98f2b839d7f52c971966e7f9da9ae4e318c30a491821ad86abee6411b51932e0`; the Rust replay SHA-256 is `e8f7b0b99e41687829da795582690af141e0c7fb833d273767b255bdc53180fe`. Generator provenance records commit `1336bf9c06460d4c4e1fda5f1a37a1f511d1bd3e` with `git_dirty=true`.
+
+**Outcome:** strict localized Weil positivity is now independently verified at `T=7/20`, `T=2/5`, `T=17/40`, and `T=9/20`. RH remains unresolved. `A-20260826-001` stays `PROMISING`; the next support under study is `T=19/40`, beginning with fresh dimension selection.
+
+---
 
 ## 2026-08-26T18:31:25Z — One-prime continuation reaches T=17/40 with high-precision N=48 certificate
 

@@ -1,7 +1,7 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-26T18:31:25Z`
+- **Last updated:** `2026-08-26T19:05:17Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
@@ -20,9 +20,9 @@ Eleven formal research attempts are recorded:
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit and restricted-support Weil operator mechanism; `COMPLETE`.
 - [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — exact first-prime endpoint absorption, finite-support normalization guard, and external FP-0.35 source audit; `COMPLETE` intermediate target.
 - [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; global 69% absorption is refuted as too lossy, while the exact-prime `N=32` Schur certificate proves strict localized Weil positivity at `T=7/20`; `COMPLETE`.
-- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — one-prime support continuation from the verified `T=7/20` basepoint; moving Legendre dimension now yields independently verified theorems at `T=2/5,N=40` and `T=17/40,N=48`; continuation toward `T=9/20` remains active; `PROMISING`.
+- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — one-prime support continuation from the verified `T=7/20` basepoint; moving Legendre dimension now yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, and `T=9/20,N=56`; continuation toward `T=19/40` remains active; `PROMISING`.
 
-The repository now contains fifteen retained computation records. No proof of RH has been obtained.
+The repository now contains sixteen retained computation records. No proof of RH has been obtained.
 
 ## Active leads
 
@@ -130,7 +130,24 @@ odd  margin > 0.010715413283695166,
 
 reconstructs the factor-3 Schur matrix, and returns `passed=true` with scope `localized_weil_positivity_T_17_40`. The real-certificate adversarial replay again distinguishes contract failure (exit `2`) from theorem failure (exit `1`).
 
-The active frontier has therefore moved to `T=9/20=0.45`, where earlier reconnaissance suggests that roughly `N=56` may be required. No theorem is claimed there yet.
+The next support theorem is now also verified at
+
+```text
+T=9/20,
+N=56.
+```
+
+`C-0053` uses a 512-bit full-tail assembly and a retained exact rational interval certificate. Rust independently derives
+
+```text
+mu_56 > 0.7060951994695617
+even margin > 0.003888027441177187
+odd  margin > 0.004366893328949625,
+```
+
+reconstructs the factor-3 Schur matrix, and returns `passed=true` with scope `localized_weil_positivity_T_9_20`. The real-certificate adversarial replay again distinguishes contract failure (exit `2`) from theorem failure (exit `1`).
+
+The active frontier has therefore moved to `T=19/40=0.475`. The next cutoff has not yet been selected rigorously; the next slice begins with stable orthonormal-Legendre dimension reconnaissance rather than extrapolating `N=56`.
 
 ### L2 — Exact transcendental interval inputs
 
@@ -260,6 +277,7 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 18. Suzuki's full localized Weil quadratic form is strictly positive at `T=7/20`, with an independently verified exact-prime `N=32` Schur certificate (`C-0050`).
 19. The same exact-prime Legendre-Schur mechanism, with `N=40`, proves strict localized Weil positivity at `T=2/5` under a fresh independently verified certificate (`C-0051`).
 20. The exact-prime Legendre-Schur mechanism, with high-precision `N=48` assembly, proves strict localized Weil positivity at `T=17/40` under a fresh independently verified certificate (`C-0052`).
+21. The exact-prime Legendre-Schur mechanism, with 512-bit `N=56` assembly, proves strict localized Weil positivity at `T=9/20` under a fresh independently verified certificate (`C-0053`).
 ## Computational observations and certificates
 
 - `X-20260821-001` checks dyadic bilinear phase separability.
@@ -271,7 +289,9 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 
 - `X-20260826-002` contains the 384-bit `N=48` full-tail diagnostic, exact `T=17/40` certificate, adversarial checks, and independent Rust PASS for `C-0052`.
 
-`X-20260821-005`, `X-20260826-001`, and `X-20260826-002` are proof-bearing for the finite-support theorems `C-0050`, `C-0051`, and `C-0052`, respectively. Their exact certificates and independent replays are retained with hashes and reproduction commands. None of these finite-support computations constitutes a proof of RH.
+- `X-20260826-003` contains the 512-bit `N=56` full-tail diagnostic, exact `T=9/20` certificate, adversarial checks, and independent Rust PASS for `C-0053`.
+
+`X-20260821-005`, `X-20260826-001`, `X-20260826-002`, and `X-20260826-003` are proof-bearing for the finite-support theorems `C-0050`, `C-0051`, `C-0052`, and `C-0053`, respectively. Their exact certificates and independent replays are retained with hashes and reproduction commands. None of these finite-support computations constitutes a proof of RH.
 
 ## Open requirements / blockers
 
@@ -281,19 +301,21 @@ There is no remaining blocker at `T=2/5`; `C-0051` is independently verified.
 
 There is no remaining blocker at `T=17/40`; `C-0052` is independently verified.
 
+There is no remaining blocker at `T=9/20`; `C-0053` is independently verified.
+
 The primary open requirement is now the next continuation target
 
 ```text
-T=9/20=0.45.
+T=19/40=0.475.
 ```
 
-Earlier stable reconnaissance suggests `N~56`. The next slice must:
+The next slice must:
 
-1. run the full-tail exact-polynomial/Arb assembly at `T=9/20,N=56` with enough precision to defeat the known high-degree monomial-conditioning problem;
-2. require a positive rigorous complement bound and positive full-tail Schur candidate after outward rational rounding;
-3. construct exact rational parity congruence witnesses only if that candidate survives;
-4. if successful, add only the single `(T,N)=(9/20,56)` pair to the closed whitelist and require a fresh independent Rust replay;
-5. if it fails, determine whether the failure is precision/conditioning, dimension, or a genuine loss of the current Schur bound before moving farther toward `(1/2)log 3`.
+1. run stable orthonormal-Legendre dimension reconnaissance at `T=19/40` to select a practical cutoff rather than extrapolating from the previous sequence;
+2. rerun the full-tail exact-polynomial/Arb assembly at the selected dimension with enough precision to defeat the known high-degree monomial-conditioning problem;
+3. require a positive rigorous complement bound and positive full-tail Schur candidate after outward rational rounding;
+4. construct exact rational parity congruence witnesses only if that candidate survives;
+5. only then add the single selected `(T,N)` pair to the closed whitelist and require a fresh independent Rust replay.
 
 
 ## Invalidated, corrected, or closed directions
@@ -352,6 +374,6 @@ Earlier stable reconnaissance suggests `N~56`. The next slice must:
 
 ## Next research action
 
-Continue `A-20260826-001` at the next candidate support `T=9/20`, starting with a high-precision full-tail `N=56` exact candidate check.
+Continue `A-20260826-001` at the next candidate support `T=19/40`, starting with stable dimension selection and then a high-precision full-tail exact candidate at the selected cutoff.
 
-Do not extrapolate `C-0052` from `T=17/40`. Any theorem at `T=9/20` must come from a fresh exact certificate and independent replay under an explicitly whitelisted pair. The eventual structural transition remains the entry of the `p=3` compressed translation at `(1/2)log 3`.
+Do not extrapolate `C-0053` from `T=9/20`. Any theorem at `T=19/40` must come from a fresh exact certificate and independent replay under an explicitly whitelisted pair. The eventual structural transition remains the entry of the `p=3` compressed translation at `(1/2)log 3`.

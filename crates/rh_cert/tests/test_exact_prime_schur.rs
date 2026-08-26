@@ -143,6 +143,20 @@ fn exact_prime_profile_accepts_seventeen_fortieths_dimension_48() {
 }
 
 #[test]
+fn exact_prime_profile_accepts_nine_twentieths_dimension_56() {
+    let fixture = exact_prime_fixture_for("9", "20", "9/20", 56);
+    let certificate = CertificateJson::from_json_str(&fixture.to_string()).expect("valid fixture");
+    let outcome = certificate.verify().expect("verification runs");
+    assert!(outcome.passed);
+    assert_eq!(outcome.dimension, 56);
+    assert_eq!(outcome.support_t, "9/20");
+    assert_eq!(outcome.verified_scope, "localized_weil_positivity_T_9_20");
+    let report = outcome.schur_report.expect("Schur report");
+    assert_eq!(report.even.dimension, 28);
+    assert_eq!(report.odd.dimension, 28);
+}
+
+#[test]
 fn exact_prime_profile_rejects_mixed_whitelist_pair() {
     let fixture = exact_prime_fixture_for("2", "5", "2/5", 32);
     assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());
@@ -151,6 +165,12 @@ fn exact_prime_profile_rejects_mixed_whitelist_pair() {
 #[test]
 fn exact_prime_profile_rejects_mixed_seventeen_fortieths_pair() {
     let fixture = exact_prime_fixture_for("17", "40", "17/40", 40);
+    assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());
+}
+
+#[test]
+fn exact_prime_profile_rejects_mixed_nine_twentieths_pair() {
+    let fixture = exact_prime_fixture_for("9", "20", "9/20", 48);
     assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());
 }
 

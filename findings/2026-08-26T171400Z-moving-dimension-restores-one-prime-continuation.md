@@ -48,3 +48,7 @@ The independent-verifier requirement identified above has now been satisfied. Se
 ## Follow-up — 2026-08-26T18:31:25Z
 
 The later `N~48` reconnaissance at `T=17/40` has also been converted into a rigorous full-tail certificate and independent verifier PASS. See `F-20260826-003`, `C-0052`, and `X-20260826-002`. The `N~56` indication at `T=9/20` remains reconnaissance only.
+
+## Follow-up — 2026-08-26T19:05:17Z
+
+The earlier `N~56` reconnaissance at `T=9/20` has now also been converted into a 512-bit rigorous full-tail certificate and independent verifier PASS. See `F-20260826-004`, `C-0053`, and `X-20260826-003`. The next support `T=19/40` requires fresh dimension selection.

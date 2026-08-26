@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-26T18:31:25Z`
+- **Last updated:** `2026-08-26T19:05:17Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -587,6 +587,17 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0039`, `C-0040`, `C-0044`, `C-0045`, `C-0047`, `C-0048`
 - **Source:** `A-20260826-001`, `F-20260826-003`, `X-20260826-002`
 - **Verification notes:** The `N=48` finite matrices were assembled at 384-bit Arb precision with exact polynomial algebra and outward-rounded to 88-bit dyadic rational intervals; congruence witnesses use 48-bit exact dyadic rationals. The closed v1 whitelist explicitly admits `(T,N)=(17/40,48)`. Rust independently derives `mu_48>0.7326484380944506`, reconstructs the factor-3 Schur matrix, and proves the even/odd `24 x 24` blocks positive by exact rational congruence and interval Gershgorin, with margins approximately `0.0028958690673761525` and `0.010715413283695166`. The real-certificate adversarial replay gives exit `2` for a malformed factor and exit `1` for a contract-valid perturbation that destroys positivity. The retained certificate SHA-256 is `6c74a386097bb30c2924f70d82e90d5ffc4d2dcb029543b7c973949948bdd325`; the Rust replay SHA-256 is `0378e6419b322eca7fc077271b1694bcb43e916592969e26827387aa8489958c`. The certificate records Git commit `b5405a9347a8b6bc6d3a8c022c4e0fa60e425361` with `git_dirty=true`. This is finite-support positivity at one support value and does not imply RH.
+
+### C-0053 — Strict localized Weil positivity at T=9/20
+
+- **Statement:** For Suzuki's scaled localized Weil quadratic form at `T=9/20`, including the exact `p=2` compressed-translation contribution and the mandatory finite-support residual kernel, one has `Q_T(w)>0` for every nonzero admissible localized test function `w`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-26T19:05:17Z`
+- **Last verified:** `2026-08-26T19:05:17Z`
+- **Dependencies:** `C-0039`, `C-0040`, `C-0044`, `C-0045`, `C-0047`, `C-0048`
+- **Source:** `A-20260826-001`, `F-20260826-004`, `X-20260826-003`
+- **Verification notes:** The `N=56` finite matrices were assembled at 512-bit Arb precision with exact polynomial algebra and outward-rounded to 104-bit dyadic rational intervals; congruence witnesses use 56-bit exact dyadic rationals. The closed v1 whitelist explicitly admits `(T,N)=(9/20,56)`. Rust independently derives `mu_56>0.7060951994695617`, reconstructs the factor-3 Schur matrix, and proves the even/odd `28 x 28` blocks positive by exact rational congruence and interval Gershgorin, with margins approximately `0.003888027441177187` and `0.004366893328949625`. The real-certificate adversarial replay gives exit `2` for a malformed factor and exit `1` for a contract-valid perturbation that destroys positivity. The retained certificate SHA-256 is `98f2b839d7f52c971966e7f9da9ae4e318c30a491821ad86abee6411b51932e0`; the Rust replay SHA-256 is `e8f7b0b99e41687829da795582690af141e0c7fb833d273767b255bdc53180fe`. The certificate records Git commit `1336bf9c06460d4c4e1fda5f1a37a1f511d1bd3e` with `git_dirty=true`. This is finite-support positivity at one support value and does not imply RH.
 
 ## Entry format
 

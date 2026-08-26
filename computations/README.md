@@ -1,7 +1,7 @@
 # Computations
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-26T18:31:25Z`
+- **Last updated:** `2026-08-26T19:05:17Z`
 
 This directory contains timestamped numerical and symbolic experiments. Every retained computation must be reproducible and must distinguish numerical evidence from proof.
 
@@ -27,6 +27,8 @@ This directory contains timestamped numerical and symbolic experiments. Every re
 - [`X-20260826-001`](2026-08-26T171400Z-one-prime-support-continuation/record.md) — one-prime support map, moving-dimension diagnostics, high-precision full-tail checks, and the proof-bearing exact `T=2/5,N=40` certificate plus independent Rust PASS proving `C-0051`.
 
 - [`X-20260826-002`](2026-08-26T183125Z-seventeen-fortieths-schur-certificate/record.md) — 384-bit full-tail `N=48` assembly and proof-bearing exact certificate plus independent Rust PASS proving strict localized Weil positivity at `T=17/40` (`C-0052`).
+
+- [`X-20260826-003`](2026-08-26T190517Z-nine-twentieths-schur-certificate/record.md) — 512-bit full-tail `N=56` assembly and proof-bearing exact certificate plus independent Rust PASS proving strict localized Weil positivity at `T=9/20` (`C-0053`).
 
 ## Directory Bundle Standard
 
