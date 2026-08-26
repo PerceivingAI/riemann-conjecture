@@ -2,7 +2,9 @@
 
 All polynomial algebra is exact over Fraction. Transcendental quantities enter
 only as Arb balls. The module assembles the finite low block and component tail
-Gram bounds used by A-20260821-004 at T=7/20.
+Gram bounds used by A-20260821-004 and later one-prime support-continuation work.
+The reusable assembler accepts an exact rational support T; proof-bearing certificate
+profiles remain responsible for locking any theorem-specific support value.
 """
 
 from __future__ import annotations
@@ -200,11 +202,18 @@ def potential_matrices(polys: list[FractionPoly], prec: int) -> tuple[ArbMatrix,
         return v, v2
 
 
-def first_prime_matrices(polys: list[FractionPoly], prec: int) -> tuple[ArbMatrix, ArbMatrix]:
+def first_prime_matrices(
+    polys: list[FractionPoly],
+    prec: int,
+    support_num: int = 7,
+    support_den: int = 20,
+) -> tuple[ArbMatrix, ArbMatrix]:
     """Return P2 low matrix and P2^2 low matrix on the Legendre span."""
     n = len(polys)
     with ctx.workprec(prec):
-        tau = tau_enclosure(prec, 7, 20)
+        tau = tau_enclosure(prec, support_num, support_den)
+        if not (tau > 1 and tau < 2):
+            raise ValueError("first-prime matrices require 1 < log(2)/T < 2")
         c2 = c2_enclosure(prec)
         lower = arb(-1)
         upper = 1 - tau
@@ -253,14 +262,19 @@ def abs_power_action_on_poly(power: int, poly: FractionPoly) -> FractionPoly:
 
 
 def residual_truncation_operator(
-    polys: list[FractionPoly], order: int
+    polys: list[FractionPoly],
+    order: int,
+    support_num: int = 7,
+    support_den: int = 20,
 ) -> tuple[list[FractionPoly], ArbMatrix, ArbMatrix, arb]:
     """Exact polynomial residual truncation plus a rigorous operator remainder.
 
     Returns images R_K P_j, the low matrix <P_i,R_K P_j>, the exact low matrix
     <R_K P_i,R_K P_j>, and delta with ||R-R_K|| <= delta.
     """
-    T = Fraction(7, 20)
+    if support_den <= 0 or support_num <= 0:
+        raise ValueError("support T must be a positive rational")
+    T = Fraction(support_num, support_den)
     coefficients = _suzuki_residual_series_coefficients(order)
     images: list[FractionPoly] = []
     for poly in polys:
@@ -287,9 +301,10 @@ def residual_truncation_operator(
             full_square[j][i] = square_val
 
     with ctx.workprec(256):
-        u_max = acb(arb(7) / 10)
+        two_t = arb(2 * support_num) / support_den
+        u_max = acb(two_t)
         tail = _suzuki_residual_tail_radius(u_max, order)
-        delta = (arb(7) / 10) * tail
+        delta = two_t * tail
     return images, low, full_square, delta
 
 
@@ -297,6 +312,9 @@ def assemble_exact_prime_schur(
     n: int = 32,
     prec: int = 256,
     residual_order: int = 32,
+    support_num: int = 7,
+    support_den: int = 20,
+    require_positive_mu: bool = True,
 ) -> dict[str, object]:
     if n < 1:
         raise ValueError("n must be positive")
@@ -304,14 +322,25 @@ def assemble_exact_prime_schur(
         raise ValueError("prec must be at least 64 bits")
     if residual_order < 8:
         raise ValueError("residual_order must be at least 8")
+    if support_den <= 0 or support_num <= 0:
+        raise ValueError("support T must be a positive rational")
 
     with ctx.workprec(prec):
+        support_t = arb(support_num) / support_den
+        tau = tau_enclosure(prec, support_num, support_den)
+        if not (tau > 1 and tau < 2):
+            raise ValueError("assembler currently supports only the one-prime window")
         polys = legendre_polynomials(n - 1)
         norms = [legendre_norm_sq(k) for k in range(n)]
         V, V2 = potential_matrices(polys, prec)
-        P2, P2sq = first_prime_matrices(polys, prec)
-        _, Rk, Rk2, delta_R = residual_truncation_operator(polys, residual_order)
-        cT = c_T_enclosure(prec)
+        P2, P2sq = first_prime_matrices(polys, prec, support_num, support_den)
+        _, Rk, Rk2, delta_R = residual_truncation_operator(
+            polys,
+            residual_order,
+            support_num,
+            support_den,
+        )
+        cT = c_T_enclosure(prec, support_num, support_den)
 
         # A_N lower bound: R >= R_K - delta_R I.
         A = _arb_zero_matrix(n)
@@ -333,28 +362,36 @@ def assemble_exact_prime_schur(
             GR[i][i] += 2 * delta_R * delta_R * _arb_fraction(norms[i])
 
         # Crude rigorous high-mode lower bound mu_N.
-        u_max = arb(7) / 10
+        u_max = 2 * support_t
         coeffs = _suzuki_residual_series_coefficients(residual_order)
         residual_abs = arb(0)
         for degree, coefficient in enumerate(coeffs):
             c_abs = Fraction(abs(int(coefficient.p)), int(coefficient.q))
             residual_abs += _arb_fraction(c_abs) * u_max**degree
         residual_abs += _suzuki_residual_tail_radius(acb(u_max), residual_order)
-        rho_R = (arb(7) / 10) * residual_abs
+        rho_R = 2 * support_t * residual_abs
         mu = _arb_fraction(harmonic(n)) - cT - c2_enclosure(prec) - rho_R
-        if not mu.lower() > 0:
+        mu_positive = bool(mu.lower() > 0)
+        if require_positive_mu and not mu_positive:
             raise RuntimeError("failed to certify positive complement mu_N")
 
-        grams = _arb_mat_add(_arb_mat_add(GV, G2), GR)
-        schur = _arb_mat_sub(A, _arb_mat_scale(grams, arb(3) / mu))
+        schur: ArbMatrix | None = None
+        if mu_positive:
+            grams = _arb_mat_add(_arb_mat_add(GV, G2), GR)
+            schur = _arb_mat_sub(A, _arb_mat_scale(grams, arb(3) / mu))
         return {
             "dimension": n,
+            "support_num": support_num,
+            "support_den": support_den,
+            "support_T": support_t,
+
             "precision_bits": prec,
             "residual_order": residual_order,
             "norms": norms,
             "delta_R": delta_R,
             "rho_R": rho_R,
             "mu": mu,
+            "mu_positive": mu_positive,
             "A": A,
             "GV": GV,
             "G2": G2,

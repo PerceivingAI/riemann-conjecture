@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-21T13:52:37Z`
+- **Last updated:** `2026-08-26T17:28:53Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -152,13 +152,29 @@ Its retained JSON uses exact rational interval endpoints for proof quantities. I
 
 ### `weil_legendre_schur_scout.py`
 
-Supports dimension selection for `A-20260821-004`. It uses NumPy/SciPy floating point to assemble normalized-Legendre exact-prime finite matrices and **finitely truncated** tail Grams for the factor-3 Schur reduction.
+Supports dimension selection for `A-20260821-004` and `A-20260826-001`. It uses NumPy/SciPy floating point to assemble normalized-Legendre exact-prime finite matrices and **finitely truncated** tail Grams for the factor-3 Schur reduction. The support can now be supplied as an exact rational string for one-prime continuation reconnaissance.
 
 ```text
-python -m scripts.weil_legendre_schur_scout --max-mode 120 --quadrature-order 700 --shift-order 350 --n 18,20,22,24,28,32,40,50 --output-json computations/.../data/schur-scout.json
+python -m scripts.weil_legendre_schur_scout --support 2/5 --max-mode 120 --quadrature-order 700 --shift-order 350 --n 32,40,48,56,64,72 --output-json computations/.../data/dimension-scout-T040.json
 ```
 
 This script is reconnaissance only. Its finite tail truncation is not an infinite-dimensional bound and cannot certify positivity.
+
+### `weil_support_continuation_scout.py`
+
+Supports `A-20260826-001`. It reuses the exact-polynomial/Arb full-tail assembler at exact rational support values, then converts only normalized matrix midpoints to NumPy/SciPy for support-margin reconnaissance. It reports `mu_N`, finite-block midpoint minima, Schur midpoint minima, and component penalty scales. Positive rows are not theorem certificates.
+
+```text
+python -m scripts.weil_support_continuation_scout --supports 7/20,3/8,2/5,17/40,9/20 --dimension 32 --prec 112 --output-json computations/.../data/support-scan.json
+```
+
+### `weil_support_candidate_check.py`
+
+Generator-side exact candidate checker for a selected continuation point. It performs rigorous Arb assembly, outward dyadic rational rounding, exact rational Schur construction, and exact rational congruence/Gershgorin checks, but deliberately does **not** emit a theorem certificate because the independent Rust profile may still be locked to another support/dimension pair.
+
+```text
+python -m scripts.weil_support_candidate_check --support 2/5 --dimension 40 --prec 256 --matrix-bits 72 --witness-bits 40 --output-json computations/.../data/candidate-T040-N40.json
+```
 
 ### `cert/exact_prime_schur_certificate.py`
 
@@ -172,7 +188,7 @@ The generator does not decide the theorem. `crates/rh_cert` independently recons
 
 ### `cert/legendre_schur.py`
 
-Rigorous shared assembly for the exact-prime Legendre-Schur proof. It uses exact rational polynomial algebra for Legendre actions and overlap identities, Arb only for transcendental enclosures, closed logarithmic/log-squared moments for `G_V`, exact edge-overlap geometry for `G_2`, and the canonical Suzuki residual series plus rigorous remainder for `G_R`.
+Rigorous shared assembly for the exact-prime Legendre-Schur proof and continuation work. It uses exact rational polynomial algebra for Legendre actions and overlap identities, Arb only for transcendental enclosures, closed logarithmic/log-squared moments for `G_V`, exact edge-overlap geometry for `G_2`, and the canonical Suzuki residual series plus rigorous remainder for `G_R`. The reusable assembler accepts an exact rational one-prime support `T`; theorem-specific certificate wrappers remain responsible for locking allowed supports/dimensions.
 
 ## Shared implementation
 

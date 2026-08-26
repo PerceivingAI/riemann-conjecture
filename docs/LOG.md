@@ -1,10 +1,54 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T13:52:37Z`
+- **Last updated:** `2026-08-26T17:28:53Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-08-26T17:28:53Z — One-prime support continuation selects T=2/5, N=40 as next exact target
+
+**Type:** New research attempt / parameterized rigorous assembly / support reconnaissance / moving-dimension diagnosis / exact candidate witness
+
+Started `A-20260826-001` from the verified `C-0050` basepoint at `T=7/20`.
+
+The shared exact-prime Legendre-Schur assembler was parameterized in exact rational support `T` while the proof-bearing v1 certificate profile remains locked to the already proved `T=7/20,N=32` semantics.
+
+A full-tail `N=32` support scan shows the Schur midpoint remains positive through the tested `T=0.37` but becomes negative at `T=0.375`. At that point the finite low block and the rigorous complement lower bound remain positive, so the first fixed-dimension failure is the low-to-tail Schur correction rather than observed operator negativity or immediate loss of complement coercivity.
+
+Stable orthonormal-Legendre dimension reconnaissance suggested that increasing `N` should repair the tail correction. High-precision full-tail Arb assembly confirmed this:
+
+```text
+T=3/8, N=40:  Schur midpoint min ~ +4.83388e-4
+T=2/5, N=40:  Schur midpoint min ~ +1.70302e-4
+T=17/40,N=40: Schur midpoint min ~ -1.28340
+T=9/20, N=40: Schur midpoint min ~ -4.23493.
+```
+
+The later supports are therefore not closed; truncated-tail reconnaissance suggests their required dimensions continue to grow (`~48` near `0.425`, `~56` near `0.45`).
+
+The selected next rigorous point is
+
+```text
+T=2/5,
+N=40.
+```
+
+A generator-side exact candidate was then constructed with rigorous Arb/exact-polynomial matrices, 72-bit outward rational endpoints, exact rational Schur construction, and 40-bit dyadic rational congruence witnesses. It gives strictly positive exact margins:
+
+```text
+mu_40 > 0.7313021813837909
+even margin > 0.004176569432300938
+odd  margin > 0.013120531611009081.
+```
+
+This is registered only as provisional `C-0051`: the independent Rust profile still rejects/generalizes nothing beyond its locked `C-0050` support. No theorem at `T=2/5` is claimed yet.
+
+Recorded `F-20260826-001`, `C-0051`, and computation `X-20260826-001`.
+
+**Outcome:** RH remains unresolved. `A-20260826-001` is `PROMISING`. The immediate next slice is independent Rust/schema verification of the single `T=2/5,N=40` candidate under a closed contract.
+
+---
 
 ## 2026-08-21T13:52:37Z — A-004 closes with strict localized Weil positivity at T=7/20
 

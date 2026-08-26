@@ -1,0 +1,27 @@
+{
+  "role": "reconnaissance_only",
+  "warning": "Arb/exact-polynomial assembly is reused, but reported eigenvalues and component norms are floating midpoint diagnostics. No support other than the separately certified T=7/20 is proved by this scan.",
+  "dimension": 40,
+  "precision_bits": 256,
+  "residual_order": 32,
+  "rows": [
+    {
+      "support": "9/20",
+      "support_decimal": 0.45,
+      "mu_lower": 0.37316888362270706,
+      "mu_midpoint": 0.37316888362270706,
+      "mu_upper": 0.37316888362270706,
+      "mu_certified_positive": true,
+      "finite_block_min_eigenvalue_midpoint": 1.620519949133999e-05,
+      "schur_min_eigenvalue_midpoint": -4.234925915475505,
+      "component_schur_penalty_operator_norm_midpoint": {
+        "GV": 7.329323996420373,
+        "G2": 1.9312393239822483,
+        "GR": 2.9407848470172805e-11
+      },
+      "rho_R_upper": 1.7986600484862887,
+      "residual_remainder_upper": 9.744797596524764e-19
+    }
+  ],
+  "largest_scanned_positive_midpoint_support": null
+}

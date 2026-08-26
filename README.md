@@ -125,7 +125,9 @@ Start here depending on what you need:
 │   ├── weil_endpoint_absorption_certificate.py
 │   ├── weil_exact_constants.py
 │   ├── weil_exact_prime_complement_certificate.py
-│   └── weil_legendre_schur_scout.py
+│   ├── weil_legendre_schur_scout.py
+│   ├── weil_support_continuation_scout.py
+│   └── weil_support_candidate_check.py
 ├── templates/
 │   ├── ATTEMPT.md
 │   ├── FINDING.md
@@ -135,6 +137,7 @@ Start here depending on what you need:
     ├── certificate_conformance.json
     ├── test_cert_pipeline.py
     ├── test_exact_prime_schur_certificate.py
+    ├── test_support_continuation.py
     ├── test_identities.py
     ├── test_properties.py
     └── test_rh_tools.py
@@ -188,6 +191,8 @@ Python + python-flint/Arb
 ```
 
 The closed certificate syntax and exact PASS semantics are authoritative in [`docs/CONTRACTS.md`](docs/CONTRACTS.md) and [`docs/contracts/rh-weil-certificate-v1.json`](docs/contracts/rh-weil-certificate-v1.json). The v1 `exact_prime_legendre_schur` profile is deliberately locked to the proved `T=7/20`, `N=32` semantics: it derives the Legendre complement bound, reconstructs the factor-3 component-Gram Schur matrix, and verifies exact rational congruence/Gershgorin witnesses. It therefore certifies `C-0050` as a full localized finite-support theorem, while the other v1 profiles remain finite-block/testing profiles.
+
+Support-continuation tooling may parameterize the shared exact assembler and may produce generator-side exact candidates at other rational one-prime supports. Those candidates do **not** inherit theorem status from `C-0050`: each new support/dimension pair requires an explicitly allowed closed verifier contract and a fresh independent Rust replay before it can be promoted from `PROVISIONAL` to `VERIFIED`.
 
 The Lean project in `formal/` now deliberately uses **Mathlib**, pinned to `v4.33.0` in `formal/lakefile.lean` and resolved by `formal/lake-manifest.json`. This is a larger formal dependency than the original lightweight-Core-only idea, but it supports the current general finite-dimensional LDL theorem, analytic endpoint-absorption proof, and exact-prime Gershgorin/invertible-congruence soundness theorem. `lake build` is the authoritative formal acceptance check.
 

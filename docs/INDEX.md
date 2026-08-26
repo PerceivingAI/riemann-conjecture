@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T13:52:37Z`
+- **Last updated:** `2026-08-26T17:28:53Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -39,6 +39,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit, Weil support thresholds, and first-prime compressed-translation mechanism; `COMPLETE`.
 - [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — first-prime support continuation; exact endpoint absorption, digamma kernel decomposition, residual-term correction, and external-certificate audit; `COMPLETE` intermediate.
 - [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; global `0.69V` target refuted as too lossy, exact high-mode complement and tail-Gram reduction proved, and a clean `N=32` exact certificate establishes strict localized Weil positivity at `T=7/20`; `COMPLETE`.
+- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; fixed `N=32` loses Schur margin beyond about `0.37`, moving to `N=40` restores full-tail candidate positivity through `T=2/5`; `PROMISING`.
 
 ## Landmark findings
 
@@ -93,6 +94,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`F-20260821-020`](../findings/2026-08-21T085252Z-schur-dimension-scout.md) — floating scout suggests `N=32` as a practical first rigorous Schur target.
 
 - [`F-20260821-021`](../findings/2026-08-21T135237Z-first-prime-localized-weil-positivity.md) — clean exact-prime `N=32` Schur certificate proves strict localized Weil positivity at `T=7/20`.
+- [`F-20260826-001`](../findings/2026-08-26T171400Z-moving-dimension-restores-one-prime-continuation.md) — moving the Legendre cutoff to `N=40` restores the full-tail continuation mechanism through the provisional `T=2/5` candidate.
 
 ## Computations
 
@@ -113,6 +115,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`X-20260821-004`](../computations/2026-08-21T085252Z-exact-prime-legendre-schur/record.md) — Arb-certified `0.69V` obstruction and high-mode complement bound, plus separately labeled floating exact-prime Schur-dimension reconnaissance.
 
 - [`X-20260821-005`](../computations/2026-08-21T123446Z-exact-prime-schur-certificate/record.md) — clean exact-prime `N=32` rational interval certificate, independent Rust Schur/Gershgorin replay, and formal soundness build supporting `C-0050`.
+- [`X-20260826-001`](../computations/2026-08-26T171400Z-one-prime-support-continuation/record.md) — support-margin map, moving-dimension diagnostics, rigorous full-tail midpoint checks, and generator-side exact rational `T=2/5,N=40` candidate supporting provisional `C-0051`.
 
 ## Templates
 
@@ -122,4 +125,4 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Current state
 
-RH remains unresolved. `A-20260821-004` is complete: the exact-prime Legendre-Schur mechanism proves strict localized Weil positivity at `T=7/20` (`C-0050`) using a clean `N=32` certificate and independent Rust verification. The active frontier is support continuation in `T` through the one-prime window toward `(1/2)log 3`; see [`STATUS.md`](STATUS.md).
+RH remains unresolved. `C-0050` remains the verified basepoint at `T=7/20`. `A-20260826-001` has selected `T=2/5,N=40` as the next rigorous continuation target and produced a positive generator-side exact candidate (`C-0051`, still `PROVISIONAL`). The immediate frontier is independent Rust/schema verification of that single new support value; see [`STATUS.md`](STATUS.md).

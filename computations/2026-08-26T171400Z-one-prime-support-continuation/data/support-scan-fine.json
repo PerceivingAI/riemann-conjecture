@@ -1,0 +1,95 @@
+{
+  "role": "reconnaissance_only",
+  "warning": "Arb/exact-polynomial assembly is reused, but reported eigenvalues and component norms are floating midpoint diagnostics. No support other than the separately certified T=7/20 is proved by this scan.",
+  "dimension": 32,
+  "precision_bits": 112,
+  "residual_order": 32,
+  "rows": [
+    {
+      "support": "71/200",
+      "support_decimal": 0.355,
+      "mu_lower": 0.8347017919188241,
+      "mu_midpoint": 0.8347017919188241,
+      "mu_upper": 0.8347017919188241,
+      "mu_certified_positive": true,
+      "finite_block_min_eigenvalue_midpoint": 0.0010104372423700527,
+      "schur_min_eigenvalue_midpoint": 0.0009901595511474417,
+      "component_schur_penalty_operator_norm_midpoint": {
+        "GV": 3.1197142473126114,
+        "G2": 0.7654100850468178,
+        "GR": 1.2595224932426514e-11
+      },
+      "rho_R_upper": 1.3542090899792654,
+      "residual_remainder_upper": 2.8312435540893697e-22
+    },
+    {
+      "support": "9/25",
+      "support_decimal": 0.36,
+      "mu_lower": 0.7985657883790418,
+      "mu_midpoint": 0.7985657883790418,
+      "mu_upper": 0.7985657883790418,
+      "mu_certified_positive": true,
+      "finite_block_min_eigenvalue_midpoint": 0.0008500751456062506,
+      "schur_min_eigenvalue_midpoint": 0.0008323762024175917,
+      "component_schur_penalty_operator_norm_midpoint": {
+        "GV": 3.260884839297061,
+        "G2": 0.8581169989414048,
+        "GR": 1.3922707970483614e-11
+      },
+      "rho_R_upper": 1.3763588515443077,
+      "residual_remainder_upper": 4.5739138985953195e-22
+    },
+    {
+      "support": "73/200",
+      "support_decimal": 0.365,
+      "mu_lower": 0.7624948580951534,
+      "mu_midpoint": 0.7624948580951534,
+      "mu_upper": 0.7624948580951534,
+      "mu_certified_positive": true,
+      "finite_block_min_eigenvalue_midpoint": 0.0007118912340142099,
+      "schur_min_eigenvalue_midpoint": 0.0006906472080006394,
+      "component_schur_penalty_operator_norm_midpoint": {
+        "GV": 3.4151457480144236,
+        "G2": 0.9262198750461742,
+        "GR": 1.5408469655124043e-11
+      },
+      "rho_R_upper": 1.3986364596958603,
+      "residual_remainder_upper": 7.341038278807456e-22
+    },
+    {
+      "support": "37/100",
+      "support_decimal": 0.37,
+      "mu_lower": 0.7264819664162172,
+      "mu_midpoint": 0.7264819664162172,
+      "mu_upper": 0.7264819664162172,
+      "mu_certified_positive": true,
+      "finite_block_min_eigenvalue_midpoint": 0.0005936620334533894,
+      "schur_min_eigenvalue_midpoint": 0.0005484381954849084,
+      "component_schur_penalty_operator_norm_midpoint": {
+        "GV": 3.5844400726867027,
+        "G2": 0.9805815530855913,
+        "GR": 1.7076843262549683e-11
+      },
+      "rho_R_upper": 1.4210436993190179,
+      "residual_remainder_upper": 1.1707477214211451e-21
+    },
+    {
+      "support": "3/8",
+      "support_decimal": 0.375,
+      "mu_lower": 0.6905202867482958,
+      "mu_midpoint": 0.6905202867482958,
+      "mu_upper": 0.6905202867482958,
+      "mu_certified_positive": true,
+      "finite_block_min_eigenvalue_midpoint": 0.0004929861902419591,
+      "schur_min_eigenvalue_midpoint": -0.011140275518542953,
+      "component_schur_penalty_operator_norm_midpoint": {
+        "GV": 3.771114509566507,
+        "G2": 1.0354819573761025,
+        "GR": 1.8957223746988445e-11
+      },
+      "rho_R_upper": 1.4435823586547987,
+      "residual_remainder_upper": 1.8555811043065268e-21
+    }
+  ],
+  "largest_scanned_positive_midpoint_support": "37/100"
+}

@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T13:52:37Z`
+- **Last updated:** `2026-08-26T17:28:53Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -565,6 +565,17 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0039`, `C-0040`, `C-0044`, `C-0045`, `C-0047`, `C-0048`
 - **Source:** `A-20260821-004`, `F-20260821-021`, `X-20260821-005`, `R-0028`, `R-0032`, `R-0033`
 - **Verification notes:** The clean-state `N=32` certificate was generated at commit `d620aa649a2d0291e407d4c0c8bc7360b67efc38` with `git_dirty=false`. Arb/exact-polynomial assembly encloses `A_32`, `G_V`, `G_2`, and `G_R`; the exact complement bound satisfies `mu_32>0.8709101235096008`. The independent zero-float Rust verifier reconstructs the factor-3 Schur matrix and proves the two parity blocks positive by exact rational congruence and interval Gershgorin, with margins approximately `0.01153505500311919` and `0.04939032559587724`. Adversarial tests distinguish contract errors from theorem failure. Lean formalizes the Gershgorin/congruence soundness used by the judge and `lake build` passes. This is finite-support positivity at one support value and does not imply RH.
+
+### C-0051 — T=2/5, N=40 exact-prime Schur certificate candidate
+
+- **Statement:** In the parameterized exact-prime Legendre-Schur architecture, the `T=2/5`, `N=40` generator-side exact rational candidate has a positive complement lower bound and positive exact rational parity congruence/Gershgorin margins: `mu_40>0.7313021813837909`, even margin `>0.004176569432300938`, and odd margin `>0.013120531611009081`.
+- **Type:** `COMPUTATIONAL_OBSERVATION`
+- **Status:** `PROVISIONAL`
+- **First recorded:** `2026-08-26T17:28:53Z`
+- **Last verified:** `2026-08-26T17:28:53Z`
+- **Dependencies:** `C-0045`, `C-0047`, `C-0048`, `C-0050`
+- **Source:** `A-20260826-001`, `F-20260826-001`, `X-20260826-001`
+- **Verification notes:** The finite matrices are assembled with exact polynomial algebra and Arb enclosures, outward-rounded to exact dyadic rational intervals, and checked on the Python generator side by exact rational Schur/congruence/Gershgorin arithmetic. This is deliberately **not** a theorem claim: the independent Rust `exact_prime_legendre_schur` profile remains locked to `T=7/20,N=32`. `C-0051` may be promoted only after a closed independent verifier profile reconstructs and accepts the `T=2/5,N=40` proof object.
 
 ## Entry format
 

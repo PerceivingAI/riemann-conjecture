@@ -1,14 +1,14 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T13:52:37Z`
+- **Last updated:** `2026-08-26T17:28:53Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
 
 ## Current state
 
-Ten formal research attempts are recorded:
+Eleven formal research attempts are recorded:
 
 - [`A-20260820-001`](../attempts/2026-08-20T203700Z-li-laguerre-prime-trace-route.md) — generalized Li/Laguerre route; `BLOCKED`, with later corrections preserved.
 - [`A-20260820-002`](../attempts/2026-08-20T204900Z-pole-subtracted-prime-laguerre-route.md) — exact zeta-pole subtraction and discrepancy criterion; `COMPLETE` intermediate target.
@@ -20,8 +20,9 @@ Ten formal research attempts are recorded:
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit and restricted-support Weil operator mechanism; `COMPLETE`.
 - [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — exact first-prime endpoint absorption, finite-support normalization guard, and external FP-0.35 source audit; `COMPLETE` intermediate target.
 - [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; global 69% absorption is refuted as too lossy, while the exact-prime `N=32` Schur certificate proves strict localized Weil positivity at `T=7/20`; `COMPLETE`.
+- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — one-prime support continuation from the verified `T=7/20` basepoint; moving Legendre dimension restores the full-tail Schur mechanism through a strong `T=2/5,N=40` generator-side candidate; `PROMISING`.
 
-The repository now contains thirteen retained computation records. No proof of RH has been obtained.
+The repository now contains fourteen retained computation records. No proof of RH has been obtained.
 
 ## Active leads
 
@@ -93,13 +94,24 @@ V+P_2 >= (69/100)V
 
 remains verified (`C-0042`), but `C-0046` proves that using it globally is too lossy. The successful theorem retains the exact first-prime geometry.
 
-The active question is no longer whether positivity can be proved at `T=0.35`; it is how far this mechanism continues through
+`A-20260826-001` has now mapped the first continuation slice. With the rigorous full-tail formulas, fixed `N=32` remains positive in midpoint reconnaissance through the tested `T=0.37` but its Schur midpoint fails at `T=0.375` while the low block and complement remain positive. Increasing to `N=40` restores positive full-tail Schur midpoints at `T=3/8` and `T=2/5`.
+
+The selected next rigorous target is
 
 ```text
-(1/2)log 2 < T < (1/2)log 3,
+T=2/5,
+N=40.
 ```
 
-before the second prime enters.
+A generator-side exact rational candidate (`C-0051`) already survives outward rounding and exact congruence/Gershgorin checks with
+
+```text
+mu_40 > 0.7313021813837909
+even margin > 0.004176569432300938
+odd  margin > 0.013120531611009081.
+```
+
+This is **not yet a new support theorem**: the independent Rust profile remains locked to `C-0050` at `T=7/20,N=32`. The immediate frontier is to extend the closed verifier semantics for the single `T=2/5,N=40` candidate and replay it independently.
 
 ### L2 — Exact transcendental interval inputs
 
@@ -234,6 +246,7 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 - `X-20260821-003` contains the exact rational first-prime absorption certificate and exact Arb constant enclosures.
 - `X-20260821-004` contains the proof-path obstruction/complement certificate and a separately labeled floating Legendre-Schur dimension scout.
 - `X-20260821-005` contains the clean exact-prime `N=32` Schur certificate, exact rational congruence witnesses, and independent Rust PASS for `C-0050`.
+- `X-20260826-001` maps one-prime support continuation, records the moving-dimension diagnosis, and contains the generator-side exact `T=2/5,N=40` candidate supporting provisional `C-0051`.
 
 `X-20260821-005` is proof-bearing for the finite-support theorem `C-0050`; its clean certificate and independent replay are retained with SHA-256 hashes and exact reproduction commands. None of these finite-support computations constitutes a proof of RH.
 
@@ -241,22 +254,20 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 
 There is no remaining blocker for the fixed support target `T=7/20`; `A-20260821-004` is complete.
 
-The new primary open requirement is **support continuation** through the one-prime window:
+The primary open requirement is now to independently certify the selected continuation target
 
 ```text
-(1/2)log 2 < T < (1/2)log 3.
+T=2/5,
+N=40.
 ```
 
-The next research attempt should determine how the certified exact-prime Schur margin evolves with `T` and what fails first as the second-prime threshold is approached.
+`A-20260826-001` has already parameterized the exact assembly and produced a positive generator-side exact rational witness (`C-0051`). The remaining pieces for this slice are:
 
-Required next pieces:
-
-1. parameterize the exact low block, complement bound, and component tail Grams in `T` without weakening the proof/certificate boundary;
-2. use floating reconnaissance only to locate candidate support values and likely loss-of-margin regions;
-3. at selected support values, regenerate Arb/exact-rational certificates and independent Rust verification rather than extrapolating from `T=7/20`;
-4. track whether the limiting obstruction comes from low-mode positivity, the complement lower bound, or one of `G_V`, `G_2`, `G_R`;
-5. approach `(1/2)log 3` from below before introducing the `p=3` translation;
-6. if continuation reaches the threshold with margin, derive a new multi-prime certificate semantics rather than silently extending the one-prime profile.
+1. define a closed verifier contract for the `T=2/5,N=40` one-prime Legendre-Schur proof object without weakening the existing `C-0050` lock;
+2. require Rust to derive `mu_40` from serialized scalar upper endpoints, reconstruct the factor-3 Schur matrix, and verify both parity congruence/Gershgorin witnesses independently;
+3. add shared schema/conformance adversarial cases for the new allowed support/dimension pair;
+4. if independent replay passes, register a new verified finite-support theorem at `T=2/5`;
+5. only then continue farther toward `(1/2)log 3`, where reconnaissance suggests the required Legendre cutoff grows (`~48` near `0.425`, `~56` near `0.45`).
 
 
 ## Invalidated, corrected, or closed directions
@@ -307,8 +318,6 @@ Required next pieces:
 
 ### I12 — Import the public FP-0.35 repository's PASS status
 
-### I12 — Import the public FP-0.35 repository's PASS status
-
 `REJECTED AS PROOF DEPENDENCY`: the public source tree remains useful architecture but was not imported as theorem evidence. `C-0050` is instead established by this repository's independent exact certificate and replay.
 
 ### I13 — Use `V+P_2 >= (69/100)V` globally and prove the remaining residual operator positive
@@ -317,8 +326,6 @@ Required next pieces:
 
 ## Next research action
 
-Start a new support-continuation attempt from the verified basepoint `T=7/20`.
+Continue `A-20260826-001` by turning the provisional `T=2/5,N=40` candidate into an independently checked certificate under a closed Rust/schema contract.
 
-The immediate goal is to treat `T` as a parameter inside the first-prime window, map the certified Schur margin toward `(1/2)log 3`, and identify the first genuine analytic obstruction. The `T=7/20` certificate is a basepoint, not a blanket certificate for nearby supports.
-
-If the one-prime mechanism remains positive close to `(1/2)log 3`, the next structural transition is the entry of the `p=3` compressed translation. Any theorem beyond that threshold must explicitly incorporate the additional prime term.
+Do not generalize the existing `C-0050` theorem by extrapolation. The next verified support value must come from a fresh exact certificate and independent replay. After `T=2/5` is resolved, resume support continuation toward `(1/2)log 3`; the next structural transition remains the entry of the `p=3` compressed translation.

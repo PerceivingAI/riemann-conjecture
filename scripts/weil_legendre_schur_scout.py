@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from fractions import Fraction
 from math import log, sqrt
 from pathlib import Path
 
@@ -25,13 +26,22 @@ def harmonic(n: int) -> float:
     return sum(1.0 / k for k in range(1, n + 1))
 
 
-def scout(max_mode: int, quadrature_order: int, shift_order: int, n_values: list[int]) -> dict[str, object]:
+def scout(
+    max_mode: int,
+    quadrature_order: int,
+    shift_order: int,
+    n_values: list[int],
+    support: Fraction = Fraction(7, 20),
+) -> dict[str, object]:
     if max_mode < 10:
         raise ValueError("max_mode must be at least 10")
     if any(n <= 0 or n >= max_mode for n in n_values):
         raise ValueError("every Schur N must satisfy 0 < N < max_mode")
 
-    T = 7.0 / 20.0
+    T = float(support)
+    tau = log(2) / T
+    if not (1.0 < tau < 2.0):
+        raise ValueError("support must lie in the one-prime window")
     x, weights = roots_legendre(quadrature_order)
     basis = np.column_stack(
         [sqrt((2 * n + 1) / 2) * eval_legendre(n, x) for n in range(max_mode)]
@@ -56,7 +66,6 @@ def scout(max_mode: int, quadrature_order: int, shift_order: int, n_values: list
     R = basis.T @ (weights[:, None] * (residual_kernel * weights[None, :])) @ basis
 
     # Exact-p=2 compressed translation, numerically integrated on its overlap.
-    tau = log(2) / T
     c2 = log(2) / sqrt(2)
     lower, upper = -1.0, 1.0 - tau
     z, z_weights = roots_legendre(shift_order)
@@ -80,9 +89,9 @@ def scout(max_mode: int, quadrature_order: int, shift_order: int, n_values: list
     cT = log(2 * np.pi * T) + EULER_GAMMA
     A = np.diag(H - cT) + V + P2 + R
 
-    # This is the retained rigorous complement constant from the proof-path scout,
-    # copied only for dimension reconnaissance.
-    rho_R_scout = 1.33218539338044
+    # Reconnaissance Schur bound for the residual norm at this support. The
+    # same r'' grid used above is sampled; this is not a rigorous supremum.
+    rho_R_scout = 2.0 * T * float(np.max(np.abs(rpp)))
     threshold = cT + c2 + rho_R_scout
 
     lowest_full_ritz = eigvalsh(A)[:8]
@@ -106,7 +115,9 @@ def scout(max_mode: int, quadrature_order: int, shift_order: int, n_values: list
     return {
         "role": "floating_reconnaissance_only",
         "warning": "Tail Grams are truncated at max_mode and are not infinite-dimensional bounds.",
+        "support": f"{support.numerator}/{support.denominator}",
         "support_T": T,
+        "rho_R_scout": rho_R_scout,
         "max_mode": max_mode,
         "quadrature_order": quadrature_order,
         "shift_order": shift_order,
@@ -119,12 +130,20 @@ def parse_n_values(text: str) -> list[int]:
     return [int(part.strip()) for part in text.split(",") if part.strip()]
 
 
+def parse_support(text: str) -> Fraction:
+    value = Fraction(text.strip())
+    if value <= 0:
+        raise ValueError("support must be positive")
+    return value
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--max-mode", type=int, default=120)
     parser.add_argument("--quadrature-order", type=int, default=700)
     parser.add_argument("--shift-order", type=int, default=350)
     parser.add_argument("--n", default="18,20,22,24,28,32,40,50")
+    parser.add_argument("--support", default="7/20", help="exact rational support T")
     parser.add_argument("--output-json", type=Path)
     args = parser.parse_args()
 
@@ -133,6 +152,7 @@ def main() -> None:
         quadrature_order=args.quadrature_order,
         shift_order=args.shift_order,
         n_values=parse_n_values(args.n),
+        support=parse_support(args.support),
     )
     text = json.dumps(result, indent=2, allow_nan=False) + "\n"
     if args.output_json:

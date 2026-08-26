@@ -1,0 +1,58 @@
+{
+  "role": "floating_reconnaissance_only",
+  "warning": "Tail Grams are truncated at max_mode and are not infinite-dimensional bounds.",
+  "support": "2/5",
+  "support_T": 0.4,
+  "rho_R_scout": 1.5578010911652027,
+  "max_mode": 120,
+  "quadrature_order": 700,
+  "shift_order": 350,
+  "lowest_full_finite_ritz_values": [
+    0.0001813047306324926,
+    0.014708188832374458,
+    0.30707482323700536,
+    0.8980550862953469,
+    0.9067301127157373,
+    1.3580776736044584,
+    1.3600387931482703,
+    1.4233204020621875
+  ],
+  "schur_rows": [
+    {
+      "N": 32,
+      "mu_scout": 0.5117630331003209,
+      "finite_block_min_eigenvalue": 0.00018171624072560802,
+      "factor3_truncated_schur_min_eigenvalue": -0.9358163518737578
+    },
+    {
+      "N": 40,
+      "mu_scout": 0.7318108766001767,
+      "finite_block_min_eigenvalue": 0.00018156064385011823,
+      "factor3_truncated_schur_min_eigenvalue": 0.00017588261002888467
+    },
+    {
+      "N": 48,
+      "mu_scout": 0.9120650127279202,
+      "finite_block_min_eigenvalue": 0.00018147447293666449,
+      "factor3_truncated_schur_min_eigenvalue": 0.00017882390121336906
+    },
+    {
+      "N": 56,
+      "mu_scout": 1.0647371924470317,
+      "finite_block_min_eigenvalue": 0.00018142150694264484,
+      "factor3_truncated_schur_min_eigenvalue": 0.00017996877383584536
+    },
+    {
+      "N": 64,
+      "mu_scout": 1.1971587413695701,
+      "finite_block_min_eigenvalue": 0.00018138842545662874,
+      "factor3_truncated_schur_min_eigenvalue": 0.00018045352540448564
+    },
+    {
+      "N": 72,
+      "mu_scout": 1.314077991233015,
+      "finite_block_min_eigenvalue": 0.00018136491253655036,
+      "factor3_truncated_schur_min_eigenvalue": 0.00018075603636641781
+    }
+  ]
+}
