@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-26T17:28:53Z`
+- **Last updated:** `2026-08-26T18:31:25Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -566,16 +566,27 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Source:** `A-20260821-004`, `F-20260821-021`, `X-20260821-005`, `R-0028`, `R-0032`, `R-0033`
 - **Verification notes:** The clean-state `N=32` certificate was generated at commit `d620aa649a2d0291e407d4c0c8bc7360b67efc38` with `git_dirty=false`. Arb/exact-polynomial assembly encloses `A_32`, `G_V`, `G_2`, and `G_R`; the exact complement bound satisfies `mu_32>0.8709101235096008`. The independent zero-float Rust verifier reconstructs the factor-3 Schur matrix and proves the two parity blocks positive by exact rational congruence and interval Gershgorin, with margins approximately `0.01153505500311919` and `0.04939032559587724`. Adversarial tests distinguish contract errors from theorem failure. Lean formalizes the Gershgorin/congruence soundness used by the judge and `lake build` passes. This is finite-support positivity at one support value and does not imply RH.
 
-### C-0051 — T=2/5, N=40 exact-prime Schur certificate candidate
+### C-0051 — Strict localized Weil positivity at T=2/5
 
-- **Statement:** In the parameterized exact-prime Legendre-Schur architecture, the `T=2/5`, `N=40` generator-side exact rational candidate has a positive complement lower bound and positive exact rational parity congruence/Gershgorin margins: `mu_40>0.7313021813837909`, even margin `>0.004176569432300938`, and odd margin `>0.013120531611009081`.
-- **Type:** `COMPUTATIONAL_OBSERVATION`
-- **Status:** `PROVISIONAL`
+- **Statement:** For Suzuki's scaled localized Weil quadratic form at `T=2/5`, including the exact `p=2` compressed-translation contribution and the mandatory finite-support residual kernel, one has `Q_T(w)>0` for every nonzero admissible localized test function `w`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
 - **First recorded:** `2026-08-26T17:28:53Z`
-- **Last verified:** `2026-08-26T17:28:53Z`
-- **Dependencies:** `C-0045`, `C-0047`, `C-0048`, `C-0050`
-- **Source:** `A-20260826-001`, `F-20260826-001`, `X-20260826-001`
-- **Verification notes:** The finite matrices are assembled with exact polynomial algebra and Arb enclosures, outward-rounded to exact dyadic rational intervals, and checked on the Python generator side by exact rational Schur/congruence/Gershgorin arithmetic. This is deliberately **not** a theorem claim: the independent Rust `exact_prime_legendre_schur` profile remains locked to `T=7/20,N=32`. `C-0051` may be promoted only after a closed independent verifier profile reconstructs and accepts the `T=2/5,N=40` proof object.
+- **Last verified:** `2026-08-26T17:49:29Z`
+- **Dependencies:** `C-0039`, `C-0040`, `C-0044`, `C-0045`, `C-0047`, `C-0048`
+- **Source:** `A-20260826-001`, `F-20260826-001`, `F-20260826-002`, `X-20260826-001`
+- **Verification notes:** The `N=40` finite matrices are assembled with exact polynomial algebra and Arb enclosures and outward-rounded to exact dyadic rational intervals. The closed v1 whitelist explicitly admits `(T,N)=(2/5,40)`. For the retained `T=2/5` certificate, Rust independently derives `mu_40>0.7313021813837909`, reconstructs the factor-3 Schur matrix, and proves the even/odd `20 x 20` parity blocks positive by exact rational congruence and interval Gershgorin, with margins approximately `0.004176569432300938` and `0.013120531611009081`. The real-certificate adversarial replay gives exit `2` for a malformed factor and exit `1` for a contract-valid perturbation that destroys positivity. The retained certificate records Git commit `b5405a9347a8b6bc6d3a8c022c4e0fa60e425361` with `git_dirty=true`; exact artifact hashes are recorded in `X-20260826-001`. This is finite-support positivity at one support value and does not imply RH.
+
+### C-0052 — Strict localized Weil positivity at T=17/40
+
+- **Statement:** For Suzuki's scaled localized Weil quadratic form at `T=17/40`, including the exact `p=2` compressed-translation contribution and the mandatory finite-support residual kernel, one has `Q_T(w)>0` for every nonzero admissible localized test function `w`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-26T18:31:25Z`
+- **Last verified:** `2026-08-26T18:31:25Z`
+- **Dependencies:** `C-0039`, `C-0040`, `C-0044`, `C-0045`, `C-0047`, `C-0048`
+- **Source:** `A-20260826-001`, `F-20260826-003`, `X-20260826-002`
+- **Verification notes:** The `N=48` finite matrices were assembled at 384-bit Arb precision with exact polynomial algebra and outward-rounded to 88-bit dyadic rational intervals; congruence witnesses use 48-bit exact dyadic rationals. The closed v1 whitelist explicitly admits `(T,N)=(17/40,48)`. Rust independently derives `mu_48>0.7326484380944506`, reconstructs the factor-3 Schur matrix, and proves the even/odd `24 x 24` blocks positive by exact rational congruence and interval Gershgorin, with margins approximately `0.0028958690673761525` and `0.010715413283695166`. The real-certificate adversarial replay gives exit `2` for a malformed factor and exit `1` for a contract-valid perturbation that destroys positivity. The retained certificate SHA-256 is `6c74a386097bb30c2924f70d82e90d5ffc4d2dcb029543b7c973949948bdd325`; the Rust replay SHA-256 is `0378e6419b322eca7fc077271b1694bcb43e916592969e26827387aa8489958c`. The certificate records Git commit `b5405a9347a8b6bc6d3a8c022c4e0fa60e425361` with `git_dirty=true`. This is finite-support positivity at one support value and does not imply RH.
 
 ## Entry format
 

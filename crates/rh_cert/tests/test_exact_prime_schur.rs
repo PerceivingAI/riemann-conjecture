@@ -50,33 +50,38 @@ fn point_interval(value: i64) -> Value {
     })
 }
 
-fn exact_prime_fixture() -> Value {
+fn exact_prime_fixture_for(
+    support_num: &str,
+    support_den: &str,
+    support_frac: &str,
+    dimension: usize,
+) -> Value {
     json!({
         "format": "rh-weil-certificate-v1",
         "claim": "synthetic exact-prime verifier fixture",
         "claim_profile": "exact_prime_legendre_schur",
-        "support_T": {"num": "7", "den": "20", "frac": "7/20"},
-        "basis": {"type": "legendre", "dimension": 32, "domain": "[-1, 1]"},
+        "support_T": {"num": support_num, "den": support_den, "frac": support_frac},
+        "basis": {"type": "legendre", "dimension": dimension, "domain": "[-1, 1]"},
         "parity_sector": "both",
-        "dimension": 32,
+        "dimension": dimension,
         "constants": {
             "c2": point_interval(0),
             "c_T": point_interval(0),
             "rho_R": point_interval(0)
         },
-        "matrix": interval_matrix(32, 1),
+        "matrix": interval_matrix(dimension, 1),
         "tail_bound": {
             "type": "legendre_component_gram_schur",
-            "harmonic_index": 32,
+            "harmonic_index": dimension,
             "factor": {"num": "3", "den": "1"}
         },
         "schur_proof": {
             "residual_order": 32,
-            "GV": interval_matrix(32, 0),
-            "G2": interval_matrix(32, 0),
-            "GR": interval_matrix(32, 0),
-            "even_witness": exact_identity(16),
-            "odd_witness": exact_identity(16)
+            "GV": interval_matrix(dimension, 0),
+            "G2": interval_matrix(dimension, 0),
+            "GR": interval_matrix(dimension, 0),
+            "even_witness": exact_identity(dimension / 2),
+            "odd_witness": exact_identity(dimension / 2)
         },
         "generator_metadata": {
             "generator": "rust-test",
@@ -92,6 +97,10 @@ fn exact_prime_fixture() -> Value {
     })
 }
 
+fn exact_prime_fixture() -> Value {
+    exact_prime_fixture_for("7", "20", "7/20", 32)
+}
+
 #[test]
 fn exact_prime_profile_recomputes_schur_and_passes() {
     let fixture = exact_prime_fixture();
@@ -103,6 +112,46 @@ fn exact_prime_profile_recomputes_schur_and_passes() {
     assert!(report.is_positive_definite);
     assert_eq!(report.even.dimension, 16);
     assert_eq!(report.odd.dimension, 16);
+}
+
+#[test]
+fn exact_prime_profile_accepts_t_two_fifths_dimension_40() {
+    let fixture = exact_prime_fixture_for("2", "5", "2/5", 40);
+    let certificate = CertificateJson::from_json_str(&fixture.to_string()).expect("valid fixture");
+    let outcome = certificate.verify().expect("verification runs");
+    assert!(outcome.passed);
+    assert_eq!(outcome.dimension, 40);
+    assert_eq!(outcome.support_t, "2/5");
+    assert_eq!(outcome.verified_scope, "localized_weil_positivity_T_2_5");
+    let report = outcome.schur_report.expect("Schur report");
+    assert_eq!(report.even.dimension, 20);
+    assert_eq!(report.odd.dimension, 20);
+}
+
+#[test]
+fn exact_prime_profile_accepts_seventeen_fortieths_dimension_48() {
+    let fixture = exact_prime_fixture_for("17", "40", "17/40", 48);
+    let certificate = CertificateJson::from_json_str(&fixture.to_string()).expect("valid fixture");
+    let outcome = certificate.verify().expect("verification runs");
+    assert!(outcome.passed);
+    assert_eq!(outcome.dimension, 48);
+    assert_eq!(outcome.support_t, "17/40");
+    assert_eq!(outcome.verified_scope, "localized_weil_positivity_T_17_40");
+    let report = outcome.schur_report.expect("Schur report");
+    assert_eq!(report.even.dimension, 24);
+    assert_eq!(report.odd.dimension, 24);
+}
+
+#[test]
+fn exact_prime_profile_rejects_mixed_whitelist_pair() {
+    let fixture = exact_prime_fixture_for("2", "5", "2/5", 32);
+    assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());
+}
+
+#[test]
+fn exact_prime_profile_rejects_mixed_seventeen_fortieths_pair() {
+    let fixture = exact_prime_fixture_for("17", "40", "17/40", 40);
+    assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());
 }
 
 #[test]

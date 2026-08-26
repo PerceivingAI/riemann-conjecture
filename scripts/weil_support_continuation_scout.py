@@ -143,8 +143,8 @@ def build_scan(
         "role": "reconnaissance_only",
         "warning": (
             "Arb/exact-polynomial assembly is reused, but reported eigenvalues and component norms "
-            "are floating midpoint diagnostics. No support other than the separately certified "
-            "T=7/20 is proved by this scan."
+            "are floating midpoint diagnostics. This scan does not prove any new support value; "
+            "only separately retained exact certificates accepted by the independent verifier are theorem evidence."
         ),
         "dimension": dimension,
         "precision_bits": prec,

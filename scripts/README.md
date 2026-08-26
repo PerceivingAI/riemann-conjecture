@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-26T17:28:53Z`
+- **Last updated:** `2026-08-26T18:31:25Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -178,13 +178,19 @@ python -m scripts.weil_support_candidate_check --support 2/5 --dimension 40 --pr
 
 ### `cert/exact_prime_schur_certificate.py`
 
-Closes `A-20260821-004`. This proof-path module assembles the rigorous `N=32` exact-prime Legendre-Schur certificate at `T=7/20`, outward-rounds Arb matrices to exact dyadic rational intervals, derives exact rational parity congruence witnesses from rational midpoint `LDL^T`, and exports the closed `exact_prime_legendre_schur` certificate profile.
+Proof-path exporter for the closed `exact_prime_legendre_schur` whitelist. It assembles rigorous exact-prime Legendre-Schur certificates, outward-rounds Arb matrices to exact dyadic rational intervals, derives exact rational parity congruence witnesses from rational midpoint `LDL^T`, and exports only explicitly admitted support/dimension pairs.
+
+Current admitted examples:
 
 ```text
-python -m scripts.cert.exact_prime_schur_certificate --claim C-0050 --prec 160 --matrix-bits 64 --witness-bits 32 --output-json computations/.../data/certificate.json
+python -m scripts.cert.exact_prime_schur_certificate --claim C-0050 --support 7/20 --dimension 32 --prec 160 --matrix-bits 64 --witness-bits 32 --output-json computations/.../data/certificate.json
+
+python -m scripts.cert.exact_prime_schur_certificate --claim C-0051 --support 2/5 --dimension 40 --prec 256 --matrix-bits 72 --witness-bits 40 --output-json computations/.../data/certificate-T040-N40.json
+
+python -m scripts.cert.exact_prime_schur_certificate --claim C-0052 --support 17/40 --dimension 48 --prec 384 --matrix-bits 88 --witness-bits 48 --output-json computations/.../data/certificate.json
 ```
 
-The generator does not decide the theorem. `crates/rh_cert` independently reconstructs the complement lower bound and factor-3 Schur matrix and proves the parity blocks positive using exact rational interval congruence/Gershgorin checks. The retained clean run is `X-20260821-005`.
+The generator does not decide the theorem. `crates/rh_cert` independently validates the whitelisted pair, reconstructs the complement lower bound and factor-3 Schur matrix, and proves the parity blocks positive using exact rational interval congruence/Gershgorin checks. The retained theorem runs are `X-20260821-005`, `X-20260826-001`, and `X-20260826-002`.
 
 ### `cert/legendre_schur.py`
 

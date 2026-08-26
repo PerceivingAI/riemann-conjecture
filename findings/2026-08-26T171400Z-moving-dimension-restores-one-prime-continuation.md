@@ -40,3 +40,11 @@ Stable truncated-tail reconnaissance suggests the required dimension continues t
 This finding does **not** establish localized Weil positivity at `T=2/5`.
 
 The `T=2/5,N=40` positive rational witness has been checked only on the generator side. The independent Rust certificate profile remains locked to `T=7/20,N=32`. Until the Rust verifier is extended under a closed contract and independently returns PASS, the new support value remains provisional.
+
+## Follow-up — 2026-08-26T17:49:29Z
+
+The independent-verifier requirement identified above has now been satisfied. See `F-20260826-002` and verified claim `C-0051`. The original reconnaissance statement remains historical evidence for how the `T=2/5,N=40` target was selected.
+
+## Follow-up — 2026-08-26T18:31:25Z
+
+The later `N~48` reconnaissance at `T=17/40` has also been converted into a rigorous full-tail certificate and independent verifier PASS. See `F-20260826-003`, `C-0052`, and `X-20260826-002`. The `N~56` indication at `T=9/20` remains reconnaissance only.

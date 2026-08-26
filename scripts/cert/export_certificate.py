@@ -192,12 +192,21 @@ def _validate_certificate_semantics(cert: dict[str, Any]) -> None:
         if tail["first_omitted_k"] != tail["k_max"] + 1:
             raise ValueError("$.tail_bound.first_omitted_k must equal k_max + 1")
     elif profile == "exact_prime_legendre_schur":
-        if support != Fraction(7, 20):
-            raise ValueError("$.support_T must equal 7/20 for exact-prime profile")
-        if dimension != 32:
-            raise ValueError("$.dimension must equal 32 for exact-prime profile")
-        if cert["basis"] != {"type": "legendre", "dimension": 32, "domain": "[-1, 1]"}:
-            raise ValueError("$.basis must be the 32-dimensional Legendre basis on [-1, 1]")
+        allowed_configurations = {
+            (Fraction(7, 20), 32),
+            (Fraction(2, 5), 40),
+            (Fraction(17, 40), 48),
+        }
+        if (support, dimension) not in allowed_configurations:
+            raise ValueError(
+                "exact-prime profile allows only (T=7/20,N=32), (T=2/5,N=40), or (T=17/40,N=48)"
+            )
+        if cert["basis"] != {
+            "type": "legendre",
+            "dimension": dimension,
+            "domain": "[-1, 1]",
+        }:
+            raise ValueError("$.basis must be the configured Legendre basis on [-1, 1]")
         if cert["parity_sector"] != "both":
             raise ValueError("$.parity_sector must be both for exact-prime profile")
         if set(cert["constants"]) != {"c2", "c_T", "rho_R"}:

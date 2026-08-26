@@ -1,7 +1,7 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-26T17:28:53Z`
+- **Last updated:** `2026-08-26T18:31:25Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
@@ -20,9 +20,9 @@ Eleven formal research attempts are recorded:
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit and restricted-support Weil operator mechanism; `COMPLETE`.
 - [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — exact first-prime endpoint absorption, finite-support normalization guard, and external FP-0.35 source audit; `COMPLETE` intermediate target.
 - [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; global 69% absorption is refuted as too lossy, while the exact-prime `N=32` Schur certificate proves strict localized Weil positivity at `T=7/20`; `COMPLETE`.
-- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — one-prime support continuation from the verified `T=7/20` basepoint; moving Legendre dimension restores the full-tail Schur mechanism through a strong `T=2/5,N=40` generator-side candidate; `PROMISING`.
+- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — one-prime support continuation from the verified `T=7/20` basepoint; moving Legendre dimension now yields independently verified theorems at `T=2/5,N=40` and `T=17/40,N=48`; continuation toward `T=9/20` remains active; `PROMISING`.
 
-The repository now contains fourteen retained computation records. No proof of RH has been obtained.
+The repository now contains fifteen retained computation records. No proof of RH has been obtained.
 
 ## Active leads
 
@@ -96,22 +96,41 @@ remains verified (`C-0042`), but `C-0046` proves that using it globally is too l
 
 `A-20260826-001` has now mapped the first continuation slice. With the rigorous full-tail formulas, fixed `N=32` remains positive in midpoint reconnaissance through the tested `T=0.37` but its Schur midpoint fails at `T=0.375` while the low block and complement remain positive. Increasing to `N=40` restores positive full-tail Schur midpoints at `T=3/8` and `T=2/5`.
 
-The selected next rigorous target is
+The next support theorem is now verified at
 
 ```text
 T=2/5,
 N=40.
 ```
 
-A generator-side exact rational candidate (`C-0051`) already survives outward rounding and exact congruence/Gershgorin checks with
+`C-0051` uses a full exact rational interval certificate. Rust independently derives
 
 ```text
 mu_40 > 0.7313021813837909
 even margin > 0.004176569432300938
-odd  margin > 0.013120531611009081.
+odd  margin > 0.013120531611009081,
 ```
 
-This is **not yet a new support theorem**: the independent Rust profile remains locked to `C-0050` at `T=7/20,N=32`. The immediate frontier is to extend the closed verifier semantics for the single `T=2/5,N=40` candidate and replay it independently.
+reconstructs the factor-3 Schur matrix, and returns `passed=true` with scope `localized_weil_positivity_T_2_5`. The real-certificate adversarial replay distinguishes contract failure (exit `2`) from theorem failure (exit `1`).
+
+The next support theorem is now also verified at
+
+```text
+T=17/40,
+N=48.
+```
+
+`C-0052` uses a 384-bit full-tail assembly and a retained exact rational interval certificate. Rust independently derives
+
+```text
+mu_48 > 0.7326484380944506
+even margin > 0.0028958690673761525
+odd  margin > 0.010715413283695166,
+```
+
+reconstructs the factor-3 Schur matrix, and returns `passed=true` with scope `localized_weil_positivity_T_17_40`. The real-certificate adversarial replay again distinguishes contract failure (exit `2`) from theorem failure (exit `1`).
+
+The active frontier has therefore moved to `T=9/20=0.45`, where earlier reconnaissance suggests that roughly `N=56` may be required. No theorem is claimed there yet.
 
 ### L2 — Exact transcendental interval inputs
 
@@ -239,6 +258,8 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 16. The exact-prime Legendre complement has a rigorous positive lower bound already from `N=14` (`C-0047`).
 17. Full exact-prime positivity reduces to a finite component tail-Gram Schur condition (`C-0048`).
 18. Suzuki's full localized Weil quadratic form is strictly positive at `T=7/20`, with an independently verified exact-prime `N=32` Schur certificate (`C-0050`).
+19. The same exact-prime Legendre-Schur mechanism, with `N=40`, proves strict localized Weil positivity at `T=2/5` under a fresh independently verified certificate (`C-0051`).
+20. The exact-prime Legendre-Schur mechanism, with high-precision `N=48` assembly, proves strict localized Weil positivity at `T=17/40` under a fresh independently verified certificate (`C-0052`).
 ## Computational observations and certificates
 
 - `X-20260821-001` checks dyadic bilinear phase separability.
@@ -246,28 +267,33 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 - `X-20260821-003` contains the exact rational first-prime absorption certificate and exact Arb constant enclosures.
 - `X-20260821-004` contains the proof-path obstruction/complement certificate and a separately labeled floating Legendre-Schur dimension scout.
 - `X-20260821-005` contains the clean exact-prime `N=32` Schur certificate, exact rational congruence witnesses, and independent Rust PASS for `C-0050`.
-- `X-20260826-001` maps one-prime support continuation, records the moving-dimension diagnosis, and contains the generator-side exact `T=2/5,N=40` candidate supporting provisional `C-0051`.
+- `X-20260826-001` maps one-prime support continuation, records the moving-dimension diagnosis, and contains the proof-bearing exact `T=2/5,N=40` certificate plus independent Rust replay for `C-0051`.
 
-`X-20260821-005` is proof-bearing for the finite-support theorem `C-0050`; its clean certificate and independent replay are retained with SHA-256 hashes and exact reproduction commands. None of these finite-support computations constitutes a proof of RH.
+- `X-20260826-002` contains the 384-bit `N=48` full-tail diagnostic, exact `T=17/40` certificate, adversarial checks, and independent Rust PASS for `C-0052`.
+
+`X-20260821-005`, `X-20260826-001`, and `X-20260826-002` are proof-bearing for the finite-support theorems `C-0050`, `C-0051`, and `C-0052`, respectively. Their exact certificates and independent replays are retained with hashes and reproduction commands. None of these finite-support computations constitutes a proof of RH.
 
 ## Open requirements / blockers
 
 There is no remaining blocker for the fixed support target `T=7/20`; `A-20260821-004` is complete.
 
-The primary open requirement is now to independently certify the selected continuation target
+There is no remaining blocker at `T=2/5`; `C-0051` is independently verified.
+
+There is no remaining blocker at `T=17/40`; `C-0052` is independently verified.
+
+The primary open requirement is now the next continuation target
 
 ```text
-T=2/5,
-N=40.
+T=9/20=0.45.
 ```
 
-`A-20260826-001` has already parameterized the exact assembly and produced a positive generator-side exact rational witness (`C-0051`). The remaining pieces for this slice are:
+Earlier stable reconnaissance suggests `N~56`. The next slice must:
 
-1. define a closed verifier contract for the `T=2/5,N=40` one-prime Legendre-Schur proof object without weakening the existing `C-0050` lock;
-2. require Rust to derive `mu_40` from serialized scalar upper endpoints, reconstruct the factor-3 Schur matrix, and verify both parity congruence/Gershgorin witnesses independently;
-3. add shared schema/conformance adversarial cases for the new allowed support/dimension pair;
-4. if independent replay passes, register a new verified finite-support theorem at `T=2/5`;
-5. only then continue farther toward `(1/2)log 3`, where reconnaissance suggests the required Legendre cutoff grows (`~48` near `0.425`, `~56` near `0.45`).
+1. run the full-tail exact-polynomial/Arb assembly at `T=9/20,N=56` with enough precision to defeat the known high-degree monomial-conditioning problem;
+2. require a positive rigorous complement bound and positive full-tail Schur candidate after outward rational rounding;
+3. construct exact rational parity congruence witnesses only if that candidate survives;
+4. if successful, add only the single `(T,N)=(9/20,56)` pair to the closed whitelist and require a fresh independent Rust replay;
+5. if it fails, determine whether the failure is precision/conditioning, dimension, or a genuine loss of the current Schur bound before moving farther toward `(1/2)log 3`.
 
 
 ## Invalidated, corrected, or closed directions
@@ -326,6 +352,6 @@ N=40.
 
 ## Next research action
 
-Continue `A-20260826-001` by turning the provisional `T=2/5,N=40` candidate into an independently checked certificate under a closed Rust/schema contract.
+Continue `A-20260826-001` at the next candidate support `T=9/20`, starting with a high-precision full-tail `N=56` exact candidate check.
 
-Do not generalize the existing `C-0050` theorem by extrapolation. The next verified support value must come from a fresh exact certificate and independent replay. After `T=2/5` is resolved, resume support continuation toward `(1/2)log 3`; the next structural transition remains the entry of the `p=3` compressed translation.
+Do not extrapolate `C-0052` from `T=17/40`. Any theorem at `T=9/20` must come from a fresh exact certificate and independent replay under an explicitly whitelisted pair. The eventual structural transition remains the entry of the `p=3` compressed translation at `(1/2)log 3`.

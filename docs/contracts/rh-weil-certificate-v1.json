@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/carlon/riemann-conjecture/docs/contracts/rh-weil-certificate-v1.json",
   "title": "RH Weil exact interval certificate format v1",
-  "description": "Closed syntax contract for exact rational interval certificates. PASS semantics are profile-specific: exact interval LDL for scalar/digamma profiles, or verifier-derived Legendre complement plus exact Schur congruence/Gershgorin positivity for the locked exact-prime profile.",
+  "description": "Closed syntax contract for exact rational interval certificates. PASS semantics are profile-specific: exact interval LDL for scalar/digamma profiles, or verifier-derived Legendre complement plus exact Schur congruence/Gershgorin positivity for explicitly whitelisted exact-prime support/dimension pairs.",
   "type": "object",
   "required": [
     "format",
@@ -136,12 +136,12 @@
           "basis": {
             "properties": {
               "type": {"const": "legendre"},
-              "dimension": {"const": 32},
+              "dimension": {"enum": [32, 40, 48]},
               "domain": {"const": "[-1, 1]"}
             }
           },
           "parity_sector": {"const": "both"},
-          "dimension": {"const": 32},
+          "dimension": {"enum": [32, 40, 48]},
           "constants": {
             "required": ["c2", "c_T", "rho_R"],
             "minProperties": 3,
@@ -150,7 +150,51 @@
           "tail_bound": {
             "$ref": "#/$defs/legendreSchurTail"
           }
-        }
+        },
+        "oneOf": [
+          {
+            "properties": {
+              "support_T": {
+                "properties": {
+                  "num": {"const": "7"},
+                  "den": {"const": "20"},
+                  "frac": {"const": "7/20"}
+                }
+              },
+              "dimension": {"const": 32},
+              "basis": {"properties": {"dimension": {"const": 32}}},
+              "tail_bound": {"properties": {"harmonic_index": {"const": 32}}}
+            }
+          },
+          {
+            "properties": {
+              "support_T": {
+                "properties": {
+                  "num": {"const": "2"},
+                  "den": {"const": "5"},
+                  "frac": {"const": "2/5"}
+                }
+              },
+              "dimension": {"const": 40},
+              "basis": {"properties": {"dimension": {"const": 40}}},
+              "tail_bound": {"properties": {"harmonic_index": {"const": 40}}}
+            }
+          },
+          {
+            "properties": {
+              "support_T": {
+                "properties": {
+                  "num": {"const": "17"},
+                  "den": {"const": "40"},
+                  "frac": {"const": "17/40"}
+                }
+              },
+              "dimension": {"const": 48},
+              "basis": {"properties": {"dimension": {"const": 48}}},
+              "tail_bound": {"properties": {"harmonic_index": {"const": 48}}}
+            }
+          }
+        ]
       }
     }
   ],
@@ -383,7 +427,7 @@
       "required": ["type", "harmonic_index", "factor"],
       "properties": {
         "type": {"const": "legendre_component_gram_schur"},
-        "harmonic_index": {"const": 32},
+        "harmonic_index": {"enum": [32, 40, 48]},
         "factor": {"$ref": "#/$defs/rational"}
       },
       "additionalProperties": false

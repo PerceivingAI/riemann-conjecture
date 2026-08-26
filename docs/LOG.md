@@ -1,10 +1,84 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-26T17:28:53Z`
+- **Last updated:** `2026-08-26T18:31:25Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-08-26T18:31:25Z — One-prime continuation reaches T=17/40 with high-precision N=48 certificate
+
+**Type:** Research continuation / high-precision full-tail assembly / closed contract extension / exact rational certificate / independent verifier
+
+Continued `A-20260826-001` from the verified `T=2/5,N=40` support theorem.
+
+Because high-degree Legendre polynomials are represented in the monomial basis, the next candidate was assembled at 384-bit Arb precision rather than reusing low-precision exploratory settings. At
+
+```text
+T=17/40,
+N=48,
+```
+
+the rigorous full-tail assembly has a positive Schur midpoint near `5.53e-5`, and the generator-side exact rational candidate survives 88-bit outward dyadic matrix rounding plus 48-bit rational congruence witnesses.
+
+The closed `exact_prime_legendre_schur` v1 whitelist was extended by **only**
+
+```text
+(T,N)=(17/40,48),
+```
+
+in addition to the previously certified `(7/20,32)` and `(2/5,40)` pairs.
+
+The full `C-0052` certificate is independently accepted by Rust. The verifier derives
+
+```text
+mu_48 > 0.7326484380944506
+even margin > 0.0028958690673761525
+odd  margin > 0.010715413283695166,
+```
+
+reconstructs the factor-3 Schur matrix, and returns `passed=true` with scope `localized_weil_positivity_T_17_40`.
+
+The real certificate was adversarially replayed: a wrong factor is rejected as a contract error (`exit 2`), while a contract-valid negative finite-matrix perturbation produces theorem failure (`exit 1`). The retained certificate exits `0`.
+
+Recorded `F-20260826-003`, `C-0052`, and `X-20260826-002`. The retained certificate SHA-256 is `6c74a386097bb30c2924f70d82e90d5ffc4d2dcb029543b7c973949948bdd325`; the Rust replay SHA-256 is `0378e6419b322eca7fc077271b1694bcb43e916592969e26827387aa8489958c`. Generator provenance records commit `b5405a9347a8b6bc6d3a8c022c4e0fa60e425361` with `git_dirty=true`.
+
+**Outcome:** strict localized Weil positivity is now independently verified at `T=7/20`, `T=2/5`, and `T=17/40`. RH remains unresolved. `A-20260826-001` stays `PROMISING`; the next candidate support is `T=9/20`, where earlier reconnaissance suggests `N~56`.
+
+---
+
+## 2026-08-26T17:49:29Z — One-prime continuation reaches T=2/5 with independent exact certificate
+
+**Type:** Research continuation / closed contract extension / exact rational certificate / independent verifier
+
+Continued `A-20260826-001` from the provisional `T=2/5,N=40` candidate.
+
+The `exact_prime_legendre_schur` v1 profile remains closed and now explicitly whitelists only
+
+```text
+(T,N)=(7/20,32)
+(T,N)=(2/5,40).
+```
+
+A full `T=2/5,N=40` certificate was generated with 256-bit Arb assembly, 72-bit outward dyadic matrix endpoints, residual order `32`, and 40-bit exact rational congruence witnesses. The independent zero-float Rust verifier derives
+
+```text
+mu_40 > 0.7313021813837909,
+even margin > 0.004176569432300938,
+odd  margin > 0.013120531611009081,
+```
+
+reconstructs the factor-3 Schur matrix, and returns `passed=true` with scope `localized_weil_positivity_T_2_5`.
+
+The real certificate was adversarially replayed: changing factor `3` to `2` is a contract error (`exit 2`), while a contract-valid negative diagonal perturbation produces theorem failure (`exit 1`). The unchanged certificate exits `0`.
+
+Recorded `F-20260826-002` and promoted `C-0051` to `VERIFIED`. `X-20260826-001` now retains the proof-bearing certificate and Rust replay in addition to the earlier support/dimension diagnostics.
+
+The theorem certificate records commit `b5405a9347a8b6bc6d3a8c022c4e0fa60e425361` with `git_dirty=true`; the dirty provenance is explicit in the artifact.
+
+**Outcome:** strict localized Weil positivity is independently verified at both `T=7/20` and `T=2/5`. RH remains unresolved. `A-20260826-001` stays `PROMISING`; the next candidate support is `T=17/40`, where reconnaissance suggests `N~48`.
+
+---
 
 ## 2026-08-26T17:28:53Z — One-prime support continuation selects T=2/5, N=40 as next exact target
 

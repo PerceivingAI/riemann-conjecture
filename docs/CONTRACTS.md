@@ -1,7 +1,7 @@
 # Repository Architecture & Proof Contracts
 
 - **Created:** `2026-08-21T06:00:00Z`
-- **Last updated:** `2026-08-21T13:52:37Z`
+- **Last updated:** `2026-08-26T18:31:25Z`
 - **Status:** Authoritative
 
 This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
@@ -74,11 +74,19 @@ and PASS means exact interval $LDL^T$ proves every adjusted matrix positive defi
 
 For `digamma_finite_block`, the serialized finite partial-sum matrix is checked by exact interval $LDL^T$. The `nonnegative_digamma_remainder` theorem gives zero as a rigorous lower bound for the omitted brackets, extending the result to the full digamma series on the selected finite basis. It does not control an infinite-dimensional basis complement and is not a full localized-Weil profile.
 
-For `exact_prime_legendre_schur`, v1 is deliberately locked to `T=7/20`, Legendre dimension `N=32`, both parity sectors, residual order `32`, and Schur factor `3`. Rust does **not** trust a precomputed Schur matrix. From the certified intervals it derives
-$$\mu_{32}=H_{32}-c_T^{\rm hi}-c_2^{\rm hi}-\rho_R^{\rm hi},$$
-requires $\mu_{32}>0$, and forms
-$$S_{32}=A_{32}-\frac{3}{\mu_{32}}(G_V+G_2+G_R).$$
-The certificate supplies exact rational invertible lower-triangular congruence witnesses for the even and odd `16 x 16` blocks. Rust recomputes each interval congruence $CSC^T$ and requires every row to have a strictly positive Gershgorin lower margin. PASS therefore certifies positivity of the full localized operator through the separately proved complement/Schur reduction, not merely positivity of a finite Ritz block.
+For `exact_prime_legendre_schur`, v1 uses a **closed whitelist**, not a parameter-open theorem profile. The admitted configurations are exactly
+
+```text
+(T,N)=(7/20,32)
+(T,N)=(2/5,40)
+(T,N)=(17/40,48),
+```
+
+with both parity sectors, residual order `32`, and exact Schur factor `3`. Rust does **not** trust a precomputed Schur matrix. For the admitted dimension `N`, it derives
+$$\mu_N=H_N-c_T^{\rm hi}-c_2^{\rm hi}-\rho_R^{\rm hi},$$
+requires $\mu_N>0$, and forms
+$$S_N=A_N-\frac{3}{\mu_N}(G_V+G_2+G_R).$$
+The certificate supplies exact rational invertible lower-triangular congruence witnesses for the even and odd `N/2 x N/2` blocks. Rust recomputes each interval congruence $CSC^T$ and requires every row to have a strictly positive Gershgorin lower margin. PASS therefore certifies positivity of the full localized operator for that explicitly whitelisted support/dimension pair through the separately proved complement/Schur reduction, not merely positivity of a finite Ritz block.
 
 Rust must reject the certificate before theorem verification if the claim profile, support, basis, parity, constants, matrices, proof witness, or provenance is invalid or inconsistent. A finite-block diagnostic must not be reported as a full-operator result.
 
@@ -134,9 +142,9 @@ where $K_k$ has kernel $e^{-2a_k|t-s|}$. Zero extension to the real line and the
 $$\int_{\mathbb R}e^{-2a_k|u|}\,du=\frac1{a_k}$$
 give $\langle f,K_kf\rangle\le a_k^{-1}\lVert f\rVert_2^2$. Hence every omitted $B_k$ is nonnegative and the verifier-derived tail lower bound is exactly zero. The witness contains `k_max` and `first_omitted_k`; Rust must check `first_omitted_k = k_max + 1`.
 
-`legendre_component_gram_schur` applies only to `exact_prime_legendre_schur`. In v1 it is locked to `harmonic_index=32` and exact rational factor `3`. The required constants are only `c2`, `c_T`, and `rho_R`; the required proof matrices are `GV`, `G2`, and `GR`. Opposite-parity entries in `A`, `GV`, `G2`, and `GR` must be exactly zero. Rust derives the lower complement constant from the upper endpoints of those scalar intervals, reconstructs the factor-3 Schur matrix, extracts its even and odd blocks, and checks the supplied exact rational lower-triangular congruence witnesses for invertibility before applying exact interval Gershgorin positivity.
+`legendre_component_gram_schur` applies only to `exact_prime_legendre_schur`. In v1, `harmonic_index` must equal the whitelisted finite dimension (`32`, `40`, or `48`) and the factor must be the exact rational `3`. The required constants are only `c2`, `c_T`, and `rho_R`; the required proof matrices are `GV`, `G2`, and `GR`. Opposite-parity entries in `A`, `GV`, `G2`, and `GR` must be exactly zero. Rust derives the lower complement constant from the upper endpoints of those scalar intervals, reconstructs the factor-3 Schur matrix, extracts its even and odd blocks, and checks the supplied exact rational lower-triangular congruence witnesses for invertibility before applying exact interval Gershgorin positivity.
 
-The retained `C-0050` certificate uses this rule and is proof-bearing only because `C-0045`, `C-0047`, and `C-0048` provide the analytic complement and Schur semantics encoded by the profile.
+The retained `C-0050` (`T=7/20,N=32`), `C-0051` (`T=2/5,N=40`), and `C-0052` (`T=17/40,N=48`) certificates use this rule and are proof-bearing because `C-0045`, `C-0047`, and `C-0048` provide the analytic complement and Schur semantics encoded by the profile. No other `(T,N)` pair inherits theorem status.
 
 No other tail/proof type is valid. In particular, v1 does not accept a free-form description, an asserted lower bound for an unspecified operator, or a precomputed eigenvalue/positive-definite flag.
 
@@ -156,7 +164,8 @@ The Python and Rust validators must reject the following cases before theorem ve
 | Unknown, missing, or inconsistent tail witness | Schema or semantic validation failure |
 | Ordinary floating-point proof data | Schema validation failure |
 | `exact_prime_legendre_schur` with factor other than exact `3` | Semantic validation failure |
-| `exact_prime_legendre_schur` with nonpositive derived `mu_32` | Semantic validation failure |
+| `exact_prime_legendre_schur` with unsupported/mixed `(T,N)` pair | Schema or semantic validation failure |
+| `exact_prime_legendre_schur` with nonpositive derived `mu_N` | Semantic validation failure |
 | Singular/non-lower-triangular congruence witness | Semantic validation failure |
 | Nonzero opposite-parity proof entry | Semantic validation failure |
 | Contract-valid exact-prime perturbation that destroys a Gershgorin margin | Theorem failure, not contract failure |

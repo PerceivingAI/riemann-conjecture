@@ -27,6 +27,11 @@ from scripts.cert.matrices import RationalInterval, RationalIntervalMatrix
 
 PROFILE = "exact_prime_legendre_schur"
 TAIL_RULE = "legendre_component_gram_schur"
+ALLOWED_CONFIGURATIONS = {
+    (Fraction(7, 20), 32),
+    (Fraction(2, 5), 40),
+    (Fraction(17, 40), 48),
+}
 
 
 def _dyadic_outward_interval(value: arb, bits: int) -> RationalInterval:
@@ -221,14 +226,20 @@ def _schur_from_serialized_inputs(
 def build_exact_prime_schur_certificate(
     *,
     claim: str,
+    support_num: int = 7,
+    support_den: int = 20,
     dimension: int = 32,
     prec: int = 160,
     residual_order: int = 32,
     matrix_bits: int = 64,
     witness_bits: int = 32,
 ) -> tuple[dict[str, Any], dict[str, Fraction]]:
-    if dimension != 32:
-        raise ValueError("v1 exact-prime profile is locked to dimension 32")
+    support = Fraction(support_num, support_den)
+    if (support, dimension) not in ALLOWED_CONFIGURATIONS:
+        allowed = ", ".join(
+            f"T={value},N={dim}" for value, dim in sorted(ALLOWED_CONFIGURATIONS)
+        )
+        raise ValueError(f"v1 exact-prime profile allows only {allowed}")
     if residual_order != 32:
         raise ValueError("v1 exact-prime profile is locked to residual order 32")
     if prec < 128:
@@ -239,12 +250,16 @@ def build_exact_prime_schur_certificate(
             n=dimension,
             prec=prec,
             residual_order=residual_order,
+            support_num=support.numerator,
+            support_den=support.denominator,
         )
         a_matrix = _force_exact_parity_zeros(_coarsen_matrix(assembled["A"], matrix_bits))
         gv = _force_exact_parity_zeros(_coarsen_matrix(assembled["GV"], matrix_bits))
         g2 = _force_exact_parity_zeros(_coarsen_matrix(assembled["G2"], matrix_bits))
         gr = _force_exact_parity_zeros(_coarsen_matrix(assembled["GR"], matrix_bits))
-        c_t = _dyadic_outward_interval(c_T_enclosure(prec), matrix_bits)
+        c_t = _dyadic_outward_interval(
+            c_T_enclosure(prec, support.numerator, support.denominator), matrix_bits
+        )
         c2 = _dyadic_outward_interval(c2_enclosure(prec), matrix_bits)
         rho_r = _dyadic_outward_interval(assembled["rho_R"], matrix_bits)
 
@@ -265,7 +280,11 @@ def build_exact_prime_schur_certificate(
         "format": "rh-weil-certificate-v1",
         "claim": claim,
         "claim_profile": PROFILE,
-        "support_T": {"num": "7", "den": "20", "frac": "7/20"},
+        "support_T": {
+            "num": str(support.numerator),
+            "den": str(support.denominator),
+            "frac": f"{support.numerator}/{support.denominator}",
+        },
         "basis": {
             "type": "legendre",
             "dimension": dimension,
@@ -313,14 +332,20 @@ def build_exact_prime_schur_certificate(
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--claim", default="C-0050")
+    parser.add_argument("--support", default="7/20")
+    parser.add_argument("--dimension", type=int, default=32)
     parser.add_argument("--prec", type=int, default=160)
     parser.add_argument("--matrix-bits", type=int, default=64)
     parser.add_argument("--witness-bits", type=int, default=32)
     parser.add_argument("--output-json", type=Path, required=True)
     args = parser.parse_args()
 
+    support = Fraction(args.support)
     certificate, diagnostics = build_exact_prime_schur_certificate(
         claim=args.claim,
+        support_num=support.numerator,
+        support_den=support.denominator,
+        dimension=args.dimension,
         prec=args.prec,
         matrix_bits=args.matrix_bits,
         witness_bits=args.witness_bits,

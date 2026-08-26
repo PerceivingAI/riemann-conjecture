@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-08-26T17:28:53Z`
+- **Last updated:** `2026-08-26T18:31:25Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -118,7 +118,65 @@ odd  Gershgorin margin > 0.013120531611009081.
 
 All three exact rational margins are positive.
 
-This is **not yet a theorem**. The current independent Rust `exact_prime_legendre_schur` profile is intentionally locked to `T=7/20`, `N=32`. The candidate establishes that no new analytic mechanism is presently needed before attempting independent verification at `T=2/5,N=40`.
+At that stage this was **not yet a theorem**: the independent Rust profile had not yet admitted `T=2/5,N=40`. The candidate established that no new analytic mechanism was needed before attempting independent verification at that support.
+
+## Independent certification at T=2/5
+
+The selected `T=2/5,N=40` candidate has now crossed the independent-verifier boundary.
+
+The v1 `exact_prime_legendre_schur` contract remains closed rather than parameter-open: it explicitly whitelists only
+
+```text
+(T,N)=(7/20,32)
+(T,N)=(2/5,40)
+(T,N)=(17/40,48).
+```
+
+The full `T=2/5,N=40` proof object was generated with 256-bit Arb assembly, 72-bit outward dyadic matrix endpoints, residual order `32`, and 40-bit dyadic exact rational congruence witnesses. Rust independently derives the complement bound and Schur matrix and returns
+
+```text
+passed=true
+verified_scope=localized_weil_positivity_T_2_5.
+```
+
+The retained exact lower quantities are
+
+```text
+mu_40 > 0.7313021813837909
+even margin > 0.004176569432300938
+odd  margin > 0.013120531611009081.
+```
+
+A real-certificate adversarial replay rejects a wrong factor as a contract error (`exit 2`) and reports theorem failure for a contract-valid negative matrix perturbation (`exit 1`).
+
+This establishes `F-20260826-002` / `C-0051`: strict localized Weil positivity at `T=2/5`.
+
+## Independent certification at T=17/40
+
+The next selected support `T=17/40` was tested at `N=48` with 384-bit Arb precision to defeat the known high-degree monomial-conditioning problem.
+
+The rigorous full-tail assembly gives reconnaissance midpoints
+
+```text
+finite A_48 minimum ~ 5.86139746887575e-5
+Schur minimum       ~ 5.52986775504016e-5,
+```
+
+while the exact rational candidate survives 88-bit outward dyadic matrix rounding and 48-bit exact rational congruence witnesses.
+
+The closed v1 whitelist was then extended by **only** `(T,N)=(17/40,48)`. The full retained certificate is independently accepted by Rust with
+
+```text
+passed=true
+verified_scope=localized_weil_positivity_T_17_40
+mu_48 > 0.7326484380944506
+even margin > 0.0028958690673761525
+odd  margin > 0.010715413283695166.
+```
+
+The real-certificate adversarial replay again distinguishes malformed proof data (`exit 2`) from a contract-valid theorem failure (`exit 1`).
+
+This establishes `F-20260826-003` / `C-0052`: strict localized Weil positivity at `T=17/40`.
 
 ## Circularity check
 
@@ -130,21 +188,21 @@ The target remains finite-support Weil positivity at one fixed support value. Ev
 
 `A-20260826-001` is `PROMISING`.
 
-Established as reconnaissance/candidate evidence:
+Current results:
 
-1. the exact-prime Legendre-Schur assembler can be parameterized in rational `T` without weakening the existing `C-0050` contract;
+1. the exact-prime Legendre-Schur assembler is parameterized in rational `T` while theorem admission remains closed and enumerated;
 2. fixed `N=32` remains healthy through the tested `T=0.37` but its full-tail Schur bound fails at `T=0.375` while the low block and complement remain positive;
-3. increasing to `N=40` restores the rigorous full-tail midpoint Schur margin at `T=0.375` and `T=0.4`;
-4. the natural required dimension grows with support in floating reconnaissance (`~48` at `0.425`, `~56` at `0.45`);
-5. `T=2/5,N=40` survives generator-side exact rational outward rounding and congruence/Gershgorin checks with comfortable positive margins.
+3. increasing to `N=40` restores the rigorous full-tail Schur mechanism at `T=0.375` and `T=0.4`;
+4. `C-0051` is `VERIFIED`: the independent Rust verifier proves strict localized Weil positivity at `T=2/5,N=40`;
+5. `C-0052` is `VERIFIED`: high-precision `N=48` assembly plus a fresh exact certificate and independent Rust replay prove strict localized Weil positivity at `T=17/40`;
+6. the natural required dimension continues to grow with support; earlier reconnaissance suggests roughly `N~56` at `T=9/20=0.45`.
 
 ## Next action
 
-Extend the independent certificate contract **only for the single target**
+Continue toward
 
 ```text
-T=2/5,
-N=40,
+T=9/20=0.45.
 ```
 
-or define a closed versioned profile whose allowed `(T,N)` pairs are explicitly enumerated and verifier-derived. Rust must independently reconstruct `mu_40`, the factor-3 Schur matrix, parity blocks, and exact congruence/Gershgorin margins. Only after that replay passes should a new localized-Weil positivity claim at `T=2/5` be registered as `VERIFIED`.
+Earlier stable dimension reconnaissance suggests a cutoff near `N=56`. The next slice must begin with a high-precision full-tail `N=56` exact candidate check; if it survives outward rounding and exact congruence/Gershgorin verification, extend the closed whitelist by only `(T,N)=(9/20,56)` and require a fresh independent Rust replay. Do not extrapolate `C-0052` to nearby supports.

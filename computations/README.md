@@ -1,7 +1,7 @@
 # Computations
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-26T17:28:53Z`
+- **Last updated:** `2026-08-26T18:31:25Z`
 
 This directory contains timestamped numerical and symbolic experiments. Every retained computation must be reproducible and must distinguish numerical evidence from proof.
 
@@ -24,7 +24,9 @@ This directory contains timestamped numerical and symbolic experiments. Every re
 - [`X-20260821-004`](2026-08-21T085252Z-exact-prime-legendre-schur/record.md) — proof-path Arb certificate for the `0.69V` obstruction and exact-prime high-mode complement, plus a separate floating Schur-dimension scout.
 
 - [`X-20260821-005`](2026-08-21T123446Z-exact-prime-schur-certificate/record.md) — clean exact-prime `N=32` rational interval Schur certificate and independent Rust PASS proving strict localized Weil positivity at `T=7/20` (`C-0050`).
-- [`X-20260826-001`](2026-08-26T171400Z-one-prime-support-continuation/record.md) — one-prime support map, moving-dimension diagnostics, high-precision full-tail checks, and the provisional generator-side exact `T=2/5,N=40` candidate (`C-0051`).
+- [`X-20260826-001`](2026-08-26T171400Z-one-prime-support-continuation/record.md) — one-prime support map, moving-dimension diagnostics, high-precision full-tail checks, and the proof-bearing exact `T=2/5,N=40` certificate plus independent Rust PASS proving `C-0051`.
+
+- [`X-20260826-002`](2026-08-26T183125Z-seventeen-fortieths-schur-certificate/record.md) — 384-bit full-tail `N=48` assembly and proof-bearing exact certificate plus independent Rust PASS proving strict localized Weil positivity at `T=17/40` (`C-0052`).
 
 ## Directory Bundle Standard
 

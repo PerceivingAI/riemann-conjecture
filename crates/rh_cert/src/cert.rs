@@ -88,11 +88,14 @@ impl ClaimProfile {
         }
     }
 
-    fn verified_scope(self) -> &'static str {
+    fn verified_scope(self, support_frac: &str) -> String {
         match self {
-            Self::SyntheticMatrix => "synthetic_matrix",
-            Self::DigammaFiniteBlock => "finite_basis_full_digamma_series",
-            Self::ExactPrimeLegendreSchur => "localized_weil_positivity_T_7_20",
+            Self::SyntheticMatrix => "synthetic_matrix".to_string(),
+            Self::DigammaFiniteBlock => "finite_basis_full_digamma_series".to_string(),
+            Self::ExactPrimeLegendreSchur => format!(
+                "localized_weil_positivity_T_{}",
+                support_frac.replace('/', "_")
+            ),
         }
     }
 }
@@ -487,6 +490,12 @@ fn harmonic_rational(n: usize) -> BigRational {
     total
 }
 
+fn allowed_exact_prime_configuration(support: &BigRational, dimension: usize) -> bool {
+    (dimension == 32 && *support == BigRational::new(BigInt::from(7), BigInt::from(20)))
+        || (dimension == 40 && *support == BigRational::new(BigInt::from(2), BigInt::from(5)))
+        || (dimension == 48 && *support == BigRational::new(BigInt::from(17), BigInt::from(40)))
+}
+
 fn extract_interval_matrix(
     matrix_json: &MatrixJson,
     dimension: usize,
@@ -751,10 +760,10 @@ impl CertificateDocument {
         matrix: &RationalIntervalMatrix,
     ) -> Result<(BigRational, ValidatedSchurProof), CertificateError> {
         self.constants.validate_intervals()?;
-        if self.dimension != 32 {
+        if self.dimension != 32 && self.dimension != 40 && self.dimension != 48 {
             return Err(validation_error(
                 "$.dimension",
-                "v1 exact-prime profile is locked to 32",
+                "v1 exact-prime profile allows only dimensions 32, 40, and 48",
             ));
         }
         if self.basis.r#type != BasisType::Legendre
@@ -879,11 +888,11 @@ impl CertificateDocument {
             ));
         }
         if self.claim_profile == ClaimProfile::ExactPrimeLegendreSchur
-            && support != BigRational::new(BigInt::from(7), BigInt::from(20))
+            && !allowed_exact_prime_configuration(&support, self.dimension)
         {
             return Err(validation_error(
                 "$.support_T",
-                "v1 exact-prime profile is locked to T=7/20",
+                "v1 exact-prime profile allows only (T=7/20,N=32), (T=2/5,N=40), or (T=17/40,N=48)",
             ));
         }
         if self.basis.dimension != self.dimension {
@@ -1009,7 +1018,10 @@ impl CertificateJson {
             basis_type: self.document.basis.r#type.as_str().to_string(),
             parity_sector: self.document.parity_sector.as_str().to_string(),
             claim_profile: self.document.claim_profile.as_str().to_string(),
-            verified_scope: self.document.claim_profile.verified_scope().to_string(),
+            verified_scope: self
+                .document
+                .claim_profile
+                .verified_scope(&self.document.support_t.frac),
             dimension: self.document.dimension,
             support_t: self.document.support_t.frac.clone(),
             tail_rule: self.document.tail_bound.rule_name().to_string(),

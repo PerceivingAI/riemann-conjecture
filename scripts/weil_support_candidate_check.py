@@ -73,8 +73,8 @@ def run_candidate(
     return {
         "role": "generator_side_exact_candidate_only",
         "warning": (
-            "This is not independently verified and is not accepted as a theorem. "
-            "The current Rust exact_prime_legendre_schur profile remains locked to T=7/20."
+            "This generator-side check is not independently verified and is not accepted as a theorem by itself. "
+            "A support/dimension pair gains theorem status only after it is explicitly whitelisted by the closed contract and the retained full certificate passes the independent Rust verifier."
         ),
         "support": f"{support.numerator}/{support.denominator}",
         "dimension": dimension,
