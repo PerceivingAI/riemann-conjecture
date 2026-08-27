@@ -34,8 +34,12 @@ from scripts.weil_support_candidate_check import (
 from scripts.weil_support_continuation_scout import scout_support
 
 
-DRIVER_VERSION = "continuation-driver-p11-v1"
+DRIVER_VERSION = "continuation-driver-p12-v1"
 SCOUT_RELATIVE_CONVERGENCE_TOLERANCE = 1e-2
+PRECISION_STATUS_INSUFFICIENT = "INSUFFICIENT_PRECISION"
+PRECISION_STATUS_STABLE = "PRECISION_STABLE"
+PRECISION_STATUS_MATHEMATICAL_NEGATIVE = "MATHEMATICAL_NEGATIVE"
+PRECISION_STATUS_ASSEMBLY_FAILED = "ASSEMBLY_FAILED"
 
 
 class WorkflowState(StrEnum):
@@ -456,6 +460,50 @@ def _precision_pair_diagnostics(
     }
 
 
+def _precision_instability_reasons(
+    *,
+    usable: bool,
+    stable_change: bool,
+    diagnostics: dict[str, object] | None,
+    schur_value: object,
+) -> list[str]:
+    """Explain why the current Arb result is not yet precision-qualified."""
+    reasons: list[str] = []
+    if not usable:
+        reasons.append("non_finite_key_quantity")
+        return reasons
+    if diagnostics is None:
+        reasons.append("no_prior_precision_for_stability_check")
+    else:
+        if diagnostics["all_key_signs_stable"] is not True:
+            reasons.append("key_sign_changed_at_higher_precision")
+        if diagnostics["widths_reduced"] is not True:
+            reasons.append("interval_widths_not_reduced")
+        if not stable_change:
+            reasons.append("midpoint_not_stable")
+    if float(schur_value) < 0 and (
+        diagnostics is None
+        or diagnostics["all_key_signs_stable"] is not True
+        or diagnostics["widths_reduced"] is not True
+        or not stable_change
+    ):
+        reasons.append("negative_result_not_precision_stable")
+    return reasons
+
+
+def _mark_previous_precision_contradiction(
+    previous: dict[str, object], diagnostics: dict[str, object], stable_change: bool
+) -> None:
+    if diagnostics["all_key_signs_stable"] is True and stable_change:
+        return
+    previous["precision_status"] = PRECISION_STATUS_INSUFFICIENT
+    reasons = previous.setdefault("precision_reasons", [])
+    if not isinstance(reasons, list):
+        raise TypeError("precision_reasons must be a list")
+    if "contradicted_by_higher_precision" not in reasons:
+        reasons.append("contradicted_by_higher_precision")
+
+
 def _escalate_rigorous_screen(
     support: Fraction,
     dimension: int,
@@ -492,6 +540,8 @@ def _escalate_rigorous_screen(
                 {
                     "precision_bits": precision,
                     "status": "assembly_failed",
+                    "precision_status": PRECISION_STATUS_ASSEMBLY_FAILED,
+                    "precision_reasons": ["assembly_failed"],
                     "error_type": type(exc).__name__,
                     "error": str(exc),
                 }
@@ -522,6 +572,16 @@ def _escalate_rigorous_screen(
             diagnostics = _precision_pair_diagnostics(previous_result, attempt)
             attempt["change_from_previous"] = diagnostics
             pair_diagnostics.append(diagnostics)
+            _mark_previous_precision_contradiction(
+                previous_result, diagnostics, stable_change
+            )
+        attempt["precision_status"] = PRECISION_STATUS_INSUFFICIENT
+        attempt["precision_reasons"] = _precision_instability_reasons(
+            usable=usable,
+            stable_change=stable_change,
+            diagnostics=diagnostics,
+            schur_value=schur,
+        )
         attempts.append(attempt)
         diagnostics_stable = bool(
             diagnostics is not None
@@ -536,8 +596,11 @@ def _escalate_rigorous_screen(
             and float(finite) > 0
             and float(schur) > 0
         ):
+            attempt["precision_status"] = PRECISION_STATUS_STABLE
+            attempt["precision_reasons"] = ["stable_against_previous_precision"]
             return {
                 "status": "precision_stable",
+                "precision_status": PRECISION_STATUS_STABLE,
                 "selected_precision_bits": precision,
                 "attempts": attempts,
                 "precision_pair_diagnostics": pair_diagnostics,
@@ -561,8 +624,13 @@ def _escalate_rigorous_screen(
             and float(previous["schur_min_eigenvalue_midpoint"]) < 0
             and float(current["schur_min_eigenvalue_midpoint"]) < 0
         ):
+            current["precision_status"] = PRECISION_STATUS_MATHEMATICAL_NEGATIVE
+            current["precision_reasons"] = [
+                "stable_negative_across_improving_precisions"
+            ]
             return {
                 "status": "mathematical_negative",
+                "precision_status": PRECISION_STATUS_MATHEMATICAL_NEGATIVE,
                 "selected_precision_bits": None,
                 "attempts": attempts,
                 "precision_pair_diagnostics": pair_diagnostics,
@@ -571,6 +639,7 @@ def _escalate_rigorous_screen(
         raise RuntimeError("all precision-ladder assemblies failed")
     return {
         "status": "precision_limit_reached",
+        "precision_status": PRECISION_STATUS_INSUFFICIENT,
         "selected_precision_bits": None,
         "attempts": attempts,
         "precision_pair_diagnostics": pair_diagnostics,

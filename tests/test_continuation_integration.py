@@ -59,6 +59,46 @@ def test_p11_rediscovers_two_fifths_n40_history() -> None:
     assert result["whitelisted"] is False
 
 
+def test_p12_real_precision_incident_escalates_instead_of_rejecting() -> None:
+    """Replay the documented 104-bit N=40 conditioning incident with real Arb."""
+    result = driver.run_driver(
+        Fraction(2, 5),
+        [40],
+        scout_resolution_count=3,
+        precision_start=104,
+        precision_max=384,
+        residual_order=32,
+        matrix_bits_start=72,
+        matrix_bits_max=72,
+        witness_bits_start=40,
+        witness_bits_max=40,
+        cache_dir=None,
+    )
+
+    rigorous = _rigorous_row(result, 40)
+    assert rigorous["status"] == "precision_stable"
+    assert rigorous["precision_status"] == driver.PRECISION_STATUS_STABLE
+    assert rigorous["selected_precision_bits"] == 384
+    attempts = rigorous["attempts"]
+    assert [attempt["precision_bits"] for attempt in attempts] == [104, 128, 256, 384]
+    assert [attempt["precision_status"] for attempt in attempts] == [
+        driver.PRECISION_STATUS_INSUFFICIENT,
+        driver.PRECISION_STATUS_INSUFFICIENT,
+        driver.PRECISION_STATUS_INSUFFICIENT,
+        driver.PRECISION_STATUS_STABLE,
+    ]
+    assert attempts[0]["finite_block_min_eigenvalue_midpoint"] < 0
+    assert attempts[0]["schur_min_eigenvalue_midpoint"] < -1e12
+    assert "contradicted_by_higher_precision" in attempts[0]["precision_reasons"]
+
+    assert result["state"] == "CANDIDATE_READY"
+    assert result["state"] != "NO_CANDIDATE"
+    assert result["selected_candidate_dimension"] == 40
+    assert result["theorem_status"] is False
+    assert result["independently_verified"] is False
+    assert result["whitelisted"] is False
+
+
 def test_p11_rediscovers_seventeen_fortieths_n48_history() -> None:
     """Real pipeline replay of X-20260826-002, stopping before theorem admission."""
     result = driver.run_driver(

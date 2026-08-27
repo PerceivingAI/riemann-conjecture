@@ -120,6 +120,135 @@ def test_p11_scout_tolerance_accepts_historical_drift_but_rejects_large_drift() 
     assert driver._classify_reconnaissance(excessive) == "unstable"
 
 
+P12_PRECISION_INCIDENT = {
+    104: {
+        "mu_lower": 0.7313021813837909,
+        "finite_block_min_eigenvalue_midpoint": -196629712.19620165,
+        "schur_min_eigenvalue_midpoint": -909134247521819.0,
+        "interval_widths": {
+            "A_max": 226232615168.0,
+            "GV_max": 0.0021600818436127156,
+            "G2_max": 1.1133309412469849e24,
+            "GR_max": 3.065310024255086e-29,
+            "mu": 7.48695076695505e-30,
+            "rho_R": 5.660255926359853e-30,
+            "residual_remainder": 1.6476927260384555e-49,
+        },
+    },
+    128: {
+        "mu_lower": 0.7313021813837909,
+        "finite_block_min_eigenvalue_midpoint": 0.00018156780228872172,
+        "schur_min_eigenvalue_midpoint": 0.00017535660691424883,
+        "interval_widths": {
+            "A_max": 13403.878295898438,
+            "GV_max": 1.451135227606426e-10,
+            "G2_max": 3908566988.0,
+            "GR_max": 1.8270671512216843e-36,
+            "mu": 4.827891973632074e-37,
+            "rho_R": 3.385530377589114e-37,
+            "residual_remainder": 9.686901812094774e-57,
+        },
+    },
+    256: {
+        "mu_lower": 0.7313021813837909,
+        "finite_block_min_eigenvalue_midpoint": 0.00018157137450517234,
+        "schur_min_eigenvalue_midpoint": 0.00017030162781616563,
+        "interval_widths": {
+            "A_max": 3.9406926189081055e-35,
+            "GV_max": 3.3363714279054758e-49,
+            "G2_max": 4.0470886318609074e-36,
+            "GR_max": 5.369267778849058e-75,
+            "mu": 1.3148860324177117e-75,
+            "rho_R": 9.949179583483123e-76,
+            "residual_remainder": 2.8467245892718968e-95,
+        },
+    },
+    384: {
+        "mu_lower": 0.7313021813837909,
+        "finite_block_min_eigenvalue_midpoint": 0.00018157137450517234,
+        "schur_min_eigenvalue_midpoint": 0.00017030162781616563,
+        "interval_widths": {
+            "A_max": 1.1592685891725904e-73,
+            "GV_max": 1.1220836286427468e-87,
+            "G2_max": 1.1905613237828362e-74,
+            "GR_max": 1.5778859855222997e-113,
+            "mu": 4.158504062871947e-114,
+            "rho_R": 2.913649335206505e-114,
+            "residual_remainder": 8.481593197030518e-134,
+        },
+    },
+}
+
+
+def test_p12_precision_incident_escalates_to_stability(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        driver,
+        "scout_support",
+        lambda support, *, dimension, prec, residual_order: P12_PRECISION_INCIDENT[prec],
+    )
+
+    result = driver._escalate_rigorous_screen(
+        Fraction(2, 5), 40, [104, 128, 256, 384], 32
+    )
+
+    assert result["status"] == "precision_stable"
+    assert result["precision_status"] == driver.PRECISION_STATUS_STABLE
+    assert result["selected_precision_bits"] == 384
+    attempts = result["attempts"]
+    assert [attempt["precision_status"] for attempt in attempts] == [
+        driver.PRECISION_STATUS_INSUFFICIENT,
+        driver.PRECISION_STATUS_INSUFFICIENT,
+        driver.PRECISION_STATUS_INSUFFICIENT,
+        driver.PRECISION_STATUS_STABLE,
+    ]
+    assert attempts[0]["finite_block_min_eigenvalue_midpoint"] < 0
+    assert attempts[0]["schur_min_eigenvalue_midpoint"] < -1e12
+    assert "contradicted_by_higher_precision" in attempts[0]["precision_reasons"]
+    assert "key_sign_changed_at_higher_precision" in attempts[1]["precision_reasons"]
+    assert "midpoint_not_stable" in attempts[2]["precision_reasons"]
+    assert all(
+        attempt["precision_status"] != driver.PRECISION_STATUS_MATHEMATICAL_NEGATIVE
+        for attempt in attempts
+    )
+
+
+def test_p12_unresolved_precision_incident_is_not_no_candidate(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        driver,
+        "scout",
+        lambda *, max_mode, quadrature_order, shift_order, n_values, support: _scout_result(
+            n_values, positive=True
+        ),
+    )
+    monkeypatch.setattr(
+        driver,
+        "scout_support",
+        lambda support, *, dimension, prec, residual_order: P12_PRECISION_INCIDENT[prec],
+    )
+
+    result = driver.run_driver(
+        Fraction(2, 5),
+        [40],
+        precision_start=104,
+        precision_max=128,
+        cache_dir=None,
+    )
+
+    assert result["state"] == "PRECISION_LIMIT_REACHED"
+    assert result["state"] != "NO_CANDIDATE"
+    rigorous = result["rigorous_screening"][0]
+    assert rigorous["precision_status"] == driver.PRECISION_STATUS_INSUFFICIENT
+    assert [attempt["precision_status"] for attempt in rigorous["attempts"]] == [
+        driver.PRECISION_STATUS_INSUFFICIENT,
+        driver.PRECISION_STATUS_INSUFFICIENT,
+    ]
+    assert result["candidates"] == []
+
+
 def test_precision_pair_diagnostics_track_widths_changes_and_signs() -> None:
     previous = {
         "precision_bits": 256,
