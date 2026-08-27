@@ -33,7 +33,13 @@ def _to_exact_tolerance(value: ExactTolerance, name: str) -> arb:
 
 
 def require_real_enclosure(value: acb, context: str) -> arb:
-    """Return the real enclosure only when the imaginary enclosure contains zero."""
+    """Project a mathematically known-real quantity after an interval consistency check.
+
+    Zero containment of the imaginary ball is not, by itself, a proof that an
+    arbitrary complex quantity is real. Callers must know analytically that the
+    target integral/kernel value is real; this check ensures the Acb enclosure
+    is consistent with that exact realness before its real component is used.
+    """
     if arb(0) not in value.imag:
         raise ValueError(
             f"{context} produced an enclosure whose imaginary part excludes zero: {value.imag}"
@@ -128,7 +134,7 @@ def rigorous_real_integral_1d(
     rel_tol: ExactTolerance | None = None,
     abs_tol: ExactTolerance | None = None,
 ) -> arb:
-    """Compute a rigorous real integral and prove realness by zero containment."""
+    """Compute a rigorous enclosure for an analytically known-real integral."""
     result = rigorous_integral_1d(
         func,
         a,

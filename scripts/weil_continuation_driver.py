@@ -19,7 +19,8 @@ from pathlib import Path
 from typing import Any, Callable
 
 from scripts.weil_legendre_schur_scout import scout
-from scripts.weil_support_candidate_check import run_candidate
+from scripts.cert.constants import require_one_prime_support
+from scripts.weil_support_candidate_check import CandidateStageError, run_candidate
 from scripts.weil_support_continuation_scout import scout_support
 
 
@@ -30,6 +31,7 @@ FINAL_STATES = {
     "PRECISION_LIMIT_REACHED",
     "ROUNDING_FAILED",
     "WITNESS_FAILED",
+    "CANDIDATE_CHECK_FAILED",
     "CANDIDATE_READY",
 }
 
@@ -124,7 +126,31 @@ def build_precision_ladder(start: int = 128, maximum: int = 512) -> list[int]:
     return ladder
 
 
-CACHE_VERSION = "continuation-driver-v2"
+CACHE_VERSION = "continuation-driver-v4"
+CACHE_SOURCE_PATHS = (
+    "scripts/weil_continuation_driver.py",
+    "scripts/weil_legendre_schur_scout.py",
+    "scripts/weil_support_continuation_scout.py",
+    "scripts/weil_support_candidate_check.py",
+    "scripts/cert/exact_prime_schur_certificate.py",
+    "scripts/cert/legendre_schur.py",
+    "scripts/cert/residual_kernel.py",
+    "scripts/cert/matrices.py",
+    "scripts/cert/constants.py",
+    "uv.lock",
+)
+
+
+def _cache_source_fingerprint() -> str:
+    """Hash every source/input that can change continuation semantics."""
+    root = Path(__file__).resolve().parents[1]
+    digest = hashlib.sha256()
+    for relative_path in CACHE_SOURCE_PATHS:
+        digest.update(relative_path.encode("utf-8"))
+        digest.update(b"\0")
+        digest.update((root / relative_path).read_bytes())
+        digest.update(b"\0")
+    return digest.hexdigest()
 
 
 def _cached_result(
@@ -134,7 +160,14 @@ def _cached_result(
 ) -> tuple[dict[str, object], bool]:
     if cache_dir is None:
         return producer(), False
-    encoded = json.dumps({"version": CACHE_VERSION, **key}, sort_keys=True).encode()
+    encoded = json.dumps(
+        {
+            "version": CACHE_VERSION,
+            "source_fingerprint": _cache_source_fingerprint(),
+            **key,
+        },
+        sort_keys=True,
+    ).encode()
     cache_path = cache_dir / (hashlib.sha256(encoded).hexdigest() + ".json")
     try:
         return json.loads(cache_path.read_text(encoding="utf-8")), True
@@ -148,6 +181,15 @@ def _cached_result(
         temporary.replace(cache_path)
         return result, False
 
+
+
+def build_bit_ladder(start: int, maximum: int, step: int) -> list[int]:
+    if start < 8 or maximum < start or step < 1:
+        raise ValueError("invalid bit ladder")
+    values = list(range(start, maximum + 1, step))
+    if values[-1] != maximum:
+        values.append(maximum)
+    return values
 def _scout_status(row: ScoutDimensionResult) -> str:
     if (
         row.mu_scout <= 0
@@ -346,12 +388,25 @@ def _escalate_rigorous_screen(
             "precision_bits": precision,
             "stable_change": stable_change,
         }
+        diagnostics: dict[str, object] | None = None
         if previous_result is not None:
             diagnostics = _precision_pair_diagnostics(previous_result, attempt)
             attempt["change_from_previous"] = diagnostics
             pair_diagnostics.append(diagnostics)
         attempts.append(attempt)
-        if usable and stable_change and float(mu_lower) > 0 and float(finite) > 0 and float(schur) > 0:
+        diagnostics_stable = bool(
+            diagnostics is not None
+            and diagnostics["all_key_signs_stable"] is True
+            and diagnostics["widths_reduced"] is True
+        )
+        if (
+            usable
+            and stable_change
+            and diagnostics_stable
+            and float(mu_lower) > 0
+            and float(finite) > 0
+            and float(schur) > 0
+        ):
             return {
                 "status": "precision_stable",
                 "selected_precision_bits": precision,
@@ -367,6 +422,9 @@ def _escalate_rigorous_screen(
             previous.get("status") != "assembly_failed"
             and current.get("status") != "assembly_failed"
             and current.get("stable_change") is True
+            and isinstance(current.get("change_from_previous"), dict)
+            and current["change_from_previous"]["all_key_signs_stable"] is True
+            and current["change_from_previous"]["widths_reduced"] is True
             and float(previous["mu_lower"]) > 0
             and float(current["mu_lower"]) > 0
             and float(previous["finite_block_min_eigenvalue_midpoint"]) > 0
@@ -389,6 +447,92 @@ def _escalate_rigorous_screen(
         "precision_pair_diagnostics": pair_diagnostics,
     }
 
+
+def _construct_candidate(
+    support: Fraction,
+    dimension: int,
+    precision: int,
+    residual_order: int,
+    matrix_bits_ladder: list[int],
+    witness_bits_ladder: list[int],
+    cache_dir: Path | None,
+) -> dict[str, object]:
+    attempts: list[dict[str, object]] = []
+    for matrix_bits in matrix_bits_ladder:
+        for witness_bits in witness_bits_ladder:
+            try:
+                candidate, cache_hit = _cached_result(
+                    cache_dir,
+                    {
+                        "kind": "candidate-check",
+                        "support": f"{support.numerator}/{support.denominator}",
+                        "dimension": dimension,
+                        "precision": precision,
+                        "residual_order": residual_order,
+                        "matrix_bits": matrix_bits,
+                        "witness_bits": witness_bits,
+                    },
+                    lambda: run_candidate(
+                        support,
+                        dimension=dimension,
+                        prec=precision,
+                        residual_order=residual_order,
+                        matrix_bits=matrix_bits,
+                        witness_bits=witness_bits,
+                    ),
+                )
+                attempts.append(
+                    {
+                        **candidate,
+                        "matrix_bits": matrix_bits,
+                        "witness_bits": witness_bits,
+                        "cache_hit": cache_hit,
+                    }
+                )
+                if candidate["all_margins_positive"]:
+                    return {
+                        "status": "candidate_ready",
+                        "selected_matrix_bits": matrix_bits,
+                        "selected_witness_bits": witness_bits,
+                        "attempts": attempts,
+                    }
+            except CandidateStageError as exc:
+                attempts.append(
+                    {
+                        "matrix_bits": matrix_bits,
+                        "witness_bits": witness_bits,
+                        "status": f"{exc.stage}_failed",
+                        "failure_stage": exc.stage,
+                        "error_type": type(exc).__name__,
+                        "error": str(exc),
+                    }
+                )
+            except Exception as exc:
+                attempts.append(
+                    {
+                        "matrix_bits": matrix_bits,
+                        "witness_bits": witness_bits,
+                        "status": "candidate_check_failed",
+                        "failure_stage": "candidate_check",
+                        "error_type": type(exc).__name__,
+                        "error": str(exc),
+                    }
+                )
+    statuses = {str(attempt.get("status", "")) for attempt in attempts}
+    failure_status = (
+        "witness_failed"
+        if "witness_failed" in statuses
+        else "rounding_failed"
+        if "rounding_failed" in statuses
+        else "candidate_check_failed"
+    )
+    return {
+        "status": failure_status,
+        "selected_matrix_bits": None,
+        "selected_witness_bits": None,
+        "attempts": attempts,
+    }
+
 def run_driver(
     support: Fraction,
     dimensions: list[int],
@@ -397,15 +541,28 @@ def run_driver(
     precision_start: int = 128,
     precision_max: int = 512,
     residual_order: int = 32,
-    matrix_bits: int = 72,
+    matrix_bits_start: int = 64,
+    matrix_bits_max: int = 104,
+    witness_bits_start: int = 32,
+    witness_bits_max: int = 56,
     cache_dir: Path | None = None,
-    witness_bits: int = 40,
 ) -> dict[str, Any]:
+    if support <= 0:
+        raise ValueError("support must be positive")
+    require_one_prime_support(support.numerator, support.denominator)
     if not dimensions:
         raise ValueError("at least one dimension is required")
     if any(dimension < 1 for dimension in dimensions):
         raise ValueError("dimensions must be positive")
+    if len(set(dimensions)) != len(dimensions):
+        raise ValueError("dimensions must be unique")
     precisions = build_precision_ladder(precision_start, precision_max)
+    if matrix_bits_start < 16:
+        raise ValueError("matrix_bits_start must be at least 16")
+    if witness_bits_start < 8:
+        raise ValueError("witness_bits_start must be at least 8")
+    matrix_bits_ladder = build_bit_ladder(matrix_bits_start, matrix_bits_max, 16)
+    witness_bits_ladder = build_bit_ladder(witness_bits_start, witness_bits_max, 8)
     resolutions = build_scout_resolutions(dimensions, scout_resolution_count)
 
     series: dict[int, list[ScoutDimensionResult]] = {
@@ -464,7 +621,6 @@ def run_driver(
     rigorous_screening: list[dict[str, object]] = []
     rigorous_failures: list[dict[str, object]] = []
     survivors: list[int] = []
-    candidate_precisions: dict[int, int] = {}
     for dimension in screening_dimensions:
         try:
             screening = _escalate_rigorous_screen(
@@ -478,7 +634,6 @@ def run_driver(
                 selected_precision, int
             ):
                 survivors.append(dimension)
-                candidate_precisions[dimension] = selected_precision
         except Exception as exc:
             rigorous_failures.append(
                 {
@@ -491,36 +646,24 @@ def run_driver(
     candidates: list[dict[str, object]] = []
     candidate_failures: list[dict[str, object]] = []
     for dimension in survivors:
+        screening = next(
+            row for row in rigorous_screening if row["dimension"] == dimension
+        )
         try:
-            candidate, _ = _cached_result(
+            candidate = _construct_candidate(
+                support,
+                dimension,
+                int(screening["selected_precision_bits"]),
+                residual_order,
+                matrix_bits_ladder,
+                witness_bits_ladder,
                 cache_dir,
-                {
-                    "kind": "candidate-check",
-                    "support": f"{support.numerator}/{support.denominator}",
-                    "dimension": dimension,
-                    "precision": candidate_precisions[dimension],
-                    "residual_order": residual_order,
-                    "matrix_bits": matrix_bits,
-                    "witness_bits": witness_bits,
-                },
-                lambda: run_candidate(
-                    support,
-                    dimension=dimension,
-                    prec=candidate_precisions[dimension],
-                    residual_order=residual_order,
-                    matrix_bits=matrix_bits,
-                    witness_bits=witness_bits,
-                ),
             )
-            candidates.append(
-                {
-                    **candidate,
-                    "dimension": dimension,
-                    "status": "ready"
-                    if candidate["all_margins_positive"]
-                    else "failed",
-                }
-            )
+            candidates.append({**candidate, "dimension": dimension})
+            if candidate["status"] != "candidate_ready":
+                candidate_failures.append(
+                    {"dimension": dimension, "status": candidate["status"]}
+                )
         except Exception as exc:
             candidate_failures.append(
                 {
@@ -530,13 +673,27 @@ def run_driver(
                 }
             )
 
-    ready = [candidate for candidate in candidates if candidate["status"] == "ready"]
+    ready = [candidate for candidate in candidates if candidate["status"] == "candidate_ready"]
+    precision_limited = any(
+        row.get("status") == "precision_limit_reached" for row in rigorous_screening
+    )
+    selected_candidate_dimension = (
+        int(ready[0]["dimension"]) if ready else None
+    )
     if ready:
         state = "CANDIDATE_READY"
     elif candidate_failures:
-        state = "WITNESS_FAILED"
+        failure_statuses = {failure.get("status") for failure in candidate_failures}
+        if "candidate_check_failed" in failure_statuses or None in failure_statuses:
+            state = "CANDIDATE_CHECK_FAILED"
+        elif failure_statuses == {"rounding_failed"}:
+            state = "ROUNDING_FAILED"
+        else:
+            state = "WITNESS_FAILED"
     elif rigorous_failures:
         state = "RIGOROUS_ASSEMBLY_FAILED"
+    elif precision_limited:
+        state = "PRECISION_LIMIT_REACHED"
     elif scout_failures:
         state = "SCOUT_UNSTABLE"
     elif not stable_dimensions:
@@ -558,15 +715,17 @@ def run_driver(
         "precision_start": precision_start,
         "precision_max": precision_max,
         "residual_order": residual_order,
-        "matrix_bits": matrix_bits,
-        "witness_bits": witness_bits,
+        "matrix_bits_ladder": matrix_bits_ladder,
+        "witness_bits_ladder": witness_bits_ladder,
         "reconnaissance": reconnaissance,
         "scout_failures": scout_failures,
         "rigorous_screening": rigorous_screening,
         "rigorous_failures": rigorous_failures,
         "candidates": candidates,
         "candidate_failures": candidate_failures,
-        "selected_dimension": primary_dimension,
+        "scout_primary_dimension": primary_dimension,
+        "selected_dimension": selected_candidate_dimension,
+        "selected_candidate_dimension": selected_candidate_dimension,
         "fallback_dimensions": fallback_dimensions,
         "warning": "CANDIDATE_READY requires a fresh independent Rust verifier run; this driver never admits a theorem.",
     }
@@ -590,8 +749,10 @@ def main() -> None:
     parser.add_argument("--precision-start", type=int, default=128)
     parser.add_argument("--precision-max", type=int, default=512)
     parser.add_argument("--residual-order", type=int, default=32)
-    parser.add_argument("--matrix-bits", type=int, default=72)
-    parser.add_argument("--witness-bits", type=int, default=40)
+    parser.add_argument("--matrix-bits-start", type=int, default=64)
+    parser.add_argument("--matrix-bits-max", type=int, default=104)
+    parser.add_argument("--witness-bits-start", type=int, default=32)
+    parser.add_argument("--witness-bits-max", type=int, default=56)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument(
         "--cache-dir",
@@ -613,9 +774,11 @@ def main() -> None:
             precision_start=args.precision_start,
             precision_max=args.precision_max,
             residual_order=args.residual_order,
-            matrix_bits=args.matrix_bits,
+            matrix_bits_start=args.matrix_bits_start,
+            matrix_bits_max=args.matrix_bits_max,
+            witness_bits_start=args.witness_bits_start,
+            witness_bits_max=args.witness_bits_max,
             cache_dir=args.cache_dir,
-            witness_bits=args.witness_bits,
         )
     except (ValueError, ZeroDivisionError) as exc:
         parser.error(str(exc))

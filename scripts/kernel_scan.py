@@ -9,7 +9,10 @@ from __future__ import annotations
 import argparse
 from math import fabs, log
 
-from rh_tools import density_kernel
+if __package__:
+    from scripts.rh_tools import density_kernel
+else:
+    from rh_tools import density_kernel
 
 
 def main() -> None:
@@ -22,6 +25,12 @@ def main() -> None:
     ns = [int(v.strip()) for v in args.n.split(",") if v.strip()]
     if args.s0 <= 1.0:
         parser.error("s0 must be > 1")
+    if not ns or any(n < 1 for n in ns):
+        parser.error("n must contain positive integers")
+    if args.u_max <= 0.0:
+        parser.error("u-max must be > 0")
+    if args.steps < 1:
+        parser.error("steps must be >= 1")
 
     A = 2.0 * args.s0 - 1.0
     p = (args.s0 - 1.0) / A

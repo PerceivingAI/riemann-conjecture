@@ -164,6 +164,25 @@ class TestQuadrature:
 
 
 class TestResidualKernel:
+    def test_public_matrix_builders_reject_inexact_or_invalid_parameters(self) -> None:
+        with pytest.raises(TypeError, match="ordinary float"):
+            residual_kernel.digamma_inner_products_matrix("legendre", 1, 0.35, prec=64)  # type: ignore[arg-type]
+        with pytest.raises(TypeError, match="ordinary float"):
+            residual_kernel.exponential_convolution_matrix(0.25, "legendre", 1, arb(7) / 20, prec=64)  # type: ignore[arg-type]
+        with pytest.raises(ValueError, match="k_max"):
+            residual_kernel.digamma_positive_operator_matrix(-1, "legendre", 1, arb(7) / 20, prec=64)
+        with pytest.raises(ValueError, match="positive"):
+            residual_kernel.suzuki_residual_kernel_matrix("legendre", 1, 0, prec=64)
+        with pytest.raises(TypeError, match="prec"):
+            residual_kernel.digamma_inner_products_matrix("legendre", 1, arb(7) / 20, prec=16)
+
+    def test_digamma_bracket_rejects_wrong_gram_dimension(self) -> None:
+        gram = arb_mat(2, 2)
+        with pytest.raises(ValueError, match="1x1"):
+            residual_kernel.digamma_bracket_matrix(
+                0, "legendre", 1, arb(7) / 20, gram_mat=gram, prec=64
+            )
+
     def test_digamma_inner_products_matrix_symmetry(self) -> None:
         with ctx.workprec(64):
             t_val = arb(7) / 20
@@ -255,6 +274,33 @@ class TestMatrices:
         assert i_sqr.lo == Fraction(1, 4)
         assert i_sqr.hi == Fraction(9, 16)
 
+    def test_rational_interval_rejects_binary_float_inputs(self) -> None:
+        with pytest.raises(TypeError, match="int or Fraction"):
+            matrices.RationalInterval(0.1)  # type: ignore[arg-type]
+        with pytest.raises(TypeError, match="canonical integer"):
+            matrices.RationalInterval.from_dict(
+                {"lo_num": 0.1, "lo_den": "1", "hi_num": "1", "hi_den": "1"}
+            )
+
+    def test_matrix_from_entries_rejects_duplicate_or_missing_coordinates(self) -> None:
+        valid = matrices.RationalIntervalMatrix(
+            [
+                [matrices.RationalInterval(2), matrices.RationalInterval(0)],
+                [matrices.RationalInterval(0), matrices.RationalInterval(2)],
+            ]
+        ).to_entries()
+        round_trip = matrices.RationalIntervalMatrix.from_entries(2, valid)
+        assert round_trip.is_symmetric()
+
+        duplicate = copy.deepcopy(valid)
+        duplicate[-1]["row"] = 0
+        duplicate[-1]["col"] = 0
+        with pytest.raises(ValueError, match="duplicate"):
+            matrices.RationalIntervalMatrix.from_entries(2, duplicate)
+
+        with pytest.raises(ValueError, match="exactly 4"):
+            matrices.RationalIntervalMatrix.from_entries(2, valid[:-1])
+
     def test_rational_interval_zero_division(self) -> None:
         i1 = matrices.RationalInterval(1, 2)
         i_zero = matrices.RationalInterval(-1, 1)
@@ -275,6 +321,20 @@ class TestMatrices:
         assert D[0].lo == Fraction(4)
         assert D[1].lo == Fraction(11, 4)
         assert L[1][0].lo == Fraction(1, 4)
+
+    def test_exact_ldl_rejects_nonsymmetric_matrix(self) -> None:
+        mat = matrices.RationalIntervalMatrix(
+            [
+                [matrices.RationalInterval(2), matrices.RationalInterval(100)],
+                [matrices.RationalInterval(0), matrices.RationalInterval(2)],
+            ]
+        )
+        assert mat.is_symmetric() is False
+        with pytest.raises(ValueError, match="symmetric"):
+            mat.exact_ldl()
+        result = matrices.verify_matrix_positivity_ldl(mat)
+        assert result["verified_positive_definite"] is False
+        assert result["is_symmetric"] is False
 
     def test_exact_ldl_indefinite(self) -> None:
         # Indefinite matrix: [[1, 2], [2, 1]]
@@ -300,6 +360,31 @@ class TestMatrices:
         assert res["status"] == "computed"
         assert res["role"] == "secondary_cross_check_only"
         assert res["all_real_positive"] is True
+
+
+class TestExactConstantDiagnostics:
+    def test_exact_constant_bundle_checks_bounds_without_mutating_global_precision(self) -> None:
+        from scripts.weil_exact_constants import build_payload
+
+        before = ctx.prec
+        payload = build_payload(96)
+        assert ctx.prec == before
+        assert payload["precision_bits"] == 96
+        bounds = payload["certified_rational_bounds"]
+        assert isinstance(bounds, dict)
+        checks = bounds["checks"]
+        assert isinstance(checks, dict)
+        assert checks and all(checks.values())
+
+
+class TestEndpointAbsorptionCertificate:
+    def test_exact_endpoint_absorption_certificate(self) -> None:
+        from scripts.weil_endpoint_absorption_certificate import certify
+
+        result = certify()
+        assert result["c2_over_kappa_upper"] == "31/100"
+        assert result["retained_V_fraction_lower"] == "69/100"
+        assert result["conclusion"] == "V + P_2 >= (69/100) V >= 0"
 
 
 class TestExportCertificate:

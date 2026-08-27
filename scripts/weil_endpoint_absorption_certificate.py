@@ -31,6 +31,12 @@ from fractions import Fraction
 from pathlib import Path
 
 
+def _require(condition: bool, message: str) -> None:
+    """Proof-critical check that remains active under Python optimization."""
+    if not condition:
+        raise RuntimeError(message)
+
+
 def frac_text(x: Fraction) -> str:
     return f"{x.numerator}/{x.denominator}"
 
@@ -63,17 +69,17 @@ def certify() -> dict:
     log2_target_lo = Fraction(842, 1215)
     log2_target_hi = Fraction(23581, 34020)
     log2_lo, log2_hi = log_bounds_atanh(Fraction(2), 4)
-    assert log2_lo > log2_target_lo
-    assert log2_hi < log2_target_hi
+    _require(log2_lo > log2_target_lo, "log(2) lower target was not certified")
+    _require(log2_hi < log2_target_hi, "log(2) upper target was not certified")
 
     two_T = 2 * T
-    assert log2_hi < two_T  # first-prime shift really overlaps
+    _require(log2_hi < two_T, "first-prime shift overlap was not certified")
 
     tau_lo = log2_target_lo / T
     epsilon_hi = 2 - tau_lo
     epsilon_bound = Fraction(34, 1701)
-    assert epsilon_hi == epsilon_bound
-    assert epsilon_bound < Fraction(1, 41)
+    _require(epsilon_hi == epsilon_bound, "epsilon bound identity failed")
+    _require(epsilon_bound < Fraction(1, 41), "epsilon upper bound is too large")
 
     # From epsilon < 34/1701,
     # 1/(2 epsilon) > 1701/68.  Prove log(1701/68)>16/5 by
@@ -81,23 +87,23 @@ def certify() -> dict:
     # atanh-series proof that log(87/32)>1.
     ratio = Fraction(1701, 68)
     bridge = Fraction(87, 32)
-    assert ratio**5 > bridge**16
+    _require(ratio**5 > bridge**16, "bridge power inequality failed")
     bridge_log_lo, bridge_log_hi = log_bounds_atanh(bridge, 5)
-    assert bridge_log_lo > 1
+    _require(bridge_log_lo > 1, "bridge logarithm lower bound failed")
     # 5 log(ratio) > 16 log(bridge) > 16.
     kappa_edge_lo = Fraction(8, 5)
 
     # sqrt(2)>7/5 follows by squaring positive rationals.
     sqrt2_lo = Fraction(7, 5)
-    assert sqrt2_lo * sqrt2_lo < 2
+    _require(sqrt2_lo * sqrt2_lo < 2, "sqrt(2) lower bound failed")
     c2_hi = log2_target_hi / sqrt2_lo
     c2_bound = Fraction(62, 125)
-    assert c2_hi < c2_bound
+    _require(c2_hi < c2_bound, "c2 upper bound failed")
 
     ratio_bound = c2_bound / kappa_edge_lo
-    assert ratio_bound == Fraction(31, 100)
+    _require(ratio_bound == Fraction(31, 100), "absorption ratio identity failed")
     retained_fraction = 1 - ratio_bound
-    assert retained_fraction == Fraction(69, 100)
+    _require(retained_fraction == Fraction(69, 100), "retained fraction identity failed")
 
     return {
         "theorem": "first-prime endpoint absorption at T=7/20",

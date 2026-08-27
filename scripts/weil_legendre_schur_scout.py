@@ -19,6 +19,8 @@ import numpy as np
 from scipy.linalg import eigvalsh
 from scipy.special import eval_legendre, roots_legendre
 
+from scripts.cert.constants import require_one_prime_support
+
 EULER_GAMMA = 0.577215664901532860606512090082402431
 
 
@@ -38,10 +40,9 @@ def scout(
     if any(n <= 0 or n >= max_mode for n in n_values):
         raise ValueError("every Schur N must satisfy 0 < N < max_mode")
 
+    require_one_prime_support(support.numerator, support.denominator)
     T = float(support)
     tau = log(2) / T
-    if not (1.0 < tau < 2.0):
-        raise ValueError("support must lie in the one-prime window")
     x, weights = roots_legendre(quadrature_order)
     basis = np.column_stack(
         [sqrt((2 * n + 1) / 2) * eval_legendre(n, x) for n in range(max_mode)]

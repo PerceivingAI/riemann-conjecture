@@ -236,6 +236,12 @@ def build_exact_prime_schur_certificate(
     witness_bits: int = 32,
 ) -> tuple[dict[str, Any], dict[str, Fraction]]:
     support = Fraction(support_num, support_den)
+    if not claim:
+        raise ValueError("claim must be non-empty")
+    if matrix_bits < 16:
+        raise ValueError("matrix_bits must be at least 16")
+    if witness_bits < 8:
+        raise ValueError("witness_bits must be at least 8")
     if (support, dimension) not in ALLOWED_CONFIGURATIONS:
         allowed = ", ".join(
             f"T={value},N={dim}" for value, dim in sorted(ALLOWED_CONFIGURATIONS)

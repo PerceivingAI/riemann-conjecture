@@ -10,12 +10,20 @@ from __future__ import annotations
 import argparse
 from math import exp, log
 
-from rh_tools import (
-    composite_simpson,
-    density_kernel,
-    laguerre_float,
-    primes_up_to,
-)
+if __package__:
+    from scripts.rh_tools import (
+        composite_simpson,
+        density_kernel,
+        laguerre_float,
+        primes_up_to,
+    )
+else:
+    from rh_tools import (
+        composite_simpson,
+        density_kernel,
+        laguerre_float,
+        primes_up_to,
+    )
 
 
 def prime_power_items(limit: int) -> list[tuple[int, float]]:
@@ -44,7 +52,13 @@ def main() -> None:
         parser.error("s0 must be > 1")
     ns = [int(v.strip()) for v in args.n.split(",") if v.strip()]
     bins = [float(v.strip()) for v in args.u_bins.split(",") if v.strip()]
-    if not bins or bins[0] != 0.0 or any(b <= a for a, b in zip(bins, bins[1:])):
+    if not ns or any(n < 1 for n in ns):
+        parser.error("n must contain positive integers")
+    if args.max_m < 2:
+        parser.error("max-m must be >= 2")
+    if args.simpson_steps < 2:
+        parser.error("simpson-steps must be >= 2")
+    if len(bins) < 2 or bins[0] != 0.0 or any(b <= a for a, b in zip(bins, bins[1:])):
         parser.error("u-bins must start at 0 and increase strictly")
 
     A = 2.0 * args.s0 - 1.0

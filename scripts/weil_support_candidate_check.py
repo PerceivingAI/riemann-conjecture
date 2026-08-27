@@ -30,6 +30,14 @@ from scripts.cert.exact_prime_schur_certificate import (
 from scripts.cert.legendre_schur import assemble_exact_prime_schur
 
 
+class CandidateStageError(RuntimeError):
+    """Structured pre-theorem candidate failure with an explicit stage."""
+
+    def __init__(self, stage: str, message: str) -> None:
+        super().__init__(message)
+        self.stage = stage
+
+
 def run_candidate(
     support: Fraction,
     *,
@@ -39,6 +47,17 @@ def run_candidate(
     matrix_bits: int,
     witness_bits: int,
 ) -> dict[str, object]:
+    if dimension < 1:
+        raise ValueError("dimension must be positive")
+    if prec < 64:
+        raise ValueError("prec must be at least 64 bits")
+    if residual_order < 8:
+        raise ValueError("residual_order must be at least 8")
+    if matrix_bits < 16:
+        raise ValueError("matrix_bits must be at least 16")
+    if witness_bits < 8:
+        raise ValueError("witness_bits must be at least 8")
+
     with ctx.workprec(prec):
         assembled = assemble_exact_prime_schur(
             n=dimension,
@@ -47,29 +66,38 @@ def run_candidate(
             support_num=support.numerator,
             support_den=support.denominator,
         )
-        a = _force_exact_parity_zeros(_coarsen_matrix(assembled["A"], matrix_bits))
-        gv = _force_exact_parity_zeros(_coarsen_matrix(assembled["GV"], matrix_bits))
-        g2 = _force_exact_parity_zeros(_coarsen_matrix(assembled["G2"], matrix_bits))
-        gr = _force_exact_parity_zeros(_coarsen_matrix(assembled["GR"], matrix_bits))
-        c_t = _dyadic_outward_interval(
-            c_T_enclosure(prec, support.numerator, support.denominator),
-            matrix_bits,
-        )
-        c2 = _dyadic_outward_interval(c2_enclosure(prec), matrix_bits)
-        rho_r = _dyadic_outward_interval(assembled["rho_R"], matrix_bits)
+        try:
+            a = _force_exact_parity_zeros(_coarsen_matrix(assembled["A"], matrix_bits))
+            gv = _force_exact_parity_zeros(_coarsen_matrix(assembled["GV"], matrix_bits))
+            g2 = _force_exact_parity_zeros(_coarsen_matrix(assembled["G2"], matrix_bits))
+            gr = _force_exact_parity_zeros(_coarsen_matrix(assembled["GR"], matrix_bits))
+            c_t = _dyadic_outward_interval(
+                c_T_enclosure(prec, support.numerator, support.denominator),
+                matrix_bits,
+            )
+            c2 = _dyadic_outward_interval(c2_enclosure(prec), matrix_bits)
+            rho_r = _dyadic_outward_interval(assembled["rho_R"], matrix_bits)
+        except (ValueError, RuntimeError, ZeroDivisionError) as exc:
+            raise CandidateStageError("rounding", str(exc)) from exc
 
-    schur, mu_lower = _schur_from_serialized_inputs(
-        a,
-        gv,
-        g2,
-        gr,
-        c_t,
-        c2,
-        rho_r,
-        dimension,
-    )
-    _, even_margin = _make_witness(_parity_block(schur, 0), witness_bits)
-    _, odd_margin = _make_witness(_parity_block(schur, 1), witness_bits)
+    try:
+        schur, mu_lower = _schur_from_serialized_inputs(
+            a,
+            gv,
+            g2,
+            gr,
+            c_t,
+            c2,
+            rho_r,
+            dimension,
+        )
+    except (ValueError, RuntimeError, ZeroDivisionError) as exc:
+        raise CandidateStageError("rounding", str(exc)) from exc
+    try:
+        _, even_margin = _make_witness(_parity_block(schur, 0), witness_bits)
+        _, odd_margin = _make_witness(_parity_block(schur, 1), witness_bits)
+    except (ValueError, RuntimeError, ZeroDivisionError) as exc:
+        raise CandidateStageError("witness", str(exc)) from exc
     return {
         "role": "generator_side_exact_candidate_only",
         "warning": (

@@ -51,6 +51,27 @@ def support_T(num: int = 7, den: int = 20) -> fmpq:
     return fmpq(num, den)
 
 
+def require_one_prime_support(num: int, den: int, prec: int = 128) -> None:
+    """Require the exact support to lie in the p=2-only localization window.
+
+    The p=2 compressed translation is active once T > (1/2) log(2), while the
+    p=3 translation enters at T = (1/2) log(3).  Continuation machinery that
+    contains only the p=2 term is therefore valid only on the strict interval
+    (log(2)/2, log(3)/2).
+    """
+    if den <= 0 or num <= 0:
+        raise ValueError("support T must be a positive rational")
+    with ctx.workprec(max(prec, 64)):
+        support = arb(num) / arb(den)
+        lower = arb.const_log2() / 2
+        upper = arb(3).log() / 2
+        if not (support > lower and support < upper):
+            raise ValueError(
+                "support must lie strictly in the one-prime window "
+                "log(2)/2 < T < log(3)/2"
+            )
+
+
 def log2_enclosure(prec: int = 256) -> arb:
     """Rigorous enclosure of log(2)."""
     with ctx.workprec(prec):

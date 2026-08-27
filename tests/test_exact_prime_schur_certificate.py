@@ -18,6 +18,15 @@ def _contains_float(value: object) -> bool:
     return False
 
 
+def test_invalid_exact_prime_configuration_fails_before_expensive_work() -> None:
+    with pytest.raises(ValueError, match="claim"):
+        build_exact_prime_schur_certificate(claim="")
+    with pytest.raises(ValueError, match="matrix_bits"):
+        build_exact_prime_schur_certificate(claim="C-test", matrix_bits=8)
+    with pytest.raises(ValueError, match="witness_bits"):
+        build_exact_prime_schur_certificate(claim="C-test", witness_bits=4)
+
+
 def test_exact_prime_certificate_is_strict_and_float_free() -> None:
     certificate, diagnostics = build_exact_prime_schur_certificate(
         claim="pytest-exact-prime",

@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-26T19:05:17Z`
+- **Last updated:** `2026-08-27T08:32:32Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -158,7 +158,9 @@ resolutions derived from the requested maximum dimension, then rigorously
 screens only the smallest stable-positive dimension and its next larger
 fallback. Rigorous screening and candidate checks use the persistent cache
 `.cache/continuation-driver` by default; cache keys include support, dimension,
-precision, residual order, and witness/rounding parameters. It never
+precision, residual order, witness/rounding parameters, and a fingerprint of
+the continuation source files plus `uv.lock`. It accepts only the strict
+`log(2)/2 < T < log(3)/2` p=2-only support window. It never
 extrapolates dimensions, invokes the theorem exporter, edits the closed
 contract, or grants theorem status.
 
@@ -182,6 +184,11 @@ uv run --locked --extra test python -m scripts.weil_continuation_driver \
 
 `CANDIDATE_READY` is not theorem evidence; it requires a fresh independent
 Rust verifier run.
+
+The driver escalates matrix rounding bits and witness bits independently when
+candidate construction fails. Rounding and witness failures remain distinct
+from mathematical or precision failures; `CANDIDATE_READY` is still only
+generator-side evidence.
 
 ### `weil_legendre_schur_scout.py`
 

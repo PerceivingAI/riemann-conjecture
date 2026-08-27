@@ -12,10 +12,13 @@ from __future__ import annotations
 
 import argparse
 import json
-from math import acosh, atanh, exp, log, sqrt
+from math import acosh, atanh, exp, isfinite, log, sqrt
 from pathlib import Path
 
-from rh_tools import density_kernel
+if __package__:
+    from scripts.rh_tools import density_kernel
+else:
+    from rh_tools import density_kernel
 
 def airy_bracket(u: float) -> float:
     if u < 1.0:
@@ -75,6 +78,14 @@ def main() -> None:
     ns = [int(v) for v in args.n.split(",") if v.strip()]
     gammas = [float(v) for v in args.gammas.split(",") if v.strip()]
     betas = [float(v) for v in args.betas.split(",") if v.strip()]
+    if not ns or any(n < 1 for n in ns):
+        parser.error("n must contain positive integers")
+    if not betas or not gammas:
+        parser.error("betas and gammas must be non-empty")
+    if not all(isfinite(value) for value in [args.s0, *betas, *gammas]):
+        parser.error("s0, betas, and gammas must be finite")
+    if any(beta >= args.s0 for beta in betas):
+        parser.error("every beta must be < s0")
 
     A = 2.0 * args.s0 - 1.0
     q_abs = args.s0 / (args.s0 - 1.0)

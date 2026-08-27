@@ -9,9 +9,12 @@ stability rather than presenting S_n(X) as a proof object.
 from __future__ import annotations
 
 import argparse
-from decimal import Decimal, localcontext
+from decimal import Decimal, InvalidOperation, localcontext
 
-from rh_tools import nth_root_abs, pole_parameters, pole_term, prime_trace_snapshots
+if __package__:
+    from scripts.rh_tools import nth_root_abs, pole_parameters, pole_term, prime_trace_snapshots
+else:
+    from rh_tools import nth_root_abs, pole_parameters, pole_term, prime_trace_snapshots
 
 
 def fmt(value: Decimal, digits: int = 14) -> str:
@@ -26,12 +29,22 @@ def main() -> None:
     parser.add_argument("--precision", type=int, default=60)
     args = parser.parse_args()
 
-    s0 = Decimal(args.s0)
-    cutoffs = [int(v.strip()) for v in args.cutoffs.split(",") if v.strip()]
-    if s0 <= 1:
-        parser.error("s0 must be > 1")
+    try:
+        s0 = Decimal(args.s0)
+    except InvalidOperation:
+        parser.error("s0 must be a decimal number")
+    try:
+        cutoffs = [int(v.strip()) for v in args.cutoffs.split(",") if v.strip()]
+    except ValueError:
+        parser.error("cutoffs must be comma-separated integers")
+    if not s0.is_finite() or s0 <= 1:
+        parser.error("s0 must be finite and > 1")
     if args.n_max < 1:
         parser.error("n-max must be >= 1")
+    if args.precision < 1:
+        parser.error("precision must be >= 1")
+    if not cutoffs or any(cutoff < 2 for cutoff in cutoffs):
+        parser.error("cutoffs must contain integers >= 2")
 
     with localcontext() as ctx:
         ctx.prec = args.precision

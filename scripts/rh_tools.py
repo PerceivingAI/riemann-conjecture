@@ -16,7 +16,7 @@ from typing import Callable, Iterable
 def laguerre_decimal_sequence(max_degree: int, alpha: int, x: Decimal) -> list[Decimal]:
     """Return L_0^(alpha)(x) ... L_max_degree^(alpha)(x) via three-term recurrence."""
     if max_degree < 0:
-        return []
+        raise ValueError("max_degree must be nonnegative")
     if alpha < 0:
         raise ValueError("alpha must be a nonnegative integer")
     one = Decimal(1)
@@ -70,6 +70,7 @@ def von_mangoldt_prime_powers(limit: int, precision: int = 50) -> list[tuple[int
     if limit < 2:
         return []
     items: list[tuple[int, Decimal]] = []
+    _validate_decimal_precision(precision)
     with localcontext() as ctx:
         ctx.prec = precision
         for p in primes_up_to(limit):
@@ -100,9 +101,16 @@ def pole_term(n: int, q: Decimal) -> Decimal:
 
 def nth_root_abs(value: Decimal, n: int) -> Decimal:
     """Return |value|^(1/n), with 0 mapped to 0."""
+    if isinstance(n, bool) or not isinstance(n, int) or n < 1:
+        raise ValueError("n must be a positive integer")
     if not value:
         return Decimal(0)
     return (abs(value).ln() / Decimal(n)).exp()
+
+
+def _validate_decimal_precision(precision: int) -> None:
+    if isinstance(precision, bool) or not isinstance(precision, int) or precision < 1:
+        raise ValueError("precision must be a positive integer")
 
 
 def prime_trace_snapshots(
@@ -117,6 +125,7 @@ def prime_trace_snapshots(
     P_n(X)=A sum_{m<=X} Lambda(m)m^-s0 L_{n-1}^{(1)}(A log m).
     The returned sequence at each cutoff is indexed by n-1.
     """
+    _validate_decimal_precision(precision)
     cuts = sorted(set(int(c) for c in cutoffs))
     if not cuts or cuts[0] < 2:
         raise ValueError("cutoffs must contain integers >= 2")
@@ -149,8 +158,10 @@ def prime_trace_snapshots(
 
 def composite_simpson(func: Callable[[float], float], a: float, b: float, steps: int) -> float:
     """Composite Simpson integration with an even number of steps."""
-    if b <= a:
+    if a == b:
         return 0.0
+    if b < a:
+        return -composite_simpson(func, b, a, steps)
     if steps < 2:
         steps = 2
     if steps % 2:
@@ -180,11 +191,15 @@ def density_kernel(n: int, s0: float, t: float) -> float:
 
 
 def t_from_m(m: int, s0: float) -> float:
+    if isinstance(m, bool) or not isinstance(m, int) or m < 1 or s0 <= 1.0:
+        raise ValueError("require integer m>=1 and s0>1")
     return (2.0 * s0 - 1.0) * log(m)
 
 
 def turning_u(n: int, t: float) -> float:
     """Return u=t/(4n), the DLMF turning-scale variable for L_{n-1}^{(1)}."""
+    if isinstance(n, bool) or not isinstance(n, int) or n < 1:
+        raise ValueError("n must be a positive integer")
     return t / (4.0 * n)
 
 
@@ -199,6 +214,9 @@ def get_zeta_zeros(count: int, dps: int = 25) -> list[float]:
         return []
 
     import mpmath
+    if isinstance(dps, bool) or not isinstance(dps, int) or dps < 1:
+        raise ValueError("dps must be a positive integer")
+
 
     old_dps = mpmath.mp.dps
     try:

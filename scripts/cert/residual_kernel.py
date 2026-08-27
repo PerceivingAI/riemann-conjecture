@@ -21,17 +21,46 @@ from scripts.cert.quadrature import (
 )
 
 
+def _validate_precision(prec: int) -> None:
+    if isinstance(prec, bool) or not isinstance(prec, int) or prec < 32:
+        raise TypeError("prec must be an integer of at least 32 bits")
+
+
+def _validate_dimension(dim: int) -> None:
+    if isinstance(dim, bool) or not isinstance(dim, int) or dim < 1:
+        raise ValueError("dim must be a positive integer")
+
+
+def _exact_positive_arb(value: arb | fmpq | int, name: str) -> arb:
+    """Convert an exact positive scalar while rejecting ordinary floats/bools."""
+    if isinstance(value, bool) or isinstance(value, float):
+        raise TypeError(f"{name} must not be an ordinary float or bool")
+    if not isinstance(value, (int, fmpq, arb)):
+        raise TypeError(f"{name} must be int, fmpq, or arb")
+    converted = arb(value)
+    if not converted > 0:
+        raise ValueError(f"{name} must be strictly positive")
+    return converted
+
+
+def _validate_gram_dimension(gram_mat: arb_mat, dim: int) -> None:
+    if gram_mat.nrows() != dim or gram_mat.ncols() != dim:
+        raise ValueError(f"gram_mat must be a {dim}x{dim} matrix")
+
+
 def digamma_inner_products_matrix(
     basis_type: str,
     dim: int,
-    T_val: arb,
+    T_val: arb | fmpq | int,
     prec: int = 128,
 ) -> arb_mat:
     """Compute the Gram matrix M_{i,j} = int_{-T}^T phi_i(t) phi_j(t) dt."""
-    if dim < 1:
-        raise ValueError(f"Dimension must be positive, got {dim}")
+    _validate_dimension(dim)
+    _validate_precision(prec)
+    t_exact = _exact_positive_arb(T_val, "T_val")
 
     with ctx.workprec(prec):
+        T_val = t_exact
         mat = arb_mat(dim, dim)
         for i in range(dim):
             for j in range(i, dim):
@@ -54,23 +83,25 @@ def digamma_inner_products_matrix(
 
 
 def exponential_convolution_matrix(
-    a_val: arb,
+    a_val: arb | fmpq | int,
     basis_type: str,
     dim: int,
-    T_val: arb,
+    T_val: arb | fmpq | int,
     prec: int = 128,
 ) -> arb_mat:
     """Compute verified matrix E_{i,j} = int_{-T}^T int_{-T}^T e^(-2 a |t-s|) phi_i(t) phi_j(s) ds dt.
 
     Uses split analytic integration across the corner at s = t.
     """
-    if dim < 1:
-        raise ValueError(f"Dimension must be positive, got {dim}")
+    _validate_dimension(dim)
+    _validate_precision(prec)
+    a_exact = _exact_positive_arb(a_val, "a_val")
+    t_exact = _exact_positive_arb(T_val, "T_val")
 
     with ctx.workprec(prec):
         mat = arb_mat(dim, dim)
-        a_acb = acb(a_val)
-        t_acb = acb(T_val)
+        a_acb = acb(a_exact)
+        t_acb = acb(t_exact)
 
         for i in range(dim):
             for j in range(i, dim):
@@ -113,7 +144,7 @@ def digamma_bracket_matrix(
     k: int,
     basis_type: str,
     dim: int,
-    T_val: arb,
+    T_val: arb | fmpq | int,
     gram_mat: arb_mat | None = None,
     prec: int = 128,
 ) -> arb_mat:
@@ -121,17 +152,24 @@ def digamma_bracket_matrix(
 
     B^{(k)} = (1/a_k) M^{(0)} - E^{(k)}, where a_k = k + 1/4.
     """
+    if isinstance(k, bool) or not isinstance(k, int) or k < 0:
+        raise ValueError("k must be a nonnegative integer")
+    _validate_dimension(dim)
+    _validate_precision(prec)
+    t_exact = _exact_positive_arb(T_val, "T_val")
+    if gram_mat is not None:
+        _validate_gram_dimension(gram_mat, dim)
     with ctx.workprec(prec):
         ak_q = digamma_ak(k)
         ak_arb = arb(int(ak_q.p)) / arb(int(ak_q.q))
         inv_ak = arb(1) / ak_arb
 
         if gram_mat is None:
-            gram = digamma_inner_products_matrix(basis_type, dim, T_val, prec=prec)
+            gram = digamma_inner_products_matrix(basis_type, dim, t_exact, prec=prec)
         else:
             gram = gram_mat
 
-        e_mat = exponential_convolution_matrix(ak_arb, basis_type, dim, T_val, prec=prec)
+        e_mat = exponential_convolution_matrix(ak_arb, basis_type, dim, t_exact, prec=prec)
 
         res = arb_mat(dim, dim)
         for i in range(dim):
@@ -145,16 +183,21 @@ def digamma_positive_operator_matrix(
     k_max: int,
     basis_type: str,
     dim: int,
-    T_val: arb,
+    T_val: arb | fmpq | int,
     prec: int = 128,
 ) -> arb_mat:
     """Compute verified partial sum matrix of the digamma positive operator:
 
     D_{K_max} = m_0 M^{(0)} + sum_{k=0}^{K_max} B^{(k)}.
     """
+    if isinstance(k_max, bool) or not isinstance(k_max, int) or k_max < 0:
+        raise ValueError("k_max must be a nonnegative integer")
+    _validate_dimension(dim)
+    _validate_precision(prec)
+    t_exact = _exact_positive_arb(T_val, "T_val")
     with ctx.workprec(prec):
         m0 = m0_digamma_enclosure(prec)
-        gram = digamma_inner_products_matrix(basis_type, dim, T_val, prec=prec)
+        gram = digamma_inner_products_matrix(basis_type, dim, t_exact, prec=prec)
 
         total = arb_mat(dim, dim)
         for i in range(dim):
@@ -162,7 +205,7 @@ def digamma_positive_operator_matrix(
                 total[i, j] = m0 * gram[i, j]
 
         for k in range(k_max + 1):
-            b_k = digamma_bracket_matrix(k, basis_type, dim, T_val, gram_mat=gram, prec=prec)
+            b_k = digamma_bracket_matrix(k, basis_type, dim, t_exact, gram_mat=gram, prec=prec)
             for i in range(dim):
                 for j in range(dim):
                     total[i, j] += b_k[i, j]
@@ -275,18 +318,18 @@ def suzuki_residual_r_second(
 def suzuki_residual_kernel_matrix(
     basis_type: str,
     dim: int,
-    T_val: arb,
+    T_val: arb | fmpq | int,
     prec: int = 128,
 ) -> arb_mat:
     """Compute the canonical Suzuki residual matrix from equation (4.5)."""
-    if dim < 1:
-        raise ValueError(f"Dimension must be positive, got {dim}")
-    if not T_val > 0:
-        raise ValueError("T_val must be strictly positive")
-    if not 2 * abs(T_val).upper() < arb.pi():
+    _validate_dimension(dim)
+    _validate_precision(prec)
+    t_exact = _exact_positive_arb(T_val, "T_val")
+    if not 2 * abs(t_exact).upper() < arb.pi():
         raise ValueError("T_val must satisfy 2*T < pi for residual series evaluation")
 
     with ctx.workprec(prec):
+        T_val = t_exact
         matrix = arb_mat(dim, dim)
         t_acb = acb(T_val)
 

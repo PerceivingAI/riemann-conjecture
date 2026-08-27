@@ -18,7 +18,7 @@ import numpy as np
 def laguerre_l1(degree: int, x: float) -> float:
     """Evaluate L_degree^(1)(x) by the three-term recurrence."""
     if degree < 0:
-        return 0.0
+        raise ValueError("degree must be nonnegative")
     if degree == 0:
         return 1.0
     l0 = 1.0

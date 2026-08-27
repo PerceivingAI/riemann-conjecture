@@ -76,6 +76,8 @@ def main() -> None:
 
     A = 2.0 * args.s0 - 1.0
     us = [float(part.strip()) for part in args.u.split(",") if part.strip()]
+    if not us or any(not 0.0 < u < 1.0 for u in us):
+        raise SystemExit("u must contain values strictly between 0 and 1")
     rows = [row(args.s0, args.n, u, args.log_width) for u in us]
     total_phase_excursion = 4.0 * args.n * (xi(1.0) - xi(0.0))
 

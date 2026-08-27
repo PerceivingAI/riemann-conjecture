@@ -43,9 +43,10 @@ def active_chain_vertices(T: float, a: float) -> int:
     if T <= 0.0 or a <= 0.0:
         raise ValueError("require T>0 and a>0")
     ratio = 2.0 * T / a
-    # At exact integer thresholds the new overlap occurs only on a null set, so
-    # ceil(ratio) is the correct essential chain length there as well.
-    return max(1, math.ceil(ratio - 1e-14))
+    # At an exact integer threshold the next overlap exists only on a null set,
+    # and ceil(ratio) already returns that integer.  Do not subtract an epsilon:
+    # doing so misclassifies genuine supports just above the threshold.
+    return max(1, math.ceil(ratio))
 
 
 def symmetrized_shift_norm(T: float, a: float) -> float:

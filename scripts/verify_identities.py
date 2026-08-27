@@ -37,6 +37,10 @@ def laplace_integral_of_poly(coeffs: list[Fraction], p: Fraction) -> Fraction:
 
 def verify(max_n: int, s0_values: list[Fraction]) -> None:
     failures: list[str] = []
+    if max_n < 1:
+        raise ValueError("max_n must be >= 1")
+    if not s0_values or any(s0 <= 1 for s0 in s0_values):
+        raise ValueError("s0_values must be non-empty and all > 1")
 
     for n in range(1, max_n + 1):
         lhs = laguerre_coeffs(n, 0)
@@ -98,6 +102,8 @@ def main() -> None:
     )
     args = parser.parse_args()
     centers = [parse_fraction(v) for v in (args.s0 or ["2", "3", "5/2", "4"])]
+    if args.max_n < 1:
+        parser.error("max-n must be >= 1")
     if any(v <= 1 for v in centers):
         parser.error("all s0 values must be > 1")
     verify(args.max_n, centers)

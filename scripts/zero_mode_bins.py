@@ -17,10 +17,13 @@ from __future__ import annotations
 import argparse
 import cmath
 import json
-from math import fabs
+from math import isfinite
 from pathlib import Path
 
-from rh_tools import laguerre_float
+if __package__:
+    from scripts.rh_tools import laguerre_float
+else:
+    from rh_tools import laguerre_float
 
 
 def simpson_complex(func, a: float, b: float, steps: int) -> complex:
@@ -47,15 +50,26 @@ def main() -> None:
     args = parser.parse_args()
     if args.s0 <= 1.0:
         parser.error("s0 must be >1")
+    if not all(isfinite(value) for value in (args.s0, args.beta, args.gamma)):
+        parser.error("s0, beta, and gamma must be finite")
+    if args.beta >= args.s0:
+        parser.error("beta must be < s0 so the Laplace mode has Re(p)>0")
+    if args.steps_per_bin < 2:
+        parser.error("steps-per-bin must be >= 2")
     bins = [float(v) for v in args.u_bins.split(",") if v.strip()]
     if len(bins) < 2 or bins[0] != 0.0 or any(b <= a for a, b in zip(bins, bins[1:])):
         parser.error("u-bins must start at 0 and increase strictly")
     ns = [int(v) for v in args.n.split(",") if v.strip()]
+    if not ns or any(n < 1 for n in ns):
+        parser.error("n must contain positive integers")
 
     A = 2.0 * args.s0 - 1.0
     rho = complex(args.beta, args.gamma)
+    denominator = rho + args.s0 - 1.0
+    if denominator == 0:
+        parser.error("rho+s0-1 must be nonzero for the Cayley transform")
     p = (args.s0 - rho) / A
-    z = (rho - args.s0) / (rho + args.s0 - 1.0)
+    z = (rho - args.s0) / denominator
 
     print(
         f"s0={args.s0:g} A={A:g} rho={args.beta:g}+{args.gamma:g}i "

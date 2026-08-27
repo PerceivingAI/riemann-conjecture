@@ -18,18 +18,38 @@ from flint import arb, arb_mat, ctx, fmpq, fmpq_mat
 from scripts.cert.constants import arb_to_rational_enclosure
 
 
+def _exact_fraction(value: Fraction | int, name: str) -> Fraction:
+    """Convert an explicitly exact rational input while rejecting binary floats."""
+    if isinstance(value, bool) or not isinstance(value, (Fraction, int)):
+        raise TypeError(f"{name} must be an int or Fraction, not {type(value).__name__}")
+    return Fraction(value)
+
+
+def _canonical_integer(value: object, name: str) -> int:
+    """Parse an integer field without silently truncating floats or noncanonical text."""
+    if isinstance(value, bool):
+        raise TypeError(f"{name} must be an integer")
+    if isinstance(value, int):
+        return value
+    if isinstance(value, str):
+        try:
+            parsed = int(value)
+        except ValueError as exc:
+            raise ValueError(f"{name} must be a canonical integer") from exc
+        if str(parsed) != value:
+            raise ValueError(f"{name} must be a canonical integer")
+        return parsed
+    raise TypeError(f"{name} must be an integer or canonical integer string")
+
+
 class RationalInterval:
     """Exact rational interval [lo, hi] using Python Fractions."""
 
     __slots__ = ("lo", "hi")
 
     def __init__(self, lo: Fraction | int, hi: Fraction | int | None = None) -> None:
-        if hi is None:
-            self.lo = Fraction(lo)
-            self.hi = Fraction(lo)
-        else:
-            self.lo = Fraction(lo)
-            self.hi = Fraction(hi)
+        self.lo = _exact_fraction(lo, "lo")
+        self.hi = self.lo if hi is None else _exact_fraction(hi, "hi")
         if self.lo > self.hi:
             raise ValueError(f"Invalid interval: lo ({self.lo}) > hi ({self.hi})")
 
@@ -41,8 +61,14 @@ class RationalInterval:
 
     @classmethod
     def from_dict(cls, d: dict[str, Any]) -> RationalInterval:
-        lo = Fraction(int(d["lo_num"]), int(d["lo_den"]))
-        hi = Fraction(int(d["hi_num"]), int(d["hi_den"]))
+        lo = Fraction(
+            _canonical_integer(d["lo_num"], "lo_num"),
+            _canonical_integer(d["lo_den"], "lo_den"),
+        )
+        hi = Fraction(
+            _canonical_integer(d["hi_num"], "hi_num"),
+            _canonical_integer(d["hi_den"], "hi_den"),
+        )
         return cls(lo, hi)
 
     def to_dict(self) -> dict[str, str]:
@@ -149,10 +175,22 @@ class RationalIntervalMatrix:
 
     @classmethod
     def from_entries(cls, dim: int, entries: list[dict[str, Any]]) -> RationalIntervalMatrix:
+        if isinstance(dim, bool) or not isinstance(dim, int) or dim < 1:
+            raise ValueError("dim must be a positive integer")
+        expected = dim * dim
+        if len(entries) != expected:
+            raise ValueError(f"entries must contain exactly {expected} coordinates")
         grid = [[RationalInterval(0, 0) for _ in range(dim)] for _ in range(dim)]
-        for entry in entries:
-            r = int(entry["row"])
-            c = int(entry["col"])
+        seen: set[tuple[int, int]] = set()
+        for index, entry in enumerate(entries):
+            r = _canonical_integer(entry["row"], f"entries[{index}].row")
+            c = _canonical_integer(entry["col"], f"entries[{index}].col")
+            if not (0 <= r < dim and 0 <= c < dim):
+                raise ValueError(f"entries[{index}] coordinate ({r}, {c}) is out of range")
+            coordinate = (r, c)
+            if coordinate in seen:
+                raise ValueError(f"duplicate matrix coordinate {coordinate}")
+            seen.add(coordinate)
             grid[r][c] = RationalInterval.from_dict(entry)
         return cls(grid)
 
@@ -192,6 +230,8 @@ class RationalIntervalMatrix:
             where L is unit lower-triangular, D is diagonal, and
             is_positive_definite is True iff every diagonal interval D_j has lo > 0.
         """
+        if not self.is_symmetric():
+            raise ValueError("exact interval LDL requires an exactly symmetric matrix")
         n = self.dim
         L: list[list[RationalInterval]] = [
             [RationalInterval(1 if i == j else 0) for j in range(n)] for i in range(n)
@@ -279,14 +319,25 @@ def arb_mat_eigenvalue_cross_check(mat: arb_mat, prec: int = 128) -> dict[str, A
 
 def verify_matrix_positivity_ldl(mat: RationalIntervalMatrix) -> dict[str, Any]:
     """Verify positive definiteness using exact rational interval LDL^T decomposition."""
-    L, D, is_pos_def = mat.exact_ldl()
+    symmetric = mat.is_symmetric()
+    if not symmetric:
+        return {
+            "verified_positive_definite": False,
+            "dimension": mat.dim,
+            "is_symmetric": False,
+            "diagonal_intervals": [],
+            "diagonal_intervals_str": [],
+            "min_diagonal_lower_bound": "0",
+        }
+
+    _, D, is_pos_def = mat.exact_ldl()
     d_entries = [d.to_dict() for d in D]
     d_bounds = [f"[{d.lo}, {d.hi}]" for d in D]
 
     return {
         "verified_positive_definite": is_pos_def,
         "dimension": mat.dim,
-        "is_symmetric": mat.is_symmetric(),
+        "is_symmetric": True,
         "diagonal_intervals": d_entries,
         "diagonal_intervals_str": d_bounds,
         "min_diagonal_lower_bound": str(min(d.lo for d in D)) if D else "0",

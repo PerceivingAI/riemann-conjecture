@@ -15,7 +15,14 @@ from typing import Iterable
 
 from flint import acb, arb, ctx, fmpq
 
-from scripts.cert.constants import c2_enclosure, c_T_enclosure, log2_enclosure, pi_enclosure, tau_enclosure
+from scripts.cert.constants import (
+    c2_enclosure,
+    c_T_enclosure,
+    log2_enclosure,
+    pi_enclosure,
+    require_one_prime_support,
+    tau_enclosure,
+)
 from scripts.cert.residual_kernel import _suzuki_residual_series_coefficients, _suzuki_residual_tail_radius
 
 FractionPoly = list[Fraction]
@@ -322,14 +329,11 @@ def assemble_exact_prime_schur(
         raise ValueError("prec must be at least 64 bits")
     if residual_order < 8:
         raise ValueError("residual_order must be at least 8")
-    if support_den <= 0 or support_num <= 0:
-        raise ValueError("support T must be a positive rational")
+    require_one_prime_support(support_num, support_den, prec)
 
     with ctx.workprec(prec):
         support_t = arb(support_num) / support_den
         tau = tau_enclosure(prec, support_num, support_den)
-        if not (tau > 1 and tau < 2):
-            raise ValueError("assembler currently supports only the one-prime window")
         polys = legendre_polynomials(n - 1)
         norms = [legendre_norm_sq(k) for k in range(n)]
         V, V2 = potential_matrices(polys, prec)

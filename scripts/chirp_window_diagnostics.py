@@ -87,6 +87,8 @@ def main() -> None:
         raise SystemExit("require s0>1, n>=1, phase-error>0")
 
     us = [float(part.strip()) for part in args.u.split(",") if part.strip()]
+    if not us or any(not 0.0 < u < 1.0 for u in us):
+        raise SystemExit("u must contain values strictly between 0 and 1")
     rows = [row(args.s0, args.n, u, args.phase_error) for u in us]
     A = 2.0 * args.s0 - 1.0
     u2 = first_prime_coordinate(A, args.n)

@@ -92,7 +92,8 @@ def scout_support(
         require_positive_mu=False,
     )
     norms = assembled["norms"]
-    assert isinstance(norms, list)
+    if not isinstance(norms, list):
+        raise TypeError("assembler returned invalid Legendre norms")
 
     a = _normalized_midpoint_matrix(assembled["A"], norms)  # type: ignore[arg-type]
     gv = _normalized_midpoint_matrix(assembled["GV"], norms)  # type: ignore[arg-type]
@@ -172,7 +173,9 @@ def build_scan(
         "residual_order": residual_order,
         "rows": rows,
         "largest_scanned_positive_midpoint_support": (
-            positive[-1]["support"] if positive else None
+            max(positive, key=lambda row: Fraction(str(row["support"])))["support"]
+            if positive
+            else None
         ),
     }
 

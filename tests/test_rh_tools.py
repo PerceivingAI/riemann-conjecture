@@ -68,6 +68,10 @@ class TestPrimesAndVonMangoldt:
 
 
 class TestLaguerreEvaluation:
+    def test_negative_decimal_degree_is_rejected(self) -> None:
+        with pytest.raises(ValueError, match="nonnegative"):
+            laguerre_decimal_sequence(-1, 1, Decimal("0"))
+
     """Verify consistency between Decimal and Float Laguerre implementations."""
 
     @pytest.mark.parametrize("degree", [0, 1, 2, 5, 10, 15])
@@ -97,6 +101,16 @@ class TestPoleAndScalingHelpers:
         assert A == Decimal("3")
         assert q == Decimal("-2")
 
+    def test_invalid_scaling_inputs_are_rejected(self) -> None:
+        with pytest.raises(ValueError):
+            t_from_m(0, 3.0)
+        with pytest.raises(ValueError):
+            t_from_m(2, 1.0)
+        with pytest.raises(ValueError):
+            turning_u(0, 1.0)
+        with pytest.raises(ValueError):
+            nth_root_abs(Decimal("1"), 0)
+
     def test_turning_u_and_t_from_m(self) -> None:
         """u = t / (4n) and t = (2s0 - 1) log(m)."""
         s0 = 3.0
@@ -125,6 +139,11 @@ class TestCompositeSimpson:
         result = composite_simpson(lambda x: 3 * x**2 + 2 * x + 1, 0.0, 2.0, steps=10)
         assert abs(result - 14.0) < 1e-10
 
+    def test_reversed_bounds_reverse_integral_sign(self) -> None:
+        forward = composite_simpson(lambda x: x * x, 0.0, 2.0, steps=20)
+        backward = composite_simpson(lambda x: x * x, 2.0, 0.0, steps=20)
+        assert abs(forward + backward) < 1e-12
+
     def test_exponential_integration(self) -> None:
         """int_0^1 e^x dx = e - 1."""
         result = composite_simpson(math.exp, 0.0, 1.0, steps=100)
@@ -133,6 +152,10 @@ class TestCompositeSimpson:
 
 class TestZetaZerosAndSmallUPhaseDiagnostic:
     """Verify numerical zero evaluation and the explicitly small-u phase diagnostic."""
+
+    def test_invalid_zeta_precision_is_rejected(self) -> None:
+        with pytest.raises(ValueError, match="dps"):
+            get_zeta_zeros(1, dps=0)
 
     def test_first_zeta_zeros(self) -> None:
         """Check numerical zero ordinates against standard reference values."""

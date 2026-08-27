@@ -16,13 +16,22 @@ import json
 from math import pi, sqrt
 from pathlib import Path
 
-from rh_tools import (
-    critical_cayley_phase_per_n,
-    get_zeta_zeros,
-    laguerre_uniform_xi,
-    small_u_stationary_u_from_gamma,
-    uniform_preturning_stationary_u_from_gamma,
-)
+if __package__:
+    from scripts.rh_tools import (
+        critical_cayley_phase_per_n,
+        get_zeta_zeros,
+        laguerre_uniform_xi,
+        small_u_stationary_u_from_gamma,
+        uniform_preturning_stationary_u_from_gamma,
+    )
+else:
+    from rh_tools import (
+        critical_cayley_phase_per_n,
+        get_zeta_zeros,
+        laguerre_uniform_xi,
+        small_u_stationary_u_from_gamma,
+        uniform_preturning_stationary_u_from_gamma,
+    )
 
 
 def phase_curvature(u: float) -> float:
@@ -68,6 +77,8 @@ def main() -> None:
         parser.error("s0 must be > 1")
     if args.zeros < 1:
         parser.error("zeros must be >= 1")
+    if args.dps < 1:
+        parser.error("dps must be >= 1")
 
     gammas = get_zeta_zeros(args.zeros, dps=args.dps)
     rows = [row_for_gamma(g, args.s0) for g in gammas]
