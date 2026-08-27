@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T13:42:54Z`
+- **Last updated:** `2026-08-27T14:17:45Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -10,6 +10,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`PROTOCOL.md`](PROTOCOL.md) — authoritative documentation and research-record rules.
 - [`CONTRACTS.md`](CONTRACTS.md) — formal proof-certificate contracts, trust architecture, and dependency policy.
 - [`contracts/rh-weil-certificate-v1.json`](contracts/rh-weil-certificate-v1.json) — JSON Schema for exact rational certificates.
+- [`../computations/retained-proofs.json`](../computations/retained-proofs.json) — closed registry binding `C-0050` through `C-0054` to their exact retained certificate paths, SHA-256 values, and theorem identities for first-class integrity/replay acceptance.
 - [`STATUS.md`](STATUS.md) — maintained snapshot of the current research frontier.
 - [`LOG.md`](LOG.md) — append-only chronological research log.
 - [`CLAIMS.md`](CLAIMS.md) — registry of important claims, their status, and dependencies.

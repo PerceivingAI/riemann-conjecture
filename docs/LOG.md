@@ -1,10 +1,38 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T13:42:54Z`
+- **Last updated:** `2026-08-27T14:30:20Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-08-27T14:30:20Z — Retained-proof bootstrap and final trust-chain acceptance close P8/P9
+
+**Type:** Trust-chain bootstrap audit / full acceptance / live tamper rejection
+
+Independently recomputed SHA-256 over the raw bytes of all five retained theorem certificates directly from disk. The resulting hashes exactly match `computations/retained-proofs.json` and the historical computation records; `C-0052` through `C-0054` also repeat the same certificate hashes in `docs/CLAIMS.md`. `C-0050` and `C-0051` retain their hash provenance in their computation/finding records rather than duplicating it in claim prose. No discrepancy was found and no theorem claim changed.
+
+Final acceptance passes: `66/66` fast retained-proof tests; full `cargo test -p rh_cert`; strict `cargo clippy -p rh_cert --all-targets -- -D warnings`; `58/58` selected certificate/pre-theorem Python tests with the two explicitly slow acceptance tests deselected; and `lake build` with `8711` jobs. The canonical retained-proof command then returned `RETAINED PROOF CHAIN: PASS - 5/5` with exit `0`.
+
+A live fail-closed check used a temporary modified copy of the retained `C-0050` certificate while preserving its registered original hash in a temporary five-entry manifest. The canonical gate reported `C-0050 HASH_MISMATCH VERIFY SKIPPED`, independently replayed and passed `C-0051` through `C-0054`, and exited `1` with `RETAINED PROOF CHAIN: FAIL - 4/5`. Both temporary files were deleted afterward and all five originals were rehashed successfully.
+
+The v1 retained-proof registry remains an explicit whitelist. It does not scan `computations/` for certificates and does not duplicate derived Gershgorin margins or similar verifier diagnostics; the certificate hash fixes the proof bytes and `rh_cert` re-derives the theorem result.
+
+**Outcome:** P0–P9 of the retained-certificate integrity/replay slice are complete. The trust-chain addition changes no mathematical claim; RH remains unresolved.
+
+---
+
+## 2026-08-27T14:17:45Z — Retained theorem artifacts gain a first-class integrity/replay gate
+
+**Type:** Trust-chain tooling / retained-proof integrity / explicit acceptance tier
+
+Added the closed `computations/retained-proofs.json` registry for exactly the five proof-bearing theorem certificates `C-0050` through `C-0054`, together with `scripts.cert.verify_retained_proofs`. The gate validates the manifest contract, resolves only safe repository-contained regular files, hashes exact raw certificate bytes, refuses to replay hash-invalid artifacts, invokes the current zero-float Rust verifier on intact artifacts, and requires exact claim/support/dimension/profile/scope agreement. Operational failures are classified as `MISSING`, `HASH_MISMATCH`, `VERIFIER_ERROR`, `THEOREM_FAILURE`, or `SEMANTIC_MISMATCH`; the command continues through the full manifest and exits `0` only for a complete pass.
+
+Fast fixture/adversarial coverage lives in `tests/test_retained_proofs.py`. A separate `retained_proofs` pytest marker now owns the real five-certificate acceptance test and is excluded from ordinary pytest runs so the approximately 80-second replay does not inflate routine unit/integration work. The canonical direct command remains `uv run --locked python -m scripts.cert.verify_retained_proofs`; it **does not regenerate certificates**.
+
+The real retained chain passes `5/5`. This adds an ongoing artifact-integrity/replay assertion and does not alter the closed theorem whitelist, certificate semantics, or any mathematical claim. RH remains unresolved.
+
+---
 
 ## 2026-08-27T13:42:54Z — Zero-float Rust verifier optimization removes immediate scaling bottleneck
 

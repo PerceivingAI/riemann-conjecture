@@ -1,0 +1,55 @@
+{
+  "format": "rh-retained-proofs-v1",
+  "proofs": [
+    {
+      "claim": "C-0050",
+      "computation_id": "X-20260821-005",
+      "certificate_path": "computations/2026-08-21T123446Z-exact-prime-schur-certificate/data/certificate.json",
+      "certificate_sha256": "99ed74cc8fdb96ae0e5db1b2dea60da65052d96bc670df5b69d94a47d99c1255",
+      "support_T": "7/20",
+      "dimension": 32,
+      "claim_profile": "exact_prime_legendre_schur",
+      "verified_scope": "localized_weil_positivity_T_7_20"
+    },
+    {
+      "claim": "C-0051",
+      "computation_id": "X-20260826-001",
+      "certificate_path": "computations/2026-08-26T171400Z-one-prime-support-continuation/data/certificate-T040-N40.json",
+      "certificate_sha256": "8f9fa235beb9b4ee3c4f7cde11732a1b0b5295a7bbc94c03857417ee8a2b1be2",
+      "support_T": "2/5",
+      "dimension": 40,
+      "claim_profile": "exact_prime_legendre_schur",
+      "verified_scope": "localized_weil_positivity_T_2_5"
+    },
+    {
+      "claim": "C-0052",
+      "computation_id": "X-20260826-002",
+      "certificate_path": "computations/2026-08-26T183125Z-seventeen-fortieths-schur-certificate/data/certificate.json",
+      "certificate_sha256": "6c74a386097bb30c2924f70d82e90d5ffc4d2dcb029543b7c973949948bdd325",
+      "support_T": "17/40",
+      "dimension": 48,
+      "claim_profile": "exact_prime_legendre_schur",
+      "verified_scope": "localized_weil_positivity_T_17_40"
+    },
+    {
+      "claim": "C-0053",
+      "computation_id": "X-20260826-003",
+      "certificate_path": "computations/2026-08-26T190517Z-nine-twentieths-schur-certificate/data/certificate.json",
+      "certificate_sha256": "98f2b839d7f52c971966e7f9da9ae4e318c30a491821ad86abee6411b51932e0",
+      "support_T": "9/20",
+      "dimension": 56,
+      "claim_profile": "exact_prime_legendre_schur",
+      "verified_scope": "localized_weil_positivity_T_9_20"
+    },
+    {
+      "claim": "C-0054",
+      "computation_id": "X-20260827-002",
+      "certificate_path": "computations/2026-08-27T122716Z-nineteen-fortieths-schur-certificate/data/certificate.json",
+      "certificate_sha256": "d9ba45f0026de31ded30ab3a08cd8272982424368c63426131cd08428aab8ac5",
+      "support_T": "19/40",
+      "dimension": 68,
+      "claim_profile": "exact_prime_legendre_schur",
+      "verified_scope": "localized_weil_positivity_T_19_40"
+    }
+  ]
+}

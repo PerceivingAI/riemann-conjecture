@@ -60,6 +60,7 @@ Use this map before searching broadly.
 | `attempts/` | Timestamped coherent research routes; historical records |
 | `findings/` | Timestamped atomic lemmas, obstructions, corrections, observations |
 | `computations/` | Retained reproducible historical computation bundles |
+| `computations/retained-proofs.json` | Closed registry of exact proof-bearing certificate artifacts and expected theorem identities |
 | `scripts/` | Python research tooling and canonical continuation machinery |
 | `scripts/cert/` | Rigorous Legendre-Schur assembly and certificate construction machinery |
 | `crates/rh_cert/` | Independent zero-float exact rational Rust certificate verifier |
@@ -156,6 +157,8 @@ Python + python-flint/Arb
     -> Lean soundness layer
 ```
 
+After theorem-bearing artifacts are retained, a separate operational audit layer binds their exact bytes and identities through `computations/retained-proofs.json` and `scripts.cert.verify_retained_proofs`. That retention gate checks continued integrity/replay; it is not a fourth theorem-derivation step and does not promote new claims.
+
 Key locations:
 
 | Component | Location |
@@ -166,6 +169,7 @@ Key locations:
 | Other certificate export support | `scripts/cert/export_certificate.py` |
 | Contract/schema | `docs/CONTRACTS.md`, `docs/contracts/rh-weil-certificate-v1.json` |
 | Independent verifier | `crates/rh_cert/` |
+| Retained proof integrity/replay gate | `scripts/cert/verify_retained_proofs.py`, `computations/retained-proofs.json` |
 | Formal soundness | `formal/` |
 
 The continuation driver and `weil_support_candidate_check.py` are **pre-theorem** modules. They must not import/call theorem-admission machinery or grant theorem status.
@@ -242,7 +246,7 @@ They cover known history including `T=2/5,N=40`, `T=17/40,N=48`, and the low-pre
 uv run --locked --extra test python -m pytest -q
 ```
 
-Important: the default pytest configuration **includes integration tests** and excludes only the `slow_acceptance` marker. A full default run therefore takes minutes, not seconds.
+Important: the default pytest configuration **includes integration tests** but excludes the `slow_acceptance` and `retained_proofs` markers. A full default run therefore still takes minutes, but it does not automatically replay the five retained theorem certificates.
 
 ### Slow/manual acceptance
 
@@ -255,6 +259,24 @@ uv run --locked --extra test python -m pytest -q \
 ```
 
 Do not casually add expensive high-dimensional certificate generation to the fast unit layer.
+
+### Retained theorem-artifact acceptance
+
+The five proof-bearing retained certificates have their own real-artifact acceptance tier. It is excluded from the default pytest expression under the `retained_proofs` marker:
+
+```text
+uv run --locked --extra test python -m pytest -q \
+  -m retained_proofs \
+  tests/test_retained_proofs_acceptance.py
+```
+
+The canonical direct command is:
+
+```text
+uv run --locked python -m scripts.cert.verify_retained_proofs
+```
+
+This gate does **not** regenerate certificates. It validates `computations/retained-proofs.json`, checks raw-byte SHA-256 integrity, and replays each intact certificate through the current zero-float Rust verifier. Run it after changes to `rh_cert`, retained proof artifacts, the retained-proof manifest/tool, or proof-contract semantics before claiming the retained theorem trust chain is green. Fast fixture/adversarial logic remains in `tests/test_retained_proofs.py` and stays in the ordinary suite.
 
 ## 9. Rust and Lean verification
 

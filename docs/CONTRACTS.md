@@ -1,7 +1,7 @@
 # Repository Architecture & Proof Contracts
 
 - **Created:** `2026-08-21T06:00:00Z`
-- **Last updated:** `2026-08-27T13:16:15Z`
+- **Last updated:** `2026-08-27T14:30:20Z`
 - **Status:** Authoritative
 
 This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
@@ -148,9 +148,25 @@ give $\langle f,K_kf\rangle\le a_k^{-1}\lVert f\rVert_2^2$. Hence every omitted 
 
 The retained `C-0050` (`T=7/20,N=32`), `C-0051` (`T=2/5,N=40`), `C-0052` (`T=17/40,N=48`), `C-0053` (`T=9/20,N=56`), and `C-0054` (`T=19/40,N=68`) certificates use this rule and are proof-bearing because `C-0045`, `C-0047`, and `C-0048` provide the analytic complement and Schur semantics encoded by the profile. Each theorem-bearing pair required explicit closed-contract admission followed by a fresh independent Rust PASS; whitelist admission alone never grants theorem status. No other `(T,N)` pair is admitted.
 
+### 2.6 Retained theorem-artifact acceptance
+
+Proof-bearing retention is governed by the closed manifest `computations/retained-proofs.json`. Its v1 entries bind each retained theorem claim to one computation ID, repository-relative certificate path, raw-byte SHA-256, support, dimension, claim profile, and verified scope. The manifest contains exactly `C-0050` through `C-0054`; pre-theorem candidates and tooling computations are not proof registrations.
+
+The canonical audit is:
+
+```text
+uv run --locked python -m scripts.cert.verify_retained_proofs
+```
+
+The audit never regenerates a certificate. For each registered artifact it requires a safe regular-file path inside the repository, exact SHA-256 agreement before replay, `rh_cert` exit `0`, `passed=true`, and exact agreement on claim/support/dimension/profile/scope. Hash-invalid artifacts are never submitted to the verifier. The gate is exhaustive across the manifest and exits `0` only for a complete pass.
+
+This retained-artifact gate does not create theorem status and does not replace the original admission + fresh independent replay required for a new theorem pair. It is a continuing integrity/replay assertion over theorem artifacts that already obtained proof-bearing status through the closed theorem contract.
+
+The v1 registry is deliberately explicit: tooling must not discover or promote proof artifacts by scanning `computations/`. A certificate becomes part of this retained-proof gate only through an intentional manifest edit to the closed whitelist. The manifest records artifact identity and theorem identity only; derived verifier diagnostics such as Gershgorin margins are intentionally omitted because the certificate hash already fixes the proof bytes and `rh_cert` re-derives those diagnostics independently.
+
 No other tail/proof type is valid. In particular, v1 does not accept a free-form description, an asserted lower bound for an unspecified operator, or a precomputed eigenvalue/positive-definite flag.
 
-### 2.6 Locked adversarial cases
+### 2.7 Locked adversarial cases
 
 The Python and Rust validators must reject the following cases before theorem verification unless the row explicitly names a theorem-verification failure:
 

@@ -1,9 +1,11 @@
 # Computations
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T13:42:54Z`
+- **Last updated:** `2026-08-27T14:17:45Z`
 
 This directory contains timestamped numerical and symbolic experiments. Every retained computation must be reproducible and must distinguish numerical evidence from proof.
+
+`retained-proofs.json` is the closed machine-readable index of the exact certificate artifacts currently cited as proof-bearing theorem evidence. It is not itself a computation record and does not promote claims; it binds `C-0050` through `C-0054` to retained artifact paths, hashes, and theorem identities for the canonical integrity/replay gate `uv run --locked python -m scripts.cert.verify_retained_proofs`.
 
 ## Current computation records
 

@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-27T13:16:15Z`
+- **Last updated:** `2026-08-27T14:17:45Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -231,6 +231,28 @@ python -m scripts.cert.exact_prime_schur_certificate --claim C-0054 --support 19
 ```
 
 The generator does not decide the theorem. `crates/rh_cert` independently validates the whitelisted pair, reconstructs the complement lower bound and factor-3 Schur matrix, and proves the parity blocks positive using exact rational interval congruence/Gershgorin checks. The retained theorem runs are `X-20260821-005`, `X-20260826-001`, `X-20260826-002`, `X-20260826-003`, and `X-20260827-002`.
+
+### `cert/verify_retained_proofs.py`
+
+Canonical retained-theorem artifact acceptance gate. It loads the closed manifest at `computations/retained-proofs.json`, validates its five registered proof identities, hashes the exact certificate bytes, and replays every hash-valid artifact through the current independent zero-float `rh_cert` verifier.
+
+```text
+uv run --locked python -m scripts.cert.verify_retained_proofs
+```
+
+A successful run ends with `RETAINED PROOF CHAIN: PASS - 5/5`. The command is fail-closed and reports `MISSING`, `HASH_MISMATCH`, `VERIFIER_ERROR`, `THEOREM_FAILURE`, or `SEMANTIC_MISMATCH` per theorem while continuing through the full manifest. It **does not regenerate certificates** and it does not grant theorem status to a new support/dimension pair. It answers the narrower audit question: are the exact proof artifacts currently cited by the repository still byte-intact and accepted by the current independent verifier?
+
+Fast manifest-only validation remains available as:
+
+```text
+uv run --locked python -m scripts.cert.verify_retained_proofs --manifest-only
+```
+
+The real five-artifact pytest acceptance is deliberately excluded from ordinary test runs and can be invoked explicitly with:
+
+```text
+uv run --locked --extra test python -m pytest -q -m retained_proofs tests/test_retained_proofs_acceptance.py
+```
 
 ### `cert/legendre_schur.py`
 

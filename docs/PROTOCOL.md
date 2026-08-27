@@ -1,7 +1,7 @@
 # Research Documentation Protocol
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T13:16:15Z`
+- **Last updated:** `2026-08-27T14:30:20Z`
 - **Status:** Authoritative
 
 This document defines how all Riemann Hypothesis research in this repository must be recorded.
@@ -294,3 +294,9 @@ Every numerical claim supporting a derived finding or positivity statement must 
    cargo run -q -p rh_cert -- verify --cert computations/<title>/data/certificate.json
    ```
 4. **Decoupled Trust Invariant**: A certificate evaluated only by its generator is treated as `UNVERIFIED_EVIDENCE`. Both generator and independent verifier must agree for a result to be recorded as verified.
+5. **Retained Proof Registration**: Once a certificate is proof-bearing and retained as theorem evidence, register that exact artifact in `computations/retained-proofs.json` with its claim, computation ID, repository-relative path, raw-byte SHA-256, support, dimension, profile, and verified scope. Exploratory/candidate/tooling artifacts must not be registered as retained proofs. The registry is an explicit whitelist: do not scan `computations/` to discover proof artifacts automatically, and do not duplicate derived diagnostics such as Gershgorin margins into the manifest.
+6. **Retained Proof Acceptance Gate**: Audit all registered theorem artifacts with:
+   ```text
+   uv run --locked python -m scripts.cert.verify_retained_proofs
+   ```
+   This command does **not** regenerate certificates. It verifies byte integrity first and then replays intact artifacts through the current independent Rust verifier. The real pytest wrapper is marked `retained_proofs` and excluded from routine test runs.

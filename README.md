@@ -199,6 +199,14 @@ cargo clippy -p rh_cert --all-targets -- -D warnings
 cd formal && lake build
 ```
 
+The exact retained theorem artifacts have a separate first-class acceptance gate:
+
+```text
+uv run --locked python -m scripts.cert.verify_retained_proofs
+```
+
+This command does **not** regenerate certificates. It checks the closed manifest in `computations/retained-proofs.json`, requires every registered certificate SHA-256 to match its raw bytes, and replays each intact artifact through the current `rh_cert` verifier with exact claim/support/dimension/profile/scope agreement. The real five-certificate pytest wrapper is marked `retained_proofs` and excluded from routine pytest runs; invoke it explicitly with `uv run --locked --extra test python -m pytest -q -m retained_proofs tests/test_retained_proofs_acceptance.py`.
+
 ## Rigorous certificate trust chain
 
 Proof-oriented finite-dimensional calculations use a deliberately separated trust chain:
@@ -211,6 +219,8 @@ Python + python-flint/Arb
 ```
 
 The closed certificate syntax and exact PASS semantics are authoritative in [`docs/CONTRACTS.md`](docs/CONTRACTS.md) and [`docs/contracts/rh-weil-certificate-v1.json`](docs/contracts/rh-weil-certificate-v1.json). The v1 `exact_prime_legendre_schur` profile is a closed whitelist, currently admitting exactly `(T,N)=(7/20,32)`, `(2/5,40)`, `(17/40,48)`, `(9/20,56)`, and `(19/40,68)`. For each admitted pair it derives the Legendre complement bound, reconstructs the factor-3 component-Gram Schur matrix, and verifies exact rational congruence/Gershgorin witnesses. Fresh independently replayed certificates establish `C-0050` through `C-0054` as localized finite-support theorems; the profile does not accept arbitrary nearby supports.
+
+Retention adds an additional audit layer without changing those theorem semantics: `computations/retained-proofs.json` explicitly names the five proof-bearing certificate files and their expected hashes/theorem identities, while `scripts.cert.verify_retained_proofs` verifies that those exact stored artifacts remain intact and are still accepted by the current independent verifier.
 
 Support-continuation tooling may parameterize the shared exact assembler and may produce generator-side exact candidates at other rational one-prime supports. Those candidates do **not** inherit theorem status from `C-0050`. The canonical continuation driver stops at `CANDIDATE_READY`; a separate human/research decision must admit the exact support/dimension pair to the closed theorem contract before certificate generation and a fresh independent Rust replay can establish theorem status.
 
