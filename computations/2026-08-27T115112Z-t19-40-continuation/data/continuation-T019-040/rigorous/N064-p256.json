@@ -1,0 +1,64 @@
+{
+  "role": "rigorous_full_tail_screening_attempt",
+  "support": "19/40",
+  "dimension": 64,
+  "residual_order": 32,
+  "screening_status": "mathematical_negative",
+  "selected_precision_bits": null,
+  "attempt": {
+    "support": "19/40",
+    "support_decimal": 0.475,
+    "mu_lower": 0.6583679342698018,
+    "mu_midpoint": 0.6583679342698018,
+    "mu_upper": 0.6583679342698018,
+    "mu_certified_positive": true,
+    "finite_block_min_eigenvalue_midpoint": 3.867140644845861e-06,
+    "schur_min_eigenvalue_midpoint": -0.18090174481401114,
+    "component_schur_penalty_operator_norm_midpoint": {
+      "GV": 4.556046511449405,
+      "G2": 1.0946455368765065,
+      "GR": 3.0969620514704114e-12
+    },
+    "rho_R_upper": 1.9247416413383112,
+    "residual_remainder_upper": 6.265084611260248e-18,
+    "interval_widths": {
+      "A_max": 7.363238295997332e-11,
+      "GV_max": 4.646274730031314e-31,
+      "G2_max": 7.082366336734654e-12,
+      "GR_max": 5.446935165506561e-75,
+      "mu": 2.624449992689534e-75,
+      "rho_R": 2.225869736888522e-75,
+      "residual_remainder": 9.388654606932283e-93
+    },
+    "precision_bits": 256,
+    "stable_change": false,
+    "change_from_previous": {
+      "from_precision_bits": 128,
+      "to_precision_bits": 256,
+      "finite_block_midpoint_change": 1.4417389090417945e+24,
+      "schur_midpoint_change": 2.3851861587674753e+28,
+      "interval_width_changes": {
+        "A_max": -2.5397005963265716e+28,
+        "GV_max": -2.1527965997203456e+16,
+        "G2_max": -2.2667191586763424e+58,
+        "GR_max": -1.8534959905834664e-36,
+        "mu": -8.590565535793072e-37,
+        "rho_R": -7.3508982873945055e-37,
+        "residual_remainder": -3.1947936118500904e-54
+      },
+      "widths_reduced": true,
+      "signs_stable": {
+        "mu_lower_positive": true,
+        "finite_block_positive": false,
+        "schur_positive": true
+      },
+      "all_key_signs_stable": false
+    },
+    "precision_status": "INSUFFICIENT_PRECISION",
+    "precision_reasons": [
+      "key_sign_changed_at_higher_precision",
+      "midpoint_not_stable",
+      "negative_result_not_precision_stable"
+    ]
+  }
+}

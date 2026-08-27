@@ -1,0 +1,85 @@
+{
+  "role": "pre_theorem_exact_candidate_stage",
+  "status": "CANDIDATE_READY",
+  "support": "19/40",
+  "selected_dimension": 68,
+  "selected_candidate": {
+    "role": "generator_side_exact_candidate_only",
+    "status": "CANDIDATE_READY",
+    "candidate_status": "CANDIDATE_READY",
+    "theorem_status": false,
+    "independently_verified": false,
+    "whitelisted": false,
+    "automatic_promotion": false,
+    "promotion_requirements": [
+      "explicit_closed_contract_admission",
+      "retained_full_certificate_generation",
+      "fresh_independent_rust_verifier_pass"
+    ],
+    "forbidden_automatic_actions": [
+      "emit_theorem_certificate",
+      "edit_closed_contract_or_whitelist",
+      "invoke_independent_rust_verifier",
+      "grant_theorem_status"
+    ],
+    "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed.",
+    "support": "19/40",
+    "dimension": 68,
+    "precision_bits": 384,
+    "residual_order": 32,
+    "matrix_bits": 64,
+    "witness_bits": 32,
+    "mu_lower": "75949417291518920670190058491167918952198873/105700325574151851532435390945980102528204800",
+    "even_gershgorin_margin": "1117057850372388075128957361710227887697811374514782267229023862347982647851921/807632733819503428775270872893934384774524214553861762398712559399199498550902784",
+    "odd_gershgorin_margin": "41094409971925720619346370628227586741605266848311404583907753226061501104844857/6461061870556027430202166983151475078196193716430894099189700475193595988407222272",
+    "all_margins_positive": true,
+    "cache_hit": false
+  },
+  "candidate_runs": [
+    {
+      "status": "candidate_ready",
+      "selected_matrix_bits": 64,
+      "selected_witness_bits": 32,
+      "attempts": [
+        {
+          "role": "generator_side_exact_candidate_only",
+          "status": "CANDIDATE_READY",
+          "candidate_status": "CANDIDATE_READY",
+          "theorem_status": false,
+          "independently_verified": false,
+          "whitelisted": false,
+          "automatic_promotion": false,
+          "promotion_requirements": [
+            "explicit_closed_contract_admission",
+            "retained_full_certificate_generation",
+            "fresh_independent_rust_verifier_pass"
+          ],
+          "forbidden_automatic_actions": [
+            "emit_theorem_certificate",
+            "edit_closed_contract_or_whitelist",
+            "invoke_independent_rust_verifier",
+            "grant_theorem_status"
+          ],
+          "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed.",
+          "support": "19/40",
+          "dimension": 68,
+          "precision_bits": 384,
+          "residual_order": 32,
+          "matrix_bits": 64,
+          "witness_bits": 32,
+          "mu_lower": "75949417291518920670190058491167918952198873/105700325574151851532435390945980102528204800",
+          "even_gershgorin_margin": "1117057850372388075128957361710227887697811374514782267229023862347982647851921/807632733819503428775270872893934384774524214553861762398712559399199498550902784",
+          "odd_gershgorin_margin": "41094409971925720619346370628227586741605266848311404583907753226061501104844857/6461061870556027430202166983151475078196193716430894099189700475193595988407222272",
+          "all_margins_positive": true,
+          "cache_hit": false
+        }
+      ],
+      "dimension": 68
+    }
+  ],
+  "candidate_failures": [],
+  "theorem_status": false,
+  "independently_verified": false,
+  "whitelisted": false,
+  "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed."
+}

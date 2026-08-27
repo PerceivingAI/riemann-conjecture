@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-08-27T11:34:30Z`
+- **Last updated:** `2026-08-27T12:06:30Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -206,6 +206,54 @@ The real-certificate adversarial replay again distinguishes malformed proof data
 
 This establishes `F-20260826-004` / `C-0053`: strict localized Weil positivity at `T=9/20`.
 
+## Canonical continuation at T=19/40
+
+**Addendum — `2026-08-27T12:06:30Z`.** The canonical pre-theorem driver was run at
+
+```text
+T=19/40=0.475
+N=48,52,56,60,64,68,72,76,80.
+```
+
+The three-resolution floating scout classifies `N=48,52,56` as negative, `N=60` as unstable, and `N=64,68,72,76,80` as stable-positive. Per the driver contract, `N=64` became the primary rigorous target and `N=68` the single fallback.
+
+At `N=64`, 128-bit Arb output is catastrophically conditioned and 256 bits recovers the expected finite-block scale, but the Schur midpoint remains negative. The 384- and 512-bit runs agree to displayed precision:
+
+```text
+mu_64              ~ +0.6583679342698018
+finite A_64 min    ~ +3.8671406454e-6
+Schur min          ~ -0.18090174481401158.
+```
+
+Because the key signs are stable and interval widths continue to contract, the driver correctly classifies this as `MATHEMATICAL_NEGATIVE`, not `INSUFFICIENT_PRECISION`.
+
+At `N=68`, 128 bits is again conditioning-corrupted, 256 bits restores the positive scale, and 384 bits stabilizes against the prior precision:
+
+```text
+mu_68              ~ +0.7185353202932019
+finite A_68 min    ~ +3.8668365900e-6
+Schur min          ~ +3.6658868513e-6.
+```
+
+The exact candidate stage then succeeds with 64-bit outward matrix rationalization and 32-bit rational congruence witnesses. The exact-rational lower margins are positive, approximately
+
+```text
+mu lower      > 0.7185353202932019
+even margin   > 0.0013831260220094517
+odd margin    > 0.006360318287493695.
+```
+
+The terminal state is therefore
+
+```text
+CANDIDATE_READY
+(T,N)=(19/40,68).
+```
+
+The retained canonical bundle is `X-20260827-001`. It records clean generator commit `206f5678ca598568c4dfda65218d007f43a292ea` with `git_dirty=false`; all twelve manifest artifact hashes were mechanically checked after completion with no mismatch.
+
+This is **not** a theorem admission. The closed v1 theorem contract still admits only `(7/20,32)`, `(2/5,40)`, `(17/40,48)`, and `(9/20,56)`. No theorem certificate, independent Rust theorem replay, new `C-xxxx`, or theorem finding was created by this continuation run.
+
 ## Circularity check
 
 No RH input is used.
@@ -214,40 +262,26 @@ The target remains finite-support Weil positivity at one fixed support value. Ev
 
 ## Current result
 
-`A-20260826-001` is `PROMISING`.
+`A-20260826-001` remains `PROMISING`.
 
 Current results:
 
 1. the exact-prime Legendre-Schur assembler is parameterized in rational `T` while theorem admission remains closed and enumerated;
-2. fixed `N=32` remains healthy through the tested `T=0.37` but its full-tail Schur bound fails at `T=0.375` while the low block and complement remain positive;
-3. increasing to `N=40` restores the rigorous full-tail Schur mechanism at `T=0.375` and `T=0.4`;
-4. `C-0051` is `VERIFIED`: the independent Rust verifier proves strict localized Weil positivity at `T=2/5,N=40`;
-5. `C-0052` is `VERIFIED`: high-precision `N=48` assembly plus a fresh exact certificate and independent Rust replay prove strict localized Weil positivity at `T=17/40`;
-6. `C-0053` is `VERIFIED`: 512-bit `N=56` assembly plus a fresh exact certificate and independent Rust replay prove strict localized Weil positivity at `T=9/20`;
-7. the natural required dimension continues to grow with support, so the next slice must select a fresh cutoff for `T=19/40=0.475` rather than extrapolating `N=56`.
-8. the canonical `scripts.weil_continuation_driver` now owns ordinary one-prime continuation from multi-resolution scout through rigorous precision escalation, exact candidate construction, bundle generation, and concise terminal reporting;
-9. historical `T=2/5,N=40` and `T=17/40,N=48` points are real integration regressions, and the documented 104-bit monomial-conditioning incident is protected so insufficient precision escalates instead of becoming `NO_CANDIDATE`;
-10. `CANDIDATE_READY` remains a hard pre-theorem stop and cannot automatically edit the closed contract, generate a theorem claim, or invoke the independent verifier.
+2. `C-0051`, `C-0052`, and `C-0053` independently verify strict localized Weil positivity at `T=2/5,N=40`, `T=17/40,N=48`, and `T=9/20,N=56` respectively;
+3. the canonical driver now resolves the next support slice at `T=19/40`: the previous `N=56` cutoff is inadequate, `N=60` is scout-unstable, and `N=64` is rigorously stable-negative under the present Schur reduction;
+4. `N=68` survives the rigorous precision ladder at 384 bits and exact rational candidate construction with positive `mu`, even, and odd margins;
+5. `(T,N)=(19/40,68)` is therefore `CANDIDATE_READY`, but is not whitelisted, independently verified, or theorem-bearing;
+6. the P12 conditioning guard is functioning as intended: low-precision catastrophic values at both `N=64` and `N=68` are not mistaken for mathematical decisions;
+7. the hard pre-theorem boundary remains intact: this run did not edit the closed contract, generate a theorem claim/finding, or invoke the independent verifier.
 
 ## Next action
 
-Continue toward
+Stop at the `CANDIDATE_READY` boundary and make the required separate human/research decision on whether to admit exactly
 
 ```text
-T=19/40=0.475.
+(T,N)=(19/40,68)
 ```
 
-Do not guess the next cutoff from the earlier pattern. For ordinary continuation, run the canonical pre-theorem driver with an explicit dimension range, for example:
+to the closed theorem contract.
 
-```text
-uv run --locked python -m scripts.weil_continuation_driver \
-  --support 19/40 \
-  --n-min 48 \
-  --n-max 80 \
-  --n-step 4 \
-  --output-dir computations/.../data/continuation-T019-040
-```
-
-The driver owns multi-resolution reconnaissance, stable-dimension selection, rigorous precision escalation, conditioning-incident handling, exact rounding/witness search, bundle generation, and the concise terminal result. The standalone scout and candidate scripts are for isolated diagnostics/debugging or historical reproduction, not for manually reconstructing the ordinary workflow.
-
-A successful continuation run stops at `CANDIDATE_READY`. It must not edit the theorem whitelist, JSON schema, `CLAIMS.md`, `CONTRACTS.md`, generate a `C-xxxx`/finding, or invoke an unapproved verifier mode. Any theorem at `T=19/40` requires a later, separate human/research admission decision for the exact pair followed by the normal closed-contract certificate and fresh independent Rust replay. Do not extrapolate `C-0053` to nearby supports.
+If admission is approved, the subsequent slice should modify only the closed configuration set needed for this pair, generate a fresh proof certificate under the admitted contract, perform a fresh independent Rust replay plus adversarial checks, and promote theorem status only if that independent path passes. Until that admission decision is made, no theorem-facing files should change.

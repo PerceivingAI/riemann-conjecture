@@ -1,0 +1,258 @@
+{
+  "format": "rh-continuation-candidate-bundle-v1",
+  "role": "pre_theorem_continuation_bundle_manifest",
+  "driver_version": "continuation-driver-p13-v1",
+  "cache_version": "continuation-driver-v4",
+  "run_started_at_utc": "2026-08-27T11:51:12Z",
+  "run_completed_at_utc": "2026-08-27T12:04:36Z",
+  "configuration": {
+    "support": "19/40",
+    "dimensions": [
+      48,
+      52,
+      56,
+      60,
+      64,
+      68,
+      72,
+      76,
+      80
+    ],
+    "scout_resolution_count": 3,
+    "scout_resolution_plan": [
+      {
+        "level": 0,
+        "max_mode": 120,
+        "quadrature_order": 700,
+        "shift_order": 350
+      },
+      {
+        "level": 1,
+        "max_mode": 160,
+        "quadrature_order": 860,
+        "shift_order": 430
+      },
+      {
+        "level": 2,
+        "max_mode": 200,
+        "quadrature_order": 1020,
+        "shift_order": 510
+      }
+    ],
+    "precision_start": 128,
+    "precision_max": 512,
+    "precision_ladder": [
+      128,
+      256,
+      384,
+      512
+    ],
+    "residual_order": 32,
+    "matrix_bits_start": 64,
+    "matrix_bits_max": 104,
+    "matrix_bits_ladder": [
+      64,
+      80,
+      96,
+      104
+    ],
+    "witness_bits_start": 32,
+    "witness_bits_max": 56,
+    "witness_bits_ladder": [
+      32,
+      40,
+      48,
+      56
+    ],
+    "cache_dir": ".cache\\continuation-driver"
+  },
+  "provenance": {
+    "git_commit": "206f5678ca598568c4dfda65218d007f43a292ea",
+    "git_dirty": false,
+    "python_version": "3.14.0",
+    "python_implementation": "CPython",
+    "python_flint_version": "0.9.0"
+  },
+  "final_state": "CANDIDATE_READY",
+  "workflow_state": "CANDIDATE_READY",
+  "workflow_trace": [
+    {
+      "sequence": 0,
+      "from": null,
+      "to": "VALIDATE_INPUT",
+      "reason": "driver_started",
+      "details": {}
+    },
+    {
+      "sequence": 1,
+      "from": "VALIDATE_INPUT",
+      "to": "FLOAT_SCOUT",
+      "reason": "validated_driver_inputs",
+      "details": {
+        "support": "19/40",
+        "dimension_count": 9,
+        "resolution_count": 3
+      }
+    },
+    {
+      "sequence": 2,
+      "from": "FLOAT_SCOUT",
+      "to": "CHECK_SCOUT_STABILITY",
+      "reason": "floating_scout_complete",
+      "details": {
+        "completed_resolutions": 3,
+        "failed_resolutions": 0
+      }
+    },
+    {
+      "sequence": 3,
+      "from": "CHECK_SCOUT_STABILITY",
+      "to": "SELECT_DIMENSION",
+      "reason": "stable_positive_dimensions_found",
+      "details": {
+        "stable_dimensions": [
+          64,
+          68,
+          72,
+          76,
+          80
+        ]
+      }
+    },
+    {
+      "sequence": 4,
+      "from": "SELECT_DIMENSION",
+      "to": "RIGOROUS_PRECISION_SEARCH",
+      "reason": "selected_primary_and_fallback_dimensions",
+      "details": {
+        "primary_dimension": 64,
+        "fallback_dimensions": [
+          68
+        ]
+      }
+    },
+    {
+      "sequence": 5,
+      "from": "RIGOROUS_PRECISION_SEARCH",
+      "to": "CHECK_RIGOROUS_STABILITY",
+      "reason": "rigorous_precision_search_complete",
+      "details": {
+        "screened_dimensions": [
+          64,
+          68
+        ],
+        "surviving_dimensions": [
+          68
+        ],
+        "rigorous_failure_count": 0
+      }
+    },
+    {
+      "sequence": 6,
+      "from": "CHECK_RIGOROUS_STABILITY",
+      "to": "EXACT_ROUNDING_SEARCH",
+      "reason": "rigorous_candidate_survived",
+      "details": {
+        "surviving_dimensions": [
+          68
+        ]
+      }
+    },
+    {
+      "sequence": 7,
+      "from": "EXACT_ROUNDING_SEARCH",
+      "to": "EXACT_WITNESS_CHECK",
+      "reason": "outward_rounding_and_exact_schur_succeeded",
+      "details": {
+        "selected_candidate_dimension": 68
+      }
+    },
+    {
+      "sequence": 8,
+      "from": "EXACT_WITNESS_CHECK",
+      "to": "CANDIDATE_READY",
+      "reason": "exact_rational_parity_witnesses_have_positive_margins",
+      "details": {
+        "selected_candidate_dimension": 68
+      }
+    }
+  ],
+  "theorem_status": false,
+  "independently_verified": false,
+  "whitelisted": false,
+  "artifacts": [
+    {
+      "path": "candidate/candidate.json",
+      "kind": "exact_candidate",
+      "sha256": "58dd99248e4223be8bafcfc688c683cd2c0aa84cdf89e41ec166af658eecf2d0",
+      "bytes": 3876
+    },
+    {
+      "path": "rigorous/N064-p128.json",
+      "kind": "rigorous_screening",
+      "sha256": "9cbba6e7579d6c90906b650980815482121631b2f10b127235588dc8004d02e9",
+      "bytes": 1398
+    },
+    {
+      "path": "rigorous/N064-p256.json",
+      "kind": "rigorous_screening",
+      "sha256": "e6aeb78462885115761a29d71129013f026d1f859fab31eb42dd28f8056f030f",
+      "bytes": 2142
+    },
+    {
+      "path": "rigorous/N064-p384.json",
+      "kind": "rigorous_screening",
+      "sha256": "6bed411ec1f91c1470249d0a6654db7e7a31ad84493293fa2ef965cbd2fb6996",
+      "bytes": 2012
+    },
+    {
+      "path": "rigorous/N064-p512.json",
+      "kind": "rigorous_screening",
+      "sha256": "f801a00d0af41434a2c3e1e9eb52345e10d6f5cf85af4f04ab9f9459fc8647cc",
+      "bytes": 2038
+    },
+    {
+      "path": "rigorous/N068-p128.json",
+      "kind": "rigorous_screening",
+      "sha256": "2dd3f7223b6d1fd5367fc52d0c654d5a8af4e4bc1b1693c39fda588ed6ae4fa6",
+      "bytes": 1388
+    },
+    {
+      "path": "rigorous/N068-p256.json",
+      "kind": "rigorous_screening",
+      "sha256": "0df009a91649738054f1c4292a73ee15c8e5150706a27debb13f3d6dc7a96837",
+      "bytes": 2089
+    },
+    {
+      "path": "rigorous/N068-p384.json",
+      "kind": "rigorous_screening",
+      "sha256": "ada39091f651aa77fc65c0350528aeeb5fd3fba39aa243fd62d03279c74c3bbe",
+      "bytes": 2053
+    },
+    {
+      "path": "scout/resolution-01.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "ac42e3a6f93d60b8521ad25ff7db4f46796b2b5931ccb944302315e8ec335bac",
+      "bytes": 2611
+    },
+    {
+      "path": "scout/resolution-02.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "6b19db315cf9a55e6e6762600f44f6da989e97610e85267fe61f26b32747b31f",
+      "bytes": 2619
+    },
+    {
+      "path": "scout/resolution-03.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "6b3bca66241763a8c8581fdcbcbcbe5bcd64430378e1b050288ee9f123a48a1b",
+      "bytes": 2620
+    },
+    {
+      "path": "summary.json",
+      "kind": "summary",
+      "sha256": "3c843b027e4267f8bf0fa79acdbe0db3fe70c946865c8aaa68a8f38a6cb4e870",
+      "bytes": 35070
+    }
+  ],
+  "warning": "This bundle contains pre-theorem continuation evidence only. It contains no theorem certificate and records no independent verifier admission."
+}

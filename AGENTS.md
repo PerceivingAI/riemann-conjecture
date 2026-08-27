@@ -39,7 +39,7 @@ The closed `exact_prime_legendre_schur` theorem contract currently admits exactl
 (T,N)=(9/20,56)
 ```
 
-These support the independently verified finite-support results `C-0050` through `C-0053`. The active continuation frontier is `T=19/40`, still inside the strict one-prime window. Any new pair is pre-theorem until separately admitted to the closed contract and independently replayed.
+These support the independently verified finite-support results `C-0050` through `C-0053`. The canonical continuation driver has now reached generator-side `CANDIDATE_READY` at `(T,N)=(19/40,68)`; `N=64` is precision-stable negative under the current Schur reduction. The immediate frontier is the separate admission decision for `(19/40,68)`. Until that decision is made, the closed theorem contract remains unchanged and the candidate is not independently verified or theorem-bearing.
 
 ## 3. Repository map
 

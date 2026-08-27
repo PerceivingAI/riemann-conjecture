@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T05:47:47Z`
+- **Last updated:** `2026-08-27T12:06:30Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -39,7 +39,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit, Weil support thresholds, and first-prime compressed-translation mechanism; `COMPLETE`.
 - [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — first-prime support continuation; exact endpoint absorption, digamma kernel decomposition, residual-term correction, and external-certificate audit; `COMPLETE` intermediate.
 - [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; global `0.69V` target refuted as too lossy, exact high-mode complement and tail-Gram reduction proved, and a clean `N=32` exact certificate establishes strict localized Weil positivity at `T=7/20`; `COMPLETE`.
-- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, and `T=9/20,N=56`; continuation toward `T=19/40` remains `PROMISING`.
+- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, and `T=9/20,N=56`; the canonical driver now reaches pre-theorem `CANDIDATE_READY` at `T=19/40,N=68`; `PROMISING`.
 
 ## Landmark findings
 
@@ -125,6 +125,8 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`X-20260826-002`](../computations/2026-08-26T183125Z-seventeen-fortieths-schur-certificate/record.md) — 384-bit full-tail `N=48` assembly, exact rational certificate, adversarial replay, and independent Rust PASS supporting `C-0052` at `T=17/40`.
 
 - [`X-20260826-003`](../computations/2026-08-26T190517Z-nine-twentieths-schur-certificate/record.md) — 512-bit full-tail `N=56` assembly, exact rational certificate, adversarial replay, and independent Rust PASS supporting `C-0053` at `T=9/20`.
+- [`X-20260827-001`](../computations/2026-08-27T115112Z-t19-40-continuation/record.md) — canonical `T=19/40` continuation bundle; `N=64` is stable-negative after precision escalation and `N=68` is a generator-side exact `CANDIDATE_READY` point awaiting a separate admission decision.
+
 
 ## Templates
 
@@ -134,4 +136,4 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Current state
 
-RH remains unresolved. `C-0050` at `T=7/20`, `C-0051` at `T=2/5`, `C-0052` at `T=17/40`, and `C-0053` at `T=9/20` are independently verified finite-support theorems. `A-20260826-001` remains active; the immediate frontier is dimension selection for `T=19/40=0.475`, followed by a fresh high-precision full-tail exact candidate at the selected cutoff. See [`STATUS.md`](STATUS.md).
+RH remains unresolved. `C-0050` at `T=7/20`, `C-0051` at `T=2/5`, `C-0052` at `T=17/40`, and `C-0053` at `T=9/20` are independently verified finite-support theorems. `A-20260826-001` remains active; `X-20260827-001` has reached pre-theorem `CANDIDATE_READY` at `T=19/40,N=68`. The immediate frontier is the separate human/research decision whether to admit that exact pair to the closed theorem contract; no theorem status has been granted. See [`STATUS.md`](STATUS.md).

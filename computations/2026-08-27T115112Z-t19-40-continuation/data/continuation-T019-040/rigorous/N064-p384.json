@@ -1,0 +1,60 @@
+{
+  "role": "rigorous_full_tail_screening_attempt",
+  "support": "19/40",
+  "dimension": 64,
+  "residual_order": 32,
+  "screening_status": "mathematical_negative",
+  "selected_precision_bits": null,
+  "attempt": {
+    "support": "19/40",
+    "support_decimal": 0.475,
+    "mu_lower": 0.6583679342698018,
+    "mu_midpoint": 0.6583679342698018,
+    "mu_upper": 0.6583679342698018,
+    "mu_certified_positive": true,
+    "finite_block_min_eigenvalue_midpoint": 3.867140645400408e-06,
+    "schur_min_eigenvalue_midpoint": -0.18090174481401158,
+    "component_schur_penalty_operator_norm_midpoint": {
+      "GV": 4.556046511449405,
+      "G2": 1.094645536876506,
+      "GR": 3.0969620514704122e-12
+    },
+    "rho_R_upper": 1.9247416413383112,
+    "residual_remainder_upper": 6.265084611260248e-18,
+    "interval_widths": {
+      "A_max": 2.163157108551077e-49,
+      "GV_max": 1.3256354148287734e-69,
+      "G2_max": 2.0806557449710428e-50,
+      "GR_max": 1.6007103790870562e-113,
+      "mu": 7.814083072955378e-114,
+      "rho_R": 6.541243253446873e-114,
+      "residual_remainder": 2.713491218449916e-131
+    },
+    "precision_bits": 384,
+    "stable_change": true,
+    "change_from_previous": {
+      "from_precision_bits": 256,
+      "to_precision_bits": 384,
+      "finite_block_midpoint_change": 5.545473883697069e-16,
+      "schur_midpoint_change": 4.440892098500626e-16,
+      "interval_width_changes": {
+        "A_max": -7.363238295997332e-11,
+        "GV_max": -4.646274730031314e-31,
+        "G2_max": -7.082366336734654e-12,
+        "GR_max": -5.446935165506561e-75,
+        "mu": -2.624449992689534e-75,
+        "rho_R": -2.225869736888522e-75,
+        "residual_remainder": -9.388654606932283e-93
+      },
+      "widths_reduced": true,
+      "signs_stable": {
+        "mu_lower_positive": true,
+        "finite_block_positive": true,
+        "schur_positive": true
+      },
+      "all_key_signs_stable": true
+    },
+    "precision_status": "INSUFFICIENT_PRECISION",
+    "precision_reasons": []
+  }
+}

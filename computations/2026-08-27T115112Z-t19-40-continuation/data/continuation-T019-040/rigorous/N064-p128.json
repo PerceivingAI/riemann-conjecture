@@ -1,0 +1,42 @@
+{
+  "role": "rigorous_full_tail_screening_attempt",
+  "support": "19/40",
+  "dimension": 64,
+  "residual_order": 32,
+  "screening_status": "mathematical_negative",
+  "selected_precision_bits": null,
+  "attempt": {
+    "support": "19/40",
+    "support_decimal": 0.475,
+    "mu_lower": 0.6583679342698018,
+    "mu_midpoint": 0.6583679342698018,
+    "mu_upper": 0.6583679342698018,
+    "mu_certified_positive": true,
+    "finite_block_min_eigenvalue_midpoint": -1.4417389090417945e+24,
+    "schur_min_eigenvalue_midpoint": -2.3851861587674753e+28,
+    "component_schur_penalty_operator_norm_midpoint": {
+      "GV": 2839.982434470032,
+      "G2": 2.3851152962415646e+28,
+      "GR": 3.096962051470413e-12
+    },
+    "rho_R_upper": 1.9247416413383112,
+    "residual_remainder_upper": 6.265084611260248e-18,
+    "interval_widths": {
+      "A_max": 2.5397005963265716e+28,
+      "GV_max": 2.1527965997203456e+16,
+      "G2_max": 2.2667191586763424e+58,
+      "GR_max": 1.8534959905834664e-36,
+      "mu": 8.590565535793072e-37,
+      "rho_R": 7.3508982873945055e-37,
+      "residual_remainder": 3.1947936118500904e-54
+    },
+    "precision_bits": 128,
+    "stable_change": false,
+    "precision_status": "INSUFFICIENT_PRECISION",
+    "precision_reasons": [
+      "no_prior_precision_for_stability_check",
+      "negative_result_not_precision_stable",
+      "contradicted_by_higher_precision"
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T11:34:30Z`
+- **Last updated:** `2026-08-27T12:06:30Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
@@ -20,15 +20,15 @@ Eleven formal research attempts are recorded:
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit and restricted-support Weil operator mechanism; `COMPLETE`.
 - [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — exact first-prime endpoint absorption, finite-support normalization guard, and external FP-0.35 source audit; `COMPLETE` intermediate target.
 - [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; global 69% absorption is refuted as too lossy, while the exact-prime `N=32` Schur certificate proves strict localized Weil positivity at `T=7/20`; `COMPLETE`.
-- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — one-prime support continuation from the verified `T=7/20` basepoint; moving Legendre dimension now yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, and `T=9/20,N=56`; continuation toward `T=19/40` remains active; `PROMISING`.
+- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — one-prime support continuation from the verified `T=7/20` basepoint; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, and `T=9/20,N=56`; the canonical driver now reaches pre-theorem `CANDIDATE_READY` at `T=19/40,N=68`; `PROMISING`.
 
-The repository now contains sixteen retained computation records. No proof of RH has been obtained.
+The repository now contains seventeen retained computation records. No proof of RH has been obtained.
 
 ## Active leads
 
 ### L1 — Exact-prime localized Weil positivity and support continuation
 
-**Status:** `VERIFIED BASEPOINT / ACTIVE CONTINUATION FRONTIER`
+**Status:** `VERIFIED THROUGH T=9/20 / PRE-THEOREM CANDIDATE AT T=19/40`
 
 `A-20260821-004` has now achieved its finite-support success target.
 
@@ -147,7 +147,7 @@ odd  margin > 0.004366893328949625,
 
 reconstructs the factor-3 Schur matrix, and returns `passed=true` with scope `localized_weil_positivity_T_9_20`. The real-certificate adversarial replay again distinguishes contract failure (exit `2`) from theorem failure (exit `1`).
 
-The active frontier has therefore moved to `T=19/40=0.475`. The next cutoff has not yet been selected rigorously, and no `T=19/40` candidate has been admitted. Ordinary continuation is now driven by the canonical `scripts.weil_continuation_driver`: it performs multi-resolution reconnaissance, convergence-aware dimension selection, rigorous precision escalation, conditioning-incident handling, exact candidate construction, bundle generation, and concise terminal reporting. Real integration tests rediscover the historical `T=2/5,N=40` and `T=17/40,N=48` continuation points, and a regression reproduces the documented 104-bit monomial-conditioning incident so insufficient precision escalates rather than becoming `NO_CANDIDATE`.
+The canonical continuation driver has now completed the `T=19/40=0.475` slice over the explicit range `N=48,52,...,80` (`X-20260827-001`). The multi-resolution scout selected `N=64` as the primary rigorous target and `N=68` as the fallback. Precision escalation shows that `N=64` is genuinely negative under the present full-tail Schur reduction: its 384- and 512-bit Schur midpoints agree near `-0.18090174481401158`. At `N=68`, the 256- and 384-bit runs stabilize at a positive Schur midpoint near `3.6658868513e-6`; exact rational candidate construction then succeeds at 64 matrix bits and 32 witness bits with positive `mu`, even, and odd margins. The driver therefore terminates at `CANDIDATE_READY` for `(T,N)=(19/40,68)`. This is generator-side evidence only: the pair has not been admitted to the closed theorem contract, no theorem certificate has been generated, and no independent Rust theorem replay has been invoked.
 
 ### L2 — Exact transcendental interval inputs
 
@@ -290,8 +290,10 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 - `X-20260826-002` contains the 384-bit `N=48` full-tail diagnostic, exact `T=17/40` certificate, adversarial checks, and independent Rust PASS for `C-0052`.
 
 - `X-20260826-003` contains the 512-bit `N=56` full-tail diagnostic, exact `T=9/20` certificate, adversarial checks, and independent Rust PASS for `C-0053`.
+- `X-20260827-001` contains the canonical `T=19/40` continuation bundle: `N=64` is precision-stable negative under the current Schur reduction, while `N=68` reaches generator-side exact `CANDIDATE_READY` at 384-bit precision. It is not proof-bearing and has no independent verifier admission.
 
-`X-20260821-005`, `X-20260826-001`, `X-20260826-002`, and `X-20260826-003` are proof-bearing for the finite-support theorems `C-0050`, `C-0051`, `C-0052`, and `C-0053`, respectively. Their exact certificates and independent replays are retained with hashes and reproduction commands. None of these finite-support computations constitutes a proof of RH.
+
+`X-20260821-005`, `X-20260826-001`, `X-20260826-002`, and `X-20260826-003` are proof-bearing for the finite-support theorems `C-0050`, `C-0051`, `C-0052`, and `C-0053`, respectively. Their exact certificates and independent replays are retained with hashes and reproduction commands. `X-20260827-001` is explicitly pre-theorem and is not part of that proof-bearing set. None of these finite-support results constitutes a proof of RH.
 
 ## Open requirements / blockers
 
@@ -303,19 +305,16 @@ There is no remaining blocker at `T=17/40`; `C-0052` is independently verified.
 
 There is no remaining blocker at `T=9/20`; `C-0053` is independently verified.
 
-The primary open requirement is now the next continuation target
+At `T=19/40`, the canonical driver has completed dimension selection and generator-side exact candidate construction. `N=64` is rigorously stable-negative for the current Schur reduction, while `(T,N)=(19/40,68)` reaches `CANDIDATE_READY` with positive exact rational margins.
 
-```text
-T=19/40=0.475.
-```
+The immediate open requirement is therefore **not another continuation search**. It is the separate human/research admission decision required by the pre-theorem boundary:
 
-The next slice must:
+1. review `X-20260827-001` and decide explicitly whether `(19/40,68)` should be admitted to the closed `exact_prime_legendre_schur` theorem contract;
+2. until that decision is made, leave the Python/Rust whitelists, JSON schema, claim ledger, theorem findings, and independent verifier path unchanged;
+3. if the pair is admitted, make that closed-contract change as a separate slice, generate a fresh theorem certificate, run a fresh independent zero-float Rust replay and the normal adversarial checks, and only then consider a new verified claim/finding;
+4. if the pair is not admitted, record the reason and keep `X-20260827-001` as pre-theorem evidence only.
 
-1. use the canonical `scripts.weil_continuation_driver` at `T=19/40` with an explicit dimension range rather than extrapolating `N` from the previous sequence;
-2. let the driver own the multi-resolution scout, stable-dimension selection, rigorous full-tail precision ladder, exact rounding/witness search, and self-contained continuation bundle;
-3. preserve the P12 distinction: conditioning-sensitive or unresolved numerics are `INSUFFICIENT_PRECISION`/`PRECISION_LIMIT_REACHED`, while `NO_CANDIDATE` requires stable mathematical rejection;
-4. stop automatically at `CANDIDATE_READY`; the continuation run must not edit theorem whitelists/schema/claims/contracts, create a theorem claim or finding, or invoke an unapproved verifier path;
-5. only after a separate human/research decision to admit an exact `(T,N)` pair may the closed theorem contract be changed and the normal certificate-generation plus fresh independent Rust replay workflow begin.
+The eventual structural transition remains the entry of the `p=3` compressed translation at `(1/2)log 3`.
 
 
 ## Invalidated, corrected, or closed directions
@@ -374,6 +373,6 @@ The next slice must:
 
 ## Next research action
 
-Continue `A-20260826-001` at `T=19/40` using the canonical pre-theorem driver (`python -m scripts.weil_continuation_driver`) with an explicit dimension range. Do not manually reconstruct the scout → rigorous screen → candidate chain with the standalone tools; those remain available for isolated diagnostics/debugging and historical reproduction.
+Review the retained `X-20260827-001` pre-theorem candidate at `(T,N)=(19/40,68)` and make the explicit admission decision required by the hard boundary. Do not edit the closed contract or invoke the independent theorem verifier unless that separate decision is affirmative.
 
-Do not extrapolate `C-0053` from `T=9/20`. The canonical driver may produce `CANDIDATE_READY`, but that is not theorem status and does not authorize admission. The required boundary is `CANDIDATE_READY` → separate human/research admission decision → closed-contract change → fresh certificate generation → independent Rust replay. The eventual structural transition remains the entry of the `p=3` compressed translation at `(1/2)log 3`.
+If admitted, the next slice is deliberately narrow: add only `(19/40,68)` to the closed theorem contract, generate a fresh exact certificate from the admitted configuration, run the independent zero-float Rust verifier plus adversarial replays, and update claims/findings only on a genuine independent PASS. The eventual structural transition remains the entry of the `p=3` compressed translation at `(1/2)log 3`.

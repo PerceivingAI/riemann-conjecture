@@ -1,10 +1,42 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-26T19:05:17Z`
+- **Last updated:** `2026-08-27T12:06:30Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-08-27T12:06:30Z — Canonical T=19/40 continuation reaches pre-theorem N=68 candidate
+
+**Type:** Research continuation / canonical driver / precision-classified full-tail assembly / exact generator-side candidate
+
+Continued `A-20260826-001` from the independently verified `T=9/20,N=56` theorem using the canonical `scripts.weil_continuation_driver` over the explicit range `N=48,52,...,80`.
+
+The three-resolution floating scout classified `N=64,68,72,76,80` as stable-positive candidates, with `N=64` selected as the primary rigorous target and `N=68` as the fallback. Rigorous Arb precision escalation then separates a real failure from conditioning:
+
+```text
+N=64: 384/512-bit Schur midpoint ~ -0.18090174481401158
+      => MATHEMATICAL_NEGATIVE
+
+N=68: 256/384-bit Schur midpoint ~ +3.6658868513e-6
+      => PRECISION_STABLE at 384 bits
+```
+
+At `N=68`, exact outward rationalization and exact parity congruence/Gershgorin witnesses succeed at the first attempted settings (`matrix_bits=64`, `witness_bits=32`), with approximate exact-rational lower margins
+
+```text
+mu_68       > 0.7185353202932019
+even margin > 0.0013831260220094517
+odd margin  > 0.006360318287493695.
+```
+
+The driver terminates at `CANDIDATE_READY`. The retained pre-theorem bundle is `X-20260827-001`; its manifest records clean commit `206f5678ca598568c4dfda65218d007f43a292ea` with `git_dirty=false`, and all twelve manifest artifact hashes were mechanically rechecked with no mismatch.
+
+An execution-observability incident caused duplicate copies of the identical long-running driver command after the first Portus batch call crossed its tool timeout. The duplicate process trees were identified and terminated; the completed original bundle is retained and the incident is documented in the computation record.
+
+**Outcome:** `(T,N)=(19/40,68)` is strong generator-side continuation evidence only. It has not been admitted to the closed theorem contract, no theorem certificate has been generated, no independent Rust theorem replay has been invoked, and no new theorem claim/finding has been created. The next action is the explicit human/research admission decision required by the hard pre-theorem boundary.
+
+---
 
 ## 2026-08-26T19:05:17Z — One-prime continuation reaches T=9/20 with 512-bit N=56 certificate
 

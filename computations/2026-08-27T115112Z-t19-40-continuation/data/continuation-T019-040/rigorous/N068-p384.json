@@ -1,0 +1,62 @@
+{
+  "role": "rigorous_full_tail_screening_attempt",
+  "support": "19/40",
+  "dimension": 68,
+  "residual_order": 32,
+  "screening_status": "precision_stable",
+  "selected_precision_bits": 384,
+  "attempt": {
+    "support": "19/40",
+    "support_decimal": 0.475,
+    "mu_lower": 0.7185353202932019,
+    "mu_midpoint": 0.7185353202932019,
+    "mu_upper": 0.7185353202932019,
+    "mu_certified_positive": true,
+    "finite_block_min_eigenvalue_midpoint": 3.866836590023586e-06,
+    "schur_min_eigenvalue_midpoint": 3.6658868512568998e-06,
+    "component_schur_penalty_operator_norm_midpoint": {
+      "GV": 4.220395768396014,
+      "G2": 1.0029841269057733,
+      "GR": 2.222403299315061e-12
+    },
+    "rho_R_upper": 1.9247416413383112,
+    "residual_remainder_upper": 6.265084611260248e-18,
+    "interval_widths": {
+      "A_max": 4.7193989979987315e-45,
+      "GV_max": 1.3762034617183962e-66,
+      "G2_max": 4.496362897151824e-46,
+      "GR_max": 1.6007103790870562e-113,
+      "mu": 7.814083072955378e-114,
+      "rho_R": 6.541243253446873e-114,
+      "residual_remainder": 2.713491218449916e-131
+    },
+    "precision_bits": 384,
+    "stable_change": true,
+    "change_from_previous": {
+      "from_precision_bits": 256,
+      "to_precision_bits": 384,
+      "finite_block_midpoint_change": 1.0844562823696807e-16,
+      "schur_midpoint_change": 3.5776765867890324e-16,
+      "interval_width_changes": {
+        "A_max": -1.6061746670459343e-06,
+        "GV_max": -4.844223933304754e-28,
+        "G2_max": -1.5302604250422291e-07,
+        "GR_max": -5.446935165506561e-75,
+        "mu": -2.624449992689534e-75,
+        "rho_R": -2.225869736888522e-75,
+        "residual_remainder": -9.388654606932283e-93
+      },
+      "widths_reduced": true,
+      "signs_stable": {
+        "mu_lower_positive": true,
+        "finite_block_positive": true,
+        "schur_positive": true
+      },
+      "all_key_signs_stable": true
+    },
+    "precision_status": "PRECISION_STABLE",
+    "precision_reasons": [
+      "stable_against_previous_precision"
+    ]
+  }
+}

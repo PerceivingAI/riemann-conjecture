@@ -1,7 +1,7 @@
 # Computations
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-26T19:05:17Z`
+- **Last updated:** `2026-08-27T12:06:30Z`
 
 This directory contains timestamped numerical and symbolic experiments. Every retained computation must be reproducible and must distinguish numerical evidence from proof.
 
@@ -29,6 +29,8 @@ This directory contains timestamped numerical and symbolic experiments. Every re
 - [`X-20260826-002`](2026-08-26T183125Z-seventeen-fortieths-schur-certificate/record.md) — 384-bit full-tail `N=48` assembly and proof-bearing exact certificate plus independent Rust PASS proving strict localized Weil positivity at `T=17/40` (`C-0052`).
 
 - [`X-20260826-003`](2026-08-26T190517Z-nine-twentieths-schur-certificate/record.md) — 512-bit full-tail `N=56` assembly and proof-bearing exact certificate plus independent Rust PASS proving strict localized Weil positivity at `T=9/20` (`C-0053`).
+- [`X-20260827-001`](2026-08-27T115112Z-t19-40-continuation/record.md) — canonical pre-theorem continuation at `T=19/40`; `N=64` is rigorously stable-negative under the current Schur reduction, while `N=68` reaches generator-side `CANDIDATE_READY` at 384-bit Arb precision with positive exact rational margins. No theorem admission or independent Rust replay has occurred.
+
 
 ## Directory Bundle Standard
 
