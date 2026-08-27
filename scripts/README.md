@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-27T11:34:30Z`
+- **Last updated:** `2026-08-27T13:16:15Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -226,9 +226,11 @@ python -m scripts.cert.exact_prime_schur_certificate --claim C-0051 --support 2/
 python -m scripts.cert.exact_prime_schur_certificate --claim C-0052 --support 17/40 --dimension 48 --prec 384 --matrix-bits 88 --witness-bits 48 --output-json computations/.../data/certificate.json
 
 python -m scripts.cert.exact_prime_schur_certificate --claim C-0053 --support 9/20 --dimension 56 --prec 512 --matrix-bits 104 --witness-bits 56 --output-json computations/.../data/certificate.json
+
+python -m scripts.cert.exact_prime_schur_certificate --claim C-0054 --support 19/40 --dimension 68 --prec 384 --matrix-bits 64 --witness-bits 32 --output-json computations/.../data/certificate.json
 ```
 
-The generator does not decide the theorem. `crates/rh_cert` independently validates the whitelisted pair, reconstructs the complement lower bound and factor-3 Schur matrix, and proves the parity blocks positive using exact rational interval congruence/Gershgorin checks. The retained theorem runs are `X-20260821-005`, `X-20260826-001`, `X-20260826-002`, and `X-20260826-003`.
+The generator does not decide the theorem. `crates/rh_cert` independently validates the whitelisted pair, reconstructs the complement lower bound and factor-3 Schur matrix, and proves the parity blocks positive using exact rational interval congruence/Gershgorin checks. The retained theorem runs are `X-20260821-005`, `X-20260826-001`, `X-20260826-002`, `X-20260826-003`, and `X-20260827-002`.
 
 ### `cert/legendre_schur.py`
 

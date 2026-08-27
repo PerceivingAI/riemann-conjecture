@@ -1,7 +1,7 @@
 # Repository Architecture & Proof Contracts
 
 - **Created:** `2026-08-21T06:00:00Z`
-- **Last updated:** `2026-08-26T19:05:17Z`
+- **Last updated:** `2026-08-27T13:16:15Z`
 - **Status:** Authoritative
 
 This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
@@ -80,7 +80,8 @@ For `exact_prime_legendre_schur`, v1 uses a **closed whitelist**, not a paramete
 (T,N)=(7/20,32)
 (T,N)=(2/5,40)
 (T,N)=(17/40,48)
-(T,N)=(9/20,56),
+(T,N)=(9/20,56)
+(T,N)=(19/40,68),
 ```
 
 with both parity sectors, residual order `32`, and exact Schur factor `3`. Rust does **not** trust a precomputed Schur matrix. For the admitted dimension `N`, it derives
@@ -143,9 +144,9 @@ where $K_k$ has kernel $e^{-2a_k|t-s|}$. Zero extension to the real line and the
 $$\int_{\mathbb R}e^{-2a_k|u|}\,du=\frac1{a_k}$$
 give $\langle f,K_kf\rangle\le a_k^{-1}\lVert f\rVert_2^2$. Hence every omitted $B_k$ is nonnegative and the verifier-derived tail lower bound is exactly zero. The witness contains `k_max` and `first_omitted_k`; Rust must check `first_omitted_k = k_max + 1`.
 
-`legendre_component_gram_schur` applies only to `exact_prime_legendre_schur`. In v1, `harmonic_index` must equal the whitelisted finite dimension (`32`, `40`, `48`, or `56`) and the factor must be the exact rational `3`. The required constants are only `c2`, `c_T`, and `rho_R`; the required proof matrices are `GV`, `G2`, and `GR`. Opposite-parity entries in `A`, `GV`, `G2`, and `GR` must be exactly zero. Rust derives the lower complement constant from the upper endpoints of those scalar intervals, reconstructs the factor-3 Schur matrix, extracts its even and odd blocks, and checks the supplied exact rational lower-triangular congruence witnesses for invertibility before applying exact interval Gershgorin positivity.
+`legendre_component_gram_schur` applies only to `exact_prime_legendre_schur`. In v1, `harmonic_index` must equal the whitelisted finite dimension (`32`, `40`, `48`, `56`, or `68`) and the factor must be the exact rational `3`. The required constants are only `c2`, `c_T`, and `rho_R`; the required proof matrices are `GV`, `G2`, and `GR`. Opposite-parity entries in `A`, `GV`, `G2`, and `GR` must be exactly zero. Rust derives the lower complement constant from the upper endpoints of those scalar intervals, reconstructs the factor-3 Schur matrix, extracts its even and odd blocks, and checks the supplied exact rational lower-triangular congruence witnesses for invertibility before applying exact interval Gershgorin positivity.
 
-The retained `C-0050` (`T=7/20,N=32`), `C-0051` (`T=2/5,N=40`), `C-0052` (`T=17/40,N=48`), and `C-0053` (`T=9/20,N=56`) certificates use this rule and are proof-bearing because `C-0045`, `C-0047`, and `C-0048` provide the analytic complement and Schur semantics encoded by the profile. No other `(T,N)` pair inherits theorem status.
+The retained `C-0050` (`T=7/20,N=32`), `C-0051` (`T=2/5,N=40`), `C-0052` (`T=17/40,N=48`), `C-0053` (`T=9/20,N=56`), and `C-0054` (`T=19/40,N=68`) certificates use this rule and are proof-bearing because `C-0045`, `C-0047`, and `C-0048` provide the analytic complement and Schur semantics encoded by the profile. Each theorem-bearing pair required explicit closed-contract admission followed by a fresh independent Rust PASS; whitelist admission alone never grants theorem status. No other `(T,N)` pair is admitted.
 
 No other tail/proof type is valid. In particular, v1 does not accept a free-form description, an asserted lower bound for an unspecified operator, or a precomputed eigenvalue/positive-definite flag.
 

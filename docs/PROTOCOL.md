@@ -1,7 +1,7 @@
 # Research Documentation Protocol
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T06:00:00Z`
+- **Last updated:** `2026-08-27T13:16:15Z`
 - **Status:** Authoritative
 
 This document defines how all Riemann Hypothesis research in this repository must be recorded.
@@ -111,7 +111,7 @@ Required content in `record.md`:
 Visual & Data Artifact Rules:
 - **Static figures:** Generated figures must be saved directly into `plots/` within the computation bundle. Prefer `.svg` for line plots, phase functions, and asymptotic curves; use fixed-DPI `.png` (`dpi=200`) for dense 2D rasters.
 - **Reproducible CLI execution:** Computations must run from a deterministic, versioned CLI entry point: either a script under `scripts/` or a native tool under `crates/`, with explicit CLI arguments. Interactive notebooks are prohibited.
-- **Data size threshold:** Keep small summary outputs ($\le 2\text{ MB}$) in `data/`. Large raw datasets must be regenerable on demand via CLI arguments documented in `record.md`.
+- **Data size threshold:** Keep small summary outputs ($\le 2\text{ MB}$) in `data/`. Large raw datasets must be regenerable on demand via CLI arguments documented in `record.md`. Proof certificates and independent-verifier outputs are not raw datasets: when they are required to replay a retained proof claim, keep the exact proof artifacts in the computation bundle even if a certificate exceeds 2 MB, record its size/hash, and preserve a deterministic regeneration command.
 
 A numerical experiment must never be described as proving RH.
 

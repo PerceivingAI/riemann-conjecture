@@ -1,7 +1,7 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T12:06:30Z`
+- **Last updated:** `2026-08-27T13:16:15Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
@@ -20,15 +20,15 @@ Eleven formal research attempts are recorded:
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit and restricted-support Weil operator mechanism; `COMPLETE`.
 - [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — exact first-prime endpoint absorption, finite-support normalization guard, and external FP-0.35 source audit; `COMPLETE` intermediate target.
 - [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; global 69% absorption is refuted as too lossy, while the exact-prime `N=32` Schur certificate proves strict localized Weil positivity at `T=7/20`; `COMPLETE`.
-- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — one-prime support continuation from the verified `T=7/20` basepoint; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, and `T=9/20,N=56`; the canonical driver now reaches pre-theorem `CANDIDATE_READY` at `T=19/40,N=68`; `PROMISING`.
+- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — one-prime support continuation from the verified `T=7/20` basepoint; moving Legendre dimension now yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, and `T=19/40,N=68`; `PROMISING`.
 
-The repository now contains seventeen retained computation records. No proof of RH has been obtained.
+The repository now contains eighteen retained computation records. No proof of RH has been obtained.
 
 ## Active leads
 
 ### L1 — Exact-prime localized Weil positivity and support continuation
 
-**Status:** `VERIFIED THROUGH T=9/20 / PRE-THEOREM CANDIDATE AT T=19/40`
+**Status:** `VERIFIED THROUGH T=19/40`
 
 `A-20260821-004` has now achieved its finite-support success target.
 
@@ -147,7 +147,15 @@ odd  margin > 0.004366893328949625,
 
 reconstructs the factor-3 Schur matrix, and returns `passed=true` with scope `localized_weil_positivity_T_9_20`. The real-certificate adversarial replay again distinguishes contract failure (exit `2`) from theorem failure (exit `1`).
 
-The canonical continuation driver has now completed the `T=19/40=0.475` slice over the explicit range `N=48,52,...,80` (`X-20260827-001`). The multi-resolution scout selected `N=64` as the primary rigorous target and `N=68` as the fallback. Precision escalation shows that `N=64` is genuinely negative under the present full-tail Schur reduction: its 384- and 512-bit Schur midpoints agree near `-0.18090174481401158`. At `N=68`, the 256- and 384-bit runs stabilize at a positive Schur midpoint near `3.6658868513e-6`; exact rational candidate construction then succeeds at 64 matrix bits and 32 witness bits with positive `mu`, even, and odd margins. The driver therefore terminates at `CANDIDATE_READY` for `(T,N)=(19/40,68)`. This is generator-side evidence only: the pair has not been admitted to the closed theorem contract, no theorem certificate has been generated, and no independent Rust theorem replay has been invoked.
+The canonical continuation driver completed the `T=19/40=0.475` slice over the explicit range `N=48,52,...,80` in pre-theorem `X-20260827-001`. Precision escalation showed that `N=64` is genuinely negative under the present full-tail Schur reduction, while `N=68` stabilizes positive at 384 bits and reaches exact `CANDIDATE_READY`. A separate explicit admission then added only `(T,N)=(19/40,68)` to the closed v1 theorem contract. Fresh proof-bearing run `X-20260827-002` reassembled the certificate from scratch at 384-bit Arb precision with 64-bit outward matrix endpoints and 32-bit exact witnesses. The independent zero-float Rust verifier returns `passed=true` with scope `localized_weil_positivity_T_19_40`, deriving approximately
+
+```text
+mu_68       > 0.7185353202932019
+even margin > 0.0013831260220094517
+odd  margin > 0.006360318287493695.
+```
+
+Real-certificate adversarial replay again distinguishes contract failure (`factor=2`, exit `2`) from theorem failure (contract-valid negative diagonal perturbation, exit `1`). This establishes `F-20260827-001` / `C-0054`: strict localized Weil positivity at `T=19/40`.
 
 ### L2 — Exact transcendental interval inputs
 
@@ -278,6 +286,8 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 19. The same exact-prime Legendre-Schur mechanism, with `N=40`, proves strict localized Weil positivity at `T=2/5` under a fresh independently verified certificate (`C-0051`).
 20. The exact-prime Legendre-Schur mechanism, with high-precision `N=48` assembly, proves strict localized Weil positivity at `T=17/40` under a fresh independently verified certificate (`C-0052`).
 21. The exact-prime Legendre-Schur mechanism, with 512-bit `N=56` assembly, proves strict localized Weil positivity at `T=9/20` under a fresh independently verified certificate (`C-0053`).
+22. After the canonical pre-theorem boundary isolated `N=68`, explicit closed-contract admission plus a fresh 384-bit exact certificate and independent Rust replay prove strict localized Weil positivity at `T=19/40` (`C-0054`).
+
 ## Computational observations and certificates
 
 - `X-20260821-001` checks dyadic bilinear phase separability.
@@ -290,10 +300,11 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 - `X-20260826-002` contains the 384-bit `N=48` full-tail diagnostic, exact `T=17/40` certificate, adversarial checks, and independent Rust PASS for `C-0052`.
 
 - `X-20260826-003` contains the 512-bit `N=56` full-tail diagnostic, exact `T=9/20` certificate, adversarial checks, and independent Rust PASS for `C-0053`.
-- `X-20260827-001` contains the canonical `T=19/40` continuation bundle: `N=64` is precision-stable negative under the current Schur reduction, while `N=68` reaches generator-side exact `CANDIDATE_READY` at 384-bit precision. It is not proof-bearing and has no independent verifier admission.
+- `X-20260827-001` contains the canonical pre-theorem `T=19/40` continuation bundle: `N=64` is precision-stable negative under the current Schur reduction, while `N=68` reaches generator-side exact `CANDIDATE_READY` at 384-bit precision. It remains non-proof-bearing; the later separate admission and independent replay are `X-20260827-002`.
+- `X-20260827-002` contains the separately admitted fresh `T=19/40,N=68` theorem certificate, independent zero-float Rust PASS, adversarial replays, and full Python/Rust/Lean acceptance checks for `C-0054`.
 
 
-`X-20260821-005`, `X-20260826-001`, `X-20260826-002`, and `X-20260826-003` are proof-bearing for the finite-support theorems `C-0050`, `C-0051`, `C-0052`, and `C-0053`, respectively. Their exact certificates and independent replays are retained with hashes and reproduction commands. `X-20260827-001` is explicitly pre-theorem and is not part of that proof-bearing set. None of these finite-support results constitutes a proof of RH.
+`X-20260821-005`, `X-20260826-001`, `X-20260826-002`, `X-20260826-003`, and `X-20260827-002` are proof-bearing for the finite-support theorems `C-0050`, `C-0051`, `C-0052`, `C-0053`, and `C-0054`, respectively. Their exact certificates and independent replays are retained with hashes and reproduction commands. `X-20260827-001` remains explicitly pre-theorem and is not itself part of that proof-bearing set. None of these finite-support results constitutes a proof of RH.
 
 ## Open requirements / blockers
 
@@ -305,16 +316,11 @@ There is no remaining blocker at `T=17/40`; `C-0052` is independently verified.
 
 There is no remaining blocker at `T=9/20`; `C-0053` is independently verified.
 
-At `T=19/40`, the canonical driver has completed dimension selection and generator-side exact candidate construction. `N=64` is rigorously stable-negative for the current Schur reduction, while `(T,N)=(19/40,68)` reaches `CANDIDATE_READY` with positive exact rational margins.
+There is no remaining blocker at `T=19/40`; `C-0054` is independently verified. The hard pre-theorem boundary worked as intended: `X-20260827-001` stopped at `CANDIDATE_READY`, and theorem status was granted only after the separate admission and proof-bearing `X-20260827-002` replay.
 
-The immediate open requirement is therefore **not another continuation search**. It is the separate human/research admission decision required by the pre-theorem boundary:
+The immediate engineering requirement before pushing the Legendre cutoff substantially farther is to optimize the exact Rust verifier without weakening its trust model. The `N=68` unchanged/adversarial exact replays now take long enough that verifier cost is a material continuation bottleneck. Optimization must preserve zero floating-point arithmetic, closed-contract semantics, exact rational PASS/FAIL behavior, and the contract-error/theorem-failure exit distinction; the retained `C-0050` through `C-0054` certificates plus adversarial cases should be the regression corpus.
 
-1. review `X-20260827-001` and decide explicitly whether `(19/40,68)` should be admitted to the closed `exact_prime_legendre_schur` theorem contract;
-2. until that decision is made, leave the Python/Rust whitelists, JSON schema, claim ledger, theorem findings, and independent verifier path unchanged;
-3. if the pair is admitted, make that closed-contract change as a separate slice, generate a fresh theorem certificate, run a fresh independent zero-float Rust replay and the normal adversarial checks, and only then consider a new verified claim/finding;
-4. if the pair is not admitted, record the reason and keep `X-20260827-001` as pre-theorem evidence only.
-
-The eventual structural transition remains the entry of the `p=3` compressed translation at `(1/2)log 3`.
+After that tooling slice, continuation can resume at a deliberately selected larger support still inside the one-prime window. The eventual structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`, which requires a new mathematical/tooling phase rather than casually broadening the present one-prime driver.
 
 
 ## Invalidated, corrected, or closed directions
@@ -373,6 +379,6 @@ The eventual structural transition remains the entry of the `p=3` compressed tra
 
 ## Next research action
 
-Review the retained `X-20260827-001` pre-theorem candidate at `(T,N)=(19/40,68)` and make the explicit admission decision required by the hard boundary. Do not edit the closed contract or invoke the independent theorem verifier unless that separate decision is affirmative.
+Optimize the zero-float exact Rust verifier as a separate tooling slice before pushing the Legendre dimension materially beyond `N=68`. Profile the retained theorem corpus first, improve implementation efficiency without changing certificate semantics or the pure exact-rational trust base, then replay `C-0050` through `C-0054` plus the contract-error/theorem-failure adversarial cases.
 
-If admitted, the next slice is deliberately narrow: add only `(19/40,68)` to the closed theorem contract, generate a fresh exact certificate from the admitted configuration, run the independent zero-float Rust verifier plus adversarial replays, and update claims/findings only on a genuine independent PASS. The eventual structural transition remains the entry of the `p=3` compressed translation at `(1/2)log 3`.
+Only after semantic equivalence is demonstrated should the canonical one-prime continuation resume at a newly selected support. Do not extrapolate the next dimension from `68`; let the canonical driver perform fresh reconnaissance and rigorous selection. The eventual structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`.

@@ -1,10 +1,42 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T12:06:30Z`
+- **Last updated:** `2026-08-27T13:16:15Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-08-27T13:16:15Z — Separate admission and independent replay establish T=19/40 theorem
+
+**Type:** Closed-contract admission / fresh exact certificate / independent zero-float verifier / adversarial replay / theorem promotion
+
+Following the deliberate `CANDIDATE_READY` stop in `X-20260827-001`, explicitly admitted only
+
+```text
+(T,N)=(19/40,68)
+```
+
+to the closed v1 `exact_prime_legendre_schur` profile. Admission testing exposed two stale shared dimension guards that still stopped at `56` (the JSON Schema exact-prime dimension/harmonic-index enums and Rust's internal exact-prime dimension guard); both were corrected while mixed `19/40` pairs remain rejected.
+
+A fresh certificate was then reassembled from scratch at 384-bit Arb precision with 64-bit dyadic outward matrix endpoints and 32-bit exact rational witnesses. The independent Rust verifier returns
+
+```text
+passed=true
+verified_scope=localized_weil_positivity_T_19_40
+mu_68       > 0.7185353202932019
+even margin > 0.0013831260220094517
+odd  margin > 0.006360318287493695.
+```
+
+Real-certificate adversarial replay preserves the trust boundary: `factor=2` is a contract error (`exit 2`), while a contract-valid negative diagonal perturbation reaches theorem verification and fails (`exit 1`). The unchanged retained certificate exits `0`.
+
+The current acceptance snapshot is green: default Python suite `409 passed, 2 slow tests deselected`; the new real `N=68` slow-acceptance generator test separately passes; the full `rh_cert` Rust suite passes; strict clippy passes; and `lake build` completes successfully.
+
+The proof-bearing theorem run is `X-20260827-002`, establishing `F-20260827-001` / `C-0054`. The original `X-20260827-001` remains preserved as pre-theorem evidence. RH remains unresolved.
+
+The next engineering slice is to optimize the exact zero-float Rust verifier before pushing the Legendre cutoff substantially farther, using the retained `C-0050` through `C-0054` certificates and adversarial cases as the semantic regression corpus.
+
+---
 
 ## 2026-08-27T12:06:30Z — Canonical T=19/40 continuation reaches pre-theorem N=68 candidate
 

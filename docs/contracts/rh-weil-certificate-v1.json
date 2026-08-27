@@ -136,12 +136,12 @@
           "basis": {
             "properties": {
               "type": {"const": "legendre"},
-              "dimension": {"enum": [32, 40, 48, 56]},
+              "dimension": {"enum": [32, 40, 48, 56, 68]},
               "domain": {"const": "[-1, 1]"}
             }
           },
           "parity_sector": {"const": "both"},
-          "dimension": {"enum": [32, 40, 48, 56]},
+          "dimension": {"enum": [32, 40, 48, 56, 68]},
           "constants": {
             "required": ["c2", "c_T", "rho_R"],
             "minProperties": 3,
@@ -206,6 +206,20 @@
               "dimension": {"const": 56},
               "basis": {"properties": {"dimension": {"const": 56}}},
               "tail_bound": {"properties": {"harmonic_index": {"const": 56}}}
+            }
+          },
+          {
+            "properties": {
+              "support_T": {
+                "properties": {
+                  "num": {"const": "19"},
+                  "den": {"const": "40"},
+                  "frac": {"const": "19/40"}
+                }
+              },
+              "dimension": {"const": 68},
+              "basis": {"properties": {"dimension": {"const": 68}}},
+              "tail_bound": {"properties": {"harmonic_index": {"const": 68}}}
             }
           }
         ]
@@ -441,7 +455,7 @@
       "required": ["type", "harmonic_index", "factor"],
       "properties": {
         "type": {"const": "legendre_component_gram_schur"},
-        "harmonic_index": {"enum": [32, 40, 48, 56]},
+        "harmonic_index": {"enum": [32, 40, 48, 56, 68]},
         "factor": {"$ref": "#/$defs/rational"}
       },
       "additionalProperties": false

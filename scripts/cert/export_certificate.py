@@ -197,10 +197,11 @@ def _validate_certificate_semantics(cert: dict[str, Any]) -> None:
             (Fraction(2, 5), 40),
             (Fraction(17, 40), 48),
             (Fraction(9, 20), 56),
+            (Fraction(19, 40), 68),
         }
         if (support, dimension) not in allowed_configurations:
             raise ValueError(
-                "exact-prime profile allows only (T=7/20,N=32), (T=2/5,N=40), (T=17/40,N=48), or (T=9/20,N=56)"
+                "exact-prime profile allows only (T=7/20,N=32), (T=2/5,N=40), (T=17/40,N=48), (T=9/20,N=56), or (T=19/40,N=68)"
             )
         if cert["basis"] != {
             "type": "legendre",

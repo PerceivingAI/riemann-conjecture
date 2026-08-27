@@ -127,6 +127,29 @@ def test_exact_prime_certificate_accepts_nine_twentieths_dimension_56() -> None:
     assert not _contains_float(certificate)
 
 
+@pytest.mark.slow_acceptance
+def test_exact_prime_certificate_accepts_nineteen_fortieths_dimension_68() -> None:
+    certificate, diagnostics = build_exact_prime_schur_certificate(
+        claim="pytest-exact-prime-nineteen-fortieths",
+        support_num=19,
+        support_den=40,
+        dimension=68,
+        prec=384,
+        matrix_bits=64,
+        witness_bits=32,
+    )
+    valid, message = validate_certificate_schema(certificate)
+    assert valid, message
+    assert certificate["support_T"]["frac"] == "19/40"
+    assert certificate["dimension"] == 68
+    assert certificate["basis"]["dimension"] == 68
+    assert certificate["tail_bound"]["harmonic_index"] == 68
+    assert diagnostics["mu_lower"] > 0
+    assert diagnostics["even_gershgorin_margin"] > 0
+    assert diagnostics["odd_gershgorin_margin"] > 0
+    assert not _contains_float(certificate)
+
+
 def test_exact_prime_python_validator_rejects_mixed_nine_twentieths_pair() -> None:
     with pytest.raises(ValueError, match="allows only"):
         build_exact_prime_schur_certificate(
@@ -134,6 +157,19 @@ def test_exact_prime_python_validator_rejects_mixed_nine_twentieths_pair() -> No
             support_num=9,
             support_den=20,
             dimension=48,
+            prec=128,
+            matrix_bits=56,
+            witness_bits=28,
+        )
+
+
+def test_exact_prime_python_validator_rejects_mixed_nineteen_fortieths_pair() -> None:
+    with pytest.raises(ValueError, match="allows only"):
+        build_exact_prime_schur_certificate(
+            claim="pytest-exact-prime-mixed-nineteen-fortieths",
+            support_num=19,
+            support_den=40,
+            dimension=64,
             prec=128,
             matrix_bits=56,
             witness_bits=28,

@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-08-27T12:06:30Z`
+- **Last updated:** `2026-08-27T13:16:15Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -285,3 +285,39 @@ Stop at the `CANDIDATE_READY` boundary and make the required separate human/rese
 to the closed theorem contract.
 
 If admission is approved, the subsequent slice should modify only the closed configuration set needed for this pair, generate a fresh proof certificate under the admitted contract, perform a fresh independent Rust replay plus adversarial checks, and promote theorem status only if that independent path passes. Until that admission decision is made, no theorem-facing files should change.
+
+## Admission and independent theorem replay at T=19/40
+
+**Addendum — `2026-08-27T13:16:15Z`.** The required separate admission decision was affirmative for exactly
+
+```text
+(T,N)=(19/40,68).
+```
+
+The closed Python exporter/validator, JSON Schema, and Rust verifier were extended only by that enumerated configuration. Admission testing exposed and corrected two stale shared dimension guards that still stopped at `56`; mixed `19/40` dimensions remain rejected.
+
+A fresh theorem certificate was then assembled from scratch at
+
+```text
+Arb precision = 384 bits
+matrix bits   = 64
+witness bits  = 32.
+```
+
+The independent zero-float Rust replay returns
+
+```text
+passed=true
+verified_scope=localized_weil_positivity_T_19_40
+mu_68       > 0.7185353202932019
+even margin > 0.0013831260220094517
+odd margin  > 0.006360318287493695.
+```
+
+The real-certificate adversarial replays preserve the trust boundary: wrong Schur factor gives contract failure (`exit 2`), while a contract-valid negative diagonal perturbation gives theorem failure (`exit 1`); the retained unchanged certificate returns `exit 0`.
+
+The full current verification snapshot passes: default Python suite `409 passed, 2 deselected`, the real `N=68` slow-acceptance generator regression passes separately, all `rh_cert` Rust targets pass, strict clippy passes, and `lake build` succeeds.
+
+This establishes `F-20260827-001` / `C-0054`: strict localized Weil positivity at `T=19/40`. The pre-theorem `X-20260827-001` remains a historical candidate bundle; the proof-bearing theorem run is the separate `X-20260827-002`.
+
+RH remains unresolved. Before pushing the Legendre dimension substantially farther, optimizing the exact Rust verifier is a justified tooling improvement; any such optimization must preserve zero-float exact semantics and replay the retained theorem/adversarial corpus before continuation resumes.

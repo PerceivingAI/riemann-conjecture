@@ -41,6 +41,7 @@ ALLOWED_CONFIGURATIONS = {
     (Fraction(2, 5), 40),
     (Fraction(17, 40), 48),
     (Fraction(9, 20), 56),
+    (Fraction(19, 40), 68),
 }
 
 

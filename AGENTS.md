@@ -37,9 +37,10 @@ The closed `exact_prime_legendre_schur` theorem contract currently admits exactl
 (T,N)=(2/5,40)
 (T,N)=(17/40,48)
 (T,N)=(9/20,56)
+(T,N)=(19/40,68)
 ```
 
-These support the independently verified finite-support results `C-0050` through `C-0053`. The canonical continuation driver has now reached generator-side `CANDIDATE_READY` at `(T,N)=(19/40,68)`; `N=64` is precision-stable negative under the current Schur reduction. The immediate frontier is the separate admission decision for `(19/40,68)`. Until that decision is made, the closed theorem contract remains unchanged and the candidate is not independently verified or theorem-bearing.
+These support the independently verified finite-support results `C-0050` through `C-0054`. The pre-theorem driver isolated `(T,N)=(19/40,68)` after showing `N=64` precision-stable negative under the current Schur reduction; the pair was then separately admitted and independently verified in proof-bearing `X-20260827-002`. The immediate engineering frontier is to optimize the zero-float exact Rust verifier before pushing `N` substantially farther, while preserving exact semantics and replaying the retained theorem/adversarial corpus after any optimization. The eventual mathematical structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`.
 
 ## 3. Repository map
 
