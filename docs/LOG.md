@@ -1,10 +1,22 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T14:30:20Z`
+- **Last updated:** `2026-08-27T14:37:56Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-08-27T14:37:56Z — Cross-layer admission consistency corpus added without weakening verifier independence
+
+**Type:** Trust-chain consistency / closed-whitelist drift detection / test tooling
+
+Added the test-only corpus `tests/data/exact-prime-admission-v1.json`. It records exactly five allowed exact-prime theorem pairs, all twenty mismatched combinations of those admitted supports and dimensions, and five external forbidden cases including the historically relevant `(19/40,64)` and `(19/40,72)` points. Python tests independently check the generator whitelist, semantic-validator whitelist, and raw JSON Schema branch; Rust independently consumes the same test corpus through its own exact-prime certificate validation path. The authoritative contract documentation is also checked to name every admitted pair.
+
+The production implementations remain independent and hard-coded. Neither `scripts/cert/` nor `crates/rh_cert/src/` loads the test corpus, and a regression enforces that boundary. The corpus is an acceptance-policy oracle for tests only: changing it cannot grant theorem status and supplies no mathematical evidence.
+
+Focused acceptance passes: six Python admission-consistency tests and the Rust 30-case corpus replay both pass. No theorem claim or whitelist entry changed; RH remains unresolved.
+
+---
 
 ## 2026-08-27T14:30:20Z — Retained-proof bootstrap and final trust-chain acceptance close P8/P9
 

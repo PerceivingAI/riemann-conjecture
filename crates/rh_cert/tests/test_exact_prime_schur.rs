@@ -102,6 +102,33 @@ fn exact_prime_fixture() -> Value {
 }
 
 #[test]
+fn exact_prime_admission_matches_shared_test_corpus() {
+    let corpus: Value = serde_json::from_str(include_str!(
+        "../../../tests/data/exact-prime-admission-v1.json"
+    ))
+    .expect("admission corpus must be valid JSON");
+    assert_eq!(corpus["format"], "exact-prime-admission-corpus-v1");
+    assert_eq!(corpus["purpose"], "test-only");
+
+    for (bucket, expected_allowed) in [("allowed", true), ("forbidden", false)] {
+        let cases = corpus[bucket]
+            .as_array()
+            .expect("corpus bucket must be an array");
+        for case in cases {
+            let support = case["support_T"].as_str().expect("support_T string");
+            let (num, den) = support.split_once('/').expect("canonical support fraction");
+            let dimension = case["dimension"].as_u64().expect("dimension integer") as usize;
+            let fixture = exact_prime_fixture_for(num, den, support, dimension);
+            let accepted = CertificateJson::from_json_str(&fixture.to_string()).is_ok();
+            assert_eq!(
+                accepted, expected_allowed,
+                "Rust exact-prime admission drift for T={support},N={dimension}"
+            );
+        }
+    }
+}
+
+#[test]
 fn exact_prime_profile_recomputes_schur_and_passes() {
     let fixture = exact_prime_fixture();
     let certificate = CertificateJson::from_json_str(&fixture.to_string()).expect("valid fixture");

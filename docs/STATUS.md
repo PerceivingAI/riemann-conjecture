@@ -1,7 +1,7 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T14:30:20Z`
+- **Last updated:** `2026-08-27T14:37:56Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
@@ -303,6 +303,7 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 - `X-20260827-001` contains the canonical pre-theorem `T=19/40` continuation bundle: `N=64` is precision-stable negative under the current Schur reduction, while `N=68` reaches generator-side exact `CANDIDATE_READY` at 384-bit precision. It remains non-proof-bearing; the later separate admission and independent replay are `X-20260827-002`.
 - `X-20260827-002` contains the separately admitted fresh `T=19/40,N=68` theorem certificate, independent zero-float Rust PASS, adversarial replays, and full Python/Rust/Lean acceptance checks for `C-0054`.
 - `X-20260827-003` records the non-proof-bearing zero-float Rust verifier optimization. Direct parity Schur construction plus lower-triangular/symmetric exact congruence reduces debug replay times to `3.564, 6.145, 13.210, 24.880, 31.408` seconds for `N=32,40,48,56,68`; all retained `C-0050` through `C-0054` verifier JSON objects match exactly after optimization.
+- The closed exact-prime admission table now has a test-only cross-layer consistency corpus at `tests/data/exact-prime-admission-v1.json`. It exercises the independently hard-coded Python generator, Python semantic validator, raw JSON Schema, and Rust verifier admission logic over five allowed pairs, all twenty mixed cross-pairs, and five external forbidden cases. Production trust layers do not read this corpus, so decoupled verification is preserved while accidental whitelist drift becomes test-detectable.
 - `computations/retained-proofs.json` now provides a closed first-class retained-proof registry for exactly `C-0050` through `C-0054`. `scripts.cert.verify_retained_proofs` verifies each registered artifact's raw-byte SHA-256 before replay and then requires current `rh_cert` PASS plus exact theorem identity agreement. P8 independently recomputed all five raw-byte hashes from disk and found exact agreement with the manifest and historical records. P9 completed the full Python/Rust/Lean acceptance snapshot; the canonical five-artifact gate passes `5/5`, while a temporary tampered `C-0050` copy produces `HASH_MISMATCH`, skips Rust for that artifact, continues through `C-0051`–`C-0054`, and exits `1` with `FAIL - 4/5`. Temporary tamper files were removed and the originals rehashed cleanly. The registry remains explicit—no automatic computation-directory discovery—and stores no derived margin diagnostics.
 
 

@@ -168,9 +168,19 @@ Key locations:
 | Closed theorem certificate exporter | `scripts/cert/exact_prime_schur_certificate.py` |
 | Other certificate export support | `scripts/cert/export_certificate.py` |
 | Contract/schema | `docs/CONTRACTS.md`, `docs/contracts/rh-weil-certificate-v1.json` |
+| Test-only admission drift corpus | `tests/data/exact-prime-admission-v1.json` |
 | Independent verifier | `crates/rh_cert/` |
 | Retained proof integrity/replay gate | `scripts/cert/verify_retained_proofs.py`, `computations/retained-proofs.json` |
 | Formal soundness | `formal/` |
+
+The admission corpus is **test-only**. Production generator, semantic-validator, schema, and Rust admission rules remain independently maintained; do not refactor them to load the corpus or another shared runtime whitelist. When a theorem pair is deliberately admitted, update each independent layer and then extend the corpus so the consistency tests can detect drift.
+
+Focused admission consistency checks:
+
+```text
+uv run --locked --extra test python -m pytest -q tests/test_admission_consistency.py
+cargo test -p rh_cert --test test_exact_prime_schur exact_prime_admission_matches_shared_test_corpus
+```
 
 The continuation driver and `weil_support_candidate_check.py` are **pre-theorem** modules. They must not import/call theorem-admission machinery or grant theorem status.
 

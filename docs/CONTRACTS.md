@@ -1,7 +1,7 @@
 # Repository Architecture & Proof Contracts
 
 - **Created:** `2026-08-21T06:00:00Z`
-- **Last updated:** `2026-08-27T14:30:20Z`
+- **Last updated:** `2026-08-27T14:37:56Z`
 - **Status:** Authoritative
 
 This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
@@ -166,7 +166,22 @@ The v1 registry is deliberately explicit: tooling must not discover or promote p
 
 No other tail/proof type is valid. In particular, v1 does not accept a free-form description, an asserted lower bound for an unspecified operator, or a precomputed eigenvalue/positive-definite flag.
 
-### 2.7 Locked adversarial cases
+### 2.7 Admission-table consistency without shared production authority
+
+The exact-prime whitelist is intentionally duplicated across independent production trust layers: the Python theorem exporter, Python semantic validator, JSON Schema, and Rust verifier. They must **not** load one shared production whitelist, because that would turn an admission mistake in the shared source into a correlated acceptance mistake across the supposedly independent layers.
+
+`tests/data/exact-prime-admission-v1.json` is therefore a **test-only expectation corpus**, not production configuration. It lists the five admitted pairs, all twenty mismatched cross-pairs formed from the admitted supports and dimensions, and selected external forbidden cases including `(T,N)=(19/40,64)` and `(19/40,72)`. Python and Rust tests independently execute the corpus against their own hard-coded admission rules, while the raw JSON Schema branch is tested separately. `docs/CONTRACTS.md` is also checked to name every admitted pair.
+
+Production Python/Rust source must not load the test corpus at runtime. Updating the corpus does not admit a theorem pair: admission still requires the explicit research decision, independent closed-contract edits, fresh certificate generation, and independent Rust PASS. The consistency corpus detects accidental whitelist drift; it is not mathematical evidence and cannot justify an admission by itself.
+
+Canonical focused checks:
+
+```text
+uv run --locked --extra test python -m pytest -q tests/test_admission_consistency.py
+cargo test -p rh_cert --test test_exact_prime_schur exact_prime_admission_matches_shared_test_corpus
+```
+
+### 2.8 Locked adversarial cases
 
 The Python and Rust validators must reject the following cases before theorem verification unless the row explicitly names a theorem-verification failure:
 

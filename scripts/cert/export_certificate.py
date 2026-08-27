@@ -154,6 +154,20 @@ def _require_parity_block_diagonal(
                 raise ValueError(f"{path} opposite-parity entry ({row}, {col}) must be exactly zero")
 
 
+_ALLOWED_EXACT_PRIME_CONFIGURATIONS = {
+    (Fraction(7, 20), 32),
+    (Fraction(2, 5), 40),
+    (Fraction(17, 40), 48),
+    (Fraction(9, 20), 56),
+    (Fraction(19, 40), 68),
+}
+
+
+def _is_allowed_exact_prime_configuration(support: Fraction, dimension: int) -> bool:
+    """Return the semantic validator's independently maintained v1 admission decision."""
+    return (support, dimension) in _ALLOWED_EXACT_PRIME_CONFIGURATIONS
+
+
 def _validate_certificate_semantics(cert: dict[str, Any]) -> None:
     support = _parse_canonical_rational(cert["support_T"], "$.support_T")
     if support <= 0:
@@ -192,14 +206,7 @@ def _validate_certificate_semantics(cert: dict[str, Any]) -> None:
         if tail["first_omitted_k"] != tail["k_max"] + 1:
             raise ValueError("$.tail_bound.first_omitted_k must equal k_max + 1")
     elif profile == "exact_prime_legendre_schur":
-        allowed_configurations = {
-            (Fraction(7, 20), 32),
-            (Fraction(2, 5), 40),
-            (Fraction(17, 40), 48),
-            (Fraction(9, 20), 56),
-            (Fraction(19, 40), 68),
-        }
-        if (support, dimension) not in allowed_configurations:
+        if not _is_allowed_exact_prime_configuration(support, dimension):
             raise ValueError(
                 "exact-prime profile allows only (T=7/20,N=32), (T=2/5,N=40), (T=17/40,N=48), (T=9/20,N=56), or (T=19/40,N=68)"
             )
