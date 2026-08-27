@@ -105,6 +105,21 @@ def test_precision_ladder_is_bounded_and_increasing() -> None:
     assert driver.build_precision_ladder(300, 640) == [300, 384, 512, 640]
 
 
+def test_p11_scout_tolerance_accepts_historical_drift_but_rejects_large_drift() -> None:
+    historical = [
+        driver.ScoutDimensionResult(48, 0.73, 5.86e-5, value, 120, 700, 350, "")
+        for value in (5.694914867630464e-5, 5.6600646344646804e-5, 5.647773382590833e-5)
+    ]
+    excessive = [
+        driver.ScoutDimensionResult(48, 0.73, 5.86e-5, value, 120, 700, 350, "")
+        for value in (5.70e-5, 5.50e-5, 5.30e-5)
+    ]
+
+    assert driver.SCOUT_RELATIVE_CONVERGENCE_TOLERANCE == pytest.approx(0.01)
+    assert driver._classify_reconnaissance(historical) == "stable_positive"
+    assert driver._classify_reconnaissance(excessive) == "unstable"
+
+
 def test_precision_pair_diagnostics_track_widths_changes_and_signs() -> None:
     previous = {
         "precision_bits": 256,

@@ -34,7 +34,8 @@ from scripts.weil_support_candidate_check import (
 from scripts.weil_support_continuation_scout import scout_support
 
 
-DRIVER_VERSION = "continuation-driver-p9-v1"
+DRIVER_VERSION = "continuation-driver-p11-v1"
+SCOUT_RELATIVE_CONVERGENCE_TOLERANCE = 1e-2
 
 
 class WorkflowState(StrEnum):
@@ -401,7 +402,7 @@ def _classify_reconnaissance(rows: list[ScoutDimensionResult]) -> str:
                 current.truncated_factor3_schur_min_eigenvalue
                 - previous.truncated_factor3_schur_min_eigenvalue
             )
-            > 1e-3 * scale
+            > SCOUT_RELATIVE_CONVERGENCE_TOLERANCE * scale
         ):
             return "unstable"
     return "stable_positive"

@@ -26,4 +26,8 @@ minversion = "8.0"
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_functions = ["test_*"]
-addopts = "-v --strict-markers"
+addopts = "-v --strict-markers -m 'not slow_acceptance'"
+markers = [
+    "integration: real continuation-history tests using Arb assembly and exact candidate construction",
+    "slow_acceptance: expensive manual acceptance tests excluded from routine pytest runs",
+]

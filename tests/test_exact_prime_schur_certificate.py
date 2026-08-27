@@ -104,6 +104,7 @@ def test_exact_prime_certificate_accepts_seventeen_fortieths_dimension_48() -> N
     assert not _contains_float(certificate)
 
 
+@pytest.mark.slow_acceptance
 def test_exact_prime_certificate_accepts_nine_twentieths_dimension_56() -> None:
     certificate, diagnostics = build_exact_prime_schur_certificate(
         claim="pytest-exact-prime-nine-twentieths",
