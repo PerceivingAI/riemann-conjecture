@@ -1,10 +1,34 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T13:16:15Z`
+- **Last updated:** `2026-08-27T13:42:54Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-08-27T13:42:54Z — Zero-float Rust verifier optimization removes immediate scaling bottleneck
+
+**Type:** Tooling performance / exact semantic equivalence / retained-certificate replay
+
+Optimized `crates/rh_cert` without changing `rh-weil-certificate-v1`, the closed exact-prime whitelist, proof semantics, arithmetic types, or CLI exit meanings. The verifier still validates the full input matrices for exact symmetry and parity zeros, but now constructs even/odd Schur blocks directly; exact interval scaling by rational witnesses avoids generic point-interval multiplication; congruence uses lower-triangular witness support; and symmetric theorem blocks compute one output triangle using `A C^T=(C A)^T`.
+
+The public generic congruence helper remains valid for non-symmetric matrices and has a dedicated regression. The optimized debug replay profile is
+
+```text
+N=32   3.564 s   (prior ~11 s)
+N=40   6.145 s   (prior ~25 s)
+N=48  13.210 s   (prior ~54 s)
+N=56  24.880 s   (prior ~102 s)
+N=68  31.408 s   (no retained clean pre-optimization baseline)
+```
+
+A separate semantic replay compares the newly emitted JSON object against each retained Rust-verification JSON object for `C-0050` through `C-0054`; all five are exact parsed-JSON matches with `exit 0` and `passed=true`. Real `C-0054` adversarial replay remains fail-closed: wrong factor gives contract error `exit 2`, while a contract-valid negative diagonal gives theorem failure `exit 1` with the even block false and odd block true.
+
+`cargo fmt -p rh_cert -- --check`, full `cargo test -p rh_cert --quiet`, and strict `cargo clippy -p rh_cert --all-targets -- -D warnings` pass. `X-20260827-003` retains the benchmark and implementation details. This is a tooling result only; no mathematical claim changed and RH remains unresolved.
+
+**Outcome:** the immediate exact-verifier performance blocker is closed. Canonical one-prime continuation may resume with fresh dimension selection; do not extrapolate from `N=68`.
+
+---
 
 ## 2026-08-27T13:16:15Z — Separate admission and independent replay establish T=19/40 theorem
 

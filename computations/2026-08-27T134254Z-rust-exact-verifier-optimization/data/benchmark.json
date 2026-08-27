@@ -1,0 +1,35 @@
+{
+  "format": "rh-cert-verifier-optimization-benchmark-v1",
+  "computation_id": "X-20260827-003",
+  "timestamp_utc": "2026-08-27T13:42:54Z",
+  "git_base_before_optimization": "ed2e48ebf3805b0622c3bb701346b70045130799",
+  "benchmark_binary": "target/debug/rh_cert.exe",
+  "prior_approximate_seconds": {
+    "C-0050_N32": 11,
+    "C-0051_N40": 25,
+    "C-0052_N48": 54,
+    "C-0053_N56": 102,
+    "C-0054_N68": null
+  },
+  "optimized_seconds": {
+    "C-0050_N32": 3.564,
+    "C-0051_N40": 6.145,
+    "C-0052_N48": 13.210,
+    "C-0053_N56": 24.880,
+    "C-0054_N68": 31.408
+  },
+  "semantic_equivalence": {
+    "C-0050": {"exit": 0, "passed": true, "exact_json_match": true},
+    "C-0051": {"exit": 0, "passed": true, "exact_json_match": true},
+    "C-0052": {"exit": 0, "passed": true, "exact_json_match": true},
+    "C-0053": {"exit": 0, "passed": true, "exact_json_match": true},
+    "C-0054": {"exit": 0, "passed": true, "exact_json_match": true}
+  },
+  "c0054_adversarial": {
+    "wrong_factor": {"exit": 2, "classification": "contract_error", "seconds": 0.293},
+    "negative_diagonal": {"exit": 1, "passed": false, "even_positive": false, "odd_positive": true, "seconds": 31.558}
+  },
+  "certificate_format_changed": false,
+  "exact_arithmetic_model_changed": false,
+  "theorem_semantics_changed": false
+}

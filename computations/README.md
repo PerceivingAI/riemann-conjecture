@@ -1,7 +1,7 @@
 # Computations
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T13:16:15Z`
+- **Last updated:** `2026-08-27T13:42:54Z`
 
 This directory contains timestamped numerical and symbolic experiments. Every retained computation must be reproducible and must distinguish numerical evidence from proof.
 
@@ -31,6 +31,7 @@ This directory contains timestamped numerical and symbolic experiments. Every re
 - [`X-20260826-003`](2026-08-26T190517Z-nine-twentieths-schur-certificate/record.md) — 512-bit full-tail `N=56` assembly and proof-bearing exact certificate plus independent Rust PASS proving strict localized Weil positivity at `T=9/20` (`C-0053`).
 - [`X-20260827-001`](2026-08-27T115112Z-t19-40-continuation/record.md) — canonical pre-theorem continuation at `T=19/40`; `N=64` is rigorously stable-negative under the current Schur reduction, while `N=68` reaches generator-side `CANDIDATE_READY` at 384-bit Arb precision with positive exact rational margins. The later separate admission and theorem replay are retained as `X-20260827-002`.
 - [`X-20260827-002`](2026-08-27T122716Z-nineteen-fortieths-schur-certificate/record.md) — proof-bearing fresh exact `T=19/40,N=68` certificate, independent zero-float Rust PASS, adversarial replays, and full acceptance checks establishing `C-0054`.
+- [`X-20260827-003`](2026-08-27T134254Z-rust-exact-verifier-optimization/record.md) — non-proof-bearing exact-verifier performance slice: direct parity Schur blocks plus triangular/symmetric exact congruence reduce retained replay times by roughly `3–4x` while all `C-0050` through `C-0054` verifier JSON outputs remain exactly unchanged.
 
 
 ## Directory Bundle Standard

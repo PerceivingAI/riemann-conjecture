@@ -57,6 +57,20 @@ fn test_arithmetic_operations() {
 }
 
 #[test]
+fn exact_rational_scaling_matches_point_interval_multiplication() {
+    let interval = RationalInterval::from_fraction_strings("-3", "2", "5", "3").unwrap();
+    for coefficient in [
+        BigRational::new(BigInt::from(7), BigInt::from(5)),
+        BigRational::new(BigInt::from(-11), BigInt::from(6)),
+        BigRational::from_integer(BigInt::from(0)),
+    ] {
+        let scaled = interval.scale_by(&coefficient);
+        let point_product = &interval * &RationalInterval::point(coefficient);
+        assert_eq!(scaled, point_product);
+    }
+}
+
+#[test]
 fn test_division_by_zero_fails() {
     let i1 = RationalInterval::from_integers(1, 2).unwrap();
     let i_zero = RationalInterval::from_integers(-1, 1).unwrap();

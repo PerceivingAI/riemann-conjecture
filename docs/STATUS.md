@@ -1,7 +1,7 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T13:16:15Z`
+- **Last updated:** `2026-08-27T13:42:54Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
@@ -22,7 +22,7 @@ Eleven formal research attempts are recorded:
 - [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; global 69% absorption is refuted as too lossy, while the exact-prime `N=32` Schur certificate proves strict localized Weil positivity at `T=7/20`; `COMPLETE`.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — one-prime support continuation from the verified `T=7/20` basepoint; moving Legendre dimension now yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, and `T=19/40,N=68`; `PROMISING`.
 
-The repository now contains eighteen retained computation records. No proof of RH has been obtained.
+The repository now contains nineteen retained computation records. No proof of RH has been obtained.
 
 ## Active leads
 
@@ -302,9 +302,10 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 - `X-20260826-003` contains the 512-bit `N=56` full-tail diagnostic, exact `T=9/20` certificate, adversarial checks, and independent Rust PASS for `C-0053`.
 - `X-20260827-001` contains the canonical pre-theorem `T=19/40` continuation bundle: `N=64` is precision-stable negative under the current Schur reduction, while `N=68` reaches generator-side exact `CANDIDATE_READY` at 384-bit precision. It remains non-proof-bearing; the later separate admission and independent replay are `X-20260827-002`.
 - `X-20260827-002` contains the separately admitted fresh `T=19/40,N=68` theorem certificate, independent zero-float Rust PASS, adversarial replays, and full Python/Rust/Lean acceptance checks for `C-0054`.
+- `X-20260827-003` records the non-proof-bearing zero-float Rust verifier optimization. Direct parity Schur construction plus lower-triangular/symmetric exact congruence reduces debug replay times to `3.564, 6.145, 13.210, 24.880, 31.408` seconds for `N=32,40,48,56,68`; all retained `C-0050` through `C-0054` verifier JSON objects match exactly after optimization.
 
 
-`X-20260821-005`, `X-20260826-001`, `X-20260826-002`, `X-20260826-003`, and `X-20260827-002` are proof-bearing for the finite-support theorems `C-0050`, `C-0051`, `C-0052`, `C-0053`, and `C-0054`, respectively. Their exact certificates and independent replays are retained with hashes and reproduction commands. `X-20260827-001` remains explicitly pre-theorem and is not itself part of that proof-bearing set. None of these finite-support results constitutes a proof of RH.
+`X-20260821-005`, `X-20260826-001`, `X-20260826-002`, `X-20260826-003`, and `X-20260827-002` are proof-bearing for the finite-support theorems `C-0050`, `C-0051`, `C-0052`, `C-0053`, and `C-0054`, respectively. Their exact certificates and independent replays are retained with hashes and reproduction commands. `X-20260827-001` remains explicitly pre-theorem and `X-20260827-003` is tooling/performance evidence only; neither is part of that proof-bearing set. None of these finite-support results constitutes a proof of RH.
 
 ## Open requirements / blockers
 
@@ -318,9 +319,9 @@ There is no remaining blocker at `T=9/20`; `C-0053` is independently verified.
 
 There is no remaining blocker at `T=19/40`; `C-0054` is independently verified. The hard pre-theorem boundary worked as intended: `X-20260827-001` stopped at `CANDIDATE_READY`, and theorem status was granted only after the separate admission and proof-bearing `X-20260827-002` replay.
 
-The immediate engineering requirement before pushing the Legendre cutoff substantially farther is to optimize the exact Rust verifier without weakening its trust model. The `N=68` unchanged/adversarial exact replays now take long enough that verifier cost is a material continuation bottleneck. Optimization must preserve zero floating-point arithmetic, closed-contract semantics, exact rational PASS/FAIL behavior, and the contract-error/theorem-failure exit distinction; the retained `C-0050` through `C-0054` certificates plus adversarial cases should be the regression corpus.
+The exact Rust verifier performance blocker is now closed by `X-20260827-003`. The implementation still validates full certificate parity/symmetry, remains pure exact rational and zero-float, and preserves the closed-contract/error semantics, but constructs parity Schur blocks directly and exploits lower-triangular/symmetric congruence structure. The previously measured `N=32,40,48,56` debug replays improve from approximately `11,25,54,102` seconds to `3.564,6.145,13.210,24.880` seconds; `N=68` replays in `31.408` seconds. A second replay produces exact parsed-JSON equality against every retained `C-0050` through `C-0054` Rust output, and the real `C-0054` adversarial cases remain contract error `exit 2` versus theorem failure `exit 1`.
 
-After that tooling slice, continuation can resume at a deliberately selected larger support still inside the one-prime window. The eventual structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`, which requires a new mathematical/tooling phase rather than casually broadening the present one-prime driver.
+There is therefore no current verifier-performance blocker to resuming canonical one-prime continuation. The eventual structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`, which requires a new mathematical/tooling phase rather than casually broadening the present one-prime driver.
 
 
 ## Invalidated, corrected, or closed directions
@@ -379,6 +380,6 @@ After that tooling slice, continuation can resume at a deliberately selected lar
 
 ## Next research action
 
-Optimize the zero-float exact Rust verifier as a separate tooling slice before pushing the Legendre dimension materially beyond `N=68`. Profile the retained theorem corpus first, improve implementation efficiency without changing certificate semantics or the pure exact-rational trust base, then replay `C-0050` through `C-0054` plus the contract-error/theorem-failure adversarial cases.
+Resume the canonical one-prime continuation at a deliberately selected larger support still below `(1/2)log 3`. Do not extrapolate the next dimension from `68`; let `scripts.weil_continuation_driver` perform fresh multi-resolution reconnaissance, precision classification, and exact pre-theorem candidate selection under the existing hard stop.
 
-Only after semantic equivalence is demonstrated should the canonical one-prime continuation resume at a newly selected support. Do not extrapolate the next dimension from `68`; let the canonical driver perform fresh reconnaissance and rigorous selection. The eventual structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`.
+Keep `X-20260827-003` as the verifier-performance baseline. If verifier cost again becomes material at larger dimensions, profile first and preserve the same exact semantic regression corpus rather than changing certificate format preemptively. The eventual structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`.

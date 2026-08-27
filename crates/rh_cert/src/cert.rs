@@ -633,21 +633,38 @@ fn require_parity_block_diagonal(
     Ok(())
 }
 
-fn parity_block(
+fn build_schur_parity_block(
     matrix: &RationalIntervalMatrix,
+    gv: &RationalIntervalMatrix,
+    g2: &RationalIntervalMatrix,
+    gr: &RationalIntervalMatrix,
+    coefficient: &BigRational,
     parity: usize,
 ) -> Result<RationalIntervalMatrix, CertificateError> {
-    let indices: Vec<usize> = (parity..matrix.dim).step_by(2).collect();
-    let rows = indices
-        .iter()
-        .map(|&row| {
-            indices
-                .iter()
-                .map(|&col| matrix.rows[row][col].clone())
-                .collect::<Vec<_>>()
-        })
-        .collect::<Vec<_>>();
-    Ok(RationalIntervalMatrix::new(indices.len(), rows)?)
+    let block_dim = matrix.dim / 2;
+    let mut rows = vec![vec![RationalInterval::zero(); block_dim]; block_dim];
+
+    // Full matrices have already been validated symmetric and exactly parity
+    // block diagonal. Construct only the requested Schur block, and only one
+    // triangle of it, instead of materializing the full N x N Schur matrix and
+    // copying parity blocks out afterward.
+    let mut block_row = 0;
+    while block_row < block_dim {
+        let row_index = parity + 2 * block_row;
+        let mut block_col = block_row;
+        while block_col < block_dim {
+            let col_index = parity + 2 * block_col;
+            let gram = &gv.rows[row_index][col_index] + &g2.rows[row_index][col_index];
+            let gram = &gram + &gr.rows[row_index][col_index];
+            let value = &matrix.rows[row_index][col_index] - gram.scale_by(coefficient);
+            rows[block_row][block_col] = value.clone();
+            rows[block_col][block_row] = value;
+            block_col += 1;
+        }
+        block_row += 1;
+    }
+
+    Ok(RationalIntervalMatrix::new(block_dim, rows)?)
 }
 
 impl CertificateDocument {
@@ -944,19 +961,22 @@ impl CertificateJson {
         proof: &ValidatedSchurProof,
     ) -> Result<SchurVerificationReport, CertificateError> {
         let coefficient = &proof.factor / &self.tail_lower_bound;
-        let coefficient_interval = RationalInterval::point(coefficient.clone());
-        let mut rows = vec![vec![RationalInterval::zero(); self.matrix.dim]; self.matrix.dim];
-        for (row_index, row) in rows.iter_mut().enumerate() {
-            for (col_index, value) in row.iter_mut().enumerate() {
-                let gram = &proof.gv.rows[row_index][col_index]
-                    + &proof.g2.rows[row_index][col_index]
-                    + proof.gr.rows[row_index][col_index].clone();
-                *value = &self.matrix.rows[row_index][col_index] - (&coefficient_interval * &gram);
-            }
-        }
-        let schur = RationalIntervalMatrix::new(self.matrix.dim, rows)?;
-        let even_block = parity_block(&schur, 0)?;
-        let odd_block = parity_block(&schur, 1)?;
+        let even_block = build_schur_parity_block(
+            &self.matrix,
+            &proof.gv,
+            &proof.g2,
+            &proof.gr,
+            &coefficient,
+            0,
+        )?;
+        let odd_block = build_schur_parity_block(
+            &self.matrix,
+            &proof.gv,
+            &proof.g2,
+            &proof.gr,
+            &coefficient,
+            1,
+        )?;
         let even = verify_congruence_gershgorin(&even_block, &proof.even_witness)?;
         let odd = verify_congruence_gershgorin(&odd_block, &proof.odd_witness)?;
         Ok(SchurVerificationReport {

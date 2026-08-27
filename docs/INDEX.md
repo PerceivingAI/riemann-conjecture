@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T13:16:15Z`
+- **Last updated:** `2026-08-27T13:42:54Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -128,6 +128,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`X-20260826-003`](../computations/2026-08-26T190517Z-nine-twentieths-schur-certificate/record.md) — 512-bit full-tail `N=56` assembly, exact rational certificate, adversarial replay, and independent Rust PASS supporting `C-0053` at `T=9/20`.
 - [`X-20260827-001`](../computations/2026-08-27T115112Z-t19-40-continuation/record.md) — canonical pre-theorem `T=19/40` continuation bundle; `N=64` is stable-negative after precision escalation and `N=68` reaches exact `CANDIDATE_READY`; the later separate admission/theorem replay is `X-20260827-002`.
 - [`X-20260827-002`](../computations/2026-08-27T122716Z-nineteen-fortieths-schur-certificate/record.md) — proof-bearing exact `T=19/40,N=68` theorem certificate, independent Rust PASS, adversarial replay, and acceptance verification supporting `C-0054`.
+- [`X-20260827-003`](../computations/2026-08-27T134254Z-rust-exact-verifier-optimization/record.md) — zero-float Rust verifier optimization and exact semantic replay: retained theorem outputs are byte-semantically unchanged as parsed JSON while debug replay timings fall by roughly `3–4x` over the previously benchmarked `N=32..56` corpus.
 
 
 ## Templates
@@ -138,4 +139,4 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Current state
 
-RH remains unresolved. `C-0050` at `T=7/20`, `C-0051` at `T=2/5`, `C-0052` at `T=17/40`, `C-0053` at `T=9/20`, and `C-0054` at `T=19/40` are independently verified finite-support theorems. `A-20260826-001` remains active. The immediate engineering frontier is exact-Rust-verifier optimization before materially larger `N`, followed by fresh canonical continuation; the eventual `p=3` threshold remains a separate structural phase. See [`STATUS.md`](STATUS.md).
+RH remains unresolved. `C-0050` at `T=7/20`, `C-0051` at `T=2/5`, `C-0052` at `T=17/40`, `C-0053` at `T=9/20`, and `C-0054` at `T=19/40` are independently verified finite-support theorems. `A-20260826-001` remains active. Exact-Rust-verifier optimization is complete in `X-20260827-003` with semantic-equivalent retained replays; the immediate frontier is fresh canonical one-prime continuation without extrapolating the next dimension. The eventual `p=3` threshold remains a separate structural phase. See [`STATUS.md`](STATUS.md).

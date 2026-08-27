@@ -98,6 +98,28 @@ impl RationalInterval {
         }
     }
 
+    /// Multiply this interval by an exact rational scalar.
+    ///
+    /// This is equivalent to multiplication by the point interval
+    /// `[coefficient, coefficient]`, but avoids the four endpoint products and
+    /// min/max work of generic interval multiplication.
+    pub fn scale_by(&self, coefficient: &BigRational) -> Self {
+        if coefficient.is_zero() {
+            return Self::zero();
+        }
+        if coefficient > &BigRational::zero() {
+            Self {
+                lo: &self.lo * coefficient,
+                hi: &self.hi * coefficient,
+            }
+        } else {
+            Self {
+                lo: &self.hi * coefficient,
+                hi: &self.lo * coefficient,
+            }
+        }
+    }
+
     /// Create a point interval from an integer `[val, val]`.
     pub fn from_integer(val: i64) -> Self {
         let r = BigRational::from_integer(BigInt::from(val));
