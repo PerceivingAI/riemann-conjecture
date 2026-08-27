@@ -418,8 +418,10 @@ def test_cli_writes_requested_output_directory(
 
     driver.main()
 
-    payload = (output_dir / "continuation.json").read_text(encoding="utf-8")
-    assert '"state": "NO_CANDIDATE"' in payload
+    summary = (output_dir / "summary.json").read_text(encoding="utf-8")
+    manifest = (output_dir / "run-manifest.json").read_text(encoding="utf-8")
+    assert '"state": "NO_CANDIDATE"' in summary
+    assert '"final_state": "NO_CANDIDATE"' in manifest
 
 
 def test_driver_selects_smallest_ready_dimension_without_contract_admission(monkeypatch: pytest.MonkeyPatch) -> None:

@@ -18,6 +18,11 @@ from fractions import Fraction
 from pathlib import Path
 from typing import Any, Callable
 
+from scripts.continuation_bundle import (
+    collect_runtime_provenance,
+    utc_now,
+    write_continuation_bundle,
+)
 from scripts.weil_legendre_schur_scout import scout
 from scripts.cert.constants import require_one_prime_support
 from scripts.weil_support_candidate_check import (
@@ -26,6 +31,9 @@ from scripts.weil_support_candidate_check import (
     theorem_boundary_payload,
 )
 from scripts.weil_support_continuation_scout import scout_support
+
+
+DRIVER_VERSION = "continuation-driver-p8-v1"
 
 
 FINAL_STATES = {
@@ -573,6 +581,7 @@ def run_driver(
         dimension: [] for dimension in dimensions
     }
     scout_failures: list[dict[str, object]] = []
+    scout_runs: list[dict[str, object]] = []
     for resolution in resolutions:
         try:
             raw_scout = scout(
@@ -582,6 +591,13 @@ def run_driver(
                 n_values=dimensions,
                 support=support,
             )
+            scout_runs.append(
+                {
+                    "status": "completed",
+                    "resolution": resolution.as_dict(),
+                    "result": raw_scout,
+                }
+            )
             for row in _typed_scout_rows(
                 raw_scout,
                 max_mode=resolution.max_mode,
@@ -590,11 +606,16 @@ def run_driver(
             ):
                 series[row.dimension].append(row)
         except Exception as exc:
-            scout_failures.append(
+            failure = {
+                "resolution": resolution.as_dict(),
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+            }
+            scout_failures.append(failure)
+            scout_runs.append(
                 {
-                    "resolution": resolution.as_dict(),
-                    "error_type": type(exc).__name__,
-                    "error": str(exc),
+                    "status": "failed",
+                    **failure,
                 }
             )
 
@@ -711,17 +732,27 @@ def run_driver(
 
     return {
         "role": "pre_theorem_continuation_driver",
+        "driver_version": DRIVER_VERSION,
+        "cache_version": CACHE_VERSION,
         "state": state,
         "status": state,
         **theorem_boundary_payload(),
         "support": f"{support.numerator}/{support.denominator}",
         "dimensions": dimensions,
+        "scout_resolution_count": scout_resolution_count,
+        "scout_resolution_plan": [resolution.as_dict() for resolution in resolutions],
         "precision_ladder": precisions,
         "precision_start": precision_start,
         "precision_max": precision_max,
+        "matrix_bits_start": matrix_bits_start,
+        "matrix_bits_max": matrix_bits_max,
+        "witness_bits_start": witness_bits_start,
+        "witness_bits_max": witness_bits_max,
+        "cache_dir": str(cache_dir) if cache_dir is not None else None,
         "residual_order": residual_order,
         "matrix_bits_ladder": matrix_bits_ladder,
         "witness_bits_ladder": witness_bits_ladder,
+        "scout_runs": scout_runs,
         "reconnaissance": reconnaissance,
         "scout_failures": scout_failures,
         "rigorous_screening": rigorous_screening,
@@ -770,6 +801,8 @@ def main() -> None:
     support = Fraction(args.support)
     if support <= 0:
         parser.error("--support must be a positive exact rational")
+    run_started_at = utc_now()
+    provenance = collect_runtime_provenance()
     try:
         dimensions = dimensions_from_args(args)
         result = run_driver(
@@ -788,10 +821,17 @@ def main() -> None:
     except (ValueError, ZeroDivisionError) as exc:
         parser.error(str(exc))
 
-    args.output_dir.mkdir(parents=True, exist_ok=True)
-    (args.output_dir / "continuation.json").write_text(
-        json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8"
-    )
+    run_completed_at = utc_now()
+    try:
+        write_continuation_bundle(
+            result,
+            args.output_dir,
+            run_started_at=run_started_at,
+            run_completed_at=run_completed_at,
+            provenance=provenance,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
     print(json.dumps(result, indent=2, allow_nan=False))
 
 
