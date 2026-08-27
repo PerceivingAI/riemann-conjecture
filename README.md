@@ -4,6 +4,12 @@ This repository is an organized, auditable research record for attempts to under
 
 The repository is **not** a collection of informal notes. Every substantive research action, derivation, finding, computation, correction, and dead end must be timestamped and recorded so that later work can reconstruct exactly what was tried, what was learned, and why a direction was continued or abandoned.
 
+## Agent onboarding
+
+Coding or research agents should read [`AGENTS.md`](AGENTS.md) before exploring the repository broadly. This README explains the project, research standard, trust chain, and human-facing structure; `AGENTS.md` is the complementary operational guide with the current tool map, canonical continuation workflow, test tiers, theorem-admission stop boundary, and change/verification checklist.
+
+Agents should still treat [`docs/STATUS.md`](docs/STATUS.md), [`docs/PROTOCOL.md`](docs/PROTOCOL.md), and [`docs/CONTRACTS.md`](docs/CONTRACTS.md) as authoritative for current research state, record discipline, and proof-certificate semantics respectively.
+
 ## Research standard
 
 The governing rules are:
@@ -25,6 +31,7 @@ Start here depending on what you need:
 
 | Need | Go to |
 | --- | --- |
+| Agent onboarding, tool map, canonical workflows, verification rules | [`AGENTS.md`](AGENTS.md) |
 | Current research state, active leads, blockers | [`docs/STATUS.md`](docs/STATUS.md) |
 | Chronological record of all research activity | [`docs/LOG.md`](docs/LOG.md) |
 | Registry of important mathematical claims and dependencies | [`docs/CLAIMS.md`](docs/CLAIMS.md) |
@@ -55,6 +62,7 @@ Start here depending on what you need:
 ```text
 .
 ├── README.md
+├── AGENTS.md
 ├── .gitignore
 ├── Cargo.toml
 ├── pyproject.toml
@@ -112,12 +120,15 @@ Start here depending on what you need:
 │   ├── uniform_phase_diagnostics.py
 │   ├── chirp_window_diagnostics.py
 │   ├── bilinear_chirp_geometry.py
+│   ├── continuation_bundle.py
+│   ├── weil_continuation_driver.py
 │   ├── cert/
 │   │   ├── constants.py
 │   │   ├── quadrature.py
 │   │   ├── residual_kernel.py
 │   │   ├── matrices.py
 │   │   ├── legendre_schur.py
+│   │   ├── exact_prime_schur_common.py
 │   │   ├── exact_prime_schur_certificate.py
 │   │   └── export_certificate.py
 │   ├── positivity_kernel_diagnostics.py
@@ -136,10 +147,15 @@ Start here depending on what you need:
     ├── __init__.py
     ├── certificate_conformance.json
     ├── test_cert_pipeline.py
+    ├── test_continuation_bundle.py
+    ├── test_continuation_driver.py
+    ├── test_continuation_integration.py
+    ├── test_continuation_state_machine.py
     ├── test_exact_prime_schur_certificate.py
     ├── test_support_continuation.py
     ├── test_identities.py
     ├── test_properties.py
+    ├── test_pre_theorem_boundary.py
     └── test_rh_tools.py
 ```
 
@@ -196,7 +212,7 @@ Python + python-flint/Arb
 
 The closed certificate syntax and exact PASS semantics are authoritative in [`docs/CONTRACTS.md`](docs/CONTRACTS.md) and [`docs/contracts/rh-weil-certificate-v1.json`](docs/contracts/rh-weil-certificate-v1.json). The v1 `exact_prime_legendre_schur` profile is a closed whitelist, currently admitting exactly `(T,N)=(7/20,32)`, `(2/5,40)`, `(17/40,48)`, and `(9/20,56)`. For each admitted pair it derives the Legendre complement bound, reconstructs the factor-3 component-Gram Schur matrix, and verifies exact rational congruence/Gershgorin witnesses. It certifies `C-0050` through `C-0053` as localized finite-support theorems; it does not accept arbitrary nearby supports.
 
-Support-continuation tooling may parameterize the shared exact assembler and may produce generator-side exact candidates at other rational one-prime supports. Those candidates do **not** inherit theorem status from `C-0050`: each new support/dimension pair requires an explicitly allowed closed verifier contract and a fresh independent Rust replay before it can be promoted from `PROVISIONAL` to `VERIFIED`.
+Support-continuation tooling may parameterize the shared exact assembler and may produce generator-side exact candidates at other rational one-prime supports. Those candidates do **not** inherit theorem status from `C-0050`. The canonical continuation driver stops at `CANDIDATE_READY`; a separate human/research decision must admit the exact support/dimension pair to the closed theorem contract before certificate generation and a fresh independent Rust replay can establish theorem status.
 
 The Lean project in `formal/` now deliberately uses **Mathlib**, pinned to `v4.33.0` in `formal/lakefile.lean` and resolved by `formal/lake-manifest.json`. This is a larger formal dependency than the original lightweight-Core-only idea, but it supports the current general finite-dimensional LDL theorem, analytic endpoint-absorption proof, and exact-prime Gershgorin/invertible-congruence soundness theorem. `lake build` is the authoritative formal acceptance check.
 

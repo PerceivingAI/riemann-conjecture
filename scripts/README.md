@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-27T08:32:32Z`
+- **Last updated:** `2026-08-27T11:34:30Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -150,22 +150,18 @@ python -m scripts.weil_exact_prime_complement_certificate --prec 224 --max-n 30 
 
 Its retained JSON uses exact rational interval endpoints for proof quantities. It does not prove full first-prime positivity.
 
+## Canonical one-prime continuation workflow
+
+For ordinary one-prime continuation research, use `scripts.weil_continuation_driver`. It is the canonical pre-theorem workflow and owns reconnaissance, convergence classification, dimension selection, rigorous precision escalation, conditioning-incident handling, exact candidate construction, and the self-contained continuation bundle.
+
+The standalone continuation scripts remain supported research instruments and implementation components. Use them for isolated diagnostics, debugging, or historical reproduction; do **not** manually chain them as the ordinary continuation workflow.
+
 ### `weil_continuation_driver.py`
 
-Canonical pre-theorem continuation driver. It accepts an exact rational support
-and an explicit dimension list or range, runs three increasing reconnaissance
-resolutions derived from the requested maximum dimension, then rigorously
-screens only the smallest stable-positive dimension and its next larger
-fallback. Rigorous screening and candidate checks use the persistent cache
-`.cache/continuation-driver` by default; cache keys include support, dimension,
-precision, residual order, witness/rounding parameters, and a fingerprint of
-the continuation source files plus `uv.lock`. It accepts only the strict
-`log(2)/2 < T < log(3)/2` p=2-only support window. It never
-extrapolates dimensions, invokes the theorem exporter, edits the closed
-contract, or grants theorem status.
+Canonical pre-theorem continuation driver. It accepts an exact rational support and an explicit dimension list or range, runs three increasing reconnaissance resolutions derived from the requested maximum dimension, then rigorously screens only the smallest stable-positive dimension and its next larger fallback. Rigorous screening and candidate checks use the persistent cache `.cache/continuation-driver` by default; cache keys include support, dimension, precision, residual order, witness/rounding parameters, and a fingerprint of the continuation source files plus `uv.lock`. It accepts only the strict `log(2)/2 < T < log(3)/2` p=2-only support window. It never extrapolates dimensions, invokes the theorem exporter, edits the closed contract, or grants theorem status.
 
 ```text
-uv run --locked --extra test python -m scripts.weil_continuation_driver \
+uv run --locked python -m scripts.weil_continuation_driver \
   --support 19/40 \
   --n-min 48 \
   --n-max 80 \
@@ -176,21 +172,21 @@ uv run --locked --extra test python -m scripts.weil_continuation_driver \
 An explicit dimension list can be supplied instead:
 
 ```text
-uv run --locked --extra test python -m scripts.weil_continuation_driver \
+uv run --locked python -m scripts.weil_continuation_driver \
   --support 19/40 \
   --n 48,52,56,60,64,68,72 \
   --output-dir computations/.../data/continuation-T019-040
 ```
 
-`CANDIDATE_READY` is not theorem evidence; it requires a fresh independent
-Rust verifier run.
+The default terminal output is a concise human summary; pass `--json` when the full result object is needed on stdout. The bundle remains the durable audit artifact.
 
-The driver escalates matrix rounding bits and witness bits independently when
-candidate construction fails. Rounding and witness failures remain distinct
-from mathematical or precision failures; `CANDIDATE_READY` is still only
-generator-side evidence.
+`CANDIDATE_READY` is generator-side evidence only and does **not** authorize theorem admission. The driver stops there. A separate human/research decision must first admit the exact support/dimension pair to the closed theorem contract; only after that separate change may a fresh independent Rust replay establish theorem status.
+
+The driver escalates matrix rounding bits and witness bits independently when candidate construction fails. Rounding, witness, mathematical-negative, and insufficient-precision outcomes remain distinct.
 
 ### `weil_legendre_schur_scout.py`
+
+**Diagnostic/component tool.** Use this directly for isolated floating reconnaissance or historical reproduction, not as the first manual step of the ordinary continuation workflow.
 
 ```text
 python -m scripts.weil_legendre_schur_scout --support 2/5 --max-mode 120 --quadrature-order 700 --shift-order 350 --n 32,40,48,56,64,72 --output-json computations/.../data/dimension-scout-T040.json
@@ -200,6 +196,8 @@ This script is reconnaissance only. Its finite tail truncation is not an infinit
 
 ### `weil_support_continuation_scout.py`
 
+**Diagnostic/component tool.** Use this directly for isolated rigorous full-tail diagnostics or historical reproduction; ordinary continuation precision search is owned by the canonical driver.
+
 Supports `A-20260826-001`. It reuses the exact-polynomial/Arb full-tail assembler at exact rational support values, then converts only normalized matrix midpoints to NumPy/SciPy for support-margin reconnaissance. It reports `mu_N`, finite-block midpoint minima, Schur midpoint minima, and component penalty scales. Positive rows are not theorem certificates.
 
 ```text
@@ -208,7 +206,7 @@ python -m scripts.weil_support_continuation_scout --supports 7/20,3/8,2/5,17/40,
 
 ### `weil_support_candidate_check.py`
 
-Generator-side exact candidate checker for a selected continuation point. It performs rigorous Arb assembly, outward dyadic rational rounding, exact rational Schur construction, and exact rational congruence/Gershgorin checks, but deliberately does **not** emit a theorem certificate because the independent Rust profile may still be locked to another support/dimension pair.
+**Diagnostic/component tool.** Generator-side exact candidate checker for a deliberately selected continuation point. It performs rigorous Arb assembly, outward dyadic rational rounding, exact rational Schur construction, and exact rational congruence/Gershgorin checks. Ordinary continuation candidate search is owned by the canonical driver. This standalone checker deliberately does **not** emit a theorem certificate, modify the closed contract, authorize admission, or invoke the independent verifier.
 
 ```text
 python -m scripts.weil_support_candidate_check --support 2/5 --dimension 40 --prec 256 --matrix-bits 72 --witness-bits 40 --output-json computations/.../data/candidate-T040-N40.json
@@ -249,4 +247,4 @@ These scripts can:
 - expose phase loss caused by absolute values;
 - identify unstable cutoff regimes;
 - guide which analytic lemma is worth attempting.
-They cannot prove RH by numerical verification. Every retained run belongs in `computations/` as a self-contained directory bundle (`record.md`, `plots/`, `data/`) with exact parameters and limitations.
+They cannot prove RH by numerical verification. Retained historical/manual research runs use the established `computations/` record structure (`record.md`, `plots/`, `data/`) with exact parameters and limitations. Canonical continuation-driver runs use the driver's self-contained continuation bundle (`summary.json`, scout/rigorous artifacts, candidate data, and `run-manifest.json`). Both formats must retain enough parameters, provenance, and limitations for audit and reproduction.

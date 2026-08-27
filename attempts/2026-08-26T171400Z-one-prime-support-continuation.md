@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-08-26T19:05:17Z`
+- **Last updated:** `2026-08-27T11:34:30Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -24,7 +24,7 @@ The next question is whether this mechanism has nontrivial continuation range in
 
 or whether `T=0.35` is essentially an isolated point for the present certificate architecture.
 
-This attempt deliberately does **not** generalize the `exact_prime_legendre_schur` certificate profile at the outset. The verified `C-0050` profile remains locked to `T=7/20`, `N=32`. New support values are reconnaissance/candidates until independently verified under a new closed contract.
+At the outset this attempt deliberately did **not** generalize the `exact_prime_legendre_schur` certificate profile: the then-verified `C-0050` profile was locked to `T=7/20,N=32`. The architecture remains closed and enumerated rather than parameter-open. Since then, separate human-reviewed admissions and independent replays have added `(2/5,40)`, `(17/40,48)`, and `(9/20,56)`. Any new support/dimension pair remains pre-theorem candidate evidence until a separate admission decision changes the closed contract and a fresh independent replay succeeds.
 
 ## Parameterized exact assembly
 
@@ -40,7 +40,7 @@ G_R(T),
 mu_N(T)=H_N-c_T(T)-c_2-rho_R(T).
 ```
 
-The proof-bearing `scripts.cert.exact_prime_schur_certificate` continues to use the default `7/20`; `docs/contracts/rh-weil-certificate-v1.json` remains locked to the proved `C-0050` semantics.
+The reusable assembler is parameterized, but the proof-bearing `scripts.cert.exact_prime_schur_certificate` remains fail-closed: it exports only explicitly admitted support/dimension pairs. The current closed theorem whitelist is `(7/20,32)`, `(2/5,40)`, `(17/40,48)`, and `(9/20,56)`; continuation machinery does not edit that admission set.
 
 For reconnaissance past the point where `mu_N` may become nonpositive, the assembler has an explicit `require_positive_mu=False` mode. The default remains `True`, so certificate-generation failure semantics are unchanged.
 
@@ -124,12 +124,13 @@ At that stage this was **not yet a theorem**: the independent Rust profile had n
 
 The selected `T=2/5,N=40` candidate has now crossed the independent-verifier boundary.
 
-The v1 `exact_prime_legendre_schur` contract remains closed rather than parameter-open: it explicitly whitelists only
+The current v1 `exact_prime_legendre_schur` contract remains closed rather than parameter-open: it explicitly whitelists exactly
 
 ```text
 (T,N)=(7/20,32)
 (T,N)=(2/5,40)
-(T,N)=(17/40,48).
+(T,N)=(17/40,48)
+(T,N)=(9/20,56).
 ```
 
 The full `T=2/5,N=40` proof object was generated with 256-bit Arb assembly, 72-bit outward dyadic matrix endpoints, residual order `32`, and 40-bit dyadic exact rational congruence witnesses. Rust independently derives the complement bound and Schur matrix and returns
@@ -209,7 +210,7 @@ This establishes `F-20260826-004` / `C-0053`: strict localized Weil positivity a
 
 No RH input is used.
 
-The target remains finite-support Weil positivity at one fixed support value. Even a successful theorem at `T=2/5` would not imply RH. Floating midpoint scans and truncated-tail dimension scouts are never promoted to theorem status. The generator-side exact candidate is also not promoted until an independent closed verifier profile checks it.
+The target remains finite-support Weil positivity at one fixed support value. Even a successful finite-support theorem does not imply RH. Floating midpoint scans and truncated-tail dimension scouts are never promoted to theorem status. `CANDIDATE_READY` is also not promoted automatically: the canonical continuation driver stops there, a separate human/research decision must admit the exact pair to the closed theorem contract, and only then may a fresh independent verifier replay establish theorem status.
 
 ## Current result
 
@@ -224,6 +225,9 @@ Current results:
 5. `C-0052` is `VERIFIED`: high-precision `N=48` assembly plus a fresh exact certificate and independent Rust replay prove strict localized Weil positivity at `T=17/40`;
 6. `C-0053` is `VERIFIED`: 512-bit `N=56` assembly plus a fresh exact certificate and independent Rust replay prove strict localized Weil positivity at `T=9/20`;
 7. the natural required dimension continues to grow with support, so the next slice must select a fresh cutoff for `T=19/40=0.475` rather than extrapolating `N=56`.
+8. the canonical `scripts.weil_continuation_driver` now owns ordinary one-prime continuation from multi-resolution scout through rigorous precision escalation, exact candidate construction, bundle generation, and concise terminal reporting;
+9. historical `T=2/5,N=40` and `T=17/40,N=48` points are real integration regressions, and the documented 104-bit monomial-conditioning incident is protected so insufficient precision escalates instead of becoming `NO_CANDIDATE`;
+10. `CANDIDATE_READY` remains a hard pre-theorem stop and cannot automatically edit the closed contract, generate a theorem claim, or invoke the independent verifier.
 
 ## Next action
 
@@ -233,4 +237,17 @@ Continue toward
 T=19/40=0.475.
 ```
 
-Do not guess the next cutoff from the earlier pattern. First run stable orthonormal-Legendre dimension reconnaissance at `T=19/40`, then perform a high-precision full-tail exact candidate at the smallest practical dimension that survives the tail correction. Any theorem at `T=19/40` requires a fresh explicitly whitelisted pair and independent Rust replay. Do not extrapolate `C-0053` to nearby supports.
+Do not guess the next cutoff from the earlier pattern. For ordinary continuation, run the canonical pre-theorem driver with an explicit dimension range, for example:
+
+```text
+uv run --locked python -m scripts.weil_continuation_driver \
+  --support 19/40 \
+  --n-min 48 \
+  --n-max 80 \
+  --n-step 4 \
+  --output-dir computations/.../data/continuation-T019-040
+```
+
+The driver owns multi-resolution reconnaissance, stable-dimension selection, rigorous precision escalation, conditioning-incident handling, exact rounding/witness search, bundle generation, and the concise terminal result. The standalone scout and candidate scripts are for isolated diagnostics/debugging or historical reproduction, not for manually reconstructing the ordinary workflow.
+
+A successful continuation run stops at `CANDIDATE_READY`. It must not edit the theorem whitelist, JSON schema, `CLAIMS.md`, `CONTRACTS.md`, generate a `C-xxxx`/finding, or invoke an unapproved verifier mode. Any theorem at `T=19/40` requires a later, separate human/research admission decision for the exact pair followed by the normal closed-contract certificate and fresh independent Rust replay. Do not extrapolate `C-0053` to nearby supports.

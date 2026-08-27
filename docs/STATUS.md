@@ -1,7 +1,7 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-26T19:05:17Z`
+- **Last updated:** `2026-08-27T11:34:30Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
@@ -147,7 +147,7 @@ odd  margin > 0.004366893328949625,
 
 reconstructs the factor-3 Schur matrix, and returns `passed=true` with scope `localized_weil_positivity_T_9_20`. The real-certificate adversarial replay again distinguishes contract failure (exit `2`) from theorem failure (exit `1`).
 
-The active frontier has therefore moved to `T=19/40=0.475`. The next cutoff has not yet been selected rigorously; the next slice begins with stable orthonormal-Legendre dimension reconnaissance rather than extrapolating `N=56`.
+The active frontier has therefore moved to `T=19/40=0.475`. The next cutoff has not yet been selected rigorously, and no `T=19/40` candidate has been admitted. Ordinary continuation is now driven by the canonical `scripts.weil_continuation_driver`: it performs multi-resolution reconnaissance, convergence-aware dimension selection, rigorous precision escalation, conditioning-incident handling, exact candidate construction, bundle generation, and concise terminal reporting. Real integration tests rediscover the historical `T=2/5,N=40` and `T=17/40,N=48` continuation points, and a regression reproduces the documented 104-bit monomial-conditioning incident so insufficient precision escalates rather than becoming `NO_CANDIDATE`.
 
 ### L2 — Exact transcendental interval inputs
 
@@ -311,11 +311,11 @@ T=19/40=0.475.
 
 The next slice must:
 
-1. run stable orthonormal-Legendre dimension reconnaissance at `T=19/40` to select a practical cutoff rather than extrapolating from the previous sequence;
-2. rerun the full-tail exact-polynomial/Arb assembly at the selected dimension with enough precision to defeat the known high-degree monomial-conditioning problem;
-3. require a positive rigorous complement bound and positive full-tail Schur candidate after outward rational rounding;
-4. construct exact rational parity congruence witnesses only if that candidate survives;
-5. only then add the single selected `(T,N)` pair to the closed whitelist and require a fresh independent Rust replay.
+1. use the canonical `scripts.weil_continuation_driver` at `T=19/40` with an explicit dimension range rather than extrapolating `N` from the previous sequence;
+2. let the driver own the multi-resolution scout, stable-dimension selection, rigorous full-tail precision ladder, exact rounding/witness search, and self-contained continuation bundle;
+3. preserve the P12 distinction: conditioning-sensitive or unresolved numerics are `INSUFFICIENT_PRECISION`/`PRECISION_LIMIT_REACHED`, while `NO_CANDIDATE` requires stable mathematical rejection;
+4. stop automatically at `CANDIDATE_READY`; the continuation run must not edit theorem whitelists/schema/claims/contracts, create a theorem claim or finding, or invoke an unapproved verifier path;
+5. only after a separate human/research decision to admit an exact `(T,N)` pair may the closed theorem contract be changed and the normal certificate-generation plus fresh independent Rust replay workflow begin.
 
 
 ## Invalidated, corrected, or closed directions
@@ -374,6 +374,6 @@ The next slice must:
 
 ## Next research action
 
-Continue `A-20260826-001` at the next candidate support `T=19/40`, starting with stable dimension selection and then a high-precision full-tail exact candidate at the selected cutoff.
+Continue `A-20260826-001` at `T=19/40` using the canonical pre-theorem driver (`python -m scripts.weil_continuation_driver`) with an explicit dimension range. Do not manually reconstruct the scout → rigorous screen → candidate chain with the standalone tools; those remain available for isolated diagnostics/debugging and historical reproduction.
 
-Do not extrapolate `C-0053` from `T=9/20`. Any theorem at `T=19/40` must come from a fresh exact certificate and independent replay under an explicitly whitelisted pair. The eventual structural transition remains the entry of the `p=3` compressed translation at `(1/2)log 3`.
+Do not extrapolate `C-0053` from `T=9/20`. The canonical driver may produce `CANDIDATE_READY`, but that is not theorem status and does not authorize admission. The required boundary is `CANDIDATE_READY` → separate human/research admission decision → closed-contract change → fresh certificate generation → independent Rust replay. The eventual structural transition remains the entry of the `p=3` compressed translation at `(1/2)log 3`.
