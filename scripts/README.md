@@ -156,14 +156,11 @@ Canonical pre-theorem continuation driver. It accepts an exact rational support
 and an explicit dimension list or range, runs three increasing reconnaissance
 resolutions derived from the requested maximum dimension, then rigorously
 screens only the smallest stable-positive dimension and its next larger
-fallback. Rigorous screening escalates through the default
-`128,256,384,512`-bit precision ladder and stops when the Schur midpoint
-stabilizes or the configured maximum is reached. Generator-side candidate
-checks run only for dimensions that survive the rigorous screen. It writes a
-machine-readable `continuation.json` result with the complete resolution
-series, precision attempts, rigorous intervals, primary dimension, and
-fallback. It never extrapolates dimensions, invokes the theorem exporter,
-edits the closed contract, or grants theorem status.
+fallback. Rigorous screening and candidate checks use the persistent cache
+`.cache/continuation-driver` by default; cache keys include support, dimension,
+precision, residual order, and witness/rounding parameters. It never
+extrapolates dimensions, invokes the theorem exporter, edits the closed
+contract, or grants theorem status.
 
 ```text
 uv run --locked --extra test python -m scripts.weil_continuation_driver \

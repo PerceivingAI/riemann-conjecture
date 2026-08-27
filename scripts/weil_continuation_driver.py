@@ -11,11 +11,12 @@ is still required.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from dataclasses import asdict, dataclass
 from fractions import Fraction
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 from scripts.weil_legendre_schur_scout import scout
 from scripts.weil_support_candidate_check import run_candidate
@@ -122,6 +123,31 @@ def build_precision_ladder(start: int = 128, maximum: int = 512) -> list[int]:
         ladder.append(maximum)
     return ladder
 
+
+CACHE_VERSION = "continuation-driver-v2"
+
+
+def _cached_result(
+    cache_dir: Path | None,
+    key: dict[str, object],
+    producer: Callable[[], dict[str, object]],
+) -> tuple[dict[str, object], bool]:
+    if cache_dir is None:
+        return producer(), False
+    encoded = json.dumps({"version": CACHE_VERSION, **key}, sort_keys=True).encode()
+    cache_path = cache_dir / (hashlib.sha256(encoded).hexdigest() + ".json")
+    try:
+        return json.loads(cache_path.read_text(encoding="utf-8")), True
+    except (FileNotFoundError, json.JSONDecodeError):
+        result = producer()
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        temporary = cache_path.with_suffix(".tmp")
+        temporary.write_text(
+            json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+        )
+        temporary.replace(cache_path)
+        return result, False
+
 def _scout_status(row: ScoutDimensionResult) -> str:
     if (
         row.mu_scout <= 0
@@ -212,23 +238,83 @@ def _classify_reconnaissance(rows: list[ScoutDimensionResult]) -> str:
 
 
 
+def _precision_pair_diagnostics(
+    previous: dict[str, object], current: dict[str, object]
+) -> dict[str, object]:
+    def change(name: str) -> float:
+        return abs(float(current[name]) - float(previous[name]))
+
+    width_names = (
+        "A_max",
+        "GV_max",
+        "G2_max",
+        "GR_max",
+        "mu",
+        "rho_R",
+        "residual_remainder",
+    )
+    previous_widths = previous.get("interval_widths", {})
+    current_widths = current.get("interval_widths", {})
+    if not isinstance(previous_widths, dict) or not isinstance(current_widths, dict):
+        raise ValueError("rigorous result is missing interval widths")
+    width_changes = {
+        name: float(current_widths[name]) - float(previous_widths[name])
+        for name in width_names
+    }
+    signs = {
+        "mu_lower_positive": (float(current["mu_lower"]) > 0)
+        == (float(previous["mu_lower"]) > 0),
+        "finite_block_positive": (
+            float(current["finite_block_min_eigenvalue_midpoint"]) > 0
+        )
+        == (float(previous["finite_block_min_eigenvalue_midpoint"]) > 0),
+        "schur_positive": (float(current["schur_min_eigenvalue_midpoint"]) > 0)
+        == (float(previous["schur_min_eigenvalue_midpoint"]) > 0),
+    }
+    return {
+        "from_precision_bits": previous["precision_bits"],
+        "to_precision_bits": current["precision_bits"],
+        "finite_block_midpoint_change": change(
+            "finite_block_min_eigenvalue_midpoint"
+        ),
+        "schur_midpoint_change": change("schur_min_eigenvalue_midpoint"),
+        "interval_width_changes": width_changes,
+        "widths_reduced": all(delta <= 0 for delta in width_changes.values()),
+        "signs_stable": signs,
+        "all_key_signs_stable": all(signs.values()),
+    }
+
+
 def _escalate_rigorous_screen(
     support: Fraction,
     dimension: int,
     precisions: list[int],
     residual_order: int,
+    cache_dir: Path | None = None,
 ) -> dict[str, object]:
     import math
 
     attempts: list[dict[str, object]] = []
+    pair_diagnostics: list[dict[str, object]] = []
     previous_schur: float | None = None
+    previous_result: dict[str, object] | None = None
     for precision in precisions:
         try:
-            result = scout_support(
-                support,
-                dimension=dimension,
-                prec=precision,
-                residual_order=residual_order,
+            result, _ = _cached_result(
+                cache_dir,
+                {
+                    "kind": "rigorous-screen",
+                    "support": f"{support.numerator}/{support.denominator}",
+                    "dimension": dimension,
+                    "precision": precision,
+                    "residual_order": residual_order,
+                },
+                lambda: scout_support(
+                    support,
+                    dimension=dimension,
+                    prec=precision,
+                    residual_order=residual_order,
+                ),
             )
         except Exception as exc:
             attempts.append(
@@ -255,20 +341,25 @@ def _escalate_rigorous_screen(
             and abs(float(schur) - previous_schur)
             <= 1e-3 * max(abs(float(schur)), abs(previous_schur), 1e-12)
         )
-        attempts.append(
-            {
-                **result,
-                "precision_bits": precision,
-                "stable_change": stable_change,
-            }
-        )
+        attempt = {
+            **result,
+            "precision_bits": precision,
+            "stable_change": stable_change,
+        }
+        if previous_result is not None:
+            diagnostics = _precision_pair_diagnostics(previous_result, attempt)
+            attempt["change_from_previous"] = diagnostics
+            pair_diagnostics.append(diagnostics)
+        attempts.append(attempt)
         if usable and stable_change and float(mu_lower) > 0 and float(finite) > 0 and float(schur) > 0:
             return {
                 "status": "precision_stable",
                 "selected_precision_bits": precision,
                 "attempts": attempts,
+                "precision_pair_diagnostics": pair_diagnostics,
             }
         previous_schur = float(schur) if usable else None
+        previous_result = attempt if usable else None
 
     if len(attempts) >= 2:
         previous, current = attempts[-2:]
@@ -287,6 +378,7 @@ def _escalate_rigorous_screen(
                 "status": "mathematical_negative",
                 "selected_precision_bits": None,
                 "attempts": attempts,
+                "precision_pair_diagnostics": pair_diagnostics,
             }
     if not attempts or all(attempt.get("status") == "assembly_failed" for attempt in attempts):
         raise RuntimeError("all precision-ladder assemblies failed")
@@ -294,6 +386,7 @@ def _escalate_rigorous_screen(
         "status": "precision_limit_reached",
         "selected_precision_bits": None,
         "attempts": attempts,
+        "precision_pair_diagnostics": pair_diagnostics,
     }
 
 def run_driver(
@@ -305,6 +398,7 @@ def run_driver(
     precision_max: int = 512,
     residual_order: int = 32,
     matrix_bits: int = 72,
+    cache_dir: Path | None = None,
     witness_bits: int = 40,
 ) -> dict[str, Any]:
     if not dimensions:
@@ -374,7 +468,7 @@ def run_driver(
     for dimension in screening_dimensions:
         try:
             screening = _escalate_rigorous_screen(
-                support, dimension, precisions, residual_order
+                support, dimension, precisions, residual_order, cache_dir
             )
             rigorous_screening.append(
                 {"dimension": dimension, **screening}
@@ -398,13 +492,25 @@ def run_driver(
     candidate_failures: list[dict[str, object]] = []
     for dimension in survivors:
         try:
-            candidate = run_candidate(
-                support,
-                dimension=dimension,
-                prec=candidate_precisions[dimension],
-                residual_order=residual_order,
-                matrix_bits=matrix_bits,
-                witness_bits=witness_bits,
+            candidate, _ = _cached_result(
+                cache_dir,
+                {
+                    "kind": "candidate-check",
+                    "support": f"{support.numerator}/{support.denominator}",
+                    "dimension": dimension,
+                    "precision": candidate_precisions[dimension],
+                    "residual_order": residual_order,
+                    "matrix_bits": matrix_bits,
+                    "witness_bits": witness_bits,
+                },
+                lambda: run_candidate(
+                    support,
+                    dimension=dimension,
+                    prec=candidate_precisions[dimension],
+                    residual_order=residual_order,
+                    matrix_bits=matrix_bits,
+                    witness_bits=witness_bits,
+                ),
             )
             candidates.append(
                 {
@@ -487,6 +593,12 @@ def main() -> None:
     parser.add_argument("--matrix-bits", type=int, default=72)
     parser.add_argument("--witness-bits", type=int, default=40)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument(
+        "--cache-dir",
+        type=Path,
+        default=Path(".cache/continuation-driver"),
+        help="persistent cache for rigorous assembly results",
+    )
     args = parser.parse_args()
 
     support = Fraction(args.support)
@@ -502,6 +614,7 @@ def main() -> None:
             precision_max=args.precision_max,
             residual_order=args.residual_order,
             matrix_bits=args.matrix_bits,
+            cache_dir=args.cache_dir,
             witness_bits=args.witness_bits,
         )
     except (ValueError, ZeroDivisionError) as exc:

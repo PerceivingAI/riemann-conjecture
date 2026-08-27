@@ -26,6 +26,15 @@ def _rigorous_result(*, positive: bool) -> dict[str, object]:
         "mu_lower": value,
         "finite_block_min_eigenvalue_midpoint": value,
         "schur_min_eigenvalue_midpoint": value,
+        "interval_widths": {
+            "A_max": 1.0,
+            "GV_max": 1.0,
+            "G2_max": 1.0,
+            "GR_max": 1.0,
+            "mu": 1.0,
+            "rho_R": 1.0,
+            "residual_remainder": 1.0,
+        },
     }
 
 
@@ -53,6 +62,40 @@ def test_precision_ladder_is_bounded_and_increasing() -> None:
     assert driver.build_precision_ladder(300, 640) == [300, 384, 512, 640]
 
 
+def test_precision_pair_diagnostics_track_widths_changes_and_signs() -> None:
+    previous = {
+        "precision_bits": 256,
+        "finite_block_min_eigenvalue_midpoint": 0.1,
+        "schur_min_eigenvalue_midpoint": 0.02,
+        "mu_lower": 0.7,
+        "interval_widths": {
+            "A_max": 2.0,
+            "GV_max": 2.0,
+            "G2_max": 2.0,
+            "GR_max": 2.0,
+            "mu": 2.0,
+            "rho_R": 2.0,
+            "residual_remainder": 2.0,
+        },
+    }
+    current = {
+        **previous,
+        "precision_bits": 384,
+        "finite_block_min_eigenvalue_midpoint": 0.1001,
+        "schur_min_eigenvalue_midpoint": 0.0201,
+        "interval_widths": {
+            name: 1.0 for name in previous["interval_widths"]
+        },
+    }
+
+    diagnostics = driver._precision_pair_diagnostics(previous, current)
+
+    assert diagnostics["from_precision_bits"] == 256
+    assert diagnostics["to_precision_bits"] == 384
+    assert diagnostics["widths_reduced"] is True
+    assert diagnostics["all_key_signs_stable"] is True
+
+
 def test_precision_escalation_reports_limit_without_false_candidate(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -60,8 +103,7 @@ def test_precision_escalation_reports_limit_without_false_candidate(
         driver,
         "scout_support",
         lambda support, *, dimension, prec, residual_order: {
-            "mu_lower": 1.0,
-            "finite_block_min_eigenvalue_midpoint": 1.0,
+            **_rigorous_result(positive=True),
             "schur_min_eigenvalue_midpoint": float(prec),
         },
     )
