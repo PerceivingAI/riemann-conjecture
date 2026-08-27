@@ -34,7 +34,7 @@ from scripts.weil_support_candidate_check import (
 from scripts.weil_support_continuation_scout import scout_support
 
 
-DRIVER_VERSION = "continuation-driver-p12-v1"
+DRIVER_VERSION = "continuation-driver-p13-v1"
 SCOUT_RELATIVE_CONVERGENCE_TOLERANCE = 1e-2
 PRECISION_STATUS_INSUFFICIENT = "INSUFFICIENT_PRECISION"
 PRECISION_STATUS_STABLE = "PRECISION_STABLE"
@@ -1047,6 +1047,221 @@ def run_driver(
 
 
 
+def _display_scout_classification(value: object) -> str:
+    return {
+        "stable_positive": "stable-positive",
+        "negative": "negative",
+        "unstable": "unstable",
+    }.get(str(value), str(value).replace("_", "-"))
+
+
+def _display_precision_attempt(attempt: dict[str, object]) -> str:
+    status = str(attempt.get("precision_status", ""))
+    if status == PRECISION_STATUS_STABLE:
+        return "stable positive"
+    if status == PRECISION_STATUS_MATHEMATICAL_NEGATIVE:
+        return "stable negative"
+    if status == PRECISION_STATUS_ASSEMBLY_FAILED:
+        return "assembly failed"
+    if status == PRECISION_STATUS_INSUFFICIENT:
+        reasons = attempt.get("precision_reasons", [])
+        if isinstance(reasons, list):
+            reason_set = {str(reason) for reason in reasons}
+            if "contradicted_by_higher_precision" in reason_set:
+                return "insufficient precision - contradicted at higher precision"
+            if "key_sign_changed_at_higher_precision" in reason_set:
+                return "insufficient precision - sign changed"
+            if "midpoint_not_stable" in reason_set:
+                return "insufficient precision - midpoint not stable"
+            if "interval_widths_not_reduced" in reason_set:
+                return "insufficient precision - enclosure not improving"
+            if "negative_result_not_precision_stable" in reason_set:
+                return "insufficient precision - negative result not stable"
+            if "no_prior_precision_for_stability_check" in reason_set:
+                return "insufficient precision - awaiting comparison"
+        return "insufficient precision"
+
+    legacy_status = str(attempt.get("status", ""))
+    if legacy_status == "assembly_failed":
+        return "assembly failed"
+    if attempt.get("stable_change") is True:
+        return "stable"
+    return "not yet stable"
+
+
+def _sign_summary(value: object) -> str:
+    if value is None:
+        return "not available"
+    try:
+        numeric = Fraction(str(value))
+    except (ValueError, ZeroDivisionError):
+        try:
+            numeric_float = float(value)
+        except (TypeError, ValueError):
+            return "not available"
+        if numeric_float > 0:
+            return "+"
+        if numeric_float < 0:
+            return "-"
+        return "0"
+    if numeric > 0:
+        return "+"
+    if numeric < 0:
+        return "-"
+    return "0"
+
+
+def _selected_exact_candidate(result: dict[str, object]) -> dict[str, object] | None:
+    selected = result.get("selected_candidate_dimension")
+    candidates = result.get("candidates", [])
+    if not isinstance(candidates, list):
+        return None
+    for candidate in candidates:
+        if not isinstance(candidate, dict) or candidate.get("dimension") != selected:
+            continue
+        attempts = candidate.get("attempts", [])
+        if not isinstance(attempts, list):
+            continue
+        for attempt in reversed(attempts):
+            if isinstance(attempt, dict) and attempt.get("all_margins_positive") is True:
+                return attempt
+    return None
+
+
+def _rigorous_summary_row(
+    result: dict[str, object], dimension: object
+) -> dict[str, object] | None:
+    rows = result.get("rigorous_screening", [])
+    if not isinstance(rows, list):
+        return None
+    for row in rows:
+        if isinstance(row, dict) and row.get("dimension") == dimension:
+            return row
+    return None
+
+
+def format_terminal_summary(result: dict[str, object]) -> str:
+    """Render a concise, human-readable view of a completed driver result."""
+    lines = [
+        "Support continuation candidate search",
+        f"T = {result.get('support', 'unknown')}",
+        "",
+        "Dimensions tested:",
+    ]
+
+    reconnaissance = result.get("reconnaissance", [])
+    if isinstance(reconnaissance, list) and reconnaissance:
+        for row in reconnaissance:
+            if not isinstance(row, dict):
+                continue
+            lines.append(
+                f"  N={row.get('dimension')}  "
+                f"{_display_scout_classification(row.get('classification', 'unknown'))}"
+            )
+    else:
+        dimensions = result.get("dimensions", [])
+        if isinstance(dimensions, list) and dimensions:
+            for dimension in dimensions:
+                lines.append(f"  N={dimension}  not available")
+        else:
+            lines.append("  not available")
+
+    primary = result.get("scout_primary_dimension")
+    selected = result.get("selected_candidate_dimension")
+    if primary is not None:
+        lines.extend(["", f"Primary rigorous target: N={primary}"])
+    if selected is not None and primary is not None and selected != primary:
+        lines.append(f"Fallback used: N={selected}")
+        lines.append(f"Selected candidate: N={selected}")
+
+    precision_dimension = selected if selected is not None else primary
+    rigorous = _rigorous_summary_row(result, precision_dimension)
+    if rigorous is None:
+        screening = result.get("rigorous_screening", [])
+        if isinstance(screening, list):
+            rigorous = next((row for row in screening if isinstance(row, dict)), None)
+            if rigorous is not None:
+                precision_dimension = rigorous.get("dimension")
+    if rigorous is not None:
+        lines.extend(["", f"Precision search (N={precision_dimension}):"])
+        attempts = rigorous.get("attempts", [])
+        if isinstance(attempts, list) and attempts:
+            for attempt in attempts:
+                if isinstance(attempt, dict):
+                    lines.append(
+                        f"  {attempt.get('precision_bits')}  {_display_precision_attempt(attempt)}"
+                    )
+        else:
+            lines.append(f"  {rigorous.get('status', 'not available')}")
+
+    exact = _selected_exact_candidate(result)
+    if selected is not None:
+        candidate_rows = result.get("candidates", [])
+        selected_row = None
+        if isinstance(candidate_rows, list):
+            selected_row = next(
+                (
+                    row
+                    for row in candidate_rows
+                    if isinstance(row, dict) and row.get("dimension") == selected
+                ),
+                None,
+            )
+        lines.extend(["", "Exact candidate:", f"  dimension:     N={selected}"])
+        if isinstance(selected_row, dict):
+            lines.append(f"  matrix bits:   {selected_row.get('selected_matrix_bits', 'not available')}")
+            lines.append(f"  witness bits:  {selected_row.get('selected_witness_bits', 'not available')}")
+        if exact is not None:
+            lines.extend(
+                [
+                    f"  mu_lower:      {_sign_summary(exact.get('mu_lower'))}",
+                    f"  even margin:   {_sign_summary(exact.get('even_gershgorin_margin'))}",
+                    f"  odd margin:    {_sign_summary(exact.get('odd_gershgorin_margin'))}",
+                ]
+            )
+
+    state = str(result.get("state", result.get("status", "UNKNOWN")))
+    lines.extend(["", f"RESULT: {state}", ""])
+
+    if state == WorkflowState.PRECISION_LIMIT_REACHED.value:
+        lines.extend(
+            [
+                "No mathematical rejection was established.",
+                "The available precision ladder did not stabilize.",
+            ]
+        )
+    elif state == WorkflowState.NO_CANDIDATE.value:
+        rigorous_rows = result.get("rigorous_screening", [])
+        rigorous_negative = isinstance(rigorous_rows, list) and any(
+            isinstance(row, dict) and row.get("status") == "mathematical_negative"
+            for row in rigorous_rows
+        )
+        if rigorous_negative:
+            lines.append("Rigorous screening found a stable mathematical negative.")
+        else:
+            lines.append("No stable-positive continuation dimension survived the current search.")
+    elif state == WorkflowState.SCOUT_UNSTABLE.value:
+        lines.extend(
+            [
+                "Floating reconnaissance did not stabilize.",
+                "No rigorous mathematical rejection was established.",
+            ]
+        )
+    elif state == WorkflowState.RIGOROUS_ASSEMBLY_FAILED.value:
+        lines.append("Rigorous assembly failed before a stable mathematical decision was reached.")
+    elif state == WorkflowState.ROUNDING_FAILED.value:
+        lines.append("Rigorous positivity survived, but exact outward rounding exhausted its bit ladder.")
+    elif state == WorkflowState.WITNESS_FAILED.value:
+        lines.append("Rigorous positivity survived, but no exact rational witness passed.")
+    elif state == WorkflowState.CANDIDATE_CHECK_FAILED.value:
+        lines.append("Exact candidate construction ended in an unclassified pre-theorem failure.")
+
+    lines.append("This is not a theorem.")
+    if state == WorkflowState.CANDIDATE_READY.value:
+        lines.append("Independent verifier admission has not been performed.")
+    return "\n".join(lines)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--support", required=True, help="exact rational support T, such as 19/40")
@@ -1069,6 +1284,11 @@ def main() -> None:
     parser.add_argument("--witness-bits-start", type=int, default=32)
     parser.add_argument("--witness-bits-max", type=int, default=56)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="print the full machine-readable result JSON instead of the concise terminal summary",
+    )
     parser.add_argument(
         "--cache-dir",
         type=Path,
@@ -1113,7 +1333,10 @@ def main() -> None:
         )
     except ValueError as exc:
         parser.error(str(exc))
-    print(json.dumps(result, indent=2, allow_nan=False))
+    if args.json:
+        print(json.dumps(result, indent=2, allow_nan=False))
+    else:
+        print(format_terminal_summary(result))
 
 
 if __name__ == "__main__":

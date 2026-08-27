@@ -1,4 +1,6 @@
 import argparse
+import copy
+import json
 import ast
 from fractions import Fraction
 from pathlib import Path
@@ -39,6 +41,191 @@ def _rigorous_result(*, positive: bool) -> dict[str, object]:
             "residual_remainder": 1.0,
         },
     }
+
+
+def _p13_candidate_ready_result() -> dict[str, object]:
+    return {
+        "state": "CANDIDATE_READY",
+        "status": "CANDIDATE_READY",
+        "support": "19/40",
+        "dimensions": [48, 52, 56, 60, 64],
+        "reconnaissance": [
+            {"dimension": 48, "classification": "negative"},
+            {"dimension": 52, "classification": "negative"},
+            {"dimension": 56, "classification": "unstable"},
+            {"dimension": 60, "classification": "stable_positive"},
+            {"dimension": 64, "classification": "stable_positive"},
+        ],
+        "scout_primary_dimension": 60,
+        "selected_candidate_dimension": 64,
+        "rigorous_screening": [
+            {
+                "dimension": 60,
+                "status": "precision_limit_reached",
+                "precision_status": driver.PRECISION_STATUS_INSUFFICIENT,
+                "attempts": [
+                    {
+                        "precision_bits": 256,
+                        "precision_status": driver.PRECISION_STATUS_INSUFFICIENT,
+                        "precision_reasons": ["midpoint_not_stable"],
+                    },
+                    {
+                        "precision_bits": 384,
+                        "precision_status": driver.PRECISION_STATUS_INSUFFICIENT,
+                        "precision_reasons": ["midpoint_not_stable"],
+                    },
+                ],
+            },
+            {
+                "dimension": 64,
+                "status": "precision_stable",
+                "precision_status": driver.PRECISION_STATUS_STABLE,
+                "selected_precision_bits": 512,
+                "attempts": [
+                    {
+                        "precision_bits": 384,
+                        "precision_status": driver.PRECISION_STATUS_INSUFFICIENT,
+                        "precision_reasons": ["no_prior_precision_for_stability_check"],
+                    },
+                    {
+                        "precision_bits": 512,
+                        "precision_status": driver.PRECISION_STATUS_STABLE,
+                        "precision_reasons": ["stable_against_previous_precision"],
+                    },
+                ],
+            },
+        ],
+        "candidates": [
+            {
+                "dimension": 64,
+                "status": "candidate_ready",
+                "selected_matrix_bits": 96,
+                "selected_witness_bits": 48,
+                "attempts": [
+                    {
+                        "all_margins_positive": True,
+                        "mu_lower": "7/10",
+                        "even_gershgorin_margin": "1/100",
+                        "odd_gershgorin_margin": "1/200",
+                    }
+                ],
+            }
+        ],
+        "theorem_status": False,
+        "independently_verified": False,
+        "whitelisted": False,
+    }
+
+
+def test_p13_candidate_ready_summary_is_concise_fallback_aware_and_pre_theorem() -> None:
+    summary = driver.format_terminal_summary(_p13_candidate_ready_result())
+
+    assert "Support continuation candidate search" in summary
+    assert "T = 19/40" in summary
+    assert "N=48  negative" in summary
+    assert "N=56  unstable" in summary
+    assert "N=60  stable-positive" in summary
+    assert "Primary rigorous target: N=60" in summary
+    assert "Fallback used: N=64" in summary
+    assert "Selected candidate: N=64" in summary
+    assert "Precision search (N=64):" in summary
+    assert "384  insufficient precision - awaiting comparison" in summary
+    assert "512  stable positive" in summary
+    assert "matrix bits:   96" in summary
+    assert "witness bits:  48" in summary
+    assert "mu_lower:      +" in summary
+    assert "even margin:   +" in summary
+    assert "odd margin:    +" in summary
+    assert "RESULT: CANDIDATE_READY" in summary
+    assert "This is not a theorem." in summary
+    assert "Independent verifier admission has not been performed." in summary
+    assert "7/10" not in summary
+
+
+def test_p13_precision_limit_summary_preserves_p12_non_rejection_semantics() -> None:
+    result = _p13_candidate_ready_result()
+    result["state"] = result["status"] = "PRECISION_LIMIT_REACHED"
+    result["selected_candidate_dimension"] = None
+    result["candidates"] = []
+    result["rigorous_screening"] = [
+        {
+            "dimension": 60,
+            "status": "precision_limit_reached",
+            "precision_status": driver.PRECISION_STATUS_INSUFFICIENT,
+            "attempts": [
+                {
+                    "precision_bits": 104,
+                    "precision_status": driver.PRECISION_STATUS_INSUFFICIENT,
+                    "precision_reasons": ["contradicted_by_higher_precision"],
+                },
+                {
+                    "precision_bits": 128,
+                    "precision_status": driver.PRECISION_STATUS_INSUFFICIENT,
+                    "precision_reasons": ["key_sign_changed_at_higher_precision"],
+                },
+            ],
+        }
+    ]
+
+    summary = driver.format_terminal_summary(result)
+
+    assert "104  insufficient precision - contradicted at higher precision" in summary
+    assert "128  insufficient precision - sign changed" in summary
+    assert "RESULT: PRECISION_LIMIT_REACHED" in summary
+    assert "No mathematical rejection was established." in summary
+    assert "NO_CANDIDATE" not in summary
+
+
+def test_p13_no_candidate_summary_distinguishes_stable_rigorous_negative() -> None:
+    result = _p13_candidate_ready_result()
+    result["state"] = result["status"] = "NO_CANDIDATE"
+    result["selected_candidate_dimension"] = None
+    result["candidates"] = []
+    result["rigorous_screening"] = [
+        {
+            "dimension": 60,
+            "status": "mathematical_negative",
+            "precision_status": driver.PRECISION_STATUS_MATHEMATICAL_NEGATIVE,
+            "attempts": [
+                {
+                    "precision_bits": 384,
+                    "precision_status": driver.PRECISION_STATUS_MATHEMATICAL_NEGATIVE,
+                }
+            ],
+        }
+    ]
+
+    summary = driver.format_terminal_summary(result)
+
+    assert "RESULT: NO_CANDIDATE" in summary
+    assert "Rigorous screening found a stable mathematical negative." in summary
+    assert "No mathematical rejection was established." not in summary
+
+
+def test_p13_scout_unstable_summary_reports_no_rigorous_rejection() -> None:
+    result = {
+        "state": "SCOUT_UNSTABLE",
+        "support": "19/40",
+        "dimensions": [56],
+        "reconnaissance": [{"dimension": 56, "classification": "unstable"}],
+        "rigorous_screening": [],
+        "candidates": [],
+    }
+
+    summary = driver.format_terminal_summary(result)
+
+    assert "RESULT: SCOUT_UNSTABLE" in summary
+    assert "Floating reconnaissance did not stabilize." in summary
+    assert "No rigorous mathematical rejection was established." in summary
+
+
+def test_p13_formatter_does_not_mutate_result() -> None:
+    result = _p13_candidate_ready_result()
+    original = copy.deepcopy(result)
+
+    driver.format_terminal_summary(result)
+
+    assert result == original
 
 
 def test_p10_exact_support_parsing_is_rational_and_fail_closed() -> None:
@@ -578,7 +765,7 @@ def test_fallback_candidate_becomes_selected_dimension(
 
 
 def test_cli_writes_requested_output_directory(
-    monkeypatch: pytest.MonkeyPatch, tmp_path
+    monkeypatch: pytest.MonkeyPatch, tmp_path, capsys: pytest.CaptureFixture[str]
 ) -> None:
     output_dir = tmp_path / "continuation"
     monkeypatch.setattr(
@@ -609,6 +796,43 @@ def test_cli_writes_requested_output_directory(
     manifest = (output_dir / "run-manifest.json").read_text(encoding="utf-8")
     assert '"state": "NO_CANDIDATE"' in summary
     assert '"final_state": "NO_CANDIDATE"' in manifest
+    terminal = capsys.readouterr().out
+    assert "Support continuation candidate search" in terminal
+    assert "RESULT: NO_CANDIDATE" in terminal
+    assert '"state"' not in terminal
+
+
+def test_p13_cli_json_flag_preserves_full_machine_readable_stdout(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    result = _p13_candidate_ready_result()
+    monkeypatch.setattr(driver, "run_driver", lambda *args, **kwargs: result)
+    monkeypatch.setattr(driver, "write_continuation_bundle", lambda *args, **kwargs: {})
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "weil_continuation_driver",
+            "--support",
+            "19/40",
+            "--n",
+            "60,64",
+            "--output-dir",
+            str(tmp_path / "continuation"),
+            "--json",
+        ],
+    )
+
+    driver.main()
+
+    stdout = capsys.readouterr().out
+    parsed = json.loads(stdout)
+    assert parsed == result
+    assert parsed["state"] == "CANDIDATE_READY"
+    assert "Support continuation candidate search" not in stdout
+
+
 
 
 def test_driver_selects_smallest_ready_dimension_without_contract_admission(monkeypatch: pytest.MonkeyPatch) -> None:
