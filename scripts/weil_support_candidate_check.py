@@ -19,15 +19,41 @@ from pathlib import Path
 from flint import ctx
 
 from scripts.cert.constants import c2_enclosure, c_T_enclosure
-from scripts.cert.exact_prime_schur_certificate import (
-    _coarsen_matrix,
-    _dyadic_outward_interval,
-    _force_exact_parity_zeros,
-    _make_witness,
-    _parity_block,
-    _schur_from_serialized_inputs,
+from scripts.cert.exact_prime_schur_common import (
+    coarsen_matrix,
+    dyadic_outward_interval,
+    force_exact_parity_zeros,
+    make_witness,
+    parity_block,
+    schur_from_serialized_inputs,
 )
 from scripts.cert.legendre_schur import assemble_exact_prime_schur
+
+
+THEOREM_STATUS = False
+PROMOTION_REQUIREMENTS = (
+    "explicit_closed_contract_admission",
+    "retained_full_certificate_generation",
+    "fresh_independent_rust_verifier_pass",
+)
+FORBIDDEN_AUTOMATIC_ACTIONS = (
+    "emit_theorem_certificate",
+    "edit_closed_contract_or_whitelist",
+    "invoke_independent_rust_verifier",
+    "grant_theorem_status",
+)
+
+
+def theorem_boundary_payload() -> dict[str, object]:
+    """Return the hard P7 boundary attached to every pre-theorem candidate."""
+    return {
+        "theorem_status": THEOREM_STATUS,
+        "independently_verified": False,
+        "whitelisted": False,
+        "automatic_promotion": False,
+        "promotion_requirements": list(PROMOTION_REQUIREMENTS),
+        "forbidden_automatic_actions": list(FORBIDDEN_AUTOMATIC_ACTIONS),
+    }
 
 
 class CandidateStageError(RuntimeError):
@@ -67,21 +93,21 @@ def run_candidate(
             support_den=support.denominator,
         )
         try:
-            a = _force_exact_parity_zeros(_coarsen_matrix(assembled["A"], matrix_bits))
-            gv = _force_exact_parity_zeros(_coarsen_matrix(assembled["GV"], matrix_bits))
-            g2 = _force_exact_parity_zeros(_coarsen_matrix(assembled["G2"], matrix_bits))
-            gr = _force_exact_parity_zeros(_coarsen_matrix(assembled["GR"], matrix_bits))
-            c_t = _dyadic_outward_interval(
+            a = force_exact_parity_zeros(coarsen_matrix(assembled["A"], matrix_bits))
+            gv = force_exact_parity_zeros(coarsen_matrix(assembled["GV"], matrix_bits))
+            g2 = force_exact_parity_zeros(coarsen_matrix(assembled["G2"], matrix_bits))
+            gr = force_exact_parity_zeros(coarsen_matrix(assembled["GR"], matrix_bits))
+            c_t = dyadic_outward_interval(
                 c_T_enclosure(prec, support.numerator, support.denominator),
                 matrix_bits,
             )
-            c2 = _dyadic_outward_interval(c2_enclosure(prec), matrix_bits)
-            rho_r = _dyadic_outward_interval(assembled["rho_R"], matrix_bits)
+            c2 = dyadic_outward_interval(c2_enclosure(prec), matrix_bits)
+            rho_r = dyadic_outward_interval(assembled["rho_R"], matrix_bits)
         except (ValueError, RuntimeError, ZeroDivisionError) as exc:
             raise CandidateStageError("rounding", str(exc)) from exc
 
     try:
-        schur, mu_lower = _schur_from_serialized_inputs(
+        schur, mu_lower = schur_from_serialized_inputs(
             a,
             gv,
             g2,
@@ -94,15 +120,17 @@ def run_candidate(
     except (ValueError, RuntimeError, ZeroDivisionError) as exc:
         raise CandidateStageError("rounding", str(exc)) from exc
     try:
-        _, even_margin = _make_witness(_parity_block(schur, 0), witness_bits)
-        _, odd_margin = _make_witness(_parity_block(schur, 1), witness_bits)
+        _, even_margin = make_witness(parity_block(schur, 0), witness_bits)
+        _, odd_margin = make_witness(parity_block(schur, 1), witness_bits)
     except (ValueError, RuntimeError, ZeroDivisionError) as exc:
         raise CandidateStageError("witness", str(exc)) from exc
     return {
         "role": "generator_side_exact_candidate_only",
+        "status": "CANDIDATE_READY",
+        "candidate_status": "CANDIDATE_READY",
+        **theorem_boundary_payload(),
         "warning": (
-            "This generator-side check is not independently verified and is not accepted as a theorem by itself. "
-            "A support/dimension pair gains theorem status only after it is explicitly whitelisted by the closed contract and the retained full certificate passes the independent Rust verifier."
+            "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed."
         ),
         "support": f"{support.numerator}/{support.denominator}",
         "dimension": dimension,

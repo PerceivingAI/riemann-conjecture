@@ -274,11 +274,12 @@ def test_unexpected_candidate_check_failure_has_distinct_final_state(
 
 def test_cache_fingerprint_covers_candidate_semantics_dependencies() -> None:
     required = {
-        "scripts/cert/exact_prime_schur_certificate.py",
+        "scripts/cert/exact_prime_schur_common.py",
         "scripts/cert/residual_kernel.py",
         "scripts/cert/matrices.py",
     }
     assert required.issubset(set(driver.CACHE_SOURCE_PATHS))
+    assert "scripts/cert/exact_prime_schur_certificate.py" not in driver.CACHE_SOURCE_PATHS
 
 
 def test_reconnaissance_requires_sign_stability_and_convergence() -> None:
@@ -451,7 +452,10 @@ def test_driver_selects_smallest_ready_dimension_without_contract_admission(monk
     assert result["scout_primary_dimension"] == 48
     assert result["selected_dimension"] == 48
     assert result["selected_candidate_dimension"] == 48
-    assert result["theorem_status"] == "not_a_theorem"
+    assert result["status"] == "CANDIDATE_READY"
+    assert result["theorem_status"] is False
+    assert result["independently_verified"] is False
+    assert result["whitelisted"] is False
     assert result["residual_order"] == 32
     assert result["dimensions"] == [52, 48, 56]
     assert result["fallback_dimensions"] == [52]

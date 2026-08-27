@@ -17,12 +17,21 @@ from fractions import Fraction
 from pathlib import Path
 from typing import Any
 
-from flint import arb, ctx
+from flint import ctx
 
-from scripts.cert.constants import arb_to_rational_enclosure, c2_enclosure, c_T_enclosure
+from scripts.cert.constants import c2_enclosure, c_T_enclosure
+from scripts.cert.exact_prime_schur_common import (
+    coarsen_matrix,
+    dyadic_outward_interval,
+    exact_matrix_json,
+    force_exact_parity_zeros,
+    interval_matrix_json,
+    make_witness,
+    parity_block,
+    schur_from_serialized_inputs,
+)
 from scripts.cert.export_certificate import _generator_metadata, validate_certificate_schema
-from scripts.cert.legendre_schur import assemble_exact_prime_schur, harmonic
-from scripts.cert.matrices import RationalInterval, RationalIntervalMatrix
+from scripts.cert.legendre_schur import assemble_exact_prime_schur
 
 
 PROFILE = "exact_prime_legendre_schur"
@@ -34,194 +43,6 @@ ALLOWED_CONFIGURATIONS = {
     (Fraction(9, 20), 56),
 }
 
-
-def _dyadic_outward_interval(value: arb, bits: int) -> RationalInterval:
-    if bits < 16:
-        raise ValueError("matrix interval bits must be at least 16")
-    lo, hi = arb_to_rational_enclosure(value)
-    denominator = 1 << bits
-    lo_numerator = (lo.numerator * denominator) // lo.denominator
-    hi_numerator = -((-hi.numerator * denominator) // hi.denominator)
-    return RationalInterval(
-        Fraction(lo_numerator, denominator),
-        Fraction(hi_numerator, denominator),
-    )
-
-
-def _coarsen_matrix(matrix: list[list[arb]], bits: int) -> RationalIntervalMatrix:
-    return RationalIntervalMatrix(
-        [[_dyadic_outward_interval(value, bits) for value in row] for row in matrix]
-    )
-
-
-def _force_exact_parity_zeros(matrix: RationalIntervalMatrix) -> RationalIntervalMatrix:
-    rows = [[entry for entry in row] for row in matrix.rows]
-    for i in range(matrix.dim):
-        for j in range(matrix.dim):
-            if (i % 2) != (j % 2):
-                interval = rows[i][j]
-                if not (interval.lo <= 0 <= interval.hi):
-                    raise RuntimeError(
-                        f"opposite-parity enclosure ({i}, {j}) excludes exact zero"
-                    )
-                rows[i][j] = RationalInterval(0)
-    return RationalIntervalMatrix(rows)
-
-
-def _round_fraction_nearest_dyadic(value: Fraction, bits: int) -> Fraction:
-    if bits < 8:
-        raise ValueError("witness bits must be at least 8")
-    if value == 0:
-        return Fraction(0)
-    denominator = 1 << bits
-    sign = -1 if value < 0 else 1
-    magnitude = abs(value)
-    scaled_num = magnitude.numerator * denominator
-    quotient, remainder = divmod(scaled_num, magnitude.denominator)
-    if 2 * remainder >= magnitude.denominator:
-        quotient += 1
-    return Fraction(sign * quotient, denominator)
-
-
-def _exact_ldl_midpoint(matrix: list[list[RationalInterval]]) -> tuple[list[list[Fraction]], list[Fraction]]:
-    n = len(matrix)
-    midpoint = [[entry.midpoint() for entry in row] for row in matrix]
-    lower = [[Fraction(int(i == j)) for j in range(n)] for i in range(n)]
-    diagonal = [Fraction(0) for _ in range(n)]
-    for j in range(n):
-        diagonal[j] = midpoint[j][j] - sum(
-            lower[j][k] * lower[j][k] * diagonal[k] for k in range(j)
-        )
-        if diagonal[j] <= 0:
-            raise RuntimeError(f"midpoint LDL pivot {j} is not positive")
-        for i in range(j + 1, n):
-            lower[i][j] = (
-                midpoint[i][j]
-                - sum(lower[i][k] * lower[j][k] * diagonal[k] for k in range(j))
-            ) / diagonal[j]
-    return lower, diagonal
-
-
-def _inverse_lower_triangular(lower: list[list[Fraction]]) -> list[list[Fraction]]:
-    n = len(lower)
-    inverse = [[Fraction(0) for _ in range(n)] for _ in range(n)]
-    for column in range(n):
-        for row in range(n):
-            right = Fraction(int(row == column)) - sum(
-                lower[row][k] * inverse[k][column] for k in range(row)
-            )
-            inverse[row][column] = right / lower[row][row]
-    return inverse
-
-
-def _point_interval(value: Fraction) -> RationalInterval:
-    return RationalInterval(value)
-
-
-def _exact_congruence(
-    witness: list[list[Fraction]],
-    matrix: list[list[RationalInterval]],
-) -> list[list[RationalInterval]]:
-    n = len(witness)
-    left = [[RationalInterval(0) for _ in range(n)] for _ in range(n)]
-    for i in range(n):
-        for j in range(n):
-            total = RationalInterval(0)
-            for k in range(n):
-                total += matrix[k][j] * witness[i][k]
-            left[i][j] = total
-
-    result = [[RationalInterval(0) for _ in range(n)] for _ in range(n)]
-    for i in range(n):
-        for j in range(n):
-            total = RationalInterval(0)
-            for k in range(n):
-                total += left[i][k] * witness[j][k]
-            result[i][j] = total
-    return result
-
-
-def _sup_abs(interval: RationalInterval) -> Fraction:
-    return max(abs(interval.lo), abs(interval.hi))
-
-
-def _gershgorin_margin(matrix: list[list[RationalInterval]]) -> Fraction:
-    margins: list[Fraction] = []
-    for i, row in enumerate(matrix):
-        off_diagonal = sum(
-            (_sup_abs(value) for j, value in enumerate(row) if j != i),
-            Fraction(0),
-        )
-        margins.append(row[i].lo - off_diagonal)
-    return min(margins)
-
-
-def _parity_block(matrix: list[list[RationalInterval]], parity: int) -> list[list[RationalInterval]]:
-    indices = list(range(parity, len(matrix), 2))
-    return [[matrix[i][j] for j in indices] for i in indices]
-
-
-def _make_witness(
-    block: list[list[RationalInterval]],
-    witness_bits: int,
-) -> tuple[list[list[Fraction]], Fraction]:
-    lower, _ = _exact_ldl_midpoint(block)
-    inverse = _inverse_lower_triangular(lower)
-    witness: list[list[Fraction]] = []
-    for i, row in enumerate(inverse):
-        witness.append(
-            [
-                Fraction(0) if j > i else _round_fraction_nearest_dyadic(value, witness_bits)
-                for j, value in enumerate(row)
-            ]
-        )
-    margin = _gershgorin_margin(_exact_congruence(witness, block))
-    if margin <= 0:
-        raise RuntimeError("rational congruence witness failed strict Gershgorin positivity")
-    return witness, margin
-
-
-def _exact_matrix_json(matrix: list[list[Fraction]]) -> dict[str, Any]:
-    entries: list[dict[str, Any]] = []
-    for row_index, row in enumerate(matrix):
-        for col_index, value in enumerate(row):
-            entries.append(
-                {
-                    "row": row_index,
-                    "col": col_index,
-                    "num": str(value.numerator),
-                    "den": str(value.denominator),
-                }
-            )
-    return {"dimension": len(matrix), "entries": entries}
-
-
-def _interval_matrix_json(matrix: RationalIntervalMatrix) -> dict[str, Any]:
-    return {"dimension": matrix.dim, "entries": matrix.to_entries()}
-
-
-def _schur_from_serialized_inputs(
-    a_matrix: RationalIntervalMatrix,
-    gv: RationalIntervalMatrix,
-    g2: RationalIntervalMatrix,
-    gr: RationalIntervalMatrix,
-    c_t: RationalInterval,
-    c2: RationalInterval,
-    rho_r: RationalInterval,
-    dimension: int,
-) -> tuple[list[list[RationalInterval]], Fraction]:
-    mu_lower = harmonic(dimension) - c_t.hi - c2.hi - rho_r.hi
-    if mu_lower <= 0:
-        raise RuntimeError("serialized complement lower bound is not positive")
-    factor = Fraction(3, 1) / mu_lower
-    schur: list[list[RationalInterval]] = []
-    for i in range(dimension):
-        row: list[RationalInterval] = []
-        for j in range(dimension):
-            gram = gv.rows[i][j] + g2.rows[i][j] + gr.rows[i][j]
-            row.append(a_matrix.rows[i][j] - gram * factor)
-        schur.append(row)
-    return schur, mu_lower
 
 
 def build_exact_prime_schur_certificate(
@@ -260,17 +81,17 @@ def build_exact_prime_schur_certificate(
             support_num=support.numerator,
             support_den=support.denominator,
         )
-        a_matrix = _force_exact_parity_zeros(_coarsen_matrix(assembled["A"], matrix_bits))
-        gv = _force_exact_parity_zeros(_coarsen_matrix(assembled["GV"], matrix_bits))
-        g2 = _force_exact_parity_zeros(_coarsen_matrix(assembled["G2"], matrix_bits))
-        gr = _force_exact_parity_zeros(_coarsen_matrix(assembled["GR"], matrix_bits))
-        c_t = _dyadic_outward_interval(
+        a_matrix = force_exact_parity_zeros(coarsen_matrix(assembled["A"], matrix_bits))
+        gv = force_exact_parity_zeros(coarsen_matrix(assembled["GV"], matrix_bits))
+        g2 = force_exact_parity_zeros(coarsen_matrix(assembled["G2"], matrix_bits))
+        gr = force_exact_parity_zeros(coarsen_matrix(assembled["GR"], matrix_bits))
+        c_t = dyadic_outward_interval(
             c_T_enclosure(prec, support.numerator, support.denominator), matrix_bits
         )
-        c2 = _dyadic_outward_interval(c2_enclosure(prec), matrix_bits)
-        rho_r = _dyadic_outward_interval(assembled["rho_R"], matrix_bits)
+        c2 = dyadic_outward_interval(c2_enclosure(prec), matrix_bits)
+        rho_r = dyadic_outward_interval(assembled["rho_R"], matrix_bits)
 
-    schur, mu_lower = _schur_from_serialized_inputs(
+    schur, mu_lower = schur_from_serialized_inputs(
         a_matrix,
         gv,
         g2,
@@ -280,8 +101,8 @@ def build_exact_prime_schur_certificate(
         rho_r,
         dimension,
     )
-    even_witness, even_margin = _make_witness(_parity_block(schur, 0), witness_bits)
-    odd_witness, odd_margin = _make_witness(_parity_block(schur, 1), witness_bits)
+    even_witness, even_margin = make_witness(parity_block(schur, 0), witness_bits)
+    odd_witness, odd_margin = make_witness(parity_block(schur, 1), witness_bits)
 
     certificate: dict[str, Any] = {
         "format": "rh-weil-certificate-v1",
@@ -304,7 +125,7 @@ def build_exact_prime_schur_certificate(
             "c_T": c_t.to_dict(),
             "rho_R": rho_r.to_dict(),
         },
-        "matrix": _interval_matrix_json(a_matrix),
+        "matrix": interval_matrix_json(a_matrix),
         "tail_bound": {
             "type": TAIL_RULE,
             "harmonic_index": dimension,
@@ -312,11 +133,11 @@ def build_exact_prime_schur_certificate(
         },
         "schur_proof": {
             "residual_order": residual_order,
-            "GV": _interval_matrix_json(gv),
-            "G2": _interval_matrix_json(g2),
-            "GR": _interval_matrix_json(gr),
-            "even_witness": _exact_matrix_json(even_witness),
-            "odd_witness": _exact_matrix_json(odd_witness),
+            "GV": interval_matrix_json(gv),
+            "G2": interval_matrix_json(g2),
+            "GR": interval_matrix_json(gr),
+            "even_witness": exact_matrix_json(even_witness),
+            "odd_witness": exact_matrix_json(odd_witness),
         },
         "generator_metadata": _generator_metadata(
             prec,

@@ -20,7 +20,11 @@ from typing import Any, Callable
 
 from scripts.weil_legendre_schur_scout import scout
 from scripts.cert.constants import require_one_prime_support
-from scripts.weil_support_candidate_check import CandidateStageError, run_candidate
+from scripts.weil_support_candidate_check import (
+    CandidateStageError,
+    run_candidate,
+    theorem_boundary_payload,
+)
 from scripts.weil_support_continuation_scout import scout_support
 
 
@@ -132,7 +136,7 @@ CACHE_SOURCE_PATHS = (
     "scripts/weil_legendre_schur_scout.py",
     "scripts/weil_support_continuation_scout.py",
     "scripts/weil_support_candidate_check.py",
-    "scripts/cert/exact_prime_schur_certificate.py",
+    "scripts/cert/exact_prime_schur_common.py",
     "scripts/cert/legendre_schur.py",
     "scripts/cert/residual_kernel.py",
     "scripts/cert/matrices.py",
@@ -708,7 +712,8 @@ def run_driver(
     return {
         "role": "pre_theorem_continuation_driver",
         "state": state,
-        "theorem_status": "not_a_theorem",
+        "status": state,
+        **theorem_boundary_payload(),
         "support": f"{support.numerator}/{support.denominator}",
         "dimensions": dimensions,
         "precision_ladder": precisions,
@@ -727,7 +732,7 @@ def run_driver(
         "selected_dimension": selected_candidate_dimension,
         "selected_candidate_dimension": selected_candidate_dimension,
         "fallback_dimensions": fallback_dimensions,
-        "warning": "CANDIDATE_READY requires a fresh independent Rust verifier run; this driver never admits a theorem.",
+        "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed.",
     }
 
 
