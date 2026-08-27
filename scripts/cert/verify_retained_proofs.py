@@ -33,7 +33,7 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_MANIFEST_PATH = REPOSITORY_ROOT / "computations" / "retained-proofs.json"
 MANIFEST_FORMAT_V1 = "rh-retained-proofs-v1"
 EXACT_PRIME_PROFILE = "exact_prime_legendre_schur"
-EXPECTED_RETAINED_CLAIMS_V1 = frozenset({"C-0050", "C-0051", "C-0052", "C-0053", "C-0054"})
+EXPECTED_RETAINED_CLAIMS_V1 = frozenset({"C-0050", "C-0051", "C-0052", "C-0053", "C-0054", "C-0055"})
 DEFAULT_VERIFIER_TIMEOUT_SECONDS = 600
 
 _TOP_LEVEL_FIELDS = frozenset({"format", "proofs"})
@@ -294,7 +294,7 @@ def validate_retained_proof_manifest(document: Any) -> RetainedProofManifest:
         if unexpected:
             details.append(f"unexpected {', '.join(unexpected)}")
         raise RetainedProofManifestError(
-            "$.proofs must contain exactly C-0050 through C-0054 (" + "; ".join(details) + ")"
+            "$.proofs must contain exactly C-0050 through C-0055 (" + "; ".join(details) + ")"
         )
 
     return RetainedProofManifest(format=manifest_format, proofs=proofs)

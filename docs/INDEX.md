@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T14:17:45Z`
+- **Last updated:** `2026-08-27T17:39:01Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -10,7 +10,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`PROTOCOL.md`](PROTOCOL.md) — authoritative documentation and research-record rules.
 - [`CONTRACTS.md`](CONTRACTS.md) — formal proof-certificate contracts, trust architecture, and dependency policy.
 - [`contracts/rh-weil-certificate-v1.json`](contracts/rh-weil-certificate-v1.json) — JSON Schema for exact rational certificates.
-- [`../computations/retained-proofs.json`](../computations/retained-proofs.json) — closed registry binding `C-0050` through `C-0054` to their exact retained certificate paths, SHA-256 values, and theorem identities for first-class integrity/replay acceptance.
+- [`../computations/retained-proofs.json`](../computations/retained-proofs.json) — closed registry binding `C-0050` through `C-0055` to their exact retained certificate paths, SHA-256 values, and theorem identities for first-class integrity/replay acceptance.
 - [`STATUS.md`](STATUS.md) — maintained snapshot of the current research frontier.
 - [`LOG.md`](LOG.md) — append-only chronological research log.
 - [`CLAIMS.md`](CLAIMS.md) — registry of important claims, their status, and dependencies.
@@ -40,7 +40,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit, Weil support thresholds, and first-prime compressed-translation mechanism; `COMPLETE`.
 - [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — first-prime support continuation; exact endpoint absorption, digamma kernel decomposition, residual-term correction, and external-certificate audit; `COMPLETE` intermediate.
 - [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; global `0.69V` target refuted as too lossy, exact high-mode complement and tail-Gram reduction proved, and a clean `N=32` exact certificate establishes strict localized Weil positivity at `T=7/20`; `COMPLETE`.
-- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, and `T=19/40,N=68`; `PROMISING`.
+- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
 
@@ -102,6 +102,7 @@ This is the compact index of the Riemann Conjecture research repository.
 
 - [`F-20260826-004`](../findings/2026-08-26T190517Z-localized-weil-positivity-at-nine-twentieths.md) — 512-bit exact `N=56` certificate plus independent Rust replay proves strict localized Weil positivity at `T=9/20`.
 - [`F-20260827-001`](../findings/2026-08-27T131615Z-localized-weil-positivity-at-nineteen-fortieths.md) — separately admitted fresh 384-bit exact `N=68` certificate plus independent Rust replay proves strict localized Weil positivity at `T=19/40`.
+- [`F-20260827-002`](../findings/2026-08-27T172610Z-localized-weil-positivity-at-one-half.md) — separately admitted fresh 512-bit exact `N=80` certificate plus independent Rust replay proves strict localized Weil positivity at `T=1/2` (`C-0055`).
 
 ## Computations
 
@@ -130,6 +131,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`X-20260827-001`](../computations/2026-08-27T115112Z-t19-40-continuation/record.md) — canonical pre-theorem `T=19/40` continuation bundle; `N=64` is stable-negative after precision escalation and `N=68` reaches exact `CANDIDATE_READY`; the later separate admission/theorem replay is `X-20260827-002`.
 - [`X-20260827-002`](../computations/2026-08-27T122716Z-nineteen-fortieths-schur-certificate/record.md) — proof-bearing exact `T=19/40,N=68` theorem certificate, independent Rust PASS, adversarial replay, and acceptance verification supporting `C-0054`.
 - [`X-20260827-003`](../computations/2026-08-27T134254Z-rust-exact-verifier-optimization/record.md) — zero-float Rust verifier optimization and exact semantic replay: retained theorem outputs are byte-semantically unchanged as parsed JSON while debug replay timings fall by roughly `3–4x` over the previously benchmarked `N=32..56` corpus.
+- [`X-20260827-004`](../computations/2026-08-27T170850Z-one-half-schur-certificate/record.md) — separately admitted fresh exact `T=1/2,N=80` theorem certificate, independent zero-float Rust PASS, adversarial replay, and retained-proof registration supporting `C-0055`.
 
 
 ## Templates
@@ -140,4 +142,4 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Current state
 
-RH remains unresolved. `C-0050` at `T=7/20`, `C-0051` at `T=2/5`, `C-0052` at `T=17/40`, `C-0053` at `T=9/20`, and `C-0054` at `T=19/40` are independently verified finite-support theorems. `A-20260826-001` remains active. Exact-Rust-verifier optimization is complete in `X-20260827-003` with semantic-equivalent retained replays; the immediate frontier is fresh canonical one-prime continuation without extrapolating the next dimension. The eventual `p=3` threshold remains a separate structural phase. See [`STATUS.md`](STATUS.md).
+RH remains unresolved. `C-0050` at `T=7/20`, `C-0051` at `T=2/5`, `C-0052` at `T=17/40`, `C-0053` at `T=9/20`, `C-0054` at `T=19/40`, and `C-0055` at `T=1/2` are independently verified finite-support theorems. `A-20260826-001` remains active. The immediate frontier is fresh canonical one-prime continuation above `T=1/2` without extrapolating the next dimension; the entry of the `p=3` compressed translation at `(1/2)log 3` remains a separate structural phase. See [`STATUS.md`](STATUS.md).

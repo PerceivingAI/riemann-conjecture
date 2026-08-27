@@ -50,6 +50,16 @@
       "dimension": 68,
       "claim_profile": "exact_prime_legendre_schur",
       "verified_scope": "localized_weil_positivity_T_19_40"
+    },
+    {
+      "claim": "C-0055",
+      "computation_id": "X-20260827-004",
+      "certificate_path": "computations/2026-08-27T170850Z-one-half-schur-certificate/data/certificate.json",
+      "certificate_sha256": "95dd6c7a497ad605ddc81129a774bade5fbbc769d0f6fdf29172b89da2a57a7d",
+      "support_T": "1/2",
+      "dimension": 80,
+      "claim_profile": "exact_prime_legendre_schur",
+      "verified_scope": "localized_weil_positivity_T_1_2"
     }
   ]
 }

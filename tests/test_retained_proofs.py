@@ -78,11 +78,11 @@ def _temp_valid_proof(tmp_path: Path, raw: bytes = b"certificate"):
     return proof, artifact
 
 
-def test_repository_manifest_is_valid_and_closed_to_five_proofs() -> None:
+def test_repository_manifest_is_valid_and_closed_to_six_proofs() -> None:
     manifest = load_retained_proof_manifest()
     assert manifest.format == MANIFEST_FORMAT_V1
     assert {proof.claim for proof in manifest.proofs} == EXPECTED_RETAINED_CLAIMS_V1
-    assert len(manifest.proofs) == 5
+    assert len(manifest.proofs) == 6
     assert all(proof.claim_profile == EXACT_PRIME_PROFILE for proof in manifest.proofs)
 
 
@@ -94,6 +94,7 @@ def test_repository_manifest_contains_only_proof_bearing_computations() -> None:
         "X-20260826-002",
         "X-20260826-003",
         "X-20260827-002",
+        "X-20260827-004",
     }
     assert "X-20260827-001" not in {proof.computation_id for proof in manifest.proofs}
     assert "X-20260827-003" not in {proof.computation_id for proof in manifest.proofs}
@@ -230,7 +231,7 @@ def test_scope_must_match_support() -> None:
 def test_manifest_must_contain_exact_closed_claim_set() -> None:
     document = _document()
     document["proofs"].pop()  # type: ignore[union-attr]
-    with pytest.raises(RetainedProofManifestError, match="exactly C-0050 through C-0054"):
+    with pytest.raises(RetainedProofManifestError, match="exactly C-0050 through C-0055"):
         validate_retained_proof_manifest(document)
 
 
@@ -249,7 +250,7 @@ def test_loading_custom_manifest_reads_only_the_manifest(tmp_path: Path) -> None
     manifest_path = tmp_path / "retained-proofs.json"
     manifest_path.write_text(json.dumps(document), encoding="utf-8")
     manifest = load_retained_proof_manifest(manifest_path)
-    assert len(manifest.proofs) == 5
+    assert len(manifest.proofs) == 6
 
 
 def test_resolve_and_hash_regular_repository_file(tmp_path: Path) -> None:
@@ -502,7 +503,7 @@ def test_main_returns_one_and_reports_every_result_on_mixed_failure(
     for proof in manifest.proofs:
         assert proof.claim in combined
     assert "HASH_MISMATCH" in combined
-    assert "RETAINED PROOF CHAIN: FAIL - 4/5" in combined
+    assert "RETAINED PROOF CHAIN: FAIL - 5/6" in combined
 
 
 def test_main_returns_zero_only_when_every_registered_proof_passes(
@@ -525,7 +526,7 @@ def test_main_returns_zero_only_when_every_registered_proof_passes(
 
     assert main([]) == 0
     captured = capsys.readouterr()
-    assert "RETAINED PROOF CHAIN: PASS - 5/5" in captured.out
+    assert "RETAINED PROOF CHAIN: PASS - 6/6" in captured.out
     assert captured.err == ""
 
 

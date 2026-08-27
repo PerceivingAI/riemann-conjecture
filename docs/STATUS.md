@@ -1,7 +1,7 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T16:55:13Z`
+- **Last updated:** `2026-08-27T17:26:10Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
@@ -20,15 +20,15 @@ Eleven formal research attempts are recorded:
 - [`A-20260821-002`](../attempts/2026-08-21T022600Z-positivity-moment-weil-mechanism-audit.md) — Li Gram/CND audit and restricted-support Weil operator mechanism; `COMPLETE`.
 - [`A-20260821-003`](../attempts/2026-08-21T040654Z-first-prime-weil-support-continuation.md) — exact first-prime endpoint absorption, finite-support normalization guard, and external FP-0.35 source audit; `COMPLETE` intermediate target.
 - [`A-20260821-004`](../attempts/2026-08-21T085252Z-exact-prime-legendre-schur-certificate.md) — exact-prime Legendre-Schur route; global 69% absorption is refuted as too lossy, while the exact-prime `N=32` Schur certificate proves strict localized Weil positivity at `T=7/20`; `COMPLETE`.
-- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — one-prime support continuation from the verified `T=7/20` basepoint; moving Legendre dimension now yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, and `T=19/40,N=68`; `PROMISING`.
+- [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — one-prime support continuation from the verified `T=7/20` basepoint; moving Legendre dimension now yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
-The repository now contains nineteen retained computation records. No proof of RH has been obtained.
+The repository retains the proof-bearing computations through `X-20260827-004` together with separate pre-theorem and tooling records. No proof of RH has been obtained.
 
 ## Active leads
 
 ### L1 — Exact-prime localized Weil positivity and support continuation
 
-**Status:** `VERIFIED THROUGH T=19/40`
+**Status:** `VERIFIED THROUGH T=1/2`
 
 `A-20260821-004` has now achieved its finite-support success target.
 
@@ -156,6 +156,18 @@ odd  margin > 0.006360318287493695.
 ```
 
 Real-certificate adversarial replay again distinguishes contract failure (`factor=2`, exit `2`) from theorem failure (contract-valid negative diagonal perturbation, exit `1`). This establishes `F-20260827-001` / `C-0054`: strict localized Weil positivity at `T=19/40`.
+
+The canonical `T=1/2` pre-theorem run then mapped `N=56,60,...,104`. Floating reconnaissance found `N=56..68` negative, `N=72` unstable, and `N=76..104` stable-positive. Rigorous precision escalation classified `N=76` as a stable mathematical negative under the present full-tail Schur reduction, while fallback `N=80` stabilized positive at 512 bits. The exact 64-bit-matrix / 32-bit-witness candidate was then reassembled at 640 bits with unchanged exact `mu`, even margin, and odd margin while Arb enclosure widths contracted.
+
+A separate explicit admission added only `(T,N)=(1/2,80)` to the closed v1 theorem contract. Fresh proof-bearing `X-20260827-004` reassembled the certificate from scratch at 512-bit Arb precision. The independent zero-float Rust verifier returns `passed=true` with scope `localized_weil_positivity_T_1_2`, deriving approximately
+
+```text
+mu_80       > 0.6983326376765460
+even margin > 0.0006030229450313612
+odd  margin > 0.002927388923852846.
+```
+
+The retained certificate SHA-256 is `95dd6c7a497ad605ddc81129a774bade5fbbc769d0f6fdf29172b89da2a57a7d`; the retained Rust replay SHA-256 is `7383c91f48ead83ac9268fcdb154f9372c45ac3510339b9eaac3bd6fd461322a`. Real-certificate adversarial replay again distinguishes contract failure (`factor=2`, exit `2`) from theorem failure (contract-valid negative diagonal perturbation, exit `1`). This establishes `F-20260827-002` / `C-0055`: strict localized Weil positivity at `T=1/2`.
 
 ### L2 — Exact transcendental interval inputs
 
@@ -303,13 +315,14 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 - `X-20260827-001` contains the canonical pre-theorem `T=19/40` continuation bundle: `N=64` is precision-stable negative under the current Schur reduction, while `N=68` reaches generator-side exact `CANDIDATE_READY` at 384-bit precision. It remains non-proof-bearing; the later separate admission and independent replay are `X-20260827-002`.
 - `X-20260827-002` contains the separately admitted fresh `T=19/40,N=68` theorem certificate, independent zero-float Rust PASS, adversarial replays, and full Python/Rust/Lean acceptance checks for `C-0054`.
 - `X-20260827-003` records the non-proof-bearing zero-float Rust verifier optimization. Direct parity Schur construction plus lower-triangular/symmetric exact congruence reduces debug replay times to `3.564, 6.145, 13.210, 24.880, 31.408` seconds for `N=32,40,48,56,68`; all retained `C-0050` through `C-0054` verifier JSON objects match exactly after optimization.
-- `computations/2026-08-27T151517Z-t1-2-continuation/` contains the current pre-theorem `T=1/2` frontier bundle. Floating reconnaissance over `N=56,60,...,104` classified `N=56..68` negative, `N=72` unstable, and `N=76..104` stable-positive. The primary rigorous target `N=76` did not become the selected exact candidate; fallback `N=80` stabilized positive at 512-bit Arb precision and its fixed 64-bit matrix / 32-bit witness candidate remained stable at 640 bits. The terminal state is `CANDIDATE_READY`. This bundle is non-proof-bearing: `(T,N)=(1/2,80)` has **not** been admitted to the closed theorem contract and has no theorem status.
-- The closed exact-prime admission table now has a test-only cross-layer consistency corpus at `tests/data/exact-prime-admission-v1.json`. It exercises the independently hard-coded Python generator, Python semantic validator, raw JSON Schema, and Rust verifier admission logic over five allowed pairs, all twenty mixed cross-pairs, and five external forbidden cases. Production trust layers do not read this corpus, so decoupled verification is preserved while accidental whitelist drift becomes test-detectable.
+- `computations/2026-08-27T151517Z-t1-2-continuation/` is the historical pre-theorem `T=1/2` bundle. It records `N=76` as rigorously stable-negative under the current Schur reduction and `N=80` as an exact `CANDIDATE_READY` point stable from 512 to 640 bits. It remains non-proof-bearing; the later separate admission and theorem replay are `X-20260827-004`.
+- `X-20260827-004` contains the separately admitted fresh `T=1/2,N=80` theorem certificate, independent zero-float Rust PASS, real-certificate adversarial replays, and retained-proof registration establishing `C-0055`.
+- The closed exact-prime admission table now has a test-only cross-layer consistency corpus at `tests/data/exact-prime-admission-v1.json`. It exercises the independently hard-coded Python generator, Python semantic validator, raw JSON Schema, and Rust verifier admission logic over six allowed pairs, the full thirty off-diagonal pairs in the `6 x 6` admitted support/dimension grid, and explicit external forbidden cases including `(1/2,76)`. Production trust layers do not read this corpus, so decoupled verification is preserved while accidental whitelist drift becomes test-detectable.
 - The canonical continuation driver is now `continuation-driver-p15-v1` with cache contract `continuation-driver-v6`. It retains the p14 conditioning observability and fixed-parameter candidate confirmation, and now uses bounded spawn-based process parallelism only across mathematically independent work: up to three floating-scout resolutions and up to two primary/fallback rigorous screens. Results are merged deterministically; each rigorous precision ladder, exact candidate construction, and candidate cross-precision confirmation remain sequential. Worker processes default BLAS/OpenMP-style thread counts to one unless explicitly overridden, and cache writes use process-unique temporary paths followed by atomic replacement. CLI defaults are `3/2`; programmatic `run_driver()` remains sequential by default and `--scout-workers 1 --rigorous-workers 1` forces sequential reproduction. Real historical multiprocessing acceptance passes `3/3` (`T=2/5`, `17/40`, `19/40`), and a parallel versus sequential `T=2/5` replay is semantically identical after removing execution-only metadata. Routine pytest now uses `pytest-xdist -n 2`; on the current 6-core Windows machine the 486-test default suite improved from about 559 seconds sequentially to about 378 seconds, while four workers only improved to about 372 seconds.
-- `computations/retained-proofs.json` now provides a closed first-class retained-proof registry for exactly `C-0050` through `C-0054`. `scripts.cert.verify_retained_proofs` verifies each registered artifact's raw-byte SHA-256 before replay and then requires current `rh_cert` PASS plus exact theorem identity agreement. P8 independently recomputed all five raw-byte hashes from disk and found exact agreement with the manifest and historical records. P9 completed the full Python/Rust/Lean acceptance snapshot; the canonical five-artifact gate passes `5/5`, while a temporary tampered `C-0050` copy produces `HASH_MISMATCH`, skips Rust for that artifact, continues through `C-0051`–`C-0054`, and exits `1` with `FAIL - 4/5`. Temporary tamper files were removed and the originals rehashed cleanly. The registry remains explicit—no automatic computation-directory discovery—and stores no derived margin diagnostics.
+- `computations/retained-proofs.json` now provides a closed first-class retained-proof registry for exactly `C-0050` through `C-0055`. `scripts.cert.verify_retained_proofs` verifies each registered artifact's raw-byte SHA-256 before replay and then requires current `rh_cert` PASS plus exact theorem identity agreement. The earlier five-proof bootstrap/tamper audit remains historical evidence for `C-0050` through `C-0054`; after registering `C-0055`, the canonical gate passes `6/6`. The registry remains explicit—no automatic computation-directory discovery—and stores no derived margin diagnostics.
 
 
-`X-20260821-005`, `X-20260826-001`, `X-20260826-002`, `X-20260826-003`, and `X-20260827-002` are proof-bearing for the finite-support theorems `C-0050`, `C-0051`, `C-0052`, `C-0053`, and `C-0054`, respectively. Their exact certificates and independent replays are retained with hashes and reproduction commands. `X-20260827-001` remains explicitly pre-theorem and `X-20260827-003` is tooling/performance evidence only; neither is part of that proof-bearing set. None of these finite-support results constitutes a proof of RH.
+`X-20260821-005`, `X-20260826-001`, `X-20260826-002`, `X-20260826-003`, `X-20260827-002`, and `X-20260827-004` are proof-bearing for the finite-support theorems `C-0050`, `C-0051`, `C-0052`, `C-0053`, `C-0054`, and `C-0055`, respectively. Their exact certificates and independent replays are retained with hashes and reproduction commands. `X-20260827-001` remains explicitly pre-theorem and `X-20260827-003` is tooling/performance evidence only; neither is part of that proof-bearing set. None of these finite-support results constitutes a proof of RH.
 
 ## Open requirements / blockers
 
@@ -323,9 +336,11 @@ There is no remaining blocker at `T=9/20`; `C-0053` is independently verified.
 
 There is no remaining blocker at `T=19/40`; `C-0054` is independently verified. The hard pre-theorem boundary worked as intended: `X-20260827-001` stopped at `CANDIDATE_READY`, and theorem status was granted only after the separate admission and proof-bearing `X-20260827-002` replay.
 
+There is no remaining blocker at `T=1/2`; `C-0055` is independently verified. The same hard boundary worked again: the `T=1/2` continuation bundle stopped at `CANDIDATE_READY`, and theorem status was granted only after the separate `(1/2,80)` admission and proof-bearing `X-20260827-004` replay.
+
 The exact Rust verifier performance blocker is now closed by `X-20260827-003`. The implementation still validates full certificate parity/symmetry, remains pure exact rational and zero-float, and preserves the closed-contract/error semantics, but constructs parity Schur blocks directly and exploits lower-triangular/symmetric congruence structure. The previously measured `N=32,40,48,56` debug replays improve from approximately `11,25,54,102` seconds to `3.564,6.145,13.210,24.880` seconds; `N=68` replays in `31.408` seconds. A second replay produces exact parsed-JSON equality against every retained `C-0050` through `C-0054` Rust output, and the real `C-0054` adversarial cases remain contract error `exit 2` versus theorem failure `exit 1`.
 
-There is therefore no current verifier- or orchestration-performance blocker to continuing the one-prime route. The canonical pre-theorem frontier has reached `T=1/2,N=80` with `CANDIDATE_READY`, but that point remains deliberately outside the closed theorem whitelist pending a separate explicit admission decision and fresh proof-bearing replay. The eventual structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`, which requires a new mathematical/tooling phase rather than casually broadening the present one-prime driver.
+There is therefore no current verifier- or orchestration-performance blocker to continuing the one-prime route. The verified finite-support frontier is now `T=1/2,N=80`; the next research slice should resume canonical pre-theorem continuation at a rational support strictly above `1/2` and below `(1/2)log 3`, with the dimension chosen by the driver rather than extrapolated. The eventual structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`, which requires a new mathematical/tooling phase rather than casually broadening the present one-prime driver.
 
 
 ## Invalidated, corrected, or closed directions

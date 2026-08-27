@@ -1,7 +1,7 @@
 # Repository Architecture & Proof Contracts
 
 - **Created:** `2026-08-21T06:00:00Z`
-- **Last updated:** `2026-08-27T14:37:56Z`
+- **Last updated:** `2026-08-27T17:26:10Z`
 - **Status:** Authoritative
 
 This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
@@ -144,13 +144,13 @@ where $K_k$ has kernel $e^{-2a_k|t-s|}$. Zero extension to the real line and the
 $$\int_{\mathbb R}e^{-2a_k|u|}\,du=\frac1{a_k}$$
 give $\langle f,K_kf\rangle\le a_k^{-1}\lVert f\rVert_2^2$. Hence every omitted $B_k$ is nonnegative and the verifier-derived tail lower bound is exactly zero. The witness contains `k_max` and `first_omitted_k`; Rust must check `first_omitted_k = k_max + 1`.
 
-`legendre_component_gram_schur` applies only to `exact_prime_legendre_schur`. In v1, `harmonic_index` must equal the whitelisted finite dimension (`32`, `40`, `48`, `56`, or `68`) and the factor must be the exact rational `3`. The required constants are only `c2`, `c_T`, and `rho_R`; the required proof matrices are `GV`, `G2`, and `GR`. Opposite-parity entries in `A`, `GV`, `G2`, and `GR` must be exactly zero. Rust derives the lower complement constant from the upper endpoints of those scalar intervals, reconstructs the factor-3 Schur matrix, extracts its even and odd blocks, and checks the supplied exact rational lower-triangular congruence witnesses for invertibility before applying exact interval Gershgorin positivity.
+`legendre_component_gram_schur` applies only to `exact_prime_legendre_schur`. In v1, `harmonic_index` must equal the whitelisted finite dimension (`32`, `40`, `48`, `56`, `68`, or `80`) and the factor must be the exact rational `3`. The required constants are only `c2`, `c_T`, and `rho_R`; the required proof matrices are `GV`, `G2`, and `GR`. Opposite-parity entries in `A`, `GV`, `G2`, and `GR` must be exactly zero. Rust derives the lower complement constant from the upper endpoints of those scalar intervals, reconstructs the factor-3 Schur matrix, extracts its even and odd blocks, and checks the supplied exact rational lower-triangular congruence witnesses for invertibility before applying exact interval Gershgorin positivity.
 
-The retained `C-0050` (`T=7/20,N=32`), `C-0051` (`T=2/5,N=40`), `C-0052` (`T=17/40,N=48`), `C-0053` (`T=9/20,N=56`), and `C-0054` (`T=19/40,N=68`) certificates use this rule and are proof-bearing because `C-0045`, `C-0047`, and `C-0048` provide the analytic complement and Schur semantics encoded by the profile. Each theorem-bearing pair required explicit closed-contract admission followed by a fresh independent Rust PASS; whitelist admission alone never grants theorem status. No other `(T,N)` pair is admitted.
+The retained `C-0050` (`T=7/20,N=32`), `C-0051` (`T=2/5,N=40`), `C-0052` (`T=17/40,N=48`), `C-0053` (`T=9/20,N=56`), `C-0054` (`T=19/40,N=68`), and `C-0055` (`T=1/2,N=80`) certificates use this rule and are proof-bearing because `C-0045`, `C-0047`, and `C-0048` provide the analytic complement and Schur semantics encoded by the profile. Each theorem-bearing pair required explicit closed-contract admission followed by a fresh independent Rust PASS; whitelist admission alone never grants theorem status. No other `(T,N)` pair is admitted.
 
 ### 2.6 Retained theorem-artifact acceptance
 
-Proof-bearing retention is governed by the closed manifest `computations/retained-proofs.json`. Its v1 entries bind each retained theorem claim to one computation ID, repository-relative certificate path, raw-byte SHA-256, support, dimension, claim profile, and verified scope. The manifest contains exactly `C-0050` through `C-0054`; pre-theorem candidates and tooling computations are not proof registrations.
+Proof-bearing retention is governed by the closed manifest `computations/retained-proofs.json`. Its v1 entries bind each retained theorem claim to one computation ID, repository-relative certificate path, raw-byte SHA-256, support, dimension, claim profile, and verified scope. The manifest contains exactly `C-0050` through `C-0055`; pre-theorem candidates and tooling computations are not proof registrations.
 
 The canonical audit is:
 

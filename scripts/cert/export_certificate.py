@@ -160,6 +160,7 @@ _ALLOWED_EXACT_PRIME_CONFIGURATIONS = {
     (Fraction(17, 40), 48),
     (Fraction(9, 20), 56),
     (Fraction(19, 40), 68),
+    (Fraction(1, 2), 80),
 }
 
 
@@ -208,7 +209,7 @@ def _validate_certificate_semantics(cert: dict[str, Any]) -> None:
     elif profile == "exact_prime_legendre_schur":
         if not _is_allowed_exact_prime_configuration(support, dimension):
             raise ValueError(
-                "exact-prime profile allows only (T=7/20,N=32), (T=2/5,N=40), (T=17/40,N=48), (T=9/20,N=56), or (T=19/40,N=68)"
+                "exact-prime profile allows only (T=7/20,N=32), (T=2/5,N=40), (T=17/40,N=48), (T=9/20,N=56), (T=19/40,N=68), or (T=1/2,N=80)"
             )
         if cert["basis"] != {
             "type": "legendre",

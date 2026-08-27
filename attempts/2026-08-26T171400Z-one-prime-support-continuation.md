@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-08-27T13:16:15Z`
+- **Last updated:** `2026-08-27T17:39:01Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -321,3 +321,65 @@ The full current verification snapshot passes: default Python suite `409 passed,
 This establishes `F-20260827-001` / `C-0054`: strict localized Weil positivity at `T=19/40`. The pre-theorem `X-20260827-001` remains a historical candidate bundle; the proof-bearing theorem run is the separate `X-20260827-002`.
 
 RH remains unresolved. Before pushing the Legendre dimension substantially farther, optimizing the exact Rust verifier is a justified tooling improvement; any such optimization must preserve zero-float exact semantics and replay the retained theorem/adversarial corpus before continuation resumes.
+
+## T=1/2 continuation, admission, and independent theorem replay
+
+**Addendum — `2026-08-27T17:39:01Z`.** This addendum supersedes the earlier sections only where they describe the then-current whitelist, frontier, or next action; those earlier sections remain preserved as historical state.
+
+After the exact-verifier and continuation-tooling improvements, the canonical pre-theorem driver was run at
+
+```text
+T=1/2,
+N=56,60,64,...,104.
+```
+
+Floating reconnaissance classified `N=56..68` negative, `N=72` unstable, and `N=76..104` stable-positive. The primary rigorous target `N=76` was then shown mathematically negative under the current full-tail Schur reduction. Fallback `N=80` stabilized positive at 512-bit Arb precision. With `T`, `N`, residual order, 64-bit matrix rounding, and 32-bit witness rounding fixed, the exact candidate remained unchanged under 512-to-640-bit reassembly and was classified `CANDIDATE_STABLE`. The pre-theorem bundle remains separate at `computations/2026-08-27T151517Z-t1-2-continuation/` and correctly stopped at `CANDIDATE_READY`.
+
+A separate explicit admission decision then added exactly
+
+```text
+(T,N)=(1/2,80)
+```
+
+to the closed v1 theorem contract. The independent admission-consistency corpus was expanded to the six admitted pairs and the full off-diagonal `6 x 6` pair grid; `(1/2,76)` remains explicitly forbidden. The consistency gate detected stale shared dimension guards in the JSON Schema and Rust exact-prime validation path before proof generation, and those guards were corrected without centralizing the production whitelist.
+
+Fresh proof-bearing run `X-20260827-004` reassembled the theorem certificate from scratch at
+
+```text
+Arb precision = 512 bits
+matrix bits   = 64
+witness bits  = 32
+residual order = 32.
+```
+
+The retained certificate SHA-256 is
+
+```text
+95dd6c7a497ad605ddc81129a774bade5fbbc769d0f6fdf29172b89da2a57a7d
+```
+
+and the independent zero-float Rust verifier returns
+
+```text
+passed=true
+verified_scope=localized_weil_positivity_T_1_2
+mu_80       > 0.6983326376765460
+even margin > 0.0006030229450313612
+odd margin  > 0.002927388923852846.
+```
+
+The Rust replay artifact SHA-256 is
+
+```text
+7383c91f48ead83ac9268fcdb154f9372c45ac3510339b9eaac3bd6fd461322a
+```
+
+and its exact derived rational `mu`, even margin, and odd margin agree with the generator outputs. Real-certificate adversarial replays preserve the trust boundary: changing the Schur factor from `3` to `2` is rejected as a contract error (`exit 2`), while a contract-valid `A(0,0)=-1` perturbation reaches theorem verification and returns `passed=false` (`exit 1`).
+
+This establishes `F-20260827-002` / `C-0055`: strict localized Weil positivity at `T=1/2`. The proof-bearing theorem run is `X-20260827-004`; the earlier `T=1/2` continuation bundle remains non-proof-bearing historical candidate evidence. The explicit retained-proof registry now contains `C-0050` through `C-0055`, and the canonical current-verifier audit passes
+
+```text
+RETAINED PROOF CHAIN: PASS - 6/6.
+```
+
+The active one-prime frontier is therefore now strictly above `T=1/2`, still below the structural threshold `(1/2)log 3`. The next continuation slice must use fresh reconnaissance and must not extrapolate `N=80` or automatically promote a candidate. Entry of the `p=3` compressed translation at `(1/2)log 3` remains a separate mathematical/tooling phase. None of these finite-support results proves RH.

@@ -198,6 +198,26 @@ fn exact_prime_profile_accepts_nineteen_fortieths_dimension_68() {
 }
 
 #[test]
+fn exact_prime_profile_accepts_one_half_dimension_80() {
+    let fixture = exact_prime_fixture_for("1", "2", "1/2", 80);
+    let certificate = CertificateJson::from_json_str(&fixture.to_string()).expect("valid fixture");
+    let outcome = certificate.verify().expect("verification runs");
+    assert!(outcome.passed);
+    assert_eq!(outcome.dimension, 80);
+    assert_eq!(outcome.support_t, "1/2");
+    assert_eq!(outcome.verified_scope, "localized_weil_positivity_T_1_2");
+    let report = outcome.schur_report.expect("Schur report");
+    assert_eq!(report.even.dimension, 40);
+    assert_eq!(report.odd.dimension, 40);
+}
+
+#[test]
+fn exact_prime_profile_rejects_one_half_dimension_76() {
+    let fixture = exact_prime_fixture_for("1", "2", "1/2", 76);
+    assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());
+}
+
+#[test]
 fn exact_prime_profile_rejects_mixed_whitelist_pair() {
     let fixture = exact_prime_fixture_for("2", "5", "2/5", 32);
     assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());

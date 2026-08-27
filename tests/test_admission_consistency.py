@@ -95,16 +95,17 @@ def test_admission_corpus_is_closed_and_complete_for_current_pair_grid() -> None
 
     allowed = {_pair(case) for case in corpus["allowed"]}
     forbidden = {_pair(case) for case in corpus["forbidden"]}
-    assert len(allowed) == 5
-    assert len(forbidden) == 25
+    assert len(allowed) == 6
+    assert len(forbidden) == 35
     assert allowed.isdisjoint(forbidden)
 
-    supports = {Fraction("7/20"), Fraction("2/5"), Fraction("17/40"), Fraction("9/20"), Fraction("19/40")}
-    dimensions = {32, 40, 48, 56, 68}
+    supports = {Fraction("7/20"), Fraction("2/5"), Fraction("17/40"), Fraction("9/20"), Fraction("19/40"), Fraction("1/2")}
+    dimensions = {32, 40, 48, 56, 68, 80}
     expected_cross_forbidden = {(support, dimension) for support in supports for dimension in dimensions} - allowed
     assert expected_cross_forbidden <= forbidden
     assert (Fraction("19/40"), 64) in forbidden
     assert (Fraction("19/40"), 72) in forbidden
+    assert (Fraction("1/2"), 76) in forbidden
 
 
 def test_python_generator_admission_matches_test_corpus() -> None:

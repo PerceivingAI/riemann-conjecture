@@ -38,9 +38,10 @@ The closed `exact_prime_legendre_schur` theorem contract currently admits exactl
 (T,N)=(17/40,48)
 (T,N)=(9/20,56)
 (T,N)=(19/40,68)
+(T,N)=(1/2,80)
 ```
 
-These support the independently verified finite-support results `C-0050` through `C-0054`. The pre-theorem driver isolated `(T,N)=(19/40,68)` after showing `N=64` precision-stable negative under the current Schur reduction; the pair was then separately admitted and independently verified in proof-bearing `X-20260827-002`. Exact-verifier optimization is complete in `X-20260827-003`: retained debug replays are roughly `3–4x` faster over the previously benchmarked `N=32..56` range, `N=68` replays in about 31 seconds, all retained verifier JSON objects match exactly, and adversarial exit semantics are unchanged. The current pre-theorem frontier is now `T=1/2,N=80`: the canonical driver found `N=56..68` negative, `N=72` unstable, `N=76+` floating stable-positive, then selected `N=80` after rigorous screening and confirmed the exact candidate from 512 to 640 bits. The run stopped correctly at `CANDIDATE_READY`; `(1/2,80)` is **not** in the theorem whitelist and has no theorem status. The eventual mathematical structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`.
+These support the independently verified finite-support results `C-0050` through `C-0055`. The `T=1/2` pre-theorem driver found `N=76` precision-stable negative under the current Schur reduction and selected `N=80`, whose exact candidate was stable from 512 to 640 bits. A separate explicit admission then added only `(1/2,80)`, and fresh proof-bearing `X-20260827-004` independently established `C-0055`. The retained theorem gate now passes `6/6`. Exact-verifier optimization remains recorded separately in `X-20260827-003`. The current research frontier is therefore **beyond `T=1/2` but still strictly below `(1/2)log 3`**; use the canonical driver for the next one-prime support slice and do not extrapolate the next dimension. The entry of the `p=3` compressed translation at `(1/2)log 3` remains a separate structural phase.
 
 ## 3. Repository map
 

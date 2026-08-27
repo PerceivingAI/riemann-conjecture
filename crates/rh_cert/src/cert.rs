@@ -496,6 +496,7 @@ fn allowed_exact_prime_configuration(support: &BigRational, dimension: usize) ->
         || (dimension == 48 && *support == BigRational::new(BigInt::from(17), BigInt::from(40)))
         || (dimension == 56 && *support == BigRational::new(BigInt::from(9), BigInt::from(20)))
         || (dimension == 68 && *support == BigRational::new(BigInt::from(19), BigInt::from(40)))
+        || (dimension == 80 && *support == BigRational::new(BigInt::from(1), BigInt::from(2)))
 }
 
 fn extract_interval_matrix(
@@ -784,10 +785,11 @@ impl CertificateDocument {
             && self.dimension != 48
             && self.dimension != 56
             && self.dimension != 68
+            && self.dimension != 80
         {
             return Err(validation_error(
                 "$.dimension",
-                "v1 exact-prime profile allows only dimensions 32, 40, 48, 56, and 68",
+                "v1 exact-prime profile allows only dimensions 32, 40, 48, 56, 68, and 80",
             ));
         }
         if self.basis.r#type != BasisType::Legendre
@@ -916,7 +918,7 @@ impl CertificateDocument {
         {
             return Err(validation_error(
                 "$.support_T",
-                "v1 exact-prime profile allows only (T=7/20,N=32), (T=2/5,N=40), (T=17/40,N=48), (T=9/20,N=56), or (T=19/40,N=68)",
+                "v1 exact-prime profile allows only (T=7/20,N=32), (T=2/5,N=40), (T=17/40,N=48), (T=9/20,N=56), (T=19/40,N=68), or (T=1/2,N=80)",
             ));
         }
         if self.basis.dimension != self.dimension {

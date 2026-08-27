@@ -1,10 +1,24 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T16:55:13Z`
+- **Last updated:** `2026-08-27T17:26:10Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-08-27T17:26:10Z — T=1/2,N=80 admitted and independently verified
+
+**Type:** Finite-support theorem / explicit closed-contract admission / retained proof
+
+The historical pre-theorem `T=1/2` continuation mapped `N=56,60,...,104`, with `N=76` ultimately classified as a precision-stable mathematical negative under the current full-tail Schur reduction and fallback `N=80` stabilized positive at 512-bit Arb precision. The fixed 64-bit-matrix / 32-bit-witness exact candidate remained unchanged under 640-bit reassembly while the underlying Arb widths contracted.
+
+A separate admission decision extended the closed `exact_prime_legendre_schur` profile by exactly `(T,N)=(1/2,80)`. The cross-layer consistency gate caught two stale independent dimension guards—JSON Schema enums and Rust's internal exact-prime dimension guard—before theorem generation; both were extended to `80`, while the expanded test-only corpus continues to reject all off-diagonal admitted-grid combinations and explicitly rejects `(1/2,76)`.
+
+Fresh proof-bearing `X-20260827-004` generated `C-0055` from scratch at 512-bit Arb precision with 64-bit outward matrix endpoints and 32-bit exact witnesses. Certificate SHA-256 is `95dd6c7a497ad605ddc81129a774bade5fbbc769d0f6fdf29172b89da2a57a7d`. The independent zero-float Rust verifier returns `passed=true`, scope `localized_weil_positivity_T_1_2`, and exact lower bounds corresponding approximately to `mu_80>0.6983326376765460`, even margin `>0.0006030229450313612`, and odd margin `>0.002927388923852846`. Rust replay SHA-256 is `7383c91f48ead83ac9268fcdb154f9372c45ac3510339b9eaac3bd6fd461322a`.
+
+Real-certificate adversarial replay gives contract failure `exit 2` for `factor=2` and theorem failure `exit 1` for a contract-valid negative diagonal perturbation. Full `rh_cert` tests and strict Clippy pass. `C-0055` / `X-20260827-004` is now registered in the explicit retained-proof manifest, and the canonical retained-proof gate passes `6/6`. This establishes `F-20260827-002` / `C-0055`: strict localized Weil positivity at the single finite support `T=1/2`. It does not prove RH or imply positivity at larger supports; the `p=3` entry at `(1/2)log 3` remains a separate structural transition.
+
+---
 
 ## 2026-08-27T16:55:13Z — Bounded process parallelism adopted; T=1/2 becomes the pre-theorem frontier
 
