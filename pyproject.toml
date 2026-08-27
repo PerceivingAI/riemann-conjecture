@@ -19,6 +19,7 @@ dependencies = [
 test = [
     "pytest>=8.0.0",
     "hypothesis>=6.100.0",
+    "pytest-xdist>=3.8.0",
 ]
 
 [tool.pytest.ini_options]
@@ -26,9 +27,10 @@ minversion = "8.0"
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_functions = ["test_*"]
-addopts = "-v --strict-markers -m 'not slow_acceptance and not retained_proofs'"
+addopts = "-v --strict-markers -n 2 -m 'not slow_acceptance and not retained_proofs and not parallel_acceptance'"
 markers = [
     "integration: real continuation-history tests using Arb assembly and exact candidate construction",
     "slow_acceptance: expensive manual acceptance tests excluded from routine pytest runs",
     "retained_proofs: real replay of all registered retained theorem certificates; excluded from routine pytest runs",
+    "parallel_acceptance: real spawn-based continuation replays validating parallel/sequential semantics; excluded from routine pytest runs",
 ]

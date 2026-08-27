@@ -13,11 +13,24 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import multiprocessing
+import os
+from concurrent.futures import ProcessPoolExecutor
 from enum import StrEnum
 from dataclasses import asdict, dataclass, field
 from fractions import Fraction
 from pathlib import Path
 from typing import Any, Callable
+
+# Keep each numerical worker single-threaded by default so process-level
+# parallelism does not oversubscribe BLAS/OpenMP. Explicit user settings win.
+for _thread_env in (
+    "OMP_NUM_THREADS",
+    "OPENBLAS_NUM_THREADS",
+    "MKL_NUM_THREADS",
+    "NUMEXPR_NUM_THREADS",
+):
+    os.environ.setdefault(_thread_env, "1")
 
 from scripts.continuation_bundle import (
     collect_runtime_provenance,
@@ -34,11 +47,13 @@ from scripts.weil_support_candidate_check import (
 from scripts.weil_support_continuation_scout import scout_support
 
 
-DRIVER_VERSION = "continuation-driver-p14-v1"
+DRIVER_VERSION = "continuation-driver-p15-v1"
 SCOUT_RELATIVE_CONVERGENCE_TOLERANCE = 1e-2
 CANDIDATE_MARGIN_RELATIVE_STABILITY_TOLERANCE = 1e-3
 CANDIDATE_PRECISION_STEP_DEFAULT = 128
 CANDIDATE_PRECISION_EXTRA_STEPS_DEFAULT = 2
+CLI_SCOUT_WORKERS_MAX = 3
+CLI_RIGOROUS_WORKERS_MAX = 2
 PRECISION_STATUS_INSUFFICIENT = "INSUFFICIENT_PRECISION"
 PRECISION_STATUS_STABLE = "PRECISION_STABLE"
 PRECISION_STATUS_MATHEMATICAL_NEGATIVE = "MATHEMATICAL_NEGATIVE"
@@ -188,6 +203,47 @@ class ScoutResolution:
         return asdict(self)
 
 
+def _spawn_process_pool(max_workers: int) -> ProcessPoolExecutor:
+    """Create an isolated spawn-based pool for numerical research workers."""
+    return ProcessPoolExecutor(
+        max_workers=max_workers,
+        mp_context=multiprocessing.get_context("spawn"),
+    )
+
+
+def _scout_resolution_worker(
+    support: Fraction,
+    dimensions: list[int],
+    resolution: ScoutResolution,
+) -> dict[str, object]:
+    """Run one independent floating-scout resolution in a child process."""
+    return scout(
+        max_mode=resolution.max_mode,
+        quadrature_order=resolution.quadrature_order,
+        shift_order=resolution.shift_order,
+        n_values=dimensions,
+        support=support,
+    )
+
+
+def _rigorous_screen_worker(
+    support: Fraction,
+    dimension: int,
+    precisions: list[int],
+    residual_order: int,
+    cache_dir_text: str | None,
+) -> dict[str, object]:
+    """Run one dimension's sequential precision ladder in a child process."""
+    cache_dir = Path(cache_dir_text) if cache_dir_text is not None else None
+    return _escalate_rigorous_screen(
+        support,
+        dimension,
+        precisions,
+        residual_order,
+        cache_dir,
+    )
+
+
 def parse_support(text: str) -> Fraction:
     """Parse a positive support value exactly, without a float round-trip."""
     token = text.strip()
@@ -268,7 +324,7 @@ def build_precision_ladder(start: int = 128, maximum: int = 512) -> list[int]:
     return ladder
 
 
-CACHE_VERSION = "continuation-driver-v5"
+CACHE_VERSION = "continuation-driver-v6"
 CACHE_SOURCE_PATHS = (
     "scripts/weil_continuation_driver.py",
     "scripts/weil_legendre_schur_scout.py",
@@ -317,11 +373,14 @@ def _cached_result(
     except (FileNotFoundError, json.JSONDecodeError):
         result = producer()
         cache_dir.mkdir(parents=True, exist_ok=True)
-        temporary = cache_path.with_suffix(".tmp")
-        temporary.write_text(
-            json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8"
-        )
-        temporary.replace(cache_path)
+        temporary = cache_path.with_name(f"{cache_path.name}.{os.getpid()}.tmp")
+        try:
+            temporary.write_text(
+                json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+            )
+            temporary.replace(cache_path)
+        finally:
+            temporary.unlink(missing_ok=True)
         return result, False
 
 
@@ -1063,6 +1122,8 @@ def run_driver(
     witness_bits_max: int = 56,
     candidate_precision_step: int = CANDIDATE_PRECISION_STEP_DEFAULT,
     candidate_precision_extra_steps: int = CANDIDATE_PRECISION_EXTRA_STEPS_DEFAULT,
+    scout_workers: int = 1,
+    rigorous_workers: int = 1,
     cache_dir: Path | None = None,
 ) -> dict[str, Any]:
     machine = ContinuationStateMachine()
@@ -1085,6 +1146,10 @@ def run_driver(
         raise ValueError("candidate_precision_step must be positive")
     if candidate_precision_extra_steps < 1:
         raise ValueError("candidate_precision_extra_steps must be positive")
+    if scout_workers < 1:
+        raise ValueError("scout_workers must be positive")
+    if rigorous_workers < 1:
+        raise ValueError("rigorous_workers must be positive")
     matrix_bits_ladder = build_bit_ladder(matrix_bits_start, matrix_bits_max, 16)
     witness_bits_ladder = build_bit_ladder(witness_bits_start, witness_bits_max, 8)
     resolutions = build_scout_resolutions(dimensions, scout_resolution_count)
@@ -1125,6 +1190,8 @@ def run_driver(
             "witness_bits_max": witness_bits_max,
             "candidate_precision_step": candidate_precision_step,
             "candidate_precision_extra_steps": candidate_precision_extra_steps,
+            "scout_workers": scout_workers,
+            "rigorous_workers": rigorous_workers,
             "cache_dir": str(cache_dir) if cache_dir is not None else None,
             "residual_order": residual_order,
             "matrix_bits_ladder": matrix_bits_ladder,
@@ -1150,42 +1217,77 @@ def run_driver(
             "support": f"{support.numerator}/{support.denominator}",
             "dimension_count": len(dimensions),
             "resolution_count": len(resolutions),
+            "scout_workers": min(scout_workers, len(resolutions)),
         },
     )
     series: dict[int, list[ScoutDimensionResult]] = {
         dimension: [] for dimension in dimensions
     }
-    for resolution in resolutions:
-        try:
-            raw_scout = scout(
-                max_mode=resolution.max_mode,
-                quadrature_order=resolution.quadrature_order,
-                shift_order=resolution.shift_order,
-                n_values=dimensions,
-                support=support,
-            )
-            scout_runs.append(
-                {
-                    "status": "completed",
-                    "resolution": resolution.as_dict(),
-                    "result": raw_scout,
-                }
-            )
-            for row in _typed_scout_rows(
-                raw_scout,
-                max_mode=resolution.max_mode,
-                quadrature_order=resolution.quadrature_order,
-                shift_order=resolution.shift_order,
-            ):
-                series[row.dimension].append(row)
-        except Exception as exc:
-            failure = {
+
+    def record_scout_result(
+        resolution: ScoutResolution,
+        raw_scout: dict[str, object],
+    ) -> None:
+        scout_runs.append(
+            {
+                "status": "completed",
                 "resolution": resolution.as_dict(),
-                "error_type": type(exc).__name__,
-                "error": str(exc),
+                "result": raw_scout,
             }
-            scout_failures.append(failure)
-            scout_runs.append({"status": "failed", **failure})
+        )
+        for row in _typed_scout_rows(
+            raw_scout,
+            max_mode=resolution.max_mode,
+            quadrature_order=resolution.quadrature_order,
+            shift_order=resolution.shift_order,
+        ):
+            series[row.dimension].append(row)
+
+    def record_scout_failure(resolution: ScoutResolution, exc: Exception) -> None:
+        failure = {
+            "resolution": resolution.as_dict(),
+            "error_type": type(exc).__name__,
+            "error": str(exc),
+        }
+        scout_failures.append(failure)
+        scout_runs.append({"status": "failed", **failure})
+
+    effective_scout_workers = min(scout_workers, len(resolutions))
+    if effective_scout_workers == 1:
+        for resolution in resolutions:
+            try:
+                record_scout_result(
+                    resolution,
+                    scout(
+                        max_mode=resolution.max_mode,
+                        quadrature_order=resolution.quadrature_order,
+                        shift_order=resolution.shift_order,
+                        n_values=dimensions,
+                        support=support,
+                    ),
+                )
+            except Exception as exc:
+                record_scout_failure(resolution, exc)
+    else:
+        with _spawn_process_pool(effective_scout_workers) as executor:
+            jobs = [
+                (
+                    resolution,
+                    executor.submit(
+                        _scout_resolution_worker,
+                        support,
+                        dimensions,
+                        resolution,
+                    ),
+                )
+                for resolution in resolutions
+            ]
+            # Consume in resolution order so bundle/result ordering is deterministic.
+            for resolution, future in jobs:
+                try:
+                    record_scout_result(resolution, future.result())
+                except Exception as exc:
+                    record_scout_failure(resolution, exc)
 
     machine.transition(
         WorkflowState.CHECK_SCOUT_STABILITY,
@@ -1245,28 +1347,66 @@ def run_driver(
         details={
             "primary_dimension": primary_dimension,
             "fallback_dimensions": fallback_dimensions,
+            "rigorous_workers": min(rigorous_workers, len(screening_dimensions)),
         },
     )
     survivors: list[int] = []
-    for dimension in screening_dimensions:
-        try:
-            screening = _escalate_rigorous_screen(
-                support, dimension, precisions, residual_order, cache_dir
-            )
-            rigorous_screening.append({"dimension": dimension, **screening})
-            selected_precision = screening["selected_precision_bits"]
-            if screening["status"] == "precision_stable" and isinstance(
-                selected_precision, int
-            ):
-                survivors.append(dimension)
-        except Exception as exc:
-            rigorous_failures.append(
-                {
-                    "dimension": dimension,
-                    "error_type": type(exc).__name__,
-                    "error": str(exc),
-                }
-            )
+
+    def record_rigorous_result(
+        dimension: int,
+        screening: dict[str, object],
+    ) -> None:
+        rigorous_screening.append({"dimension": dimension, **screening})
+        selected_precision = screening["selected_precision_bits"]
+        if screening["status"] == "precision_stable" and isinstance(
+            selected_precision, int
+        ):
+            survivors.append(dimension)
+
+    def record_rigorous_failure(dimension: int, exc: Exception) -> None:
+        rigorous_failures.append(
+            {
+                "dimension": dimension,
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+            }
+        )
+
+    effective_rigorous_workers = min(rigorous_workers, len(screening_dimensions))
+    if effective_rigorous_workers == 1:
+        for dimension in screening_dimensions:
+            try:
+                record_rigorous_result(
+                    dimension,
+                    _escalate_rigorous_screen(
+                        support, dimension, precisions, residual_order, cache_dir
+                    ),
+                )
+            except Exception as exc:
+                record_rigorous_failure(dimension, exc)
+    else:
+        cache_dir_text = str(cache_dir) if cache_dir is not None else None
+        with _spawn_process_pool(effective_rigorous_workers) as executor:
+            jobs = [
+                (
+                    dimension,
+                    executor.submit(
+                        _rigorous_screen_worker,
+                        support,
+                        dimension,
+                        precisions,
+                        residual_order,
+                        cache_dir_text,
+                    ),
+                )
+                for dimension in screening_dimensions
+            ]
+            # Consume in selected-dimension order so result semantics stay stable.
+            for dimension, future in jobs:
+                try:
+                    record_rigorous_result(dimension, future.result())
+                except Exception as exc:
+                    record_rigorous_failure(dimension, exc)
 
     machine.transition(
         WorkflowState.CHECK_RIGOROUS_STABILITY,
@@ -1719,6 +1859,19 @@ def main() -> None:
         default=3,
         help="number of increasing scout resolutions (minimum 2)",
     )
+    available_cpus = os.cpu_count() or 1
+    parser.add_argument(
+        "--scout-workers",
+        type=int,
+        default=min(CLI_SCOUT_WORKERS_MAX, available_cpus),
+        help="process workers for independent scout resolutions; use 1 for sequential reproduction",
+    )
+    parser.add_argument(
+        "--rigorous-workers",
+        type=int,
+        default=min(CLI_RIGOROUS_WORKERS_MAX, available_cpus),
+        help="process workers for primary/fallback rigorous screens; each precision ladder stays sequential",
+    )
     parser.add_argument("--precision-start", type=int, default=128)
     parser.add_argument("--precision-max", type=int, default=512)
     parser.add_argument("--residual-order", type=int, default=32)
@@ -1774,6 +1927,8 @@ def main() -> None:
             witness_bits_max=args.witness_bits_max,
             candidate_precision_step=args.candidate_precision_step,
             candidate_precision_extra_steps=args.candidate_precision_extra_steps,
+            scout_workers=args.scout_workers,
+            rigorous_workers=args.rigorous_workers,
             cache_dir=args.cache_dir,
         )
     except (ValueError, ZeroDivisionError) as exc:

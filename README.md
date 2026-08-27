@@ -183,6 +183,8 @@ environment:
 uv run --locked --extra test python -m pytest
 ```
 
+Routine pytest uses `pytest-xdist` with the repository default `-n 2`. This was chosen empirically on the current 6-core Windows research machine: the 486-test default suite improved from about 559 seconds sequentially to about 378 seconds with two workers, while four workers only improved to about 372 seconds. Use `-n 0` for sequential debugging; do not assume `-n auto` is better for the Arb/NumPy-heavy tail.
+
 Tests cover:
 - Laguerre polynomial contiguous relations $L_n^{(\alpha)} = L_n^{(\alpha+1)} - L_{n-1}^{(\alpha+1)}$ across randomized $(n, \alpha)$ pairs.
 - Exact rational Laplace pole/density integrals $1 - q^n$ for randomized rational $s_0 > 1$ and degrees $n$.
@@ -198,6 +200,8 @@ cargo test -p rh_cert
 cargo clippy -p rh_cert --all-targets -- -D warnings
 cd formal && lake build
 ```
+
+Canonical one-prime research continuation also uses bounded process parallelism: the CLI runs up to three independent floating-scout resolutions concurrently and up to two independent primary/fallback rigorous screens concurrently, while each precision ladder, exact candidate construction, and candidate cross-precision confirmation remain sequential. Use `--scout-workers 1 --rigorous-workers 1` for exact sequential reproduction. The multiprocessing path has a separate `parallel_acceptance` pytest tier and should be run with outer pytest `-n 0` to avoid nested test-worker parallelism.
 
 The exact retained theorem artifacts have a separate first-class acceptance gate:
 

@@ -40,7 +40,7 @@ The closed `exact_prime_legendre_schur` theorem contract currently admits exactl
 (T,N)=(19/40,68)
 ```
 
-These support the independently verified finite-support results `C-0050` through `C-0054`. The pre-theorem driver isolated `(T,N)=(19/40,68)` after showing `N=64` precision-stable negative under the current Schur reduction; the pair was then separately admitted and independently verified in proof-bearing `X-20260827-002`. Exact-verifier optimization is complete in `X-20260827-003`: retained debug replays are roughly `3–4x` faster over the previously benchmarked `N=32..56` range, `N=68` replays in about 31 seconds, all retained verifier JSON objects match exactly, and adversarial exit semantics are unchanged. The immediate research frontier is fresh canonical one-prime continuation with dimension chosen by the driver, not extrapolated from `68`. The eventual mathematical structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`.
+These support the independently verified finite-support results `C-0050` through `C-0054`. The pre-theorem driver isolated `(T,N)=(19/40,68)` after showing `N=64` precision-stable negative under the current Schur reduction; the pair was then separately admitted and independently verified in proof-bearing `X-20260827-002`. Exact-verifier optimization is complete in `X-20260827-003`: retained debug replays are roughly `3–4x` faster over the previously benchmarked `N=32..56` range, `N=68` replays in about 31 seconds, all retained verifier JSON objects match exactly, and adversarial exit semantics are unchanged. The current pre-theorem frontier is now `T=1/2,N=80`: the canonical driver found `N=56..68` negative, `N=72` unstable, `N=76+` floating stable-positive, then selected `N=80` after rigorous screening and confirmed the exact candidate from 512 to 640 bits. The run stopped correctly at `CANDIDATE_READY`; `(1/2,80)` is **not** in the theorem whitelist and has no theorem status. The eventual mathematical structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`.
 
 ## 3. Repository map
 
@@ -107,6 +107,27 @@ exact support/input validation
 ```
 
 It also writes the self-contained continuation bundle and prints a concise terminal summary. Use `--json` only when the full result object is needed on stdout.
+
+### Continuation concurrency policy
+
+The canonical CLI uses bounded **process** parallelism where stages are mathematically independent:
+
+```text
+floating scout resolutions: up to 3 worker processes
+primary/fallback rigorous screens: up to 2 worker processes
+```
+
+The driver uses spawn-based workers and collects results back in deterministic resolution/dimension order. Numerical-library thread counts default to one per worker (`OMP_NUM_THREADS`, `OPENBLAS_NUM_THREADS`, `MKL_NUM_THREADS`, `NUMEXPR_NUM_THREADS`) unless the environment explicitly overrides them, avoiding process × BLAS oversubscription.
+
+Do **not** parallelize the internal precision ladder, exact candidate construction, or candidate cross-precision confirmation. Those stages are intentionally sequential because later decisions depend on earlier precision results.
+
+For exact sequential reproduction/debugging, force:
+
+```text
+--scout-workers 1 --rigorous-workers 1
+```
+
+`run_driver()` remains sequential by default for programmatic callers/tests; the CLI supplies the bounded `3/2` defaults. Parallel and sequential historical replays have been checked for semantic identity after removing execution-only metadata (`scout_workers`, `rigorous_workers`, `cache_hit`).
 
 ### Continuation terminal states
 
@@ -259,7 +280,7 @@ They cover known history including `T=2/5,N=40`, `T=17/40,N=48`, and the low-pre
 uv run --locked --extra test python -m pytest -q
 ```
 
-Important: the default pytest configuration **includes integration tests** but excludes the `slow_acceptance` and `retained_proofs` markers. A full default run therefore still takes minutes, but it does not automatically replay the five retained theorem certificates.
+Important: the default pytest configuration runs with `pytest-xdist -n 2`, **includes integration tests**, and excludes the `slow_acceptance`, `retained_proofs`, and `parallel_acceptance` markers. On the current 6-core Windows research machine, the full 486-test default suite improved from about 559 seconds sequentially to about 378 seconds with two workers; four workers gave only a marginal further improvement (~372 seconds), so `-n 2` is the maintained default rather than `-n auto`. Use `-n 0` when debugging tests sequentially or when a test itself owns process parallelism.
 
 ### Slow/manual acceptance
 
@@ -290,6 +311,18 @@ uv run --locked python -m scripts.cert.verify_retained_proofs
 ```
 
 This gate does **not** regenerate certificates. It validates `computations/retained-proofs.json`, checks raw-byte SHA-256 integrity, and replays each intact certificate through the current zero-float Rust verifier. Run it after changes to `rh_cert`, retained proof artifacts, the retained-proof manifest/tool, or proof-contract semantics before claiming the retained theorem trust chain is green. Fast fixture/adversarial logic remains in `tests/test_retained_proofs.py` and stays in the ordinary suite.
+
+### Parallel-continuation acceptance
+
+The driver multiprocessing path has its own expensive real-history tier, excluded from routine pytest:
+
+```text
+uv run --locked --extra test python -m pytest -n 0 -q \
+  -m parallel_acceptance \
+  tests/test_continuation_parallel_acceptance.py
+```
+
+Keep outer pytest sequential (`-n 0`) for this tier because the driver itself launches worker processes. The acceptance cases cover real `T=2/5`, `T=17/40`, and `T=19/40` histories and currently pass `3/3`. Do not rerun this tier casually after unrelated changes; use it when changing process orchestration, worker/cache behavior, or continuation semantics.
 
 ## 9. Rust and Lean verification
 

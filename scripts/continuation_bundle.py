@@ -86,6 +86,8 @@ def _configuration_payload(result: dict[str, Any]) -> dict[str, object]:
         "dimensions",
         "scout_resolution_count",
         "scout_resolution_plan",
+        "scout_workers",
+        "rigorous_workers",
         "precision_start",
         "precision_max",
         "precision_ladder",

@@ -1,0 +1,488 @@
+{
+  "role": "pre_theorem_exact_candidate_stage",
+  "status": "CANDIDATE_READY",
+  "support": "1/2",
+  "selected_dimension": 80,
+  "selected_candidate": {
+    "role": "generator_side_exact_candidate_only",
+    "status": "CANDIDATE_READY",
+    "candidate_status": "CANDIDATE_READY",
+    "theorem_status": false,
+    "independently_verified": false,
+    "whitelisted": false,
+    "automatic_promotion": false,
+    "promotion_requirements": [
+      "explicit_closed_contract_admission",
+      "retained_full_certificate_generation",
+      "fresh_independent_rust_verifier_pass"
+    ],
+    "forbidden_automatic_actions": [
+      "emit_theorem_certificate",
+      "edit_closed_contract_or_whitelist",
+      "invoke_independent_rust_verifier",
+      "grant_theorem_status"
+    ],
+    "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed.",
+    "support": "1/2",
+    "dimension": 80,
+    "precision_bits": 512,
+    "residual_order": 32,
+    "matrix_bits": 64,
+    "witness_bits": 32,
+    "working_precision_diagnostics": {
+      "matrix_widths": {
+        "A": {
+          "max_width": 3.8336942297126276e-72,
+          "max_radius": 1.9168471148563138e-72,
+          "row": 79,
+          "column": 79,
+          "midpoint_at_widest_entry": 0.05015581115312411
+        },
+        "GV": {
+          "max_width": 4.614978150065655e-96,
+          "max_radius": 2.3074890750328274e-96,
+          "row": 79,
+          "column": 79,
+          "midpoint_at_widest_entry": 0.005133440973584098
+        },
+        "G2": {
+          "max_width": 4.956293138275681e-73,
+          "max_radius": 2.4781465691378406e-73,
+          "row": 79,
+          "column": 79,
+          "midpoint_at_widest_entry": 0.0015233937722166622
+        },
+        "GR": {
+          "max_width": 4.726763106639878e-152,
+          "max_radius": 2.363381553319939e-152,
+          "row": 0,
+          "column": 0,
+          "midpoint_at_widest_entry": 5.379657762440816e-33
+        }
+      },
+      "scalar_widths": {
+        "mu": "72727213/3514776401986872174070733209129673327241950873673372369609965291102998109899599898686750536018664732148375711432438199315006457855854921632037902485050909261824",
+        "rho_R": "511842719/28118211215894977392565865673037386617935606989386978956879722328823984879196799189494004288149317857187005691459505594520051662846839373056303219880407274094592",
+        "residual_remainder": "448255953/1013065324433836171511818326096474890383898005918563696288002277756507034036354527929615978746851512277392062160962106733983191180520452956027069051297354415786421338721071661056"
+      }
+    },
+    "exact_rounding_diagnostics": {
+      "matrix_widths": {
+        "A": {
+          "max_width": "1/18446744073709551616",
+          "max_radius": "1/36893488147419103232",
+          "row": 0,
+          "column": 0,
+          "midpoint_at_widest_entry": "6494331976622690619/36893488147419103232"
+        },
+        "GV": {
+          "max_width": "1/18446744073709551616",
+          "max_radius": "1/36893488147419103232",
+          "row": 0,
+          "column": 0,
+          "midpoint_at_widest_entry": "5836653863346083/36893488147419103232"
+        },
+        "G2": {
+          "max_width": "1/18446744073709551616",
+          "max_radius": "1/36893488147419103232",
+          "row": 0,
+          "column": 0,
+          "midpoint_at_widest_entry": "65691248508581239/36893488147419103232"
+        },
+        "GR": {
+          "max_width": "1/9223372036854775808",
+          "max_radius": "1/18446744073709551616",
+          "row": 0,
+          "column": 2,
+          "midpoint_at_widest_entry": "0/1"
+        }
+      },
+      "rounding_succeeded": true
+    },
+    "mu_lower": "98913775880202044302179725560955717866979010925759/141642779591832528020453665758223117661098318233600",
+    "even_gershgorin_margin": "10148458202921468417940718327115937233159877850538728048715509027140852144547160753981/16829306888801192483828205424151259182073025548538568829877877321415676835509923114647552",
+    "odd_gershgorin_margin": "12316481645599250858718895506055492800405711170127182358118218662370675181905468305315/4207326722200298120957051356037814795518256387134642207469469330353919208877480778661888",
+    "all_margins_positive": true,
+    "cache_hit": false
+  },
+  "candidate_runs": [
+    {
+      "status": "candidate_ready",
+      "selected_matrix_bits": 64,
+      "selected_witness_bits": 32,
+      "attempts": [
+        {
+          "role": "generator_side_exact_candidate_only",
+          "status": "CANDIDATE_READY",
+          "candidate_status": "CANDIDATE_READY",
+          "theorem_status": false,
+          "independently_verified": false,
+          "whitelisted": false,
+          "automatic_promotion": false,
+          "promotion_requirements": [
+            "explicit_closed_contract_admission",
+            "retained_full_certificate_generation",
+            "fresh_independent_rust_verifier_pass"
+          ],
+          "forbidden_automatic_actions": [
+            "emit_theorem_certificate",
+            "edit_closed_contract_or_whitelist",
+            "invoke_independent_rust_verifier",
+            "grant_theorem_status"
+          ],
+          "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed.",
+          "support": "1/2",
+          "dimension": 80,
+          "precision_bits": 512,
+          "residual_order": 32,
+          "matrix_bits": 64,
+          "witness_bits": 32,
+          "working_precision_diagnostics": {
+            "matrix_widths": {
+              "A": {
+                "max_width": 3.8336942297126276e-72,
+                "max_radius": 1.9168471148563138e-72,
+                "row": 79,
+                "column": 79,
+                "midpoint_at_widest_entry": 0.05015581115312411
+              },
+              "GV": {
+                "max_width": 4.614978150065655e-96,
+                "max_radius": 2.3074890750328274e-96,
+                "row": 79,
+                "column": 79,
+                "midpoint_at_widest_entry": 0.005133440973584098
+              },
+              "G2": {
+                "max_width": 4.956293138275681e-73,
+                "max_radius": 2.4781465691378406e-73,
+                "row": 79,
+                "column": 79,
+                "midpoint_at_widest_entry": 0.0015233937722166622
+              },
+              "GR": {
+                "max_width": 4.726763106639878e-152,
+                "max_radius": 2.363381553319939e-152,
+                "row": 0,
+                "column": 0,
+                "midpoint_at_widest_entry": 5.379657762440816e-33
+              }
+            },
+            "scalar_widths": {
+              "mu": "72727213/3514776401986872174070733209129673327241950873673372369609965291102998109899599898686750536018664732148375711432438199315006457855854921632037902485050909261824",
+              "rho_R": "511842719/28118211215894977392565865673037386617935606989386978956879722328823984879196799189494004288149317857187005691459505594520051662846839373056303219880407274094592",
+              "residual_remainder": "448255953/1013065324433836171511818326096474890383898005918563696288002277756507034036354527929615978746851512277392062160962106733983191180520452956027069051297354415786421338721071661056"
+            }
+          },
+          "exact_rounding_diagnostics": {
+            "matrix_widths": {
+              "A": {
+                "max_width": "1/18446744073709551616",
+                "max_radius": "1/36893488147419103232",
+                "row": 0,
+                "column": 0,
+                "midpoint_at_widest_entry": "6494331976622690619/36893488147419103232"
+              },
+              "GV": {
+                "max_width": "1/18446744073709551616",
+                "max_radius": "1/36893488147419103232",
+                "row": 0,
+                "column": 0,
+                "midpoint_at_widest_entry": "5836653863346083/36893488147419103232"
+              },
+              "G2": {
+                "max_width": "1/18446744073709551616",
+                "max_radius": "1/36893488147419103232",
+                "row": 0,
+                "column": 0,
+                "midpoint_at_widest_entry": "65691248508581239/36893488147419103232"
+              },
+              "GR": {
+                "max_width": "1/9223372036854775808",
+                "max_radius": "1/18446744073709551616",
+                "row": 0,
+                "column": 2,
+                "midpoint_at_widest_entry": "0/1"
+              }
+            },
+            "rounding_succeeded": true
+          },
+          "mu_lower": "98913775880202044302179725560955717866979010925759/141642779591832528020453665758223117661098318233600",
+          "even_gershgorin_margin": "10148458202921468417940718327115937233159877850538728048715509027140852144547160753981/16829306888801192483828205424151259182073025548538568829877877321415676835509923114647552",
+          "odd_gershgorin_margin": "12316481645599250858718895506055492800405711170127182358118218662370675181905468305315/4207326722200298120957051356037814795518256387134642207469469330353919208877480778661888",
+          "all_margins_positive": true,
+          "cache_hit": false
+        }
+      ],
+      "dimension": 80,
+      "candidate_precision_stability": {
+        "classification": "CANDIDATE_STABLE",
+        "qualified": true,
+        "fixed_parameters": {
+          "support": "1/2",
+          "dimension": 80,
+          "residual_order": 32,
+          "matrix_bits": 64,
+          "witness_bits": 32
+        },
+        "base_precision_bits": 512,
+        "selected_confirmation_precision_bits": 640,
+        "attempts": [
+          {
+            "role": "generator_side_exact_candidate_only",
+            "status": "CANDIDATE_READY",
+            "candidate_status": "CANDIDATE_READY",
+            "theorem_status": false,
+            "independently_verified": false,
+            "whitelisted": false,
+            "automatic_promotion": false,
+            "promotion_requirements": [
+              "explicit_closed_contract_admission",
+              "retained_full_certificate_generation",
+              "fresh_independent_rust_verifier_pass"
+            ],
+            "forbidden_automatic_actions": [
+              "emit_theorem_certificate",
+              "edit_closed_contract_or_whitelist",
+              "invoke_independent_rust_verifier",
+              "grant_theorem_status"
+            ],
+            "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed.",
+            "support": "1/2",
+            "dimension": 80,
+            "precision_bits": 512,
+            "residual_order": 32,
+            "matrix_bits": 64,
+            "witness_bits": 32,
+            "working_precision_diagnostics": {
+              "matrix_widths": {
+                "A": {
+                  "max_width": 3.8336942297126276e-72,
+                  "max_radius": 1.9168471148563138e-72,
+                  "row": 79,
+                  "column": 79,
+                  "midpoint_at_widest_entry": 0.05015581115312411
+                },
+                "GV": {
+                  "max_width": 4.614978150065655e-96,
+                  "max_radius": 2.3074890750328274e-96,
+                  "row": 79,
+                  "column": 79,
+                  "midpoint_at_widest_entry": 0.005133440973584098
+                },
+                "G2": {
+                  "max_width": 4.956293138275681e-73,
+                  "max_radius": 2.4781465691378406e-73,
+                  "row": 79,
+                  "column": 79,
+                  "midpoint_at_widest_entry": 0.0015233937722166622
+                },
+                "GR": {
+                  "max_width": 4.726763106639878e-152,
+                  "max_radius": 2.363381553319939e-152,
+                  "row": 0,
+                  "column": 0,
+                  "midpoint_at_widest_entry": 5.379657762440816e-33
+                }
+              },
+              "scalar_widths": {
+                "mu": "72727213/3514776401986872174070733209129673327241950873673372369609965291102998109899599898686750536018664732148375711432438199315006457855854921632037902485050909261824",
+                "rho_R": "511842719/28118211215894977392565865673037386617935606989386978956879722328823984879196799189494004288149317857187005691459505594520051662846839373056303219880407274094592",
+                "residual_remainder": "448255953/1013065324433836171511818326096474890383898005918563696288002277756507034036354527929615978746851512277392062160962106733983191180520452956027069051297354415786421338721071661056"
+              }
+            },
+            "exact_rounding_diagnostics": {
+              "matrix_widths": {
+                "A": {
+                  "max_width": "1/18446744073709551616",
+                  "max_radius": "1/36893488147419103232",
+                  "row": 0,
+                  "column": 0,
+                  "midpoint_at_widest_entry": "6494331976622690619/36893488147419103232"
+                },
+                "GV": {
+                  "max_width": "1/18446744073709551616",
+                  "max_radius": "1/36893488147419103232",
+                  "row": 0,
+                  "column": 0,
+                  "midpoint_at_widest_entry": "5836653863346083/36893488147419103232"
+                },
+                "G2": {
+                  "max_width": "1/18446744073709551616",
+                  "max_radius": "1/36893488147419103232",
+                  "row": 0,
+                  "column": 0,
+                  "midpoint_at_widest_entry": "65691248508581239/36893488147419103232"
+                },
+                "GR": {
+                  "max_width": "1/9223372036854775808",
+                  "max_radius": "1/18446744073709551616",
+                  "row": 0,
+                  "column": 2,
+                  "midpoint_at_widest_entry": "0/1"
+                }
+              },
+              "rounding_succeeded": true
+            },
+            "mu_lower": "98913775880202044302179725560955717866979010925759/141642779591832528020453665758223117661098318233600",
+            "even_gershgorin_margin": "10148458202921468417940718327115937233159877850538728048715509027140852144547160753981/16829306888801192483828205424151259182073025548538568829877877321415676835509923114647552",
+            "odd_gershgorin_margin": "12316481645599250858718895506055492800405711170127182358118218662370675181905468305315/4207326722200298120957051356037814795518256387134642207469469330353919208877480778661888",
+            "all_margins_positive": true,
+            "cache_hit": false,
+            "confirmation_status": "base_candidate"
+          },
+          {
+            "role": "generator_side_exact_candidate_only",
+            "status": "CANDIDATE_READY",
+            "candidate_status": "CANDIDATE_READY",
+            "theorem_status": false,
+            "independently_verified": false,
+            "whitelisted": false,
+            "automatic_promotion": false,
+            "promotion_requirements": [
+              "explicit_closed_contract_admission",
+              "retained_full_certificate_generation",
+              "fresh_independent_rust_verifier_pass"
+            ],
+            "forbidden_automatic_actions": [
+              "emit_theorem_certificate",
+              "edit_closed_contract_or_whitelist",
+              "invoke_independent_rust_verifier",
+              "grant_theorem_status"
+            ],
+            "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed.",
+            "support": "1/2",
+            "dimension": 80,
+            "precision_bits": 640,
+            "residual_order": 32,
+            "matrix_bits": 64,
+            "witness_bits": 32,
+            "working_precision_diagnostics": {
+              "matrix_widths": {
+                "A": {
+                  "max_width": 1.1241768483500338e-110,
+                  "max_radius": 5.620884241750169e-111,
+                  "row": 79,
+                  "column": 79,
+                  "midpoint_at_widest_entry": 0.05015581115312411
+                },
+                "GV": {
+                  "max_width": 1.3522067287490894e-134,
+                  "max_radius": 6.761033643745447e-135,
+                  "row": 79,
+                  "column": 79,
+                  "midpoint_at_widest_entry": 0.005133440973584098
+                },
+                "G2": {
+                  "max_width": 1.4533679934880763e-111,
+                  "max_radius": 7.2668399674403815e-112,
+                  "row": 79,
+                  "column": 79,
+                  "midpoint_at_widest_entry": 0.0015233937722166622
+                },
+                "GR": {
+                  "max_width": 1.3890708323825955e-190,
+                  "max_radius": 6.945354161912978e-191,
+                  "row": 0,
+                  "column": 0,
+                  "midpoint_at_widest_entry": 5.379657762440816e-33
+                }
+              },
+              "scalar_widths": {
+                "mu": "37412183/598008216632976371697735644702348584536405246902083247220875921706093794716375762404103004004990504111786204800430166155026589905240121409306972824498630058082565445957748647537262486126146850127872",
+                "rho_R": "511842719/9568131466127621947163770315237577352582483950433331955534014747297500715462012198465648064079848065788579276806882658480425438483841942548911565191978080929321047135323978360596199778018349602045952",
+                "residual_remainder": "448255953/344728266443874206170545512964432112225507069317819522056079337263512430464013488758041250121488036739611555846958495676040441511948045769973944468809441663382665538511073745187088876036706973599091474545756168257536"
+              }
+            },
+            "exact_rounding_diagnostics": {
+              "matrix_widths": {
+                "A": {
+                  "max_width": "1/18446744073709551616",
+                  "max_radius": "1/36893488147419103232",
+                  "row": 0,
+                  "column": 0,
+                  "midpoint_at_widest_entry": "6494331976622690619/36893488147419103232"
+                },
+                "GV": {
+                  "max_width": "1/18446744073709551616",
+                  "max_radius": "1/36893488147419103232",
+                  "row": 0,
+                  "column": 0,
+                  "midpoint_at_widest_entry": "5836653863346083/36893488147419103232"
+                },
+                "G2": {
+                  "max_width": "1/18446744073709551616",
+                  "max_radius": "1/36893488147419103232",
+                  "row": 0,
+                  "column": 0,
+                  "midpoint_at_widest_entry": "65691248508581239/36893488147419103232"
+                },
+                "GR": {
+                  "max_width": "1/9223372036854775808",
+                  "max_radius": "1/18446744073709551616",
+                  "row": 0,
+                  "column": 2,
+                  "midpoint_at_widest_entry": "0/1"
+                }
+              },
+              "rounding_succeeded": true
+            },
+            "mu_lower": "98913775880202044302179725560955717866979010925759/141642779591832528020453665758223117661098318233600",
+            "even_gershgorin_margin": "10148458202921468417940718327115937233159877850538728048715509027140852144547160753981/16829306888801192483828205424151259182073025548538568829877877321415676835509923114647552",
+            "odd_gershgorin_margin": "12316481645599250858718895506055492800405711170127182358118218662370675181905468305315/4207326722200298120957051356037814795518256387134642207469469330353919208877480778661888",
+            "all_margins_positive": true,
+            "cache_hit": false,
+            "confirmation_status": "completed"
+          }
+        ],
+        "pair_diagnostics": [
+          {
+            "from_precision_bits": 512,
+            "to_precision_bits": 640,
+            "exact_margin_relative_changes": {
+              "mu_lower": 0.0,
+              "even_gershgorin_margin": 0.0,
+              "odd_gershgorin_margin": 0.0
+            },
+            "exact_margin_signs_stable": {
+              "mu_lower": true,
+              "even_gershgorin_margin": true,
+              "odd_gershgorin_margin": true
+            },
+            "exact_margins_stable": true,
+            "working_matrix_width_changes": {
+              "A": -3.8336942297126276e-72,
+              "GV": -4.614978150065655e-96,
+              "G2": -4.956293138275681e-73,
+              "GR": -4.726763106639878e-152
+            },
+            "working_matrix_widths_reduced": true,
+            "working_scalar_width_changes": {
+              "mu": "-12373894089601622896096781386740794840557363881/598008216632976371697735644702348584536405246902083247220875921706093794716375762404103004004990504111786204800430166155026589905240121409306972824498630058082565445957748647537262486126146850127872",
+              "rho_R": "-174171051912568801170775815983433848328894146145/9568131466127621947163770315237577352582483950433331955534014747297500715462012198465648064079848065788579276806882658480425438483841942548911565191978080929321047135323978360596199778018349602045952",
+              "residual_remainder": "-152533596673240946594130665250328142100866541615/344728266443874206170545512964432112225507069317819522056079337263512430464013488758041250121488036739611555846958495676040441511948045769973944468809441663382665538511073745187088876036706973599091474545756168257536"
+            },
+            "working_scalar_widths_reduced": true,
+            "conditioning_improved": true,
+            "exact_rounding_width_changes": {
+              "A": "0",
+              "GV": "0",
+              "G2": "0",
+              "GR": "0"
+            },
+            "exact_rounding_widths_nonincreasing": true,
+            "exact_rounding_survives": true,
+            "all_exact_margins_positive": true,
+            "qualified": true
+          }
+        ]
+      },
+      "confirmed_precision_bits": 640
+    }
+  ],
+  "candidate_failures": [],
+  "theorem_status": false,
+  "independently_verified": false,
+  "whitelisted": false,
+  "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed."
+}

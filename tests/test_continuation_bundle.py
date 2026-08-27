@@ -22,6 +22,8 @@ def _result() -> dict[str, object]:
         "support": "19/40",
         "dimensions": [60, 64],
         "scout_resolution_count": 2,
+        "scout_workers": 3,
+        "rigorous_workers": 2,
         "scout_resolution_plan": [
             {"level": 0, "max_mode": 120, "quadrature_order": 700, "shift_order": 350},
             {"level": 1, "max_mode": 160, "quadrature_order": 860, "shift_order": 430},
@@ -167,6 +169,8 @@ def test_p8_bundle_writes_stage_artifacts_and_hash_manifest(tmp_path: Path) -> N
     assert manifest["provenance"] == provenance
     assert manifest["configuration"]["support"] == "19/40"
     assert manifest["configuration"]["precision_ladder"] == [128, 256]
+    assert manifest["configuration"]["scout_workers"] == 3
+    assert manifest["configuration"]["rigorous_workers"] == 2
 
     artifact_paths = {entry["path"] for entry in manifest["artifacts"]}
     assert artifact_paths == expected - {"run-manifest.json"}

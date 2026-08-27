@@ -1,0 +1,72 @@
+{
+  "role": "rigorous_full_tail_screening_attempt",
+  "support": "1/2",
+  "dimension": 80,
+  "residual_order": 32,
+  "screening_status": "precision_stable",
+  "selected_precision_bits": 512,
+  "attempt": {
+    "support": "1/2",
+    "support_decimal": 0.5,
+    "mu_lower": 0.698332637676546,
+    "mu_midpoint": 0.698332637676546,
+    "mu_upper": 0.698332637676546,
+    "mu_certified_positive": true,
+    "finite_block_min_eigenvalue_midpoint": -4.8833139920895894e+38,
+    "schur_min_eigenvalue_midpoint": -9.74866221563473e+53,
+    "component_schur_penalty_operator_norm_midpoint": {
+      "GV": 1.848840745878163e+28,
+      "G2": 9.748662215634771e+53,
+      "GR": 1.4589240504558637e-12
+    },
+    "rho_R_upper": 2.055072018783764,
+    "residual_remainder_upper": 3.6673075145264324e-17,
+    "interval_widths": {
+      "A_max": 1.65053709521682e+44,
+      "GV_max": 3.509689904615462e+40,
+      "G2_max": 1.200406967137828e+90,
+      "GR_max": 1.862439492167133e-36,
+      "mu": 8.509324276414916e-37,
+      "rho_R": 7.172444161105389e-37,
+      "residual_remainder": 1.7434397774445037e-53
+    },
+    "matrix_interval_diagnostics": {
+      "A": {
+        "max_width": 1.65053709521682e+44,
+        "max_radius": 8.2526854760841e+43,
+        "row": 79,
+        "column": 79,
+        "midpoint_at_widest_entry": 9.172127029877389e+37
+      },
+      "GV": {
+        "max_width": 3.509689904615462e+40,
+        "max_radius": 1.754844952307731e+40,
+        "row": 79,
+        "column": 79,
+        "midpoint_at_widest_entry": -4.4442415844627067e+36
+      },
+      "G2": {
+        "max_width": 1.200406967137828e+90,
+        "max_radius": 6.00203483568914e+89,
+        "row": 79,
+        "column": 79,
+        "midpoint_at_widest_entry": -5.360273885820928e+25
+      },
+      "GR": {
+        "max_width": 1.862439492167133e-36,
+        "max_radius": 9.312197460835664e-37,
+        "row": 0,
+        "column": 0,
+        "midpoint_at_widest_entry": 5.379986900859046e-33
+      }
+    },
+    "precision_bits": 128,
+    "stable_change": false,
+    "precision_status": "INSUFFICIENT_PRECISION",
+    "precision_reasons": [
+      "no_prior_precision_for_stability_check",
+      "negative_result_not_precision_stable",
+      "contradicted_by_higher_precision"
+    ]
+  }
+}

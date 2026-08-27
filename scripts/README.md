@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-27T15:01:21Z`
+- **Last updated:** `2026-08-27T16:55:13Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -179,6 +179,19 @@ uv run --locked python -m scripts.weil_continuation_driver \
 ```
 
 The default terminal output is a concise human summary; pass `--json` when the full result object is needed on stdout. The bundle remains the durable audit artifact.
+
+The CLI uses bounded spawn-based process parallelism by default: up to three workers for the independent floating-scout resolutions and up to two workers for the independent primary/fallback rigorous screens. Results are merged back in deterministic resolution/dimension order. Each worker defaults BLAS/OpenMP-style thread counts to one unless explicitly overridden, preventing process-level parallelism from multiplying hidden library threads. The precision ladder inside each rigorous screen, exact candidate construction, and candidate cross-precision confirmation remain sequential by design.
+
+For deterministic sequential reproduction or debugging:
+
+```text
+uv run --locked python -m scripts.weil_continuation_driver \
+  ... \
+  --scout-workers 1 \
+  --rigorous-workers 1
+```
+
+Programmatic `run_driver()` callers remain sequential by default; the CLI owns the bounded parallel defaults. Cache writes use process-unique temporary files followed by atomic replacement so parallel jobs cannot collide on one generic `.tmp` path.
 
 `CANDIDATE_READY` is generator-side evidence only and does **not** authorize theorem admission. The driver stops there. A separate human/research decision must first admit the exact support/dimension pair to the closed theorem contract; only after that separate change may a fresh independent Rust replay establish theorem status.
 

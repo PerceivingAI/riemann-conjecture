@@ -10,6 +10,27 @@ import pytest
 from scripts import weil_continuation_driver as driver
 
 
+class _InlineFuture:
+    def __init__(self, fn, args, kwargs):
+        self._fn = fn
+        self._args = args
+        self._kwargs = kwargs
+
+    def result(self):
+        return self._fn(*self._args, **self._kwargs)
+
+
+class _InlineExecutor:
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc, tb):
+        return False
+
+    def submit(self, fn, *args, **kwargs):
+        return _InlineFuture(fn, args, kwargs)
+
+
 def _scout_result(dimensions: list[int], *, positive: bool) -> dict[str, object]:
     value = 1.0 if positive else -1.0
     return {
@@ -903,6 +924,10 @@ def test_driver_rejects_invalid_programmatic_inputs() -> None:
         driver.run_driver(Fraction(19, 40), [48], candidate_precision_step=0)
     with pytest.raises(ValueError, match="candidate_precision_extra_steps"):
         driver.run_driver(Fraction(19, 40), [48], candidate_precision_extra_steps=0)
+    with pytest.raises(ValueError, match="scout_workers"):
+        driver.run_driver(Fraction(19, 40), [48], scout_workers=0)
+    with pytest.raises(ValueError, match="rigorous_workers"):
+        driver.run_driver(Fraction(19, 40), [48], rigorous_workers=0)
     with pytest.raises(ValueError, match="matrix_bits"):
         driver.run_candidate(
             Fraction(19, 40),
@@ -912,6 +937,68 @@ def test_driver_rejects_invalid_programmatic_inputs() -> None:
             matrix_bits=8,
             witness_bits=32,
         )
+
+
+def test_parallel_orchestration_preserves_deterministic_result_order(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    pool_sizes: list[int] = []
+    rigorous_calls: list[int] = []
+
+    monkeypatch.setattr(
+        driver,
+        "_spawn_process_pool",
+        lambda workers: (pool_sizes.append(workers) or _InlineExecutor()),
+    )
+    monkeypatch.setattr(
+        driver,
+        "scout",
+        lambda *, max_mode, quadrature_order, shift_order, n_values, support: _scout_result(
+            n_values, positive=True
+        ),
+    )
+
+    def fake_rigorous(support, dimension, precisions, residual_order, cache_dir=None):
+        rigorous_calls.append(dimension)
+        return {
+            "status": "precision_stable",
+            "selected_precision_bits": 256,
+            "attempts": [],
+            "precision_pair_diagnostics": [],
+        }
+
+    monkeypatch.setattr(driver, "_escalate_rigorous_screen", fake_rigorous)
+    monkeypatch.setattr(
+        driver,
+        "_construct_candidate",
+        lambda *args, **kwargs: {
+            "status": "candidate_ready",
+            "selected_matrix_bits": 64,
+            "selected_witness_bits": 32,
+            "attempts": [],
+        },
+    )
+    monkeypatch.setattr(
+        driver,
+        "_confirm_candidate_precision_stability",
+        _stable_candidate_confirmation,
+    )
+
+    result = driver.run_driver(
+        Fraction(19, 40),
+        [52, 48, 56],
+        scout_workers=3,
+        rigorous_workers=2,
+    )
+
+    assert result["state"] == "CANDIDATE_READY"
+    assert result["scout_workers"] == 3
+    assert result["rigorous_workers"] == 2
+    assert [run["resolution"]["level"] for run in result["scout_runs"]] == [0, 1, 2]
+    assert [row["dimension"] for row in result["rigorous_screening"]] == [48, 52]
+    assert rigorous_calls == [48, 52]
+    assert result["selected_candidate_dimension"] == 48
+    assert pool_sizes == [3, 2]
 
 
 def test_driver_propagates_precision_limit(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -997,15 +1084,17 @@ def test_cli_writes_requested_output_directory(
     monkeypatch: pytest.MonkeyPatch, tmp_path, capsys: pytest.CaptureFixture[str]
 ) -> None:
     output_dir = tmp_path / "continuation"
-    monkeypatch.setattr(
-        driver,
-        "run_driver",
-        lambda support, dimensions, **kwargs: {
+    captured_kwargs: dict[str, object] = {}
+
+    def fake_run_driver(support, dimensions, **kwargs):
+        captured_kwargs.update(kwargs)
+        return {
             "state": "NO_CANDIDATE",
             "support": str(support),
             "dimensions": dimensions,
-        },
-    )
+        }
+
+    monkeypatch.setattr(driver, "run_driver", fake_run_driver)
     monkeypatch.setattr(
         "sys.argv",
         [
@@ -1029,6 +1118,13 @@ def test_cli_writes_requested_output_directory(
     assert "Support continuation candidate search" in terminal
     assert "RESULT: NO_CANDIDATE" in terminal
     assert '"state"' not in terminal
+    available_cpus = driver.os.cpu_count() or 1
+    assert captured_kwargs["scout_workers"] == min(
+        driver.CLI_SCOUT_WORKERS_MAX, available_cpus
+    )
+    assert captured_kwargs["rigorous_workers"] == min(
+        driver.CLI_RIGOROUS_WORKERS_MAX, available_cpus
+    )
 
 
 def test_p13_cli_json_flag_preserves_full_machine_readable_stdout(

@@ -1,0 +1,310 @@
+{
+  "format": "rh-continuation-candidate-bundle-v1",
+  "role": "pre_theorem_continuation_bundle_manifest",
+  "driver_version": "continuation-driver-p14-v1",
+  "cache_version": "continuation-driver-v5",
+  "run_started_at_utc": "2026-08-27T15:15:31Z",
+  "run_completed_at_utc": "2026-08-27T15:42:29Z",
+  "configuration": {
+    "support": "1/2",
+    "dimensions": [
+      56,
+      60,
+      64,
+      68,
+      72,
+      76,
+      80,
+      84,
+      88,
+      92,
+      96,
+      100,
+      104
+    ],
+    "scout_resolution_count": 3,
+    "scout_resolution_plan": [
+      {
+        "level": 0,
+        "max_mode": 144,
+        "quadrature_order": 796,
+        "shift_order": 398
+      },
+      {
+        "level": 1,
+        "max_mode": 184,
+        "quadrature_order": 956,
+        "shift_order": 478
+      },
+      {
+        "level": 2,
+        "max_mode": 224,
+        "quadrature_order": 1116,
+        "shift_order": 558
+      }
+    ],
+    "precision_start": 128,
+    "precision_max": 768,
+    "precision_ladder": [
+      128,
+      256,
+      384,
+      512,
+      640,
+      768
+    ],
+    "residual_order": 32,
+    "matrix_bits_start": 64,
+    "matrix_bits_max": 104,
+    "matrix_bits_ladder": [
+      64,
+      80,
+      96,
+      104
+    ],
+    "witness_bits_start": 32,
+    "witness_bits_max": 56,
+    "candidate_precision_step": 128,
+    "candidate_precision_extra_steps": 2,
+    "witness_bits_ladder": [
+      32,
+      40,
+      48,
+      56
+    ],
+    "cache_dir": ".cache\\continuation-driver"
+  },
+  "provenance": {
+    "git_commit": "aa9fdd7c2e1fbe396c9163f5e536c54b4235a07a",
+    "git_dirty": false,
+    "python_version": "3.14.0",
+    "python_implementation": "CPython",
+    "python_flint_version": "0.9.0"
+  },
+  "final_state": "CANDIDATE_READY",
+  "workflow_state": "CANDIDATE_READY",
+  "workflow_trace": [
+    {
+      "sequence": 0,
+      "from": null,
+      "to": "VALIDATE_INPUT",
+      "reason": "driver_started",
+      "details": {}
+    },
+    {
+      "sequence": 1,
+      "from": "VALIDATE_INPUT",
+      "to": "FLOAT_SCOUT",
+      "reason": "validated_driver_inputs",
+      "details": {
+        "support": "1/2",
+        "dimension_count": 13,
+        "resolution_count": 3
+      }
+    },
+    {
+      "sequence": 2,
+      "from": "FLOAT_SCOUT",
+      "to": "CHECK_SCOUT_STABILITY",
+      "reason": "floating_scout_complete",
+      "details": {
+        "completed_resolutions": 3,
+        "failed_resolutions": 0
+      }
+    },
+    {
+      "sequence": 3,
+      "from": "CHECK_SCOUT_STABILITY",
+      "to": "SELECT_DIMENSION",
+      "reason": "stable_positive_dimensions_found",
+      "details": {
+        "stable_dimensions": [
+          76,
+          80,
+          84,
+          88,
+          92,
+          96,
+          100,
+          104
+        ]
+      }
+    },
+    {
+      "sequence": 4,
+      "from": "SELECT_DIMENSION",
+      "to": "RIGOROUS_PRECISION_SEARCH",
+      "reason": "selected_primary_and_fallback_dimensions",
+      "details": {
+        "primary_dimension": 76,
+        "fallback_dimensions": [
+          80
+        ]
+      }
+    },
+    {
+      "sequence": 5,
+      "from": "RIGOROUS_PRECISION_SEARCH",
+      "to": "CHECK_RIGOROUS_STABILITY",
+      "reason": "rigorous_precision_search_complete",
+      "details": {
+        "screened_dimensions": [
+          76,
+          80
+        ],
+        "surviving_dimensions": [
+          80
+        ],
+        "rigorous_failure_count": 0
+      }
+    },
+    {
+      "sequence": 6,
+      "from": "CHECK_RIGOROUS_STABILITY",
+      "to": "EXACT_ROUNDING_SEARCH",
+      "reason": "rigorous_candidate_survived",
+      "details": {
+        "surviving_dimensions": [
+          80
+        ]
+      }
+    },
+    {
+      "sequence": 7,
+      "from": "EXACT_ROUNDING_SEARCH",
+      "to": "EXACT_WITNESS_CHECK",
+      "reason": "outward_rounding_and_exact_schur_succeeded",
+      "details": {
+        "candidate_ready_dimensions": [
+          80
+        ]
+      }
+    },
+    {
+      "sequence": 8,
+      "from": "EXACT_WITNESS_CHECK",
+      "to": "CANDIDATE_PRECISION_CONFIRMATION",
+      "reason": "exact_candidate_requires_cross_precision_confirmation",
+      "details": {
+        "candidate_ready_dimensions": [
+          80
+        ],
+        "precision_step": 128,
+        "extra_steps": 2
+      }
+    },
+    {
+      "sequence": 9,
+      "from": "CANDIDATE_PRECISION_CONFIRMATION",
+      "to": "CANDIDATE_READY",
+      "reason": "exact_candidate_is_stable_across_improving_working_precision",
+      "details": {
+        "selected_candidate_dimension": 80,
+        "candidate_precision_classification": "CANDIDATE_STABLE",
+        "confirmed_precision_bits": 640
+      }
+    }
+  ],
+  "theorem_status": false,
+  "independently_verified": false,
+  "whitelisted": false,
+  "artifacts": [
+    {
+      "path": "candidate/candidate.json",
+      "kind": "exact_candidate",
+      "sha256": "c79de29a9694be8d834028ac409c6b383b901d3adbce8f4d551a2499d04deab6",
+      "bytes": 22690
+    },
+    {
+      "path": "candidate/precision-stability-N080.json",
+      "kind": "candidate_precision_stability",
+      "sha256": "73cc59c661b300e1a68565fbc0b5d80471760cde6cdfcaed7a13fa1183e521fb",
+      "bytes": 12020
+    },
+    {
+      "path": "rigorous/N076-p128.json",
+      "kind": "rigorous_screening",
+      "sha256": "b15251cc4ba8410b62da346dc45726dbdbb495739ca68d7959ae8ed92f7aee7a",
+      "bytes": 2282
+    },
+    {
+      "path": "rigorous/N076-p256.json",
+      "kind": "rigorous_screening",
+      "sha256": "4ea8ff670eee3825c6cbd28da9928ae982766388fcf165b86b0a72636d90e554",
+      "bytes": 3345
+    },
+    {
+      "path": "rigorous/N076-p384.json",
+      "kind": "rigorous_screening",
+      "sha256": "efdfbdccbad788126776b5265a77a8f9a542428acd47db3011606e15ccb494df",
+      "bytes": 3252
+    },
+    {
+      "path": "rigorous/N076-p512.json",
+      "kind": "rigorous_screening",
+      "sha256": "cd3d0da4d93066fd1658c60c9da0b78b67e9806e69ffc82ec0cbd31b345fcefe",
+      "bytes": 3112
+    },
+    {
+      "path": "rigorous/N076-p640.json",
+      "kind": "rigorous_screening",
+      "sha256": "2d0e74c6e78c79ce590de33ba08cacfaa689a9b3343a4c5a23e7d1ea9e60aea9",
+      "bytes": 3123
+    },
+    {
+      "path": "rigorous/N076-p768.json",
+      "kind": "rigorous_screening",
+      "sha256": "b222dfdefd2297072911bd665f9b4ac454385fc247e8c39b952c0f71a1ab3ad9",
+      "bytes": 3200
+    },
+    {
+      "path": "rigorous/N080-p128.json",
+      "kind": "rigorous_screening",
+      "sha256": "89cd34ae243274ec3377e6a5fe40c830e54519b0efd3fd1760200688d4cadc87",
+      "bytes": 2262
+    },
+    {
+      "path": "rigorous/N080-p256.json",
+      "kind": "rigorous_screening",
+      "sha256": "4768b2b1ecacd5269389332242fce2c73fcec6c1c581c1945a29875f2c1d6142",
+      "bytes": 3321
+    },
+    {
+      "path": "rigorous/N080-p384.json",
+      "kind": "rigorous_screening",
+      "sha256": "3c029e358ef648fa46a51932f4149866b3d8a8a28ce56a27af54179b08cfa5c3",
+      "bytes": 3236
+    },
+    {
+      "path": "rigorous/N080-p512.json",
+      "kind": "rigorous_screening",
+      "sha256": "adbc6ec656d9b7f3b615bc9dd16f1d3ee4ca7bdb1ccec3c4e64369563e7861a5",
+      "bytes": 3167
+    },
+    {
+      "path": "scout/resolution-01.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "6d4301ec0aa85681ba6cdd4304930cef561cedc73d2d227511f8186a1b25aaf3",
+      "bytes": 3434
+    },
+    {
+      "path": "scout/resolution-02.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "460e2dfda84b6ab85e7c013fa0e52b3d554d697ea2ff4be93a271bd46df12ceb",
+      "bytes": 3439
+    },
+    {
+      "path": "scout/resolution-03.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "29c2f1ea35bf3445faa17eac15a4e4e3e492d5d421266e85a82b32570d72e874",
+      "bytes": 3439
+    },
+    {
+      "path": "summary.json",
+      "kind": "summary",
+      "sha256": "733510165eb2e7707378c6fd3c328ecc653c508d561b09257f99f84adf3ef4c2",
+      "bytes": 81152
+    }
+  ],
+  "warning": "This bundle contains pre-theorem continuation evidence only. It contains no theorem certificate and records no independent verifier admission."
+}

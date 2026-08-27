@@ -1,10 +1,22 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T15:01:21Z`
+- **Last updated:** `2026-08-27T16:55:13Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-08-27T16:55:13Z — Bounded process parallelism adopted; T=1/2 becomes the pre-theorem frontier
+
+**Type:** Research-tool performance / deterministic multiprocessing / continuation frontier
+
+The canonical one-prime driver is now `continuation-driver-p15-v1` with cache contract `continuation-driver-v6`. The CLI parallelizes only mathematically independent work: up to three floating-scout resolutions and up to two primary/fallback rigorous screens run in spawn-based worker processes, with deterministic result ordering. Each rigorous precision ladder, exact candidate construction, and fixed-parameter candidate cross-precision confirmation remain sequential. Worker processes default `OMP_NUM_THREADS`, `OPENBLAS_NUM_THREADS`, `MKL_NUM_THREADS`, and `NUMEXPR_NUM_THREADS` to one unless explicitly overridden; cache writes now use process-unique temporary paths followed by atomic replacement. Programmatic `run_driver()` remains sequential by default, and `--scout-workers 1 --rigorous-workers 1` provides exact sequential reproduction.
+
+`pytest-xdist` was added to the existing `test` extra and routine pytest now defaults to `-n 2`. On the current six-core Windows research machine, the full 486-test default suite improved from about `559 s` sequentially to `378.10 s` with two workers; four workers completed in `372.27 s`, too small an incremental gain to justify `-n auto`. The driver multiprocessing path has a separate `parallel_acceptance` tier that must be run with outer pytest `-n 0`; the real `T=2/5`, `17/40`, and `19/40` histories pass `3/3`. A real parallel and forced-sequential `T=2/5` replay is semantically identical after removing execution-only worker/cache-hit metadata.
+
+Immediately before this optimization, the canonical p14 driver completed the fresh `T=1/2` continuation over `N=56,60,...,104` in `1619.029 s`. Floating reconnaissance found `N=56..68` negative, `N=72` unstable, and `N=76..104` stable-positive. Rigorous screening selected fallback `N=80`; it stabilized positive at 512 bits, then the exact 64-bit-matrix / 32-bit-witness candidate remained stable at 640 bits. The terminal result is `CANDIDATE_READY`, retained under `computations/2026-08-27T151517Z-t1-2-continuation/`. This is pre-theorem evidence only: `(1/2,80)` was not added to the closed whitelist, no theorem claim changed, and RH remains unresolved.
+
+---
 
 ## 2026-08-27T15:01:21Z — Candidate-level precision stability added to canonical continuation
 
