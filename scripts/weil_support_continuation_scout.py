@@ -67,6 +67,15 @@ def _arb_upper_float(value: object) -> float:
     return float(hi)
 
 
+def _arb_width_float(value: object) -> float:
+    lo, hi = arb_to_rational_enclosure(value)  # type: ignore[arg-type]
+    return float(hi - lo)
+
+
+def _matrix_max_width(matrix: list[list[object]]) -> float:
+    return max(_arb_width_float(value) for row in matrix for value in row)
+
+
 def scout_support(
     support: Fraction,
     *,
@@ -110,11 +119,22 @@ def scout_support(
         "mu_midpoint": mu_mid,
         "mu_upper": _arb_upper_float(assembled["mu"]),
         "mu_certified_positive": mu_positive,
-        "finite_block_min_eigenvalue_midpoint": float(eigvalsh(a, subset_by_index=[0, 0])[0]),
+        "finite_block_min_eigenvalue_midpoint": float(
+            eigvalsh(a, subset_by_index=[0, 0])[0]
+        ),
         "schur_min_eigenvalue_midpoint": schur_min,
         "component_schur_penalty_operator_norm_midpoint": penalties,
         "rho_R_upper": _arb_upper_float(assembled["rho_R"]),
         "residual_remainder_upper": _arb_upper_float(assembled["delta_R"]),
+        "interval_widths": {
+            "A_max": _matrix_max_width(assembled["A"]),  # type: ignore[arg-type]
+            "GV_max": _matrix_max_width(assembled["GV"]),  # type: ignore[arg-type]
+            "G2_max": _matrix_max_width(assembled["G2"]),  # type: ignore[arg-type]
+            "GR_max": _matrix_max_width(assembled["GR"]),  # type: ignore[arg-type]
+            "mu": _arb_width_float(assembled["mu"]),
+            "rho_R": _arb_width_float(assembled["rho_R"]),
+            "residual_remainder": _arb_width_float(assembled["delta_R"]),
+        },
     }
 
 

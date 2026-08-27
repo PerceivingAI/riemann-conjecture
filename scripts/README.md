@@ -150,9 +150,43 @@ python -m scripts.weil_exact_prime_complement_certificate --prec 224 --max-n 30 
 
 Its retained JSON uses exact rational interval endpoints for proof quantities. It does not prove full first-prime positivity.
 
-### `weil_legendre_schur_scout.py`
+### `weil_continuation_driver.py`
 
-Supports dimension selection for `A-20260821-004` and `A-20260826-001`. It uses NumPy/SciPy floating point to assemble normalized-Legendre exact-prime finite matrices and **finitely truncated** tail Grams for the factor-3 Schur reduction. The support can now be supplied as an exact rational string for one-prime continuation reconnaissance.
+Canonical pre-theorem continuation driver. It accepts an exact rational support
+and an explicit dimension list or range, runs three increasing reconnaissance
+resolutions derived from the requested maximum dimension, then rigorously
+screens only the smallest stable-positive dimension and its next larger
+fallback. Rigorous screening escalates through the default
+`128,256,384,512`-bit precision ladder and stops when the Schur midpoint
+stabilizes or the configured maximum is reached. Generator-side candidate
+checks run only for dimensions that survive the rigorous screen. It writes a
+machine-readable `continuation.json` result with the complete resolution
+series, precision attempts, rigorous intervals, primary dimension, and
+fallback. It never extrapolates dimensions, invokes the theorem exporter,
+edits the closed contract, or grants theorem status.
+
+```text
+uv run --locked --extra test python -m scripts.weil_continuation_driver \
+  --support 19/40 \
+  --n-min 48 \
+  --n-max 80 \
+  --n-step 4 \
+  --output-dir computations/.../data/continuation-T019-040
+```
+
+An explicit dimension list can be supplied instead:
+
+```text
+uv run --locked --extra test python -m scripts.weil_continuation_driver \
+  --support 19/40 \
+  --n 48,52,56,60,64,68,72 \
+  --output-dir computations/.../data/continuation-T019-040
+```
+
+`CANDIDATE_READY` is not theorem evidence; it requires a fresh independent
+Rust verifier run.
+
+### `weil_legendre_schur_scout.py`
 
 ```text
 python -m scripts.weil_legendre_schur_scout --support 2/5 --max-mode 120 --quadrature-order 700 --shift-order 350 --n 32,40,48,56,64,72 --output-json computations/.../data/dimension-scout-T040.json
