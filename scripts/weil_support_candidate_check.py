@@ -5,8 +5,9 @@ This is deliberately NOT a theorem certificate. It reuses the rigorous Arb
 assembler, outward-rounds all finite matrices to exact dyadic rational
 intervals, derives the same factor-3 Schur matrix used by C-0050, and searches
 for exact rational parity congruence witnesses. The closed v1 contract currently
-admits exactly (T,N)=(7/20,32), (2/5,40), (17/40,48), and (9/20,56), so a PASS
-for another pair is only a strong candidate for a future certificate slice.
+admits exactly (T,N)=(7/20,32), (2/5,40), (17/40,48), (9/20,56), and
+(19/40,68), so a PASS for another pair is only a strong candidate for a future
+certificate slice.
 """
 
 from __future__ import annotations
@@ -18,7 +19,11 @@ from pathlib import Path
 
 from flint import ctx
 
-from scripts.cert.constants import c2_enclosure, c_T_enclosure
+from scripts.cert.constants import (
+    arb_to_rational_enclosure,
+    c2_enclosure,
+    c_T_enclosure,
+)
 from scripts.cert.exact_prime_schur_common import (
     coarsen_matrix,
     dyadic_outward_interval,
@@ -28,6 +33,11 @@ from scripts.cert.exact_prime_schur_common import (
     schur_from_serialized_inputs,
 )
 from scripts.cert.legendre_schur import assemble_exact_prime_schur
+from scripts.precision_diagnostics import (
+    arb_matrix_width_diagnostics,
+    exact_matrix_width_diagnostics,
+    fraction_text,
+)
 
 
 THEOREM_STATUS = False
@@ -64,6 +74,11 @@ class CandidateStageError(RuntimeError):
         self.stage = stage
 
 
+def _arb_scalar_width_text(value: object) -> str:
+    lo, hi = arb_to_rational_enclosure(value)  # type: ignore[arg-type]
+    return fraction_text(hi - lo)
+
+
 def run_candidate(
     support: Fraction,
     *,
@@ -92,6 +107,19 @@ def run_candidate(
             support_num=support.numerator,
             support_den=support.denominator,
         )
+        working_precision_diagnostics = {
+            "matrix_widths": {
+                "A": arb_matrix_width_diagnostics(assembled["A"]),  # type: ignore[arg-type]
+                "GV": arb_matrix_width_diagnostics(assembled["GV"]),  # type: ignore[arg-type]
+                "G2": arb_matrix_width_diagnostics(assembled["G2"]),  # type: ignore[arg-type]
+                "GR": arb_matrix_width_diagnostics(assembled["GR"]),  # type: ignore[arg-type]
+            },
+            "scalar_widths": {
+                "mu": _arb_scalar_width_text(assembled["mu"]),
+                "rho_R": _arb_scalar_width_text(assembled["rho_R"]),
+                "residual_remainder": _arb_scalar_width_text(assembled["delta_R"]),
+            },
+        }
         try:
             a = force_exact_parity_zeros(coarsen_matrix(assembled["A"], matrix_bits))
             gv = force_exact_parity_zeros(coarsen_matrix(assembled["GV"], matrix_bits))
@@ -103,6 +131,15 @@ def run_candidate(
             )
             c2 = dyadic_outward_interval(c2_enclosure(prec), matrix_bits)
             rho_r = dyadic_outward_interval(assembled["rho_R"], matrix_bits)
+            exact_rounding_diagnostics = {
+                "matrix_widths": {
+                    "A": exact_matrix_width_diagnostics(a),
+                    "GV": exact_matrix_width_diagnostics(gv),
+                    "G2": exact_matrix_width_diagnostics(g2),
+                    "GR": exact_matrix_width_diagnostics(gr),
+                },
+                "rounding_succeeded": True,
+            }
         except (ValueError, RuntimeError, ZeroDivisionError) as exc:
             raise CandidateStageError("rounding", str(exc)) from exc
 
@@ -138,6 +175,8 @@ def run_candidate(
         "residual_order": residual_order,
         "matrix_bits": matrix_bits,
         "witness_bits": witness_bits,
+        "working_precision_diagnostics": working_precision_diagnostics,
+        "exact_rounding_diagnostics": exact_rounding_diagnostics,
         "mu_lower": f"{mu_lower.numerator}/{mu_lower.denominator}",
         "even_gershgorin_margin": f"{even_margin.numerator}/{even_margin.denominator}",
         "odd_gershgorin_margin": f"{odd_margin.numerator}/{odd_margin.denominator}",

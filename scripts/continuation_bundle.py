@@ -95,6 +95,8 @@ def _configuration_payload(result: dict[str, Any]) -> dict[str, object]:
         "matrix_bits_ladder",
         "witness_bits_start",
         "witness_bits_max",
+        "candidate_precision_step",
+        "candidate_precision_extra_steps",
         "witness_bits_ladder",
         "cache_dir",
     )
@@ -167,6 +169,24 @@ def write_continuation_bundle(
                 },
                 "rigorous_screening",
             )
+
+    for candidate_run in result.get("candidates", []):
+        stability = candidate_run.get("candidate_precision_stability")
+        if not isinstance(stability, dict):
+            continue
+        dimension = int(candidate_run["dimension"])
+        write(
+            f"candidate/precision-stability-N{dimension:03d}.json",
+            {
+                "role": "pre_theorem_candidate_precision_stability",
+                "support": result.get("support"),
+                "dimension": dimension,
+                "stability": stability,
+                "theorem_status": False,
+                "independently_verified": False,
+            },
+            "candidate_precision_stability",
+        )
 
     for failure in result.get("rigorous_failures", []):
         dimension = int(failure["dimension"])

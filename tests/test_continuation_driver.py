@@ -43,6 +43,76 @@ def _rigorous_result(*, positive: bool) -> dict[str, object]:
     }
 
 
+def _stable_candidate_confirmation(*args, **kwargs) -> dict[str, object]:
+    return {
+        "classification": "CANDIDATE_STABLE",
+        "qualified": True,
+        "selected_confirmation_precision_bits": 384,
+        "attempts": [],
+        "pair_diagnostics": [],
+    }
+
+
+def _candidate_attempt(
+    precision: int,
+    *,
+    even_margin: str = "1/100",
+    odd_margin: str = "1/200",
+    width: float = 1.0,
+) -> dict[str, object]:
+    scalar_width = "1/1024" if width <= 1.0 else "1/512"
+    matrix_widths = {
+        name: {
+            "max_width": width,
+            "max_radius": width / 2,
+            "row": 0,
+            "column": 0,
+            "midpoint_at_widest_entry": 1.0,
+        }
+        for name in ("A", "GV", "G2", "GR")
+    }
+    exact_widths = {
+        name: {
+            "max_width": "1/1024",
+            "max_radius": "1/2048",
+            "row": 0,
+            "column": 0,
+            "midpoint_at_widest_entry": "1/1",
+        }
+        for name in ("A", "GV", "G2", "GR")
+    }
+    return {
+        "precision_bits": precision,
+        "mu_lower": "7/10",
+        "even_gershgorin_margin": even_margin,
+        "odd_gershgorin_margin": odd_margin,
+        "all_margins_positive": (
+            Fraction(even_margin) > 0 and Fraction(odd_margin) > 0
+        ),
+        "working_precision_diagnostics": {
+            "matrix_widths": matrix_widths,
+            "scalar_widths": {
+                "mu": scalar_width,
+                "rho_R": scalar_width,
+                "residual_remainder": scalar_width,
+            },
+        },
+        "exact_rounding_diagnostics": {
+            "rounding_succeeded": True,
+            "matrix_widths": exact_widths,
+        },
+    }
+
+
+def _candidate_ready(base: dict[str, object]) -> dict[str, object]:
+    return {
+        "status": "candidate_ready",
+        "selected_matrix_bits": 64,
+        "selected_witness_bits": 32,
+        "attempts": [base],
+    }
+
+
 def _p13_candidate_ready_result() -> dict[str, object]:
     return {
         "state": "CANDIDATE_READY",
@@ -101,6 +171,13 @@ def _p13_candidate_ready_result() -> dict[str, object]:
                 "status": "candidate_ready",
                 "selected_matrix_bits": 96,
                 "selected_witness_bits": 48,
+                "candidate_precision_stability": {
+                    "classification": "CANDIDATE_STABLE",
+                    "qualified": True,
+                    "selected_confirmation_precision_bits": 640,
+                    "attempts": [],
+                    "pair_diagnostics": [],
+                },
                 "attempts": [
                     {
                         "all_margins_positive": True,
@@ -133,6 +210,8 @@ def test_p13_candidate_ready_summary_is_concise_fallback_aware_and_pre_theorem()
     assert "512  stable positive" in summary
     assert "matrix bits:   96" in summary
     assert "witness bits:  48" in summary
+    assert "precision check: stable at next precision" in summary
+    assert "confirmed at:  640 bits" in summary
     assert "mu_lower:      +" in summary
     assert "even margin:   +" in summary
     assert "odd margin:    +" in summary
@@ -555,6 +634,145 @@ def test_candidate_construction_escalates_rounding_and_witness_bits(
     assert calls == [(64, 32), (64, 40), (80, 32), (80, 40)]
 
 
+def test_candidate_precision_confirmation_stops_after_first_stable_higher_precision(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[int] = []
+    base = _candidate_attempt(384, width=2.0)
+
+    def fake_candidate(
+        support, *, dimension, prec, residual_order, matrix_bits, witness_bits
+    ):
+        calls.append(prec)
+        return _candidate_attempt(prec, width=1.0)
+
+    monkeypatch.setattr(driver, "run_candidate", fake_candidate)
+    result = driver._confirm_candidate_precision_stability(
+        Fraction(19, 40),
+        68,
+        _candidate_ready(base),
+        32,
+        precision_step=128,
+        extra_steps=2,
+        cache_dir=None,
+    )
+
+    assert result["classification"] == "CANDIDATE_STABLE"
+    assert result["qualified"] is True
+    assert result["selected_confirmation_precision_bits"] == 512
+    assert calls == [512]
+    diagnostics = result["pair_diagnostics"][0]
+    assert diagnostics["conditioning_improved"] is True
+    assert diagnostics["exact_margins_stable"] is True
+    assert diagnostics["exact_rounding_survives"] is True
+
+
+def test_candidate_precision_confirmation_uses_third_precision_when_needed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[int] = []
+    base = _candidate_attempt(384, even_margin="1/100", width=2.0)
+
+    def fake_candidate(
+        support, *, dimension, prec, residual_order, matrix_bits, witness_bits
+    ):
+        calls.append(prec)
+        if prec == 512:
+            return _candidate_attempt(prec, even_margin="1/50", width=1.0)
+        return _candidate_attempt(prec, even_margin="1/50", width=0.5)
+
+    monkeypatch.setattr(driver, "run_candidate", fake_candidate)
+    result = driver._confirm_candidate_precision_stability(
+        Fraction(19, 40),
+        68,
+        _candidate_ready(base),
+        32,
+        precision_step=128,
+        extra_steps=2,
+        cache_dir=None,
+    )
+
+    assert result["classification"] == "CANDIDATE_STABLE_AFTER_ESCALATION"
+    assert result["qualified"] is True
+    assert result["selected_confirmation_precision_bits"] == 640
+    assert calls == [512, 640]
+    assert result["pair_diagnostics"][0]["exact_margins_stable"] is False
+    assert result["pair_diagnostics"][1]["exact_margins_stable"] is True
+
+
+def test_candidate_precision_confirmation_fails_closed_on_persistent_instability(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    base = _candidate_attempt(384, width=2.0)
+
+    def fake_candidate(
+        support, *, dimension, prec, residual_order, matrix_bits, witness_bits
+    ):
+        return _candidate_attempt(prec, even_margin="-1/100", width=1.0 / prec)
+
+    monkeypatch.setattr(driver, "run_candidate", fake_candidate)
+    result = driver._confirm_candidate_precision_stability(
+        Fraction(19, 40),
+        68,
+        _candidate_ready(base),
+        32,
+        precision_step=128,
+        extra_steps=2,
+        cache_dir=None,
+    )
+
+    assert result["classification"] == "INSUFFICIENT_WORKING_PRECISION"
+    assert result["qualified"] is False
+    assert result["selected_confirmation_precision_bits"] is None
+    assert len(result["attempts"]) == 3
+
+
+def test_driver_candidate_precision_instability_is_not_candidate_ready(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        driver,
+        "scout",
+        lambda *, max_mode, quadrature_order, shift_order, n_values, support: _scout_result(
+            n_values, positive=True
+        ),
+    )
+    monkeypatch.setattr(
+        driver,
+        "_escalate_rigorous_screen",
+        lambda *args, **kwargs: {
+            "status": "precision_stable",
+            "selected_precision_bits": 384,
+            "attempts": [],
+            "precision_pair_diagnostics": [],
+        },
+    )
+    monkeypatch.setattr(
+        driver,
+        "_construct_candidate",
+        lambda *args, **kwargs: _candidate_ready(_candidate_attempt(384)),
+    )
+    monkeypatch.setattr(
+        driver,
+        "_confirm_candidate_precision_stability",
+        lambda *args, **kwargs: {
+            "classification": "INSUFFICIENT_WORKING_PRECISION",
+            "qualified": False,
+            "selected_confirmation_precision_bits": None,
+            "attempts": [],
+            "pair_diagnostics": [],
+        },
+    )
+
+    result = driver.run_driver(Fraction(19, 40), [68])
+
+    assert result["state"] == "PRECISION_LIMIT_REACHED"
+    assert result["selected_candidate_dimension"] is None
+    assert result["candidates"][0]["candidate_precision_stability"]["qualified"] is False
+    trace = [row["to"] for row in result["workflow_trace"]]
+    assert trace[-2:] == ["CANDIDATE_PRECISION_CONFIRMATION", "PRECISION_LIMIT_REACHED"]
+
+
 def test_candidate_failure_stage_is_structured(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -651,6 +869,7 @@ def test_cache_fingerprint_covers_candidate_semantics_dependencies() -> None:
         "scripts/cert/exact_prime_schur_common.py",
         "scripts/cert/residual_kernel.py",
         "scripts/cert/matrices.py",
+        "scripts/precision_diagnostics.py",
     }
     assert required.issubset(set(driver.CACHE_SOURCE_PATHS))
     assert "scripts/cert/exact_prime_schur_certificate.py" not in driver.CACHE_SOURCE_PATHS
@@ -680,6 +899,10 @@ def test_driver_rejects_invalid_programmatic_inputs() -> None:
         driver.run_driver(Fraction(19, 40), [48], matrix_bits_start=8)
     with pytest.raises(ValueError, match="witness_bits_start"):
         driver.run_driver(Fraction(19, 40), [48], witness_bits_start=4)
+    with pytest.raises(ValueError, match="candidate_precision_step"):
+        driver.run_driver(Fraction(19, 40), [48], candidate_precision_step=0)
+    with pytest.raises(ValueError, match="candidate_precision_extra_steps"):
+        driver.run_driver(Fraction(19, 40), [48], candidate_precision_extra_steps=0)
     with pytest.raises(ValueError, match="matrix_bits"):
         driver.run_candidate(
             Fraction(19, 40),
@@ -745,6 +968,12 @@ def test_fallback_candidate_becomes_selected_dimension(
             }
         ),
     )
+    monkeypatch.setattr(
+        driver,
+        "_confirm_candidate_precision_stability",
+        _stable_candidate_confirmation,
+    )
+
     monkeypatch.setattr(
         driver,
         "_construct_candidate",
@@ -859,6 +1088,12 @@ def test_driver_selects_smallest_ready_dimension_without_contract_admission(monk
         },
     )
 
+    monkeypatch.setattr(
+        driver,
+        "_confirm_candidate_precision_stability",
+        _stable_candidate_confirmation,
+    )
+
     result = driver.run_driver(Fraction(19, 40), [52, 48, 56])
 
     assert result["state"] == "CANDIDATE_READY"
@@ -906,6 +1141,12 @@ def test_p10_stable_positive_selection_chooses_smallest_eligible_dimension(
             "selected_witness_bits": 40,
             "attempts": [],
         },
+    )
+
+    monkeypatch.setattr(
+        driver,
+        "_confirm_candidate_precision_stability",
+        _stable_candidate_confirmation,
     )
 
     result = driver.run_driver(Fraction(19, 40), [72, 64, 68])
@@ -1142,6 +1383,12 @@ def test_p10_candidate_ready_never_reports_verified(
             "selected_witness_bits": 40,
             "attempts": [],
         },
+    )
+
+    monkeypatch.setattr(
+        driver,
+        "_confirm_candidate_precision_stability",
+        _stable_candidate_confirmation,
     )
 
     result = driver.run_driver(Fraction(19, 40), [64])

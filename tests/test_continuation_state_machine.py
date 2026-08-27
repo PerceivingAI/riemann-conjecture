@@ -34,6 +34,16 @@ def _stable_rigorous(*args, **kwargs) -> dict[str, object]:
     }
 
 
+def _stable_candidate_confirmation(*args, **kwargs) -> dict[str, object]:
+    return {
+        "classification": "CANDIDATE_STABLE",
+        "qualified": True,
+        "selected_confirmation_precision_bits": 384,
+        "attempts": [],
+        "pair_diagnostics": [],
+    }
+
+
 def _trace_states(result: dict[str, object]) -> list[str]:
     return [str(row["to"]) for row in result["workflow_trace"]]
 
@@ -56,6 +66,11 @@ def _patch_success_path(monkeypatch: pytest.MonkeyPatch) -> None:
             "selected_witness_bits": 40,
             "attempts": [],
         },
+    )
+    monkeypatch.setattr(
+        driver,
+        "_confirm_candidate_precision_stability",
+        _stable_candidate_confirmation,
     )
 
 
@@ -100,6 +115,7 @@ def test_p9_success_path_visits_every_required_stage(monkeypatch: pytest.MonkeyP
         "CHECK_RIGOROUS_STABILITY",
         "EXACT_ROUNDING_SEARCH",
         "EXACT_WITNESS_CHECK",
+        "CANDIDATE_PRECISION_CONFIRMATION",
         "CANDIDATE_READY",
     ]
 
@@ -220,3 +236,4 @@ def test_p9_bundle_manifest_retains_state_trace(
 
     assert manifest["workflow_state"] == "CANDIDATE_READY"
     assert manifest["workflow_trace"] == result["workflow_trace"]
+    assert (output_dir / "candidate" / "precision-stability-N064.json").exists()

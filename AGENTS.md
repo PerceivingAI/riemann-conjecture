@@ -102,6 +102,7 @@ exact support/input validation
     -> precision/conditioning diagnostics
     -> exact outward rational rounding
     -> exact rational witness check
+    -> fixed-parameter candidate cross-precision confirmation
     -> CANDIDATE_READY or a fail-closed terminal state
 ```
 
@@ -132,6 +133,8 @@ ASSEMBLY_FAILED
 ```
 
 A conditioning-sensitive or unresolved negative numerical result must escalate precision. It must **not** become `NO_CANDIDATE` unless the mathematical negative is stable across improving rigorous precision.
+
+After the first exact-positive candidate, the driver also holds matrix/witness resolution fixed and reassembles at higher Arb precision. It normally checks `p+128` and stops there when exact margins and enclosure widths are stable; `p+256` is used only when the first comparison remains unsettled. A contradiction at this stage is not a theorem failure or `NO_CANDIDATE`; it is a precision/conditioning limit and must not be promoted.
 
 ## 5. Standalone continuation tools: diagnostics/components, not the ordinary chain
 

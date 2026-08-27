@@ -34,8 +34,11 @@ from scripts.weil_support_candidate_check import (
 from scripts.weil_support_continuation_scout import scout_support
 
 
-DRIVER_VERSION = "continuation-driver-p13-v1"
+DRIVER_VERSION = "continuation-driver-p14-v1"
 SCOUT_RELATIVE_CONVERGENCE_TOLERANCE = 1e-2
+CANDIDATE_MARGIN_RELATIVE_STABILITY_TOLERANCE = 1e-3
+CANDIDATE_PRECISION_STEP_DEFAULT = 128
+CANDIDATE_PRECISION_EXTRA_STEPS_DEFAULT = 2
 PRECISION_STATUS_INSUFFICIENT = "INSUFFICIENT_PRECISION"
 PRECISION_STATUS_STABLE = "PRECISION_STABLE"
 PRECISION_STATUS_MATHEMATICAL_NEGATIVE = "MATHEMATICAL_NEGATIVE"
@@ -51,6 +54,7 @@ class WorkflowState(StrEnum):
     CHECK_RIGOROUS_STABILITY = "CHECK_RIGOROUS_STABILITY"
     EXACT_ROUNDING_SEARCH = "EXACT_ROUNDING_SEARCH"
     EXACT_WITNESS_CHECK = "EXACT_WITNESS_CHECK"
+    CANDIDATE_PRECISION_CONFIRMATION = "CANDIDATE_PRECISION_CONFIRMATION"
     NO_CANDIDATE = "NO_CANDIDATE"
     SCOUT_UNSTABLE = "SCOUT_UNSTABLE"
     RIGOROUS_ASSEMBLY_FAILED = "RIGOROUS_ASSEMBLY_FAILED"
@@ -95,8 +99,13 @@ ALLOWED_WORKFLOW_TRANSITIONS: dict[WorkflowState, set[WorkflowState]] = {
         WorkflowState.CANDIDATE_CHECK_FAILED,
     },
     WorkflowState.EXACT_WITNESS_CHECK: {
-        WorkflowState.CANDIDATE_READY,
+        WorkflowState.CANDIDATE_PRECISION_CONFIRMATION,
         WorkflowState.WITNESS_FAILED,
+        WorkflowState.CANDIDATE_CHECK_FAILED,
+    },
+    WorkflowState.CANDIDATE_PRECISION_CONFIRMATION: {
+        WorkflowState.CANDIDATE_READY,
+        WorkflowState.PRECISION_LIMIT_REACHED,
         WorkflowState.CANDIDATE_CHECK_FAILED,
     },
     **{state: set() for state in TERMINAL_WORKFLOW_STATES},
@@ -259,12 +268,13 @@ def build_precision_ladder(start: int = 128, maximum: int = 512) -> list[int]:
     return ladder
 
 
-CACHE_VERSION = "continuation-driver-v4"
+CACHE_VERSION = "continuation-driver-v5"
 CACHE_SOURCE_PATHS = (
     "scripts/weil_continuation_driver.py",
     "scripts/weil_legendre_schur_scout.py",
     "scripts/weil_support_continuation_scout.py",
     "scripts/weil_support_candidate_check.py",
+    "scripts/precision_diagnostics.py",
     "scripts/cert/exact_prime_schur_common.py",
     "scripts/cert/legendre_schur.py",
     "scripts/cert/residual_kernel.py",
@@ -416,7 +426,9 @@ def _classify_reconnaissance(rows: list[ScoutDimensionResult]) -> str:
 def _precision_pair_diagnostics(
     previous: dict[str, object], current: dict[str, object]
 ) -> dict[str, object]:
-    def change(name: str) -> float:
+    def change(name: str) -> float | None:
+        if name not in previous or name not in current:
+            return None
         return abs(float(current[name]) - float(previous[name]))
 
     width_names = (
@@ -446,13 +458,28 @@ def _precision_pair_diagnostics(
         "schur_positive": (float(current["schur_min_eigenvalue_midpoint"]) > 0)
         == (float(previous["schur_min_eigenvalue_midpoint"]) > 0),
     }
+
+    penalty_changes: dict[str, float] | None = None
+    previous_penalties = previous.get("component_schur_penalty_operator_norm_midpoint")
+    current_penalties = current.get("component_schur_penalty_operator_norm_midpoint")
+    if isinstance(previous_penalties, dict) and isinstance(current_penalties, dict):
+        penalty_changes = {
+            name: abs(float(current_penalties[name]) - float(previous_penalties[name]))
+            for name in ("GV", "G2", "GR")
+        }
+
     return {
         "from_precision_bits": previous["precision_bits"],
         "to_precision_bits": current["precision_bits"],
+        "mu_lower_change": change("mu_lower"),
+        "mu_midpoint_change": change("mu_midpoint"),
         "finite_block_midpoint_change": change(
             "finite_block_min_eigenvalue_midpoint"
         ),
         "schur_midpoint_change": change("schur_min_eigenvalue_midpoint"),
+        "rho_R_upper_change": change("rho_R_upper"),
+        "residual_remainder_upper_change": change("residual_remainder_upper"),
+        "component_penalty_midpoint_changes": penalty_changes,
         "interval_width_changes": width_changes,
         "widths_reduced": all(delta <= 0 for delta in width_changes.values()),
         "signs_stable": signs,
@@ -731,6 +758,297 @@ def _construct_candidate(
         "attempts": attempts,
     }
 
+
+
+def _successful_candidate_attempt(candidate: dict[str, object]) -> dict[str, object]:
+    attempts = candidate.get("attempts", [])
+    if not isinstance(attempts, list):
+        raise ValueError("candidate attempts must be a list")
+    for attempt in reversed(attempts):
+        if isinstance(attempt, dict) and attempt.get("all_margins_positive") is True:
+            return attempt
+    raise ValueError("candidate_ready result is missing its positive exact attempt")
+
+
+def _fraction_metric(attempt: dict[str, object], name: str) -> Fraction:
+    value = attempt.get(name)
+    if not isinstance(value, str):
+        raise ValueError(f"candidate attempt is missing exact {name}")
+    return Fraction(value)
+
+
+def _relative_fraction_change(previous: Fraction, current: Fraction) -> float:
+    delta = abs(current - previous)
+    scale = max(abs(previous), abs(current))
+    if scale == 0:
+        return 0.0
+    return float(delta / scale)
+
+
+def _candidate_precision_pair_diagnostics(
+    previous: dict[str, object], current: dict[str, object]
+) -> dict[str, object]:
+    metric_names = ("mu_lower", "even_gershgorin_margin", "odd_gershgorin_margin")
+    previous_metrics = {name: _fraction_metric(previous, name) for name in metric_names}
+    current_metrics = {name: _fraction_metric(current, name) for name in metric_names}
+    relative_changes = {
+        name: _relative_fraction_change(previous_metrics[name], current_metrics[name])
+        for name in metric_names
+    }
+    signs_stable = {
+        name: (previous_metrics[name] > 0) == (current_metrics[name] > 0)
+        for name in metric_names
+    }
+
+    previous_working = previous.get("working_precision_diagnostics")
+    current_working = current.get("working_precision_diagnostics")
+    if not isinstance(previous_working, dict) or not isinstance(current_working, dict):
+        raise ValueError("candidate attempt is missing working-precision diagnostics")
+    previous_matrices = previous_working.get("matrix_widths")
+    current_matrices = current_working.get("matrix_widths")
+    previous_scalars = previous_working.get("scalar_widths")
+    current_scalars = current_working.get("scalar_widths")
+    if not all(
+        isinstance(value, dict)
+        for value in (previous_matrices, current_matrices, previous_scalars, current_scalars)
+    ):
+        raise ValueError("candidate working-precision diagnostics are incomplete")
+
+    matrix_width_changes: dict[str, float] = {}
+    matrix_widths_reduced = True
+    for name in ("A", "GV", "G2", "GR"):
+        previous_row = previous_matrices[name]  # type: ignore[index]
+        current_row = current_matrices[name]  # type: ignore[index]
+        if not isinstance(previous_row, dict) or not isinstance(current_row, dict):
+            raise ValueError("candidate matrix-width diagnostics are malformed")
+        previous_width = float(previous_row["max_width"])
+        current_width = float(current_row["max_width"])
+        matrix_width_changes[name] = current_width - previous_width
+        matrix_widths_reduced = matrix_widths_reduced and current_width <= previous_width
+
+    scalar_width_changes: dict[str, str] = {}
+    scalar_widths_reduced = True
+    for name in ("mu", "rho_R", "residual_remainder"):
+        previous_width = Fraction(str(previous_scalars[name]))  # type: ignore[index]
+        current_width = Fraction(str(current_scalars[name]))  # type: ignore[index]
+        scalar_width_changes[name] = str(current_width - previous_width)
+        scalar_widths_reduced = scalar_widths_reduced and current_width <= previous_width
+
+    previous_rounding = previous.get("exact_rounding_diagnostics")
+    current_rounding = current.get("exact_rounding_diagnostics")
+    if not isinstance(previous_rounding, dict) or not isinstance(current_rounding, dict):
+        raise ValueError("candidate attempt is missing exact-rounding diagnostics")
+    previous_rounded_matrices = previous_rounding.get("matrix_widths")
+    current_rounded_matrices = current_rounding.get("matrix_widths")
+    if not isinstance(previous_rounded_matrices, dict) or not isinstance(
+        current_rounded_matrices, dict
+    ):
+        raise ValueError("candidate exact-rounding diagnostics are incomplete")
+    exact_rounding_widths_nonincreasing = True
+    exact_rounding_width_changes: dict[str, str] = {}
+    for name in ("A", "GV", "G2", "GR"):
+        previous_row = previous_rounded_matrices[name]
+        current_row = current_rounded_matrices[name]
+        if not isinstance(previous_row, dict) or not isinstance(current_row, dict):
+            raise ValueError("candidate exact matrix-width diagnostics are malformed")
+        previous_width = Fraction(str(previous_row["max_width"]))
+        current_width = Fraction(str(current_row["max_width"]))
+        exact_rounding_width_changes[name] = str(current_width - previous_width)
+        exact_rounding_widths_nonincreasing = (
+            exact_rounding_widths_nonincreasing and current_width <= previous_width
+        )
+
+    margins_stable = all(
+        change <= CANDIDATE_MARGIN_RELATIVE_STABILITY_TOLERANCE
+        for change in relative_changes.values()
+    )
+    all_positive = all(value > 0 for value in (*previous_metrics.values(), *current_metrics.values()))
+    conditioning_improved = matrix_widths_reduced and scalar_widths_reduced
+    exact_rounding_survives = bool(
+        previous.get("all_margins_positive") is True
+        and current.get("all_margins_positive") is True
+        and previous_rounding.get("rounding_succeeded") is True
+        and current_rounding.get("rounding_succeeded") is True
+    )
+    qualified = bool(
+        all_positive
+        and all(signs_stable.values())
+        and margins_stable
+        and conditioning_improved
+        and exact_rounding_widths_nonincreasing
+        and exact_rounding_survives
+    )
+    return {
+        "from_precision_bits": previous["precision_bits"],
+        "to_precision_bits": current["precision_bits"],
+        "exact_margin_relative_changes": relative_changes,
+        "exact_margin_signs_stable": signs_stable,
+        "exact_margins_stable": margins_stable,
+        "working_matrix_width_changes": matrix_width_changes,
+        "working_matrix_widths_reduced": matrix_widths_reduced,
+        "working_scalar_width_changes": scalar_width_changes,
+        "working_scalar_widths_reduced": scalar_widths_reduced,
+        "conditioning_improved": conditioning_improved,
+        "exact_rounding_width_changes": exact_rounding_width_changes,
+        "exact_rounding_widths_nonincreasing": exact_rounding_widths_nonincreasing,
+        "exact_rounding_survives": exact_rounding_survives,
+        "all_exact_margins_positive": all_positive,
+        "qualified": qualified,
+    }
+
+
+def _confirm_candidate_precision_stability(
+    support: Fraction,
+    dimension: int,
+    candidate: dict[str, object],
+    residual_order: int,
+    *,
+    precision_step: int,
+    extra_steps: int,
+    cache_dir: Path | None,
+) -> dict[str, object]:
+    if precision_step < 1:
+        raise ValueError("candidate precision step must be positive")
+    if extra_steps < 1:
+        raise ValueError("candidate precision confirmation requires at least one extra step")
+
+    base = _successful_candidate_attempt(candidate)
+    base_precision = int(base["precision_bits"])
+    matrix_bits = int(candidate["selected_matrix_bits"])
+    witness_bits = int(candidate["selected_witness_bits"])
+    attempts: list[dict[str, object]] = [
+        {**base, "confirmation_status": "base_candidate"}
+    ]
+    pair_diagnostics: list[dict[str, object]] = []
+    previous_success = attempts[0]
+
+    for step_index in range(1, extra_steps + 1):
+        precision = base_precision + precision_step * step_index
+        try:
+            result, cache_hit = _cached_result(
+                cache_dir,
+                {
+                    "kind": "candidate-check",
+                    "support": f"{support.numerator}/{support.denominator}",
+                    "dimension": dimension,
+                    "precision": precision,
+                    "residual_order": residual_order,
+                    "matrix_bits": matrix_bits,
+                    "witness_bits": witness_bits,
+                },
+                lambda: run_candidate(
+                    support,
+                    dimension=dimension,
+                    prec=precision,
+                    residual_order=residual_order,
+                    matrix_bits=matrix_bits,
+                    witness_bits=witness_bits,
+                ),
+            )
+        except CandidateStageError as exc:
+            attempts.append(
+                {
+                    "precision_bits": precision,
+                    "matrix_bits": matrix_bits,
+                    "witness_bits": witness_bits,
+                    "confirmation_status": f"{exc.stage}_failed",
+                    "failure_stage": exc.stage,
+                    "error_type": type(exc).__name__,
+                    "error": str(exc),
+                }
+            )
+            continue
+        except Exception as exc:
+            attempts.append(
+                {
+                    "precision_bits": precision,
+                    "matrix_bits": matrix_bits,
+                    "witness_bits": witness_bits,
+                    "confirmation_status": "candidate_check_failed",
+                    "failure_stage": "candidate_check",
+                    "error_type": type(exc).__name__,
+                    "error": str(exc),
+                }
+            )
+            return {
+                "classification": "CANDIDATE_CHECK_FAILED",
+                "qualified": False,
+                "fixed_parameters": {
+                    "support": f"{support.numerator}/{support.denominator}",
+                    "dimension": dimension,
+                    "residual_order": residual_order,
+                    "matrix_bits": matrix_bits,
+                    "witness_bits": witness_bits,
+                },
+                "base_precision_bits": base_precision,
+                "selected_confirmation_precision_bits": None,
+                "attempts": attempts,
+                "pair_diagnostics": pair_diagnostics,
+            }
+
+        current = {
+            **result,
+            "matrix_bits": matrix_bits,
+            "witness_bits": witness_bits,
+            "cache_hit": cache_hit,
+            "confirmation_status": "completed",
+        }
+        attempts.append(current)
+        diagnostics = _candidate_precision_pair_diagnostics(previous_success, current)
+        pair_diagnostics.append(diagnostics)
+        if diagnostics["qualified"] is True:
+            return {
+                "classification": (
+                    "CANDIDATE_STABLE"
+                    if step_index == 1
+                    else "CANDIDATE_STABLE_AFTER_ESCALATION"
+                ),
+                "qualified": True,
+                "fixed_parameters": {
+                    "support": f"{support.numerator}/{support.denominator}",
+                    "dimension": dimension,
+                    "residual_order": residual_order,
+                    "matrix_bits": matrix_bits,
+                    "witness_bits": witness_bits,
+                },
+                "base_precision_bits": base_precision,
+                "selected_confirmation_precision_bits": precision,
+                "attempts": attempts,
+                "pair_diagnostics": pair_diagnostics,
+            }
+        previous_success = current
+
+    failure_stages = {
+        str(attempt.get("failure_stage"))
+        for attempt in attempts[1:]
+        if attempt.get("failure_stage") is not None
+    }
+    successful_higher = [
+        attempt for attempt in attempts[1:] if attempt.get("confirmation_status") == "completed"
+    ]
+    if not successful_higher and failure_stages == {"rounding"}:
+        classification = "ROUNDING_LIMITED"
+    elif not successful_higher and failure_stages == {"witness"}:
+        classification = "WITNESS_LIMITED"
+    else:
+        classification = "INSUFFICIENT_WORKING_PRECISION"
+    return {
+        "classification": classification,
+        "qualified": False,
+        "fixed_parameters": {
+            "support": f"{support.numerator}/{support.denominator}",
+            "dimension": dimension,
+            "residual_order": residual_order,
+            "matrix_bits": matrix_bits,
+            "witness_bits": witness_bits,
+        },
+        "base_precision_bits": base_precision,
+        "selected_confirmation_precision_bits": None,
+        "attempts": attempts,
+        "pair_diagnostics": pair_diagnostics,
+    }
+
+
 def run_driver(
     support: Fraction,
     dimensions: list[int],
@@ -743,6 +1061,8 @@ def run_driver(
     matrix_bits_max: int = 104,
     witness_bits_start: int = 32,
     witness_bits_max: int = 56,
+    candidate_precision_step: int = CANDIDATE_PRECISION_STEP_DEFAULT,
+    candidate_precision_extra_steps: int = CANDIDATE_PRECISION_EXTRA_STEPS_DEFAULT,
     cache_dir: Path | None = None,
 ) -> dict[str, Any]:
     machine = ContinuationStateMachine()
@@ -761,6 +1081,10 @@ def run_driver(
         raise ValueError("matrix_bits_start must be at least 16")
     if witness_bits_start < 8:
         raise ValueError("witness_bits_start must be at least 8")
+    if candidate_precision_step < 1:
+        raise ValueError("candidate_precision_step must be positive")
+    if candidate_precision_extra_steps < 1:
+        raise ValueError("candidate_precision_extra_steps must be positive")
     matrix_bits_ladder = build_bit_ladder(matrix_bits_start, matrix_bits_max, 16)
     witness_bits_ladder = build_bit_ladder(witness_bits_start, witness_bits_max, 8)
     resolutions = build_scout_resolutions(dimensions, scout_resolution_count)
@@ -799,6 +1123,8 @@ def run_driver(
             "matrix_bits_max": matrix_bits_max,
             "witness_bits_start": witness_bits_start,
             "witness_bits_max": witness_bits_max,
+            "candidate_precision_step": candidate_precision_step,
+            "candidate_precision_extra_steps": candidate_precision_extra_steps,
             "cache_dir": str(cache_dir) if cache_dir is not None else None,
             "residual_order": residual_order,
             "matrix_bits_ladder": matrix_bits_ladder,
@@ -1004,18 +1330,96 @@ def run_driver(
     ready = [
         candidate for candidate in candidates if candidate["status"] == "candidate_ready"
     ]
-    selected_candidate_dimension = int(ready[0]["dimension"]) if ready else None
     if ready:
+        ready_dimensions = [int(candidate["dimension"]) for candidate in ready]
         machine.transition(
             WorkflowState.EXACT_WITNESS_CHECK,
             reason="outward_rounding_and_exact_schur_succeeded",
-            details={"selected_candidate_dimension": selected_candidate_dimension},
+            details={"candidate_ready_dimensions": ready_dimensions},
         )
         machine.transition(
-            WorkflowState.CANDIDATE_READY,
-            reason="exact_rational_parity_witnesses_have_positive_margins",
-            details={"selected_candidate_dimension": selected_candidate_dimension},
+            WorkflowState.CANDIDATE_PRECISION_CONFIRMATION,
+            reason="exact_candidate_requires_cross_precision_confirmation",
+            details={
+                "candidate_ready_dimensions": ready_dimensions,
+                "precision_step": candidate_precision_step,
+                "extra_steps": candidate_precision_extra_steps,
+            },
         )
+        confirmation_check_failed = False
+        for candidate in ready:
+            dimension = int(candidate["dimension"])
+            try:
+                stability = _confirm_candidate_precision_stability(
+                    support,
+                    dimension,
+                    candidate,
+                    residual_order,
+                    precision_step=candidate_precision_step,
+                    extra_steps=candidate_precision_extra_steps,
+                    cache_dir=cache_dir,
+                )
+            except Exception as exc:
+                stability = {
+                    "classification": "CANDIDATE_CHECK_FAILED",
+                    "qualified": False,
+                    "error_type": type(exc).__name__,
+                    "error": str(exc),
+                }
+            candidate["candidate_precision_stability"] = stability
+            candidate["confirmed_precision_bits"] = stability.get(
+                "selected_confirmation_precision_bits"
+            )
+            if stability.get("qualified") is True:
+                selected_candidate_dimension = dimension
+                machine.transition(
+                    WorkflowState.CANDIDATE_READY,
+                    reason="exact_candidate_is_stable_across_improving_working_precision",
+                    details={
+                        "selected_candidate_dimension": selected_candidate_dimension,
+                        "candidate_precision_classification": stability.get(
+                            "classification"
+                        ),
+                        "confirmed_precision_bits": stability.get(
+                            "selected_confirmation_precision_bits"
+                        ),
+                    },
+                )
+                return finalize()
+            classification = str(stability.get("classification", "UNKNOWN"))
+            confirmation_check_failed = (
+                confirmation_check_failed or classification == "CANDIDATE_CHECK_FAILED"
+            )
+            candidate_failures.append(
+                {
+                    "dimension": dimension,
+                    "status": "candidate_precision_unstable",
+                    "classification": classification,
+                }
+            )
+
+        if confirmation_check_failed:
+            machine.transition(
+                WorkflowState.CANDIDATE_CHECK_FAILED,
+                reason="candidate_precision_confirmation_raised_unclassified_failure",
+                details={"candidate_ready_dimensions": ready_dimensions},
+            )
+        else:
+            machine.transition(
+                WorkflowState.PRECISION_LIMIT_REACHED,
+                reason="candidate_precision_confirmation_did_not_stabilize",
+                details={
+                    "candidate_ready_dimensions": ready_dimensions,
+                    "classifications": [
+                        candidate.get("candidate_precision_stability", {}).get(
+                            "classification"
+                        )
+                        if isinstance(candidate.get("candidate_precision_stability"), dict)
+                        else None
+                        for candidate in ready
+                    ],
+                },
+            )
         return finalize()
 
     failure_statuses = {failure.get("status") for failure in candidate_failures}
@@ -1089,6 +1493,17 @@ def _display_precision_attempt(attempt: dict[str, object]) -> str:
     return "not yet stable"
 
 
+def _display_candidate_stability(value: object) -> str:
+    return {
+        "CANDIDATE_STABLE": "stable at next precision",
+        "CANDIDATE_STABLE_AFTER_ESCALATION": "stable after precision escalation",
+        "INSUFFICIENT_WORKING_PRECISION": "insufficient working precision",
+        "ROUNDING_LIMITED": "exact rounding limited",
+        "WITNESS_LIMITED": "exact witness limited",
+        "CANDIDATE_CHECK_FAILED": "candidate confirmation failed",
+    }.get(str(value), str(value).replace("_", "-").lower())
+
+
 def _sign_summary(value: object) -> str:
     if value is None:
         return "not available"
@@ -1122,6 +1537,17 @@ def _selected_exact_candidate(result: dict[str, object]) -> dict[str, object] | 
         attempts = candidate.get("attempts", [])
         if not isinstance(attempts, list):
             continue
+        stability = candidate.get("candidate_precision_stability")
+        if isinstance(stability, dict) and stability.get("qualified") is True:
+            confirmation_attempts = stability.get("attempts", [])
+            if isinstance(confirmation_attempts, list):
+                for attempt in reversed(confirmation_attempts):
+                    if (
+                        isinstance(attempt, dict)
+                        and attempt.get("all_margins_positive") is True
+                        and attempt.get("confirmation_status") == "completed"
+                    ):
+                        return attempt
         for attempt in reversed(attempts):
             if isinstance(attempt, dict) and attempt.get("all_margins_positive") is True:
                 return attempt
@@ -1211,6 +1637,15 @@ def format_terminal_summary(result: dict[str, object]) -> str:
         if isinstance(selected_row, dict):
             lines.append(f"  matrix bits:   {selected_row.get('selected_matrix_bits', 'not available')}")
             lines.append(f"  witness bits:  {selected_row.get('selected_witness_bits', 'not available')}")
+            stability = selected_row.get("candidate_precision_stability")
+            if isinstance(stability, dict):
+                lines.append(
+                    "  precision check: "
+                    + _display_candidate_stability(stability.get("classification"))
+                )
+                lines.append(
+                    f"  confirmed at:  {stability.get('selected_confirmation_precision_bits', 'not available')} bits"
+                )
         if exact is not None:
             lines.extend(
                 [
@@ -1224,12 +1659,20 @@ def format_terminal_summary(result: dict[str, object]) -> str:
     lines.extend(["", f"RESULT: {state}", ""])
 
     if state == WorkflowState.PRECISION_LIMIT_REACHED.value:
-        lines.extend(
-            [
-                "No mathematical rejection was established.",
-                "The available precision ladder did not stabilize.",
-            ]
+        candidate_rows = result.get("candidates", [])
+        candidate_precision_limited = isinstance(candidate_rows, list) and any(
+            isinstance(candidate, dict)
+            and isinstance(candidate.get("candidate_precision_stability"), dict)
+            and candidate["candidate_precision_stability"].get("qualified") is False
+            for candidate in candidate_rows
         )
+        lines.append("No mathematical rejection was established.")
+        if candidate_precision_limited:
+            lines.append(
+                "An exact positive candidate was found, but cross-precision candidate confirmation did not stabilize."
+            )
+        else:
+            lines.append("The available precision ladder did not stabilize.")
     elif state == WorkflowState.NO_CANDIDATE.value:
         rigorous_rows = result.get("rigorous_screening", [])
         rigorous_negative = isinstance(rigorous_rows, list) and any(
@@ -1283,6 +1726,18 @@ def main() -> None:
     parser.add_argument("--matrix-bits-max", type=int, default=104)
     parser.add_argument("--witness-bits-start", type=int, default=32)
     parser.add_argument("--witness-bits-max", type=int, default=56)
+    parser.add_argument(
+        "--candidate-precision-step",
+        type=int,
+        default=CANDIDATE_PRECISION_STEP_DEFAULT,
+        help="working-precision increment for exact candidate stability confirmation",
+    )
+    parser.add_argument(
+        "--candidate-precision-extra-steps",
+        type=int,
+        default=CANDIDATE_PRECISION_EXTRA_STEPS_DEFAULT,
+        help="maximum higher-precision exact candidate confirmations; stops early when stable",
+    )
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument(
         "--json",
@@ -1317,6 +1772,8 @@ def main() -> None:
             matrix_bits_max=args.matrix_bits_max,
             witness_bits_start=args.witness_bits_start,
             witness_bits_max=args.witness_bits_max,
+            candidate_precision_step=args.candidate_precision_step,
+            candidate_precision_extra_steps=args.candidate_precision_extra_steps,
             cache_dir=args.cache_dir,
         )
     except (ValueError, ZeroDivisionError) as exc:

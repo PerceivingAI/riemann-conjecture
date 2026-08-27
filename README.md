@@ -226,6 +226,8 @@ Retention adds an additional audit layer without changing those theorem semantic
 
 Support-continuation tooling may parameterize the shared exact assembler and may produce generator-side exact candidates at other rational one-prime supports. Those candidates do **not** inherit theorem status from `C-0050`. The canonical continuation driver stops at `CANDIDATE_READY`; a separate human/research decision must admit the exact support/dimension pair to the closed theorem contract before certificate generation and a fresh independent Rust replay can establish theorem status.
 
+Before emitting `CANDIDATE_READY`, the current driver now performs candidate-level precision stability: with `T`, `N`, residual order, matrix rounding bits, and witness bits fixed, it reassembles at higher Arb precision and checks exact margins together with raw and rounded enclosure contraction. This is specifically meant to distinguish monomial-basis/working-precision instability from a stable mathematical sign. It remains pre-theorem diagnostics and does not weaken the independent admission/verifier boundary.
+
 The Lean project in `formal/` now deliberately uses **Mathlib**, pinned to `v4.33.0` in `formal/lakefile.lean` and resolved by `formal/lake-manifest.json`. This is a larger formal dependency than the original lightweight-Core-only idea, but it supports the current general finite-dimensional LDL theorem, analytic endpoint-absorption proof, and exact-prime Gershgorin/invertible-congruence soundness theorem. `lake build` is the authoritative formal acceptance check.
 
 ## Native Calculation Engine (`crates/rh_engine`)

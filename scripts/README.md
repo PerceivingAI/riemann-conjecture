@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-27T14:17:45Z`
+- **Last updated:** `2026-08-27T15:01:21Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -152,7 +152,7 @@ Its retained JSON uses exact rational interval endpoints for proof quantities. I
 
 ## Canonical one-prime continuation workflow
 
-For ordinary one-prime continuation research, use `scripts.weil_continuation_driver`. It is the canonical pre-theorem workflow and owns reconnaissance, convergence classification, dimension selection, rigorous precision escalation, conditioning-incident handling, exact candidate construction, and the self-contained continuation bundle.
+For ordinary one-prime continuation research, use `scripts.weil_continuation_driver`. It is the canonical pre-theorem workflow and owns reconnaissance, convergence classification, dimension selection, rigorous precision escalation, conditioning-incident handling, exact candidate construction, candidate-level cross-precision stability confirmation, and the self-contained continuation bundle.
 
 The standalone continuation scripts remain supported research instruments and implementation components. Use them for isolated diagnostics, debugging, or historical reproduction; do **not** manually chain them as the ordinary continuation workflow.
 
@@ -182,7 +182,7 @@ The default terminal output is a concise human summary; pass `--json` when the f
 
 `CANDIDATE_READY` is generator-side evidence only and does **not** authorize theorem admission. The driver stops there. A separate human/research decision must first admit the exact support/dimension pair to the closed theorem contract; only after that separate change may a fresh independent Rust replay establish theorem status.
 
-The driver escalates matrix rounding bits and witness bits independently when candidate construction fails. Rounding, witness, mathematical-negative, and insufficient-precision outcomes remain distinct.
+The driver escalates matrix rounding bits and witness bits independently when candidate construction fails. Once an exact positive candidate exists, it freezes `T`, `N`, residual order, matrix bits, and witness bits and reassembles at `p+128`; if that comparison is not stable it tries `p+256` before stopping. Candidate confirmation compares exact `mu_N`/even/odd margins, raw Arb enclosure contraction, exact rounded interval widths, and widest-entry conditioning diagnostics. A higher-precision contradiction or unresolved movement ends fail-closed as `PRECISION_LIMIT_REACHED`, not `CANDIDATE_READY`. The defaults are configurable with `--candidate-precision-step` and `--candidate-precision-extra-steps`. Rounding, witness, mathematical-negative, and insufficient-precision outcomes remain distinct.
 
 ### `weil_legendre_schur_scout.py`
 

@@ -1,7 +1,7 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T14:37:56Z`
+- **Last updated:** `2026-08-27T15:01:21Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
@@ -304,6 +304,7 @@ The earlier branch remains mathematically useful but blocked at an essentially s
 - `X-20260827-002` contains the separately admitted fresh `T=19/40,N=68` theorem certificate, independent zero-float Rust PASS, adversarial replays, and full Python/Rust/Lean acceptance checks for `C-0054`.
 - `X-20260827-003` records the non-proof-bearing zero-float Rust verifier optimization. Direct parity Schur construction plus lower-triangular/symmetric exact congruence reduces debug replay times to `3.564, 6.145, 13.210, 24.880, 31.408` seconds for `N=32,40,48,56,68`; all retained `C-0050` through `C-0054` verifier JSON objects match exactly after optimization.
 - The closed exact-prime admission table now has a test-only cross-layer consistency corpus at `tests/data/exact-prime-admission-v1.json`. It exercises the independently hard-coded Python generator, Python semantic validator, raw JSON Schema, and Rust verifier admission logic over five allowed pairs, all twenty mixed cross-pairs, and five external forbidden cases. Production trust layers do not read this corpus, so decoupled verification is preserved while accidental whitelist drift becomes test-detectable.
+- The canonical continuation driver is now `continuation-driver-p14-v1` with cache contract `continuation-driver-v5`. Rigorous precision attempts retain richer conditioning observability (midpoint/scalar/component changes plus widest-entry matrix width/radius locations). After an exact-positive candidate is constructed, the driver holds support, dimension, residual order, matrix bits, and witness bits fixed and confirms the same candidate at higher Arb precision: `p+128` first, then `p+256` only if needed. Exact-margin stability, raw enclosure contraction, and exact rounded-width non-expansion are all required before `CANDIDATE_READY`; unresolved candidate-level instability ends as `PRECISION_LIMIT_REACHED` with no mathematical rejection. A real `T=7/20,N=32` diagnostic replay at 160→288 bits classified `CANDIDATE_STABLE`, with exact margin relative changes at approximately `2.8e-14` (even) and `8.9e-13` (odd). The real three-case continuation integration tier passes under p14, including the `N=40` conditioning-incident replay and historical `T=17/40,N=48` candidate path.
 - `computations/retained-proofs.json` now provides a closed first-class retained-proof registry for exactly `C-0050` through `C-0054`. `scripts.cert.verify_retained_proofs` verifies each registered artifact's raw-byte SHA-256 before replay and then requires current `rh_cert` PASS plus exact theorem identity agreement. P8 independently recomputed all five raw-byte hashes from disk and found exact agreement with the manifest and historical records. P9 completed the full Python/Rust/Lean acceptance snapshot; the canonical five-artifact gate passes `5/5`, while a temporary tampered `C-0050` copy produces `HASH_MISMATCH`, skips Rust for that artifact, continues through `C-0051`–`C-0054`, and exits `1` with `FAIL - 4/5`. Temporary tamper files were removed and the originals rehashed cleanly. The registry remains explicit—no automatic computation-directory discovery—and stores no derived margin diagnostics.
 
 
@@ -382,6 +383,6 @@ There is therefore no current verifier-performance blocker to resuming canonical
 
 ## Next research action
 
-Resume the canonical one-prime continuation at a deliberately selected larger support still below `(1/2)log 3`. Do not extrapolate the next dimension from `68`; let `scripts.weil_continuation_driver` perform fresh multi-resolution reconnaissance, precision classification, and exact pre-theorem candidate selection under the existing hard stop.
+Resume the canonical one-prime continuation at a deliberately selected larger support still below `(1/2)log 3`. Do not extrapolate the next dimension from `68`; let `scripts.weil_continuation_driver` perform fresh multi-resolution reconnaissance, rigorous precision classification, exact candidate construction, and the new fixed-parameter candidate cross-precision confirmation under the existing hard stop.
 
 Keep `X-20260827-003` as the verifier-performance baseline. If verifier cost again becomes material at larger dimensions, profile first and preserve the same exact semantic regression corpus rather than changing certificate format preemptively. The eventual structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`.

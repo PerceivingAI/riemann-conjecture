@@ -8,7 +8,8 @@ rank candidate support values and diagnose which term consumes the Schur
 margin. Its eigenvalues and norm diagnostics are reconnaissance, not proofs.
 
 The proof-bearing v1 exact_prime_legendre_schur profile currently admits only
-the closed pairs (T,N)=(7/20,32), (2/5,40), (17/40,48), and (9/20,56).
+the closed pairs (T,N)=(7/20,32), (2/5,40), (17/40,48), (9/20,56), and
+(19/40,68).
 A positive row here does not certify a new support value.
 """
 
@@ -24,6 +25,11 @@ from scipy.linalg import eigvalsh
 
 from scripts.cert.constants import arb_to_rational_enclosure
 from scripts.cert.legendre_schur import assemble_exact_prime_schur
+from scripts.precision_diagnostics import (
+    arb_matrix_width_diagnostics,
+    arb_midpoint_float,
+    arb_width_float,
+)
 
 
 def parse_supports(text: str) -> list[Fraction]:
@@ -43,8 +49,7 @@ def parse_supports(text: str) -> list[Fraction]:
 
 def _arb_mid_float(value: object) -> float:
     # Exact dyadic midpoint extraction, converted to float only for reconnaissance.
-    midpoint = value.mid().fmpq()  # type: ignore[attr-defined]
-    return float(Fraction(int(midpoint.p), int(midpoint.q)))
+    return arb_midpoint_float(value)
 
 
 def _normalized_midpoint_matrix(matrix: list[list[object]], norms: list[Fraction]) -> np.ndarray:
@@ -68,12 +73,11 @@ def _arb_upper_float(value: object) -> float:
 
 
 def _arb_width_float(value: object) -> float:
-    lo, hi = arb_to_rational_enclosure(value)  # type: ignore[arg-type]
-    return float(hi - lo)
+    return arb_width_float(value)
 
 
 def _matrix_max_width(matrix: list[list[object]]) -> float:
-    return max(_arb_width_float(value) for row in matrix for value in row)
+    return float(arb_matrix_width_diagnostics(matrix)["max_width"])
 
 
 def scout_support(
@@ -135,6 +139,12 @@ def scout_support(
             "mu": _arb_width_float(assembled["mu"]),
             "rho_R": _arb_width_float(assembled["rho_R"]),
             "residual_remainder": _arb_width_float(assembled["delta_R"]),
+        },
+        "matrix_interval_diagnostics": {
+            "A": arb_matrix_width_diagnostics(assembled["A"]),  # type: ignore[arg-type]
+            "GV": arb_matrix_width_diagnostics(assembled["GV"]),  # type: ignore[arg-type]
+            "G2": arb_matrix_width_diagnostics(assembled["G2"]),  # type: ignore[arg-type]
+            "GR": arb_matrix_width_diagnostics(assembled["GR"]),  # type: ignore[arg-type]
         },
     }
 

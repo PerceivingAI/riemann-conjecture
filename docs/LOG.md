@@ -1,10 +1,22 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T14:37:56Z`
+- **Last updated:** `2026-08-27T15:01:21Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-08-27T15:01:21Z — Candidate-level precision stability added to canonical continuation
+
+**Type:** Pre-theorem tooling / conditioning diagnostics / fail-closed precision classification
+
+Upgraded `scripts.weil_continuation_driver` to `continuation-driver-p14-v1` (`continuation-driver-v5` cache semantics). The existing rigorous precision ladder now records richer cross-precision diagnostics: `mu`/finite-block/Schur movement, residual/component changes, interval-width contraction, and the location/radius/midpoint of the widest Arb matrix entries. The generator-side exact candidate checker also retains raw Arb conditioning diagnostics and exact outward-rounded matrix-width diagnostics.
+
+After the first exact-positive candidate, the driver now freezes support, dimension, residual order, matrix bits, and witness bits and reassembles the same candidate at higher working precision. It checks `p+128` first and stops early when exact `mu_N`/even/odd margins are stable and positive while raw enclosures contract and rounded exact intervals do not widen; otherwise it attempts `p+256`. Persistent contradiction or unresolved movement is fail-closed as `PRECISION_LIMIT_REACHED`, explicitly without mathematical rejection or theorem promotion. Each continuation bundle gets a dedicated `candidate/precision-stability-Nxxx.json` artifact.
+
+Fast continuation/state/bundle/support tests pass `57/57`; selected certificate/pre-theorem regressions pass `56/56` with two deliberately slow tests deselected. A real `T=7/20,N=32` candidate replay at 160 then 288 bits classified `CANDIDATE_STABLE`: the widest `A` Arb interval contracted from about `2.16e-14`, exact rounding remained non-expanding, and exact even/odd margin relative changes were about `2.8e-14` and `8.9e-13`. The dedicated real continuation integration tier also passes `3/3` in `301.43 s`, including the documented `N=40` low-precision conditioning incident and the historical `T=17/40,N=48` candidate path under the new confirmation gate. This is tooling/conditioning evidence only; no theorem claim changed and RH remains unresolved.
+
+---
 
 ## 2026-08-27T14:37:56Z — Cross-layer admission consistency corpus added without weakening verifier independence
 
