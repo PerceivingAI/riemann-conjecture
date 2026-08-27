@@ -13,7 +13,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from dataclasses import asdict, dataclass
+from enum import StrEnum
+from dataclasses import asdict, dataclass, field
 from fractions import Fraction
 from pathlib import Path
 from typing import Any, Callable
@@ -33,19 +34,118 @@ from scripts.weil_support_candidate_check import (
 from scripts.weil_support_continuation_scout import scout_support
 
 
-DRIVER_VERSION = "continuation-driver-p8-v1"
+DRIVER_VERSION = "continuation-driver-p9-v1"
 
 
-FINAL_STATES = {
-    "NO_CANDIDATE",
-    "SCOUT_UNSTABLE",
-    "RIGOROUS_ASSEMBLY_FAILED",
-    "PRECISION_LIMIT_REACHED",
-    "ROUNDING_FAILED",
-    "WITNESS_FAILED",
-    "CANDIDATE_CHECK_FAILED",
-    "CANDIDATE_READY",
+class WorkflowState(StrEnum):
+    VALIDATE_INPUT = "VALIDATE_INPUT"
+    FLOAT_SCOUT = "FLOAT_SCOUT"
+    CHECK_SCOUT_STABILITY = "CHECK_SCOUT_STABILITY"
+    SELECT_DIMENSION = "SELECT_DIMENSION"
+    RIGOROUS_PRECISION_SEARCH = "RIGOROUS_PRECISION_SEARCH"
+    CHECK_RIGOROUS_STABILITY = "CHECK_RIGOROUS_STABILITY"
+    EXACT_ROUNDING_SEARCH = "EXACT_ROUNDING_SEARCH"
+    EXACT_WITNESS_CHECK = "EXACT_WITNESS_CHECK"
+    NO_CANDIDATE = "NO_CANDIDATE"
+    SCOUT_UNSTABLE = "SCOUT_UNSTABLE"
+    RIGOROUS_ASSEMBLY_FAILED = "RIGOROUS_ASSEMBLY_FAILED"
+    PRECISION_LIMIT_REACHED = "PRECISION_LIMIT_REACHED"
+    ROUNDING_FAILED = "ROUNDING_FAILED"
+    WITNESS_FAILED = "WITNESS_FAILED"
+    CANDIDATE_CHECK_FAILED = "CANDIDATE_CHECK_FAILED"
+    CANDIDATE_READY = "CANDIDATE_READY"
+
+
+TERMINAL_WORKFLOW_STATES = {
+    WorkflowState.NO_CANDIDATE,
+    WorkflowState.SCOUT_UNSTABLE,
+    WorkflowState.RIGOROUS_ASSEMBLY_FAILED,
+    WorkflowState.PRECISION_LIMIT_REACHED,
+    WorkflowState.ROUNDING_FAILED,
+    WorkflowState.WITNESS_FAILED,
+    WorkflowState.CANDIDATE_CHECK_FAILED,
+    WorkflowState.CANDIDATE_READY,
 }
+FINAL_STATES = {state.value for state in TERMINAL_WORKFLOW_STATES}
+
+ALLOWED_WORKFLOW_TRANSITIONS: dict[WorkflowState, set[WorkflowState]] = {
+    WorkflowState.VALIDATE_INPUT: {WorkflowState.FLOAT_SCOUT},
+    WorkflowState.FLOAT_SCOUT: {WorkflowState.CHECK_SCOUT_STABILITY},
+    WorkflowState.CHECK_SCOUT_STABILITY: {
+        WorkflowState.SELECT_DIMENSION,
+        WorkflowState.NO_CANDIDATE,
+        WorkflowState.SCOUT_UNSTABLE,
+    },
+    WorkflowState.SELECT_DIMENSION: {WorkflowState.RIGOROUS_PRECISION_SEARCH},
+    WorkflowState.RIGOROUS_PRECISION_SEARCH: {WorkflowState.CHECK_RIGOROUS_STABILITY},
+    WorkflowState.CHECK_RIGOROUS_STABILITY: {
+        WorkflowState.EXACT_ROUNDING_SEARCH,
+        WorkflowState.NO_CANDIDATE,
+        WorkflowState.RIGOROUS_ASSEMBLY_FAILED,
+        WorkflowState.PRECISION_LIMIT_REACHED,
+    },
+    WorkflowState.EXACT_ROUNDING_SEARCH: {
+        WorkflowState.EXACT_WITNESS_CHECK,
+        WorkflowState.ROUNDING_FAILED,
+        WorkflowState.CANDIDATE_CHECK_FAILED,
+    },
+    WorkflowState.EXACT_WITNESS_CHECK: {
+        WorkflowState.CANDIDATE_READY,
+        WorkflowState.WITNESS_FAILED,
+        WorkflowState.CANDIDATE_CHECK_FAILED,
+    },
+    **{state: set() for state in TERMINAL_WORKFLOW_STATES},
+}
+
+
+@dataclass
+class ContinuationStateMachine:
+    """Fail-closed execution state for one continuation-driver run."""
+
+    current: WorkflowState = WorkflowState.VALIDATE_INPUT
+    transitions: list[dict[str, object]] = field(default_factory=list)
+
+    def transition(
+        self,
+        target: WorkflowState,
+        *,
+        reason: str,
+        details: dict[str, object] | None = None,
+    ) -> None:
+        allowed = ALLOWED_WORKFLOW_TRANSITIONS[self.current]
+        if target not in allowed:
+            raise RuntimeError(
+                f"invalid continuation transition {self.current.value} -> {target.value}"
+            )
+        self.transitions.append(
+            {
+                "sequence": len(self.transitions) + 1,
+                "from": self.current.value,
+                "to": target.value,
+                "reason": reason,
+                "details": details or {},
+            }
+        )
+        self.current = target
+
+    def require_terminal(self) -> WorkflowState:
+        if self.current not in TERMINAL_WORKFLOW_STATES:
+            raise RuntimeError(
+                f"continuation workflow ended in non-terminal state {self.current.value}"
+            )
+        return self.current
+
+    def trace(self) -> list[dict[str, object]]:
+        return [
+            {
+                "sequence": 0,
+                "from": None,
+                "to": WorkflowState.VALIDATE_INPUT.value,
+                "reason": "driver_started",
+                "details": {},
+            },
+            *self.transitions,
+        ]
 
 
 @dataclass(frozen=True)
@@ -72,6 +172,22 @@ class ScoutResolution:
 
     def as_dict(self) -> dict[str, object]:
         return asdict(self)
+
+
+def parse_support(text: str) -> Fraction:
+    """Parse a positive support value exactly, without a float round-trip."""
+    token = text.strip()
+    if not token:
+        raise ValueError("support must be a non-empty exact rational")
+    try:
+        support = Fraction(token)
+    except (ValueError, ZeroDivisionError) as exc:
+        raise ValueError("support must be an exact rational") from exc
+    if support <= 0:
+        raise ValueError("support must be positive")
+    return support
+
+
 def parse_dimensions(text: str) -> list[int]:
     dimensions: list[int] = []
     for part in text.split(","):
@@ -559,6 +675,8 @@ def run_driver(
     witness_bits_max: int = 56,
     cache_dir: Path | None = None,
 ) -> dict[str, Any]:
+    machine = ContinuationStateMachine()
+
     if support <= 0:
         raise ValueError("support must be positive")
     require_one_prime_support(support.numerator, support.denominator)
@@ -577,11 +695,70 @@ def run_driver(
     witness_bits_ladder = build_bit_ladder(witness_bits_start, witness_bits_max, 8)
     resolutions = build_scout_resolutions(dimensions, scout_resolution_count)
 
+    reconnaissance: list[dict[str, object]] = []
+    scout_failures: list[dict[str, object]] = []
+    scout_runs: list[dict[str, object]] = []
+    rigorous_screening: list[dict[str, object]] = []
+    rigorous_failures: list[dict[str, object]] = []
+    candidates: list[dict[str, object]] = []
+    candidate_failures: list[dict[str, object]] = []
+    stable_dimensions: list[int] = []
+    primary_dimension: int | None = None
+    fallback_dimensions: list[int] = []
+    selected_candidate_dimension: int | None = None
+
+    def finalize() -> dict[str, Any]:
+        final_state = machine.require_terminal().value
+        return {
+            "role": "pre_theorem_continuation_driver",
+            "driver_version": DRIVER_VERSION,
+            "cache_version": CACHE_VERSION,
+            "state": final_state,
+            "status": final_state,
+            "workflow_state": final_state,
+            "workflow_trace": machine.trace(),
+            **theorem_boundary_payload(),
+            "support": f"{support.numerator}/{support.denominator}",
+            "dimensions": dimensions,
+            "scout_resolution_count": scout_resolution_count,
+            "scout_resolution_plan": [resolution.as_dict() for resolution in resolutions],
+            "precision_ladder": precisions,
+            "precision_start": precision_start,
+            "precision_max": precision_max,
+            "matrix_bits_start": matrix_bits_start,
+            "matrix_bits_max": matrix_bits_max,
+            "witness_bits_start": witness_bits_start,
+            "witness_bits_max": witness_bits_max,
+            "cache_dir": str(cache_dir) if cache_dir is not None else None,
+            "residual_order": residual_order,
+            "matrix_bits_ladder": matrix_bits_ladder,
+            "witness_bits_ladder": witness_bits_ladder,
+            "scout_runs": scout_runs,
+            "reconnaissance": reconnaissance,
+            "scout_failures": scout_failures,
+            "rigorous_screening": rigorous_screening,
+            "rigorous_failures": rigorous_failures,
+            "candidates": candidates,
+            "candidate_failures": candidate_failures,
+            "scout_primary_dimension": primary_dimension,
+            "selected_dimension": selected_candidate_dimension,
+            "selected_candidate_dimension": selected_candidate_dimension,
+            "fallback_dimensions": fallback_dimensions,
+            "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed.",
+        }
+
+    machine.transition(
+        WorkflowState.FLOAT_SCOUT,
+        reason="validated_driver_inputs",
+        details={
+            "support": f"{support.numerator}/{support.denominator}",
+            "dimension_count": len(dimensions),
+            "resolution_count": len(resolutions),
+        },
+    )
     series: dict[int, list[ScoutDimensionResult]] = {
         dimension: [] for dimension in dimensions
     }
-    scout_failures: list[dict[str, object]] = []
-    scout_runs: list[dict[str, object]] = []
     for resolution in resolutions:
         try:
             raw_scout = scout(
@@ -612,14 +789,16 @@ def run_driver(
                 "error": str(exc),
             }
             scout_failures.append(failure)
-            scout_runs.append(
-                {
-                    "status": "failed",
-                    **failure,
-                }
-            )
+            scout_runs.append({"status": "failed", **failure})
 
-    reconnaissance: list[dict[str, object]] = []
+    machine.transition(
+        WorkflowState.CHECK_SCOUT_STABILITY,
+        reason="floating_scout_complete",
+        details={
+            "completed_resolutions": sum(run["status"] == "completed" for run in scout_runs),
+            "failed_resolutions": len(scout_failures),
+        },
+    )
     for dimension in dimensions:
         rows = series[dimension]
         classification = (
@@ -640,20 +819,45 @@ def run_driver(
         for row in reconnaissance
         if row["classification"] == "stable_positive"
     )
-    primary_dimension = stable_dimensions[0] if stable_dimensions else None
+    if not stable_dimensions:
+        unstable = bool(scout_failures) or any(
+            row["classification"] == "unstable" for row in reconnaissance
+        )
+        machine.transition(
+            WorkflowState.SCOUT_UNSTABLE if unstable else WorkflowState.NO_CANDIDATE,
+            reason=(
+                "scout_evidence_unstable"
+                if unstable
+                else "no_stable_positive_scout_dimension"
+            ),
+            details={"stable_dimensions": []},
+        )
+        return finalize()
+
+    machine.transition(
+        WorkflowState.SELECT_DIMENSION,
+        reason="stable_positive_dimensions_found",
+        details={"stable_dimensions": stable_dimensions},
+    )
+    primary_dimension = stable_dimensions[0]
     fallback_dimensions = stable_dimensions[1:2]
     screening_dimensions = stable_dimensions[:2]
-    rigorous_screening: list[dict[str, object]] = []
-    rigorous_failures: list[dict[str, object]] = []
+
+    machine.transition(
+        WorkflowState.RIGOROUS_PRECISION_SEARCH,
+        reason="selected_primary_and_fallback_dimensions",
+        details={
+            "primary_dimension": primary_dimension,
+            "fallback_dimensions": fallback_dimensions,
+        },
+    )
     survivors: list[int] = []
     for dimension in screening_dimensions:
         try:
             screening = _escalate_rigorous_screen(
                 support, dimension, precisions, residual_order, cache_dir
             )
-            rigorous_screening.append(
-                {"dimension": dimension, **screening}
-            )
+            rigorous_screening.append({"dimension": dimension, **screening})
             selected_precision = screening["selected_precision_bits"]
             if screening["status"] == "precision_stable" and isinstance(
                 selected_precision, int
@@ -668,8 +872,37 @@ def run_driver(
                 }
             )
 
-    candidates: list[dict[str, object]] = []
-    candidate_failures: list[dict[str, object]] = []
+    machine.transition(
+        WorkflowState.CHECK_RIGOROUS_STABILITY,
+        reason="rigorous_precision_search_complete",
+        details={
+            "screened_dimensions": screening_dimensions,
+            "surviving_dimensions": survivors,
+            "rigorous_failure_count": len(rigorous_failures),
+        },
+    )
+    if not survivors:
+        precision_limited = any(
+            row.get("status") == "precision_limit_reached"
+            for row in rigorous_screening
+        )
+        if rigorous_failures:
+            target = WorkflowState.RIGOROUS_ASSEMBLY_FAILED
+            reason = "rigorous_assembly_failed_without_survivor"
+        elif precision_limited:
+            target = WorkflowState.PRECISION_LIMIT_REACHED
+            reason = "precision_ladder_exhausted_without_stable_candidate"
+        else:
+            target = WorkflowState.NO_CANDIDATE
+            reason = "rigorous_screening_rejected_all_dimensions"
+        machine.transition(target, reason=reason, details={"survivors": []})
+        return finalize()
+
+    machine.transition(
+        WorkflowState.EXACT_ROUNDING_SEARCH,
+        reason="rigorous_candidate_survived",
+        details={"surviving_dimensions": survivors},
+    )
     for dimension in survivors:
         screening = next(
             row for row in rigorous_screening if row["dimension"] == dimension
@@ -698,73 +931,49 @@ def run_driver(
                 }
             )
 
-    ready = [candidate for candidate in candidates if candidate["status"] == "candidate_ready"]
-    precision_limited = any(
-        row.get("status") == "precision_limit_reached" for row in rigorous_screening
-    )
-    selected_candidate_dimension = (
-        int(ready[0]["dimension"]) if ready else None
-    )
+    ready = [
+        candidate for candidate in candidates if candidate["status"] == "candidate_ready"
+    ]
+    selected_candidate_dimension = int(ready[0]["dimension"]) if ready else None
     if ready:
-        state = "CANDIDATE_READY"
-    elif candidate_failures:
-        failure_statuses = {failure.get("status") for failure in candidate_failures}
-        if "candidate_check_failed" in failure_statuses or None in failure_statuses:
-            state = "CANDIDATE_CHECK_FAILED"
-        elif failure_statuses == {"rounding_failed"}:
-            state = "ROUNDING_FAILED"
-        else:
-            state = "WITNESS_FAILED"
-    elif rigorous_failures:
-        state = "RIGOROUS_ASSEMBLY_FAILED"
-    elif precision_limited:
-        state = "PRECISION_LIMIT_REACHED"
-    elif scout_failures:
-        state = "SCOUT_UNSTABLE"
-    elif not stable_dimensions:
-        state = (
-            "SCOUT_UNSTABLE"
-            if any(row["classification"] == "unstable" for row in reconnaissance)
-            else "NO_CANDIDATE"
+        machine.transition(
+            WorkflowState.EXACT_WITNESS_CHECK,
+            reason="outward_rounding_and_exact_schur_succeeded",
+            details={"selected_candidate_dimension": selected_candidate_dimension},
+        )
+        machine.transition(
+            WorkflowState.CANDIDATE_READY,
+            reason="exact_rational_parity_witnesses_have_positive_margins",
+            details={"selected_candidate_dimension": selected_candidate_dimension},
+        )
+        return finalize()
+
+    failure_statuses = {failure.get("status") for failure in candidate_failures}
+    if "candidate_check_failed" in failure_statuses or None in failure_statuses:
+        machine.transition(
+            WorkflowState.CANDIDATE_CHECK_FAILED,
+            reason="candidate_stage_raised_unclassified_failure",
+            details={"failure_statuses": sorted(str(status) for status in failure_statuses)},
+        )
+    elif failure_statuses == {"rounding_failed"}:
+        machine.transition(
+            WorkflowState.ROUNDING_FAILED,
+            reason="matrix_bit_ladder_exhausted_before_exact_witness_stage",
+            details={"failure_statuses": ["rounding_failed"]},
         )
     else:
-        state = "NO_CANDIDATE"
+        machine.transition(
+            WorkflowState.EXACT_WITNESS_CHECK,
+            reason="rounding_succeeded_but_no_witness_passed",
+            details={"failure_statuses": sorted(str(status) for status in failure_statuses)},
+        )
+        machine.transition(
+            WorkflowState.WITNESS_FAILED,
+            reason="witness_bit_ladder_exhausted_without_positive_margin",
+            details={"failure_statuses": sorted(str(status) for status in failure_statuses)},
+        )
+    return finalize()
 
-    return {
-        "role": "pre_theorem_continuation_driver",
-        "driver_version": DRIVER_VERSION,
-        "cache_version": CACHE_VERSION,
-        "state": state,
-        "status": state,
-        **theorem_boundary_payload(),
-        "support": f"{support.numerator}/{support.denominator}",
-        "dimensions": dimensions,
-        "scout_resolution_count": scout_resolution_count,
-        "scout_resolution_plan": [resolution.as_dict() for resolution in resolutions],
-        "precision_ladder": precisions,
-        "precision_start": precision_start,
-        "precision_max": precision_max,
-        "matrix_bits_start": matrix_bits_start,
-        "matrix_bits_max": matrix_bits_max,
-        "witness_bits_start": witness_bits_start,
-        "witness_bits_max": witness_bits_max,
-        "cache_dir": str(cache_dir) if cache_dir is not None else None,
-        "residual_order": residual_order,
-        "matrix_bits_ladder": matrix_bits_ladder,
-        "witness_bits_ladder": witness_bits_ladder,
-        "scout_runs": scout_runs,
-        "reconnaissance": reconnaissance,
-        "scout_failures": scout_failures,
-        "rigorous_screening": rigorous_screening,
-        "rigorous_failures": rigorous_failures,
-        "candidates": candidates,
-        "candidate_failures": candidate_failures,
-        "scout_primary_dimension": primary_dimension,
-        "selected_dimension": selected_candidate_dimension,
-        "selected_candidate_dimension": selected_candidate_dimension,
-        "fallback_dimensions": fallback_dimensions,
-        "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed.",
-    }
 
 
 
@@ -798,13 +1007,15 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    support = Fraction(args.support)
-    if support <= 0:
-        parser.error("--support must be a positive exact rational")
+    try:
+        support = parse_support(args.support)
+        dimensions = dimensions_from_args(args)
+    except (ValueError, ZeroDivisionError) as exc:
+        parser.error(str(exc))
+
     run_started_at = utc_now()
     provenance = collect_runtime_provenance()
     try:
-        dimensions = dimensions_from_args(args)
         result = run_driver(
             support,
             dimensions,

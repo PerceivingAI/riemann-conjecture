@@ -209,6 +209,8 @@ def write_continuation_bundle(
         "configuration": _configuration_payload(result),
         "provenance": runtime,
         "final_state": result.get("state"),
+        "workflow_state": result.get("workflow_state", result.get("state")),
+        "workflow_trace": result.get("workflow_trace", []),
         "theorem_status": result.get("theorem_status", False),
         "independently_verified": result.get("independently_verified", False),
         "whitelisted": result.get("whitelisted", False),
