@@ -75,9 +75,9 @@ mod tests {
         let mut batch = vec![0.0; max_n + 1];
         laguerre_l1_batch(max_n, t, &mut batch);
 
-        for n in 0..=max_n {
+        for (n, &actual) in batch.iter().enumerate() {
             let scalar = laguerre_l1(n, t);
-            assert!((batch[n] - scalar).abs() < 1e-12 * (1.0 + scalar.abs()));
+            assert!((actual - scalar).abs() < 1e-12 * (1.0 + scalar.abs()));
         }
     }
 

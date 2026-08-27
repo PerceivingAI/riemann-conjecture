@@ -7,8 +7,9 @@ This script then converts matrix midpoints to ordinary floating point only to
 rank candidate support values and diagnose which term consumes the Schur
 margin. Its eigenvalues and norm diagnostics are reconnaissance, not proofs.
 
-The proof-bearing v1 exact_prime_legendre_schur profile remains locked to
-T=7/20. A positive row here does not certify a new support value.
+The proof-bearing v1 exact_prime_legendre_schur profile currently admits only
+the closed pairs (T,N)=(7/20,32), (2/5,40), (17/40,48), and (9/20,56).
+A positive row here does not certify a new support value.
 """
 
 from __future__ import annotations

@@ -4,9 +4,9 @@
 This is deliberately NOT a theorem certificate. It reuses the rigorous Arb
 assembler, outward-rounds all finite matrices to exact dyadic rational
 intervals, derives the same factor-3 Schur matrix used by C-0050, and searches
-for exact rational parity congruence witnesses. The current independent Rust
-profile is locked to T=7/20, so a PASS here is only a strong candidate for the
-next certificate slice.
+for exact rational parity congruence witnesses. The closed v1 contract currently
+admits exactly (T,N)=(7/20,32), (2/5,40), (17/40,48), and (9/20,56), so a PASS
+for another pair is only a strong candidate for a future certificate slice.
 """
 
 from __future__ import annotations

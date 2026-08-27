@@ -150,17 +150,21 @@ The supported project baseline is **Python 3.12+**; the currently verified local
 Preferred setup:
 
 ```text
-uv sync --extra test
+uv sync --locked --extra test
 ```
 
-The `.venv/` directory is intentionally gitignored. Historical computation records remain authoritative about the exact environment used for each retained run.
+The `--locked` flag requires the environment to match `uv.lock`; `--extra test`
+installs the test dependencies without requiring shell activation. The `.venv/`
+directory is intentionally gitignored. Historical computation records remain
+authoritative about the exact environment used for each retained run.
 
 ## Testing & Verification
 
-Property-based and exact algebraic tests are executed with `pytest`:
+Property-based and exact algebraic tests are executed with the locked `uv`
+environment:
 
 ```text
-pytest
+uv run --locked --extra test python -m pytest
 ```
 
 Tests cover:

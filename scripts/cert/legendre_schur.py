@@ -264,6 +264,7 @@ def abs_power_action_on_poly(power: int, poly: FractionPoly) -> FractionPoly:
 def residual_truncation_operator(
     polys: list[FractionPoly],
     order: int,
+    prec: int,
     support_num: int = 7,
     support_den: int = 20,
 ) -> tuple[list[FractionPoly], ArbMatrix, ArbMatrix, arb]:
@@ -299,8 +300,7 @@ def residual_truncation_operator(
             low[j][i] = low_val
             full_square[i][j] = square_val
             full_square[j][i] = square_val
-
-    with ctx.workprec(256):
+    with ctx.workprec(prec):
         two_t = arb(2 * support_num) / support_den
         u_max = acb(two_t)
         tail = _suzuki_residual_tail_radius(u_max, order)
@@ -337,6 +337,7 @@ def assemble_exact_prime_schur(
         _, Rk, Rk2, delta_R = residual_truncation_operator(
             polys,
             residual_order,
+            prec,
             support_num,
             support_den,
         )
