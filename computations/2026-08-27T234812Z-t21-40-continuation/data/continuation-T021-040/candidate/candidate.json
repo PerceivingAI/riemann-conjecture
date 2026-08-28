@@ -1,0 +1,13 @@
+{
+  "role": "pre_theorem_exact_candidate_stage",
+  "status": "NO_CANDIDATE",
+  "support": "21/40",
+  "selected_dimension": null,
+  "selected_candidate": null,
+  "candidate_runs": [],
+  "candidate_failures": [],
+  "theorem_status": false,
+  "independently_verified": false,
+  "whitelisted": false,
+  "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed."
+}

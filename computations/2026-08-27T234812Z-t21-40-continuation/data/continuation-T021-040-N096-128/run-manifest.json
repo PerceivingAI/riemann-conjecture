@@ -1,0 +1,301 @@
+{
+  "format": "rh-continuation-candidate-bundle-v1",
+  "role": "pre_theorem_continuation_bundle_manifest",
+  "driver_version": "continuation-driver-p15-v1",
+  "cache_version": "continuation-driver-v6",
+  "run_started_at_utc": "2026-08-28T00:08:35Z",
+  "run_completed_at_utc": "2026-08-28T00:49:25Z",
+  "configuration": {
+    "support": "21/40",
+    "dimensions": [
+      96,
+      100,
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128
+    ],
+    "scout_resolution_count": 3,
+    "scout_resolution_plan": [
+      {
+        "level": 0,
+        "max_mode": 168,
+        "quadrature_order": 892,
+        "shift_order": 446
+      },
+      {
+        "level": 1,
+        "max_mode": 208,
+        "quadrature_order": 1052,
+        "shift_order": 526
+      },
+      {
+        "level": 2,
+        "max_mode": 248,
+        "quadrature_order": 1212,
+        "shift_order": 606
+      }
+    ],
+    "scout_workers": 3,
+    "rigorous_workers": 2,
+    "precision_start": 128,
+    "precision_max": 512,
+    "precision_ladder": [
+      128,
+      256,
+      384,
+      512
+    ],
+    "residual_order": 32,
+    "matrix_bits_start": 64,
+    "matrix_bits_max": 104,
+    "matrix_bits_ladder": [
+      64,
+      80,
+      96,
+      104
+    ],
+    "witness_bits_start": 32,
+    "witness_bits_max": 56,
+    "candidate_precision_step": 128,
+    "candidate_precision_extra_steps": 2,
+    "witness_bits_ladder": [
+      32,
+      40,
+      48,
+      56
+    ],
+    "cache_dir": ".cache\\continuation-driver"
+  },
+  "provenance": {
+    "git_commit": "dd3d9aea8e7c59b0d3f07c6567d78c0ddc2738bb",
+    "git_dirty": true,
+    "python_version": "3.14.0",
+    "python_implementation": "CPython",
+    "python_flint_version": "0.9.0"
+  },
+  "final_state": "CANDIDATE_READY",
+  "workflow_state": "CANDIDATE_READY",
+  "workflow_trace": [
+    {
+      "sequence": 0,
+      "from": null,
+      "to": "VALIDATE_INPUT",
+      "reason": "driver_started",
+      "details": {}
+    },
+    {
+      "sequence": 1,
+      "from": "VALIDATE_INPUT",
+      "to": "FLOAT_SCOUT",
+      "reason": "validated_driver_inputs",
+      "details": {
+        "support": "21/40",
+        "dimension_count": 9,
+        "resolution_count": 3,
+        "scout_workers": 3
+      }
+    },
+    {
+      "sequence": 2,
+      "from": "FLOAT_SCOUT",
+      "to": "CHECK_SCOUT_STABILITY",
+      "reason": "floating_scout_complete",
+      "details": {
+        "completed_resolutions": 3,
+        "failed_resolutions": 0
+      }
+    },
+    {
+      "sequence": 3,
+      "from": "CHECK_SCOUT_STABILITY",
+      "to": "SELECT_DIMENSION",
+      "reason": "stable_positive_dimensions_found",
+      "details": {
+        "stable_dimensions": [
+          96,
+          100,
+          104,
+          108,
+          112,
+          116,
+          120,
+          124,
+          128
+        ]
+      }
+    },
+    {
+      "sequence": 4,
+      "from": "SELECT_DIMENSION",
+      "to": "RIGOROUS_PRECISION_SEARCH",
+      "reason": "selected_primary_and_fallback_dimensions",
+      "details": {
+        "primary_dimension": 96,
+        "fallback_dimensions": [
+          100
+        ],
+        "rigorous_workers": 2
+      }
+    },
+    {
+      "sequence": 5,
+      "from": "RIGOROUS_PRECISION_SEARCH",
+      "to": "CHECK_RIGOROUS_STABILITY",
+      "reason": "rigorous_precision_search_complete",
+      "details": {
+        "screened_dimensions": [
+          96,
+          100
+        ],
+        "surviving_dimensions": [
+          96,
+          100
+        ],
+        "rigorous_failure_count": 0
+      }
+    },
+    {
+      "sequence": 6,
+      "from": "CHECK_RIGOROUS_STABILITY",
+      "to": "EXACT_ROUNDING_SEARCH",
+      "reason": "rigorous_candidate_survived",
+      "details": {
+        "surviving_dimensions": [
+          96,
+          100
+        ]
+      }
+    },
+    {
+      "sequence": 7,
+      "from": "EXACT_ROUNDING_SEARCH",
+      "to": "EXACT_WITNESS_CHECK",
+      "reason": "outward_rounding_and_exact_schur_succeeded",
+      "details": {
+        "candidate_ready_dimensions": [
+          96,
+          100
+        ]
+      }
+    },
+    {
+      "sequence": 8,
+      "from": "EXACT_WITNESS_CHECK",
+      "to": "CANDIDATE_PRECISION_CONFIRMATION",
+      "reason": "exact_candidate_requires_cross_precision_confirmation",
+      "details": {
+        "candidate_ready_dimensions": [
+          96,
+          100
+        ],
+        "precision_step": 128,
+        "extra_steps": 2
+      }
+    },
+    {
+      "sequence": 9,
+      "from": "CANDIDATE_PRECISION_CONFIRMATION",
+      "to": "CANDIDATE_READY",
+      "reason": "exact_candidate_is_stable_across_improving_working_precision",
+      "details": {
+        "selected_candidate_dimension": 96,
+        "candidate_precision_classification": "CANDIDATE_STABLE",
+        "confirmed_precision_bits": 640
+      }
+    }
+  ],
+  "theorem_status": false,
+  "independently_verified": false,
+  "whitelisted": false,
+  "artifacts": [
+    {
+      "path": "candidate/candidate.json",
+      "kind": "exact_candidate",
+      "sha256": "9e9d11197a97283f08f669056c1ef2f85ed920fa3acad8e5d8841221feb53444",
+      "bytes": 27845
+    },
+    {
+      "path": "candidate/precision-stability-N096.json",
+      "kind": "candidate_precision_stability",
+      "sha256": "1b16eccd989eb8a7e6e7962c960dfd3212094d425d534639c54d6199cc043544",
+      "bytes": 12072
+    },
+    {
+      "path": "rigorous/N096-p128.json",
+      "kind": "rigorous_screening",
+      "sha256": "e863c63b897c8fecd4bee57f8c55475bddf76a3c185c9fd6a4b5efd20d5504e0",
+      "bytes": 2281
+    },
+    {
+      "path": "rigorous/N096-p256.json",
+      "kind": "rigorous_screening",
+      "sha256": "03d6632047ff5c18d10edfe8efa699f8075cc0ea53c265170c0e9e4e9e0eee88",
+      "bytes": 3319
+    },
+    {
+      "path": "rigorous/N096-p384.json",
+      "kind": "rigorous_screening",
+      "sha256": "5c1cc7c792ac9d13e5a676590d46bdf674d244d6867207a0c7162abc5852de48",
+      "bytes": 3283
+    },
+    {
+      "path": "rigorous/N096-p512.json",
+      "kind": "rigorous_screening",
+      "sha256": "7ede3a65076ad1ab40e8db8d11313dc61b148cdc327382d7a1442fc7a78586fe",
+      "bytes": 3147
+    },
+    {
+      "path": "rigorous/N100-p128.json",
+      "kind": "rigorous_screening",
+      "sha256": "966f33a7159b2c2f47fbb51e813086a8d6e036561befa6b5d74df821138ef480",
+      "bytes": 2285
+    },
+    {
+      "path": "rigorous/N100-p256.json",
+      "kind": "rigorous_screening",
+      "sha256": "382c6744f780616fedbe2cadaca398b5d977f7d9a50e229636d4c9a77cd09de1",
+      "bytes": 3305
+    },
+    {
+      "path": "rigorous/N100-p384.json",
+      "kind": "rigorous_screening",
+      "sha256": "483d96d08ad2f46bf44b0bfb62ba430196e0ecf535d183718c6f9f5a7f19bac0",
+      "bytes": 3282
+    },
+    {
+      "path": "rigorous/N100-p512.json",
+      "kind": "rigorous_screening",
+      "sha256": "5b64fdf09ad6b8bcb32690cad86a92d3d7864e1cf2efd4621a5478b35bb274d6",
+      "bytes": 3201
+    },
+    {
+      "path": "scout/resolution-01.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "60bda7cfabbed295b82a687da4846662dc339385f8d817b355835372de8bddac",
+      "bytes": 2632
+    },
+    {
+      "path": "scout/resolution-02.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "039eec064174d1583c5790d0ad71014e0e15b880d9c9b09e1a69abaa62fedd3f",
+      "bytes": 2635
+    },
+    {
+      "path": "scout/resolution-03.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "654b0a6a7a89c2f41d206aedaacb2a08cdea1e10252dbe76d19fbf318ab754e1",
+      "bytes": 2637
+    },
+    {
+      "path": "summary.json",
+      "kind": "summary",
+      "sha256": "fcd359d77d31da198fa74021ab037e35d0aba15d307aae92fa9190a15560eb17",
+      "bytes": 72878
+    }
+  ],
+  "warning": "This bundle contains pre-theorem continuation evidence only. It contains no theorem certificate and records no independent verifier admission."
+}

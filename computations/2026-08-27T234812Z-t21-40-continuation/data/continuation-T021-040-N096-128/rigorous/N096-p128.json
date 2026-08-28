@@ -1,0 +1,72 @@
+{
+  "role": "rigorous_full_tail_screening_attempt",
+  "support": "21/40",
+  "dimension": 96,
+  "residual_order": 32,
+  "screening_status": "precision_stable",
+  "selected_precision_bits": 512,
+  "attempt": {
+    "support": "21/40",
+    "support_decimal": 0.525,
+    "mu_lower": 0.6960091338406399,
+    "mu_midpoint": 0.6960091338406399,
+    "mu_upper": 0.6960091338406399,
+    "mu_certified_positive": true,
+    "finite_block_min_eigenvalue_midpoint": -2.886747126723824e+54,
+    "schur_min_eigenvalue_midpoint": -7.085756569581437e+51,
+    "component_schur_penalty_operator_norm_midpoint": {
+      "GV": 7.083120861481776e+51,
+      "G2": 4.425080821767495e+45,
+      "GR": 8.544168209224069e-13
+    },
+    "rho_R_upper": 2.189889227060163,
+    "residual_remainder_upper": 1.972619206652034e-16,
+    "interval_widths": {
+      "A_max": 1.0643669894541035e+61,
+      "GV_max": 6.360943825925608e+64,
+      "G2_max": 6.006138675393201e+123,
+      "GR_max": 1.871457441935612e-36,
+      "mu": 9.932696344474393e-37,
+      "rho_R": 8.650447559380696e-37,
+      "residual_remainder": 9.616225376707486e-53
+    },
+    "matrix_interval_diagnostics": {
+      "A": {
+        "max_width": 1.0643669894541035e+61,
+        "max_radius": 5.3218349472705175e+60,
+        "row": 95,
+        "column": 95,
+        "midpoint_at_widest_entry": -2.622998081214322e+52
+      },
+      "GV": {
+        "max_width": 6.360943825925608e+64,
+        "max_radius": 3.180471912962804e+64,
+        "row": 95,
+        "column": 95,
+        "midpoint_at_widest_entry": -1.0372256048495497e+60
+      },
+      "G2": {
+        "max_width": 6.006138675393201e+123,
+        "max_radius": 3.0030693376966005e+123,
+        "row": 95,
+        "column": 95,
+        "midpoint_at_widest_entry": -2.276807907396961e+43
+      },
+      "GR": {
+        "max_width": 1.871457441935612e-36,
+        "max_radius": 9.35728720967806e-37,
+        "row": 0,
+        "column": 0,
+        "midpoint_at_widest_entry": 1.5564924945719614e-31
+      }
+    },
+    "precision_bits": 128,
+    "stable_change": false,
+    "precision_status": "INSUFFICIENT_PRECISION",
+    "precision_reasons": [
+      "no_prior_precision_for_stability_check",
+      "negative_result_not_precision_stable",
+      "contradicted_by_higher_precision"
+    ]
+  }
+}
