@@ -17,7 +17,7 @@ from typing import Any
 
 import flint
 
-from scripts.run_observability import LIVE_DIRECTORY_NAME
+from scripts.run_observability import LIVE_DIRECTORY_NAME, RUN_LOCK_FILENAME
 
 
 BUNDLE_FORMAT = "rh-continuation-candidate-bundle-v1"
@@ -129,10 +129,18 @@ def write_continuation_bundle(
     """Write a complete P8 continuation bundle and return its manifest."""
     if output_dir.exists():
         entries = list(output_dir.iterdir())
+        allowed_names = {LIVE_DIRECTORY_NAME, RUN_LOCK_FILENAME}
+        unexpected = [entry for entry in entries if entry.name not in allowed_names]
         live_entries = [entry for entry in entries if entry.name == LIVE_DIRECTORY_NAME]
-        non_live_entries = [entry for entry in entries if entry.name != LIVE_DIRECTORY_NAME]
-        if non_live_entries or any(not entry.is_dir() for entry in live_entries):
-            raise ValueError("continuation output directory must be empty except for .live")
+        lock_entries = [entry for entry in entries if entry.name == RUN_LOCK_FILENAME]
+        if (
+            unexpected
+            or any(not entry.is_dir() for entry in live_entries)
+            or any(not entry.is_file() for entry in lock_entries)
+        ):
+            raise ValueError(
+                "continuation output directory must be empty except for .live and .run.lock"
+            )
     output_dir.mkdir(parents=True, exist_ok=True)
 
     started = run_started_at or utc_now()

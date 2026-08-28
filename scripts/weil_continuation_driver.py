@@ -39,7 +39,11 @@ from scripts.continuation_bundle import (
     utc_now,
     write_continuation_bundle,
 )
-from scripts.run_observability import RunStatusWriter
+from scripts.run_observability import (
+    OutputDirectoryLock,
+    OutputDirectoryLockedError,
+    RunStatusWriter,
+)
 from scripts.weil_legendre_schur_scout import scout
 from scripts.cert.constants import require_one_prime_support
 from scripts.weil_support_candidate_check import (
@@ -2267,89 +2271,104 @@ def main() -> None:
 
     progress = LiveProgress(enabled=not args.quiet)
     run_started_at = utc_now()
+    support_text = f"{support.numerator}/{support.denominator}"
     try:
-        run_status = RunStatusWriter.start(
+        run_lock = OutputDirectoryLock.acquire(
             args.output_dir,
             command="weil_continuation_driver",
-            support=f"{support.numerator}/{support.denominator}",
+            support=support_text,
             started_at_utc=run_started_at,
-            workflow_state=WorkflowState.VALIDATE_INPUT.value,
-            current_operation={"stage": WorkflowState.VALIDATE_INPUT.value},
         )
+    except OutputDirectoryLockedError as exc:
+        parser.exit(2, f"ERROR: {exc}\n")
     except ValueError as exc:
         parser.error(str(exc))
 
-    progress.emit(
-        f"RUN T={support.numerator}/{support.denominator} "
-        f"dimensions={_dimension_progress_text(dimensions)}"
-    )
-
-    with run_status.periodic_heartbeats():
-        provenance = collect_runtime_provenance()
+    with run_lock:
         try:
-            result = run_driver(
-                support,
-                dimensions,
-                scout_resolution_count=args.scout_resolutions,
-                precision_start=args.precision_start,
-                precision_max=args.precision_max,
-                residual_order=args.residual_order,
-                matrix_bits_start=args.matrix_bits_start,
-                matrix_bits_max=args.matrix_bits_max,
-                witness_bits_start=args.witness_bits_start,
-                witness_bits_max=args.witness_bits_max,
-                candidate_precision_step=args.candidate_precision_step,
-                candidate_precision_extra_steps=args.candidate_precision_extra_steps,
-                scout_workers=args.scout_workers,
-                rigorous_workers=args.rigorous_workers,
-                cache_dir=args.cache_dir,
-                run_status=run_status,
-                progress=progress,
-            )
-        except (ValueError, ZeroDivisionError) as exc:
-            parser.error(str(exc))
-
-        run_completed_at = utc_now()
-        final_workflow_state = str(
-            result.get("workflow_state", result.get("state", "UNKNOWN"))
-        )
-        run_status.event(
-            "BUNDLE_FINALIZATION_STARTED",
-            final_state=final_workflow_state,
-        )
-        progress.emit("BUNDLE write started")
-        run_status.update(
-            workflow_state=final_workflow_state,
-            current_operation={"stage": "BUNDLE_FINALIZATION"},
-            terminal=False,
-        )
-        try:
-            write_continuation_bundle(
-                result,
+            run_status = RunStatusWriter.start(
                 args.output_dir,
-                run_started_at=run_started_at,
-                run_completed_at=run_completed_at,
-                provenance=provenance,
+                command="weil_continuation_driver",
+                support=support_text,
+                started_at_utc=run_started_at,
+                workflow_state=WorkflowState.VALIDATE_INPUT.value,
+                current_operation={"stage": WorkflowState.VALIDATE_INPUT.value},
+                output_lock=run_lock,
             )
         except ValueError as exc:
             parser.error(str(exc))
-        run_status.event(
-            "BUNDLE_FINALIZATION_COMPLETED",
-            final_state=final_workflow_state,
-            manifest="run-manifest.json",
+
+        progress.emit(
+            f"RUN T={support_text} "
+            f"dimensions={_dimension_progress_text(dimensions)}"
         )
-        progress.emit("BUNDLE write complete")
-        run_status.event("RUN_COMPLETED", final_state=final_workflow_state)
-        run_status.update(
-            workflow_state=final_workflow_state,
-            current_operation=None,
-            terminal=True,
-        )
-        progress.emit(f"TERMINAL {final_workflow_state}")
-        if args.json:
-            print(json.dumps(result, indent=2, allow_nan=False))
-        else:
-            print(format_terminal_summary(result))
+
+        with run_status.periodic_heartbeats():
+            provenance = collect_runtime_provenance()
+            try:
+                result = run_driver(
+                    support,
+                    dimensions,
+                    scout_resolution_count=args.scout_resolutions,
+                    precision_start=args.precision_start,
+                    precision_max=args.precision_max,
+                    residual_order=args.residual_order,
+                    matrix_bits_start=args.matrix_bits_start,
+                    matrix_bits_max=args.matrix_bits_max,
+                    witness_bits_start=args.witness_bits_start,
+                    witness_bits_max=args.witness_bits_max,
+                    candidate_precision_step=args.candidate_precision_step,
+                    candidate_precision_extra_steps=args.candidate_precision_extra_steps,
+                    scout_workers=args.scout_workers,
+                    rigorous_workers=args.rigorous_workers,
+                    cache_dir=args.cache_dir,
+                    run_status=run_status,
+                    progress=progress,
+                )
+            except (ValueError, ZeroDivisionError) as exc:
+                parser.error(str(exc))
+
+            run_completed_at = utc_now()
+            final_workflow_state = str(
+                result.get("workflow_state", result.get("state", "UNKNOWN"))
+            )
+            run_status.event(
+                "BUNDLE_FINALIZATION_STARTED",
+                final_state=final_workflow_state,
+            )
+            progress.emit("BUNDLE write started")
+            run_status.update(
+                workflow_state=final_workflow_state,
+                current_operation={"stage": "BUNDLE_FINALIZATION"},
+                terminal=False,
+            )
+            try:
+                write_continuation_bundle(
+                    result,
+                    args.output_dir,
+                    run_started_at=run_started_at,
+                    run_completed_at=run_completed_at,
+                    provenance=provenance,
+                )
+            except ValueError as exc:
+                parser.error(str(exc))
+            run_status.event(
+                "BUNDLE_FINALIZATION_COMPLETED",
+                final_state=final_workflow_state,
+                manifest="run-manifest.json",
+            )
+            progress.emit("BUNDLE write complete")
+            run_status.event("RUN_COMPLETED", final_state=final_workflow_state)
+            run_status.update(
+                workflow_state=final_workflow_state,
+                current_operation=None,
+                terminal=True,
+            )
+            progress.emit(f"TERMINAL {final_workflow_state}")
+            if args.json:
+                print(json.dumps(result, indent=2, allow_nan=False))
+            else:
+                print(format_terminal_summary(result))
 
 
 if __name__ == "__main__":

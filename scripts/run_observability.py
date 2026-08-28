@@ -2,13 +2,13 @@
 
 This module intentionally carries no mathematical semantics. It provides a tiny,
 atomically replaced JSON status file, a small append-only JSONL event journal,
-and a parent-owned periodic heartbeat that can be inspected safely while a run
-is active. Run locking and recovery policy belong to later lifecycle-hardening
-slices.
+a parent-owned periodic heartbeat, and an OS-backed exclusive output-directory
+lock. Recovery policy belongs to later lifecycle-hardening slices.
 """
 
 from __future__ import annotations
 
+import errno
 import json
 import os
 import threading
@@ -16,13 +16,16 @@ import time
 import uuid
 from contextlib import contextmanager
 from pathlib import Path
-from typing import Callable, Iterator
+from typing import BinaryIO, Callable, Iterator
 
 
 LIVE_RUN_FORMAT = "riemann-live-run-v1"
 LIVE_DIRECTORY_NAME = ".live"
 RUN_STATUS_FILENAME = "run-status.json"
 EVENTS_FILENAME = "events.jsonl"
+RUN_LOCK_FILENAME = ".run.lock"
+RUN_LOCK_FORMAT = "riemann-output-lock-v1"
+RUN_LOCK_BYTE_OFFSET = 4096
 HEARTBEAT_INTERVAL_SECONDS = 12.0
 _EVENT_RESERVED_FIELDS = frozenset({"seq", "time", "run_id", "event"})
 
@@ -67,13 +70,208 @@ def _append_json_line(path: Path, payload: dict[str, object]) -> None:
         os.fsync(stream.fileno())
 
 
-def require_unused_output_directory(output_dir: Path) -> None:
+def require_unused_output_directory(
+    output_dir: Path,
+    *,
+    allowed_entries: frozenset[str] = frozenset(),
+) -> None:
     """Fail closed before live state is created in an already-used directory."""
-    if output_dir.exists() and any(output_dir.iterdir()):
+    if not output_dir.exists():
+        return
+    unexpected = [entry for entry in output_dir.iterdir() if entry.name not in allowed_entries]
+    if unexpected:
         raise ValueError("continuation output directory must be empty")
 
 
 _UNSET = object()
+
+
+def _try_acquire_os_lock(stream: BinaryIO) -> bool:
+    if os.name == "nt":
+        import msvcrt
+
+        stream.seek(RUN_LOCK_BYTE_OFFSET)
+        try:
+            msvcrt.locking(stream.fileno(), msvcrt.LK_NBLCK, 1)
+            return True
+        except OSError as exc:
+            if exc.errno in {errno.EACCES, errno.EAGAIN}:
+                return False
+            raise
+
+    import fcntl
+
+    try:
+        fcntl.flock(stream.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+        return True
+    except BlockingIOError:
+        return False
+
+
+def _release_os_lock(stream: BinaryIO) -> None:
+    if os.name == "nt":
+        import msvcrt
+
+        stream.seek(RUN_LOCK_BYTE_OFFSET)
+        msvcrt.locking(stream.fileno(), msvcrt.LK_UNLCK, 1)
+        return
+
+    import fcntl
+
+    fcntl.flock(stream.fileno(), fcntl.LOCK_UN)
+
+
+def _write_lock_metadata(stream: BinaryIO, payload: dict[str, object]) -> None:
+    data = (json.dumps(payload, indent=2, allow_nan=False) + "\n").encode("utf-8")
+    if len(data) >= RUN_LOCK_BYTE_OFFSET:
+        raise ValueError("output-directory lock metadata is unexpectedly large")
+    stream.seek(0)
+    stream.write(data)
+    stream.truncate()
+    stream.flush()
+    os.fsync(stream.fileno())
+
+
+def _read_lock_metadata(stream: BinaryIO) -> dict[str, object]:
+    """Read owner metadata while the OS lock itself remains held."""
+    try:
+        stream.seek(0)
+        data = stream.read()
+        if not data:
+            return {}
+        payload = json.loads(data.decode("utf-8"))
+        return payload if isinstance(payload, dict) else {}
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+        return {}
+
+
+class OutputDirectoryLockedError(RuntimeError):
+    """Raised when another live process owns an output-directory OS lock."""
+
+    def __init__(self, metadata: dict[str, object]) -> None:
+        self.metadata = metadata
+        super().__init__("output directory is already owned by another active run")
+
+    def __str__(self) -> str:
+        return "\n".join(
+            [
+                "output directory is already owned by another active run",
+                f"run_id: {self.metadata.get('run_id', '<unknown>')}",
+                f"pid: {self.metadata.get('pid', '<unknown>')}",
+                f"started_at: {self.metadata.get('started_at_utc', '<unknown>')}",
+            ]
+        )
+
+
+class OutputDirectoryLock:
+    """Own one continuation output directory through a real OS-backed file lock."""
+
+    def __init__(
+        self,
+        output_dir: Path,
+        stream: BinaryIO,
+        *,
+        run_id: str,
+        command: str,
+        support: str,
+        started_at_utc: str,
+        pid: int,
+    ) -> None:
+        self.output_dir = output_dir
+        self.path = output_dir / RUN_LOCK_FILENAME
+        self.run_id = run_id
+        self.command = command
+        self.support = support
+        self.started_at_utc = started_at_utc
+        self.pid = pid
+        self._stream = stream
+        self._held = True
+
+    @property
+    def is_held(self) -> bool:
+        return self._held
+
+    @classmethod
+    def acquire(
+        cls,
+        output_dir: Path,
+        *,
+        command: str,
+        support: str,
+        started_at_utc: str | None = None,
+        pid: int | None = None,
+        clock: Callable[[], str] = _utc_now,
+    ) -> "OutputDirectoryLock":
+        """Acquire exclusive ownership before any live state or computation is started."""
+        output_dir.mkdir(parents=True, exist_ok=True)
+        path = output_dir / RUN_LOCK_FILENAME
+        if path.exists() and not path.is_file():
+            raise ValueError("output-directory lock path must be a regular file")
+
+        existed_before = path.exists()
+        fd = os.open(path, os.O_RDWR | os.O_CREAT, 0o600)
+        stream = os.fdopen(fd, "r+b")
+        try:
+            if not _try_acquire_os_lock(stream):
+                metadata = _read_lock_metadata(stream)
+                stream.close()
+                raise OutputDirectoryLockedError(metadata)
+
+            try:
+                require_unused_output_directory(
+                    output_dir,
+                    allowed_entries=frozenset({RUN_LOCK_FILENAME}),
+                )
+            except Exception:
+                _release_os_lock(stream)
+                stream.close()
+                if not existed_before:
+                    path.unlink(missing_ok=True)
+                raise
+
+            started = started_at_utc or clock()
+            owner_pid = os.getpid() if pid is None else pid
+            run_id = _run_id(started)
+            metadata = {
+                "format": RUN_LOCK_FORMAT,
+                "run_id": run_id,
+                "command": command,
+                "support": support,
+                "pid": owner_pid,
+                "started_at_utc": started,
+            }
+            _write_lock_metadata(stream, metadata)
+            return cls(
+                output_dir,
+                stream,
+                run_id=run_id,
+                command=command,
+                support=support,
+                started_at_utc=started,
+                pid=owner_pid,
+            )
+        except Exception:
+            if not stream.closed:
+                stream.close()
+            raise
+
+    def release(self) -> None:
+        if not self._held:
+            return
+        try:
+            _release_os_lock(self._stream)
+        finally:
+            self._held = False
+            self._stream.close()
+
+    def __enter__(self) -> "OutputDirectoryLock":
+        if not self._held:
+            raise RuntimeError("output-directory lock is not held")
+        return self
+
+    def __exit__(self, exc_type: object, exc: object, tb: object) -> bool:
+        self.release()
+        return False
 
 
 class PeriodicHeartbeat:
@@ -164,17 +362,42 @@ class RunStatusWriter:
         pid: int | None = None,
         clock: Callable[[], str] = _utc_now,
         monotonic: Callable[[], float] = time.monotonic,
+        output_lock: OutputDirectoryLock | None = None,
     ) -> "RunStatusWriter":
         """Create the output directory and publish the initial live state."""
-        require_unused_output_directory(output_dir)
-        started = started_at_utc or clock()
+        if output_lock is None:
+            require_unused_output_directory(output_dir)
+            started = started_at_utc or clock()
+            run_id = _run_id(started)
+            owner_pid = pid
+        else:
+            if not output_lock.is_held:
+                raise ValueError("output-directory lock must still be held")
+            if output_lock.output_dir != output_dir:
+                raise ValueError("output-directory lock does not match status output directory")
+            if output_lock.command != command:
+                raise ValueError("status command does not match output-directory lock")
+            if output_lock.support != support:
+                raise ValueError("status support does not match output-directory lock")
+            if started_at_utc is not None and started_at_utc != output_lock.started_at_utc:
+                raise ValueError("status start time does not match output-directory lock")
+            if pid is not None and pid != output_lock.pid:
+                raise ValueError("status pid does not match output-directory lock")
+            require_unused_output_directory(
+                output_dir,
+                allowed_entries=frozenset({RUN_LOCK_FILENAME}),
+            )
+            started = output_lock.started_at_utc
+            run_id = output_lock.run_id
+            owner_pid = output_lock.pid
+
         writer = cls(
             output_dir,
-            run_id=_run_id(started),
+            run_id=run_id,
             command=command,
             support=support,
             started_at_utc=started,
-            pid=pid,
+            pid=owner_pid,
             clock=clock,
             monotonic=monotonic,
         )

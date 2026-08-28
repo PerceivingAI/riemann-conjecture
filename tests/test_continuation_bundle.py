@@ -193,6 +193,11 @@ def test_bundle_allows_live_operational_directory_without_manifesting_it(
         '{"seq":1,"time":"2026-08-28T02:00:00Z","event":"RUN_STARTED"}\n',
         encoding="utf-8",
     )
+    run_lock = output_dir / ".run.lock"
+    run_lock.write_text(
+        '{"format":"riemann-output-lock-v1","run_id":"test-run"}\n',
+        encoding="utf-8",
+    )
 
     manifest = write_continuation_bundle(
         _result(),
@@ -208,6 +213,8 @@ def test_bundle_allows_live_operational_directory_without_manifesting_it(
 
     assert live_status.read_text(encoding="utf-8") == '{"terminal": false}\n'
     assert live_events.read_text(encoding="utf-8").startswith('{"seq":1,')
+    assert run_lock.read_text(encoding="utf-8").startswith('{"format":')
+    assert all(entry["path"] != ".run.lock" for entry in manifest["artifacts"])
     assert all(not str(entry["path"]).startswith(".live/") for entry in manifest["artifacts"])
     assert (output_dir / "run-manifest.json").is_file()
 

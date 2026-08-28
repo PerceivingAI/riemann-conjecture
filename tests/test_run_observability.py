@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 import json
+import os
+import subprocess
+import sys
 import threading
 import time
 from pathlib import Path
@@ -10,6 +13,9 @@ import pytest
 from scripts.run_observability import (
     HEARTBEAT_INTERVAL_SECONDS,
     LIVE_RUN_FORMAT,
+    RUN_LOCK_FORMAT,
+    OutputDirectoryLock,
+    OutputDirectoryLockedError,
     PeriodicHeartbeat,
     RunStatusWriter,
 )
@@ -123,6 +129,104 @@ def test_event_journal_appends_small_ordered_json_lines(tmp_path: Path) -> None:
     assert events[1]["resolution_count"] == 3
     assert events[2]["level"] == 0
     assert all(len(line) < 1024 for line in status.events_path.read_bytes().splitlines())
+
+
+def test_output_directory_lock_is_os_backed_and_shares_run_identity(tmp_path: Path) -> None:
+    output_dir = tmp_path / "locked-continuation"
+    with OutputDirectoryLock.acquire(
+        output_dir,
+        command="weil_continuation_driver",
+        support="27/50",
+        started_at_utc="2026-08-28T03:00:00Z",
+        pid=os.getpid(),
+    ) as owner:
+        metadata = json.loads(owner.path.read_text(encoding="utf-8"))
+        assert metadata["format"] == RUN_LOCK_FORMAT
+        assert metadata["run_id"] == owner.run_id
+        assert metadata["pid"] == os.getpid()
+        assert metadata["started_at_utc"] == "2026-08-28T03:00:00Z"
+
+        status = RunStatusWriter.start(
+            output_dir,
+            command="weil_continuation_driver",
+            support="27/50",
+            started_at_utc="2026-08-28T03:00:00Z",
+            output_lock=owner,
+        )
+        assert status.run_id == owner.run_id
+        assert status.pid == owner.pid
+
+        child = subprocess.run(
+            [
+                sys.executable,
+                "-c",
+                (
+                    "import sys; from pathlib import Path; "
+                    "from scripts.run_observability import OutputDirectoryLock, OutputDirectoryLockedError; "
+                    "p=Path(sys.argv[1]); "
+                    "\ntry:\n"
+                    " OutputDirectoryLock.acquire(p, command='child', support='27/50')\n"
+                    "except OutputDirectoryLockedError as exc:\n"
+                    " print(str(exc)); raise SystemExit(23)\n"
+                    "raise SystemExit(0)"
+                ),
+                str(output_dir),
+            ],
+            cwd=Path(__file__).resolve().parents[1],
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=10,
+        )
+
+        assert child.returncode == 23
+        assert "already owned by another active run" in child.stdout
+        assert f"run_id: {owner.run_id}" in child.stdout
+        assert f"pid: {owner.pid}" in child.stdout
+        assert "started_at: 2026-08-28T03:00:00Z" in child.stdout
+
+    assert not owner.is_held
+
+
+def test_stale_lock_file_does_not_block_reacquisition(tmp_path: Path) -> None:
+    output_dir = tmp_path / "reusable-lock"
+    first = OutputDirectoryLock.acquire(
+        output_dir,
+        command="weil_continuation_driver",
+        support="27/50",
+        started_at_utc="2026-08-28T03:00:00Z",
+    )
+    first_run_id = first.run_id
+    first.release()
+
+    second = OutputDirectoryLock.acquire(
+        output_dir,
+        command="weil_continuation_driver",
+        support="27/50",
+        started_at_utc="2026-08-28T03:05:00Z",
+    )
+    try:
+        metadata = json.loads(second.path.read_text(encoding="utf-8"))
+        assert second.run_id != first_run_id
+        assert metadata["run_id"] == second.run_id
+        assert metadata["started_at_utc"] == "2026-08-28T03:05:00Z"
+    finally:
+        second.release()
+
+
+def test_lock_refuses_used_directory_without_leaving_new_lock_file(tmp_path: Path) -> None:
+    output_dir = tmp_path / "used-before-lock"
+    output_dir.mkdir()
+    (output_dir / "evidence.json").write_text("{}\n", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="must be empty"):
+        OutputDirectoryLock.acquire(
+            output_dir,
+            command="weil_continuation_driver",
+            support="27/50",
+        )
+
+    assert not (output_dir / ".run.lock").exists()
 
 
 def test_periodic_heartbeat_runs_without_claiming_progress_and_stops() -> None:

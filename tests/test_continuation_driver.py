@@ -1235,6 +1235,9 @@ def test_cli_writes_requested_output_directory(
     live_status = json.loads(
         (output_dir / ".live" / "run-status.json").read_text(encoding="utf-8")
     )
+    lock_metadata = json.loads(
+        (output_dir / ".run.lock").read_text(encoding="utf-8")
+    )
     live_events = [
         json.loads(line)
         for line in (output_dir / ".live" / "events.jsonl")
@@ -1244,6 +1247,10 @@ def test_cli_writes_requested_output_directory(
     assert '"state": "NO_CANDIDATE"' in summary
     assert '"final_state": "NO_CANDIDATE"' in manifest
     assert live_status["format"] == "riemann-live-run-v1"
+    assert lock_metadata["format"] == "riemann-output-lock-v1"
+    assert lock_metadata["run_id"] == live_status["run_id"]
+    assert lock_metadata["pid"] == live_status["pid"]
+    assert lock_metadata["started_at_utc"] == live_status["started_at_utc"]
     assert live_status["support"] == "19/40"
     assert live_status["workflow_state"] == "NO_CANDIDATE"
     assert live_status["current_operation"] is None
@@ -1314,6 +1321,53 @@ def test_cli_quiet_suppresses_live_stderr_without_changing_stdout(
     assert "RESULT: NO_CANDIDATE" in captured.out
     assert captured.err == ""
     assert captured_kwargs["progress"].enabled is False
+
+
+def test_cli_lock_contention_exits_before_expensive_work(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    owner = {
+        "run_id": "20260828T030000Z-active01",
+        "pid": 4242,
+        "started_at_utc": "2026-08-28T03:00:00Z",
+    }
+
+    class RefusingLock:
+        @classmethod
+        def acquire(cls, *args, **kwargs):
+            raise driver.OutputDirectoryLockedError(owner)
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError("expensive work must not start while output lock is owned")
+
+    monkeypatch.setattr(driver, "OutputDirectoryLock", RefusingLock)
+    monkeypatch.setattr(driver, "collect_runtime_provenance", forbidden)
+    monkeypatch.setattr(driver, "run_driver", forbidden)
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "weil_continuation_driver",
+            "--support",
+            "19/40",
+            "--n",
+            "48",
+            "--output-dir",
+            str(tmp_path / "contended"),
+        ],
+    )
+
+    with pytest.raises(SystemExit) as exc_info:
+        driver.main()
+
+    captured = capsys.readouterr()
+    assert exc_info.value.code == 2
+    assert captured.out == ""
+    assert "ERROR: output directory is already owned by another active run" in captured.err
+    assert "run_id: 20260828T030000Z-active01" in captured.err
+    assert "pid: 4242" in captured.err
+    assert "started_at: 2026-08-28T03:00:00Z" in captured.err
 
 
 def test_p13_cli_json_flag_preserves_full_machine_readable_stdout(
