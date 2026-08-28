@@ -16,8 +16,9 @@ import threading
 import time
 import uuid
 from contextlib import contextmanager
+from dataclasses import dataclass, field
 from pathlib import Path
-from typing import BinaryIO, Callable, Iterator
+from typing import Any, BinaryIO, Callable, Iterator
 
 
 LIVE_RUN_FORMAT = "riemann-live-run-v1"
@@ -26,6 +27,8 @@ RUN_STATUS_FILENAME = "run-status.json"
 EVENTS_FILENAME = "events.jsonl"
 RUN_IDENTITY_FILENAME = "run.json"
 RUN_IDENTITY_FORMAT = "riemann-run-identity-v1"
+RUN_FAILURE_FILENAME = "failure.json"
+RUN_FAILURE_FORMAT = "riemann-run-failure-v1"
 RUN_LOCK_FILENAME = ".run.lock"
 RUN_LOCK_FORMAT = "riemann-output-lock-v1"
 RUN_LOCK_BYTE_OFFSET = 4096
@@ -367,6 +370,61 @@ def _validate_run_identity_for_lock(output_lock: OutputDirectoryLock) -> None:
         )
 
 
+@dataclass
+class WorkerCleanupVerifier:
+    """Track executor lifetimes and prove their worker processes are reaped."""
+
+    active_executors: int = 0
+    shutdown_records: list[dict[str, object]] = field(default_factory=list)
+
+    def executor_started(self, stage: str) -> None:
+        if not stage:
+            raise ValueError("executor stage must be non-empty")
+        self.active_executors += 1
+
+    def executor_stopped(self, stage: str, processes: list[Any]) -> None:
+        if self.active_executors < 1:
+            raise RuntimeError("executor cleanup accounting underflow")
+        self.active_executors -= 1
+
+        exit_codes: list[int | None] = []
+        for process in processes:
+            try:
+                alive = bool(process.is_alive())
+            except Exception as exc:
+                raise RuntimeError(
+                    f"could not verify worker cleanup for {stage}"
+                ) from exc
+            exit_code = getattr(process, "exitcode", None)
+            exit_codes.append(exit_code if isinstance(exit_code, int) else None)
+            if alive or exit_code is None:
+                raise RuntimeError(
+                    f"worker cleanup verification failed for {stage}"
+                )
+
+        self.shutdown_records.append(
+            {
+                "stage": stage,
+                "worker_processes_reaped": len(processes),
+                "worker_exit_codes": exit_codes,
+            }
+        )
+
+    def verify(self) -> dict[str, object]:
+        """Return a small finalization authorization only when no executor remains live."""
+        if self.active_executors != 0:
+            raise RuntimeError("worker cleanup verification found an active executor")
+        return {
+            "verified": True,
+            "executors_shutdown": len(self.shutdown_records),
+            "worker_processes_reaped": sum(
+                int(record["worker_processes_reaped"])
+                for record in self.shutdown_records
+            ),
+            "stages": [str(record["stage"]) for record in self.shutdown_records],
+        }
+
+
 class PeriodicHeartbeat:
     """Refresh one run-status file periodically from a dedicated parent thread."""
 
@@ -428,6 +486,7 @@ class RunStatusWriter:
         live_dir = output_dir / LIVE_DIRECTORY_NAME
         self.path = live_dir / RUN_STATUS_FILENAME
         self.events_path = live_dir / EVENTS_FILENAME
+        self.failure_path = live_dir / RUN_FAILURE_FILENAME
         self.run_id = run_id
         self.command = command
         self.support = support
@@ -575,6 +634,36 @@ class RunStatusWriter:
             payload = self._payload(self._clock())
             _atomic_write_json(self.path, payload)
             return payload
+
+    def record_failure(
+        self,
+        terminal_state: str,
+        exc: BaseException,
+    ) -> dict[str, object]:
+        """Persist one small failed/interrupted terminal record without a bundle manifest."""
+        if terminal_state not in {"RUN_FAILED", "RUN_INTERRUPTED"}:
+            raise ValueError("invalid operational failure terminal state")
+        payload: dict[str, object] = {
+            "format": RUN_FAILURE_FORMAT,
+            "run_id": self.run_id,
+            "state": terminal_state,
+            "time_utc": self._clock(),
+            "error_type": type(exc).__name__,
+            "error": str(exc)[:1000],
+        }
+        _atomic_write_json(self.failure_path, payload)
+        self.update(
+            workflow_state=terminal_state,
+            current_operation=None,
+            terminal=True,
+        )
+        self.event(
+            terminal_state,
+            failure_record=f"{LIVE_DIRECTORY_NAME}/{RUN_FAILURE_FILENAME}",
+            error_type=type(exc).__name__,
+            error=str(exc)[:500],
+        )
+        return payload
 
     def heartbeat(self) -> dict[str, object]:
         """Refresh liveness timestamps without claiming workflow progress."""

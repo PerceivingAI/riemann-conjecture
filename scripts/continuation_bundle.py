@@ -100,8 +100,11 @@ def _atomic_write_json(path: Path, payload: object) -> tuple[str, int]:
     data = _json_bytes(payload)
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(path.name + ".tmp")
-    temporary.write_bytes(data)
-    temporary.replace(path)
+    try:
+        temporary.write_bytes(data)
+        temporary.replace(path)
+    finally:
+        temporary.unlink(missing_ok=True)
     return hashlib.sha256(data).hexdigest(), len(data)
 
 
@@ -153,8 +156,16 @@ def write_continuation_bundle(
     run_started_at: str | None = None,
     run_completed_at: str | None = None,
     provenance: dict[str, object] | None = None,
+    worker_cleanup: dict[str, object],
+    result_payload_sha256: str,
 ) -> dict[str, Any]:
-    """Write a complete P8 continuation bundle and return its manifest."""
+    """Write a completed continuation bundle, sealing it with the manifest last."""
+    if worker_cleanup.get("verified") is not True:
+        raise ValueError("worker cleanup must be verified before bundle finalization")
+    if len(result_payload_sha256) != 64 or any(
+        character not in "0123456789abcdef" for character in result_payload_sha256
+    ):
+        raise ValueError("result payload digest must be a lowercase SHA-256 hex string")
     if output_dir.exists():
         entries = list(output_dir.iterdir())
         allowed_names = {LIVE_DIRECTORY_NAME, RUN_LOCK_FILENAME}
@@ -172,7 +183,6 @@ def write_continuation_bundle(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     started = run_started_at or utc_now()
-    completed = run_completed_at or utc_now()
     runtime = provenance or collect_runtime_provenance()
     artifacts: list[dict[str, object]] = []
 
@@ -186,8 +196,6 @@ def write_continuation_bundle(
                 "bytes": byte_count,
             }
         )
-
-    write("summary.json", _summary_payload(result), "summary")
 
     for index, run in enumerate(result.get("scout_runs", []), start=1):
         write(
@@ -262,7 +270,12 @@ def write_continuation_bundle(
         "exact_candidate",
     )
 
+    # summary.json is deliberately written after every stage artifact. The
+    # manifest below is the final bundle write and is the completion seal.
+    write("summary.json", _summary_payload(result), "summary")
+
     artifacts.sort(key=lambda artifact: str(artifact["path"]))
+    completed = run_completed_at or utc_now()
     manifest = {
         "format": BUNDLE_FORMAT,
         "role": "pre_theorem_continuation_bundle_manifest",
@@ -278,6 +291,11 @@ def write_continuation_bundle(
         "theorem_status": result.get("theorem_status", False),
         "independently_verified": result.get("independently_verified", False),
         "whitelisted": result.get("whitelisted", False),
+        "finalization": {
+            "worker_cleanup": worker_cleanup,
+            "result_payload_sha256": result_payload_sha256,
+            "manifest_written_last": True,
+        },
         "artifacts": artifacts,
         "warning": (
             "This bundle contains pre-theorem continuation evidence only. "

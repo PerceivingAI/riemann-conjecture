@@ -2,6 +2,7 @@ import argparse
 import copy
 import json
 import ast
+import os
 from fractions import Fraction
 from pathlib import Path
 
@@ -1230,6 +1231,22 @@ def test_cli_writes_requested_output_directory(
             "dimensions": dimensions,
         }
 
+    terminal_order: list[str] = []
+    original_update = driver.RunStatusWriter.update
+    original_event = driver.RunStatusWriter.event
+
+    def recording_update(self, **kwargs):
+        if kwargs.get("terminal") is True:
+            terminal_order.append("STATUS_TERMINAL")
+        return original_update(self, **kwargs)
+
+    def recording_event(self, event, **kwargs):
+        if event == "RUN_COMPLETED":
+            terminal_order.append("RUN_COMPLETED")
+        return original_event(self, event, **kwargs)
+
+    monkeypatch.setattr(driver.RunStatusWriter, "update", recording_update)
+    monkeypatch.setattr(driver.RunStatusWriter, "event", recording_event)
     monkeypatch.setattr(driver, "collect_runtime_provenance", fake_provenance)
     monkeypatch.setattr(driver, "run_driver", fake_run_driver)
     monkeypatch.setattr(
@@ -1295,10 +1312,23 @@ def test_cli_writes_requested_output_directory(
     )
     assert [event["event"] for event in live_events] == [
         "RUN_STARTED",
+        "WORKER_CLEANUP_VERIFIED",
+        "RESULT_PAYLOAD_FROZEN",
         "BUNDLE_FINALIZATION_STARTED",
         "BUNDLE_FINALIZATION_COMPLETED",
         "RUN_COMPLETED",
     ]
+    assert terminal_order == ["STATUS_TERMINAL", "RUN_COMPLETED"]
+    assert manifest_payload["finalization"]["worker_cleanup"] == {
+        "verified": True,
+        "executors_shutdown": 0,
+        "worker_processes_reaped": 0,
+        "stages": [],
+    }
+    frozen_digest = manifest_payload["finalization"]["result_payload_sha256"]
+    assert isinstance(frozen_digest, str) and len(frozen_digest) == 64
+    assert live_events[2]["sha256"] == frozen_digest
+    assert manifest_payload["finalization"]["manifest_written_last"] is True
     assert all(event["run_id"] == live_status["run_id"] for event in live_events)
     assert live_events[-1]["final_state"] == "NO_CANDIDATE"
     captured = capsys.readouterr()
@@ -1318,6 +1348,33 @@ def test_cli_writes_requested_output_directory(
     assert captured_kwargs["rigorous_workers"] == min(
         driver.CLI_RIGOROUS_WORKERS_MAX, available_cpus
     )
+
+
+def test_frozen_result_payload_is_detached_and_digest_stable() -> None:
+    original = {"state": "NO_CANDIDATE", "nested": {"values": [1, 2, 3]}}
+    frozen, digest = driver._freeze_result_payload(original)
+
+    original["nested"]["values"].append(4)
+    assert frozen == {"state": "NO_CANDIDATE", "nested": {"values": [1, 2, 3]}}
+    encoded = json.dumps(frozen, separators=(",", ":"), allow_nan=False).encode("utf-8")
+    assert digest == driver.hashlib.sha256(encoded).hexdigest()
+
+
+def test_verified_process_pool_reaps_real_spawned_workers() -> None:
+    verifier = driver.WorkerCleanupVerifier()
+    with driver._verified_process_pool(
+        2,
+        stage="TEST_POOL",
+        verifier=verifier,
+    ) as executor:
+        worker_pids = {executor.submit(os.getpid).result() for _ in range(2)}
+        assert worker_pids
+
+    report = verifier.verify()
+    assert report["verified"] is True
+    assert report["executors_shutdown"] == 1
+    assert int(report["worker_processes_reaped"]) >= 1
+    assert report["stages"] == ["TEST_POOL"]
 
 
 def test_cli_quiet_suppresses_live_stderr_without_changing_stdout(
@@ -1356,6 +1413,149 @@ def test_cli_quiet_suppresses_live_stderr_without_changing_stdout(
     assert "RESULT: NO_CANDIDATE" in captured.out
     assert captured.err == ""
     assert captured_kwargs["progress"].enabled is False
+
+
+def _fixed_cli_provenance(*, exclude_output_dir=None) -> dict[str, object]:
+    return {
+        "git_commit": "c" * 40,
+        "git_dirty": False,
+        "python_version": "3.14.0",
+        "python_implementation": "CPython",
+        "python_flint_version": "0.9.0",
+    }
+
+
+def test_cli_runtime_failure_records_run_failed_without_manifest(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "failed-continuation"
+    monkeypatch.setattr(driver, "collect_runtime_provenance", _fixed_cli_provenance)
+    monkeypatch.setattr(
+        driver,
+        "run_driver",
+        lambda *args, **kwargs: (_ for _ in ()).throw(RuntimeError("synthetic runtime failure")),
+    )
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "weil_continuation_driver",
+            "--support",
+            "19/40",
+            "--n",
+            "48",
+            "--output-dir",
+            str(output_dir),
+        ],
+    )
+
+    with pytest.raises(RuntimeError, match="synthetic runtime failure"):
+        driver.main()
+
+    assert not (output_dir / "run-manifest.json").exists()
+    failure = json.loads((output_dir / ".live" / "failure.json").read_text(encoding="utf-8"))
+    status = json.loads((output_dir / ".live" / "run-status.json").read_text(encoding="utf-8"))
+    events = [
+        json.loads(line)
+        for line in (output_dir / ".live" / "events.jsonl").read_text(encoding="utf-8").splitlines()
+    ]
+    assert failure["state"] == "RUN_FAILED"
+    assert failure["error_type"] == "RuntimeError"
+    assert status["workflow_state"] == "RUN_FAILED"
+    assert status["terminal"] is True
+    assert events[-1]["event"] == "RUN_FAILED"
+    assert all(event["event"] != "RUN_COMPLETED" for event in events)
+
+
+def test_cli_interrupt_records_run_interrupted_without_manifest(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "interrupted-continuation"
+    monkeypatch.setattr(driver, "collect_runtime_provenance", _fixed_cli_provenance)
+
+    def interrupt(*args, **kwargs):
+        raise KeyboardInterrupt()
+
+    monkeypatch.setattr(driver, "run_driver", interrupt)
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "weil_continuation_driver",
+            "--support",
+            "19/40",
+            "--n",
+            "48",
+            "--output-dir",
+            str(output_dir),
+        ],
+    )
+
+    with pytest.raises(KeyboardInterrupt):
+        driver.main()
+
+    assert not (output_dir / "run-manifest.json").exists()
+    failure = json.loads((output_dir / ".live" / "failure.json").read_text(encoding="utf-8"))
+    status = json.loads((output_dir / ".live" / "run-status.json").read_text(encoding="utf-8"))
+    events = [
+        json.loads(line)
+        for line in (output_dir / ".live" / "events.jsonl").read_text(encoding="utf-8").splitlines()
+    ]
+    assert failure["state"] == "RUN_INTERRUPTED"
+    assert status["workflow_state"] == "RUN_INTERRUPTED"
+    assert status["terminal"] is True
+    assert events[-1]["event"] == "RUN_INTERRUPTED"
+    assert all(event["event"] != "RUN_COMPLETED" for event in events)
+
+
+def test_cli_finalization_failure_rolls_back_manifest(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "finalization-failure"
+    monkeypatch.setattr(driver, "collect_runtime_provenance", _fixed_cli_provenance)
+    monkeypatch.setattr(
+        driver,
+        "run_driver",
+        lambda support, dimensions, **kwargs: {
+            "state": "NO_CANDIDATE",
+            "workflow_state": "NO_CANDIDATE",
+            "support": str(support),
+            "dimensions": dimensions,
+        },
+    )
+
+    def fail_after_manifest(result, target, **kwargs):
+        (target / "run-manifest.json").write_text('{"invalid":true}\n', encoding="utf-8")
+        raise ValueError("synthetic finalization failure")
+
+    monkeypatch.setattr(driver, "write_continuation_bundle", fail_after_manifest)
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "weil_continuation_driver",
+            "--support",
+            "19/40",
+            "--n",
+            "48",
+            "--output-dir",
+            str(output_dir),
+        ],
+    )
+
+    with pytest.raises(SystemExit) as exc_info:
+        driver.main()
+
+    assert exc_info.value.code == 2
+    assert not (output_dir / "run-manifest.json").exists()
+    failure = json.loads((output_dir / ".live" / "failure.json").read_text(encoding="utf-8"))
+    assert failure["state"] == "RUN_FAILED"
+    events = [
+        json.loads(line)
+        for line in (output_dir / ".live" / "events.jsonl").read_text(encoding="utf-8").splitlines()
+    ]
+    assert events[-1]["event"] == "RUN_FAILED"
+    assert all(event["event"] != "RUN_COMPLETED" for event in events)
 
 
 def test_cli_lock_contention_exits_before_expensive_work(

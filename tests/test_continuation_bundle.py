@@ -112,6 +112,18 @@ def _result() -> dict[str, object]:
     }
 
 
+def _finalization_kwargs() -> dict[str, object]:
+    return {
+        "worker_cleanup": {
+            "verified": True,
+            "executors_shutdown": 2,
+            "worker_processes_reaped": 4,
+            "stages": ["FLOAT_SCOUT", "RIGOROUS_PRECISION_SEARCH"],
+        },
+        "result_payload_sha256": "d" * 64,
+    }
+
+
 def test_runtime_provenance_can_exclude_owned_output_directory(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
@@ -163,6 +175,7 @@ def test_p8_bundle_writes_stage_artifacts_and_hash_manifest(tmp_path: Path) -> N
         output_dir,
         run_started_at="2026-08-27T09:00:00Z",
         run_completed_at="2026-08-27T09:05:00Z",
+        **_finalization_kwargs(),
         provenance=provenance,
     )
 
@@ -208,6 +221,9 @@ def test_p8_bundle_writes_stage_artifacts_and_hash_manifest(tmp_path: Path) -> N
     assert manifest["configuration"]["precision_ladder"] == [128, 256]
     assert manifest["configuration"]["scout_workers"] == 3
     assert manifest["configuration"]["rigorous_workers"] == 2
+    assert manifest["finalization"]["worker_cleanup"]["verified"] is True
+    assert manifest["finalization"]["result_payload_sha256"] == "d" * 64
+    assert manifest["finalization"]["manifest_written_last"] is True
 
     artifact_paths = {entry["path"] for entry in manifest["artifacts"]}
     assert artifact_paths == expected - {"run-manifest.json"}
@@ -215,6 +231,63 @@ def test_p8_bundle_writes_stage_artifacts_and_hash_manifest(tmp_path: Path) -> N
         data = (output_dir / entry["path"]).read_bytes()
         assert entry["sha256"] == hashlib.sha256(data).hexdigest()
         assert entry["bytes"] == len(data)
+
+
+def test_bundle_writes_stage_artifacts_then_summary_and_manifest_last(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "ordered-finalization"
+    writes: list[str] = []
+    original = bundle._atomic_write_json
+
+    def recording_write(path: Path, payload: object) -> tuple[str, int]:
+        writes.append(path.relative_to(output_dir).as_posix())
+        return original(path, payload)
+
+    monkeypatch.setattr(bundle, "_atomic_write_json", recording_write)
+    write_continuation_bundle(
+        _result(),
+        output_dir,
+        provenance={
+            "git_commit": "a" * 40,
+            "git_dirty": False,
+            "python_version": "3.14.0",
+            "python_implementation": "CPython",
+            "python_flint_version": "0.9.0",
+        },
+        **_finalization_kwargs(),
+    )
+
+    assert writes[-1] == "run-manifest.json"
+    assert writes[-2] == "summary.json"
+    assert all(
+        writes.index(stage_path) < writes.index("summary.json")
+        for stage_path in (
+            "scout/resolution-01.json",
+            "scout/resolution-02.json",
+            "rigorous/N064-p128.json",
+            "rigorous/N064-p256.json",
+            "candidate/candidate.json",
+        )
+    )
+
+
+def test_bundle_rejects_unverified_worker_cleanup(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="worker cleanup must be verified"):
+        write_continuation_bundle(
+            _result(),
+            tmp_path / "unverified",
+            provenance={
+                "git_commit": "a" * 40,
+                "git_dirty": False,
+                "python_version": "3.14.0",
+                "python_implementation": "CPython",
+                "python_flint_version": "0.9.0",
+            },
+            worker_cleanup={"verified": False},
+            result_payload_sha256="d" * 64,
+        )
 
 
 def test_bundle_allows_live_operational_directory_without_manifesting_it(
@@ -244,6 +317,7 @@ def test_bundle_allows_live_operational_directory_without_manifesting_it(
     manifest = write_continuation_bundle(
         _result(),
         output_dir,
+        **_finalization_kwargs(),
         provenance={
             "git_commit": "a" * 40,
             "git_dirty": False,
@@ -271,6 +345,7 @@ def test_p8_bundle_refuses_nonempty_output_directory(tmp_path: Path) -> None:
         write_continuation_bundle(
             _result(),
             output_dir,
+            **_finalization_kwargs(),
             provenance={
                 "git_commit": "a" * 40,
                 "git_dirty": False,

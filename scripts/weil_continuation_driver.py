@@ -18,11 +18,12 @@ import os
 import sys
 import time
 from concurrent.futures import ProcessPoolExecutor
+from contextlib import contextmanager
 from enum import StrEnum
 from dataclasses import asdict, dataclass, field
 from fractions import Fraction
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any, Callable, Iterator
 
 # Keep each numerical worker single-threaded by default so process-level
 # parallelism does not oversubscribe BLAS/OpenMP. Explicit user settings win.
@@ -43,6 +44,7 @@ from scripts.run_observability import (
     OutputDirectoryLock,
     OutputDirectoryLockedError,
     RunStatusWriter,
+    WorkerCleanupVerifier,
     write_run_identity,
 )
 from scripts.weil_legendre_schur_scout import scout
@@ -246,6 +248,38 @@ def _spawn_process_pool(max_workers: int) -> ProcessPoolExecutor:
         max_workers=max_workers,
         mp_context=multiprocessing.get_context("spawn"),
     )
+
+
+@contextmanager
+def _verified_process_pool(
+    max_workers: int,
+    *,
+    stage: str,
+    verifier: WorkerCleanupVerifier,
+) -> Iterator[ProcessPoolExecutor]:
+    """Run one process pool and verify every spawned worker is dead after shutdown."""
+    executor = _spawn_process_pool(max_workers)
+    verifier.executor_started(stage)
+    processes: list[Any] = []
+    try:
+        with executor:
+            try:
+                yield executor
+            finally:
+                raw_processes = getattr(executor, "_processes", None)
+                if isinstance(raw_processes, dict):
+                    processes = list(raw_processes.values())
+    finally:
+        verifier.executor_stopped(stage, processes)
+
+
+def _freeze_result_payload(result: dict[str, Any]) -> tuple[dict[str, Any], str]:
+    """Deep-copy the terminal result through JSON and return its immutable-content digest."""
+    encoded = json.dumps(result, separators=(",", ":"), allow_nan=False).encode("utf-8")
+    frozen = json.loads(encoded.decode("utf-8"))
+    if not isinstance(frozen, dict):
+        raise TypeError("terminal result must freeze to a JSON object")
+    return frozen, hashlib.sha256(encoded).hexdigest()
 
 
 def _scout_resolution_worker(
@@ -1200,8 +1234,10 @@ def run_driver(
     cache_dir: Path | None = None,
     run_status: RunStatusWriter | None = None,
     progress: LiveProgress | None = None,
+    worker_cleanup: WorkerCleanupVerifier | None = None,
 ) -> dict[str, Any]:
     machine = ContinuationStateMachine()
+    cleanup_verifier = worker_cleanup or WorkerCleanupVerifier()
 
     def emit_event(event: str, **details: object) -> None:
         if run_status is not None:
@@ -1455,7 +1491,11 @@ def run_driver(
             except Exception as exc:
                 record_scout_failure(resolution, exc)
     else:
-        with _spawn_process_pool(effective_scout_workers) as executor:
+        with _verified_process_pool(
+            effective_scout_workers,
+            stage="FLOAT_SCOUT",
+            verifier=cleanup_verifier,
+        ) as executor:
             jobs = [
                 (
                     resolution,
@@ -1659,7 +1699,11 @@ def run_driver(
                 record_rigorous_failure(dimension, exc)
     else:
         cache_dir_text = str(cache_dir) if cache_dir is not None else None
-        with _spawn_process_pool(effective_rigorous_workers) as executor:
+        with _verified_process_pool(
+            effective_rigorous_workers,
+            stage="RIGOROUS_PRECISION_SEARCH",
+            verifier=cleanup_verifier,
+        ) as executor:
             jobs = [
                 (
                     dimension,
@@ -2318,8 +2362,11 @@ def main() -> None:
             f"dimensions={_dimension_progress_text(dimensions)}"
         )
 
-        with run_status.periodic_heartbeats():
-            try:
+        worker_cleanup = WorkerCleanupVerifier()
+        frozen_result: dict[str, Any] | None = None
+        manifest_path = args.output_dir / "run-manifest.json"
+        try:
+            with run_status.periodic_heartbeats():
                 result = run_driver(
                     support,
                     dimensions,
@@ -2338,51 +2385,83 @@ def main() -> None:
                     cache_dir=args.cache_dir,
                     run_status=run_status,
                     progress=progress,
+                    worker_cleanup=worker_cleanup,
                 )
-            except (ValueError, ZeroDivisionError) as exc:
-                parser.error(str(exc))
 
-            run_completed_at = utc_now()
-            final_workflow_state = str(
-                result.get("workflow_state", result.get("state", "UNKNOWN"))
-            )
-            run_status.event(
-                "BUNDLE_FINALIZATION_STARTED",
-                final_state=final_workflow_state,
-            )
-            progress.emit("BUNDLE write started")
-            run_status.update(
-                workflow_state=final_workflow_state,
-                current_operation={"stage": "BUNDLE_FINALIZATION"},
-                terminal=False,
-            )
-            try:
+                final_workflow_state = str(
+                    result.get("workflow_state", result.get("state", "UNKNOWN"))
+                )
+                cleanup_report = worker_cleanup.verify()
+                run_status.event(
+                    "WORKER_CLEANUP_VERIFIED",
+                    final_state=final_workflow_state,
+                    executors_shutdown=cleanup_report["executors_shutdown"],
+                    worker_processes_reaped=cleanup_report["worker_processes_reaped"],
+                )
+
+                frozen_result, result_payload_sha256 = _freeze_result_payload(result)
+                run_status.event(
+                    "RESULT_PAYLOAD_FROZEN",
+                    final_state=final_workflow_state,
+                    sha256=result_payload_sha256,
+                )
+                run_status.event(
+                    "BUNDLE_FINALIZATION_STARTED",
+                    final_state=final_workflow_state,
+                )
+                progress.emit("BUNDLE write started")
+                run_status.update(
+                    workflow_state=final_workflow_state,
+                    current_operation={"stage": "BUNDLE_FINALIZATION"},
+                    terminal=False,
+                )
                 write_continuation_bundle(
-                    result,
+                    frozen_result,
                     args.output_dir,
                     run_started_at=run_started_at,
-                    run_completed_at=run_completed_at,
                     provenance=provenance,
+                    worker_cleanup=cleanup_report,
+                    result_payload_sha256=result_payload_sha256,
                 )
-            except ValueError as exc:
-                parser.error(str(exc))
-            run_status.event(
-                "BUNDLE_FINALIZATION_COMPLETED",
-                final_state=final_workflow_state,
-                manifest="run-manifest.json",
-            )
-            progress.emit("BUNDLE write complete")
-            run_status.event("RUN_COMPLETED", final_state=final_workflow_state)
-            run_status.update(
-                workflow_state=final_workflow_state,
-                current_operation=None,
-                terminal=True,
-            )
+                _, digest_after_bundle = _freeze_result_payload(frozen_result)
+                if digest_after_bundle != result_payload_sha256:
+                    raise RuntimeError("frozen result payload changed during finalization")
+                run_status.event(
+                    "BUNDLE_FINALIZATION_COMPLETED",
+                    final_state=final_workflow_state,
+                    manifest="run-manifest.json",
+                )
+                progress.emit("BUNDLE write complete")
+                run_status.update(
+                    workflow_state=final_workflow_state,
+                    current_operation=None,
+                    terminal=True,
+                )
+                run_status.event("RUN_COMPLETED", final_state=final_workflow_state)
             progress.emit(f"TERMINAL {final_workflow_state}")
-            if args.json:
-                print(json.dumps(result, indent=2, allow_nan=False))
-            else:
-                print(format_terminal_summary(result))
+        except KeyboardInterrupt as exc:
+            manifest_path.unlink(missing_ok=True)
+            run_status.record_failure("RUN_INTERRUPTED", exc)
+            progress.emit("TERMINAL RUN_INTERRUPTED")
+            raise
+        except (ValueError, ZeroDivisionError) as exc:
+            manifest_path.unlink(missing_ok=True)
+            run_status.record_failure("RUN_FAILED", exc)
+            progress.emit("TERMINAL RUN_FAILED")
+            parser.error(str(exc))
+        except Exception as exc:
+            manifest_path.unlink(missing_ok=True)
+            run_status.record_failure("RUN_FAILED", exc)
+            progress.emit("TERMINAL RUN_FAILED")
+            raise
+
+        if frozen_result is None:
+            raise RuntimeError("completed run has no frozen result payload")
+
+    if args.json:
+        print(json.dumps(frozen_result, indent=2, allow_nan=False))
+    else:
+        print(format_terminal_summary(frozen_result))
 
 
 if __name__ == "__main__":

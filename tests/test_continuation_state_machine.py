@@ -222,6 +222,13 @@ def test_p9_bundle_manifest_retains_state_trace(
     write_continuation_bundle(
         result,
         output_dir,
+        worker_cleanup={
+            "verified": True,
+            "executors_shutdown": 0,
+            "worker_processes_reaped": 0,
+            "stages": [],
+        },
+        result_payload_sha256="d" * 64,
         provenance={
             "git_commit": "a" * 40,
             "git_dirty": True,

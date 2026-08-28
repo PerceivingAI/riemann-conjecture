@@ -13,12 +13,14 @@ import pytest
 from scripts.run_observability import (
     HEARTBEAT_INTERVAL_SECONDS,
     LIVE_RUN_FORMAT,
+    RUN_FAILURE_FORMAT,
     RUN_IDENTITY_FORMAT,
     RUN_LOCK_FORMAT,
     OutputDirectoryLock,
     OutputDirectoryLockedError,
     PeriodicHeartbeat,
     RunStatusWriter,
+    WorkerCleanupVerifier,
     write_run_identity,
 )
 
@@ -304,6 +306,75 @@ def test_run_identity_prevents_silent_directory_reuse_after_lock_release(tmp_pat
     assert identity["run_id"] == first.run_id
     assert identity["driver"] == "weil_continuation_driver"
 
+
+def test_worker_cleanup_verifier_requires_reaped_workers() -> None:
+    class FakeProcess:
+        def __init__(self, *, alive: bool, exitcode: int | None) -> None:
+            self._alive = alive
+            self.exitcode = exitcode
+
+        def is_alive(self) -> bool:
+            return self._alive
+
+    verifier = WorkerCleanupVerifier()
+    verifier.executor_started("FLOAT_SCOUT")
+    verifier.executor_stopped(
+        "FLOAT_SCOUT",
+        [FakeProcess(alive=False, exitcode=0), FakeProcess(alive=False, exitcode=1)],
+    )
+    report = verifier.verify()
+
+    assert report == {
+        "verified": True,
+        "executors_shutdown": 1,
+        "worker_processes_reaped": 2,
+        "stages": ["FLOAT_SCOUT"],
+    }
+
+    broken = WorkerCleanupVerifier()
+    broken.executor_started("RIGOROUS_PRECISION_SEARCH")
+    with pytest.raises(RuntimeError, match="worker cleanup verification failed"):
+        broken.executor_stopped(
+            "RIGOROUS_PRECISION_SEARCH",
+            [FakeProcess(alive=True, exitcode=None)],
+        )
+
+
+def test_failure_record_sets_operational_terminal_state_without_manifest(tmp_path: Path) -> None:
+    output_dir = tmp_path / "failed-run"
+    with OutputDirectoryLock.acquire(
+        output_dir,
+        command="weil_continuation_driver",
+        support="27/50",
+        started_at_utc="2026-08-28T04:30:00Z",
+    ) as owner:
+        write_run_identity(
+            owner,
+            driver_version="continuation-driver-test-v1",
+            dimensions=[96],
+            git_commit="a" * 40,
+            git_dirty=False,
+        )
+        status = RunStatusWriter.start(
+            output_dir,
+            command="weil_continuation_driver",
+            support="27/50",
+            started_at_utc="2026-08-28T04:30:00Z",
+            output_lock=owner,
+        )
+        failure = status.record_failure("RUN_FAILED", RuntimeError("synthetic failure"))
+
+        assert failure["format"] == RUN_FAILURE_FORMAT
+        assert failure["run_id"] == owner.run_id
+        assert failure["state"] == "RUN_FAILED"
+        assert failure["error_type"] == "RuntimeError"
+        assert failure["error"] == "synthetic failure"
+        assert status.failure_path.stat().st_size < 4096
+        live_status = json.loads(status.path.read_text(encoding="utf-8"))
+        assert live_status["workflow_state"] == "RUN_FAILED"
+        assert live_status["terminal"] is True
+        assert _read_events(status.events_path)[-1]["event"] == "RUN_FAILED"
+        assert not (output_dir / "run-manifest.json").exists()
 
 def test_stale_lock_file_does_not_block_reacquisition(tmp_path: Path) -> None:
     output_dir = tmp_path / "reusable-lock"
