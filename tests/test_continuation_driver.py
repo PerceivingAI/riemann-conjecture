@@ -4,22 +4,13 @@ import json
 import ast
 import os
 from contextlib import contextmanager
+from concurrent.futures import Future
 from fractions import Fraction
 from pathlib import Path
 
 import pytest
 
 from scripts import weil_continuation_driver as driver
-
-
-class _InlineFuture:
-    def __init__(self, fn, args, kwargs):
-        self._fn = fn
-        self._args = args
-        self._kwargs = kwargs
-
-    def result(self):
-        return self._fn(*self._args, **self._kwargs)
 
 
 class _RecordingRunStatus:
@@ -47,7 +38,14 @@ class _InlineExecutor:
         return False
 
     def submit(self, fn, *args, **kwargs):
-        return _InlineFuture(fn, args, kwargs)
+        future: Future = Future()
+        try:
+            result = fn(*args, **kwargs)
+        except BaseException as exc:
+            future.set_exception(exc)
+        else:
+            future.set_result(result)
+        return future
 
 
 def _minimal_terminal_result(support: Fraction, dimensions: list[int]) -> dict[str, object]:
@@ -1032,6 +1030,187 @@ def test_parallel_orchestration_preserves_deterministic_result_order(
     assert rigorous_calls == [48, 52]
     assert result["selected_candidate_dimension"] == 48
     assert pool_sizes == [3, 2]
+
+
+
+def test_parallel_completion_observation_is_immediate_but_results_stay_canonical(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    status = _RecordingRunStatus()
+    monkeypatch.setattr(driver, "_spawn_process_pool", lambda workers: _InlineExecutor())
+    monkeypatch.setattr(
+        driver,
+        "as_completed",
+        lambda futures: iter(reversed(list(futures))),
+    )
+    monkeypatch.setattr(
+        driver,
+        "scout",
+        lambda *, max_mode, quadrature_order, shift_order, n_values, support: _scout_result(
+            n_values, positive=True
+        ),
+    )
+    monkeypatch.setattr(
+        driver,
+        "_escalate_rigorous_screen",
+        lambda support, dimension, precisions, residual_order, cache_dir=None: {
+            "status": "precision_stable",
+            "selected_precision_bits": 256,
+            "attempts": [],
+            "precision_pair_diagnostics": [],
+        },
+    )
+    monkeypatch.setattr(
+        driver,
+        "_construct_candidate",
+        lambda *args, **kwargs: {
+            "status": "candidate_ready",
+            "selected_matrix_bits": 64,
+            "selected_witness_bits": 32,
+            "attempts": [],
+        },
+    )
+    monkeypatch.setattr(
+        driver,
+        "_confirm_candidate_precision_stability",
+        _stable_candidate_confirmation,
+    )
+
+    result = driver.run_driver(
+        Fraction(19, 40),
+        [52, 48, 56],
+        scout_workers=3,
+        rigorous_workers=2,
+        run_status=status,
+    )
+
+    scout_completion_order = [
+        int(event["level"])
+        for event in status.events
+        if event["event"] == "SCOUT_RESOLUTION_COMPLETED"
+    ]
+    rigorous_completion_order = [
+        int(event["dimension"])
+        for event in status.events
+        if event["event"] == "RIGOROUS_DIMENSION_COMPLETED"
+    ]
+    assert scout_completion_order == [2, 1, 0]
+    assert rigorous_completion_order == [52, 48]
+    assert [run["resolution"]["level"] for run in result["scout_runs"]] == [0, 1, 2]
+    assert [
+        row["resolution"]["level"]
+        for row in result["scout_runs"]
+        if row["status"] == "completed"
+    ] == [0, 1, 2]
+    assert [
+        item["max_mode"]
+        for item in result["reconnaissance"][0]["resolutions"]
+    ] == [
+        resolution["max_mode"] for resolution in result["scout_resolution_plan"]
+    ]
+    assert [row["dimension"] for row in result["rigorous_screening"]] == [48, 52]
+    assert result["selected_candidate_dimension"] == 48
+
+    scout_live_updates = [
+        update["current_operation"]
+        for update in status.updates
+        if isinstance(update.get("current_operation"), dict)
+        and update["current_operation"].get("stage") == "FLOAT_SCOUT"
+        and "completed_resolution_levels" in update["current_operation"]
+    ]
+    assert scout_live_updates[0]["completed_resolution_levels"] == [2]
+    assert scout_live_updates[-1]["active_resolution_levels"] == []
+    rigorous_live_updates = [
+        update["current_operation"]
+        for update in status.updates
+        if isinstance(update.get("current_operation"), dict)
+        and update["current_operation"].get("stage") == "RIGOROUS_PRECISION_SEARCH"
+        and "completed_dimensions" in update["current_operation"]
+    ]
+    assert rigorous_live_updates[0]["completed_dimensions"] == [52]
+    assert rigorous_live_updates[-1]["active_dimensions"] == []
+
+
+def test_parallel_failures_are_observed_by_completion_but_stored_canonically(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    status = _RecordingRunStatus()
+    monkeypatch.setattr(driver, "_spawn_process_pool", lambda workers: _InlineExecutor())
+    monkeypatch.setattr(
+        driver,
+        "as_completed",
+        lambda futures: iter(reversed(list(futures))),
+    )
+    monkeypatch.setattr(
+        driver,
+        "scout",
+        lambda *, max_mode, quadrature_order, shift_order, n_values, support: _scout_result(
+            n_values, positive=True
+        ),
+    )
+
+    def failing_rigorous(support, dimension, precisions, residual_order, cache_dir=None):
+        raise RuntimeError(f"synthetic rigorous failure N={dimension}")
+
+    monkeypatch.setattr(driver, "_escalate_rigorous_screen", failing_rigorous)
+
+    result = driver.run_driver(
+        Fraction(19, 40),
+        [52, 48, 56],
+        scout_workers=3,
+        rigorous_workers=2,
+        run_status=status,
+    )
+
+    failure_observation_order = [
+        int(event["dimension"])
+        for event in status.events
+        if event["event"] == "RIGOROUS_DIMENSION_FAILED"
+    ]
+    assert failure_observation_order == [52, 48]
+    assert [failure["dimension"] for failure in result["rigorous_failures"]] == [48, 52]
+    assert result["rigorous_screening"] == []
+    assert result["state"] == "RIGOROUS_ASSEMBLY_FAILED"
+
+
+def test_parallel_scout_failures_keep_resolution_order_for_retained_state(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    status = _RecordingRunStatus()
+    calls = {"count": 0}
+    monkeypatch.setattr(driver, "_spawn_process_pool", lambda workers: _InlineExecutor())
+    monkeypatch.setattr(
+        driver,
+        "as_completed",
+        lambda futures: iter(reversed(list(futures))),
+    )
+
+    def flaky_scout(*, max_mode, quadrature_order, shift_order, n_values, support):
+        call = calls["count"]
+        calls["count"] += 1
+        if call in {0, 2}:
+            raise RuntimeError(f"synthetic scout failure call={call}")
+        return _scout_result(n_values, positive=True)
+
+    monkeypatch.setattr(driver, "scout", flaky_scout)
+
+    result = driver.run_driver(
+        Fraction(19, 40),
+        [48],
+        scout_workers=3,
+        rigorous_workers=1,
+        run_status=status,
+    )
+
+    failed_observation_order = [
+        int(event["level"])
+        for event in status.events
+        if event["event"] == "SCOUT_RESOLUTION_FAILED"
+    ]
+    assert failed_observation_order == [2, 0]
+    assert [failure["resolution"]["level"] for failure in result["scout_failures"]] == [0, 2]
+    assert [run["resolution"]["level"] for run in result["scout_runs"]] == [0, 1, 2]
+    assert result["state"] == "SCOUT_UNSTABLE"
 
 
 def test_run_driver_updates_live_status_without_changing_terminal_semantics(

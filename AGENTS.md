@@ -330,6 +330,8 @@ Completed continuation manifests record `process_lifecycle` for the Python drive
 
 Executor cleanup must preserve the standard `with ProcessPoolExecutor(...)` lifecycle. After a pool context returns, the driver may recover only the exact captured executor workers: short join, then `terminate()` + join, then `kill()` + join if still necessary. `multiprocessing.active_children()` is a cross-check, not an ownership source; never terminate unrelated children from that list. Unresolved owned workers fail the run. The repository does not claim to solve a `shutdown(wait=True)` call that itself never returns; OS-wide containment remains Portus-owned.
 
+Parallel completion chronology and retained result ordering are deliberately separate. Observe process-pool futures in actual completion order so live events/status/progress surface finished or failed work immediately, but buffer outcomes by resolution/dimension and materialize all mathematical/result structures in canonical resolution/dimension order before downstream classification or candidate selection. Never let scheduler timing reorder scout stability samples, rigorous screening records, failure records, survivors, or candidate priority.
+
 ## 9. Rust and Lean verification
 
 Rust workspace crates are declared in the root `Cargo.toml`.
