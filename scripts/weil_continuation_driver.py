@@ -15,6 +15,8 @@ import hashlib
 import json
 import multiprocessing
 import os
+import sys
+import time
 from concurrent.futures import ProcessPoolExecutor
 from enum import StrEnum
 from dataclasses import asdict, dataclass, field
@@ -59,6 +61,35 @@ PRECISION_STATUS_INSUFFICIENT = "INSUFFICIENT_PRECISION"
 PRECISION_STATUS_STABLE = "PRECISION_STABLE"
 PRECISION_STATUS_MATHEMATICAL_NEGATIVE = "MATHEMATICAL_NEGATIVE"
 PRECISION_STATUS_ASSEMBLY_FAILED = "ASSEMBLY_FAILED"
+
+
+@dataclass(frozen=True)
+class LiveProgress:
+    """Emit short elapsed-time progress lines to stderr and flush immediately."""
+
+    enabled: bool = True
+    started_monotonic: float = field(default_factory=time.monotonic)
+
+    def emit(self, message: str) -> None:
+        if not self.enabled:
+            return
+        elapsed = max(0, int(time.monotonic() - self.started_monotonic))
+        hours, remainder = divmod(elapsed, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        sys.stderr.write(
+            f"[{hours:02d}:{minutes:02d}:{seconds:02d}] {message}\n"
+        )
+        sys.stderr.flush()
+
+
+def _dimension_progress_text(dimensions: list[int]) -> str:
+    if len(dimensions) == 1:
+        return str(dimensions[0])
+    if len(dimensions) >= 2:
+        step = dimensions[1] - dimensions[0]
+        if step > 0 and dimensions == list(range(dimensions[0], dimensions[-1] + 1, step)):
+            return f"{dimensions[0]}..{dimensions[-1]} step={step}"
+    return ",".join(str(dimension) for dimension in dimensions)
 
 
 class WorkflowState(StrEnum):
@@ -233,15 +264,25 @@ def _rigorous_screen_worker(
     precisions: list[int],
     residual_order: int,
     cache_dir_text: str | None,
+    progress: LiveProgress | None,
 ) -> dict[str, object]:
     """Run one dimension's sequential precision ladder in a child process."""
     cache_dir = Path(cache_dir_text) if cache_dir_text is not None else None
+    if progress is None:
+        return _escalate_rigorous_screen(
+            support,
+            dimension,
+            precisions,
+            residual_order,
+            cache_dir,
+        )
     return _escalate_rigorous_screen(
         support,
         dimension,
         precisions,
         residual_order,
         cache_dir,
+        progress=progress,
     )
 
 
@@ -597,6 +638,8 @@ def _escalate_rigorous_screen(
     precisions: list[int],
     residual_order: int,
     cache_dir: Path | None = None,
+    *,
+    progress: LiveProgress | None = None,
 ) -> dict[str, object]:
     import math
 
@@ -605,6 +648,8 @@ def _escalate_rigorous_screen(
     previous_schur: float | None = None
     previous_result: dict[str, object] | None = None
     for precision in precisions:
+        if progress is not None:
+            progress.emit(f"N={dimension} precision={precision} started")
         try:
             result, _ = _cached_result(
                 cache_dir,
@@ -633,6 +678,8 @@ def _escalate_rigorous_screen(
                     "error": str(exc),
                 }
             )
+            if progress is not None:
+                progress.emit(f"N={dimension} precision={precision} assembly-failed")
             continue
 
         schur = result["schur_min_eigenvalue_midpoint"]
@@ -685,6 +732,8 @@ def _escalate_rigorous_screen(
         ):
             attempt["precision_status"] = PRECISION_STATUS_STABLE
             attempt["precision_reasons"] = ["stable_against_previous_precision"]
+            if progress is not None:
+                progress.emit(f"N={dimension} precision={precision} stable")
             return {
                 "status": "precision_stable",
                 "precision_status": PRECISION_STATUS_STABLE,
@@ -692,6 +741,8 @@ def _escalate_rigorous_screen(
                 "attempts": attempts,
                 "precision_pair_diagnostics": pair_diagnostics,
             }
+        if progress is not None:
+            progress.emit(f"N={dimension} precision={precision} insufficient")
         previous_schur = float(schur) if usable else None
         previous_result = attempt if usable else None
 
@@ -966,6 +1017,7 @@ def _confirm_candidate_precision_stability(
     precision_step: int,
     extra_steps: int,
     cache_dir: Path | None,
+    progress: LiveProgress | None = None,
 ) -> dict[str, object]:
     if precision_step < 1:
         raise ValueError("candidate precision step must be positive")
@@ -984,6 +1036,8 @@ def _confirm_candidate_precision_stability(
 
     for step_index in range(1, extra_steps + 1):
         precision = base_precision + precision_step * step_index
+        if progress is not None:
+            progress.emit(f"N={dimension} confirmation precision={precision} started")
         try:
             result, cache_hit = _cached_result(
                 cache_dir,
@@ -1017,6 +1071,10 @@ def _confirm_candidate_precision_stability(
                     "error": str(exc),
                 }
             )
+            if progress is not None:
+                progress.emit(
+                    f"N={dimension} confirmation precision={precision} {exc.stage}-failed"
+                )
             continue
         except Exception as exc:
             attempts.append(
@@ -1030,6 +1088,10 @@ def _confirm_candidate_precision_stability(
                     "error": str(exc),
                 }
             )
+            if progress is not None:
+                progress.emit(
+                    f"N={dimension} confirmation precision={precision} candidate-check-failed"
+                )
             return {
                 "classification": "CANDIDATE_CHECK_FAILED",
                 "qualified": False,
@@ -1056,6 +1118,11 @@ def _confirm_candidate_precision_stability(
         attempts.append(current)
         diagnostics = _candidate_precision_pair_diagnostics(previous_success, current)
         pair_diagnostics.append(diagnostics)
+        if progress is not None:
+            progress.emit(
+                f"N={dimension} confirmation precision={precision} "
+                + ("stable" if diagnostics["qualified"] is True else "insufficient")
+            )
         if diagnostics["qualified"] is True:
             return {
                 "classification": (
@@ -1127,12 +1194,17 @@ def run_driver(
     rigorous_workers: int = 1,
     cache_dir: Path | None = None,
     run_status: RunStatusWriter | None = None,
+    progress: LiveProgress | None = None,
 ) -> dict[str, Any]:
     machine = ContinuationStateMachine()
 
     def emit_event(event: str, **details: object) -> None:
         if run_status is not None:
             run_status.event(event, **details)
+
+    def emit_progress(message: str) -> None:
+        if progress is not None:
+            progress.emit(message)
 
     def observe_operation(operation: dict[str, object] | None) -> None:
         if run_status is not None:
@@ -1288,6 +1360,9 @@ def run_driver(
         resolution_count=len(resolutions),
         worker_count=min(scout_workers, len(resolutions)),
     )
+    emit_progress(
+        f"SCOUT resolutions={len(resolutions)} workers={min(scout_workers, len(resolutions))}"
+    )
     series: dict[int, list[ScoutDimensionResult]] = {
         dimension: [] for dimension in dimensions
     }
@@ -1318,6 +1393,9 @@ def run_driver(
             quadrature_order=resolution.quadrature_order,
             shift_order=resolution.shift_order,
         )
+        emit_progress(
+            f"SCOUT resolution {resolution.level + 1}/{len(resolutions)} complete"
+        )
 
     def record_scout_failure(resolution: ScoutResolution, exc: Exception) -> None:
         failure = {
@@ -1333,6 +1411,10 @@ def run_driver(
             level=resolution.level,
             error_type=type(exc).__name__,
             error=str(exc)[:500],
+        )
+        emit_progress(
+            f"SCOUT resolution {resolution.level + 1}/{len(resolutions)} failed "
+            f"type={type(exc).__name__}"
         )
 
     effective_scout_workers = min(scout_workers, len(resolutions))
@@ -1408,6 +1490,11 @@ def run_driver(
         completed_resolutions=sum(run["status"] == "completed" for run in scout_runs),
         failed_resolutions=len(scout_failures),
     )
+    emit_progress(
+        "SCOUT complete "
+        f"completed={sum(run['status'] == 'completed' for run in scout_runs)} "
+        f"failed={len(scout_failures)}"
+    )
     transition(
         WorkflowState.CHECK_SCOUT_STABILITY,
         reason="floating_scout_complete",
@@ -1445,6 +1532,10 @@ def run_driver(
             if row["classification"] == "unstable"
         ],
     )
+    if stable_dimensions:
+        emit_progress(f"SCOUT stable-positive begins at N={stable_dimensions[0]}")
+    else:
+        emit_progress("SCOUT no stable-positive dimension")
     if not stable_dimensions:
         unstable = bool(scout_failures) or any(
             row["classification"] == "unstable" for row in reconnaissance
@@ -1483,6 +1574,11 @@ def run_driver(
         dimensions=screening_dimensions,
         worker_count=min(rigorous_workers, len(screening_dimensions)),
     )
+    emit_progress(
+        "RIGOROUS targets "
+        + ",".join(f"N={dimension}" for dimension in screening_dimensions)
+        + f" workers={min(rigorous_workers, len(screening_dimensions))}"
+    )
     survivors: list[int] = []
 
     def record_rigorous_result(
@@ -1506,6 +1602,9 @@ def run_driver(
                 if isinstance(attempt, dict)
             ],
         )
+        emit_progress(
+            f"RIGOROUS N={dimension} complete status={screening.get('status')}"
+        )
 
     def record_rigorous_failure(dimension: int, exc: Exception) -> None:
         rigorous_failures.append(
@@ -1521,11 +1620,13 @@ def run_driver(
             error_type=type(exc).__name__,
             error=str(exc)[:500],
         )
+        emit_progress(f"RIGOROUS N={dimension} failed type={type(exc).__name__}")
 
     effective_rigorous_workers = min(rigorous_workers, len(screening_dimensions))
     if effective_rigorous_workers == 1:
         for dimension in screening_dimensions:
             emit_event("RIGOROUS_DIMENSION_STARTED", dimension=dimension)
+            emit_progress(f"RIGOROUS N={dimension} started")
             observe_operation(
                 {
                     "stage": WorkflowState.RIGOROUS_PRECISION_SEARCH.value,
@@ -1534,12 +1635,21 @@ def run_driver(
                 }
             )
             try:
-                record_rigorous_result(
-                    dimension,
+                screening = (
                     _escalate_rigorous_screen(
                         support, dimension, precisions, residual_order, cache_dir
-                    ),
+                    )
+                    if progress is None
+                    else _escalate_rigorous_screen(
+                        support,
+                        dimension,
+                        precisions,
+                        residual_order,
+                        cache_dir,
+                        progress=progress,
+                    )
                 )
+                record_rigorous_result(dimension, screening)
             except Exception as exc:
                 record_rigorous_failure(dimension, exc)
     else:
@@ -1555,12 +1665,14 @@ def run_driver(
                         precisions,
                         residual_order,
                         cache_dir_text,
+                        progress,
                     ),
                 )
                 for dimension in screening_dimensions
             ]
             for dimension in screening_dimensions:
                 emit_event("RIGOROUS_DIMENSION_STARTED", dimension=dimension)
+                emit_progress(f"RIGOROUS N={dimension} started")
             observe_operation(
                 {
                     "stage": WorkflowState.RIGOROUS_PRECISION_SEARCH.value,
@@ -1581,6 +1693,9 @@ def run_driver(
         screened_dimensions=screening_dimensions,
         surviving_dimensions=survivors,
         failure_count=len(rigorous_failures),
+    )
+    emit_progress(
+        f"RIGOROUS complete survivors={len(survivors)} failures={len(rigorous_failures)}"
     )
     transition(
         WorkflowState.CHECK_RIGOROUS_STABILITY,
@@ -1615,6 +1730,7 @@ def run_driver(
     )
     for dimension in survivors:
         emit_event("CANDIDATE_STARTED", dimension=dimension)
+        emit_progress(f"CANDIDATE N={dimension} rounding started")
         observe_operation(
             {
                 "stage": WorkflowState.EXACT_ROUNDING_SEARCH.value,
@@ -1642,6 +1758,9 @@ def run_driver(
                 matrix_bits=candidate.get("selected_matrix_bits"),
                 witness_bits=candidate.get("selected_witness_bits"),
             )
+            emit_progress(
+                f"CANDIDATE N={dimension} rounding complete status={candidate.get('status')}"
+            )
             if candidate["status"] != "candidate_ready":
                 candidate_failures.append(
                     {"dimension": dimension, "status": candidate["status"]}
@@ -1659,6 +1778,9 @@ def run_driver(
                 dimension=dimension,
                 error_type=type(exc).__name__,
                 error=str(exc)[:500],
+            )
+            emit_progress(
+                f"CANDIDATE N={dimension} rounding failed type={type(exc).__name__}"
             )
 
     ready = [
@@ -1689,6 +1811,7 @@ def run_driver(
                 precision_step=candidate_precision_step,
                 extra_steps=candidate_precision_extra_steps,
             )
+            emit_progress(f"CANDIDATE N={dimension} confirmation started")
             observe_operation(
                 {
                     "stage": WorkflowState.CANDIDATE_PRECISION_CONFIRMATION.value,
@@ -1698,14 +1821,19 @@ def run_driver(
                 }
             )
             try:
+                confirmation_kwargs = {
+                    "precision_step": candidate_precision_step,
+                    "extra_steps": candidate_precision_extra_steps,
+                    "cache_dir": cache_dir,
+                }
+                if progress is not None:
+                    confirmation_kwargs["progress"] = progress
                 stability = _confirm_candidate_precision_stability(
                     support,
                     dimension,
                     candidate,
                     residual_order,
-                    precision_step=candidate_precision_step,
-                    extra_steps=candidate_precision_extra_steps,
-                    cache_dir=cache_dir,
+                    **confirmation_kwargs,
                 )
             except Exception as exc:
                 stability = {
@@ -1726,6 +1854,10 @@ def run_driver(
                 confirmed_precision_bits=stability.get(
                     "selected_confirmation_precision_bits"
                 ),
+            )
+            emit_progress(
+                f"CANDIDATE N={dimension} confirmation complete "
+                f"status={stability.get('classification')}"
             )
             if stability.get("qualified") is True:
                 selected_candidate_dimension = dimension
@@ -2115,6 +2247,11 @@ def main() -> None:
         help="print the full machine-readable result JSON instead of the concise terminal summary",
     )
     parser.add_argument(
+        "--quiet",
+        action="store_true",
+        help="suppress live progress on stderr; final stdout output is unchanged",
+    )
+    parser.add_argument(
         "--cache-dir",
         type=Path,
         default=Path(".cache/continuation-driver"),
@@ -2128,6 +2265,7 @@ def main() -> None:
     except (ValueError, ZeroDivisionError) as exc:
         parser.error(str(exc))
 
+    progress = LiveProgress(enabled=not args.quiet)
     run_started_at = utc_now()
     try:
         run_status = RunStatusWriter.start(
@@ -2140,6 +2278,11 @@ def main() -> None:
         )
     except ValueError as exc:
         parser.error(str(exc))
+
+    progress.emit(
+        f"RUN T={support.numerator}/{support.denominator} "
+        f"dimensions={_dimension_progress_text(dimensions)}"
+    )
 
     with run_status.periodic_heartbeats():
         provenance = collect_runtime_provenance()
@@ -2161,6 +2304,7 @@ def main() -> None:
                 rigorous_workers=args.rigorous_workers,
                 cache_dir=args.cache_dir,
                 run_status=run_status,
+                progress=progress,
             )
         except (ValueError, ZeroDivisionError) as exc:
             parser.error(str(exc))
@@ -2173,6 +2317,7 @@ def main() -> None:
             "BUNDLE_FINALIZATION_STARTED",
             final_state=final_workflow_state,
         )
+        progress.emit("BUNDLE write started")
         run_status.update(
             workflow_state=final_workflow_state,
             current_operation={"stage": "BUNDLE_FINALIZATION"},
@@ -2193,12 +2338,14 @@ def main() -> None:
             final_state=final_workflow_state,
             manifest="run-manifest.json",
         )
+        progress.emit("BUNDLE write complete")
         run_status.event("RUN_COMPLETED", final_state=final_workflow_state)
         run_status.update(
             workflow_state=final_workflow_state,
             current_operation=None,
             terminal=True,
         )
+        progress.emit(f"TERMINAL {final_workflow_state}")
         if args.json:
             print(json.dumps(result, indent=2, allow_nan=False))
         else:

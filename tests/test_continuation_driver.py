@@ -1061,6 +1061,66 @@ def test_run_driver_updates_live_status_without_changing_terminal_semantics(
     assert status.events[-1]["result_state"] == "NO_CANDIDATE"
 
 
+def test_live_progress_reports_stage_and_precision_milestones(
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    monkeypatch.setattr(
+        driver,
+        "scout",
+        lambda *, max_mode, quadrature_order, shift_order, n_values, support: _scout_result(
+            n_values, positive=True
+        ),
+    )
+    monkeypatch.setattr(
+        driver,
+        "scout_support",
+        lambda *args, **kwargs: _rigorous_result(positive=True),
+    )
+    monkeypatch.setattr(
+        driver,
+        "_construct_candidate",
+        lambda *args, **kwargs: {
+            "status": "candidate_ready",
+            "selected_matrix_bits": 64,
+            "selected_witness_bits": 32,
+            "attempts": [],
+        },
+    )
+    monkeypatch.setattr(
+        driver,
+        "_confirm_candidate_precision_stability",
+        _stable_candidate_confirmation,
+    )
+    progress = driver.LiveProgress(started_monotonic=driver.time.monotonic())
+
+    result = driver.run_driver(
+        Fraction(19, 40),
+        [48],
+        precision_start=128,
+        precision_max=256,
+        progress=progress,
+    )
+
+    assert result["state"] == "CANDIDATE_READY"
+    stderr = capsys.readouterr().err
+    assert "] SCOUT resolutions=3 workers=1" in stderr
+    assert "] SCOUT resolution 1/3 complete" in stderr
+    assert "] SCOUT stable-positive begins at N=48" in stderr
+    assert "] RIGOROUS targets N=48 workers=1" in stderr
+    assert "] RIGOROUS N=48 started" in stderr
+    assert "] N=48 precision=128 started" in stderr
+    assert "] N=48 precision=128 insufficient" in stderr
+    assert "] N=48 precision=256 started" in stderr
+    assert "] N=48 precision=256 stable" in stderr
+    assert "] RIGOROUS N=48 complete status=precision_stable" in stderr
+    assert "] RIGOROUS complete survivors=1 failures=0" in stderr
+    assert "] CANDIDATE N=48 rounding started" in stderr
+    assert "] CANDIDATE N=48 rounding complete status=candidate_ready" in stderr
+    assert "] CANDIDATE N=48 confirmation started" in stderr
+    assert "] CANDIDATE N=48 confirmation complete status=CANDIDATE_STABLE" in stderr
+
+
 def test_driver_propagates_precision_limit(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
         driver,
@@ -1199,10 +1259,16 @@ def test_cli_writes_requested_output_directory(
     ]
     assert all(event["run_id"] == live_status["run_id"] for event in live_events)
     assert live_events[-1]["final_state"] == "NO_CANDIDATE"
-    terminal = capsys.readouterr().out
+    captured = capsys.readouterr()
+    terminal = captured.out
     assert "Support continuation candidate search" in terminal
     assert "RESULT: NO_CANDIDATE" in terminal
     assert '"state"' not in terminal
+    assert "] RUN T=19/40 dimensions=48" in captured.err
+    assert "] BUNDLE write started" in captured.err
+    assert "] BUNDLE write complete" in captured.err
+    assert "] TERMINAL NO_CANDIDATE" in captured.err
+    assert captured_kwargs["progress"].enabled is True
     available_cpus = driver.os.cpu_count() or 1
     assert captured_kwargs["scout_workers"] == min(
         driver.CLI_SCOUT_WORKERS_MAX, available_cpus
@@ -1210,6 +1276,44 @@ def test_cli_writes_requested_output_directory(
     assert captured_kwargs["rigorous_workers"] == min(
         driver.CLI_RIGOROUS_WORKERS_MAX, available_cpus
     )
+
+
+def test_cli_quiet_suppresses_live_stderr_without_changing_stdout(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    captured_kwargs: dict[str, object] = {}
+
+    def fake_run_driver(support, dimensions, **kwargs):
+        captured_kwargs.update(kwargs)
+        return {
+            "state": "NO_CANDIDATE",
+            "support": str(support),
+            "dimensions": dimensions,
+        }
+
+    monkeypatch.setattr(driver, "run_driver", fake_run_driver)
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "weil_continuation_driver",
+            "--support",
+            "19/40",
+            "--n",
+            "48",
+            "--output-dir",
+            str(tmp_path / "quiet-continuation"),
+            "--quiet",
+        ],
+    )
+
+    driver.main()
+
+    captured = capsys.readouterr()
+    assert "RESULT: NO_CANDIDATE" in captured.out
+    assert captured.err == ""
+    assert captured_kwargs["progress"].enabled is False
 
 
 def test_p13_cli_json_flag_preserves_full_machine_readable_stdout(
@@ -1236,11 +1340,14 @@ def test_p13_cli_json_flag_preserves_full_machine_readable_stdout(
 
     driver.main()
 
-    stdout = capsys.readouterr().out
+    captured = capsys.readouterr()
+    stdout = captured.out
     parsed = json.loads(stdout)
     assert parsed == result
     assert parsed["state"] == "CANDIDATE_READY"
     assert "Support continuation candidate search" not in stdout
+    assert "] RUN T=19/40 dimensions=60..64 step=4" in captured.err
+    assert '"state"' not in captured.err
 
 
 
