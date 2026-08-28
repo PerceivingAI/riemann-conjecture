@@ -1,7 +1,7 @@
 # Repository Architecture & Proof Contracts
 
 - **Created:** `2026-08-21T06:00:00Z`
-- **Last updated:** `2026-08-27T17:26:10Z`
+- **Last updated:** `2026-08-28T01:27:20Z`
 - **Status:** Authoritative
 
 This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
@@ -81,7 +81,9 @@ For `exact_prime_legendre_schur`, v1 uses a **closed whitelist**, not a paramete
 (T,N)=(2/5,40)
 (T,N)=(17/40,48)
 (T,N)=(9/20,56)
-(T,N)=(19/40,68),
+(T,N)=(19/40,68)
+(T,N)=(1/2,80)
+(T,N)=(21/40,96)
 ```
 
 with both parity sectors, residual order `32`, and exact Schur factor `3`. Rust does **not** trust a precomputed Schur matrix. For the admitted dimension `N`, it derives
@@ -144,13 +146,13 @@ where $K_k$ has kernel $e^{-2a_k|t-s|}$. Zero extension to the real line and the
 $$\int_{\mathbb R}e^{-2a_k|u|}\,du=\frac1{a_k}$$
 give $\langle f,K_kf\rangle\le a_k^{-1}\lVert f\rVert_2^2$. Hence every omitted $B_k$ is nonnegative and the verifier-derived tail lower bound is exactly zero. The witness contains `k_max` and `first_omitted_k`; Rust must check `first_omitted_k = k_max + 1`.
 
-`legendre_component_gram_schur` applies only to `exact_prime_legendre_schur`. In v1, `harmonic_index` must equal the whitelisted finite dimension (`32`, `40`, `48`, `56`, `68`, or `80`) and the factor must be the exact rational `3`. The required constants are only `c2`, `c_T`, and `rho_R`; the required proof matrices are `GV`, `G2`, and `GR`. Opposite-parity entries in `A`, `GV`, `G2`, and `GR` must be exactly zero. Rust derives the lower complement constant from the upper endpoints of those scalar intervals, reconstructs the factor-3 Schur matrix, extracts its even and odd blocks, and checks the supplied exact rational lower-triangular congruence witnesses for invertibility before applying exact interval Gershgorin positivity.
+`legendre_component_gram_schur` applies only to `exact_prime_legendre_schur`. In v1, `harmonic_index` must equal the whitelisted finite dimension (`32`, `40`, `48`, `56`, `68`, `80`, or `96`) and the factor must be the exact rational `3`. The required constants are only `c2`, `c_T`, and `rho_R`; the required proof matrices are `GV`, `G2`, and `GR`. Opposite-parity entries in `A`, `GV`, `G2`, and `GR` must be exactly zero. Rust derives the lower complement constant from the upper endpoints of those scalar intervals, reconstructs the factor-3 Schur matrix, extracts its even and odd blocks, and checks the supplied exact rational lower-triangular congruence witnesses for invertibility before applying exact interval Gershgorin positivity.
 
-The retained `C-0050` (`T=7/20,N=32`), `C-0051` (`T=2/5,N=40`), `C-0052` (`T=17/40,N=48`), `C-0053` (`T=9/20,N=56`), `C-0054` (`T=19/40,N=68`), and `C-0055` (`T=1/2,N=80`) certificates use this rule and are proof-bearing because `C-0045`, `C-0047`, and `C-0048` provide the analytic complement and Schur semantics encoded by the profile. Each theorem-bearing pair required explicit closed-contract admission followed by a fresh independent Rust PASS; whitelist admission alone never grants theorem status. No other `(T,N)` pair is admitted.
+The retained `C-0050` (`T=7/20,N=32`), `C-0051` (`T=2/5,N=40`), `C-0052` (`T=17/40,N=48`), `C-0053` (`T=9/20,N=56`), `C-0054` (`T=19/40,N=68`), `C-0055` (`T=1/2,N=80`), and `C-0056` (`T=21/40,N=96`) certificates use this rule and are proof-bearing because `C-0045`, `C-0047`, and `C-0048` provide the analytic complement and Schur semantics encoded by the profile. Each theorem-bearing pair required explicit closed-contract admission followed by a fresh independent Rust PASS; whitelist admission alone never grants theorem status. No other `(T,N)` pair is admitted.
 
 ### 2.6 Retained theorem-artifact acceptance
 
-Proof-bearing retention is governed by the closed manifest `computations/retained-proofs.json`. Its v1 entries bind each retained theorem claim to one computation ID, repository-relative certificate path, raw-byte SHA-256, support, dimension, claim profile, and verified scope. The manifest contains exactly `C-0050` through `C-0055`; pre-theorem candidates and tooling computations are not proof registrations.
+Proof-bearing retention is governed by the closed manifest `computations/retained-proofs.json`. Its v1 entries bind each retained theorem claim to one computation ID, repository-relative certificate path, raw-byte SHA-256, support, dimension, claim profile, and verified scope. The manifest contains exactly `C-0050` through `C-0056`; pre-theorem candidates and tooling computations are not proof registrations.
 
 The canonical audit is:
 
@@ -170,7 +172,7 @@ No other tail/proof type is valid. In particular, v1 does not accept a free-form
 
 The exact-prime whitelist is intentionally duplicated across independent production trust layers: the Python theorem exporter, Python semantic validator, JSON Schema, and Rust verifier. They must **not** load one shared production whitelist, because that would turn an admission mistake in the shared source into a correlated acceptance mistake across the supposedly independent layers.
 
-`tests/data/exact-prime-admission-v1.json` is therefore a **test-only expectation corpus**, not production configuration. It lists the five admitted pairs, all twenty mismatched cross-pairs formed from the admitted supports and dimensions, and selected external forbidden cases including `(T,N)=(19/40,64)` and `(19/40,72)`. Python and Rust tests independently execute the corpus against their own hard-coded admission rules, while the raw JSON Schema branch is tested separately. `docs/CONTRACTS.md` is also checked to name every admitted pair.
+`tests/data/exact-prime-admission-v1.json` is therefore a **test-only expectation corpus**, not production configuration. It lists the seven admitted pairs, all forty-two mismatched cross-pairs formed from the admitted supports and dimensions, and selected external forbidden cases including `(T,N)=(19/40,64)`, `(19/40,72)`, `(1/2,76)`, `(21/40,92)`, and `(21/40,100)`. Python and Rust tests independently execute the corpus against their own hard-coded admission rules, while the raw JSON Schema branch is tested separately. `docs/CONTRACTS.md` is also checked to name every admitted pair.
 
 Production Python/Rust source must not load the test corpus at runtime. Updating the corpus does not admit a theorem pair: admission still requires the explicit research decision, independent closed-contract edits, fresh certificate generation, and independent Rust PASS. The consistency corpus detects accidental whitelist drift; it is not mathematical evidence and cannot justify an admission by itself.
 

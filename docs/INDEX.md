@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T17:39:01Z`
+- **Last updated:** `2026-08-28T01:48:56Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -10,7 +10,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`PROTOCOL.md`](PROTOCOL.md) — authoritative documentation and research-record rules.
 - [`CONTRACTS.md`](CONTRACTS.md) — formal proof-certificate contracts, trust architecture, and dependency policy.
 - [`contracts/rh-weil-certificate-v1.json`](contracts/rh-weil-certificate-v1.json) — JSON Schema for exact rational certificates.
-- [`../computations/retained-proofs.json`](../computations/retained-proofs.json) — closed registry binding `C-0050` through `C-0055` to their exact retained certificate paths, SHA-256 values, and theorem identities for first-class integrity/replay acceptance.
+- [`../computations/retained-proofs.json`](../computations/retained-proofs.json) — closed registry binding `C-0050` through `C-0056` to their exact retained certificate paths, SHA-256 values, and theorem identities for first-class integrity/replay acceptance.
 - [`STATUS.md`](STATUS.md) — maintained snapshot of the current research frontier.
 - [`LOG.md`](LOG.md) — append-only chronological research log.
 - [`CLAIMS.md`](CLAIMS.md) — registry of important claims, their status, and dependencies.
@@ -103,6 +103,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`F-20260826-004`](../findings/2026-08-26T190517Z-localized-weil-positivity-at-nine-twentieths.md) — 512-bit exact `N=56` certificate plus independent Rust replay proves strict localized Weil positivity at `T=9/20`.
 - [`F-20260827-001`](../findings/2026-08-27T131615Z-localized-weil-positivity-at-nineteen-fortieths.md) — separately admitted fresh 384-bit exact `N=68` certificate plus independent Rust replay proves strict localized Weil positivity at `T=19/40`.
 - [`F-20260827-002`](../findings/2026-08-27T172610Z-localized-weil-positivity-at-one-half.md) — separately admitted fresh 512-bit exact `N=80` certificate plus independent Rust replay proves strict localized Weil positivity at `T=1/2` (`C-0055`).
+- [`F-20260828-001`](../findings/2026-08-28T012503Z-localized-weil-positivity-at-twenty-one-fortieths.md) — separately admitted fresh 512-bit exact `N=96` certificate plus independent Rust replay proves strict localized Weil positivity at `T=21/40` (`C-0056`).
 
 ## Computations
 
@@ -132,6 +133,8 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`X-20260827-002`](../computations/2026-08-27T122716Z-nineteen-fortieths-schur-certificate/record.md) — proof-bearing exact `T=19/40,N=68` theorem certificate, independent Rust PASS, adversarial replay, and acceptance verification supporting `C-0054`.
 - [`X-20260827-003`](../computations/2026-08-27T134254Z-rust-exact-verifier-optimization/record.md) — zero-float Rust verifier optimization and exact semantic replay: retained theorem outputs are byte-semantically unchanged as parsed JSON while debug replay timings fall by roughly `3–4x` over the previously benchmarked `N=32..56` corpus.
 - [`X-20260827-004`](../computations/2026-08-27T170850Z-one-half-schur-certificate/record.md) — separately admitted fresh exact `T=1/2,N=80` theorem certificate, independent zero-float Rust PASS, adversarial replay, and retained-proof registration supporting `C-0055`.
+- [`X-20260827-005`](../computations/2026-08-27T234812Z-t21-40-continuation/record.md) — historical canonical pre-theorem `T=21/40` continuation; full-tail screening rejects `N=88,92`, finds `N=96,100` positive, and selects exact `CANDIDATE_READY` at `N=96` without theorem promotion.
+- [`X-20260828-001`](../computations/2026-08-28T010811Z-t21-40-schur-certificate/record.md) — separately admitted fresh exact `T=21/40,N=96` theorem certificate, independent zero-float Rust PASS, adversarial replay, and retained-proof registration supporting `C-0056`.
 
 
 ## Templates
@@ -142,4 +145,4 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Current state
 
-RH remains unresolved. `C-0050` at `T=7/20`, `C-0051` at `T=2/5`, `C-0052` at `T=17/40`, `C-0053` at `T=9/20`, `C-0054` at `T=19/40`, and `C-0055` at `T=1/2` are independently verified finite-support theorems. `A-20260826-001` remains active. The immediate frontier is fresh canonical one-prime continuation above `T=1/2` without extrapolating the next dimension; the entry of the `p=3` compressed translation at `(1/2)log 3` remains a separate structural phase. See [`STATUS.md`](STATUS.md).
+RH remains unresolved. `C-0050` at `T=7/20`, `C-0051` at `T=2/5`, `C-0052` at `T=17/40`, `C-0053` at `T=9/20`, `C-0054` at `T=19/40`, `C-0055` at `T=1/2`, and `C-0056` at `T=21/40` are independently verified finite-support theorems. `A-20260826-001` remains active. The immediate frontier is canonical one-prime continuation at `T=27/50=0.54`, with the dimension selected by the driver rather than extrapolated from `N=96`; the entry of the `p=3` compressed translation at `(1/2)log 3` remains a separate structural phase. See [`STATUS.md`](STATUS.md).

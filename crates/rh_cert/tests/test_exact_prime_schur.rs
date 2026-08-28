@@ -212,6 +212,26 @@ fn exact_prime_profile_accepts_one_half_dimension_80() {
 }
 
 #[test]
+fn exact_prime_profile_accepts_twenty_one_fortieths_dimension_96() {
+    let fixture = exact_prime_fixture_for("21", "40", "21/40", 96);
+    let certificate = CertificateJson::from_json_str(&fixture.to_string()).expect("valid fixture");
+    let outcome = certificate.verify().expect("verification runs");
+    assert!(outcome.passed);
+    assert_eq!(outcome.dimension, 96);
+    assert_eq!(outcome.support_t, "21/40");
+    assert_eq!(outcome.verified_scope, "localized_weil_positivity_T_21_40");
+    let report = outcome.schur_report.expect("Schur report");
+    assert_eq!(report.even.dimension, 48);
+    assert_eq!(report.odd.dimension, 48);
+}
+
+#[test]
+fn exact_prime_profile_rejects_twenty_one_fortieths_dimension_100() {
+    let fixture = exact_prime_fixture_for("21", "40", "21/40", 100);
+    assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());
+}
+
+#[test]
 fn exact_prime_profile_rejects_one_half_dimension_76() {
     let fixture = exact_prime_fixture_for("1", "2", "1/2", 76);
     assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());

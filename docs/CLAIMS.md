@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T17:26:10Z`
+- **Last updated:** `2026-08-28T01:27:20Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -620,6 +620,17 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0039`, `C-0040`, `C-0044`, `C-0045`, `C-0047`, `C-0048`
 - **Source:** `A-20260826-001`, `F-20260827-002`, `X-20260827-004`
 - **Verification notes:** The canonical pre-theorem continuation at `T=1/2` selected `N=80` after `N=76` was rigorously precision-stable negative under the current Schur reduction; the exact `N=80` candidate was stable under fixed-parameter reassembly from 512 to 640 bits. A separate closed-contract admission then added only `(T,N)=(1/2,80)`. The fresh proof certificate was assembled at 512-bit Arb precision, outward-rounded to 64-bit dyadic rational intervals, and supplied with 32-bit exact dyadic congruence witnesses. Rust independently derives `mu_80>0.6983326376765460`, reconstructs the factor-3 Schur matrix, and proves the even/odd `40 x 40` blocks positive by exact rational congruence and interval Gershgorin, with margins approximately `0.0006030229450313612` and `0.002927388923852846`. Real-certificate adversarial replay gives exit `2` for a malformed factor and exit `1` for a contract-valid negative diagonal perturbation. The retained certificate SHA-256 is `95dd6c7a497ad605ddc81129a774bade5fbbc769d0f6fdf29172b89da2a57a7d`; the Rust replay SHA-256 is `7383c91f48ead83ac9268fcdb154f9372c45ac3510339b9eaac3bd6fd461322a`. The certificate records Git commit `79ec2ef357bbc5f34c140d1ecfcf1dd725a98949` with `git_dirty=true`. The retained theorem gate passes `6/6`. This is finite-support positivity at one support value and does not imply RH.
+
+### C-0056 — Strict localized Weil positivity at T=21/40
+
+- **Statement:** For Suzuki's scaled localized Weil quadratic form at `T=21/40`, including the exact `p=2` compressed-translation contribution and the mandatory finite-support residual kernel, one has `Q_T(w)>0` for every nonzero admissible localized test function `w`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-08-28T01:27:20Z`
+- **Last verified:** `2026-08-28T01:27:20Z`
+- **Dependencies:** `C-0039`, `C-0040`, `C-0044`, `C-0045`, `C-0047`, `C-0048`
+- **Source:** `A-20260826-001`, `F-20260828-001`, `X-20260828-001`
+- **Verification notes:** Historical pre-theorem `X-20260827-005` showed that `N=88` and `N=92` were precision-stable mathematical negatives under the rigorous full-tail Schur reduction even though the truncated scout looked positive; continuation then found `N=96` and `N=100` rigorously stable-positive and selected the smaller `N=96`, whose exact candidate remained unchanged under fixed-parameter 512-to-640-bit reassembly. A separate closed-contract admission added only `(T,N)=(21/40,96)`; `N=100` remains forbidden. Fresh proof-bearing `X-20260828-001` assembled a 512-bit Arb certificate with 64-bit outward matrix endpoints and 32-bit exact dyadic witnesses. Rust independently derives `mu_96>0.69600913384063989`, reconstructs the factor-3 Schur matrix, and proves the even/odd `48 x 48` blocks positive by exact rational congruence and interval Gershgorin, with margins approximately `0.00090134267068206139` and `0.0037494074424420441`. Real-certificate adversarial replay gives exit `2` for a malformed factor and exit `1` for a contract-valid negative diagonal perturbation. The retained certificate SHA-256 is `a455dcb995a56f6d387e79b199cfc6f18ba6fca108fcfe3c00987e1c47b44824`; the Rust replay SHA-256 is `9530b53b00c1e96a1be82b2127adc7d1424e63af444803f169be8434f51d2e83`. The certificate records Git commit `dc8b63c8d47a983d290d6b1ba3d05a621d1d830b` with `git_dirty=true`. The retained theorem gate passes `7/7`. This is finite-support positivity at one support value and does not imply RH.
 
 ## Entry format
 

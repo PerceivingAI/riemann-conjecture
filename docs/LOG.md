@@ -1,10 +1,24 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T17:26:10Z`
+- **Last updated:** `2026-08-28T01:27:20Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-08-28T01:27:20Z — T=21/40,N=96 admitted and independently verified
+
+**Type:** Finite-support theorem / explicit closed-contract admission / retained proof
+
+Historical pre-theorem `X-20260827-005` exposed an important scout/full-tail distinction at `T=21/40`: `N=88` and `N=92` were floating stable-positive but rigorously precision-stable negative once the complete Schur penalty was included. Continuing rather than stopping at those false scout positives found `N=96` and `N=100` rigorously stable-positive at 512 bits. The canonical driver selected the smallest successful point `N=96`, and fixed exact reassembly from 512 to 640 bits left all exact margins unchanged while Arb widths contracted.
+
+A separate admission decision extended the closed `exact_prime_legendre_schur` profile by exactly `(T,N)=(21/40,96)`; `N=100` remains forbidden. Cross-layer admission testing again caught independent stale dimension guards in the JSON Schema and Rust validation path before theorem generation; both were extended to `96`, while the seven-pair test corpus rejects the full off-diagonal admitted grid and explicitly rejects `(21/40,92)` and `(21/40,100)`.
+
+Fresh proof-bearing `X-20260828-001` generated `C-0056` from scratch at 512-bit Arb precision with 64-bit outward matrix endpoints and 32-bit exact witnesses. Certificate SHA-256 is `a455dcb995a56f6d387e79b199cfc6f18ba6fca108fcfe3c00987e1c47b44824`. The independent zero-float Rust verifier returns `passed=true`, scope `localized_weil_positivity_T_21_40`, and exact lower bounds corresponding approximately to `mu_96>0.69600913384063989`, even margin `>0.00090134267068206139`, and odd margin `>0.0037494074424420441`. Rust replay SHA-256 is `9530b53b00c1e96a1be82b2127adc7d1424e63af444803f169be8434f51d2e83`.
+
+Real-certificate adversarial replay gives contract failure `exit 2` for `factor=2` and theorem failure `exit 1` for a contract-valid negative diagonal perturbation. Focused retained-proof tests pass `67/67`, the full exact-prime Rust integration target passes `19/19`, strict Clippy passes, and the canonical retained-proof audit passes `7/7`. This establishes `F-20260828-001` / `C-0056`: strict localized Weil positivity at the single finite support `T=21/40`. RH remains unresolved, and the `p=3` entry at `(1/2)log 3` remains a separate structural transition.
+
+---
 
 ## 2026-08-27T17:26:10Z — T=1/2,N=80 admitted and independently verified
 
