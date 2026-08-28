@@ -1,9 +1,10 @@
 """Operational live-state primitives for long-running repository workflows.
 
-This module intentionally carries no mathematical semantics.  It provides a tiny,
-atomically replaced JSON status file plus a small append-only JSONL event journal
-that can be inspected safely while a run is active.  Periodic heartbeat threads,
-run locking, and recovery policy belong to later lifecycle-hardening slices.
+This module intentionally carries no mathematical semantics. It provides a tiny,
+atomically replaced JSON status file, a small append-only JSONL event journal,
+and a parent-owned periodic heartbeat that can be inspected safely while a run
+is active. Run locking and recovery policy belong to later lifecycle-hardening
+slices.
 """
 
 from __future__ import annotations
@@ -13,14 +14,16 @@ import os
 import threading
 import time
 import uuid
+from contextlib import contextmanager
 from pathlib import Path
-from typing import Callable
+from typing import Callable, Iterator
 
 
 LIVE_RUN_FORMAT = "riemann-live-run-v1"
 LIVE_DIRECTORY_NAME = ".live"
 RUN_STATUS_FILENAME = "run-status.json"
 EVENTS_FILENAME = "events.jsonl"
+HEARTBEAT_INTERVAL_SECONDS = 12.0
 _EVENT_RESERVED_FIELDS = frozenset({"seq", "time", "run_id", "event"})
 
 
@@ -71,6 +74,48 @@ def require_unused_output_directory(output_dir: Path) -> None:
 
 
 _UNSET = object()
+
+
+class PeriodicHeartbeat:
+    """Refresh one run-status file periodically from a dedicated parent thread."""
+
+    def __init__(
+        self,
+        writer: "RunStatusWriter",
+        *,
+        interval_seconds: float = HEARTBEAT_INTERVAL_SECONDS,
+    ) -> None:
+        if interval_seconds <= 0:
+            raise ValueError("heartbeat interval must be positive")
+        self.writer = writer
+        self.interval_seconds = interval_seconds
+        self._stop = threading.Event()
+        self._thread = threading.Thread(
+            target=self._run,
+            name=f"riemann-heartbeat-{writer.run_id}",
+            daemon=True,
+        )
+        self._started = False
+
+    @property
+    def is_alive(self) -> bool:
+        return self._thread.is_alive()
+
+    def start(self) -> None:
+        if self._started:
+            raise RuntimeError("periodic heartbeat cannot be started twice")
+        self._started = True
+        self._thread.start()
+
+    def stop(self) -> None:
+        if not self._started:
+            return
+        self._stop.set()
+        self._thread.join()
+
+    def _run(self) -> None:
+        while not self._stop.wait(self.interval_seconds):
+            self.writer.heartbeat()
 
 
 class RunStatusWriter:
@@ -213,3 +258,21 @@ class RunStatusWriter:
             payload = self._payload(self._clock())
             _atomic_write_json(self.path, payload)
             return payload
+
+    def heartbeat(self) -> dict[str, object]:
+        """Refresh liveness timestamps without claiming workflow progress."""
+        return self.update()
+
+    @contextmanager
+    def periodic_heartbeats(
+        self,
+        *,
+        interval_seconds: float = HEARTBEAT_INTERVAL_SECONDS,
+    ) -> Iterator[PeriodicHeartbeat]:
+        """Run periodic heartbeats and always join the heartbeat thread on exit."""
+        heartbeat = PeriodicHeartbeat(self, interval_seconds=interval_seconds)
+        heartbeat.start()
+        try:
+            yield heartbeat
+        finally:
+            heartbeat.stop()

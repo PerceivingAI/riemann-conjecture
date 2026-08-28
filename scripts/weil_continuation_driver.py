@@ -2141,65 +2141,68 @@ def main() -> None:
     except ValueError as exc:
         parser.error(str(exc))
 
-    provenance = collect_runtime_provenance()
-    try:
-        result = run_driver(
-            support,
-            dimensions,
-            scout_resolution_count=args.scout_resolutions,
-            precision_start=args.precision_start,
-            precision_max=args.precision_max,
-            residual_order=args.residual_order,
-            matrix_bits_start=args.matrix_bits_start,
-            matrix_bits_max=args.matrix_bits_max,
-            witness_bits_start=args.witness_bits_start,
-            witness_bits_max=args.witness_bits_max,
-            candidate_precision_step=args.candidate_precision_step,
-            candidate_precision_extra_steps=args.candidate_precision_extra_steps,
-            scout_workers=args.scout_workers,
-            rigorous_workers=args.rigorous_workers,
-            cache_dir=args.cache_dir,
-            run_status=run_status,
-        )
-    except (ValueError, ZeroDivisionError) as exc:
-        parser.error(str(exc))
+    with run_status.periodic_heartbeats():
+        provenance = collect_runtime_provenance()
+        try:
+            result = run_driver(
+                support,
+                dimensions,
+                scout_resolution_count=args.scout_resolutions,
+                precision_start=args.precision_start,
+                precision_max=args.precision_max,
+                residual_order=args.residual_order,
+                matrix_bits_start=args.matrix_bits_start,
+                matrix_bits_max=args.matrix_bits_max,
+                witness_bits_start=args.witness_bits_start,
+                witness_bits_max=args.witness_bits_max,
+                candidate_precision_step=args.candidate_precision_step,
+                candidate_precision_extra_steps=args.candidate_precision_extra_steps,
+                scout_workers=args.scout_workers,
+                rigorous_workers=args.rigorous_workers,
+                cache_dir=args.cache_dir,
+                run_status=run_status,
+            )
+        except (ValueError, ZeroDivisionError) as exc:
+            parser.error(str(exc))
 
-    run_completed_at = utc_now()
-    final_workflow_state = str(result.get("workflow_state", result.get("state", "UNKNOWN")))
-    run_status.event(
-        "BUNDLE_FINALIZATION_STARTED",
-        final_state=final_workflow_state,
-    )
-    run_status.update(
-        workflow_state=final_workflow_state,
-        current_operation={"stage": "BUNDLE_FINALIZATION"},
-        terminal=False,
-    )
-    try:
-        write_continuation_bundle(
-            result,
-            args.output_dir,
-            run_started_at=run_started_at,
-            run_completed_at=run_completed_at,
-            provenance=provenance,
+        run_completed_at = utc_now()
+        final_workflow_state = str(
+            result.get("workflow_state", result.get("state", "UNKNOWN"))
         )
-    except ValueError as exc:
-        parser.error(str(exc))
-    run_status.event(
-        "BUNDLE_FINALIZATION_COMPLETED",
-        final_state=final_workflow_state,
-        manifest="run-manifest.json",
-    )
-    run_status.event("RUN_COMPLETED", final_state=final_workflow_state)
-    run_status.update(
-        workflow_state=final_workflow_state,
-        current_operation=None,
-        terminal=True,
-    )
-    if args.json:
-        print(json.dumps(result, indent=2, allow_nan=False))
-    else:
-        print(format_terminal_summary(result))
+        run_status.event(
+            "BUNDLE_FINALIZATION_STARTED",
+            final_state=final_workflow_state,
+        )
+        run_status.update(
+            workflow_state=final_workflow_state,
+            current_operation={"stage": "BUNDLE_FINALIZATION"},
+            terminal=False,
+        )
+        try:
+            write_continuation_bundle(
+                result,
+                args.output_dir,
+                run_started_at=run_started_at,
+                run_completed_at=run_completed_at,
+                provenance=provenance,
+            )
+        except ValueError as exc:
+            parser.error(str(exc))
+        run_status.event(
+            "BUNDLE_FINALIZATION_COMPLETED",
+            final_state=final_workflow_state,
+            manifest="run-manifest.json",
+        )
+        run_status.event("RUN_COMPLETED", final_state=final_workflow_state)
+        run_status.update(
+            workflow_state=final_workflow_state,
+            current_operation=None,
+            terminal=True,
+        )
+        if args.json:
+            print(json.dumps(result, indent=2, allow_nan=False))
+        else:
+            print(format_terminal_summary(result))
 
 
 if __name__ == "__main__":
