@@ -298,7 +298,7 @@ Do not casually add expensive high-dimensional certificate generation to the fas
 
 ### Retained theorem-artifact acceptance
 
-The five proof-bearing retained certificates have their own real-artifact acceptance tier. It is excluded from the default pytest expression under the `retained_proofs` marker:
+The seven proof-bearing retained certificates have their own real-artifact acceptance tier. It is excluded from the default pytest expression under the `retained_proofs` marker:
 
 ```text
 uv run --locked --extra test python -m pytest -q \

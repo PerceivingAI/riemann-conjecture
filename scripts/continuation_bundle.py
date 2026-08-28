@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import platform
 import subprocess
 from datetime import datetime, timezone
@@ -21,6 +22,21 @@ from scripts.run_observability import LIVE_DIRECTORY_NAME, RUN_LOCK_FILENAME
 
 
 BUNDLE_FORMAT = "rh-continuation-candidate-bundle-v1"
+_PRE_THEOREM_FALSE_FIELDS = frozenset(
+    {"theorem_status", "independently_verified", "whitelisted", "automatic_promotion"}
+)
+CONTINUATION_TERMINAL_STATES = frozenset(
+    {
+        "NO_CANDIDATE",
+        "SCOUT_UNSTABLE",
+        "RIGOROUS_ASSEMBLY_FAILED",
+        "PRECISION_LIMIT_REACHED",
+        "ROUNDING_FAILED",
+        "WITNESS_FAILED",
+        "CANDIDATE_CHECK_FAILED",
+        "CANDIDATE_READY",
+    }
+)
 
 
 def utc_now() -> str:
@@ -96,16 +112,48 @@ def _json_bytes(payload: object) -> bytes:
     return (json.dumps(payload, indent=2, allow_nan=False) + "\n").encode("utf-8")
 
 
+def _fsync_directory(path: Path) -> None:
+    """Durably publish a rename on POSIX; file fsync is sufficient on Windows."""
+    if os.name == "nt":
+        return
+    flags = os.O_RDONLY | getattr(os, "O_DIRECTORY", 0)
+    descriptor = os.open(path, flags)
+    try:
+        os.fsync(descriptor)
+    finally:
+        os.close(descriptor)
+
+
 def _atomic_write_json(path: Path, payload: object) -> tuple[str, int]:
     data = _json_bytes(payload)
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(path.name + ".tmp")
     try:
-        temporary.write_bytes(data)
+        with temporary.open("wb") as stream:
+            stream.write(data)
+            stream.flush()
+            os.fsync(stream.fileno())
         temporary.replace(path)
+        _fsync_directory(path.parent)
     finally:
         temporary.unlink(missing_ok=True)
     return hashlib.sha256(data).hexdigest(), len(data)
+
+
+def remove_continuation_manifest(output_dir: Path) -> bool:
+    """Remove a failed run's completion seal and durably publish the deletion."""
+    path = output_dir / "run-manifest.json"
+    try:
+        path.unlink()
+    except FileNotFoundError:
+        return False
+    _fsync_directory(output_dir)
+    return True
+
+
+def _result_payload_digest(result: dict[str, Any]) -> str:
+    encoded = json.dumps(result, separators=(",", ":"), allow_nan=False).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
 
 
 def _summary_payload(result: dict[str, Any]) -> dict[str, Any]:
@@ -149,6 +197,53 @@ def _selected_candidate_payload(result: dict[str, Any]) -> dict[str, object] | N
     return None
 
 
+def _validate_worker_cleanup_report(worker_cleanup: dict[str, object]) -> None:
+    if worker_cleanup.get("verified") is not True:
+        raise ValueError("worker cleanup must be verified before bundle finalization")
+    executors_shutdown = worker_cleanup.get("executors_shutdown")
+    workers_reaped = worker_cleanup.get("worker_processes_reaped")
+    stages = worker_cleanup.get("stages")
+    if type(executors_shutdown) is not int or executors_shutdown < 0:
+        raise ValueError("worker cleanup report has invalid executors_shutdown")
+    if type(workers_reaped) is not int or workers_reaped < 0:
+        raise ValueError("worker cleanup report has invalid worker_processes_reaped")
+    if not isinstance(stages, list) or any(
+        not isinstance(stage, str) or not stage for stage in stages
+    ):
+        raise ValueError("worker cleanup report has invalid stages")
+    if len(stages) != executors_shutdown:
+        raise ValueError("worker cleanup report stage count does not match executors_shutdown")
+
+
+def _validate_pre_theorem_fields(value: object) -> None:
+    if isinstance(value, dict):
+        for field in _PRE_THEOREM_FALSE_FIELDS:
+            if field in value and value[field] is not False:
+                raise ValueError(
+                    "continuation bundle cannot contain theorem admission or verification status"
+                )
+        for nested in value.values():
+            _validate_pre_theorem_fields(nested)
+    elif isinstance(value, list):
+        for nested in value:
+            _validate_pre_theorem_fields(nested)
+
+
+def _validate_pre_theorem_terminal_result(result: dict[str, Any]) -> None:
+    state = result.get("state")
+    workflow_state = result.get("workflow_state", state)
+    if state not in CONTINUATION_TERMINAL_STATES or workflow_state != state:
+        raise ValueError("continuation bundle requires one consistent terminal workflow state")
+    if result.get("role") != "pre_theorem_continuation_driver":
+        raise ValueError("continuation bundle requires the pre-theorem driver result role")
+    for field in _PRE_THEOREM_FALSE_FIELDS:
+        if result.get(field) is not False:
+            raise ValueError(
+                "continuation bundle requires explicit non-promoting theorem boundary fields"
+            )
+    _validate_pre_theorem_fields(result)
+
+
 def write_continuation_bundle(
     result: dict[str, Any],
     output_dir: Path,
@@ -160,12 +255,15 @@ def write_continuation_bundle(
     result_payload_sha256: str,
 ) -> dict[str, Any]:
     """Write a completed continuation bundle, sealing it with the manifest last."""
-    if worker_cleanup.get("verified") is not True:
-        raise ValueError("worker cleanup must be verified before bundle finalization")
+    _validate_worker_cleanup_report(worker_cleanup)
+    _validate_pre_theorem_terminal_result(result)
     if len(result_payload_sha256) != 64 or any(
         character not in "0123456789abcdef" for character in result_payload_sha256
     ):
         raise ValueError("result payload digest must be a lowercase SHA-256 hex string")
+    actual_result_digest = _result_payload_digest(result)
+    if actual_result_digest != result_payload_sha256:
+        raise ValueError("result payload digest does not match final result")
     if output_dir.exists():
         entries = list(output_dir.iterdir())
         allowed_names = {LIVE_DIRECTORY_NAME, RUN_LOCK_FILENAME}

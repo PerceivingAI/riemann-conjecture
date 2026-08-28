@@ -3,6 +3,7 @@ import copy
 import json
 import ast
 import os
+from contextlib import contextmanager
 from fractions import Fraction
 from pathlib import Path
 
@@ -37,6 +38,8 @@ class _RecordingRunStatus:
 
 
 class _InlineExecutor:
+    _processes: dict[object, object] = {}
+
     def __enter__(self):
         return self
 
@@ -45,6 +48,20 @@ class _InlineExecutor:
 
     def submit(self, fn, *args, **kwargs):
         return _InlineFuture(fn, args, kwargs)
+
+
+def _minimal_terminal_result(support: Fraction, dimensions: list[int]) -> dict[str, object]:
+    return {
+        "role": "pre_theorem_continuation_driver",
+        "driver_version": driver.DRIVER_VERSION,
+        "cache_version": driver.CACHE_VERSION,
+        "state": "NO_CANDIDATE",
+        "status": "NO_CANDIDATE",
+        "workflow_state": "NO_CANDIDATE",
+        **driver.theorem_boundary_payload(),
+        "support": str(support),
+        "dimensions": dimensions,
+    }
 
 
 def _scout_result(dimensions: list[int], *, positive: bool) -> dict[str, object]:
@@ -1225,15 +1242,18 @@ def test_cli_writes_requested_output_directory(
         assert identity_path.is_file()
         identity_before_work.append(identity_path.read_bytes())
         captured_kwargs.update(kwargs)
-        return {
-            "state": "NO_CANDIDATE",
-            "support": str(support),
-            "dimensions": dimensions,
-        }
+        return _minimal_terminal_result(support, dimensions)
 
     terminal_order: list[str] = []
     original_update = driver.RunStatusWriter.update
     original_event = driver.RunStatusWriter.event
+    original_heartbeats = driver.RunStatusWriter.periodic_heartbeats
+
+    @contextmanager
+    def recording_heartbeats(self, *args, **kwargs):
+        with original_heartbeats(self, *args, **kwargs) as heartbeat:
+            yield heartbeat
+        terminal_order.append("HEARTBEAT_STOPPED")
 
     def recording_update(self, **kwargs):
         if kwargs.get("terminal") is True:
@@ -1245,6 +1265,7 @@ def test_cli_writes_requested_output_directory(
             terminal_order.append("RUN_COMPLETED")
         return original_event(self, event, **kwargs)
 
+    monkeypatch.setattr(driver.RunStatusWriter, "periodic_heartbeats", recording_heartbeats)
     monkeypatch.setattr(driver.RunStatusWriter, "update", recording_update)
     monkeypatch.setattr(driver.RunStatusWriter, "event", recording_event)
     monkeypatch.setattr(driver, "collect_runtime_provenance", fake_provenance)
@@ -1318,7 +1339,7 @@ def test_cli_writes_requested_output_directory(
         "BUNDLE_FINALIZATION_COMPLETED",
         "RUN_COMPLETED",
     ]
-    assert terminal_order == ["STATUS_TERMINAL", "RUN_COMPLETED"]
+    assert terminal_order == ["HEARTBEAT_STOPPED", "STATUS_TERMINAL", "RUN_COMPLETED"]
     assert manifest_payload["finalization"]["worker_cleanup"] == {
         "verified": True,
         "executors_shutdown": 0,
@@ -1350,6 +1371,35 @@ def test_cli_writes_requested_output_directory(
     )
 
 
+def test_live_progress_stderr_failure_is_nonfatal(monkeypatch: pytest.MonkeyPatch) -> None:
+    class BrokenStderr:
+        def write(self, text: str) -> int:
+            raise BrokenPipeError("closed stderr")
+
+        def flush(self) -> None:
+            raise BrokenPipeError("closed stderr")
+
+    monkeypatch.setattr(driver.sys, "stderr", BrokenStderr())
+    driver.LiveProgress().emit("still nonfatal")
+
+
+def test_observability_payloads_are_bounded_without_mutating_source() -> None:
+    source = {
+        "stable_dimensions": list(range(1000)),
+        "message": "x" * 5000,
+    }
+    bounded = driver._bounded_observability_value(source)
+
+    assert source["stable_dimensions"] == list(range(1000))
+    assert isinstance(bounded, dict)
+    dimensions = bounded["stable_dimensions"]
+    assert dimensions["count"] == 1000
+    assert dimensions["truncated"] is True
+    assert dimensions["preview"] == list(range(driver.OBSERVABILITY_LIST_PREVIEW_LIMIT))
+    assert len(bounded["message"]) == driver.OBSERVABILITY_STRING_LIMIT + 3
+    assert len(json.dumps(bounded)) < 2000
+
+
 def test_frozen_result_payload_is_detached_and_digest_stable() -> None:
     original = {"state": "NO_CANDIDATE", "nested": {"values": [1, 2, 3]}}
     frozen, digest = driver._freeze_result_payload(original)
@@ -1377,6 +1427,27 @@ def test_verified_process_pool_reaps_real_spawned_workers() -> None:
     assert report["stages"] == ["TEST_POOL"]
 
 
+def test_verified_process_pool_fails_closed_without_process_registry(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    class MissingRegistryExecutor:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc, tb):
+            return False
+
+    verifier = driver.WorkerCleanupVerifier()
+    monkeypatch.setattr(driver, "_spawn_process_pool", lambda workers: MissingRegistryExecutor())
+
+    with pytest.raises(RuntimeError, match="could not inspect process registry"):
+        with driver._verified_process_pool(2, stage="TEST_POOL", verifier=verifier):
+            pass
+
+    with pytest.raises(RuntimeError, match="active executor"):
+        verifier.verify()
+
+
 def test_cli_quiet_suppresses_live_stderr_without_changing_stdout(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
@@ -1386,11 +1457,7 @@ def test_cli_quiet_suppresses_live_stderr_without_changing_stdout(
 
     def fake_run_driver(support, dimensions, **kwargs):
         captured_kwargs.update(kwargs)
-        return {
-            "state": "NO_CANDIDATE",
-            "support": str(support),
-            "dimensions": dimensions,
-        }
+        return _minimal_terminal_result(support, dimensions)
 
     monkeypatch.setattr(driver, "run_driver", fake_run_driver)
     monkeypatch.setattr(
@@ -1423,6 +1490,40 @@ def _fixed_cli_provenance(*, exclude_output_dir=None) -> dict[str, object]:
         "python_implementation": "CPython",
         "python_flint_version": "0.9.0",
     }
+
+
+def test_cli_unexpected_system_exit_is_recorded_as_failed_run(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "system-exit-failure"
+    monkeypatch.setattr(driver, "collect_runtime_provenance", _fixed_cli_provenance)
+
+    def unexpected_exit(*args, **kwargs):
+        raise SystemExit(7)
+
+    monkeypatch.setattr(driver, "run_driver", unexpected_exit)
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "weil_continuation_driver",
+            "--support",
+            "19/40",
+            "--n",
+            "48",
+            "--output-dir",
+            str(output_dir),
+        ],
+    )
+
+    with pytest.raises(SystemExit) as exc_info:
+        driver.main()
+
+    assert exc_info.value.code == 7
+    assert not (output_dir / "run-manifest.json").exists()
+    failure = json.loads((output_dir / ".live" / "failure.json").read_text(encoding="utf-8"))
+    assert failure["state"] == "RUN_FAILED"
+    assert failure["error_type"] == "SystemExit"
 
 
 def test_cli_runtime_failure_records_run_failed_without_manifest(
@@ -1517,12 +1618,7 @@ def test_cli_finalization_failure_rolls_back_manifest(
     monkeypatch.setattr(
         driver,
         "run_driver",
-        lambda support, dimensions, **kwargs: {
-            "state": "NO_CANDIDATE",
-            "workflow_state": "NO_CANDIDATE",
-            "support": str(support),
-            "dimensions": dimensions,
-        },
+        lambda support, dimensions, **kwargs: _minimal_terminal_result(support, dimensions),
     )
 
     def fail_after_manifest(result, target, **kwargs):
@@ -1556,6 +1652,89 @@ def test_cli_finalization_failure_rolls_back_manifest(
     ]
     assert events[-1]["event"] == "RUN_FAILED"
     assert all(event["event"] != "RUN_COMPLETED" for event in events)
+
+
+def test_cli_heartbeat_failure_after_bundle_rolls_back_completion(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "heartbeat-failure"
+    monkeypatch.setattr(driver, "collect_runtime_provenance", _fixed_cli_provenance)
+    monkeypatch.setattr(
+        driver,
+        "run_driver",
+        lambda support, dimensions, **kwargs: _minimal_terminal_result(support, dimensions),
+    )
+
+    @contextmanager
+    def failing_heartbeats(self, *args, **kwargs):
+        yield object()
+        raise RuntimeError("synthetic heartbeat supervisor failure")
+
+    monkeypatch.setattr(driver.RunStatusWriter, "periodic_heartbeats", failing_heartbeats)
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "weil_continuation_driver",
+            "--support",
+            "19/40",
+            "--n",
+            "48",
+            "--output-dir",
+            str(output_dir),
+        ],
+    )
+
+    with pytest.raises(RuntimeError, match="heartbeat supervisor failure"):
+        driver.main()
+
+    assert not (output_dir / "run-manifest.json").exists()
+    failure = json.loads((output_dir / ".live" / "failure.json").read_text(encoding="utf-8"))
+    status = json.loads((output_dir / ".live" / "run-status.json").read_text(encoding="utf-8"))
+    events = [
+        json.loads(line)
+        for line in (output_dir / ".live" / "events.jsonl").read_text(encoding="utf-8").splitlines()
+    ]
+    assert failure["state"] == "RUN_FAILED"
+    assert status["workflow_state"] == "RUN_FAILED"
+    assert status["terminal"] is True
+    assert events[-1]["event"] == "RUN_FAILED"
+    assert all(event["event"] != "BUNDLE_FINALIZATION_COMPLETED" for event in events)
+    assert all(event["event"] != "RUN_COMPLETED" for event in events)
+
+
+def test_cli_rejects_cache_directory_inside_output_before_locking(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "continuation"
+
+    class ForbiddenLock:
+        @classmethod
+        def acquire(cls, *args, **kwargs):
+            raise AssertionError("output locking must not start for invalid cache placement")
+
+    monkeypatch.setattr(driver, "OutputDirectoryLock", ForbiddenLock)
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "weil_continuation_driver",
+            "--support",
+            "19/40",
+            "--n",
+            "48",
+            "--output-dir",
+            str(output_dir),
+            "--cache-dir",
+            str(output_dir / "cache"),
+        ],
+    )
+
+    with pytest.raises(SystemExit) as exc_info:
+        driver.main()
+
+    assert exc_info.value.code == 2
+    assert not output_dir.exists()
 
 
 def test_cli_lock_contention_exits_before_expensive_work(

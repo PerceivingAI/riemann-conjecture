@@ -211,10 +211,19 @@ class OutputDirectoryLock:
         """Acquire exclusive ownership before any live state or computation is started."""
         output_dir.mkdir(parents=True, exist_ok=True)
         path = output_dir / RUN_LOCK_FILENAME
+        # Avoid creating lock metadata in an obviously unrelated nonempty
+        # directory. This is only a side-effect guard; the authoritative
+        # emptiness check is repeated after the OS lock is acquired. If a lock
+        # pathname is already present (including one created concurrently), we
+        # proceed to the kernel lock so active-owner diagnostics remain correct.
+        if not path.exists():
+            entries = list(output_dir.iterdir())
+            if entries and not any(entry.name == RUN_LOCK_FILENAME for entry in entries):
+                raise ValueError("continuation output directory must be empty")
+
         if path.exists() and not path.is_file():
             raise ValueError("output-directory lock path must be a regular file")
 
-        existed_before = path.exists()
         fd = os.open(path, os.O_RDWR | os.O_CREAT, 0o600)
         stream = os.fdopen(fd, "r+b")
         try:
@@ -231,8 +240,11 @@ class OutputDirectoryLock:
             except Exception:
                 _release_os_lock(stream)
                 stream.close()
-                if not existed_before:
-                    path.unlink(missing_ok=True)
+                # Keep the pathname stable after releasing ownership. Removing
+                # it here can race with a contender that acquires the just-
+                # released inode on POSIX, allowing a later process to create a
+                # second lock inode at the same path. A stale unlocked file is
+                # intentionally harmless and will be overwritten on reacquire.
                 raise
 
             started = started_at_utc or clock()
@@ -376,16 +388,28 @@ class WorkerCleanupVerifier:
 
     active_executors: int = 0
     shutdown_records: list[dict[str, object]] = field(default_factory=list)
+    _active_stages: list[str] = field(default_factory=list, repr=False)
+    _sealed: bool = field(default=False, repr=False)
 
     def executor_started(self, stage: str) -> None:
+        if self._sealed:
+            raise RuntimeError("worker cleanup verifier is already sealed")
         if not stage:
             raise ValueError("executor stage must be non-empty")
         self.active_executors += 1
+        self._active_stages.append(stage)
 
-    def executor_stopped(self, stage: str, processes: list[Any]) -> None:
-        if self.active_executors < 1:
+    def executor_stopped(self, stage: str, processes: list[Any] | None) -> None:
+        if self.active_executors < 1 or not self._active_stages:
             raise RuntimeError("executor cleanup accounting underflow")
-        self.active_executors -= 1
+        if self._active_stages[-1] != stage:
+            raise RuntimeError(
+                f"executor cleanup stage mismatch: expected {self._active_stages[-1]}, got {stage}"
+            )
+        if processes is None:
+            raise RuntimeError(
+                f"worker cleanup verification could not inspect process registry for {stage}"
+            )
 
         exit_codes: list[int | None] = []
         for process in processes:
@@ -402,6 +426,11 @@ class WorkerCleanupVerifier:
                     f"worker cleanup verification failed for {stage}"
                 )
 
+        # Only mark the executor inactive after every worker observation passed.
+        # A failed cleanup check must remain fail-closed if a caller catches the
+        # exception and later asks for final verification.
+        self.active_executors -= 1
+        self._active_stages.pop()
         self.shutdown_records.append(
             {
                 "stage": stage,
@@ -411,9 +440,10 @@ class WorkerCleanupVerifier:
         )
 
     def verify(self) -> dict[str, object]:
-        """Return a small finalization authorization only when no executor remains live."""
-        if self.active_executors != 0:
+        """Seal and return finalization authorization only when no executor remains live."""
+        if self.active_executors != 0 or self._active_stages:
             raise RuntimeError("worker cleanup verification found an active executor")
+        self._sealed = True
         return {
             "verified": True,
             "executors_shutdown": len(self.shutdown_records),
@@ -445,6 +475,7 @@ class PeriodicHeartbeat:
             daemon=True,
         )
         self._started = False
+        self._failure: Exception | None = None
 
     @property
     def is_alive(self) -> bool:
@@ -461,10 +492,17 @@ class PeriodicHeartbeat:
             return
         self._stop.set()
         self._thread.join()
+        if self._failure is not None:
+            raise RuntimeError("periodic heartbeat failed") from self._failure
 
     def _run(self) -> None:
         while not self._stop.wait(self.interval_seconds):
-            self.writer.heartbeat()
+            try:
+                self.writer.heartbeat()
+            except Exception as exc:
+                self._failure = exc
+                self._stop.set()
+                return
 
 
 class RunStatusWriter:
@@ -643,6 +681,10 @@ class RunStatusWriter:
         """Persist one small failed/interrupted terminal record without a bundle manifest."""
         if terminal_state not in {"RUN_FAILED", "RUN_INTERRUPTED"}:
             raise ValueError("invalid operational failure terminal state")
+        notes = [
+            str(note)[:500]
+            for note in getattr(exc, "__notes__", [])[:4]
+        ]
         payload: dict[str, object] = {
             "format": RUN_FAILURE_FORMAT,
             "run_id": self.run_id,
@@ -651,18 +693,22 @@ class RunStatusWriter:
             "error_type": type(exc).__name__,
             "error": str(exc)[:1000],
         }
+        if notes:
+            payload["notes"] = notes
         _atomic_write_json(self.failure_path, payload)
         self.update(
             workflow_state=terminal_state,
             current_operation=None,
             terminal=True,
         )
-        self.event(
-            terminal_state,
-            failure_record=f"{LIVE_DIRECTORY_NAME}/{RUN_FAILURE_FILENAME}",
-            error_type=type(exc).__name__,
-            error=str(exc)[:500],
-        )
+        event_details: dict[str, object] = {
+            "failure_record": f"{LIVE_DIRECTORY_NAME}/{RUN_FAILURE_FILENAME}",
+            "error_type": type(exc).__name__,
+            "error": str(exc)[:500],
+        }
+        if notes:
+            event_details["notes"] = notes
+        self.event(terminal_state, **event_details)
         return payload
 
     def heartbeat(self) -> dict[str, object]:
@@ -678,7 +724,19 @@ class RunStatusWriter:
         """Run periodic heartbeats and always join the heartbeat thread on exit."""
         heartbeat = PeriodicHeartbeat(self, interval_seconds=interval_seconds)
         heartbeat.start()
+        body_error: BaseException | None = None
         try:
             yield heartbeat
+        except BaseException as exc:
+            body_error = exc
+            raise
         finally:
-            heartbeat.stop()
+            try:
+                heartbeat.stop()
+            except Exception as heartbeat_exc:
+                if body_error is None:
+                    raise
+                body_error.add_note(
+                    "heartbeat shutdown also failed: "
+                    f"{type(heartbeat_exc).__name__}: {heartbeat_exc}"
+                )

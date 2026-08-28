@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pytest
 
+from scripts import continuation_bundle as bundle
 from scripts import weil_continuation_driver as driver
 from scripts.continuation_bundle import write_continuation_bundle
 
@@ -75,6 +76,7 @@ def _patch_success_path(monkeypatch: pytest.MonkeyPatch) -> None:
 
 
 def test_p9_transition_graph_covers_every_workflow_state() -> None:
+    assert set(bundle.CONTINUATION_TERMINAL_STATES) == driver.FINAL_STATES
     assert set(driver.ALLOWED_WORKFLOW_TRANSITIONS) == set(driver.WorkflowState)
     assert driver.FINAL_STATES == {
         state.value for state in driver.TERMINAL_WORKFLOW_STATES
@@ -228,7 +230,7 @@ def test_p9_bundle_manifest_retains_state_trace(
             "worker_processes_reaped": 0,
             "stages": [],
         },
-        result_payload_sha256="d" * 64,
+        result_payload_sha256=driver._freeze_result_payload(result)[1],
         provenance={
             "git_commit": "a" * 40,
             "git_dirty": True,

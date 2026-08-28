@@ -20,6 +20,7 @@ def _result() -> dict[str, object]:
         "theorem_status": False,
         "independently_verified": False,
         "whitelisted": False,
+        "automatic_promotion": False,
         "support": "19/40",
         "dimensions": [60, 64],
         "scout_resolution_count": 2,
@@ -112,7 +113,8 @@ def _result() -> dict[str, object]:
     }
 
 
-def _finalization_kwargs() -> dict[str, object]:
+def _finalization_kwargs(result: dict[str, object] | None = None) -> dict[str, object]:
+    final_result = _result() if result is None else result
     return {
         "worker_cleanup": {
             "verified": True,
@@ -120,7 +122,7 @@ def _finalization_kwargs() -> dict[str, object]:
             "worker_processes_reaped": 4,
             "stages": ["FLOAT_SCOUT", "RIGOROUS_PRECISION_SEARCH"],
         },
-        "result_payload_sha256": "d" * 64,
+        "result_payload_sha256": bundle._result_payload_digest(final_result),
     }
 
 
@@ -222,7 +224,7 @@ def test_p8_bundle_writes_stage_artifacts_and_hash_manifest(tmp_path: Path) -> N
     assert manifest["configuration"]["scout_workers"] == 3
     assert manifest["configuration"]["rigorous_workers"] == 2
     assert manifest["finalization"]["worker_cleanup"]["verified"] is True
-    assert manifest["finalization"]["result_payload_sha256"] == "d" * 64
+    assert manifest["finalization"]["result_payload_sha256"] == bundle._result_payload_digest(_result())
     assert manifest["finalization"]["manifest_written_last"] is True
 
     artifact_paths = {entry["path"] for entry in manifest["artifacts"]}
@@ -271,6 +273,132 @@ def test_bundle_writes_stage_artifacts_then_summary_and_manifest_last(
             "candidate/candidate.json",
         )
     )
+
+
+def test_bundle_rejects_mismatched_result_digest(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="digest does not match"):
+        write_continuation_bundle(
+            _result(),
+            tmp_path / "mismatched-digest",
+            provenance={
+                "git_commit": "a" * 40,
+                "git_dirty": False,
+                "python_version": "3.14.0",
+                "python_implementation": "CPython",
+                "python_flint_version": "0.9.0",
+            },
+            worker_cleanup={
+                "verified": True,
+                "executors_shutdown": 0,
+                "worker_processes_reaped": 0,
+                "stages": [],
+            },
+            result_payload_sha256="d" * 64,
+        )
+
+
+def test_bundle_rejects_incomplete_worker_cleanup_report(tmp_path: Path) -> None:
+    result = _result()
+    with pytest.raises(ValueError, match="invalid executors_shutdown"):
+        write_continuation_bundle(
+            result,
+            tmp_path / "incomplete-cleanup",
+            provenance={
+                "git_commit": "a" * 40,
+                "git_dirty": False,
+                "python_version": "3.14.0",
+                "python_implementation": "CPython",
+                "python_flint_version": "0.9.0",
+            },
+            worker_cleanup={"verified": True},
+            result_payload_sha256=bundle._result_payload_digest(result),
+        )
+
+
+def test_bundle_rejects_theorem_claim_and_nonterminal_state(tmp_path: Path) -> None:
+    theorem_result = _result()
+    theorem_result["theorem_status"] = True
+    with pytest.raises(ValueError, match="non-promoting theorem boundary"):
+        write_continuation_bundle(
+            theorem_result,
+            tmp_path / "theorem-claim",
+            provenance={
+                "git_commit": "a" * 40,
+                "git_dirty": False,
+                "python_version": "3.14.0",
+                "python_implementation": "CPython",
+                "python_flint_version": "0.9.0",
+            },
+            **_finalization_kwargs(theorem_result),
+        )
+
+    nested_theorem_result = _result()
+    nested_theorem_result["candidates"][0]["attempts"][0]["theorem_status"] = True
+    with pytest.raises(ValueError, match="cannot contain theorem"):
+        write_continuation_bundle(
+            nested_theorem_result,
+            tmp_path / "nested-theorem-claim",
+            provenance={
+                "git_commit": "a" * 40,
+                "git_dirty": False,
+                "python_version": "3.14.0",
+                "python_implementation": "CPython",
+                "python_flint_version": "0.9.0",
+            },
+            **_finalization_kwargs(nested_theorem_result),
+        )
+
+    nonterminal_result = _result()
+    nonterminal_result["state"] = "FLOAT_SCOUT"
+    nonterminal_result["workflow_state"] = "FLOAT_SCOUT"
+    with pytest.raises(ValueError, match="terminal workflow state"):
+        write_continuation_bundle(
+            nonterminal_result,
+            tmp_path / "nonterminal",
+            provenance={
+                "git_commit": "a" * 40,
+                "git_dirty": False,
+                "python_version": "3.14.0",
+                "python_implementation": "CPython",
+                "python_flint_version": "0.9.0",
+            },
+            **_finalization_kwargs(nonterminal_result),
+        )
+
+
+def test_bundle_rejects_automatic_promotion_claim(tmp_path: Path) -> None:
+    promoted = _result()
+    promoted["automatic_promotion"] = True
+    with pytest.raises(ValueError, match="non-promoting theorem boundary"):
+        write_continuation_bundle(
+            promoted,
+            tmp_path / "automatic-promotion",
+            provenance={
+                "git_commit": "a" * 40,
+                "git_dirty": False,
+                "python_version": "3.14.0",
+                "python_implementation": "CPython",
+                "python_flint_version": "0.9.0",
+            },
+            **_finalization_kwargs(promoted),
+        )
+
+
+def test_manifest_removal_publishes_directory_update(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "rollback"
+    output_dir.mkdir()
+    manifest = output_dir / "run-manifest.json"
+    manifest.write_text("{}\n", encoding="utf-8")
+    synced: list[Path] = []
+    monkeypatch.setattr(bundle, "_fsync_directory", lambda path: synced.append(path))
+
+    assert bundle.remove_continuation_manifest(output_dir) is True
+    assert not manifest.exists()
+    assert synced == [output_dir]
+    assert bundle.remove_continuation_manifest(output_dir) is False
 
 
 def test_bundle_rejects_unverified_worker_cleanup(tmp_path: Path) -> None:

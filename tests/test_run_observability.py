@@ -323,6 +323,8 @@ def test_worker_cleanup_verifier_requires_reaped_workers() -> None:
         [FakeProcess(alive=False, exitcode=0), FakeProcess(alive=False, exitcode=1)],
     )
     report = verifier.verify()
+    with pytest.raises(RuntimeError, match="already sealed"):
+        verifier.executor_started("AFTER_FINAL_VERIFICATION")
 
     assert report == {
         "verified": True,
@@ -338,6 +340,17 @@ def test_worker_cleanup_verifier_requires_reaped_workers() -> None:
             "RIGOROUS_PRECISION_SEARCH",
             [FakeProcess(alive=True, exitcode=None)],
         )
+    assert broken.active_executors == 1
+    with pytest.raises(RuntimeError, match="active executor"):
+        broken.verify()
+
+    unavailable = WorkerCleanupVerifier()
+    unavailable.executor_started("FLOAT_SCOUT")
+    with pytest.raises(RuntimeError, match="could not inspect process registry"):
+        unavailable.executor_stopped("FLOAT_SCOUT", None)
+    assert unavailable.active_executors == 1
+    with pytest.raises(RuntimeError, match="active executor"):
+        unavailable.verify()
 
 
 def test_failure_record_sets_operational_terminal_state_without_manifest(tmp_path: Path) -> None:
@@ -369,6 +382,10 @@ def test_failure_record_sets_operational_terminal_state_without_manifest(tmp_pat
         assert failure["state"] == "RUN_FAILED"
         assert failure["error_type"] == "RuntimeError"
         assert failure["error"] == "synthetic failure"
+        noted = RuntimeError("noted failure")
+        noted.add_note("secondary cleanup diagnostic")
+        noted_failure = status.record_failure("RUN_FAILED", noted)
+        assert noted_failure["notes"] == ["secondary cleanup diagnostic"]
         assert status.failure_path.stat().st_size < 4096
         live_status = json.loads(status.path.read_text(encoding="utf-8"))
         assert live_status["workflow_state"] == "RUN_FAILED"
@@ -402,10 +419,11 @@ def test_stale_lock_file_does_not_block_reacquisition(tmp_path: Path) -> None:
         second.release()
 
 
-def test_lock_refuses_used_directory_without_leaving_new_lock_file(tmp_path: Path) -> None:
+def test_lock_refuses_unrelated_used_directory_without_creating_lock(tmp_path: Path) -> None:
     output_dir = tmp_path / "used-before-lock"
     output_dir.mkdir()
-    (output_dir / "evidence.json").write_text("{}\n", encoding="utf-8")
+    evidence = output_dir / "evidence.json"
+    evidence.write_text("{}\n", encoding="utf-8")
 
     with pytest.raises(ValueError, match="must be empty"):
         OutputDirectoryLock.acquire(
@@ -415,6 +433,36 @@ def test_lock_refuses_used_directory_without_leaving_new_lock_file(tmp_path: Pat
         )
 
     assert not (output_dir / ".run.lock").exists()
+
+
+def test_rejected_directory_with_existing_lock_path_keeps_path_reusable(tmp_path: Path) -> None:
+    output_dir = tmp_path / "used-with-lock"
+    output_dir.mkdir()
+    lock_path = output_dir / ".run.lock"
+    lock_path.write_text("{}\n", encoding="utf-8")
+    evidence = output_dir / "evidence.json"
+    evidence.write_text("{}\n", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="must be empty"):
+        OutputDirectoryLock.acquire(
+            output_dir,
+            command="weil_continuation_driver",
+            support="27/50",
+        )
+
+    assert lock_path.is_file()
+    evidence.unlink()
+    second = OutputDirectoryLock.acquire(
+        output_dir,
+        command="weil_continuation_driver",
+        support="27/50",
+        started_at_utc="2026-08-28T05:00:00Z",
+    )
+    try:
+        metadata = json.loads(lock_path.read_text(encoding="utf-8"))
+        assert metadata["run_id"] == second.run_id
+    finally:
+        second.release()
 
 
 def test_periodic_heartbeat_runs_without_claiming_progress_and_stops() -> None:
@@ -443,6 +491,52 @@ def test_periodic_heartbeat_runs_without_claiming_progress_and_stops() -> None:
     time.sleep(0.03)
     assert writer.calls == calls_after_stop
     assert HEARTBEAT_INTERVAL_SECONDS == pytest.approx(12.0)
+
+
+def test_periodic_heartbeat_surfaces_writer_failure_to_parent() -> None:
+    class FailingWriter:
+        run_id = "failing-heartbeat"
+
+        def __init__(self) -> None:
+            self.called = threading.Event()
+
+        def heartbeat(self) -> dict[str, object]:
+            self.called.set()
+            raise OSError("synthetic heartbeat write failure")
+
+    writer = FailingWriter()
+    heartbeat = PeriodicHeartbeat(writer, interval_seconds=0.01)  # type: ignore[arg-type]
+    heartbeat.start()
+    assert writer.called.wait(0.5)
+
+    with pytest.raises(RuntimeError, match="periodic heartbeat failed") as exc_info:
+        heartbeat.stop()
+
+    assert isinstance(exc_info.value.__cause__, OSError)
+    assert not heartbeat.is_alive
+
+
+def test_periodic_heartbeat_does_not_mask_primary_body_failure() -> None:
+    class FailingWriter:
+        run_id = "dual-failure-heartbeat"
+
+        def __init__(self) -> None:
+            self.called = threading.Event()
+
+        def heartbeat(self) -> dict[str, object]:
+            self.called.set()
+            raise OSError("synthetic heartbeat failure")
+
+    writer = FailingWriter()
+    with pytest.raises(ValueError, match="primary computation failure") as exc_info:
+        with RunStatusWriter.periodic_heartbeats(  # type: ignore[arg-type]
+            writer,
+            interval_seconds=0.01,
+        ):
+            assert writer.called.wait(0.5)
+            raise ValueError("primary computation failure")
+
+    assert any("heartbeat shutdown also failed" in note for note in exc_info.value.__notes__)
 
 
 def test_periodic_heartbeat_context_joins_thread_on_exception(tmp_path: Path) -> None:

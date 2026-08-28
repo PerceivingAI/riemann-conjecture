@@ -37,6 +37,7 @@ for _thread_env in (
 
 from scripts.continuation_bundle import (
     collect_runtime_provenance,
+    remove_continuation_manifest,
     utc_now,
     write_continuation_bundle,
 )
@@ -68,6 +69,8 @@ PRECISION_STATUS_INSUFFICIENT = "INSUFFICIENT_PRECISION"
 PRECISION_STATUS_STABLE = "PRECISION_STABLE"
 PRECISION_STATUS_MATHEMATICAL_NEGATIVE = "MATHEMATICAL_NEGATIVE"
 PRECISION_STATUS_ASSEMBLY_FAILED = "ASSEMBLY_FAILED"
+OBSERVABILITY_LIST_PREVIEW_LIMIT = 16
+OBSERVABILITY_STRING_LIMIT = 500
 
 
 @dataclass(frozen=True)
@@ -83,10 +86,42 @@ class LiveProgress:
         elapsed = max(0, int(time.monotonic() - self.started_monotonic))
         hours, remainder = divmod(elapsed, 3600)
         minutes, seconds = divmod(remainder, 60)
-        sys.stderr.write(
-            f"[{hours:02d}:{minutes:02d}:{seconds:02d}] {message}\n"
-        )
-        sys.stderr.flush()
+        try:
+            sys.stderr.write(
+                f"[{hours:02d}:{minutes:02d}:{seconds:02d}] {message}\n"
+            )
+            sys.stderr.flush()
+        except (OSError, ValueError, AttributeError):
+            # Live stderr is advisory. The durable .live state remains the
+            # authoritative observability channel, so a closed/broken stderr
+            # must never invalidate mathematical work or bundle finalization.
+            return
+
+
+def _bounded_observability_value(value: object) -> object:
+    """Bound live-only payloads without changing retained mathematical results."""
+    if isinstance(value, str):
+        if len(value) <= OBSERVABILITY_STRING_LIMIT:
+            return value
+        return value[:OBSERVABILITY_STRING_LIMIT] + "..."
+    if isinstance(value, dict):
+        return {
+            str(key): _bounded_observability_value(nested)
+            for key, nested in value.items()
+        }
+    if isinstance(value, (list, tuple)):
+        preview = [
+            _bounded_observability_value(nested)
+            for nested in value[:OBSERVABILITY_LIST_PREVIEW_LIMIT]
+        ]
+        if len(value) <= OBSERVABILITY_LIST_PREVIEW_LIMIT:
+            return preview
+        return {
+            "count": len(value),
+            "preview": preview,
+            "truncated": True,
+        }
+    return value
 
 
 def _dimension_progress_text(dimensions: list[int]) -> str:
@@ -260,7 +295,7 @@ def _verified_process_pool(
     """Run one process pool and verify every spawned worker is dead after shutdown."""
     executor = _spawn_process_pool(max_workers)
     verifier.executor_started(stage)
-    processes: list[Any] = []
+    processes: list[Any] | None = None
     try:
         with executor:
             try:
@@ -270,6 +305,9 @@ def _verified_process_pool(
                 if isinstance(raw_processes, dict):
                     processes = list(raw_processes.values())
     finally:
+        # ProcessPoolExecutor has no public worker-handle API. Until Python
+        # exposes one, fail closed if the supported runtime no longer provides
+        # the process registry we explicitly verify after shutdown.
         verifier.executor_stopped(stage, processes)
 
 
@@ -1241,7 +1279,10 @@ def run_driver(
 
     def emit_event(event: str, **details: object) -> None:
         if run_status is not None:
-            run_status.event(event, **details)
+            bounded = _bounded_observability_value(details)
+            if not isinstance(bounded, dict):
+                raise TypeError("bounded event details must remain a mapping")
+            run_status.event(event, **bounded)
 
     def emit_progress(message: str) -> None:
         if progress is not None:
@@ -1249,9 +1290,12 @@ def run_driver(
 
     def observe_operation(operation: dict[str, object] | None) -> None:
         if run_status is not None:
+            bounded = _bounded_observability_value(operation)
+            if bounded is not None and not isinstance(bounded, dict):
+                raise TypeError("bounded current operation must remain a mapping")
             run_status.update(
                 workflow_state=machine.current.value,
-                current_operation=operation,
+                current_operation=bounded,
                 terminal=False,
             )
 
@@ -2243,6 +2287,25 @@ def format_terminal_summary(result: dict[str, object]) -> str:
     return "\n".join(lines)
 
 
+def _path_is_within(child: Path, parent: Path) -> bool:
+    try:
+        child.resolve().relative_to(parent.resolve())
+    except ValueError:
+        return False
+    return True
+
+
+def _rollback_completion_manifest(output_dir: Path, primary_error: BaseException) -> None:
+    """Best-effort rollback that preserves the primary failure if deletion itself fails."""
+    try:
+        remove_continuation_manifest(output_dir)
+    except Exception as rollback_error:
+        primary_error.add_note(
+            "CRITICAL: run-manifest rollback also failed: "
+            f"{type(rollback_error).__name__}: {rollback_error}"
+        )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--support", required=True, help="exact rational support T, such as 19/40")
@@ -2314,6 +2377,9 @@ def main() -> None:
     except (ValueError, ZeroDivisionError) as exc:
         parser.error(str(exc))
 
+    if _path_is_within(args.cache_dir, args.output_dir):
+        parser.error("cache directory must be outside the continuation output directory")
+
     progress = LiveProgress(enabled=not args.quiet)
     run_started_at = utc_now()
     support_text = f"{support.numerator}/{support.denominator}"
@@ -2364,7 +2430,6 @@ def main() -> None:
 
         worker_cleanup = WorkerCleanupVerifier()
         frozen_result: dict[str, Any] | None = None
-        manifest_path = args.output_dir / "run-manifest.json"
         try:
             with run_status.periodic_heartbeats():
                 result = run_driver(
@@ -2426,31 +2491,40 @@ def main() -> None:
                 _, digest_after_bundle = _freeze_result_payload(frozen_result)
                 if digest_after_bundle != result_payload_sha256:
                     raise RuntimeError("frozen result payload changed during finalization")
-                run_status.event(
-                    "BUNDLE_FINALIZATION_COMPLETED",
-                    final_state=final_workflow_state,
-                    manifest="run-manifest.json",
-                )
-                progress.emit("BUNDLE write complete")
-                run_status.update(
-                    workflow_state=final_workflow_state,
-                    current_operation=None,
-                    terminal=True,
-                )
-                run_status.event("RUN_COMPLETED", final_state=final_workflow_state)
+
+            # A completed run must retain healthy heartbeat supervision through
+            # bundle finalization. Only publish completion milestones after the
+            # heartbeat thread has stopped and joined without an I/O failure.
+            run_status.event(
+                "BUNDLE_FINALIZATION_COMPLETED",
+                final_state=final_workflow_state,
+                manifest="run-manifest.json",
+            )
+            progress.emit("BUNDLE write complete")
+            run_status.update(
+                workflow_state=final_workflow_state,
+                current_operation=None,
+                terminal=True,
+            )
+            run_status.event("RUN_COMPLETED", final_state=final_workflow_state)
             progress.emit(f"TERMINAL {final_workflow_state}")
         except KeyboardInterrupt as exc:
-            manifest_path.unlink(missing_ok=True)
+            _rollback_completion_manifest(args.output_dir, exc)
             run_status.record_failure("RUN_INTERRUPTED", exc)
             progress.emit("TERMINAL RUN_INTERRUPTED")
             raise
         except (ValueError, ZeroDivisionError) as exc:
-            manifest_path.unlink(missing_ok=True)
+            _rollback_completion_manifest(args.output_dir, exc)
             run_status.record_failure("RUN_FAILED", exc)
             progress.emit("TERMINAL RUN_FAILED")
             parser.error(str(exc))
         except Exception as exc:
-            manifest_path.unlink(missing_ok=True)
+            _rollback_completion_manifest(args.output_dir, exc)
+            run_status.record_failure("RUN_FAILED", exc)
+            progress.emit("TERMINAL RUN_FAILED")
+            raise
+        except BaseException as exc:
+            _rollback_completion_manifest(args.output_dir, exc)
             run_status.record_failure("RUN_FAILED", exc)
             progress.emit("TERMINAL RUN_FAILED")
             raise
