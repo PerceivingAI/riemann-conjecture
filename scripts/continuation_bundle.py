@@ -204,13 +204,37 @@ def _selected_candidate_payload(result: dict[str, Any]) -> dict[str, object] | N
 def _validate_worker_cleanup_report(worker_cleanup: dict[str, object]) -> None:
     if worker_cleanup.get("verified") is not True:
         raise ValueError("worker cleanup must be verified before bundle finalization")
-    executors_shutdown = worker_cleanup.get("executors_shutdown")
-    workers_reaped = worker_cleanup.get("worker_processes_reaped")
+    integer_fields = (
+        "executors_shutdown",
+        "worker_processes_reaped",
+        "cleanup_escalations",
+        "workers_joined_after_shutdown",
+        "workers_terminated",
+        "workers_killed",
+        "active_children_after_cleanup",
+    )
+    for field in integer_fields:
+        value = worker_cleanup.get(field)
+        if type(value) is not int or value < 0:
+            raise ValueError(f"worker cleanup report has invalid {field}")
+    executors_shutdown = int(worker_cleanup["executors_shutdown"])
+    if int(worker_cleanup["cleanup_escalations"]) > executors_shutdown:
+        raise ValueError("worker cleanup report has too many cleanup escalations")
+    resolved_by_recovery = sum(
+        int(worker_cleanup[field])
+        for field in (
+            "workers_joined_after_shutdown",
+            "workers_terminated",
+            "workers_killed",
+        )
+    )
+    if resolved_by_recovery > int(worker_cleanup["worker_processes_reaped"]):
+        raise ValueError("worker cleanup recovery counts exceed reaped workers")
+    if int(worker_cleanup["cleanup_escalations"]) == 0 and resolved_by_recovery != 0:
+        raise ValueError("worker cleanup recovery counts require an escalation")
+    if int(worker_cleanup["active_children_after_cleanup"]) != 0:
+        raise ValueError("worker cleanup report has unresolved active children")
     stages = worker_cleanup.get("stages")
-    if type(executors_shutdown) is not int or executors_shutdown < 0:
-        raise ValueError("worker cleanup report has invalid executors_shutdown")
-    if type(workers_reaped) is not int or workers_reaped < 0:
-        raise ValueError("worker cleanup report has invalid worker_processes_reaped")
     if not isinstance(stages, list) or any(
         not isinstance(stage, str) or not stage for stage in stages
     ):
@@ -233,9 +257,17 @@ def _process_lifecycle_payload(
         "parent_pid": effective_parent_pid,
         "worker_model": PROCESS_WORKER_MODEL,
         "worker_cleanup_verified": worker_cleanup["verified"],
-        "active_children_after_cleanup": 0,
+        "active_children_after_cleanup": worker_cleanup[
+            "active_children_after_cleanup"
+        ],
         "executors_shutdown": worker_cleanup["executors_shutdown"],
         "worker_processes_reaped": worker_cleanup["worker_processes_reaped"],
+        "cleanup_escalations": worker_cleanup["cleanup_escalations"],
+        "workers_joined_after_shutdown": worker_cleanup[
+            "workers_joined_after_shutdown"
+        ],
+        "workers_terminated": worker_cleanup["workers_terminated"],
+        "workers_killed": worker_cleanup["workers_killed"],
     }
 
 

@@ -29,6 +29,51 @@ def _read_events(path: Path) -> list[dict[str, object]]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
 
 
+class _CleanupFakeProcess:
+    def __init__(
+        self,
+        *,
+        pid: int,
+        alive: bool,
+        exitcode: int | None,
+        join_result: tuple[bool, int | None] | None = None,
+        terminate_result: tuple[bool, int | None] | None = None,
+        kill_result: tuple[bool, int | None] | None = None,
+        fail_is_alive: bool = False,
+    ) -> None:
+        self.pid = pid
+        self._alive = alive
+        self.exitcode = exitcode
+        self.join_result = join_result
+        self.terminate_result = terminate_result
+        self.kill_result = kill_result
+        self.fail_is_alive = fail_is_alive
+        self.join_calls = 0
+        self.terminate_calls = 0
+        self.kill_calls = 0
+
+    def is_alive(self) -> bool:
+        if self.fail_is_alive:
+            raise OSError("inspection failed")
+        return self._alive
+
+    def join(self, timeout: float | None = None) -> None:
+        self.join_calls += 1
+        if self.join_result is not None:
+            self._alive, self.exitcode = self.join_result
+            self.join_result = None
+
+    def terminate(self) -> None:
+        self.terminate_calls += 1
+        if self.terminate_result is not None:
+            self._alive, self.exitcode = self.terminate_result
+
+    def kill(self) -> None:
+        self.kill_calls += 1
+        if self.kill_result is not None:
+            self._alive, self.exitcode = self.kill_result
+
+
 def test_run_status_is_small_valid_json_and_atomically_replaced(tmp_path: Path) -> None:
     clock_values = iter(
         [
@@ -330,6 +375,11 @@ def test_worker_cleanup_verifier_requires_reaped_workers() -> None:
         "verified": True,
         "executors_shutdown": 1,
         "worker_processes_reaped": 2,
+        "cleanup_escalations": 0,
+        "workers_joined_after_shutdown": 0,
+        "workers_terminated": 0,
+        "workers_killed": 0,
+        "active_children_after_cleanup": 0,
         "stages": ["FLOAT_SCOUT"],
     }
 
@@ -351,6 +401,179 @@ def test_worker_cleanup_verifier_requires_reaped_workers() -> None:
     assert unavailable.active_executors == 1
     with pytest.raises(RuntimeError, match="active executor"):
         unavailable.verify()
+
+
+def test_worker_cleanup_escalation_join_recovers_and_ignores_unrelated_child() -> None:
+    owned = _CleanupFakeProcess(
+        pid=101,
+        alive=True,
+        exitcode=None,
+        join_result=(False, 0),
+    )
+    unrelated = _CleanupFakeProcess(pid=202, alive=True, exitcode=None)
+    events: list[tuple[str, dict[str, object]]] = []
+    verifier = WorkerCleanupVerifier()
+    verifier.executor_started("FLOAT_SCOUT")
+    verifier.executor_stopped(
+        "FLOAT_SCOUT",
+        [owned],
+        active_children_provider=lambda: [
+            process for process in (owned, unrelated) if process._alive
+        ],
+        event_sink=lambda event, details: events.append((event, details)),
+        join_grace_seconds=0,
+        terminate_grace_seconds=0,
+        kill_grace_seconds=0,
+    )
+
+    report = verifier.verify()
+    assert report["cleanup_escalations"] == 1
+    assert report["workers_joined_after_shutdown"] == 1
+    assert report["workers_terminated"] == 0
+    assert report["workers_killed"] == 0
+    assert report["active_children_after_cleanup"] == 0
+    assert unrelated.terminate_calls == 0
+    assert unrelated.kill_calls == 0
+    assert [event for event, _ in events] == [
+        "WORKER_CLEANUP_ESCALATION_STARTED",
+        "WORKER_CLEANUP_ESCALATION_COMPLETED",
+        "EXECUTOR_CLEANUP_VERIFIED",
+    ]
+    assert events[-1][1]["unrelated_active_children"] == 1
+
+
+def test_worker_cleanup_escalation_terminate_recovers_owned_worker() -> None:
+    owned = _CleanupFakeProcess(
+        pid=303,
+        alive=True,
+        exitcode=None,
+        terminate_result=(False, -15),
+    )
+    verifier = WorkerCleanupVerifier()
+    verifier.executor_started("RIGOROUS_PRECISION_SEARCH")
+    verifier.executor_stopped(
+        "RIGOROUS_PRECISION_SEARCH",
+        [owned],
+        active_children_provider=lambda: [owned] if owned._alive else [],
+        join_grace_seconds=0,
+        terminate_grace_seconds=0,
+        kill_grace_seconds=0,
+    )
+
+    report = verifier.verify()
+    assert owned.terminate_calls == 1
+    assert owned.kill_calls == 0
+    assert report["cleanup_escalations"] == 1
+    assert report["workers_terminated"] == 1
+    assert report["workers_killed"] == 0
+    assert report["active_children_after_cleanup"] == 0
+
+
+def test_worker_cleanup_escalation_kill_recovers_owned_worker() -> None:
+    owned = _CleanupFakeProcess(
+        pid=404,
+        alive=True,
+        exitcode=None,
+        kill_result=(False, -9),
+    )
+    events: list[str] = []
+    verifier = WorkerCleanupVerifier()
+    verifier.executor_started("FLOAT_SCOUT")
+    verifier.executor_stopped(
+        "FLOAT_SCOUT",
+        [owned],
+        active_children_provider=lambda: [owned] if owned._alive else [],
+        event_sink=lambda event, details: events.append(event),
+        join_grace_seconds=0,
+        terminate_grace_seconds=0,
+        kill_grace_seconds=0,
+    )
+
+    report = verifier.verify()
+    assert owned.terminate_calls == 1
+    assert owned.kill_calls == 1
+    assert report["workers_terminated"] == 0
+    assert report["workers_killed"] == 1
+    assert report["active_children_after_cleanup"] == 0
+    assert "WORKER_TERMINATE_SENT" in events
+    assert "WORKER_KILL_SENT" in events
+
+
+def test_worker_cleanup_escalation_fails_closed_if_owned_worker_survives() -> None:
+    owned = _CleanupFakeProcess(pid=505, alive=True, exitcode=None)
+    events: list[str] = []
+    verifier = WorkerCleanupVerifier()
+    verifier.executor_started("FLOAT_SCOUT")
+
+    with pytest.raises(RuntimeError, match="worker cleanup verification failed"):
+        verifier.executor_stopped(
+            "FLOAT_SCOUT",
+            [owned],
+            active_children_provider=lambda: [owned] if owned._alive else [],
+            event_sink=lambda event, details: events.append(event),
+            join_grace_seconds=0,
+            terminate_grace_seconds=0,
+            kill_grace_seconds=0,
+        )
+
+    assert owned.terminate_calls == 1
+    assert owned.kill_calls == 1
+    assert verifier.active_executors == 1
+    assert "WORKER_CLEANUP_FAILED" in events
+    with pytest.raises(RuntimeError, match="active executor"):
+        verifier.verify()
+
+
+def test_worker_cleanup_still_recovers_before_final_active_children_crosscheck_failure() -> None:
+    owned = _CleanupFakeProcess(
+        pid=707,
+        alive=True,
+        exitcode=None,
+        join_result=(False, 0),
+    )
+    verifier = WorkerCleanupVerifier()
+    verifier.executor_started("FLOAT_SCOUT")
+
+    def broken_active_children() -> list[object]:
+        raise OSError("active child registry unavailable")
+
+    with pytest.raises(RuntimeError, match="could not inspect multiprocessing active children"):
+        verifier.executor_stopped(
+            "FLOAT_SCOUT",
+            [owned],
+            active_children_provider=broken_active_children,
+            join_grace_seconds=0,
+            terminate_grace_seconds=0,
+            kill_grace_seconds=0,
+        )
+
+    assert owned.join_calls == 1
+    assert owned.is_alive() is False
+    assert owned.exitcode == 0
+    assert verifier.active_executors == 1
+
+
+def test_worker_cleanup_fails_closed_when_process_state_cannot_be_inspected() -> None:
+    owned = _CleanupFakeProcess(
+        pid=606,
+        alive=True,
+        exitcode=None,
+        fail_is_alive=True,
+    )
+    verifier = WorkerCleanupVerifier()
+    verifier.executor_started("FLOAT_SCOUT")
+
+    with pytest.raises(RuntimeError, match="could not verify worker cleanup"):
+        verifier.executor_stopped(
+            "FLOAT_SCOUT",
+            [owned],
+            active_children_provider=lambda: [owned],
+            join_grace_seconds=0,
+            terminate_grace_seconds=0,
+            kill_grace_seconds=0,
+        )
+
+    assert verifier.active_executors == 1
 
 
 def test_failure_record_sets_operational_terminal_state_without_manifest(tmp_path: Path) -> None:

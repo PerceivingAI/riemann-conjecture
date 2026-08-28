@@ -1313,6 +1313,10 @@ def test_cli_writes_requested_output_directory(
         "active_children_after_cleanup": 0,
         "executors_shutdown": 0,
         "worker_processes_reaped": 0,
+        "cleanup_escalations": 0,
+        "workers_joined_after_shutdown": 0,
+        "workers_terminated": 0,
+        "workers_killed": 0,
     }
     assert provenance_calls == [output_dir]
     assert len(identity_before_work) == 1
@@ -1355,6 +1359,11 @@ def test_cli_writes_requested_output_directory(
         "verified": True,
         "executors_shutdown": 0,
         "worker_processes_reaped": 0,
+        "cleanup_escalations": 0,
+        "workers_joined_after_shutdown": 0,
+        "workers_terminated": 0,
+        "workers_killed": 0,
+        "active_children_after_cleanup": 0,
         "stages": [],
     }
     frozen_digest = manifest_payload["finalization"]["result_payload_sha256"]
@@ -1463,6 +1472,11 @@ def test_verified_process_pool_reaps_real_spawned_workers() -> None:
     assert report["executors_shutdown"] == 1
     assert int(report["worker_processes_reaped"]) >= 1
     assert report["stages"] == ["TEST_POOL"]
+    assert report["cleanup_escalations"] == 0
+    assert report["workers_joined_after_shutdown"] == 0
+    assert report["workers_terminated"] == 0
+    assert report["workers_killed"] == 0
+    assert report["active_children_after_cleanup"] == 0
 
 
 def test_verified_process_pool_fails_closed_without_process_registry(
@@ -1484,6 +1498,27 @@ def test_verified_process_pool_fails_closed_without_process_registry(
 
     with pytest.raises(RuntimeError, match="active executor"):
         verifier.verify()
+
+
+def test_verified_process_pool_preserves_primary_error_when_cleanup_also_fails(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    class MissingRegistryExecutor:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc, tb):
+            return False
+
+    verifier = driver.WorkerCleanupVerifier()
+    monkeypatch.setattr(driver, "_spawn_process_pool", lambda workers: MissingRegistryExecutor())
+
+    with pytest.raises(ValueError, match="primary computation failure") as exc_info:
+        with driver._verified_process_pool(2, stage="TEST_POOL", verifier=verifier):
+            raise ValueError("primary computation failure")
+
+    assert any("executor cleanup also failed" in note for note in exc_info.value.__notes__)
+    assert verifier.active_executors == 1
 
 
 def test_cli_quiet_suppresses_live_stderr_without_changing_stdout(

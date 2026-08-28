@@ -292,11 +292,13 @@ def _verified_process_pool(
     *,
     stage: str,
     verifier: WorkerCleanupVerifier,
+    event_sink: Callable[[str, dict[str, object]], None] | None = None,
 ) -> Iterator[ProcessPoolExecutor]:
-    """Run one process pool and verify every spawned worker is dead after shutdown."""
+    """Run one process pool and harden cleanup after normal executor shutdown returns."""
     executor = _spawn_process_pool(max_workers)
     verifier.executor_started(stage)
     processes: list[Any] | None = None
+    body_error: BaseException | None = None
     try:
         with executor:
             try:
@@ -305,11 +307,24 @@ def _verified_process_pool(
                 raw_processes = getattr(executor, "_processes", None)
                 if isinstance(raw_processes, dict):
                     processes = list(raw_processes.values())
+    except BaseException as exc:
+        body_error = exc
+        raise
     finally:
-        # ProcessPoolExecutor has no public worker-handle API. Until Python
-        # exposes one, fail closed if the supported runtime no longer provides
-        # the process registry we explicitly verify after shutdown.
-        verifier.executor_stopped(stage, processes)
+        try:
+            verifier.executor_stopped(
+                stage,
+                processes,
+                active_children_provider=multiprocessing.active_children,
+                event_sink=event_sink,
+            )
+        except Exception as cleanup_exc:
+            if body_error is None:
+                raise
+            body_error.add_note(
+                "executor cleanup also failed: "
+                f"{type(cleanup_exc).__name__}: {cleanup_exc}"
+            )
 
 
 def _freeze_result_payload(result: dict[str, Any]) -> tuple[dict[str, Any], str]:
@@ -1289,6 +1304,9 @@ def run_driver(
         if progress is not None:
             progress.emit(message)
 
+    def emit_cleanup_event(event: str, details: dict[str, object]) -> None:
+        emit_event(event, **details)
+
     def observe_operation(operation: dict[str, object] | None) -> None:
         if run_status is not None:
             bounded = _bounded_observability_value(operation)
@@ -1540,6 +1558,7 @@ def run_driver(
             effective_scout_workers,
             stage="FLOAT_SCOUT",
             verifier=cleanup_verifier,
+            event_sink=emit_cleanup_event,
         ) as executor:
             jobs = [
                 (
@@ -1748,6 +1767,7 @@ def run_driver(
             effective_rigorous_workers,
             stage="RIGOROUS_PRECISION_SEARCH",
             verifier=cleanup_verifier,
+            event_sink=emit_cleanup_event,
         ) as executor:
             jobs = [
                 (
@@ -2463,6 +2483,15 @@ def main() -> None:
                     final_state=final_workflow_state,
                     executors_shutdown=cleanup_report["executors_shutdown"],
                     worker_processes_reaped=cleanup_report["worker_processes_reaped"],
+                    cleanup_escalations=cleanup_report["cleanup_escalations"],
+                    workers_joined_after_shutdown=cleanup_report[
+                        "workers_joined_after_shutdown"
+                    ],
+                    workers_terminated=cleanup_report["workers_terminated"],
+                    workers_killed=cleanup_report["workers_killed"],
+                    active_children_after_cleanup=cleanup_report[
+                        "active_children_after_cleanup"
+                    ],
                 )
 
                 frozen_result, result_payload_sha256 = _freeze_result_payload(result)

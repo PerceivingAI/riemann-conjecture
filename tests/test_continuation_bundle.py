@@ -120,6 +120,11 @@ def _finalization_kwargs(result: dict[str, object] | None = None) -> dict[str, o
             "verified": True,
             "executors_shutdown": 2,
             "worker_processes_reaped": 4,
+            "cleanup_escalations": 0,
+            "workers_joined_after_shutdown": 0,
+            "workers_terminated": 0,
+            "workers_killed": 0,
+            "active_children_after_cleanup": 0,
             "stages": ["FLOAT_SCOUT", "RIGOROUS_PRECISION_SEARCH"],
         },
         "result_payload_sha256": bundle._result_payload_digest(final_result),
@@ -228,6 +233,10 @@ def test_p8_bundle_writes_stage_artifacts_and_hash_manifest(tmp_path: Path) -> N
         "active_children_after_cleanup": 0,
         "executors_shutdown": 2,
         "worker_processes_reaped": 4,
+        "cleanup_escalations": 0,
+        "workers_joined_after_shutdown": 0,
+        "workers_terminated": 0,
+        "workers_killed": 0,
     }
     assert manifest["configuration"]["support"] == "19/40"
     assert manifest["configuration"]["precision_ladder"] == [128, 256]
@@ -243,6 +252,63 @@ def test_p8_bundle_writes_stage_artifacts_and_hash_manifest(tmp_path: Path) -> N
         data = (output_dir / entry["path"]).read_bytes()
         assert entry["sha256"] == hashlib.sha256(data).hexdigest()
         assert entry["bytes"] == len(data)
+
+
+def test_bundle_process_lifecycle_records_cleanup_recovery_aggregates(tmp_path: Path) -> None:
+    result = _result()
+    cleanup = {
+        "verified": True,
+        "executors_shutdown": 2,
+        "worker_processes_reaped": 4,
+        "cleanup_escalations": 1,
+        "workers_joined_after_shutdown": 0,
+        "workers_terminated": 1,
+        "workers_killed": 0,
+        "active_children_after_cleanup": 0,
+        "stages": ["FLOAT_SCOUT", "RIGOROUS_PRECISION_SEARCH"],
+    }
+    manifest = write_continuation_bundle(
+        result,
+        tmp_path / "recovered-cleanup",
+        provenance={
+            "git_commit": "a" * 40,
+            "git_dirty": False,
+            "python_version": "3.14.0",
+            "python_implementation": "CPython",
+            "python_flint_version": "0.9.0",
+        },
+        worker_cleanup=cleanup,
+        result_payload_sha256=bundle._result_payload_digest(result),
+        parent_pid=4242,
+    )
+
+    lifecycle = manifest["process_lifecycle"]
+    assert lifecycle["cleanup_escalations"] == 1
+    assert lifecycle["workers_terminated"] == 1
+    assert lifecycle["workers_killed"] == 0
+    assert lifecycle["active_children_after_cleanup"] == 0
+    assert manifest["finalization"]["worker_cleanup"] == cleanup
+
+
+def test_bundle_rejects_unresolved_worker_cleanup_state(tmp_path: Path) -> None:
+    result = _result()
+    cleanup = dict(_finalization_kwargs(result)["worker_cleanup"])
+    cleanup["active_children_after_cleanup"] = 1
+    with pytest.raises(ValueError, match="unresolved active children"):
+        write_continuation_bundle(
+            result,
+            tmp_path / "unresolved-cleanup",
+            provenance={
+                "git_commit": "a" * 40,
+                "git_dirty": False,
+                "python_version": "3.14.0",
+                "python_implementation": "CPython",
+                "python_flint_version": "0.9.0",
+            },
+            worker_cleanup=cleanup,
+            result_payload_sha256=bundle._result_payload_digest(result),
+            parent_pid=4242,
+        )
 
 
 def test_bundle_writes_stage_artifacts_then_summary_and_manifest_last(
@@ -301,6 +367,11 @@ def test_bundle_rejects_mismatched_result_digest(tmp_path: Path) -> None:
                 "verified": True,
                 "executors_shutdown": 0,
                 "worker_processes_reaped": 0,
+                "cleanup_escalations": 0,
+                "workers_joined_after_shutdown": 0,
+                "workers_terminated": 0,
+                "workers_killed": 0,
+                "active_children_after_cleanup": 0,
                 "stages": [],
             },
             result_payload_sha256="d" * 64,
@@ -324,6 +395,11 @@ def test_bundle_rejects_invalid_process_lifecycle_parent_pid(tmp_path: Path) -> 
                 "verified": True,
                 "executors_shutdown": 0,
                 "worker_processes_reaped": 0,
+                "cleanup_escalations": 0,
+                "workers_joined_after_shutdown": 0,
+                "workers_terminated": 0,
+                "workers_killed": 0,
+                "active_children_after_cleanup": 0,
                 "stages": [],
             },
             result_payload_sha256=bundle._result_payload_digest(result),

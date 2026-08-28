@@ -34,6 +34,9 @@ RUN_LOCK_FORMAT = "riemann-output-lock-v1"
 RUN_LOCK_BYTE_OFFSET = 4096
 HEARTBEAT_INTERVAL_SECONDS = 12.0
 PROCESS_WORKER_MODEL = "spawn"
+WORKER_POST_SHUTDOWN_JOIN_SECONDS = 0.5
+WORKER_POST_TERMINATE_JOIN_SECONDS = 1.0
+WORKER_POST_KILL_JOIN_SECONDS = 1.0
 _EVENT_RESERVED_FIELDS = frozenset({"seq", "time", "run_id", "event"})
 
 
@@ -382,10 +385,9 @@ def _validate_run_identity_for_lock(output_lock: OutputDirectoryLock) -> None:
             "run identity does not match output-directory lock: " + ", ".join(mismatched)
         )
 
-
 @dataclass
 class WorkerCleanupVerifier:
-    """Track executor lifetimes and prove their worker processes are reaped."""
+    """Track executor lifetimes and prove owned worker processes are reaped."""
 
     active_executors: int = 0
     shutdown_records: list[dict[str, object]] = field(default_factory=list)
@@ -400,7 +402,55 @@ class WorkerCleanupVerifier:
         self.active_executors += 1
         self._active_stages.append(stage)
 
-    def executor_stopped(self, stage: str, processes: list[Any] | None) -> None:
+    @staticmethod
+    def _process_state(process: Any, stage: str) -> tuple[bool, int | None, int | None]:
+        try:
+            alive = bool(process.is_alive())
+        except Exception as exc:
+            raise RuntimeError(f"could not verify worker cleanup for {stage}") from exc
+        exit_code = getattr(process, "exitcode", None)
+        pid = getattr(process, "pid", None)
+        return (
+            alive,
+            exit_code if isinstance(exit_code, int) else None,
+            pid if isinstance(pid, int) and pid > 0 else None,
+        )
+
+    @staticmethod
+    def _owned_active_children(
+        processes: list[Any],
+        active_children: list[Any],
+    ) -> tuple[list[Any], list[Any]]:
+        owned_objects = {id(process) for process in processes}
+        owned_pids = {
+            pid
+            for process in processes
+            if isinstance((pid := getattr(process, "pid", None)), int) and pid > 0
+        }
+        owned: list[Any] = []
+        unrelated: list[Any] = []
+        for child in active_children:
+            child_pid = getattr(child, "pid", None)
+            if id(child) in owned_objects or (
+                isinstance(child_pid, int) and child_pid in owned_pids
+            ):
+                owned.append(child)
+            else:
+                unrelated.append(child)
+        return owned, unrelated
+
+    def executor_stopped(
+        self,
+        stage: str,
+        processes: list[Any] | None,
+        *,
+        active_children_provider: Callable[[], list[Any]] | None = None,
+        event_sink: Callable[[str, dict[str, object]], None] | None = None,
+        join_grace_seconds: float = WORKER_POST_SHUTDOWN_JOIN_SECONDS,
+        terminate_grace_seconds: float = WORKER_POST_TERMINATE_JOIN_SECONDS,
+        kill_grace_seconds: float = WORKER_POST_KILL_JOIN_SECONDS,
+    ) -> None:
+        """Verify normal pool shutdown and recover only this executor's survivors."""
         if self.active_executors < 1 or not self._active_stages:
             raise RuntimeError("executor cleanup accounting underflow")
         if self._active_stages[-1] != stage:
@@ -411,34 +461,177 @@ class WorkerCleanupVerifier:
             raise RuntimeError(
                 f"worker cleanup verification could not inspect process registry for {stage}"
             )
+        for value in (join_grace_seconds, terminate_grace_seconds, kill_grace_seconds):
+            if value < 0:
+                raise ValueError("worker cleanup grace periods must be non-negative")
 
-        exit_codes: list[int | None] = []
-        for process in processes:
+        event_error: Exception | None = None
+
+        def emit(event: str, **details: object) -> None:
+            nonlocal event_error
+            if event_sink is None:
+                return
             try:
-                alive = bool(process.is_alive())
+                event_sink(event, details)
             except Exception as exc:
-                raise RuntimeError(
-                    f"could not verify worker cleanup for {stage}"
-                ) from exc
-            exit_code = getattr(process, "exitcode", None)
-            exit_codes.append(exit_code if isinstance(exit_code, int) else None)
-            if alive or exit_code is None:
-                raise RuntimeError(
-                    f"worker cleanup verification failed for {stage}"
-                )
+                if event_error is None:
+                    event_error = exc
 
-        # Only mark the executor inactive after every worker observation passed.
-        # A failed cleanup check must remain fail-closed if a caller catches the
-        # exception and later asks for final verification.
+        def snapshot() -> list[tuple[Any, bool, int | None, int | None]]:
+            return [
+                (process, *self._process_state(process, stage))
+                for process in processes
+            ]
+
+        def active_snapshot(*, required: bool) -> tuple[list[Any], list[Any]]:
+            if active_children_provider is None:
+                return [], []
+            try:
+                active_children = list(active_children_provider())
+            except Exception as exc:
+                if required:
+                    raise RuntimeError(
+                        f"could not inspect multiprocessing active children for {stage}"
+                    ) from exc
+                # The exact captured Process objects remain the cleanup authority.
+                # Do not let a diagnostic cross-check failure prevent recovery.
+                return [], []
+            return self._owned_active_children(processes, active_children)
+
+        states = snapshot()
+        owned_active, unrelated_active = active_snapshot(required=False)
+        unresolved = [row for row in states if row[1] or row[2] is None]
+        escalation_required = bool(unresolved or owned_active)
+        joined_after_shutdown = 0
+        terminated = 0
+        killed = 0
+
+        if escalation_required:
+            emit(
+                "WORKER_CLEANUP_ESCALATION_STARTED",
+                stage=stage,
+                worker_pids=[row[3] for row in unresolved if row[3] is not None],
+                active_owned_children=len(owned_active),
+                unrelated_active_children=len(unrelated_active),
+            )
+
+            before = {id(row[0]) for row in unresolved}
+            for process, *_ in unresolved:
+                try:
+                    process.join(timeout=join_grace_seconds)
+                except Exception:
+                    # Continue to owned-process termination. Final inspection is authoritative.
+                    pass
+            states = snapshot()
+            unresolved = [row for row in states if row[1] or row[2] is None]
+            joined_after_shutdown = len(before - {id(row[0]) for row in unresolved})
+
+            live = [row for row in unresolved if row[1]]
+            terminate_targets = {id(row[0]) for row in live}
+            if live:
+                emit(
+                    "WORKER_TERMINATE_SENT",
+                    stage=stage,
+                    worker_pids=[row[3] for row in live if row[3] is not None],
+                )
+            for process, *_ in live:
+                try:
+                    process.terminate()
+                except Exception:
+                    pass
+            for process, *_ in live:
+                try:
+                    process.join(timeout=terminate_grace_seconds)
+                except Exception:
+                    pass
+
+            states = snapshot()
+            unresolved = [row for row in states if row[1] or row[2] is None]
+            terminated = len(
+                terminate_targets - {id(row[0]) for row in unresolved}
+            )
+            live = [row for row in unresolved if row[1]]
+            kill_targets = {id(row[0]) for row in live}
+            if live:
+                emit(
+                    "WORKER_KILL_SENT",
+                    stage=stage,
+                    worker_pids=[row[3] for row in live if row[3] is not None],
+                )
+            for process, *_ in live:
+                kill = getattr(process, "kill", None)
+                if callable(kill):
+                    try:
+                        kill()
+                    except Exception:
+                        pass
+            for process, *_ in live:
+                try:
+                    process.join(timeout=kill_grace_seconds)
+                except Exception:
+                    pass
+            states = snapshot()
+            unresolved = [row for row in states if row[1] or row[2] is None]
+            killed = len(kill_targets - {id(row[0]) for row in unresolved})
+
+        states = snapshot()
+        owned_active_after, unrelated_active_after = active_snapshot(required=True)
+        unresolved = [row for row in states if row[1] or row[2] is None]
+        if unresolved or owned_active_after:
+            emit(
+                "WORKER_CLEANUP_FAILED",
+                stage=stage,
+                worker_pids=[row[3] for row in unresolved if row[3] is not None],
+                active_owned_children=len(owned_active_after),
+                unrelated_active_children=len(unrelated_active_after),
+            )
+            error = RuntimeError(f"worker cleanup verification failed for {stage}")
+            if event_error is not None:
+                error.add_note(
+                    "worker cleanup event recording also failed: "
+                    f"{type(event_error).__name__}: {event_error}"
+                )
+            raise error
+
+        exit_codes = [row[2] for row in states]
+        record = {
+            "stage": stage,
+            "worker_processes_observed": len(processes),
+            "worker_processes_reaped": len(processes),
+            "cleanup_escalation_required": escalation_required,
+            "joined_after_shutdown": joined_after_shutdown,
+            "terminated": terminated,
+            "killed": killed,
+            "active_children_after_cleanup": 0,
+            "worker_exit_codes": exit_codes,
+        }
+        if escalation_required:
+            emit(
+                "WORKER_CLEANUP_ESCALATION_COMPLETED",
+                stage=stage,
+                terminated=terminated,
+                killed=killed,
+                active_children_after_cleanup=0,
+            )
+        emit(
+            "EXECUTOR_CLEANUP_VERIFIED",
+            stage=stage,
+            workers_observed=len(processes),
+            cleanup_escalation_required=escalation_required,
+            joined_after_shutdown=joined_after_shutdown,
+            terminated=terminated,
+            killed=killed,
+            active_children_after_cleanup=0,
+            unrelated_active_children=len(unrelated_active_after),
+        )
+        if event_error is not None:
+            raise RuntimeError("worker cleanup event recording failed") from event_error
+
+        # Mark the executor inactive only after cleanup and its required live
+        # observability both succeeded. Any failure remains fail-closed.
         self.active_executors -= 1
         self._active_stages.pop()
-        self.shutdown_records.append(
-            {
-                "stage": stage,
-                "worker_processes_reaped": len(processes),
-                "worker_exit_codes": exit_codes,
-            }
-        )
+        self.shutdown_records.append(record)
 
     def verify(self) -> dict[str, object]:
         """Seal and return finalization authorization only when no executor remains live."""
@@ -452,6 +645,23 @@ class WorkerCleanupVerifier:
                 int(record["worker_processes_reaped"])
                 for record in self.shutdown_records
             ),
+            "cleanup_escalations": sum(
+                1 for record in self.shutdown_records
+                if record["cleanup_escalation_required"] is True
+            ),
+            "workers_joined_after_shutdown": sum(
+                int(record["joined_after_shutdown"])
+                for record in self.shutdown_records
+            ),
+            "workers_terminated": sum(
+                int(record["terminated"])
+                for record in self.shutdown_records
+            ),
+            "workers_killed": sum(
+                int(record["killed"])
+                for record in self.shutdown_records
+            ),
+            "active_children_after_cleanup": 0,
             "stages": [str(record["stage"]) for record in self.shutdown_records],
         }
 

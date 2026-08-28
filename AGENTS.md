@@ -328,6 +328,8 @@ Keep outer pytest sequential (`-n 0`) for this tier because the driver itself la
 
 Completed continuation manifests record `process_lifecycle` for the Python driver's own managed process pools. Normal runs require `worker_model="spawn"`, `worker_cleanup_verified=true`, and `active_children_after_cleanup=0`; that zero is scoped to workers observed by the driver and must not be interpreted as an OS-wide process-tree guarantee.
 
+Executor cleanup must preserve the standard `with ProcessPoolExecutor(...)` lifecycle. After a pool context returns, the driver may recover only the exact captured executor workers: short join, then `terminate()` + join, then `kill()` + join if still necessary. `multiprocessing.active_children()` is a cross-check, not an ownership source; never terminate unrelated children from that list. Unresolved owned workers fail the run. The repository does not claim to solve a `shutdown(wait=True)` call that itself never returns; OS-wide containment remains Portus-owned.
+
 ## 9. Rust and Lean verification
 
 Rust workspace crates are declared in the root `Cargo.toml`.
