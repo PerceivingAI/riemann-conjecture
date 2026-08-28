@@ -180,6 +180,38 @@ def test_p8_bundle_writes_stage_artifacts_and_hash_manifest(tmp_path: Path) -> N
         assert entry["bytes"] == len(data)
 
 
+def test_bundle_allows_live_operational_directory_without_manifesting_it(
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "live-continuation"
+    live_dir = output_dir / ".live"
+    live_dir.mkdir(parents=True)
+    live_status = live_dir / "run-status.json"
+    live_status.write_text('{"terminal": false}\n', encoding="utf-8")
+    live_events = live_dir / "events.jsonl"
+    live_events.write_text(
+        '{"seq":1,"time":"2026-08-28T02:00:00Z","event":"RUN_STARTED"}\n',
+        encoding="utf-8",
+    )
+
+    manifest = write_continuation_bundle(
+        _result(),
+        output_dir,
+        provenance={
+            "git_commit": "a" * 40,
+            "git_dirty": False,
+            "python_version": "3.14.0",
+            "python_implementation": "CPython",
+            "python_flint_version": "0.9.0",
+        },
+    )
+
+    assert live_status.read_text(encoding="utf-8") == '{"terminal": false}\n'
+    assert live_events.read_text(encoding="utf-8").startswith('{"seq":1,')
+    assert all(not str(entry["path"]).startswith(".live/") for entry in manifest["artifacts"])
+    assert (output_dir / "run-manifest.json").is_file()
+
+
 def test_p8_bundle_refuses_nonempty_output_directory(tmp_path: Path) -> None:
     output_dir = tmp_path / "existing"
     output_dir.mkdir()

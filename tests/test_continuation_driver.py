@@ -20,6 +20,21 @@ class _InlineFuture:
         return self._fn(*self._args, **self._kwargs)
 
 
+class _RecordingRunStatus:
+    def __init__(self) -> None:
+        self.updates: list[dict[str, object]] = []
+        self.events: list[dict[str, object]] = []
+
+    def update(self, **kwargs) -> dict[str, object]:
+        self.updates.append(dict(kwargs))
+        return dict(kwargs)
+
+    def event(self, event: str, **kwargs) -> dict[str, object]:
+        record = {"event": event, **kwargs}
+        self.events.append(record)
+        return record
+
+
 class _InlineExecutor:
     def __enter__(self):
         return self
@@ -1001,6 +1016,51 @@ def test_parallel_orchestration_preserves_deterministic_result_order(
     assert pool_sizes == [3, 2]
 
 
+def test_run_driver_updates_live_status_without_changing_terminal_semantics(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        driver,
+        "scout",
+        lambda *, max_mode, quadrature_order, shift_order, n_values, support: _scout_result(
+            n_values, positive=False
+        ),
+    )
+    status = _RecordingRunStatus()
+
+    result = driver.run_driver(Fraction(19, 40), [48], run_status=status)
+
+    assert result["state"] == "NO_CANDIDATE"
+    workflow_states = [update["workflow_state"] for update in status.updates]
+    assert workflow_states[0] == "VALIDATE_INPUT"
+    assert "FLOAT_SCOUT" in workflow_states
+    assert workflow_states[-1] == "NO_CANDIDATE"
+    scout_operations = [
+        update["current_operation"]
+        for update in status.updates
+        if isinstance(update.get("current_operation"), dict)
+        and update["current_operation"].get("stage") == "FLOAT_SCOUT"
+    ]
+    assert any(operation.get("resolution_level") == 0 for operation in scout_operations)
+    assert status.updates[-1]["current_operation"] == {
+        "stage": "FINAL_RESULT_PENDING_BUNDLE",
+        "result_state": "NO_CANDIDATE",
+    }
+    assert status.updates[-1]["terminal"] is False
+    event_names = [event["event"] for event in status.events]
+    assert event_names[:3] == [
+        "VALIDATION_STARTED",
+        "VALIDATION_COMPLETED",
+        "WORKFLOW_STATE_CHANGED",
+    ]
+    assert "SCOUT_STAGE_STARTED" in event_names
+    assert event_names.count("SCOUT_RESOLUTION_STARTED") == 3
+    assert event_names.count("SCOUT_RESOLUTION_COMPLETED") == 3
+    assert "SCOUT_STAGE_COMPLETED" in event_names
+    assert event_names[-2:] == ["WORKFLOW_STATE_CHANGED", "RUN_RESULT_REACHED"]
+    assert status.events[-1]["result_state"] == "NO_CANDIDATE"
+
+
 def test_driver_propagates_precision_limit(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
         driver,
@@ -1112,8 +1172,33 @@ def test_cli_writes_requested_output_directory(
 
     summary = (output_dir / "summary.json").read_text(encoding="utf-8")
     manifest = (output_dir / "run-manifest.json").read_text(encoding="utf-8")
+    live_status = json.loads(
+        (output_dir / ".live" / "run-status.json").read_text(encoding="utf-8")
+    )
+    live_events = [
+        json.loads(line)
+        for line in (output_dir / ".live" / "events.jsonl")
+        .read_text(encoding="utf-8")
+        .splitlines()
+    ]
     assert '"state": "NO_CANDIDATE"' in summary
     assert '"final_state": "NO_CANDIDATE"' in manifest
+    assert live_status["format"] == "riemann-live-run-v1"
+    assert live_status["support"] == "19/40"
+    assert live_status["workflow_state"] == "NO_CANDIDATE"
+    assert live_status["current_operation"] is None
+    assert live_status["terminal"] is True
+    assert [event["seq"] for event in live_events] == list(
+        range(1, len(live_events) + 1)
+    )
+    assert [event["event"] for event in live_events] == [
+        "RUN_STARTED",
+        "BUNDLE_FINALIZATION_STARTED",
+        "BUNDLE_FINALIZATION_COMPLETED",
+        "RUN_COMPLETED",
+    ]
+    assert all(event["run_id"] == live_status["run_id"] for event in live_events)
+    assert live_events[-1]["final_state"] == "NO_CANDIDATE"
     terminal = capsys.readouterr().out
     assert "Support continuation candidate search" in terminal
     assert "RESULT: NO_CANDIDATE" in terminal

@@ -17,6 +17,8 @@ from typing import Any
 
 import flint
 
+from scripts.run_observability import LIVE_DIRECTORY_NAME
+
 
 BUNDLE_FORMAT = "rh-continuation-candidate-bundle-v1"
 
@@ -125,8 +127,12 @@ def write_continuation_bundle(
     provenance: dict[str, object] | None = None,
 ) -> dict[str, Any]:
     """Write a complete P8 continuation bundle and return its manifest."""
-    if output_dir.exists() and any(output_dir.iterdir()):
-        raise ValueError("continuation output directory must be empty")
+    if output_dir.exists():
+        entries = list(output_dir.iterdir())
+        live_entries = [entry for entry in entries if entry.name == LIVE_DIRECTORY_NAME]
+        non_live_entries = [entry for entry in entries if entry.name != LIVE_DIRECTORY_NAME]
+        if non_live_entries or any(not entry.is_dir() for entry in live_entries):
+            raise ValueError("continuation output directory must be empty except for .live")
     output_dir.mkdir(parents=True, exist_ok=True)
 
     started = run_started_at or utc_now()

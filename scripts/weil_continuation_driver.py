@@ -37,6 +37,7 @@ from scripts.continuation_bundle import (
     utc_now,
     write_continuation_bundle,
 )
+from scripts.run_observability import RunStatusWriter
 from scripts.weil_legendre_schur_scout import scout
 from scripts.cert.constants import require_one_prime_support
 from scripts.weil_support_candidate_check import (
@@ -1125,8 +1126,63 @@ def run_driver(
     scout_workers: int = 1,
     rigorous_workers: int = 1,
     cache_dir: Path | None = None,
+    run_status: RunStatusWriter | None = None,
 ) -> dict[str, Any]:
     machine = ContinuationStateMachine()
+
+    def emit_event(event: str, **details: object) -> None:
+        if run_status is not None:
+            run_status.event(event, **details)
+
+    def observe_operation(operation: dict[str, object] | None) -> None:
+        if run_status is not None:
+            run_status.update(
+                workflow_state=machine.current.value,
+                current_operation=operation,
+                terminal=False,
+            )
+
+    def transition(
+        target: WorkflowState,
+        *,
+        reason: str,
+        details: dict[str, object] | None = None,
+    ) -> None:
+        ContinuationStateMachine.transition(
+            machine,
+            target,
+            reason=reason,
+            details=details,
+        )
+        if target in TERMINAL_WORKFLOW_STATES:
+            operation: dict[str, object] | None = {
+                "stage": "FINAL_RESULT_PENDING_BUNDLE",
+                "result_state": target.value,
+            }
+        else:
+            operation = {
+                "stage": target.value,
+                "reason": reason,
+                "details": details or {},
+            }
+        observe_operation(operation)
+        emit_event(
+            "WORKFLOW_STATE_CHANGED",
+            workflow_state=target.value,
+            reason=reason,
+            details=details or {},
+        )
+        if target in TERMINAL_WORKFLOW_STATES:
+            emit_event("RUN_RESULT_REACHED", result_state=target.value)
+
+    observe_operation(
+        {
+            "stage": WorkflowState.VALIDATE_INPUT.value,
+            "dimension_count": len(dimensions),
+        }
+    )
+
+    emit_event("VALIDATION_STARTED", dimension_count=len(dimensions))
 
     if support <= 0:
         raise ValueError("support must be positive")
@@ -1153,6 +1209,13 @@ def run_driver(
     matrix_bits_ladder = build_bit_ladder(matrix_bits_start, matrix_bits_max, 16)
     witness_bits_ladder = build_bit_ladder(witness_bits_start, witness_bits_max, 8)
     resolutions = build_scout_resolutions(dimensions, scout_resolution_count)
+
+    emit_event(
+        "VALIDATION_COMPLETED",
+        dimension_count=len(dimensions),
+        resolution_count=len(resolutions),
+        precision_count=len(precisions),
+    )
 
     reconnaissance: list[dict[str, object]] = []
     scout_failures: list[dict[str, object]] = []
@@ -1210,7 +1273,7 @@ def run_driver(
             "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed.",
         }
 
-    machine.transition(
+    transition(
         WorkflowState.FLOAT_SCOUT,
         reason="validated_driver_inputs",
         details={
@@ -1219,6 +1282,11 @@ def run_driver(
             "resolution_count": len(resolutions),
             "scout_workers": min(scout_workers, len(resolutions)),
         },
+    )
+    emit_event(
+        "SCOUT_STAGE_STARTED",
+        resolution_count=len(resolutions),
+        worker_count=min(scout_workers, len(resolutions)),
     )
     series: dict[int, list[ScoutDimensionResult]] = {
         dimension: [] for dimension in dimensions
@@ -1243,6 +1311,14 @@ def run_driver(
         ):
             series[row.dimension].append(row)
 
+        emit_event(
+            "SCOUT_RESOLUTION_COMPLETED",
+            level=resolution.level,
+            max_mode=resolution.max_mode,
+            quadrature_order=resolution.quadrature_order,
+            shift_order=resolution.shift_order,
+        )
+
     def record_scout_failure(resolution: ScoutResolution, exc: Exception) -> None:
         failure = {
             "resolution": resolution.as_dict(),
@@ -1252,9 +1328,32 @@ def run_driver(
         scout_failures.append(failure)
         scout_runs.append({"status": "failed", **failure})
 
+        emit_event(
+            "SCOUT_RESOLUTION_FAILED",
+            level=resolution.level,
+            error_type=type(exc).__name__,
+            error=str(exc)[:500],
+        )
+
     effective_scout_workers = min(scout_workers, len(resolutions))
     if effective_scout_workers == 1:
         for resolution in resolutions:
+            emit_event(
+                "SCOUT_RESOLUTION_STARTED",
+                level=resolution.level,
+                max_mode=resolution.max_mode,
+                quadrature_order=resolution.quadrature_order,
+                shift_order=resolution.shift_order,
+            )
+            observe_operation(
+                {
+                    "stage": WorkflowState.FLOAT_SCOUT.value,
+                    "resolution_level": resolution.level,
+                    "max_mode": resolution.max_mode,
+                    "quadrature_order": resolution.quadrature_order,
+                    "shift_order": resolution.shift_order,
+                }
+            )
             try:
                 record_scout_result(
                     resolution,
@@ -1282,6 +1381,21 @@ def run_driver(
                 )
                 for resolution in resolutions
             ]
+            for resolution in resolutions:
+                emit_event(
+                    "SCOUT_RESOLUTION_STARTED",
+                    level=resolution.level,
+                    max_mode=resolution.max_mode,
+                    quadrature_order=resolution.quadrature_order,
+                    shift_order=resolution.shift_order,
+                )
+            observe_operation(
+                {
+                    "stage": WorkflowState.FLOAT_SCOUT.value,
+                    "active_resolution_levels": [resolution.level for resolution in resolutions],
+                    "worker_count": effective_scout_workers,
+                }
+            )
             # Consume in resolution order so bundle/result ordering is deterministic.
             for resolution, future in jobs:
                 try:
@@ -1289,7 +1403,12 @@ def run_driver(
                 except Exception as exc:
                     record_scout_failure(resolution, exc)
 
-    machine.transition(
+    emit_event(
+        "SCOUT_STAGE_COMPLETED",
+        completed_resolutions=sum(run["status"] == "completed" for run in scout_runs),
+        failed_resolutions=len(scout_failures),
+    )
+    transition(
         WorkflowState.CHECK_SCOUT_STABILITY,
         reason="floating_scout_complete",
         details={
@@ -1317,11 +1436,20 @@ def run_driver(
         for row in reconnaissance
         if row["classification"] == "stable_positive"
     )
+    emit_event(
+        "SCOUT_CLASSIFICATION_COMPLETED",
+        stable_dimensions=stable_dimensions,
+        unstable_dimensions=[
+            int(row["dimension"])
+            for row in reconnaissance
+            if row["classification"] == "unstable"
+        ],
+    )
     if not stable_dimensions:
         unstable = bool(scout_failures) or any(
             row["classification"] == "unstable" for row in reconnaissance
         )
-        machine.transition(
+        transition(
             WorkflowState.SCOUT_UNSTABLE if unstable else WorkflowState.NO_CANDIDATE,
             reason=(
                 "scout_evidence_unstable"
@@ -1332,7 +1460,7 @@ def run_driver(
         )
         return finalize()
 
-    machine.transition(
+    transition(
         WorkflowState.SELECT_DIMENSION,
         reason="stable_positive_dimensions_found",
         details={"stable_dimensions": stable_dimensions},
@@ -1341,7 +1469,7 @@ def run_driver(
     fallback_dimensions = stable_dimensions[1:2]
     screening_dimensions = stable_dimensions[:2]
 
-    machine.transition(
+    transition(
         WorkflowState.RIGOROUS_PRECISION_SEARCH,
         reason="selected_primary_and_fallback_dimensions",
         details={
@@ -1349,6 +1477,11 @@ def run_driver(
             "fallback_dimensions": fallback_dimensions,
             "rigorous_workers": min(rigorous_workers, len(screening_dimensions)),
         },
+    )
+    emit_event(
+        "RIGOROUS_STAGE_STARTED",
+        dimensions=screening_dimensions,
+        worker_count=min(rigorous_workers, len(screening_dimensions)),
     )
     survivors: list[int] = []
 
@@ -1362,6 +1495,17 @@ def run_driver(
             selected_precision, int
         ):
             survivors.append(dimension)
+        emit_event(
+            "RIGOROUS_DIMENSION_COMPLETED",
+            dimension=dimension,
+            status=screening.get("status"),
+            selected_precision_bits=screening.get("selected_precision_bits"),
+            attempted_precisions=[
+                attempt.get("precision_bits")
+                for attempt in screening.get("attempts", [])
+                if isinstance(attempt, dict)
+            ],
+        )
 
     def record_rigorous_failure(dimension: int, exc: Exception) -> None:
         rigorous_failures.append(
@@ -1371,10 +1515,24 @@ def run_driver(
                 "error": str(exc),
             }
         )
+        emit_event(
+            "RIGOROUS_DIMENSION_FAILED",
+            dimension=dimension,
+            error_type=type(exc).__name__,
+            error=str(exc)[:500],
+        )
 
     effective_rigorous_workers = min(rigorous_workers, len(screening_dimensions))
     if effective_rigorous_workers == 1:
         for dimension in screening_dimensions:
+            emit_event("RIGOROUS_DIMENSION_STARTED", dimension=dimension)
+            observe_operation(
+                {
+                    "stage": WorkflowState.RIGOROUS_PRECISION_SEARCH.value,
+                    "dimension": dimension,
+                    "precision_ladder": precisions,
+                }
+            )
             try:
                 record_rigorous_result(
                     dimension,
@@ -1401,6 +1559,16 @@ def run_driver(
                 )
                 for dimension in screening_dimensions
             ]
+            for dimension in screening_dimensions:
+                emit_event("RIGOROUS_DIMENSION_STARTED", dimension=dimension)
+            observe_operation(
+                {
+                    "stage": WorkflowState.RIGOROUS_PRECISION_SEARCH.value,
+                    "active_dimensions": screening_dimensions,
+                    "precision_ladder": precisions,
+                    "worker_count": effective_rigorous_workers,
+                }
+            )
             # Consume in selected-dimension order so result semantics stay stable.
             for dimension, future in jobs:
                 try:
@@ -1408,7 +1576,13 @@ def run_driver(
                 except Exception as exc:
                     record_rigorous_failure(dimension, exc)
 
-    machine.transition(
+    emit_event(
+        "RIGOROUS_STAGE_COMPLETED",
+        screened_dimensions=screening_dimensions,
+        surviving_dimensions=survivors,
+        failure_count=len(rigorous_failures),
+    )
+    transition(
         WorkflowState.CHECK_RIGOROUS_STABILITY,
         reason="rigorous_precision_search_complete",
         details={
@@ -1431,15 +1605,22 @@ def run_driver(
         else:
             target = WorkflowState.NO_CANDIDATE
             reason = "rigorous_screening_rejected_all_dimensions"
-        machine.transition(target, reason=reason, details={"survivors": []})
+        transition(target, reason=reason, details={"survivors": []})
         return finalize()
 
-    machine.transition(
+    transition(
         WorkflowState.EXACT_ROUNDING_SEARCH,
         reason="rigorous_candidate_survived",
         details={"surviving_dimensions": survivors},
     )
     for dimension in survivors:
+        emit_event("CANDIDATE_STARTED", dimension=dimension)
+        observe_operation(
+            {
+                "stage": WorkflowState.EXACT_ROUNDING_SEARCH.value,
+                "dimension": dimension,
+            }
+        )
         screening = next(
             row for row in rigorous_screening if row["dimension"] == dimension
         )
@@ -1454,6 +1635,13 @@ def run_driver(
                 cache_dir,
             )
             candidates.append({**candidate, "dimension": dimension})
+            emit_event(
+                "CANDIDATE_COMPLETED",
+                dimension=dimension,
+                status=candidate.get("status"),
+                matrix_bits=candidate.get("selected_matrix_bits"),
+                witness_bits=candidate.get("selected_witness_bits"),
+            )
             if candidate["status"] != "candidate_ready":
                 candidate_failures.append(
                     {"dimension": dimension, "status": candidate["status"]}
@@ -1466,18 +1654,24 @@ def run_driver(
                     "error": str(exc),
                 }
             )
+            emit_event(
+                "CANDIDATE_FAILED",
+                dimension=dimension,
+                error_type=type(exc).__name__,
+                error=str(exc)[:500],
+            )
 
     ready = [
         candidate for candidate in candidates if candidate["status"] == "candidate_ready"
     ]
     if ready:
         ready_dimensions = [int(candidate["dimension"]) for candidate in ready]
-        machine.transition(
+        transition(
             WorkflowState.EXACT_WITNESS_CHECK,
             reason="outward_rounding_and_exact_schur_succeeded",
             details={"candidate_ready_dimensions": ready_dimensions},
         )
-        machine.transition(
+        transition(
             WorkflowState.CANDIDATE_PRECISION_CONFIRMATION,
             reason="exact_candidate_requires_cross_precision_confirmation",
             details={
@@ -1489,6 +1683,20 @@ def run_driver(
         confirmation_check_failed = False
         for candidate in ready:
             dimension = int(candidate["dimension"])
+            emit_event(
+                "CANDIDATE_CONFIRMATION_STARTED",
+                dimension=dimension,
+                precision_step=candidate_precision_step,
+                extra_steps=candidate_precision_extra_steps,
+            )
+            observe_operation(
+                {
+                    "stage": WorkflowState.CANDIDATE_PRECISION_CONFIRMATION.value,
+                    "dimension": dimension,
+                    "precision_step": candidate_precision_step,
+                    "extra_steps": candidate_precision_extra_steps,
+                }
+            )
             try:
                 stability = _confirm_candidate_precision_stability(
                     support,
@@ -1510,9 +1718,18 @@ def run_driver(
             candidate["confirmed_precision_bits"] = stability.get(
                 "selected_confirmation_precision_bits"
             )
+            emit_event(
+                "CANDIDATE_CONFIRMATION_COMPLETED",
+                dimension=dimension,
+                classification=stability.get("classification"),
+                qualified=stability.get("qualified"),
+                confirmed_precision_bits=stability.get(
+                    "selected_confirmation_precision_bits"
+                ),
+            )
             if stability.get("qualified") is True:
                 selected_candidate_dimension = dimension
-                machine.transition(
+                transition(
                     WorkflowState.CANDIDATE_READY,
                     reason="exact_candidate_is_stable_across_improving_working_precision",
                     details={
@@ -1539,13 +1756,13 @@ def run_driver(
             )
 
         if confirmation_check_failed:
-            machine.transition(
+            transition(
                 WorkflowState.CANDIDATE_CHECK_FAILED,
                 reason="candidate_precision_confirmation_raised_unclassified_failure",
                 details={"candidate_ready_dimensions": ready_dimensions},
             )
         else:
-            machine.transition(
+            transition(
                 WorkflowState.PRECISION_LIMIT_REACHED,
                 reason="candidate_precision_confirmation_did_not_stabilize",
                 details={
@@ -1564,24 +1781,24 @@ def run_driver(
 
     failure_statuses = {failure.get("status") for failure in candidate_failures}
     if "candidate_check_failed" in failure_statuses or None in failure_statuses:
-        machine.transition(
+        transition(
             WorkflowState.CANDIDATE_CHECK_FAILED,
             reason="candidate_stage_raised_unclassified_failure",
             details={"failure_statuses": sorted(str(status) for status in failure_statuses)},
         )
     elif failure_statuses == {"rounding_failed"}:
-        machine.transition(
+        transition(
             WorkflowState.ROUNDING_FAILED,
             reason="matrix_bit_ladder_exhausted_before_exact_witness_stage",
             details={"failure_statuses": ["rounding_failed"]},
         )
     else:
-        machine.transition(
+        transition(
             WorkflowState.EXACT_WITNESS_CHECK,
             reason="rounding_succeeded_but_no_witness_passed",
             details={"failure_statuses": sorted(str(status) for status in failure_statuses)},
         )
-        machine.transition(
+        transition(
             WorkflowState.WITNESS_FAILED,
             reason="witness_bit_ladder_exhausted_without_positive_margin",
             details={"failure_statuses": sorted(str(status) for status in failure_statuses)},
@@ -1912,6 +2129,18 @@ def main() -> None:
         parser.error(str(exc))
 
     run_started_at = utc_now()
+    try:
+        run_status = RunStatusWriter.start(
+            args.output_dir,
+            command="weil_continuation_driver",
+            support=f"{support.numerator}/{support.denominator}",
+            started_at_utc=run_started_at,
+            workflow_state=WorkflowState.VALIDATE_INPUT.value,
+            current_operation={"stage": WorkflowState.VALIDATE_INPUT.value},
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+
     provenance = collect_runtime_provenance()
     try:
         result = run_driver(
@@ -1930,11 +2159,22 @@ def main() -> None:
             scout_workers=args.scout_workers,
             rigorous_workers=args.rigorous_workers,
             cache_dir=args.cache_dir,
+            run_status=run_status,
         )
     except (ValueError, ZeroDivisionError) as exc:
         parser.error(str(exc))
 
     run_completed_at = utc_now()
+    final_workflow_state = str(result.get("workflow_state", result.get("state", "UNKNOWN")))
+    run_status.event(
+        "BUNDLE_FINALIZATION_STARTED",
+        final_state=final_workflow_state,
+    )
+    run_status.update(
+        workflow_state=final_workflow_state,
+        current_operation={"stage": "BUNDLE_FINALIZATION"},
+        terminal=False,
+    )
     try:
         write_continuation_bundle(
             result,
@@ -1945,6 +2185,17 @@ def main() -> None:
         )
     except ValueError as exc:
         parser.error(str(exc))
+    run_status.event(
+        "BUNDLE_FINALIZATION_COMPLETED",
+        final_state=final_workflow_state,
+        manifest="run-manifest.json",
+    )
+    run_status.event("RUN_COMPLETED", final_state=final_workflow_state)
+    run_status.update(
+        workflow_state=final_workflow_state,
+        current_operation=None,
+        terminal=True,
+    )
     if args.json:
         print(json.dumps(result, indent=2, allow_nan=False))
     else:
