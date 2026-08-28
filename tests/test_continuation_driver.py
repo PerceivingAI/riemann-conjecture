@@ -1305,6 +1305,15 @@ def test_cli_writes_requested_output_directory(
     assert '"final_state": "NO_CANDIDATE"' in manifest
     manifest_payload = json.loads(manifest)
     assert manifest_payload["provenance"] == provenance
+    assert manifest_payload["process_lifecycle"] == {
+        "scope": "driver_managed_process_pool_workers",
+        "parent_pid": lock_metadata["pid"],
+        "worker_model": driver.PROCESS_WORKER_MODEL,
+        "worker_cleanup_verified": True,
+        "active_children_after_cleanup": 0,
+        "executors_shutdown": 0,
+        "worker_processes_reaped": 0,
+    }
     assert provenance_calls == [output_dir]
     assert len(identity_before_work) == 1
     assert live_identity_path.read_bytes() == identity_before_work[0]
@@ -1323,6 +1332,8 @@ def test_cli_writes_requested_output_directory(
     assert live_identity["started_at_utc"] == live_status["started_at_utc"]
     assert lock_metadata["run_id"] == live_status["run_id"]
     assert lock_metadata["pid"] == live_status["pid"]
+    assert manifest_payload["process_lifecycle"]["parent_pid"] == live_identity["pid"]
+    assert manifest_payload["process_lifecycle"]["parent_pid"] == live_status["pid"]
     assert lock_metadata["started_at_utc"] == live_status["started_at_utc"]
     assert live_status["support"] == "19/40"
     assert live_status["workflow_state"] == "NO_CANDIDATE"
@@ -1408,6 +1419,33 @@ def test_frozen_result_payload_is_detached_and_digest_stable() -> None:
     assert frozen == {"state": "NO_CANDIDATE", "nested": {"values": [1, 2, 3]}}
     encoded = json.dumps(frozen, separators=(",", ":"), allow_nan=False).encode("utf-8")
     assert digest == driver.hashlib.sha256(encoded).hexdigest()
+
+
+def test_process_worker_model_matches_spawn_pool_configuration(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    requested_contexts: list[str] = []
+
+    class FakeContext:
+        pass
+
+    class FakeExecutor:
+        def __init__(self, *, max_workers, mp_context):
+            self.max_workers = max_workers
+            self.mp_context = mp_context
+
+    def fake_get_context(name: str):
+        requested_contexts.append(name)
+        return FakeContext()
+
+    monkeypatch.setattr(driver.multiprocessing, "get_context", fake_get_context)
+    monkeypatch.setattr(driver, "ProcessPoolExecutor", FakeExecutor)
+
+    executor = driver._spawn_process_pool(3)
+
+    assert requested_contexts == [driver.PROCESS_WORKER_MODEL]
+    assert driver.PROCESS_WORKER_MODEL == "spawn"
+    assert executor.max_workers == 3
 
 
 def test_verified_process_pool_reaps_real_spawned_workers() -> None:

@@ -326,6 +326,8 @@ uv run --locked --extra test python -m pytest -n 0 -q \
 
 Keep outer pytest sequential (`-n 0`) for this tier because the driver itself launches worker processes. The acceptance cases cover real `T=2/5`, `T=17/40`, and `T=19/40` histories and currently pass `3/3`. Do not rerun this tier casually after unrelated changes; use it when changing process orchestration, worker/cache behavior, or continuation semantics.
 
+Completed continuation manifests record `process_lifecycle` for the Python driver's own managed process pools. Normal runs require `worker_model="spawn"`, `worker_cleanup_verified=true`, and `active_children_after_cleanup=0`; that zero is scoped to workers observed by the driver and must not be interpreted as an OS-wide process-tree guarantee.
+
 ## 9. Rust and Lean verification
 
 Rust workspace crates are declared in the root `Cargo.toml`.

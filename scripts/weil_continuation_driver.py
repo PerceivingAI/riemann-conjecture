@@ -44,6 +44,7 @@ from scripts.continuation_bundle import (
 from scripts.run_observability import (
     OutputDirectoryLock,
     OutputDirectoryLockedError,
+    PROCESS_WORKER_MODEL,
     RunStatusWriter,
     WorkerCleanupVerifier,
     write_run_identity,
@@ -281,7 +282,7 @@ def _spawn_process_pool(max_workers: int) -> ProcessPoolExecutor:
     """Create an isolated spawn-based pool for numerical research workers."""
     return ProcessPoolExecutor(
         max_workers=max_workers,
-        mp_context=multiprocessing.get_context("spawn"),
+        mp_context=multiprocessing.get_context(PROCESS_WORKER_MODEL),
     )
 
 
@@ -2487,6 +2488,7 @@ def main() -> None:
                     provenance=provenance,
                     worker_cleanup=cleanup_report,
                     result_payload_sha256=result_payload_sha256,
+                    parent_pid=run_lock.pid,
                 )
                 _, digest_after_bundle = _freeze_result_payload(frozen_result)
                 if digest_after_bundle != result_payload_sha256:

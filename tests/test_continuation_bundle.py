@@ -123,6 +123,7 @@ def _finalization_kwargs(result: dict[str, object] | None = None) -> dict[str, o
             "stages": ["FLOAT_SCOUT", "RIGOROUS_PRECISION_SEARCH"],
         },
         "result_payload_sha256": bundle._result_payload_digest(final_result),
+        "parent_pid": 4242,
     }
 
 
@@ -219,6 +220,15 @@ def test_p8_bundle_writes_stage_artifacts_and_hash_manifest(tmp_path: Path) -> N
     assert manifest["run_started_at_utc"] == "2026-08-27T09:00:00Z"
     assert manifest["run_completed_at_utc"] == "2026-08-27T09:05:00Z"
     assert manifest["provenance"] == provenance
+    assert manifest["process_lifecycle"] == {
+        "scope": "driver_managed_process_pool_workers",
+        "parent_pid": 4242,
+        "worker_model": "spawn",
+        "worker_cleanup_verified": True,
+        "active_children_after_cleanup": 0,
+        "executors_shutdown": 2,
+        "worker_processes_reaped": 4,
+    }
     assert manifest["configuration"]["support"] == "19/40"
     assert manifest["configuration"]["precision_ladder"] == [128, 256]
     assert manifest["configuration"]["scout_workers"] == 3
@@ -294,6 +304,30 @@ def test_bundle_rejects_mismatched_result_digest(tmp_path: Path) -> None:
                 "stages": [],
             },
             result_payload_sha256="d" * 64,
+        )
+
+
+def test_bundle_rejects_invalid_process_lifecycle_parent_pid(tmp_path: Path) -> None:
+    result = _result()
+    with pytest.raises(ValueError, match="parent_pid must be a positive integer"):
+        write_continuation_bundle(
+            result,
+            tmp_path / "invalid-parent-pid",
+            provenance={
+                "git_commit": "a" * 40,
+                "git_dirty": False,
+                "python_version": "3.14.0",
+                "python_implementation": "CPython",
+                "python_flint_version": "0.9.0",
+            },
+            worker_cleanup={
+                "verified": True,
+                "executors_shutdown": 0,
+                "worker_processes_reaped": 0,
+                "stages": [],
+            },
+            result_payload_sha256=bundle._result_payload_digest(result),
+            parent_pid=0,
         )
 
 
@@ -418,6 +452,32 @@ def test_bundle_rejects_unverified_worker_cleanup(tmp_path: Path) -> None:
         )
 
 
+def test_bundle_rejects_process_lifecycle_pid_mismatch_with_live_identity(
+    tmp_path: Path,
+) -> None:
+    output_dir = tmp_path / "pid-mismatch"
+    live_dir = output_dir / ".live"
+    live_dir.mkdir(parents=True)
+    (live_dir / "run.json").write_text(
+        '{"format":"riemann-run-identity-v1","run_id":"test-run","pid":9999}\n',
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="does not match live run identity"):
+        write_continuation_bundle(
+            _result(),
+            output_dir,
+            **_finalization_kwargs(),
+            provenance={
+                "git_commit": "a" * 40,
+                "git_dirty": False,
+                "python_version": "3.14.0",
+                "python_implementation": "CPython",
+                "python_flint_version": "0.9.0",
+            },
+        )
+
+
 def test_bundle_allows_live_operational_directory_without_manifesting_it(
     tmp_path: Path,
 ) -> None:
@@ -426,7 +486,7 @@ def test_bundle_allows_live_operational_directory_without_manifesting_it(
     live_dir.mkdir(parents=True)
     live_identity = live_dir / "run.json"
     live_identity.write_text(
-        '{"format":"riemann-run-identity-v1","run_id":"test-run"}\n',
+        '{"format":"riemann-run-identity-v1","run_id":"test-run","pid":4242}\n',
         encoding="utf-8",
     )
     live_status = live_dir / "run-status.json"

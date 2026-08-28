@@ -18,7 +18,11 @@ from typing import Any
 
 import flint
 
-from scripts.run_observability import LIVE_DIRECTORY_NAME, RUN_LOCK_FILENAME
+from scripts.run_observability import (
+    LIVE_DIRECTORY_NAME,
+    PROCESS_WORKER_MODEL,
+    RUN_LOCK_FILENAME,
+)
 
 
 BUNDLE_FORMAT = "rh-continuation-candidate-bundle-v1"
@@ -215,6 +219,44 @@ def _validate_worker_cleanup_report(worker_cleanup: dict[str, object]) -> None:
         raise ValueError("worker cleanup report stage count does not match executors_shutdown")
 
 
+def _process_lifecycle_payload(
+    worker_cleanup: dict[str, object],
+    *,
+    parent_pid: int | None,
+) -> dict[str, object]:
+    """Project the sealed driver-managed worker cleanup into manifest metadata."""
+    effective_parent_pid = os.getpid() if parent_pid is None else parent_pid
+    if type(effective_parent_pid) is not int or effective_parent_pid <= 0:
+        raise ValueError("process lifecycle parent_pid must be a positive integer")
+    return {
+        "scope": "driver_managed_process_pool_workers",
+        "parent_pid": effective_parent_pid,
+        "worker_model": PROCESS_WORKER_MODEL,
+        "worker_cleanup_verified": worker_cleanup["verified"],
+        "active_children_after_cleanup": 0,
+        "executors_shutdown": worker_cleanup["executors_shutdown"],
+        "worker_processes_reaped": worker_cleanup["worker_processes_reaped"],
+    }
+
+
+def _validate_live_parent_pid(output_dir: Path, parent_pid: int) -> None:
+    """Require R8 lifecycle identity to agree with immutable R6 live identity when present."""
+    identity_path = output_dir / LIVE_DIRECTORY_NAME / "run.json"
+    if not identity_path.exists():
+        return
+    try:
+        identity = json.loads(identity_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        raise ValueError("live run identity is unreadable during bundle finalization") from exc
+    if not isinstance(identity, dict):
+        raise ValueError("live run identity must be a JSON object")
+    identity_pid = identity.get("pid")
+    if type(identity_pid) is not int or identity_pid <= 0:
+        raise ValueError("live run identity has invalid pid")
+    if identity_pid != parent_pid:
+        raise ValueError("process lifecycle parent_pid does not match live run identity")
+
+
 def _validate_pre_theorem_fields(value: object) -> None:
     if isinstance(value, dict):
         for field in _PRE_THEOREM_FALSE_FIELDS:
@@ -253,9 +295,14 @@ def write_continuation_bundle(
     provenance: dict[str, object] | None = None,
     worker_cleanup: dict[str, object],
     result_payload_sha256: str,
+    parent_pid: int | None = None,
 ) -> dict[str, Any]:
     """Write a completed continuation bundle, sealing it with the manifest last."""
     _validate_worker_cleanup_report(worker_cleanup)
+    process_lifecycle = _process_lifecycle_payload(
+        worker_cleanup,
+        parent_pid=parent_pid,
+    )
     _validate_pre_theorem_terminal_result(result)
     if len(result_payload_sha256) != 64 or any(
         character not in "0123456789abcdef" for character in result_payload_sha256
@@ -281,6 +328,11 @@ def write_continuation_bundle(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     started = run_started_at or utc_now()
+    _validate_live_parent_pid(
+        output_dir,
+        int(process_lifecycle["parent_pid"]),
+    )
+
     runtime = provenance or collect_runtime_provenance()
     artifacts: list[dict[str, object]] = []
 
@@ -383,6 +435,7 @@ def write_continuation_bundle(
         "run_completed_at_utc": completed,
         "configuration": _configuration_payload(result),
         "provenance": runtime,
+        "process_lifecycle": process_lifecycle,
         "final_state": result.get("state"),
         "workflow_state": result.get("workflow_state", result.get("state")),
         "workflow_trace": result.get("workflow_trace", []),

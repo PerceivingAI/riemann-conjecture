@@ -33,6 +33,7 @@ RUN_LOCK_FILENAME = ".run.lock"
 RUN_LOCK_FORMAT = "riemann-output-lock-v1"
 RUN_LOCK_BYTE_OFFSET = 4096
 HEARTBEAT_INTERVAL_SECONDS = 12.0
+PROCESS_WORKER_MODEL = "spawn"
 _EVENT_RESERVED_FIELDS = frozenset({"seq", "time", "run_id", "event"})
 
 
