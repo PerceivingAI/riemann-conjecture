@@ -290,3 +290,12 @@ This structure is deliberately optimized for long-running mathematical work: we 
 
 - **Created:** `2026-08-20T20:33:00Z`
 - **Purpose:** establish the authoritative research-record system before further RH work is added.
+
+## License
+
+This repository is dual-licensed under either:
+
+- [MIT License](LICENSE-MIT) (`MIT`)
+- [Apache License, Version 2.0](LICENSE-APACHE) (`Apache-2.0`)
+
+at your option.
