@@ -1205,8 +1205,24 @@ def test_cli_writes_requested_output_directory(
 ) -> None:
     output_dir = tmp_path / "continuation"
     captured_kwargs: dict[str, object] = {}
+    provenance_calls: list[Path | None] = []
+    identity_before_work: list[bytes] = []
+    provenance = {
+        "git_commit": "c" * 40,
+        "git_dirty": False,
+        "python_version": "3.14.0",
+        "python_implementation": "CPython",
+        "python_flint_version": "0.9.0",
+    }
+
+    def fake_provenance(*, exclude_output_dir=None):
+        provenance_calls.append(exclude_output_dir)
+        return dict(provenance)
 
     def fake_run_driver(support, dimensions, **kwargs):
+        identity_path = output_dir / ".live" / "run.json"
+        assert identity_path.is_file()
+        identity_before_work.append(identity_path.read_bytes())
         captured_kwargs.update(kwargs)
         return {
             "state": "NO_CANDIDATE",
@@ -1214,6 +1230,7 @@ def test_cli_writes_requested_output_directory(
             "dimensions": dimensions,
         }
 
+    monkeypatch.setattr(driver, "collect_runtime_provenance", fake_provenance)
     monkeypatch.setattr(driver, "run_driver", fake_run_driver)
     monkeypatch.setattr(
         "sys.argv",
@@ -1232,6 +1249,8 @@ def test_cli_writes_requested_output_directory(
 
     summary = (output_dir / "summary.json").read_text(encoding="utf-8")
     manifest = (output_dir / "run-manifest.json").read_text(encoding="utf-8")
+    live_identity_path = output_dir / ".live" / "run.json"
+    live_identity = json.loads(live_identity_path.read_text(encoding="utf-8"))
     live_status = json.loads(
         (output_dir / ".live" / "run-status.json").read_text(encoding="utf-8")
     )
@@ -1246,8 +1265,24 @@ def test_cli_writes_requested_output_directory(
     ]
     assert '"state": "NO_CANDIDATE"' in summary
     assert '"final_state": "NO_CANDIDATE"' in manifest
+    manifest_payload = json.loads(manifest)
+    assert manifest_payload["provenance"] == provenance
+    assert provenance_calls == [output_dir]
+    assert len(identity_before_work) == 1
+    assert live_identity_path.read_bytes() == identity_before_work[0]
+    assert live_identity["format"] == "riemann-run-identity-v1"
+    assert live_identity["driver"] == "weil_continuation_driver"
+    assert live_identity["driver_version"] == driver.DRIVER_VERSION
+    assert live_identity["support"] == "19/40"
+    assert live_identity["dimensions"] == [48]
+    assert live_identity["git_commit"] == "c" * 40
+    assert live_identity["git_dirty"] is False
     assert live_status["format"] == "riemann-live-run-v1"
     assert lock_metadata["format"] == "riemann-output-lock-v1"
+    assert live_identity["run_id"] == live_status["run_id"]
+    assert live_identity["run_id"] == lock_metadata["run_id"]
+    assert live_identity["pid"] == live_status["pid"]
+    assert live_identity["started_at_utc"] == live_status["started_at_utc"]
     assert lock_metadata["run_id"] == live_status["run_id"]
     assert lock_metadata["pid"] == live_status["pid"]
     assert lock_metadata["started_at_utc"] == live_status["started_at_utc"]

@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pytest
 
+from scripts import continuation_bundle as bundle
 from scripts.continuation_bundle import BUNDLE_FORMAT, write_continuation_bundle
 
 
@@ -111,6 +112,42 @@ def _result() -> dict[str, object]:
     }
 
 
+def test_runtime_provenance_can_exclude_owned_output_directory(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    root = tmp_path / "repo"
+    output_dir = root / "computations" / "active-run"
+    calls: list[tuple[str, ...]] = []
+
+    def fake_git(query_root: Path, args: tuple[str, ...]) -> str:
+        assert query_root == root.resolve()
+        calls.append(args)
+        if args == ("rev-parse", "HEAD"):
+            return "a" * 40
+        return ""
+
+    monkeypatch.setattr(bundle, "_run_read_only_git", fake_git)
+    provenance = bundle.collect_runtime_provenance(
+        root,
+        exclude_output_dir=output_dir,
+    )
+
+    assert provenance["git_commit"] == "a" * 40
+    assert provenance["git_dirty"] is False
+    assert calls == [
+        ("rev-parse", "HEAD"),
+        (
+            "status",
+            "--porcelain=v1",
+            "--untracked-files=normal",
+            "--",
+            ".",
+            ":(exclude,top,literal)computations/active-run",
+        ),
+    ]
+
+
 def test_p8_bundle_writes_stage_artifacts_and_hash_manifest(tmp_path: Path) -> None:
     output_dir = tmp_path / "continuation-T019-040"
     provenance = {
@@ -186,6 +223,11 @@ def test_bundle_allows_live_operational_directory_without_manifesting_it(
     output_dir = tmp_path / "live-continuation"
     live_dir = output_dir / ".live"
     live_dir.mkdir(parents=True)
+    live_identity = live_dir / "run.json"
+    live_identity.write_text(
+        '{"format":"riemann-run-identity-v1","run_id":"test-run"}\n',
+        encoding="utf-8",
+    )
     live_status = live_dir / "run-status.json"
     live_status.write_text('{"terminal": false}\n', encoding="utf-8")
     live_events = live_dir / "events.jsonl"
@@ -211,6 +253,7 @@ def test_bundle_allows_live_operational_directory_without_manifesting_it(
         },
     )
 
+    assert live_identity.read_text(encoding="utf-8").startswith('{"format":')
     assert live_status.read_text(encoding="utf-8") == '{"terminal": false}\n'
     assert live_events.read_text(encoding="utf-8").startswith('{"seq":1,')
     assert run_lock.read_text(encoding="utf-8").startswith('{"format":')

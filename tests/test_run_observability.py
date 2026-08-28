@@ -13,11 +13,13 @@ import pytest
 from scripts.run_observability import (
     HEARTBEAT_INTERVAL_SECONDS,
     LIVE_RUN_FORMAT,
+    RUN_IDENTITY_FORMAT,
     RUN_LOCK_FORMAT,
     OutputDirectoryLock,
     OutputDirectoryLockedError,
     PeriodicHeartbeat,
     RunStatusWriter,
+    write_run_identity,
 )
 
 
@@ -146,6 +148,13 @@ def test_output_directory_lock_is_os_backed_and_shares_run_identity(tmp_path: Pa
         assert metadata["pid"] == os.getpid()
         assert metadata["started_at_utc"] == "2026-08-28T03:00:00Z"
 
+        write_run_identity(
+            owner,
+            driver_version="continuation-driver-test-v1",
+            dimensions=[96],
+            git_commit="a" * 40,
+            git_dirty=False,
+        )
         status = RunStatusWriter.start(
             output_dir,
             command="weil_continuation_driver",
@@ -186,6 +195,114 @@ def test_output_directory_lock_is_os_backed_and_shares_run_identity(tmp_path: Pa
         assert "started_at: 2026-08-28T03:00:00Z" in child.stdout
 
     assert not owner.is_held
+
+
+def test_lock_backed_status_requires_run_identity_first(tmp_path: Path) -> None:
+    output_dir = tmp_path / "missing-identity"
+    with OutputDirectoryLock.acquire(
+        output_dir,
+        command="weil_continuation_driver",
+        support="27/50",
+        started_at_utc="2026-08-28T04:00:00Z",
+    ) as owner:
+        with pytest.raises(ValueError, match="run.json must be written"):
+            RunStatusWriter.start(
+                output_dir,
+                command="weil_continuation_driver",
+                support="27/50",
+                started_at_utc="2026-08-28T04:00:00Z",
+                output_lock=owner,
+            )
+
+
+def test_run_identity_is_immutable_and_shared_by_subsequent_live_state(tmp_path: Path) -> None:
+    output_dir = tmp_path / "identity-continuation"
+    with OutputDirectoryLock.acquire(
+        output_dir,
+        command="weil_continuation_driver",
+        support="27/50",
+        started_at_utc="2026-08-28T04:00:00Z",
+        pid=18432,
+    ) as owner:
+        identity_path = write_run_identity(
+            owner,
+            driver_version="continuation-driver-test-v1",
+            dimensions=[96, 100, 104],
+            git_commit="a" * 40,
+            git_dirty=True,
+        )
+        identity_bytes = identity_path.read_bytes()
+        identity = json.loads(identity_bytes)
+
+        assert identity == {
+            "format": RUN_IDENTITY_FORMAT,
+            "run_id": owner.run_id,
+            "driver": "weil_continuation_driver",
+            "driver_version": "continuation-driver-test-v1",
+            "support": "27/50",
+            "dimensions": [96, 100, 104],
+            "pid": 18432,
+            "started_at_utc": "2026-08-28T04:00:00Z",
+            "git_commit": "a" * 40,
+            "git_dirty": True,
+        }
+
+        status = RunStatusWriter.start(
+            output_dir,
+            command="weil_continuation_driver",
+            support="27/50",
+            started_at_utc="2026-08-28T04:00:00Z",
+            output_lock=owner,
+        )
+        status.update(
+            workflow_state="RIGOROUS_PRECISION_SEARCH",
+            current_operation={"dimension": 100, "precision": 256},
+        )
+        status.event("RIGOROUS_DIMENSION_STARTED", dimension=100)
+
+        assert identity_path.read_bytes() == identity_bytes
+        assert json.loads(status.path.read_text(encoding="utf-8"))["run_id"] == owner.run_id
+        assert all(event["run_id"] == owner.run_id for event in _read_events(status.events_path))
+
+        with pytest.raises(ValueError, match="before other live state"):
+            write_run_identity(
+                owner,
+                driver_version="continuation-driver-test-v2",
+                dimensions=[108],
+                git_commit="b" * 40,
+                git_dirty=False,
+            )
+        assert identity_path.read_bytes() == identity_bytes
+
+
+def test_run_identity_prevents_silent_directory_reuse_after_lock_release(tmp_path: Path) -> None:
+    output_dir = tmp_path / "interrupted-run"
+    first = OutputDirectoryLock.acquire(
+        output_dir,
+        command="weil_continuation_driver",
+        support="27/50",
+        started_at_utc="2026-08-28T04:00:00Z",
+    )
+    write_run_identity(
+        first,
+        driver_version="continuation-driver-test-v1",
+        dimensions=[96],
+        git_commit="a" * 40,
+        git_dirty=False,
+    )
+    first.release()
+
+    with pytest.raises(ValueError, match="must be empty"):
+        OutputDirectoryLock.acquire(
+            output_dir,
+            command="weil_continuation_driver",
+            support="27/50",
+            started_at_utc="2026-08-28T04:05:00Z",
+        )
+
+    identity = json.loads((output_dir / ".live" / "run.json").read_text(encoding="utf-8"))
+    assert identity["run_id"] == first.run_id
+    assert identity["driver"] == "weil_continuation_driver"
 
 
 def test_stale_lock_file_does_not_block_reacquisition(tmp_path: Path) -> None:

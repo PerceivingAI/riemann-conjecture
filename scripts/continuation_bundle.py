@@ -28,11 +28,18 @@ def utc_now() -> str:
 
 
 def _run_read_only_git(root: Path, args: tuple[str, ...]) -> str:
-    allowed = {
-        ("rev-parse", "HEAD"),
-        ("status", "--porcelain=v1", "--untracked-files=normal"),
-    }
-    if args not in allowed:
+    status_prefix = ("status", "--porcelain=v1", "--untracked-files=normal")
+    allowed = args == ("rev-parse", "HEAD") or args == status_prefix
+    if (
+        not allowed
+        and len(args) == 6
+        and args[:3] == status_prefix
+        and args[3:5] == ("--", ".")
+        and args[5].startswith(":(exclude,top,literal)")
+        and len(args[5]) > len(":(exclude,top,literal)")
+    ):
+        allowed = True
+    if not allowed:
         raise ValueError("only fixed read-only Git provenance queries are allowed")
     completed = subprocess.run(
         ["git", *args],
@@ -49,12 +56,33 @@ def _run_read_only_git(root: Path, args: tuple[str, ...]) -> str:
     return completed.stdout.strip()
 
 
-def collect_runtime_provenance(repository_root: Path | None = None) -> dict[str, object]:
-    root = repository_root or Path(__file__).resolve().parents[1]
+def collect_runtime_provenance(
+    repository_root: Path | None = None,
+    *,
+    exclude_output_dir: Path | None = None,
+) -> dict[str, object]:
+    """Capture start-of-run provenance, optionally excluding owned operational output."""
+    root = (repository_root or Path(__file__).resolve().parents[1]).resolve()
     commit = _run_read_only_git(root, ("rev-parse", "HEAD"))
-    status = _run_read_only_git(
-        root, ("status", "--porcelain=v1", "--untracked-files=normal")
+    status_args: tuple[str, ...] = (
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=normal",
     )
+    if exclude_output_dir is not None:
+        try:
+            relative_output = exclude_output_dir.resolve().relative_to(root)
+        except ValueError:
+            pass
+        else:
+            if relative_output.parts:
+                status_args = (
+                    *status_args,
+                    "--",
+                    ".",
+                    f":(exclude,top,literal){relative_output.as_posix()}",
+                )
+    status = _run_read_only_git(root, status_args)
     return {
         "git_commit": commit,
         "git_dirty": bool(status),

@@ -1,9 +1,10 @@
 """Operational live-state primitives for long-running repository workflows.
 
-This module intentionally carries no mathematical semantics. It provides a tiny,
-atomically replaced JSON status file, a small append-only JSONL event journal,
-a parent-owned periodic heartbeat, and an OS-backed exclusive output-directory
-lock. Recovery policy belongs to later lifecycle-hardening slices.
+This module intentionally carries no mathematical semantics. It provides an
+immutable live run-identity record, a tiny atomically replaced JSON status file,
+a small append-only JSONL event journal, a parent-owned periodic heartbeat, and
+an OS-backed exclusive output-directory lock. Recovery policy belongs to later
+lifecycle-hardening slices.
 """
 
 from __future__ import annotations
@@ -23,6 +24,8 @@ LIVE_RUN_FORMAT = "riemann-live-run-v1"
 LIVE_DIRECTORY_NAME = ".live"
 RUN_STATUS_FILENAME = "run-status.json"
 EVENTS_FILENAME = "events.jsonl"
+RUN_IDENTITY_FILENAME = "run.json"
+RUN_IDENTITY_FORMAT = "riemann-run-identity-v1"
 RUN_LOCK_FILENAME = ".run.lock"
 RUN_LOCK_FORMAT = "riemann-output-lock-v1"
 RUN_LOCK_BYTE_OFFSET = 4096
@@ -274,6 +277,96 @@ class OutputDirectoryLock:
         return False
 
 
+def _read_json_object(path: Path, *, label: str) -> dict[str, object]:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ValueError(f"{label} must be valid JSON") from exc
+    if not isinstance(payload, dict):
+        raise ValueError(f"{label} must be a JSON object")
+    return payload
+
+
+def write_run_identity(
+    output_lock: OutputDirectoryLock,
+    *,
+    driver_version: str,
+    dimensions: list[int],
+    git_commit: str,
+    git_dirty: bool,
+) -> Path:
+    """Write the one immutable live run identity before later live state exists."""
+    if not output_lock.is_held:
+        raise ValueError("output-directory lock must still be held")
+    if not driver_version:
+        raise ValueError("driver_version must be non-empty")
+    if not dimensions or any(not isinstance(value, int) for value in dimensions):
+        raise ValueError("run identity dimensions must be a non-empty integer list")
+    if not git_commit:
+        raise ValueError("git_commit must be non-empty")
+    if not isinstance(git_dirty, bool):
+        raise TypeError("git_dirty must be boolean")
+
+    live_dir = output_lock.output_dir / LIVE_DIRECTORY_NAME
+    if live_dir.exists():
+        if not live_dir.is_dir():
+            raise ValueError("live run path must be a directory")
+        if any(live_dir.iterdir()):
+            raise ValueError("run identity must be written before other live state")
+    else:
+        live_dir.mkdir(parents=False)
+
+    path = live_dir / RUN_IDENTITY_FILENAME
+    payload: dict[str, object] = {
+        "format": RUN_IDENTITY_FORMAT,
+        "run_id": output_lock.run_id,
+        "driver": output_lock.command,
+        "driver_version": driver_version,
+        "support": output_lock.support,
+        "dimensions": list(dimensions),
+        "pid": output_lock.pid,
+        "started_at_utc": output_lock.started_at_utc,
+        "git_commit": git_commit,
+        "git_dirty": git_dirty,
+    }
+    data = (json.dumps(payload, indent=2, allow_nan=False) + "\n").encode("utf-8")
+    try:
+        with path.open("xb") as stream:
+            stream.write(data)
+            stream.flush()
+            os.fsync(stream.fileno())
+    except FileExistsError as exc:
+        raise ValueError("run identity already exists and is immutable") from exc
+    return path
+
+
+def _validate_run_identity_for_lock(output_lock: OutputDirectoryLock) -> None:
+    live_dir = output_lock.output_dir / LIVE_DIRECTORY_NAME
+    if not live_dir.exists():
+        raise ValueError("run.json must be written before lock-backed status")
+    if not live_dir.is_dir():
+        raise ValueError("live run path must be a directory")
+    entries = list(live_dir.iterdir())
+    if not entries:
+        raise ValueError("run.json must be written before lock-backed status")
+    if len(entries) != 1 or entries[0].name != RUN_IDENTITY_FILENAME or not entries[0].is_file():
+        raise ValueError("live directory must contain only run.json before status start")
+    payload = _read_json_object(entries[0], label="run identity")
+    expected = {
+        "format": RUN_IDENTITY_FORMAT,
+        "run_id": output_lock.run_id,
+        "driver": output_lock.command,
+        "support": output_lock.support,
+        "pid": output_lock.pid,
+        "started_at_utc": output_lock.started_at_utc,
+    }
+    mismatched = [key for key, value in expected.items() if payload.get(key) != value]
+    if mismatched:
+        raise ValueError(
+            "run identity does not match output-directory lock: " + ", ".join(mismatched)
+        )
+
+
 class PeriodicHeartbeat:
     """Refresh one run-status file periodically from a dedicated parent thread."""
 
@@ -385,8 +478,9 @@ class RunStatusWriter:
                 raise ValueError("status pid does not match output-directory lock")
             require_unused_output_directory(
                 output_dir,
-                allowed_entries=frozenset({RUN_LOCK_FILENAME}),
+                allowed_entries=frozenset({RUN_LOCK_FILENAME, LIVE_DIRECTORY_NAME}),
             )
+            _validate_run_identity_for_lock(output_lock)
             started = output_lock.started_at_utc
             run_id = output_lock.run_id
             owner_pid = output_lock.pid

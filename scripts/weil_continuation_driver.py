@@ -43,6 +43,7 @@ from scripts.run_observability import (
     OutputDirectoryLock,
     OutputDirectoryLockedError,
     RunStatusWriter,
+    write_run_identity,
 )
 from scripts.weil_legendre_schur_scout import scout
 from scripts.cert.constants import require_one_prime_support
@@ -2285,7 +2286,21 @@ def main() -> None:
         parser.error(str(exc))
 
     with run_lock:
+        provenance = collect_runtime_provenance(exclude_output_dir=args.output_dir)
         try:
+            git_commit = provenance.get("git_commit")
+            git_dirty = provenance.get("git_dirty")
+            if not isinstance(git_commit, str) or not git_commit:
+                raise ValueError("runtime provenance is missing git_commit")
+            if not isinstance(git_dirty, bool):
+                raise ValueError("runtime provenance has invalid git_dirty")
+            write_run_identity(
+                run_lock,
+                driver_version=DRIVER_VERSION,
+                dimensions=dimensions,
+                git_commit=git_commit,
+                git_dirty=git_dirty,
+            )
             run_status = RunStatusWriter.start(
                 args.output_dir,
                 command="weil_continuation_driver",
@@ -2304,7 +2319,6 @@ def main() -> None:
         )
 
         with run_status.periodic_heartbeats():
-            provenance = collect_runtime_provenance()
             try:
                 result = run_driver(
                     support,
