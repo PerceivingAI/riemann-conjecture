@@ -28,6 +28,19 @@ class _RecordingRunStatus:
         return record
 
 
+class _FailOnceRunStatus(_RecordingRunStatus):
+    def __init__(self, event_to_fail: str) -> None:
+        super().__init__()
+        self.event_to_fail = event_to_fail
+        self.failed = False
+
+    def event(self, event: str, **kwargs) -> dict[str, object]:
+        if event == self.event_to_fail and not self.failed:
+            self.failed = True
+            raise OSError(f"synthetic event journal failure: {event}")
+        return super().event(event, **kwargs)
+
+
 class _InlineExecutor:
     _processes: dict[object, object] = {}
 
@@ -1211,6 +1224,229 @@ def test_parallel_scout_failures_keep_resolution_order_for_retained_state(
     assert [failure["resolution"]["level"] for failure in result["scout_failures"]] == [0, 2]
     assert [run["resolution"]["level"] for run in result["scout_runs"]] == [0, 1, 2]
     assert result["state"] == "SCOUT_UNSTABLE"
+
+
+def test_parallel_start_event_is_recorded_for_each_successful_submission(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    status = _RecordingRunStatus()
+
+    class FailSecondSubmitExecutor(_InlineExecutor):
+        def __init__(self) -> None:
+            self.submit_count = 0
+
+        def submit(self, fn, *args, **kwargs):
+            self.submit_count += 1
+            if self.submit_count == 2:
+                raise RuntimeError("synthetic submit failure")
+            return super().submit(fn, *args, **kwargs)
+
+    monkeypatch.setattr(
+        driver,
+        "_spawn_process_pool",
+        lambda workers: FailSecondSubmitExecutor(),
+    )
+    monkeypatch.setattr(
+        driver,
+        "scout",
+        lambda *, max_mode, quadrature_order, shift_order, n_values, support: _scout_result(
+            n_values, positive=True
+        ),
+    )
+
+    with pytest.raises(RuntimeError, match="synthetic submit failure"):
+        driver.run_driver(
+            Fraction(19, 40),
+            [48],
+            scout_workers=3,
+            rigorous_workers=1,
+            run_status=status,
+        )
+
+    started_levels = [
+        int(event["level"])
+        for event in status.events
+        if event["event"] == "SCOUT_RESOLUTION_STARTED"
+    ]
+    assert started_levels == [0]
+
+
+def test_sequential_scout_observability_failure_is_not_misclassified_as_math_failure(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    status = _FailOnceRunStatus("SCOUT_RESOLUTION_COMPLETED")
+    monkeypatch.setattr(
+        driver,
+        "scout",
+        lambda *, max_mode, quadrature_order, shift_order, n_values, support: _scout_result(
+            n_values, positive=True
+        ),
+    )
+
+    with pytest.raises(OSError, match="synthetic event journal failure"):
+        driver.run_driver(
+            Fraction(19, 40),
+            [48],
+            scout_workers=1,
+            rigorous_workers=1,
+            run_status=status,
+        )
+
+    assert not any(
+        event["event"] == "SCOUT_RESOLUTION_FAILED" for event in status.events
+    )
+
+
+def test_parallel_scout_observability_failure_is_not_misclassified_as_math_failure(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    status = _FailOnceRunStatus("SCOUT_RESOLUTION_COMPLETED")
+    monkeypatch.setattr(driver, "_spawn_process_pool", lambda workers: _InlineExecutor())
+    monkeypatch.setattr(
+        driver,
+        "scout",
+        lambda *, max_mode, quadrature_order, shift_order, n_values, support: _scout_result(
+            n_values, positive=True
+        ),
+    )
+
+    with pytest.raises(OSError, match="synthetic event journal failure"):
+        driver.run_driver(
+            Fraction(19, 40),
+            [48],
+            scout_workers=3,
+            rigorous_workers=1,
+            run_status=status,
+        )
+
+    assert not any(
+        event["event"] == "SCOUT_RESOLUTION_FAILED" for event in status.events
+    )
+
+
+def test_parallel_rigorous_observability_failure_is_not_misclassified_as_math_failure(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    status = _FailOnceRunStatus("RIGOROUS_DIMENSION_COMPLETED")
+    monkeypatch.setattr(driver, "_spawn_process_pool", lambda workers: _InlineExecutor())
+    monkeypatch.setattr(
+        driver,
+        "scout",
+        lambda *, max_mode, quadrature_order, shift_order, n_values, support: _scout_result(
+            n_values, positive=True
+        ),
+    )
+    monkeypatch.setattr(
+        driver,
+        "_escalate_rigorous_screen",
+        lambda support, dimension, precisions, residual_order, cache_dir=None: {
+            "status": "precision_stable",
+            "selected_precision_bits": 256,
+            "attempts": [],
+            "precision_pair_diagnostics": [],
+        },
+    )
+
+    with pytest.raises(OSError, match="synthetic event journal failure"):
+        driver.run_driver(
+            Fraction(19, 40),
+            [52, 48, 56],
+            scout_workers=1,
+            rigorous_workers=2,
+            run_status=status,
+        )
+
+    assert not any(
+        event["event"] == "RIGOROUS_DIMENSION_FAILED" for event in status.events
+    )
+
+
+def test_sequential_malformed_scout_result_does_not_leave_completed_record(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(driver, "scout", lambda **kwargs: {})
+
+    result = driver.run_driver(
+        Fraction(19, 40),
+        [48],
+        scout_workers=1,
+    )
+
+    assert result["state"] == "SCOUT_UNSTABLE"
+    assert len(result["scout_runs"]) == result["scout_resolution_count"]
+    assert all(run["status"] == "failed" for run in result["scout_runs"])
+    assert len(result["scout_failures"]) == result["scout_resolution_count"]
+
+
+def test_parallel_malformed_rigorous_attempts_are_failed_before_completion_event(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    status = _RecordingRunStatus()
+    monkeypatch.setattr(driver, "_spawn_process_pool", lambda workers: _InlineExecutor())
+    monkeypatch.setattr(
+        driver,
+        "scout",
+        lambda *, max_mode, quadrature_order, shift_order, n_values, support: _scout_result(
+            n_values, positive=True
+        ),
+    )
+    monkeypatch.setattr(
+        driver,
+        "_escalate_rigorous_screen",
+        lambda *args, **kwargs: {
+            "status": "precision_stable",
+            "selected_precision_bits": 256,
+            "attempts": None,
+        },
+    )
+
+    result = driver.run_driver(
+        Fraction(19, 40),
+        [52, 48, 56],
+        scout_workers=1,
+        rigorous_workers=2,
+        run_status=status,
+    )
+
+    assert result["state"] == "RIGOROUS_ASSEMBLY_FAILED"
+    assert result["rigorous_screening"] == []
+    assert [failure["dimension"] for failure in result["rigorous_failures"]] == [48, 52]
+    assert not any(
+        event["event"] == "RIGOROUS_DIMENSION_COMPLETED" for event in status.events
+    )
+    assert sorted(
+        int(event["dimension"])
+        for event in status.events
+        if event["event"] == "RIGOROUS_DIMENSION_FAILED"
+    ) == [48, 52]
+
+
+def test_sequential_malformed_rigorous_result_does_not_leave_completed_record(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        driver,
+        "scout",
+        lambda *, max_mode, quadrature_order, shift_order, n_values, support: _scout_result(
+            n_values, positive=True
+        ),
+    )
+    monkeypatch.setattr(
+        driver,
+        "_escalate_rigorous_screen",
+        lambda *args, **kwargs: {"status": "precision_stable"},
+    )
+
+    result = driver.run_driver(
+        Fraction(19, 40),
+        [48],
+        scout_workers=1,
+        rigorous_workers=1,
+    )
+
+    assert result["state"] == "RIGOROUS_ASSEMBLY_FAILED"
+    assert result["rigorous_screening"] == []
+    assert [failure["dimension"] for failure in result["rigorous_failures"]] == [48]
 
 
 def test_run_driver_updates_live_status_without_changing_terminal_semantics(

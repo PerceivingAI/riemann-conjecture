@@ -1471,10 +1471,31 @@ def run_driver(
         dimension: [] for dimension in dimensions
     }
 
+    def validate_scout_result(
+        resolution: ScoutResolution,
+        raw_scout: dict[str, object],
+    ) -> list[ScoutDimensionResult]:
+        rows = _typed_scout_rows(
+            raw_scout,
+            max_mode=resolution.max_mode,
+            quadrature_order=resolution.quadrature_order,
+            shift_order=resolution.shift_order,
+        )
+        unexpected_dimensions = sorted(
+            {row.dimension for row in rows if row.dimension not in series}
+        )
+        if unexpected_dimensions:
+            raise ValueError(
+                "scout result contains unexpected dimensions: "
+                + ",".join(str(dimension) for dimension in unexpected_dimensions)
+            )
+        return rows
+
     def materialize_scout_result(
         resolution: ScoutResolution,
         raw_scout: dict[str, object],
     ) -> None:
+        rows = validate_scout_result(resolution, raw_scout)
         scout_runs.append(
             {
                 "status": "completed",
@@ -1482,12 +1503,7 @@ def run_driver(
                 "result": raw_scout,
             }
         )
-        for row in _typed_scout_rows(
-            raw_scout,
-            max_mode=resolution.max_mode,
-            quadrature_order=resolution.quadrature_order,
-            shift_order=resolution.shift_order,
-        ):
+        for row in rows:
             series[row.dimension].append(row)
 
     def observe_scout_result(resolution: ScoutResolution) -> None:
@@ -1528,17 +1544,6 @@ def run_driver(
             f"type={type(exc).__name__}"
         )
 
-    def record_scout_result(
-        resolution: ScoutResolution,
-        raw_scout: dict[str, object],
-    ) -> None:
-        materialize_scout_result(resolution, raw_scout)
-        observe_scout_result(resolution)
-
-    def record_scout_failure(resolution: ScoutResolution, exc: Exception) -> None:
-        materialize_scout_failure(scout_failure_payload(resolution, exc))
-        observe_scout_failure(resolution, exc)
-
     effective_scout_workers = min(scout_workers, len(resolutions))
     if effective_scout_workers == 1:
         for resolution in resolutions:
@@ -1559,18 +1564,19 @@ def run_driver(
                 }
             )
             try:
-                record_scout_result(
-                    resolution,
-                    scout(
-                        max_mode=resolution.max_mode,
-                        quadrature_order=resolution.quadrature_order,
-                        shift_order=resolution.shift_order,
-                        n_values=dimensions,
-                        support=support,
-                    ),
+                raw_scout = scout(
+                    max_mode=resolution.max_mode,
+                    quadrature_order=resolution.quadrature_order,
+                    shift_order=resolution.shift_order,
+                    n_values=dimensions,
+                    support=support,
                 )
+                materialize_scout_result(resolution, raw_scout)
             except Exception as exc:
-                record_scout_failure(resolution, exc)
+                materialize_scout_failure(scout_failure_payload(resolution, exc))
+                observe_scout_failure(resolution, exc)
+            else:
+                observe_scout_result(resolution)
     else:
         with _verified_process_pool(
             effective_scout_workers,
@@ -1578,16 +1584,15 @@ def run_driver(
             verifier=cleanup_verifier,
             event_sink=emit_cleanup_event,
         ) as executor:
-            future_to_resolution = {
-                executor.submit(
+            future_to_resolution: dict[object, ScoutResolution] = {}
+            for resolution in resolutions:
+                future = executor.submit(
                     _scout_resolution_worker,
                     support,
                     dimensions,
                     resolution,
-                ): resolution
-                for resolution in resolutions
-            }
-            for resolution in resolutions:
+                )
+                future_to_resolution[future] = resolution
                 emit_event(
                     "SCOUT_RESOLUTION_STARTED",
                     level=resolution.level,
@@ -1613,20 +1618,16 @@ def run_driver(
                         raise TypeError("completed scout outcome must be a mapping")
                     # Validate the worker payload before reporting successful
                     # completion, but do not append ordering-sensitive rows yet.
-                    _typed_scout_rows(
-                        raw_scout,
-                        max_mode=resolution.max_mode,
-                        quadrature_order=resolution.quadrature_order,
-                        shift_order=resolution.shift_order,
-                    )
-                    scout_outcomes[resolution.level] = ("completed", raw_scout)
-                    observe_scout_result(resolution)
+                    validate_scout_result(resolution, raw_scout)
                 except Exception as exc:
                     scout_outcomes[resolution.level] = (
                         "failed",
                         scout_failure_payload(resolution, exc),
                     )
                     observe_scout_failure(resolution, exc)
+                else:
+                    scout_outcomes[resolution.level] = ("completed", raw_scout)
+                    observe_scout_result(resolution)
                 completed_resolution_levels.append(resolution.level)
                 completed_resolution_set.add(resolution.level)
                 observe_operation(
@@ -1757,15 +1758,33 @@ def run_driver(
     )
     survivors: list[int] = []
 
+    def validate_rigorous_result(screening: dict[str, object]) -> tuple[str, int | None]:
+        status = screening["status"]
+        selected_precision = screening["selected_precision_bits"]
+        attempts = screening.get("attempts", [])
+        if not isinstance(status, str) or not status:
+            raise TypeError("rigorous outcome status must be a non-empty string")
+        if selected_precision is not None and (
+            type(selected_precision) is not int or selected_precision <= 0
+        ):
+            raise TypeError("rigorous selected precision must be a positive integer or null")
+        if not isinstance(attempts, list):
+            raise TypeError("rigorous attempts must be a list")
+        for attempt in attempts:
+            if not isinstance(attempt, dict):
+                raise TypeError("rigorous attempts must contain mappings")
+            precision_bits = attempt.get("precision_bits")
+            if type(precision_bits) is not int or precision_bits <= 0:
+                raise TypeError("rigorous attempt precision_bits must be a positive integer")
+        return status, selected_precision
+
     def materialize_rigorous_result(
         dimension: int,
         screening: dict[str, object],
     ) -> None:
+        status, selected_precision = validate_rigorous_result(screening)
         rigorous_screening.append({"dimension": dimension, **screening})
-        selected_precision = screening["selected_precision_bits"]
-        if screening["status"] == "precision_stable" and isinstance(
-            selected_precision, int
-        ):
+        if status == "precision_stable" and isinstance(selected_precision, int):
             survivors.append(dimension)
 
     def observe_rigorous_result(
@@ -1806,17 +1825,6 @@ def run_driver(
         )
         emit_progress(f"RIGOROUS N={dimension} failed type={type(exc).__name__}")
 
-    def record_rigorous_result(
-        dimension: int,
-        screening: dict[str, object],
-    ) -> None:
-        materialize_rigorous_result(dimension, screening)
-        observe_rigorous_result(dimension, screening)
-
-    def record_rigorous_failure(dimension: int, exc: Exception) -> None:
-        materialize_rigorous_failure(rigorous_failure_payload(dimension, exc))
-        observe_rigorous_failure(dimension, exc)
-
     effective_rigorous_workers = min(rigorous_workers, len(screening_dimensions))
     if effective_rigorous_workers == 1:
         for dimension in screening_dimensions:
@@ -1844,9 +1852,12 @@ def run_driver(
                         progress=progress,
                     )
                 )
-                record_rigorous_result(dimension, screening)
+                materialize_rigorous_result(dimension, screening)
             except Exception as exc:
-                record_rigorous_failure(dimension, exc)
+                materialize_rigorous_failure(rigorous_failure_payload(dimension, exc))
+                observe_rigorous_failure(dimension, exc)
+            else:
+                observe_rigorous_result(dimension, screening)
     else:
         cache_dir_text = str(cache_dir) if cache_dir is not None else None
         with _verified_process_pool(
@@ -1855,8 +1866,9 @@ def run_driver(
             verifier=cleanup_verifier,
             event_sink=emit_cleanup_event,
         ) as executor:
-            future_to_dimension = {
-                executor.submit(
+            future_to_dimension: dict[object, int] = {}
+            for dimension in screening_dimensions:
+                future = executor.submit(
                     _rigorous_screen_worker,
                     support,
                     dimension,
@@ -1864,10 +1876,8 @@ def run_driver(
                     residual_order,
                     cache_dir_text,
                     progress,
-                ): dimension
-                for dimension in screening_dimensions
-            }
-            for dimension in screening_dimensions:
+                )
+                future_to_dimension[future] = dimension
                 emit_event("RIGOROUS_DIMENSION_STARTED", dimension=dimension)
                 emit_progress(f"RIGOROUS N={dimension} started")
             observe_operation(
@@ -1889,16 +1899,16 @@ def run_driver(
                         raise TypeError("completed rigorous outcome must be a mapping")
                     # Preserve the prior completion-event meaning: the minimal
                     # canonical fields must be readable before success is reported.
-                    screening["status"]
-                    screening["selected_precision_bits"]
-                    rigorous_outcomes[dimension] = ("completed", screening)
-                    observe_rigorous_result(dimension, screening)
+                    validate_rigorous_result(screening)
                 except Exception as exc:
                     rigorous_outcomes[dimension] = (
                         "failed",
                         rigorous_failure_payload(dimension, exc),
                     )
                     observe_rigorous_failure(dimension, exc)
+                else:
+                    rigorous_outcomes[dimension] = ("completed", screening)
+                    observe_rigorous_result(dimension, screening)
                 completed_dimensions.append(dimension)
                 completed_dimension_set.add(dimension)
                 observe_operation(
