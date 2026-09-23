@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-08-28T01:48:56Z`
+- **Last updated:** `2026-09-23T22:19:41Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -159,6 +159,8 @@ The standalone continuation scripts remain supported research instruments and im
 ### `weil_continuation_driver.py`
 
 Canonical pre-theorem continuation driver. It accepts an exact rational support and an explicit dimension list or range, runs three increasing reconnaissance resolutions derived from the requested maximum dimension, then rigorously screens only the smallest stable-positive dimension and its next larger fallback. Rigorous screening and candidate checks use the persistent cache `.cache/continuation-driver` by default; cache keys include support, dimension, precision, residual order, witness/rounding parameters, and a fingerprint of the continuation source files plus `uv.lock`. It accepts only the strict `log(2)/2 < T < log(3)/2` p=2-only support window. It never extrapolates dimensions, invokes the theorem exporter, edits the closed contract, or grants theorem status.
+
+The current canonical workflow version is `continuation-driver-p16-v1`; the cache contract remains `continuation-driver-v6`. `driver_version` identifies the complete canonical workflow/provenance contract, including lifecycle, observability, cleanup, and finalization semantics as well as mathematical orchestration. It must advance when those semantics materially change, even if the mathematical result payload is unchanged. `cache_version` is narrower: it advances when cached mathematical payload/key semantics change. The p16 hardening therefore does not require a v7 cache contract. Cache keys also include a fingerprint of the continuation sources (including this driver) and `uv.lock`, so source changes isolate implementations even when the cache-contract label is unchanged. Historical bundles keep the driver/cache versions they were actually produced with.
 
 ```text
 uv run --locked python -m scripts.weil_continuation_driver \

@@ -59,7 +59,7 @@ from scripts.weil_support_candidate_check import (
 from scripts.weil_support_continuation_scout import scout_support
 
 
-DRIVER_VERSION = "continuation-driver-p15-v1"
+DRIVER_VERSION = "continuation-driver-p16-v1"
 SCOUT_RELATIVE_CONVERGENCE_TOLERANCE = 1e-2
 CANDIDATE_MARGIN_RELATIVE_STABILITY_TOLERANCE = 1e-3
 CANDIDATE_PRECISION_STEP_DEFAULT = 128

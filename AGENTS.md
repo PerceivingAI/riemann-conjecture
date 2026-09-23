@@ -110,6 +110,8 @@ exact support/input validation
 
 It also writes the self-contained continuation bundle and prints a concise terminal summary. Use `--json` only when the full result object is needed on stdout.
 
+Current provenance versioning: `continuation-driver-p16-v1` is the canonical workflow version and `continuation-driver-v6` is the cache contract. Treat `driver_version` as the version of the full canonical workflow contract—including run identity, observability, worker cleanup, completion ordering, and transactional finalization—not merely the mathematical algorithm. Treat `cache_version` as the narrower cached mathematical payload/key contract. Do not bump the cache contract solely for operational hardening; source fingerprints already isolate changed continuation implementations.
+
 ### Continuation concurrency policy
 
 The canonical CLI uses bounded **process** parallelism where stages are mathematically independent:
@@ -119,7 +121,7 @@ floating scout resolutions: up to 3 worker processes
 primary/fallback rigorous screens: up to 2 worker processes
 ```
 
-The driver uses spawn-based workers and collects results back in deterministic resolution/dimension order. Numerical-library thread counts default to one per worker (`OMP_NUM_THREADS`, `OPENBLAS_NUM_THREADS`, `MKL_NUM_THREADS`, `NUMEXPR_NUM_THREADS`) unless the environment explicitly overrides them, avoiding process × BLAS oversubscription.
+The driver uses spawn-based workers and observes futures in actual completion order so finished/failed work is surfaced immediately. Outcomes are buffered by stable resolution/dimension identity and only then materialized into canonical resolution/dimension order, so scheduler timing cannot change mathematical classification, retained result ordering, or candidate priority. Numerical-library thread counts default to one per worker (`OMP_NUM_THREADS`, `OPENBLAS_NUM_THREADS`, `MKL_NUM_THREADS`, `NUMEXPR_NUM_THREADS`) unless the environment explicitly overrides them, avoiding process × BLAS oversubscription.
 
 Do **not** parallelize the internal precision ladder, exact candidate construction, or candidate cross-precision confirmation. Those stages are intentionally sequential because later decisions depend on earlier precision results.
 

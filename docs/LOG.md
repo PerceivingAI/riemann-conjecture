@@ -1,10 +1,22 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-28T01:27:20Z`
+- **Last updated:** `2026-09-23T22:20:59Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-09-23T22:20:59Z — Canonical continuation lifecycle cut over to p16 provenance semantics
+
+**Type:** Research-tool provenance / lifecycle hardening / documentation synchronization
+
+The post-p15 continuation hardening is now treated as a new canonical workflow generation: `scripts.weil_continuation_driver` reports `continuation-driver-p16-v1`. P15 remains the historical bounded-multiprocessing generation; p16 additionally covers exclusive output-directory locking, immutable start-of-run identity, parent-owned heartbeat/status/event observability, fail-closed durable-observability errors, transactional bundle finalization, explicit owned-worker cleanup verification and manifest evidence, and completion-order future observation separated from canonical mathematical/result ordering.
+
+Driver/cache version semantics are now explicit. `driver_version` identifies the complete canonical workflow/provenance contract, including operational lifecycle semantics that determine what a completed bundle means. `cache_version` identifies the narrower cached mathematical payload/key contract. The cache therefore remains `continuation-driver-v6`: the p16 cutover changes orchestration/provenance behavior, not the cached scout/rigorous/candidate payload contract. Cache keys also include a fingerprint of the continuation source files plus `uv.lock`, so changed implementations remain isolated even while the cache-contract label is unchanged. Historical computation bundles and their recorded p13/p14/p15 versions were not rewritten.
+
+Maintained documentation was synchronized in `docs/STATUS.md`, `scripts/README.md`, and `AGENTS.md`, including the distinction between completion chronology and canonical result ordering. Focused current-HEAD acceptance passes `121/121` across `test_run_observability`, `test_continuation_driver`, `test_continuation_bundle`, `test_continuation_state_machine`, and `test_pre_theorem_boundary`. No theorem contract, retained proof artifact, mathematical claim, or research frontier changed; the next planned one-prime pre-theorem support remains `T=27/50=0.54`.
+
+---
 
 ## 2026-08-28T01:27:20Z — T=21/40,N=96 admitted and independently verified
 
