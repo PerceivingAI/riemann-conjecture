@@ -37,6 +37,7 @@ PROCESS_WORKER_MODEL = "spawn"
 WORKER_POST_SHUTDOWN_JOIN_SECONDS = 0.5
 WORKER_POST_TERMINATE_JOIN_SECONDS = 1.0
 WORKER_POST_KILL_JOIN_SECONDS = 1.0
+ATOMIC_REPLACE_RETRY_DELAYS_SECONDS = (0.01, 0.02, 0.04, 0.08, 0.16, 0.32)
 _EVENT_RESERVED_FIELDS = frozenset({"seq", "time", "run_id", "event"})
 
 
@@ -56,6 +57,18 @@ def _run_id(started_at_utc: str) -> str:
     return f"{timestamp}-{uuid.uuid4().hex[:8]}"
 
 
+def replace_path_with_permission_retry(source: Path, target: Path) -> None:
+    """Replace *target* atomically, tolerating short-lived sharing denials."""
+    for attempt in range(len(ATOMIC_REPLACE_RETRY_DELAYS_SECONDS) + 1):
+        try:
+            source.replace(target)
+            return
+        except PermissionError:
+            if attempt >= len(ATOMIC_REPLACE_RETRY_DELAYS_SECONDS):
+                raise
+            time.sleep(ATOMIC_REPLACE_RETRY_DELAYS_SECONDS[attempt])
+
+
 def _atomic_write_json(path: Path, payload: dict[str, object]) -> None:
     """Atomically replace *path* with one complete, valid JSON document."""
     data = (json.dumps(payload, indent=2, allow_nan=False) + "\n").encode("utf-8")
@@ -63,7 +76,7 @@ def _atomic_write_json(path: Path, payload: dict[str, object]) -> None:
     temporary = path.with_name(f".{path.name}.{os.getpid()}.{uuid.uuid4().hex}.tmp")
     try:
         temporary.write_bytes(data)
-        temporary.replace(path)
+        replace_path_with_permission_retry(temporary, path)
     finally:
         temporary.unlink(missing_ok=True)
 

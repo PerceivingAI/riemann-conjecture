@@ -311,6 +311,26 @@ def test_bundle_rejects_unresolved_worker_cleanup_state(tmp_path: Path) -> None:
         )
 
 
+def test_bundle_atomic_write_uses_shared_permission_retry(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    calls: list[tuple[Path, Path]] = []
+
+    def recording_replace(source: Path, target: Path) -> None:
+        calls.append((source, target))
+        source.replace(target)
+
+    monkeypatch.setattr(bundle, "replace_path_with_permission_retry", recording_replace)
+    digest, size = bundle._atomic_write_json(tmp_path / "artifact.json", {"ok": True})
+
+    assert len(calls) == 1
+    assert calls[0][1] == tmp_path / "artifact.json"
+    data = (tmp_path / "artifact.json").read_bytes()
+    assert hashlib.sha256(data).hexdigest() == digest
+    assert len(data) == size
+
+
 def test_bundle_writes_stage_artifacts_then_summary_and_manifest_last(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,

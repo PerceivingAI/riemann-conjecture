@@ -423,12 +423,57 @@ def test_parse_dimensions_requires_positive_unique_explicit_values() -> None:
 def test_scout_resolution_plan_increases_with_requested_maximum() -> None:
     plan = driver.build_scout_resolutions([48, 80])
 
-    assert len(plan) == 3
+    assert len(plan) == driver.CANONICAL_SCOUT_RESOLUTION_COUNT
     assert [item.max_mode for item in plan] == sorted(item.max_mode for item in plan)
     assert [item.quadrature_order for item in plan] == sorted(
         item.quadrature_order for item in plan
     )
     assert plan[-1].max_mode > 80
+
+
+def test_p17_default_scout_uses_eight_levels_and_highest_three_for_stability(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    scout_values = iter((0.80, 0.90, 1.10, 0.95, 1.02, 1.000, 1.005, 1.009))
+    rigorous_calls: list[int] = []
+
+    def fake_scout(*, max_mode, quadrature_order, shift_order, n_values, support):
+        value = next(scout_values)
+        return {
+            "schur_rows": [
+                {
+                    "N": dimension,
+                    "mu_scout": 1.0,
+                    "finite_block_min_eigenvalue": 1.0,
+                    "factor3_truncated_schur_min_eigenvalue": value,
+                }
+                for dimension in n_values
+            ]
+        }
+
+    monkeypatch.setattr(driver, "scout", fake_scout)
+    monkeypatch.setattr(
+        driver,
+        "_escalate_rigorous_screen",
+        lambda support, dimension, *args, **kwargs: (
+            rigorous_calls.append(dimension)
+            or {
+                "status": "mathematical_negative",
+                "selected_precision_bits": None,
+                "attempts": [],
+                "precision_pair_diagnostics": [],
+            }
+        ),
+    )
+
+    result = driver.run_driver(Fraction(19, 40), [64])
+
+    assert result["scout_resolution_count"] == 8
+    assert result["scout_stability_window"] == 3
+    assert len(result["scout_runs"]) == 8
+    assert result["reconnaissance"][0]["classification"] == "stable_positive"
+    assert result["reconnaissance"][0]["stability_max_modes"] == [320, 360, 400]
+    assert rigorous_calls == [64]
 
 
 def test_precision_ladder_is_bounded_and_increasing() -> None:
@@ -892,6 +937,33 @@ def test_cache_key_changes_with_source_fingerprint(
     assert calls == ["source-a", "source-b"]
 
 
+def test_cache_publication_uses_shared_permission_retry(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    calls: list[tuple[Path, Path]] = []
+
+    def recording_replace(source: Path, target: Path) -> None:
+        calls.append((source, target))
+        source.replace(target)
+
+    monkeypatch.setattr(driver, "_cache_source_fingerprint", lambda: "source")
+    monkeypatch.setattr(driver, "replace_path_with_permission_retry", recording_replace)
+
+    result, cache_hit = driver._cached_result(
+        tmp_path,
+        {"kind": "publication"},
+        lambda: {"value": 1},
+    )
+
+    assert result == {"value": 1}
+    assert cache_hit is False
+    assert len(calls) == 1
+    source, target = calls[0]
+    assert source.parent == tmp_path
+    assert target.parent == tmp_path
+    assert target.exists()
+
+
 def test_unexpected_candidate_check_failure_has_distinct_final_state(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -1038,7 +1110,7 @@ def test_parallel_orchestration_preserves_deterministic_result_order(
     assert result["state"] == "CANDIDATE_READY"
     assert result["scout_workers"] == 3
     assert result["rigorous_workers"] == 2
-    assert [run["resolution"]["level"] for run in result["scout_runs"]] == [0, 1, 2]
+    assert [run["resolution"]["level"] for run in result["scout_runs"]] == list(range(driver.CANONICAL_SCOUT_RESOLUTION_COUNT))
     assert [row["dimension"] for row in result["rigorous_screening"]] == [48, 52]
     assert rigorous_calls == [48, 52]
     assert result["selected_candidate_dimension"] == 48
@@ -1107,14 +1179,14 @@ def test_parallel_completion_observation_is_immediate_but_results_stay_canonical
         for event in status.events
         if event["event"] == "RIGOROUS_DIMENSION_COMPLETED"
     ]
-    assert scout_completion_order == [2, 1, 0]
+    assert scout_completion_order == list(reversed(range(driver.CANONICAL_SCOUT_RESOLUTION_COUNT)))
     assert rigorous_completion_order == [52, 48]
-    assert [run["resolution"]["level"] for run in result["scout_runs"]] == [0, 1, 2]
+    assert [run["resolution"]["level"] for run in result["scout_runs"]] == list(range(driver.CANONICAL_SCOUT_RESOLUTION_COUNT))
     assert [
         row["resolution"]["level"]
         for row in result["scout_runs"]
         if row["status"] == "completed"
-    ] == [0, 1, 2]
+    ] == list(range(driver.CANONICAL_SCOUT_RESOLUTION_COUNT))
     assert [
         item["max_mode"]
         for item in result["reconnaissance"][0]["resolutions"]
@@ -1131,7 +1203,7 @@ def test_parallel_completion_observation_is_immediate_but_results_stay_canonical
         and update["current_operation"].get("stage") == "FLOAT_SCOUT"
         and "completed_resolution_levels" in update["current_operation"]
     ]
-    assert scout_live_updates[0]["completed_resolution_levels"] == [2]
+    assert scout_live_updates[0]["completed_resolution_levels"] == [7]
     assert scout_live_updates[-1]["active_resolution_levels"] == []
     rigorous_live_updates = [
         update["current_operation"]
@@ -1222,7 +1294,7 @@ def test_parallel_scout_failures_keep_resolution_order_for_retained_state(
     ]
     assert failed_observation_order == [2, 0]
     assert [failure["resolution"]["level"] for failure in result["scout_failures"]] == [0, 2]
-    assert [run["resolution"]["level"] for run in result["scout_runs"]] == [0, 1, 2]
+    assert [run["resolution"]["level"] for run in result["scout_runs"]] == list(range(driver.CANONICAL_SCOUT_RESOLUTION_COUNT))
     assert result["state"] == "SCOUT_UNSTABLE"
 
 
@@ -1487,8 +1559,8 @@ def test_run_driver_updates_live_status_without_changing_terminal_semantics(
         "WORKFLOW_STATE_CHANGED",
     ]
     assert "SCOUT_STAGE_STARTED" in event_names
-    assert event_names.count("SCOUT_RESOLUTION_STARTED") == 3
-    assert event_names.count("SCOUT_RESOLUTION_COMPLETED") == 3
+    assert event_names.count("SCOUT_RESOLUTION_STARTED") == driver.CANONICAL_SCOUT_RESOLUTION_COUNT
+    assert event_names.count("SCOUT_RESOLUTION_COMPLETED") == driver.CANONICAL_SCOUT_RESOLUTION_COUNT
     assert "SCOUT_STAGE_COMPLETED" in event_names
     assert event_names[-2:] == ["WORKFLOW_STATE_CHANGED", "RUN_RESULT_REACHED"]
     assert status.events[-1]["result_state"] == "NO_CANDIDATE"
@@ -1537,8 +1609,8 @@ def test_live_progress_reports_stage_and_precision_milestones(
 
     assert result["state"] == "CANDIDATE_READY"
     stderr = capsys.readouterr().err
-    assert "] SCOUT resolutions=3 workers=1" in stderr
-    assert "] SCOUT resolution 1/3 complete" in stderr
+    assert "] SCOUT resolutions=8 workers=1" in stderr
+    assert "] SCOUT resolution 1/8 complete" in stderr
     assert "] SCOUT stable-positive begins at N=48" in stderr
     assert "] RIGOROUS targets N=48 workers=1" in stderr
     assert "] RIGOROUS N=48 started" in stderr
@@ -2407,7 +2479,7 @@ def test_p10_unstable_signs_are_rejected_without_rigorous_work(
 
     def fake_scout(*, max_mode, quadrature_order, shift_order, n_values, support):
         calls["scout"] += 1
-        return _scout_result(n_values, positive=calls["scout"] != 2)
+        return _scout_result(n_values, positive=calls["scout"] != 7)
 
     monkeypatch.setattr(driver, "scout", fake_scout)
     monkeypatch.setattr(

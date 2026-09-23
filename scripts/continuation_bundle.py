@@ -21,6 +21,7 @@ import flint
 from scripts.run_observability import (
     LIVE_DIRECTORY_NAME,
     PROCESS_WORKER_MODEL,
+    replace_path_with_permission_retry,
     RUN_LOCK_FILENAME,
 )
 
@@ -137,7 +138,7 @@ def _atomic_write_json(path: Path, payload: object) -> tuple[str, int]:
             stream.write(data)
             stream.flush()
             os.fsync(stream.fileno())
-        temporary.replace(path)
+        replace_path_with_permission_retry(temporary, path)
         _fsync_directory(path.parent)
     finally:
         temporary.unlink(missing_ok=True)
@@ -170,6 +171,7 @@ def _configuration_payload(result: dict[str, Any]) -> dict[str, object]:
         "support",
         "dimensions",
         "scout_resolution_count",
+        "scout_stability_window",
         "scout_resolution_plan",
         "scout_workers",
         "rigorous_workers",

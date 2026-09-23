@@ -1,10 +1,24 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-09-23T22:20:59Z`
+- **Last updated:** `2026-09-23T23:39:06Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-09-23T23:39:06Z — p17 scout refinement and Windows atomic-publication hardening closed
+
+**Type:** Research-tool correctness / reconnaissance stability / Windows durability
+
+The first `T=27/50` continuation attempt exposed two tooling defects before any canonical research record was accepted. First, Windows could raise transient `PermissionError` / `WinError 5` during atomic `Path.replace()` publication of live/final JSON; the failure reproduced in a fresh output directory. The publication path now uses one bounded retry helper for live status, continuation bundle artifacts, and continuation-cache entries. The retry budget is deliberately finite, so persistent access denial still propagates and fails the run. Regression tests cover transient recovery, persistent fail-closed behavior, and the bundle/cache wiring.
+
+Second, the former three-resolution floating scout was too sensitive to a coarse under-resolved level at `T=27/50`. Direct refinement showed the apparent first stable-positive dimension moving as the scout window was raised, while the highest refined windows converged. The canonical workflow therefore advances to `continuation-driver-p17-v1`: eight increasing scout resolutions are retained, but the existing sign/convergence test is applied to the highest three only, with the 1% relative Schur-movement tolerance unchanged. Explicit lower resolution counts remain available for historical reproduction. This changes the workflow/scout-selection contract, not cached mathematical payload semantics, so the cache contract remains `continuation-driver-v6`; source fingerprints isolate p17 cache entries from earlier code automatically.
+
+A dirty-tree p17 diagnostic over `T=27/50`, `N=80,84,...,144` then provided an end-to-end acceptance check. The refined scout first classified `N=100` stable-positive. Rigorous full-tail Arb screening rejected `N=100` as mathematical-negative after the complete 128/256/384/512-bit ladder, while fallback `N=104` stabilized positive at 512 bits. Exact 64-bit matrix rounding and a 32-bit witness produced `CANDIDATE_READY`, and fixed-parameter 640-bit reassembly preserved all exact positive margins while conditioning improved. The final bundle contained 19 hash/size-verified artifacts, recorded all five pool workers reaped with `active_children_after_cleanup=0`, and left no continuation process running. Because the run manifest records `git_dirty=true`, this is diagnostic/tooling evidence only and must not be promoted or registered as the canonical `T=27/50` computation.
+
+Focused closure tests pass `126/126` across observability, driver, bundle, state-machine, and pre-theorem-boundary suites. No closed theorem contract, retained proof, claim ID, or independently verified finite-support frontier changed. The next research step is a clean-tree canonical `T=27/50` rerun under p17, followed by the existing separate admission decision only if that fresh run again reaches `CANDIDATE_READY`.
+
+---
 
 ## 2026-09-23T22:20:59Z — Canonical continuation lifecycle cut over to p16 provenance semantics
 

@@ -10,6 +10,8 @@ from pathlib import Path
 
 import pytest
 
+from scripts import run_observability as observability
+
 from scripts.run_observability import (
     HEARTBEAT_INTERVAL_SECONDS,
     LIVE_RUN_FORMAT,
@@ -27,6 +29,50 @@ from scripts.run_observability import (
 
 def _read_events(path: Path) -> list[dict[str, object]]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
+
+
+def test_atomic_json_replace_retries_transient_permission_error(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    path = tmp_path / "status.json"
+    original_replace = Path.replace
+    attempts = 0
+
+    def flaky_replace(source: Path, target: Path) -> Path:
+        nonlocal attempts
+        attempts += 1
+        if attempts <= 2:
+            raise PermissionError("synthetic transient sharing denial")
+        return original_replace(source, target)
+
+    monkeypatch.setattr(Path, "replace", flaky_replace)
+    monkeypatch.setattr(observability.time, "sleep", lambda _: None)
+
+    observability._atomic_write_json(path, {"ok": True})
+
+    assert json.loads(path.read_text(encoding="utf-8")) == {"ok": True}
+    assert attempts == 3
+
+
+def test_atomic_json_replace_fails_closed_after_retry_budget(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    path = tmp_path / "status.json"
+    attempts = 0
+
+    def denied_replace(source: Path, target: Path) -> Path:
+        nonlocal attempts
+        attempts += 1
+        raise PermissionError("persistent denial")
+
+    monkeypatch.setattr(Path, "replace", denied_replace)
+    monkeypatch.setattr(observability.time, "sleep", lambda _: None)
+
+    with pytest.raises(PermissionError, match="persistent denial"):
+        observability._atomic_write_json(path, {"ok": False})
+
+    assert attempts == len(observability.ATOMIC_REPLACE_RETRY_DELAYS_SECONDS) + 1
+    assert not path.exists()
 
 
 class _CleanupFakeProcess:

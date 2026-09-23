@@ -47,6 +47,7 @@ from scripts.run_observability import (
     PROCESS_WORKER_MODEL,
     RunStatusWriter,
     WorkerCleanupVerifier,
+    replace_path_with_permission_retry,
     write_run_identity,
 )
 from scripts.weil_legendre_schur_scout import scout
@@ -59,8 +60,10 @@ from scripts.weil_support_candidate_check import (
 from scripts.weil_support_continuation_scout import scout_support
 
 
-DRIVER_VERSION = "continuation-driver-p16-v1"
+DRIVER_VERSION = "continuation-driver-p17-v1"
 SCOUT_RELATIVE_CONVERGENCE_TOLERANCE = 1e-2
+SCOUT_STABILITY_WINDOW = 3
+CANONICAL_SCOUT_RESOLUTION_COUNT = 8
 CANDIDATE_MARGIN_RELATIVE_STABILITY_TOLERANCE = 1e-3
 CANDIDATE_PRECISION_STEP_DEFAULT = 128
 CANDIDATE_PRECISION_EXTRA_STEPS_DEFAULT = 2
@@ -425,7 +428,7 @@ def dimensions_from_args(args: argparse.Namespace) -> list[int]:
 
 
 def build_scout_resolutions(
-    dimensions: list[int], count: int = 3
+    dimensions: list[int], count: int = CANONICAL_SCOUT_RESOLUTION_COUNT
 ) -> list[ScoutResolution]:
     if not dimensions:
         raise ValueError("at least one dimension is required")
@@ -513,7 +516,7 @@ def _cached_result(
             temporary.write_text(
                 json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8"
             )
-            temporary.replace(cache_path)
+            replace_path_with_permission_retry(temporary, cache_path)
         finally:
             temporary.unlink(missing_ok=True)
         return result, False
@@ -1273,7 +1276,7 @@ def run_driver(
     support: Fraction,
     dimensions: list[int],
     *,
-    scout_resolution_count: int = 3,
+    scout_resolution_count: int = CANONICAL_SCOUT_RESOLUTION_COUNT,
     precision_start: int = 128,
     precision_max: int = 512,
     residual_order: int = 32,
@@ -1419,6 +1422,7 @@ def run_driver(
             "support": f"{support.numerator}/{support.denominator}",
             "dimensions": dimensions,
             "scout_resolution_count": scout_resolution_count,
+            "scout_stability_window": min(SCOUT_STABILITY_WINDOW, len(resolutions)),
             "scout_resolution_plan": [resolution.as_dict() for resolution in resolutions],
             "precision_ladder": precisions,
             "precision_start": precision_start,
@@ -1682,8 +1686,9 @@ def run_driver(
     )
     for dimension in dimensions:
         rows = series[dimension]
+        stability_rows = rows[-min(SCOUT_STABILITY_WINDOW, len(rows)) :]
         classification = (
-            _classify_reconnaissance(rows)
+            _classify_reconnaissance(stability_rows)
             if len(rows) == len(resolutions)
             else "unstable"
         )
@@ -1691,6 +1696,7 @@ def run_driver(
             {
                 "dimension": dimension,
                 "classification": classification,
+                "stability_max_modes": [row.max_mode for row in stability_rows],
                 "resolutions": [row.as_dict() for row in rows],
             }
         )
@@ -2477,8 +2483,8 @@ def main() -> None:
     parser.add_argument(
         "--scout-resolutions",
         type=int,
-        default=3,
-        help="number of increasing scout resolutions (minimum 2)",
+        default=CANONICAL_SCOUT_RESOLUTION_COUNT,
+        help="number of increasing scout resolutions (minimum 2); stability uses the highest three",
     )
     available_cpus = os.cpu_count() or 1
     parser.add_argument(
