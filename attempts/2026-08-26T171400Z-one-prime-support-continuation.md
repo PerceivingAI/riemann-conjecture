@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-08-27T17:39:01Z`
+- **Last updated:** `2026-09-23T23:46:41Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -397,3 +397,14 @@ Fresh proof-bearing run `X-20260828-001` reassembled the certificate from scratc
 Real-certificate adversarial replay preserves the trust boundary: changing the Schur factor from `3` to `2` is rejected as a contract error (`exit 2`), while a contract-valid `A(0,0)=-1` perturbation reaches theorem verification and returns `passed=false` (`exit 1`). Focused retained-proof tests pass `67/67`, the exact-prime Rust integration target passes `19/19`, strict Clippy passes, and the canonical retained-proof gate reports `RETAINED PROOF CHAIN: PASS - 7/7`.
 
 This establishes `F-20260828-001` / `C-0056`: strict localized Weil positivity at `T=21/40`. The proof-bearing theorem run is `X-20260828-001`; `X-20260827-005` remains historical pre-theorem evidence only. The active one-prime frontier is now above `T=21/40` and still below `(1/2)log 3`. The next canonical pre-theorem slice is `T=27/50=0.54`, with the dimension selected by the driver rather than extrapolated from `N=96`. Entry of the `p=3` compressed translation at `(1/2)log 3` remains a separate mathematical/tooling phase. None of these finite-support results proves RH.
+
+## Pre-run declaration for T=27/50
+
+**Addendum — `2026-09-23T23:46:41Z`.** The next clean canonical pre-theorem computation is registered as `X-20260923-001`. Before observing its canonical results, fix the exact support and dimension range as
+
+```text
+T=27/50
+N=80,84,88,...,144.
+```
+
+The range intentionally overlaps the previous transition region, contains the earlier `N=96` frontier dimension, and leaves substantial headroom without assuming where the new transition occurs. It was selected before the p17 diagnostic tooling work and is not changed by that dirty-tree diagnostic. Canonical `continuation-driver-p17-v1` must choose the smallest stable-positive scout target and next fallback, subject both to rigorous full-tail screening, and stop at `CANDIDATE_READY` or another fail-closed terminal state. If no candidate survives, or useful behavior appears only at the upper range boundary, do not infer mathematical failure without a separately predeclared extension. No automatic theorem admission is authorized.
