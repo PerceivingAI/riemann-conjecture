@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-09-24T18:37:15Z`
+- **Last updated:** `2026-09-24T21:34:11Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -489,3 +489,23 @@ This closes **admission only**. `computations/retained-proofs.json` is unchanged
 The focused Python contract suite passes `15/15`; the complete `cargo test -p rh_cert` package suite passes; `cargo clippy -p rh_cert --all-targets -- -D warnings` passes; `cargo fmt -p rh_cert -- --check` passes; the retained-proof manifest remains valid with seven registrations; and `git diff --check` passes. The admission implementation was then committed cleanly as `f2d284fd85bee8995ef267450e4038768678c3a3` (`Admit T=27/50 N=104 closed contract`), after which `git status --short` was empty.
 
 The fresh proof-bearing run is now predeclared as `X-20260924-001` in `computations/2026-09-24T183715Z-t27-50-schur-certificate/record.md`, with exact parameters `T=27/50`, `N=104`, 512-bit Arb precision, residual order `32`, 64-bit outward matrix endpoints, 32-bit witness entries, and Schur factor `3`. That record fixes the exact generation and independent Rust replay commands and requires an empty working tree before execution. No theorem generation has occurred in Phase 3; `C-0057` remains provisional until the later proof-bearing gates succeed.
+
+## Phase 4 fresh certificate and independent replay
+
+**Addendum — `2026-09-24T19:47:39Z`.** The predeclared `X-20260924-001` run executed from clean committed HEAD `86f5fd75360892d92cd584bc5f2eab0cae56851b` with the frozen parameters `T=27/50`, `N=104`, 512-bit Arb, residual order `32`, 64-bit matrix endpoints, and 32-bit witnesses. The generator completed with exit `0`; certificate metadata records `git_dirty=false`, and the fresh certificate SHA-256 is `75187f3be283ca9596a714c4a12822c4c58cd4b33e7624110ff102d68c9aab3f`.
+
+Independent zero-float Rust replay of those exact bytes completed with exit `0` / `passed=true`, scope `localized_weil_positivity_T_27_50`, and exact positive complement/even/odd lower bounds. Both parity sectors are `52 x 52` and independently pass the exact rational congruence/Gershgorin proof. The verifier output SHA-256 is `e29e80bdb4af140db95934732095e45ce761ad82e6eb09b1bf8a5bd5931512ce`.
+
+This closes the fresh-generation/independent-replay gate only. Real-certificate adversarial checks and retained-proof/claim registration remain separate later gates, so `C-0057` is still provisional and the registered theorem frontier remains `C-0056`.
+
+## Phase 5 adversarial replay and C-0057 registration
+
+**Addendum — `2026-09-24T20:22:02Z`.** Real-certificate adversarial replay now closes the remaining trust boundary for `X-20260924-001`. Temporary-copy mutations of factor `2`, mixed support/dimension pairs, malformed interval, missing provenance, and missing matrix structure all reject with contract exit `2`. A contract-valid exact `A(0,0)=-1` mutation reaches theorem verification and returns exit `1` / `passed=false`; an unchanged copy returns exit `0` / `passed=true`. The retained source certificate remains unchanged at SHA-256 `75187f3be283ca9596a714c4a12822c4c58cd4b33e7624110ff102d68c9aab3f`.
+
+`C-0057` / `X-20260924-001` is now explicitly registered in the closed retained-proof manifest. Focused retained-proof tests pass `67/67`, the manifest validates with eight registrations, and the full canonical replay reports `HASH PASS VERIFY PASS` for `C-0050` through `C-0057` and `RETAINED PROOF CHAIN: PASS - 8/8`. This establishes `F-20260924-001` / `C-0057`, moving the independently verified finite-support frontier to `(27/50,104)`. RH remains unresolved. Because `0.54` is already close to `(1/2)log 3`, the next support step must respect the separate `p=3` structural transition rather than extrapolating this one-prime proof unchanged.
+
+## Phase 6 repository-wide closure
+
+**Addendum — `2026-09-24T21:34:11Z`.** The broader repository acceptance is green after theorem registration: default Python `554/554`; explicit retained-artifact pytest `1/1` with embedded exact `8/8` replay; full `cargo test -p rh_cert`; `cargo fmt -p rh_cert -- --check`; strict `cargo clippy -p rh_cert --all-targets -- -D warnings`; and authoritative `formal/lake build` completing successfully with `8711 jobs`. A repository-wide stale seven-pair/`C-0056` audit corrected current-facing assumptions in the retained acceptance test, `AGENTS.md`, and root `README.md`; historical pre-`C-0057` statements remain preserved as history.
+
+Phases 4 and 5 both passed, so the maintained independently verified finite-support frontier is now `(27/50,104)` / `C-0057`. This remains a finite-support localized Weil result only. RH is still unresolved.

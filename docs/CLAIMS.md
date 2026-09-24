@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-09-24T18:22:49Z`
+- **Last updated:** `2026-09-24T21:34:11Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -632,16 +632,16 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Source:** `A-20260826-001`, `F-20260828-001`, `X-20260828-001`
 - **Verification notes:** Historical pre-theorem `X-20260827-005` showed that `N=88` and `N=92` were precision-stable mathematical negatives under the rigorous full-tail Schur reduction even though the truncated scout looked positive; continuation then found `N=96` and `N=100` rigorously stable-positive and selected the smaller `N=96`, whose exact candidate remained unchanged under fixed-parameter 512-to-640-bit reassembly. A separate closed-contract admission added only `(T,N)=(21/40,96)`; `N=100` remains forbidden. Fresh proof-bearing `X-20260828-001` assembled a 512-bit Arb certificate with 64-bit outward matrix endpoints and 32-bit exact dyadic witnesses. Rust independently derives `mu_96>0.69600913384063989`, reconstructs the factor-3 Schur matrix, and proves the even/odd `48 x 48` blocks positive by exact rational congruence and interval Gershgorin, with margins approximately `0.00090134267068206139` and `0.0037494074424420441`. Real-certificate adversarial replay gives exit `2` for a malformed factor and exit `1` for a contract-valid negative diagonal perturbation. The retained certificate SHA-256 is `a455dcb995a56f6d387e79b199cfc6f18ba6fca108fcfe3c00987e1c47b44824`; the Rust replay SHA-256 is `9530b53b00c1e96a1be82b2127adc7d1424e63af444803f169be8434f51d2e83`. The certificate records Git commit `dc8b63c8d47a983d290d6b1ba3d05a621d1d830b` with `git_dirty=true`. The retained theorem gate passes `7/7`. This is finite-support positivity at one support value and does not imply RH.
 
-### C-0057 — Reserved theorem target: strict localized Weil positivity at T=27/50
+### C-0057 — Strict localized Weil positivity at T=27/50
 
-- **Statement:** This identifier is reserved for the prospective statement that Suzuki's scaled localized Weil quadratic form at `T=27/50`, including the exact `p=2` compressed-translation contribution and mandatory finite-support residual kernel, satisfies `Q_T(w)>0` for every nonzero admissible localized test function `w`. The statement is **not yet asserted as a theorem**.
-- **Type:** `OPEN_REQUIREMENT`
-- **Status:** `PROVISIONAL`
+- **Statement:** For Suzuki's scaled localized Weil quadratic form at `T=27/50`, including the exact `p=2` compressed-translation contribution and the mandatory finite-support residual kernel, one has `Q_T(w)>0` for every nonzero admissible localized test function `w`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
 - **First recorded:** `2026-09-24T18:13:34Z`
-- **Last verified:** `2026-09-24T18:22:49Z` (admission contract verified; theorem verification not performed)
+- **Last verified:** `2026-09-24T20:22:02Z`
 - **Dependencies:** `C-0039`, `C-0040`, `C-0044`, `C-0045`, `C-0047`, `C-0048`
-- **Source:** `A-20260826-001`, `X-20260923-001`
-- **Verification notes:** Clean canonical pre-theorem `X-20260923-001` reached generator-side `CANDIDATE_READY` at `(T,N)=(27/50,104)` after rigorous full-tail screening rejected `N=100` and accepted `N=104` at 512 bits, with the exact candidate stable under fixed-parameter 640-bit reassembly. On `2026-09-24T18:13:34Z`, the research admission decision was frozen to authorize exactly `(27/50,104)`, with all 56 off-diagonal combinations in the resulting eight-pair support/dimension grid remaining forbidden and explicit nearby controls `(27/50,96)`, `(27/50,100)`, `(27/50,108)`, and `(21/40,104)` required to reject. Phase 2 then implemented that decision independently in the Python theorem exporter, Python semantic validator, raw JSON Schema, Rust pair admission logic, and Rust dimension guard; the test-only corpus now records 8 allowed and 65 forbidden cases. Cross-layer Python/schema checks pass `6/6`, and the complete Rust exact-prime integration/adversarial target passes `24/24`. This establishes contract admission only: no fresh theorem certificate has been generated, no proof-bearing independent Rust replay has been performed, `computations/retained-proofs.json` is unchanged, and retained-claim authority still ends at `C-0056`. `C-0057` therefore remains `PROVISIONAL` / `OPEN_REQUIREMENT`. RH remains unresolved.
+- **Source:** `A-20260826-001`, `F-20260924-001`, `X-20260924-001`
+- **Verification notes:** Historical pre-theorem `X-20260923-001` rejected scout-primary `N=100` under rigorous full-tail screening and isolated `N=104` as an exact cross-precision-stable candidate. A separate closed-contract admission added only `(T,N)=(27/50,104)`. Fresh proof-bearing `X-20260924-001` was generated from clean committed HEAD `86f5fd75360892d92cd584bc5f2eab0cae56851b` at 512-bit Arb precision with residual order `32`, 64-bit outward matrix endpoints, 32-bit witnesses, and exact factor `3`; metadata records `git_dirty=false`. The retained certificate SHA-256 is `75187f3be283ca9596a714c4a12822c4c58cd4b33e7624110ff102d68c9aab3f`. Independent zero-float Rust replay exits `0` with `passed=true`, support `27/50`, dimension `104`, and scope `localized_weil_positivity_T_27_50`; it derives exact positive complement/even/odd lower bounds approximately `0.6643369939721553`, `0.0002388902594756742`, and `0.000779387887620489`. Real-certificate adversarial replay rejects factor `2`, mixed `(21/40,104)` and `(1/2,104)` pairs, malformed interval, missing provenance, and missing matrix structure with exit `2`; a contract-valid exact `A(0,0)=-1` perturbation reaches theorem checking and returns exit `1` / `passed=false`, while an unchanged copy returns exit `0` / `passed=true`. The verifier-output SHA-256 is `e29e80bdb4af140db95934732095e45ce761ad82e6eb09b1bf8a5bd5931512ce`. The certificate is explicitly registered in `computations/retained-proofs.json`, and the canonical retained-proof gate independently hash-checks and replays all eight certificates with `RETAINED PROOF CHAIN: PASS - 8/8`. Phase 6 repository-wide closure additionally passes the default Python suite (`554/554`), explicit retained-artifact pytest (`1/1` with embedded `8/8` replay), full `cargo test -p rh_cert`, Rust format check, strict Clippy, and `formal/lake build` (`8711 jobs`). This is finite-support positivity at one support value and does not imply RH.
 
 ## Entry format
 

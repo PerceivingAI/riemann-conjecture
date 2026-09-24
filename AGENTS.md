@@ -43,7 +43,7 @@ The closed `exact_prime_legendre_schur` theorem contract currently admits exactl
 (T,N)=(27/50,104)
 ```
 
-The first seven pairs support the independently verified finite-support results `C-0050` through `C-0056`. The eighth pair, `(27/50,104)`, is now admitted by the closed v1 contract after independent Python-generator, Python-semantic, raw-schema, and Rust admission checks, but it is **not theorem-bearing**. Clean canonical pre-theorem `X-20260923-001` remains generator-side evidence only and cannot be promoted into a certificate. `C-0057` remains a `PROVISIONAL` `OPEN_REQUIREMENT`; there is no fresh proof-bearing certificate, independent theorem replay, or retained-proof registration for it. The admission consistency corpus now covers eight allowed matched pairs, all 56 off-diagonal cross-pairs, and explicit nearby controls including `(27/50,96)`, `(27/50,100)`, `(27/50,108)`, and `(21/40,104)`. Phase 3 has now frozen the admission implementation in commit `f2d284fd85bee8995ef267450e4038768678c3a3`, with the focused Python/Rust contract suites, strict `rh_cert` clippy, formatting, and retained-manifest checks passing. The fresh proof-bearing computation is predeclared as `X-20260924-001` at `computations/2026-09-24T183715Z-t27-50-schur-certificate/record.md`; theorem generation must begin only from a clean committed tree containing that declaration. Entry of the `p=3` compressed translation at `(1/2)log 3` remains a separate structural phase.
+All eight pairs above support registered independently verified finite-support results `C-0050` through `C-0057`. For `(27/50,104)`, historical `X-20260923-001` remains pre-theorem evidence only; the proof-bearing artifact is the separately generated clean-provenance `X-20260924-001`. Its certificate records `git_dirty=false`; independent zero-float `rh_cert` returns exit `0` / `passed=true`; real-certificate attacks correctly separate contract rejection (exit `2`) from a contract-valid theorem failure (exit `1`); and the closed retained-proof chain now passes `8/8`. The current independently verified finite-support frontier is `(27/50,104)` / `C-0057`. RH remains unresolved. Since `T=27/50=0.54` lies close to `(1/2)log 3 ≈ 0.5493`, entry of the `p=3` compressed translation remains the next separate structural boundary rather than something to extrapolate through silently.
 
 ## 3. Repository map
 
@@ -301,7 +301,7 @@ Do not casually add expensive high-dimensional certificate generation to the fas
 
 ### Retained theorem-artifact acceptance
 
-The seven proof-bearing retained certificates have their own real-artifact acceptance tier. It is excluded from the default pytest expression under the `retained_proofs` marker:
+The eight proof-bearing retained certificates have their own real-artifact acceptance tier. It is excluded from the default pytest expression under the `retained_proofs` marker:
 
 ```text
 uv run --locked --extra test python -m pytest -q \

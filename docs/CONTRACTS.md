@@ -1,7 +1,7 @@
 # Repository Architecture & Proof Contracts
 
 - **Created:** `2026-08-21T06:00:00Z`
-- **Last updated:** `2026-09-24T18:17:53Z`
+- **Last updated:** `2026-09-24T21:34:11Z`
 - **Status:** Authoritative
 
 This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
@@ -149,11 +149,11 @@ give $\langle f,K_kf\rangle\le a_k^{-1}\lVert f\rVert_2^2$. Hence every omitted 
 
 `legendre_component_gram_schur` applies only to `exact_prime_legendre_schur`. In v1, `harmonic_index` must equal the whitelisted finite dimension (`32`, `40`, `48`, `56`, `68`, `80`, `96`, or `104`) and the factor must be the exact rational `3`. The required constants are only `c2`, `c_T`, and `rho_R`; the required proof matrices are `GV`, `G2`, and `GR`. Opposite-parity entries in `A`, `GV`, `G2`, and `GR` must be exactly zero. Rust derives the lower complement constant from the upper endpoints of those scalar intervals, reconstructs the factor-3 Schur matrix, extracts its even and odd blocks, and checks the supplied exact rational lower-triangular congruence witnesses for invertibility before applying exact interval Gershgorin positivity.
 
-The retained `C-0050` (`T=7/20,N=32`), `C-0051` (`T=2/5,N=40`), `C-0052` (`T=17/40,N=48`), `C-0053` (`T=9/20,N=56`), `C-0054` (`T=19/40,N=68`), `C-0055` (`T=1/2,N=80`), and `C-0056` (`T=21/40,N=96`) certificates use this rule and are proof-bearing because `C-0045`, `C-0047`, and `C-0048` provide the analytic complement and Schur semantics encoded by the profile. The pair `(T,N)=(27/50,104)` (`T=27/50,N=104`) is now admitted by the v1 contract for fresh theorem-certificate generation, but has **no theorem status yet**: `C-0057` remains provisional until a fresh certificate receives an independent Rust PASS and the later theorem-registration gates complete. Each theorem-bearing pair requires explicit closed-contract admission followed by a fresh independent Rust PASS; whitelist admission alone never grants theorem status. No other `(T,N)` pair is admitted.
+The retained `C-0050` (`T=7/20,N=32`), `C-0051` (`T=2/5,N=40`), `C-0052` (`T=17/40,N=48`), `C-0053` (`T=9/20,N=56`), `C-0054` (`T=19/40,N=68`), `C-0055` (`T=1/2,N=80`), `C-0056` (`T=21/40,N=96`), and `C-0057` (`T=27/50,N=104`) certificates use this rule and are proof-bearing because `C-0045`, `C-0047`, and `C-0048` provide the analytic complement and Schur semantics encoded by the profile. `C-0057` was generated afresh from clean committed provenance, independently accepted by zero-float Rust, passed real-certificate contract/theorem adversarial checks, and is explicitly registered in the retained-proof manifest. Each theorem-bearing pair requires explicit closed-contract admission followed by fresh independent replay and explicit registration; whitelist admission alone never grants theorem status. No other `(T,N)` pair is admitted.
 
 ### 2.6 Retained theorem-artifact acceptance
 
-Proof-bearing retention is governed by the closed manifest `computations/retained-proofs.json`. Its v1 entries bind each retained theorem claim to one computation ID, repository-relative certificate path, raw-byte SHA-256, support, dimension, claim profile, and verified scope. The manifest contains exactly `C-0050` through `C-0056`; pre-theorem candidates and tooling computations are not proof registrations.
+Proof-bearing retention is governed by the closed manifest `computations/retained-proofs.json`. Its v1 entries bind each retained theorem claim to one computation ID, repository-relative certificate path, raw-byte SHA-256, support, dimension, claim profile, and verified scope. The manifest contains exactly `C-0050` through `C-0057`; pre-theorem candidates and tooling computations are not proof registrations. The canonical current replay passes `8/8`. The repository-wide closure acceptance also passes the default Python suite, full `rh_cert` tests, strict Clippy, and the authoritative Lean build; these quality gates validate the implementation/trust layers but do not broaden the mathematical scope beyond the eight explicitly retained finite-support claims.
 
 The canonical audit is:
 

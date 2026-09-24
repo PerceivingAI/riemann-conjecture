@@ -1,11 +1,11 @@
 # Computations
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-28T01:48:56Z`
+- **Last updated:** `2026-09-24T21:34:11Z`
 
 This directory contains timestamped numerical and symbolic experiments. Every retained computation must be reproducible and must distinguish numerical evidence from proof.
 
-`retained-proofs.json` is the closed machine-readable index of the exact certificate artifacts currently cited as proof-bearing theorem evidence. It is not itself a computation record and does not promote claims; it binds `C-0050` through `C-0056` to retained artifact paths, hashes, and theorem identities for the canonical integrity/replay gate `uv run --locked python -m scripts.cert.verify_retained_proofs`.
+`retained-proofs.json` is the closed machine-readable index of the exact certificate artifacts currently cited as proof-bearing theorem evidence. It is not itself a computation record and does not promote claims; it binds `C-0050` through `C-0057` to retained artifact paths, hashes, and theorem identities for the canonical integrity/replay gate `uv run --locked python -m scripts.cert.verify_retained_proofs`.
 
 ## Current computation records
 
@@ -37,6 +37,8 @@ This directory contains timestamped numerical and symbolic experiments. Every re
 - [`X-20260827-004`](2026-08-27T170850Z-one-half-schur-certificate/record.md) — proof-bearing fresh exact `T=1/2,N=80` certificate, independent zero-float Rust PASS, adversarial replays, and retained `6/6` acceptance establishing `C-0055`.
 - [`X-20260827-005`](2026-08-27T234812Z-t21-40-continuation/record.md) — non-proof-bearing canonical pre-theorem `T=21/40` continuation; full-tail screening overturns scout positives at `N=88,92`, finds `N=96,100` rigorous positives, and selects exact `CANDIDATE_READY` at `N=96`.
 - [`X-20260828-001`](2026-08-28T010811Z-t21-40-schur-certificate/record.md) — proof-bearing fresh exact `T=21/40,N=96` certificate, independent zero-float Rust PASS, adversarial replays, and retained `7/7` acceptance establishing `C-0056`.
+- [`X-20260923-001`](2026-09-23T234641Z-t27-50-continuation/record.md) — historical clean pre-theorem `T=27/50` continuation; rigorous full-tail screening rejects scout-primary `N=100` and selects exact `CANDIDATE_READY` at `N=104` without theorem promotion.
+- [`X-20260924-001`](2026-09-24T183715Z-t27-50-schur-certificate/record.md) — proof-bearing fresh exact `T=27/50,N=104` certificate from clean committed provenance, independent zero-float Rust PASS, real-certificate adversarial replays, retained `8/8` acceptance, and repository-wide Python/Rust/Lean closure establishing `C-0057`.
 
 
 

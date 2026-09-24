@@ -36,6 +36,7 @@ def test_real_retained_proof_chain() -> None:
         "C-0054 HASH PASS VERIFY PASS T=19/40 N=68",
         "C-0055 HASH PASS VERIFY PASS T=1/2 N=80",
         "C-0056 HASH PASS VERIFY PASS T=21/40 N=96",
-        "RETAINED PROOF CHAIN: PASS - 7/7",
+        "C-0057 HASH PASS VERIFY PASS T=27/50 N=104",
+        "RETAINED PROOF CHAIN: PASS - 8/8",
     ]
     assert completed.stderr == ""
