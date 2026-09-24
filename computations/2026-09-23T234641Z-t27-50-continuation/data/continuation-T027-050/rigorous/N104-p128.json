@@ -1,0 +1,72 @@
+{
+  "role": "rigorous_full_tail_screening_attempt",
+  "support": "27/50",
+  "dimension": 104,
+  "residual_order": 32,
+  "screening_status": "precision_stable",
+  "selected_precision_bits": 512,
+  "attempt": {
+    "support": "27/50",
+    "support_decimal": 0.54,
+    "mu_lower": 0.6643369939721553,
+    "mu_midpoint": 0.6643369939721553,
+    "mu_upper": 0.6643369939721553,
+    "mu_certified_positive": true,
+    "finite_block_min_eigenvalue_midpoint": -2.4754095458429107e+62,
+    "schur_min_eigenvalue_midpoint": -7.089810178673451e+63,
+    "component_schur_penalty_operator_norm_midpoint": {
+      "GV": 7.0875835589965e+63,
+      "G2": 4.26652186388906e+56,
+      "GR": 7.262375000622561e-13
+    },
+    "rho_R_upper": 2.2730338941932295,
+    "residual_remainder_upper": 5.215416844887868e-16,
+    "interval_widths": {
+      "A_max": 7.48320919533489e+68,
+      "GV_max": 9.841537546581151e+76,
+      "G2_max": 3.220682441161273e+139,
+      "GR_max": 1.8768954889120865e-36,
+      "mu": 1.0133038612646417e-36,
+      "rho_R": 8.856797698536728e-37,
+      "residual_remainder": 2.5456588040930713e-52
+    },
+    "matrix_interval_diagnostics": {
+      "A": {
+        "max_width": 7.48320919533489e+68,
+        "max_radius": 3.741604597667445e+68,
+        "row": 103,
+        "column": 103,
+        "midpoint_at_widest_entry": -2.3849724163600287e+60
+      },
+      "GV": {
+        "max_width": 9.841537546581151e+76,
+        "max_radius": 4.9207687732905755e+76,
+        "row": 103,
+        "column": 103,
+        "midpoint_at_widest_entry": -9.483537155634415e+73
+      },
+      "G2": {
+        "max_width": 3.220682441161273e+139,
+        "max_radius": 1.6103412205806365e+139,
+        "row": 103,
+        "column": 103,
+        "midpoint_at_widest_entry": -1.9420727799017918e+54
+      },
+      "GR": {
+        "max_width": 1.8768954889120865e-36,
+        "max_radius": 9.384477444560433e-37,
+        "row": 0,
+        "column": 0,
+        "midpoint_at_widest_entry": 1.0880230556969269e-30
+      }
+    },
+    "precision_bits": 128,
+    "stable_change": false,
+    "precision_status": "INSUFFICIENT_PRECISION",
+    "precision_reasons": [
+      "no_prior_precision_for_stability_check",
+      "negative_result_not_precision_stable",
+      "contradicted_by_higher_precision"
+    ]
+  }
+}

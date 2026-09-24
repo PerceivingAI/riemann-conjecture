@@ -1,10 +1,24 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-09-23T23:39:06Z`
+- **Last updated:** `2026-09-24T02:32:15Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-09-24T02:32:15Z — Clean canonical T=27/50 continuation reaches pre-theorem N=104 candidate
+
+**Type:** Canonical pre-theorem continuation / rigorous full-tail screening / exact candidate
+
+`X-20260923-001` executed the predeclared `T=27/50`, `N=80,84,...,144` continuation from clean committed provenance `392aa3d3ae0583dc7a26956bf70295771af1faee` under `continuation-driver-p17-v1`. The eight-level scout first became stable-positive at `N=100`. Rigorous Arb full-tail screening overturned that floating primary: `N=100` was classified `MATHEMATICAL_NEGATIVE` after escalation through 128/256/384/512 bits, while fallback `N=104` became `PRECISION_STABLE` at 512 bits.
+
+At `N=104`, exact outward rounding succeeded with 64-bit matrix endpoints and a 32-bit witness. Exact `mu_lower`, even Gershgorin margin, and odd Gershgorin margin are all strictly positive (approximately `0.6643369939721553`, `0.0002388902594756742`, and `0.000779387887620489`). Fixed-parameter 640-bit reassembly left all exact margins unchanged while Arb enclosures contracted, so the candidate precision check returned `CANDIDATE_STABLE` and the driver terminated at `CANDIDATE_READY`.
+
+The run manifest records `git_dirty=false`, 19 retained artifacts, zero hash/size mismatches in post-run audit, two executor shutdowns, five worker processes reaped, no cleanup escalation, and `active_children_after_cleanup=0`; a separate OS check found no remaining continuation process. Key hashes are `summary.json` `9e07b4effb88e586db7bbe50450ef5363aff24b271fc328f082778ab13d5b926`, `candidate.json` `ead3dde00dcaf7283891968f6c59ab87d015a3e4ab94692c98a734256166a1cb`, precision-stability `792f3220156f27fcf11fb0c77a6c16a09bb5dec885df309d385c42c26746a0cd`, and final manifest `4807d63b42b4fd3509222ea47c4eca2d8ca40cf6859e931992f80b6485371d34`.
+
+This result remains **pre-theorem evidence only**. No closed theorem whitelist/contract was changed, no theorem certificate was emitted, no independent Rust theorem replay was invoked, and no new claim ID was granted. The independently verified finite-support frontier remains `(T,N)=(21/40,96)` / `C-0056`. `(27/50,104)` may enter theorem-facing work only after a separate explicit admission decision and a fresh proof-bearing independent replay.
+
+---
 
 ## 2026-09-23T23:39:06Z — p17 scout refinement and Windows atomic-publication hardening closed
 

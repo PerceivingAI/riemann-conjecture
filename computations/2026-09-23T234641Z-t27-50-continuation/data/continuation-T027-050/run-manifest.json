@@ -1,0 +1,400 @@
+{
+  "format": "rh-continuation-candidate-bundle-v1",
+  "role": "pre_theorem_continuation_bundle_manifest",
+  "driver_version": "continuation-driver-p17-v1",
+  "cache_version": "continuation-driver-v6",
+  "run_started_at_utc": "2026-09-23T23:47:39Z",
+  "run_completed_at_utc": "2026-09-24T00:30:50Z",
+  "configuration": {
+    "support": "27/50",
+    "dimensions": [
+      80,
+      84,
+      88,
+      92,
+      96,
+      100,
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      144
+    ],
+    "scout_resolution_count": 8,
+    "scout_stability_window": 3,
+    "scout_resolution_plan": [
+      {
+        "level": 0,
+        "max_mode": 184,
+        "quadrature_order": 956,
+        "shift_order": 478
+      },
+      {
+        "level": 1,
+        "max_mode": 224,
+        "quadrature_order": 1116,
+        "shift_order": 558
+      },
+      {
+        "level": 2,
+        "max_mode": 264,
+        "quadrature_order": 1276,
+        "shift_order": 638
+      },
+      {
+        "level": 3,
+        "max_mode": 304,
+        "quadrature_order": 1436,
+        "shift_order": 718
+      },
+      {
+        "level": 4,
+        "max_mode": 344,
+        "quadrature_order": 1596,
+        "shift_order": 798
+      },
+      {
+        "level": 5,
+        "max_mode": 384,
+        "quadrature_order": 1756,
+        "shift_order": 878
+      },
+      {
+        "level": 6,
+        "max_mode": 424,
+        "quadrature_order": 1916,
+        "shift_order": 958
+      },
+      {
+        "level": 7,
+        "max_mode": 464,
+        "quadrature_order": 2076,
+        "shift_order": 1038
+      }
+    ],
+    "scout_workers": 3,
+    "rigorous_workers": 2,
+    "precision_start": 128,
+    "precision_max": 512,
+    "precision_ladder": [
+      128,
+      256,
+      384,
+      512
+    ],
+    "residual_order": 32,
+    "matrix_bits_start": 64,
+    "matrix_bits_max": 104,
+    "matrix_bits_ladder": [
+      64,
+      80,
+      96,
+      104
+    ],
+    "witness_bits_start": 32,
+    "witness_bits_max": 56,
+    "candidate_precision_step": 128,
+    "candidate_precision_extra_steps": 2,
+    "witness_bits_ladder": [
+      32,
+      40,
+      48,
+      56
+    ],
+    "cache_dir": ".cache\\continuation-driver"
+  },
+  "provenance": {
+    "git_commit": "392aa3d3ae0583dc7a26956bf70295771af1faee",
+    "git_dirty": false,
+    "python_version": "3.14.0",
+    "python_implementation": "CPython",
+    "python_flint_version": "0.9.0"
+  },
+  "process_lifecycle": {
+    "scope": "driver_managed_process_pool_workers",
+    "parent_pid": 32992,
+    "worker_model": "spawn",
+    "worker_cleanup_verified": true,
+    "active_children_after_cleanup": 0,
+    "executors_shutdown": 2,
+    "worker_processes_reaped": 5,
+    "cleanup_escalations": 0,
+    "workers_joined_after_shutdown": 0,
+    "workers_terminated": 0,
+    "workers_killed": 0
+  },
+  "final_state": "CANDIDATE_READY",
+  "workflow_state": "CANDIDATE_READY",
+  "workflow_trace": [
+    {
+      "sequence": 0,
+      "from": null,
+      "to": "VALIDATE_INPUT",
+      "reason": "driver_started",
+      "details": {}
+    },
+    {
+      "sequence": 1,
+      "from": "VALIDATE_INPUT",
+      "to": "FLOAT_SCOUT",
+      "reason": "validated_driver_inputs",
+      "details": {
+        "support": "27/50",
+        "dimension_count": 17,
+        "resolution_count": 8,
+        "scout_workers": 3
+      }
+    },
+    {
+      "sequence": 2,
+      "from": "FLOAT_SCOUT",
+      "to": "CHECK_SCOUT_STABILITY",
+      "reason": "floating_scout_complete",
+      "details": {
+        "completed_resolutions": 8,
+        "failed_resolutions": 0
+      }
+    },
+    {
+      "sequence": 3,
+      "from": "CHECK_SCOUT_STABILITY",
+      "to": "SELECT_DIMENSION",
+      "reason": "stable_positive_dimensions_found",
+      "details": {
+        "stable_dimensions": [
+          100,
+          104,
+          108,
+          112,
+          116,
+          120,
+          124,
+          128,
+          132,
+          136,
+          140,
+          144
+        ]
+      }
+    },
+    {
+      "sequence": 4,
+      "from": "SELECT_DIMENSION",
+      "to": "RIGOROUS_PRECISION_SEARCH",
+      "reason": "selected_primary_and_fallback_dimensions",
+      "details": {
+        "primary_dimension": 100,
+        "fallback_dimensions": [
+          104
+        ],
+        "rigorous_workers": 2
+      }
+    },
+    {
+      "sequence": 5,
+      "from": "RIGOROUS_PRECISION_SEARCH",
+      "to": "CHECK_RIGOROUS_STABILITY",
+      "reason": "rigorous_precision_search_complete",
+      "details": {
+        "screened_dimensions": [
+          100,
+          104
+        ],
+        "surviving_dimensions": [
+          104
+        ],
+        "rigorous_failure_count": 0
+      }
+    },
+    {
+      "sequence": 6,
+      "from": "CHECK_RIGOROUS_STABILITY",
+      "to": "EXACT_ROUNDING_SEARCH",
+      "reason": "rigorous_candidate_survived",
+      "details": {
+        "surviving_dimensions": [
+          104
+        ]
+      }
+    },
+    {
+      "sequence": 7,
+      "from": "EXACT_ROUNDING_SEARCH",
+      "to": "EXACT_WITNESS_CHECK",
+      "reason": "outward_rounding_and_exact_schur_succeeded",
+      "details": {
+        "candidate_ready_dimensions": [
+          104
+        ]
+      }
+    },
+    {
+      "sequence": 8,
+      "from": "EXACT_WITNESS_CHECK",
+      "to": "CANDIDATE_PRECISION_CONFIRMATION",
+      "reason": "exact_candidate_requires_cross_precision_confirmation",
+      "details": {
+        "candidate_ready_dimensions": [
+          104
+        ],
+        "precision_step": 128,
+        "extra_steps": 2
+      }
+    },
+    {
+      "sequence": 9,
+      "from": "CANDIDATE_PRECISION_CONFIRMATION",
+      "to": "CANDIDATE_READY",
+      "reason": "exact_candidate_is_stable_across_improving_working_precision",
+      "details": {
+        "selected_candidate_dimension": 104,
+        "candidate_precision_classification": "CANDIDATE_STABLE",
+        "confirmed_precision_bits": 640
+      }
+    }
+  ],
+  "theorem_status": false,
+  "independently_verified": false,
+  "whitelisted": false,
+  "finalization": {
+    "worker_cleanup": {
+      "verified": true,
+      "executors_shutdown": 2,
+      "worker_processes_reaped": 5,
+      "cleanup_escalations": 0,
+      "workers_joined_after_shutdown": 0,
+      "workers_terminated": 0,
+      "workers_killed": 0,
+      "active_children_after_cleanup": 0,
+      "stages": [
+        "FLOAT_SCOUT",
+        "RIGOROUS_PRECISION_SEARCH"
+      ]
+    },
+    "result_payload_sha256": "c70c58ab03bc739c36cf79ca5d80a70eb6d2cf63bacd1ba00858dade98910891",
+    "manifest_written_last": true
+  },
+  "artifacts": [
+    {
+      "path": "candidate/candidate.json",
+      "kind": "exact_candidate",
+      "sha256": "ead3dde00dcaf7283891968f6c59ab87d015a3e4ab94692c98a734256166a1cb",
+      "bytes": 22964
+    },
+    {
+      "path": "candidate/precision-stability-N104.json",
+      "kind": "candidate_precision_stability",
+      "sha256": "792f3220156f27fcf11fb0c77a6c16a09bb5dec885df309d385c42c26746a0cd",
+      "bytes": 12157
+    },
+    {
+      "path": "rigorous/N100-p128.json",
+      "kind": "rigorous_screening",
+      "sha256": "14a6232b99626e5a4a7578f1ad8595502b407c0980d0c454139b1c228c664880",
+      "bytes": 2294
+    },
+    {
+      "path": "rigorous/N100-p256.json",
+      "kind": "rigorous_screening",
+      "sha256": "8a1ef4ce3ecb41d9ff90e6ec07a6356cece2ea1d42ee5be8f01c55b3e327093e",
+      "bytes": 3339
+    },
+    {
+      "path": "rigorous/N100-p384.json",
+      "kind": "rigorous_screening",
+      "sha256": "d36b8b938683836498803f289038ce52df48628ffdc1c09d5643537bb7c317b1",
+      "bytes": 3342
+    },
+    {
+      "path": "rigorous/N100-p512.json",
+      "kind": "rigorous_screening",
+      "sha256": "23758275b2efefd0c0237e84f8a11f3d450cb7982f7ccd4bc7d1949b91e86c86",
+      "bytes": 3236
+    },
+    {
+      "path": "rigorous/N104-p128.json",
+      "kind": "rigorous_screening",
+      "sha256": "cda21fe73ef846e478d78dae9c17f511169191e4dadb58ff9fd72c6a398e7988",
+      "bytes": 2288
+    },
+    {
+      "path": "rigorous/N104-p256.json",
+      "kind": "rigorous_screening",
+      "sha256": "79754c1e19942a16f0e4c797dc495896746c21aa39cf96c7bcb61be6c05b0265",
+      "bytes": 3325
+    },
+    {
+      "path": "rigorous/N104-p384.json",
+      "kind": "rigorous_screening",
+      "sha256": "9e74e4109820a83d71baa97c512bee0c518746e468df05c8d36ded0b2ee9c69e",
+      "bytes": 3291
+    },
+    {
+      "path": "rigorous/N104-p512.json",
+      "kind": "rigorous_screening",
+      "sha256": "1fd559c6de635edec589c70b078ce29c3d0ad54b360ae459e15c7ac9ebcbb43d",
+      "bytes": 3240
+    },
+    {
+      "path": "scout/resolution-01.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "4158903c8a53812727c9beef0737283523bacef10e8e4dd14a2ca19072b59998",
+      "bytes": 4281
+    },
+    {
+      "path": "scout/resolution-02.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "dce30cf7fa45bd0b38f207d530d9742aea7232d5708115bb2ffec584f8224199",
+      "bytes": 4284
+    },
+    {
+      "path": "scout/resolution-03.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "5283801ad97c36e87c95b3809da44a80cd4aa9070e064b6fa903683d3a07b165",
+      "bytes": 4305
+    },
+    {
+      "path": "scout/resolution-04.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "050915654f834a4f3ecd7f12b070d1c614c392770e952deb9999fe9d39bbe657",
+      "bytes": 4308
+    },
+    {
+      "path": "scout/resolution-05.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "3df0588ed1734cf9f923eae8448a0187fa4b1bbe164d20c5226c1a1905d75169",
+      "bytes": 4306
+    },
+    {
+      "path": "scout/resolution-06.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "24c0a7b148017155346767f1895d3a6677a3a83fd7ac265fa9ca0a20d1d044b7",
+      "bytes": 4314
+    },
+    {
+      "path": "scout/resolution-07.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "ac26fdd4471f170209fcaaed10afe97540841cafec212f1f33162af4e779761a",
+      "bytes": 4311
+    },
+    {
+      "path": "scout/resolution-08.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "0aa0601be169e806cbabe8591fb43f6ed93b1c44fc586c3a903e5c0892c4500e",
+      "bytes": 4317
+    },
+    {
+      "path": "summary.json",
+      "kind": "summary",
+      "sha256": "9e07b4effb88e586db7bbe50450ef5363aff24b271fc328f082778ab13d5b926",
+      "bytes": 109693
+    }
+  ],
+  "warning": "This bundle contains pre-theorem continuation evidence only. It contains no theorem certificate and records no independent verifier admission."
+}

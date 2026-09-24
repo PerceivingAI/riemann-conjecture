@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-09-23T23:46:41Z`
+- **Last updated:** `2026-09-24T02:32:15Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -408,3 +408,9 @@ N=80,84,88,...,144.
 ```
 
 The range intentionally overlaps the previous transition region, contains the earlier `N=96` frontier dimension, and leaves substantial headroom without assuming where the new transition occurs. It was selected before the p17 diagnostic tooling work and is not changed by that dirty-tree diagnostic. Canonical `continuation-driver-p17-v1` must choose the smallest stable-positive scout target and next fallback, subject both to rigorous full-tail screening, and stop at `CANDIDATE_READY` or another fail-closed terminal state. If no candidate survives, or useful behavior appears only at the upper range boundary, do not infer mathematical failure without a separately predeclared extension. No automatic theorem admission is authorized.
+
+## T=27/50 canonical pre-theorem result
+
+**Addendum — `2026-09-24T02:32:15Z`.** Clean canonical `X-20260923-001` executed exactly the predeclared `T=27/50`, `N=80,84,...,144` range from committed clean-tree provenance `392aa3d3ae0583dc7a26956bf70295771af1faee`. The p17 scout first became stable-positive at `N=100`; rigorous full-tail screening then rejected `N=100` as `MATHEMATICAL_NEGATIVE` after the full 128/256/384/512-bit ladder, while fallback `N=104` became `PRECISION_STABLE` at 512 bits. Exact 64-bit matrix rounding with a 32-bit witness gave strictly positive exact `mu`, even, and odd margins, and fixed-parameter 640-bit reassembly classified the candidate as `CANDIDATE_STABLE` with unchanged exact margins and contracted Arb enclosures.
+
+The canonical run therefore stops at generator-side `CANDIDATE_READY` for `(T,N)=(27/50,104)`. Its final manifest records `git_dirty=false`, all 19 retained artifact hashes/sizes audit correctly, all five owned pool workers were reaped with `active_children_after_cleanup=0`, and no continuation process remained afterward. This is **pre-theorem evidence only**. The closed theorem contract and retained proof registry still end at `(21/40,96)` / `C-0056`; `(27/50,104)` is not admitted, independently verified, or theorem-bearing. No automatic admission is authorized.

@@ -1,0 +1,133 @@
+{
+  "status": "completed",
+  "resolution": {
+    "level": 5,
+    "max_mode": 384,
+    "quadrature_order": 1756,
+    "shift_order": 878
+  },
+  "result": {
+    "role": "floating_reconnaissance_only",
+    "warning": "Tail Grams are truncated at max_mode and are not infinite-dimensional bounds.",
+    "support": "27/50",
+    "support_T": 0.54,
+    "rho_R_scout": 2.271243065246547,
+    "max_mode": 384,
+    "quadrature_order": 1756,
+    "shift_order": 878,
+    "lowest_full_finite_ritz_values": [
+      1.0324408098365474e-07,
+      2.4581604395502695e-05,
+      0.0021921137979635957,
+      0.12649504568762865,
+      0.7135608992083405,
+      0.8514689538846452,
+      1.1049646278466556,
+      1.1159766126817434
+    ],
+    "schur_rows": [
+      {
+        "N": 80,
+        "mu_scout": 0.4052005500776348,
+        "finite_block_min_eigenvalue": 1.0348865124633145e-07,
+        "factor3_truncated_schur_min_eigenvalue": -2.5708371322796904
+      },
+      {
+        "N": 84,
+        "mu_scout": 0.45369430571704594,
+        "finite_block_min_eigenvalue": 1.0346377585870716e-07,
+        "factor3_truncated_schur_min_eigenvalue": -1.6798123413627986
+      },
+      {
+        "N": 88,
+        "mu_scout": 0.4999448078133426,
+        "finite_block_min_eigenvalue": 1.0346171545472597e-07,
+        "factor3_truncated_schur_min_eigenvalue": -0.9814729466506652
+      },
+      {
+        "N": 92,
+        "mu_scout": 0.5441504501870362,
+        "finite_block_min_eigenvalue": 1.034343658871693e-07,
+        "factor3_truncated_schur_min_eigenvalue": -0.4221288203733939
+      },
+      {
+        "N": 96,
+        "mu_scout": 0.5864844186875597,
+        "finite_block_min_eigenvalue": 1.0342045844480628e-07,
+        "factor3_truncated_schur_min_eigenvalue": 5.088721975777265e-08
+      },
+      {
+        "N": 100,
+        "mu_scout": 0.6270987887717387,
+        "finite_block_min_eigenvalue": 1.0341344256113453e-07,
+        "factor3_truncated_schur_min_eigenvalue": 9.915445916024556e-08
+      },
+      {
+        "N": 104,
+        "mu_scout": 0.6661278229188383,
+        "finite_block_min_eigenvalue": 1.0339270866594516e-07,
+        "factor3_truncated_schur_min_eigenvalue": 1.0014431438279588e-07
+      },
+      {
+        "N": 108,
+        "mu_scout": 0.703690648358581,
+        "finite_block_min_eigenvalue": 1.0338853941764296e-07,
+        "factor3_truncated_schur_min_eigenvalue": 1.005044067098615e-07
+      },
+      {
+        "N": 112,
+        "mu_scout": 0.7398934498136764,
+        "finite_block_min_eigenvalue": 1.0338166843126966e-07,
+        "factor3_truncated_schur_min_eigenvalue": 1.0070895769854422e-07
+      },
+      {
+        "N": 116,
+        "mu_scout": 0.7748312789894465,
+        "finite_block_min_eigenvalue": 1.0336650991903307e-07,
+        "factor3_truncated_schur_min_eigenvalue": 1.0110042564666343e-07
+      },
+      {
+        "N": 120,
+        "mu_scout": 0.8085895584855134,
+        "finite_block_min_eigenvalue": 1.0336392007519448e-07,
+        "factor3_truncated_schur_min_eigenvalue": 1.013063859518728e-07
+      },
+      {
+        "N": 124,
+        "mu_scout": 0.8412453400367514,
+        "finite_block_min_eigenvalue": 1.0335453570915506e-07,
+        "factor3_truncated_schur_min_eigenvalue": 1.0152607128425136e-07
+      },
+      {
+        "N": 128,
+        "mu_scout": 0.8728683637212908,
+        "finite_block_min_eigenvalue": 1.0334566385947748e-07,
+        "factor3_truncated_schur_min_eigenvalue": 1.017352483354549e-07
+      },
+      {
+        "N": 132,
+        "mu_scout": 0.9035219547601114,
+        "finite_block_min_eigenvalue": 1.0334516836893902e-07,
+        "factor3_truncated_schur_min_eigenvalue": 1.0180265531333313e-07
+      },
+      {
+        "N": 136,
+        "mu_scout": 0.9332637869036349,
+        "finite_block_min_eigenvalue": 1.0333638072590583e-07,
+        "factor3_truncated_schur_min_eigenvalue": 1.019513702224159e-07
+      },
+      {
+        "N": 140,
+        "mu_scout": 0.9621465355353953,
+        "finite_block_min_eigenvalue": 1.0333080307565557e-07,
+        "factor3_truncated_schur_min_eigenvalue": 1.0207834521237448e-07
+      },
+      {
+        "N": 144,
+        "mu_scout": 0.9902184390755338,
+        "finite_block_min_eigenvalue": 1.0332864529858686e-07,
+        "factor3_truncated_schur_min_eigenvalue": 1.0214625630212347e-07
+      }
+    ]
+  }
+}
