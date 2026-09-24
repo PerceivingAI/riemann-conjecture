@@ -1,7 +1,7 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-09-24T18:22:49Z`
+- **Last updated:** `2026-09-24T18:37:15Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
@@ -420,4 +420,4 @@ There is therefore no current verifier- or orchestration-performance blocker to 
 
 Phase 2 of the `(27/50,104)` theorem-admission path is complete. The closed `exact_prime_legendre_schur` v1 contract now admits exactly eight matched pairs, adding only `(T,N)=(27/50,104)`. The Python theorem exporter, separately maintained Python semantic validator, raw JSON Schema, Rust pair whitelist, and Rust finite-dimension guard agree on that admission. The test-only consistency corpus contains 8 allowed pairs, all 56 off-diagonal cross-pairs, and 9 external forbidden controls; the frozen nearby controls `(27/50,96)`, `(27/50,100)`, `(27/50,108)`, and `(21/40,104)` all remain rejected. Cross-layer Python/schema acceptance passes `6/6`; the full Rust exact-prime integration/adversarial target passes `24/24`.
 
-Admission does **not** advance the theorem frontier. `X-20260923-001` remains pre-theorem evidence; no fresh `(27/50,104)` theorem certificate or proof-bearing Rust replay exists; `computations/retained-proofs.json` and `EXPECTED_RETAINED_CLAIMS_V1` still stop at `C-0056`; and `C-0057` remains `PROVISIONAL` / `OPEN_REQUIREMENT`. The immediate next action is Phase 3: audit/freeze the admission diff, run the focused formatting/quality gates, commit the admission implementation, and restore a clean tree before predeclaring any fresh proof-bearing computation.
+Admission does **not** yet advance the theorem frontier. Phase 3 has audited and frozen the eight-pair admission implementation in commit `f2d284fd85bee8995ef267450e4038768678c3a3`; focused Python/Rust contract tests, strict `rh_cert` clippy, formatting, manifest validation, and diff checks all pass. The fresh proof-bearing computation is predeclared as `X-20260924-001` at `computations/2026-09-24T183715Z-t27-50-schur-certificate/record.md` with exact `(27/50,104)` parameters and a clean-tree requirement. No certificate or proof-bearing Rust replay has yet been generated, `computations/retained-proofs.json` and `EXPECTED_RETAINED_CLAIMS_V1` still stop at `C-0056`, and `C-0057` remains `PROVISIONAL` / `OPEN_REQUIREMENT`. The immediate next action is the fresh theorem-certificate generation from the committed declaration state, followed by independent Rust replay and adversarial checks.

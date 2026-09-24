@@ -1,10 +1,22 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-09-24T18:22:49Z`
+- **Last updated:** `2026-09-24T18:37:15Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-09-24T18:37:15Z — Phase 3 freezes admission and predeclares fresh `(27/50,104)` proof run
+
+**Type:** Admission freeze / quality gate / clean-provenance theorem-run declaration
+
+The Phase 2 admission diff was audited directly for accidental broadening. Python generator and semantic admission each add exactly `(27/50,104)`; Rust adds the same exact support/dimension pair plus the separate `104` dimension guard; the JSON Schema's new generic `104` dimension/harmonic allowance is constrained by its exact-pair `oneOf` branch; and all 56 off-diagonal combinations remain forbidden in the eight-pair consistency grid. Retained-proof authority remains unchanged at `C-0050` through `C-0056`.
+
+The focused Python contract suite passes `15/15`, the complete `rh_cert` package tests pass, strict `cargo clippy -p rh_cert --all-targets -- -D warnings` passes, `cargo fmt -p rh_cert -- --check` passes, the retained-proof manifest is valid with 7 registrations, and `git diff --check` passes. The admission implementation is frozen in commit `f2d284fd85bee8995ef267450e4038768678c3a3`; the tree was clean immediately afterward.
+
+A new computation record, `X-20260924-001`, now predeclares the fresh proof-bearing `(27/50,104)` certificate run at `computations/2026-09-24T183715Z-t27-50-schur-certificate/record.md`. It freezes 512-bit Arb precision, residual order `32`, 64-bit outward matrix endpoints, 32-bit witnesses, Schur factor `3`, and the exact generation/Rust replay commands. Generation is forbidden from a dirty tree. No theorem run has yet occurred; `C-0057` remains `PROVISIONAL` / `OPEN_REQUIREMENT`.
+
+---
 
 ## 2026-09-24T18:22:49Z — Phase 2 independently admits `(27/50,104)` without theorem promotion
 

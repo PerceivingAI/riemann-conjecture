@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-09-24T18:22:49Z`
+- **Last updated:** `2026-09-24T18:37:15Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -481,3 +481,11 @@ cargo test -p rh_cert --test test_exact_prime_schur
 The Rust target includes the corpus-wide admission replay plus direct new-pair acceptance and the existing contract/adversarial semantics for wrong factor, cross-parity entries, singular witnesses, nonpositive complement bounds, and theorem-failure-versus-contract-failure distinction.
 
 This closes **admission only**. `computations/retained-proofs.json` is unchanged, `EXPECTED_RETAINED_CLAIMS_V1` remains exactly `C-0050` through `C-0056`, no fresh `(27/50,104)` theorem certificate exists, and no proof-bearing independent Rust replay has been performed. Therefore `C-0057` remains `PROVISIONAL` / `OPEN_REQUIREMENT`, the independently verified theorem frontier remains `(21/40,96)` / `C-0056`, and `X-20260923-001` remains pre-theorem evidence. Phase 3 must freeze, quality-check, and commit this admission implementation from the current working tree before any theorem-certificate generation begins.
+
+## Phase 3 admission freeze and theorem-run predeclaration
+
+**Addendum — `2026-09-24T18:37:15Z`.** The Phase 2 diff was audited directly across the Python theorem generator, Python semantic validator, raw JSON Schema, Rust verifier, and test-only admission corpus. No accidental broadening was found: the production pair admission adds exactly `(27/50,104)`, the schema binds `N=104` to `T=27/50` through the exact-pair branch, all 56 off-diagonal eight-pair combinations remain forbidden, and retained-proof authority still ends at `C-0056`.
+
+The focused Python contract suite passes `15/15`; the complete `cargo test -p rh_cert` package suite passes; `cargo clippy -p rh_cert --all-targets -- -D warnings` passes; `cargo fmt -p rh_cert -- --check` passes; the retained-proof manifest remains valid with seven registrations; and `git diff --check` passes. The admission implementation was then committed cleanly as `f2d284fd85bee8995ef267450e4038768678c3a3` (`Admit T=27/50 N=104 closed contract`), after which `git status --short` was empty.
+
+The fresh proof-bearing run is now predeclared as `X-20260924-001` in `computations/2026-09-24T183715Z-t27-50-schur-certificate/record.md`, with exact parameters `T=27/50`, `N=104`, 512-bit Arb precision, residual order `32`, 64-bit outward matrix endpoints, 32-bit witness entries, and Schur factor `3`. That record fixes the exact generation and independent Rust replay commands and requires an empty working tree before execution. No theorem generation has occurred in Phase 3; `C-0057` remains provisional until the later proof-bearing gates succeed.

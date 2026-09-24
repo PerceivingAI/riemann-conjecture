@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-09-24T18:22:49Z`
+- **Last updated:** `2026-09-24T18:37:15Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -136,6 +136,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`X-20260827-005`](../computations/2026-08-27T234812Z-t21-40-continuation/record.md) — historical canonical pre-theorem `T=21/40` continuation; full-tail screening rejects `N=88,92`, finds `N=96,100` positive, and selects exact `CANDIDATE_READY` at `N=96` without theorem promotion.
 - [`X-20260828-001`](../computations/2026-08-28T010811Z-t21-40-schur-certificate/record.md) — separately admitted fresh exact `T=21/40,N=96` theorem certificate, independent zero-float Rust PASS, adversarial replay, and retained-proof registration supporting `C-0056`.
 - [`X-20260923-001`](../computations/2026-09-23T234641Z-t27-50-continuation/record.md) — clean canonical pre-theorem `T=27/50` continuation; rigorous full-tail screening rejects scout-primary `N=100`, selects exact cross-precision-stable `CANDIDATE_READY` at `N=104`, and stops before theorem admission. The later admission decision reserves `C-0057` but does not promote this artifact.
+- [`X-20260924-001`](../computations/2026-09-24T183715Z-t27-50-schur-certificate/record.md) — predeclared fresh proof-bearing `(T,N)=(27/50,104)` certificate run from the committed eight-pair admission state; exact parameters and reproduction commands are frozen, but generation has not yet executed and `C-0057` remains provisional.
 
 
 ## Templates
@@ -146,4 +147,4 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Current state
 
-RH remains unresolved. `C-0050` at `T=7/20`, `C-0051` at `T=2/5`, `C-0052` at `T=17/40`, `C-0053` at `T=9/20`, `C-0054` at `T=19/40`, `C-0055` at `T=1/2`, and `C-0056` at `T=21/40` remain the independently verified finite-support theorems. `A-20260826-001` remains active. The closed v1 contract now admits an eighth pair, `(27/50,104)`, with all independent admission layers and the expanded consistency/adversarial tests passing. That admission is not theorem status: `X-20260923-001` remains pre-theorem, `C-0057` remains `PROVISIONAL` / `OPEN_REQUIREMENT`, and the retained theorem registry still contains exactly `C-0050` through `C-0056`. Phase 3 is the immediate next step: freeze and commit the admission implementation before any fresh proof-bearing generation. See [`STATUS.md`](STATUS.md).
+RH remains unresolved. `C-0050` at `T=7/20`, `C-0051` at `T=2/5`, `C-0052` at `T=17/40`, `C-0053` at `T=9/20`, `C-0054` at `T=19/40`, `C-0055` at `T=1/2`, and `C-0056` at `T=21/40` remain the independently verified finite-support theorems. `A-20260826-001` remains active. The closed v1 contract now admits an eighth pair, `(27/50,104)`, with all independent admission layers and the expanded consistency/adversarial tests passing. That admission is not theorem status: `X-20260923-001` remains pre-theorem, `C-0057` remains `PROVISIONAL` / `OPEN_REQUIREMENT`, and the retained theorem registry still contains exactly `C-0050` through `C-0056`. Phase 3 has frozen the admission implementation in commit `f2d284fd85bee8995ef267450e4038768678c3a3` and predeclared fresh proof-bearing computation `X-20260924-001`. The next step is to execute that declaration from a clean committed tree; `C-0057` remains provisional until fresh generation, independent Rust PASS, adversarial checks, and later retained-proof registration succeed. See [`STATUS.md`](STATUS.md).
