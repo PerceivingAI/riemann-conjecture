@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-09-24T02:32:15Z`
+- **Last updated:** `2026-09-24T18:22:49Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -414,3 +414,70 @@ The range intentionally overlaps the previous transition region, contains the ea
 **Addendum — `2026-09-24T02:32:15Z`.** Clean canonical `X-20260923-001` executed exactly the predeclared `T=27/50`, `N=80,84,...,144` range from committed clean-tree provenance `392aa3d3ae0583dc7a26956bf70295771af1faee`. The p17 scout first became stable-positive at `N=100`; rigorous full-tail screening then rejected `N=100` as `MATHEMATICAL_NEGATIVE` after the full 128/256/384/512-bit ladder, while fallback `N=104` became `PRECISION_STABLE` at 512 bits. Exact 64-bit matrix rounding with a 32-bit witness gave strictly positive exact `mu`, even, and odd margins, and fixed-parameter 640-bit reassembly classified the candidate as `CANDIDATE_STABLE` with unchanged exact margins and contracted Arb enclosures.
 
 The canonical run therefore stops at generator-side `CANDIDATE_READY` for `(T,N)=(27/50,104)`. Its final manifest records `git_dirty=false`, all 19 retained artifact hashes/sizes audit correctly, all five owned pool workers were reaped with `active_children_after_cleanup=0`, and no continuation process remained afterward. This is **pre-theorem evidence only**. The closed theorem contract and retained proof registry still end at `(21/40,96)` / `C-0056`; `(27/50,104)` is not admitted, independently verified, or theorem-bearing. No automatic admission is authorized.
+
+## Admission decision for `(27/50,104)`
+
+**Addendum — `2026-09-24T18:13:34Z`.** A separate research decision now freezes the scope for the next theorem-admission phase. The decision authorizes Phase 2 to extend the closed `exact_prime_legendre_schur` v1 profile by **exactly one** additional support/dimension pair:
+
+```text
+(T,N)=(27/50,104)
+```
+
+This addendum records the admission **decision and scope only**. It does not itself change any production whitelist, schema, validator, Rust verifier, retained-proof manifest, or theorem status. Until Phase 2 independently updates and verifies those trust layers, the implemented production contract remains the existing seven-pair contract through `(21/40,96)` / `C-0056`.
+
+The intended post-Phase-2 admitted set is exactly
+
+```text
+(T,N)=(7/20,32)
+(T,N)=(2/5,40)
+(T,N)=(17/40,48)
+(T,N)=(9/20,56)
+(T,N)=(19/40,68)
+(T,N)=(1/2,80)
+(T,N)=(21/40,96)
+(T,N)=(27/50,104)
+```
+
+No other pair is authorized by this decision. For the eight-support/eight-dimension consistency grid
+
+```text
+supports   = {7/20, 2/5, 17/40, 9/20, 19/40, 1/2, 21/40, 27/50}
+dimensions = {32, 40, 48, 56, 68, 80, 96, 104}
+```
+
+the eight matched pairs above are the only intended admitted combinations after Phase 2. **All 56 off-diagonal cross-pairs remain forbidden.** In particular, the following controls must remain rejected:
+
+```text
+(27/50,96)   forbidden — off-diagonal admitted-grid control
+(27/50,100)  forbidden — nearby external control
+(27/50,108)  forbidden — nearby external control
+(21/40,104)  forbidden — off-diagonal admitted-grid control
+```
+
+For support `T=27/50`, every dimension other than `N=104` remains outside the v1 theorem contract unless a later, separately documented admission decision says otherwise.
+
+`X-20260923-001` remains immutable **pre-theorem** generator-side evidence. Its `candidate/candidate.json` and other continuation artifacts must not be renamed, copied, or treated as a theorem certificate. Any proof-bearing theorem computation must be generated afresh from the admitted proof exporter after the admission implementation is committed and clean.
+
+The stable identifier `C-0057` is reserved for the prospective finite-support theorem at `T=27/50`, but is **not** granted theorem status by this reservation. In `docs/CLAIMS.md` it remains a `PROVISIONAL` `OPEN_REQUIREMENT` until a fresh proof-bearing certificate is independently accepted by the zero-float Rust verifier and the later theorem-registration gates are completed.
+
+**Phase 1 exit gate:** admission intent is now frozen to exactly `(27/50,104)`; the forbidden controls and complete off-diagonal policy are explicit; `X-20260923-001` remains pre-theorem; and `C-0057` is reserved without theorem status. Production trust-layer edits belong to Phase 2 and are not part of this addendum.
+
+## Phase 2 closed-contract admission implementation
+
+**Addendum — `2026-09-24T18:22:49Z`.** The Phase 1 decision has now been implemented independently across every production admission layer required by `exact_prime_legendre_schur` v1. Exactly `(T,N)=(27/50,104)` was added to the Python theorem exporter, the separately maintained Python semantic validator, the raw JSON Schema, and the independent Rust verifier. Rust's separate finite-dimension guard was extended to `104`, while its harmonic-index invariant remains `harmonic_index == dimension`. `docs/CONTRACTS.md` now records the eight-pair closed contract.
+
+The test-only admission corpus was expanded to eight allowed matched pairs, all `56` off-diagonal combinations in the `8 x 8` admitted support/dimension grid, and nine external forbidden controls. The explicitly frozen nearby cases `(27/50,96)`, `(27/50,100)`, `(27/50,108)`, and `(21/40,104)` are all rejected; `(27/50,104)` alone is accepted at the new support.
+
+Focused cross-layer checks pass:
+
+```text
+uv run --locked --extra test python -m pytest -q tests/test_admission_consistency.py
+6 passed
+
+cargo test -p rh_cert --test test_exact_prime_schur
+24 passed
+```
+
+The Rust target includes the corpus-wide admission replay plus direct new-pair acceptance and the existing contract/adversarial semantics for wrong factor, cross-parity entries, singular witnesses, nonpositive complement bounds, and theorem-failure-versus-contract-failure distinction.
+
+This closes **admission only**. `computations/retained-proofs.json` is unchanged, `EXPECTED_RETAINED_CLAIMS_V1` remains exactly `C-0050` through `C-0056`, no fresh `(27/50,104)` theorem certificate exists, and no proof-bearing independent Rust replay has been performed. Therefore `C-0057` remains `PROVISIONAL` / `OPEN_REQUIREMENT`, the independently verified theorem frontier remains `(21/40,96)` / `C-0056`, and `X-20260923-001` remains pre-theorem evidence. Phase 3 must freeze, quality-check, and commit this admission implementation from the current working tree before any theorem-certificate generation begins.

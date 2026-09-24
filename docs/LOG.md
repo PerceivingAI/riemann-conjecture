@@ -1,10 +1,34 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-09-24T02:32:15Z`
+- **Last updated:** `2026-09-24T18:22:49Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-09-24T18:22:49Z — Phase 2 independently admits `(27/50,104)` without theorem promotion
+
+**Type:** Closed-contract admission implementation / cross-layer consistency / adversarial verification
+
+The Phase 1 decision has been implemented independently in the Python theorem exporter, Python semantic validator, JSON Schema, Rust pair whitelist, and Rust finite-dimension guard. The closed `exact_prime_legendre_schur` v1 contract now admits exactly eight matched pairs, adding only `(T,N)=(27/50,104)`. The test-only corpus contains 8 allowed cases, all 56 off-diagonal combinations in the `8 x 8` support/dimension grid, and 9 external forbidden controls. Direct rejection remains locked for `(27/50,96)`, `(27/50,100)`, `(27/50,108)`, and `(21/40,104)`.
+
+The focused Python/schema consistency target passes `6/6`. The complete Rust `test_exact_prime_schur` integration target passes `24/24`, including the corpus-wide replay, direct `(27/50,104)` acceptance, the nearby rejections, wrong-factor rejection, cross-parity rejection, singular-witness rejection, nonpositive-complement rejection, and theorem-failure distinction.
+
+This is contract admission only. `computations/retained-proofs.json` and `EXPECTED_RETAINED_CLAIMS_V1` are unchanged at `C-0050` through `C-0056`; no fresh proof-bearing `(27/50,104)` certificate or independent theorem replay has occurred. `C-0057` remains `PROVISIONAL` / `OPEN_REQUIREMENT`, and the independently verified theorem frontier remains `(21/40,96)` / `C-0056`. Phase 3 is now the required freeze/quality/commit boundary before fresh theorem generation.
+
+---
+
+## 2026-09-24T18:13:34Z — Admission scope frozen for prospective `(27/50,104)` theorem
+
+**Type:** Research admission decision / trust-boundary freeze / claim reservation
+
+Following clean canonical pre-theorem `X-20260923-001`, the research decision is now explicit: the next admission implementation may extend the closed `exact_prime_legendre_schur` v1 profile by **exactly one** pair, `(T,N)=(27/50,104)`. This Phase 1 decision does not itself edit or broaden any production trust layer. The currently implemented contract therefore remains the seven admitted pairs through `(21/40,96)` / `C-0056` until Phase 2 is completed and tested.
+
+The intended post-admission support/dimension grid contains eight matched admitted pairs and 56 forbidden off-diagonal cross-pairs. Explicit rejection controls are frozen for `(27/50,96)`, `(27/50,100)`, `(27/50,108)`, and `(21/40,104)`; for `T=27/50`, every dimension other than `104` remains forbidden absent a separate future admission decision. `X-20260923-001` stays pre-theorem and its candidate artifact cannot be promoted into a theorem certificate.
+
+`C-0057` is reserved for the prospective `T=27/50` finite-support theorem but is entered only as `PROVISIONAL` / `OPEN_REQUIREMENT`. It cannot become a derived/verified theorem merely because the pair has been selected for admission. Fresh proof-bearing generation, independent zero-float Rust PASS, adversarial replay, and later retained-proof registration remain mandatory. Phase 1 is therefore closed; Phase 2 is the independent production admission-layer implementation.
+
+---
 
 ## 2026-09-24T02:32:15Z — Clean canonical T=27/50 continuation reaches pre-theorem N=104 candidate
 

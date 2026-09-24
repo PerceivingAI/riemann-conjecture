@@ -40,9 +40,10 @@ The closed `exact_prime_legendre_schur` theorem contract currently admits exactl
 (T,N)=(19/40,68)
 (T,N)=(1/2,80)
 (T,N)=(21/40,96)
+(T,N)=(27/50,104)
 ```
 
-These support the independently verified finite-support results `C-0050` through `C-0056`. At `T=21/40`, the floating scout first appeared positive at `N=88`, but rigorous full-tail screening rejected `N=88` and `N=92`; the canonical driver then selected `N=96`, whose exact candidate remained stable from 512 to 640 bits. A separate explicit admission added only `(21/40,96)`, while `(21/40,100)` remains forbidden, and fresh proof-bearing `X-20260828-001` independently established `C-0056`. The retained theorem gate now passes `7/7`. Exact-verifier optimization remains recorded separately in `X-20260827-003`. The current research frontier is therefore **above `T=21/40` but still strictly below `(1/2)log 3`**. The next planned canonical pre-theorem slice is `T=27/50=0.54`; let the driver choose the dimension rather than extrapolating `N=96`. Entry of the `p=3` compressed translation at `(1/2)log 3` remains a separate structural phase.
+The first seven pairs support the independently verified finite-support results `C-0050` through `C-0056`. The eighth pair, `(27/50,104)`, is now admitted by the closed v1 contract after independent Python-generator, Python-semantic, raw-schema, and Rust admission checks, but it is **not theorem-bearing**. Clean canonical pre-theorem `X-20260923-001` remains generator-side evidence only and cannot be promoted into a certificate. `C-0057` remains a `PROVISIONAL` `OPEN_REQUIREMENT`; there is no fresh proof-bearing certificate, independent theorem replay, or retained-proof registration for it. The admission consistency corpus now covers eight allowed matched pairs, all 56 off-diagonal cross-pairs, and explicit nearby controls including `(27/50,96)`, `(27/50,100)`, `(27/50,108)`, and `(21/40,104)`. The next implementation phase is Phase 3: audit/freeze these admission changes, run the focused quality gates, commit them, and restore a clean tree before any fresh proof-bearing computation. Entry of the `p=3` compressed translation at `(1/2)log 3` remains a separate structural phase.
 
 ## 3. Repository map
 

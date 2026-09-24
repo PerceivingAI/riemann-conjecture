@@ -226,8 +226,46 @@ fn exact_prime_profile_accepts_twenty_one_fortieths_dimension_96() {
 }
 
 #[test]
+fn exact_prime_profile_accepts_twenty_seven_fiftieths_dimension_104() {
+    let fixture = exact_prime_fixture_for("27", "50", "27/50", 104);
+    let certificate = CertificateJson::from_json_str(&fixture.to_string()).expect("valid fixture");
+    let outcome = certificate.verify().expect("verification runs");
+    assert!(outcome.passed);
+    assert_eq!(outcome.dimension, 104);
+    assert_eq!(outcome.support_t, "27/50");
+    assert_eq!(outcome.verified_scope, "localized_weil_positivity_T_27_50");
+    let report = outcome.schur_report.expect("Schur report");
+    assert_eq!(report.even.dimension, 52);
+    assert_eq!(report.odd.dimension, 52);
+}
+
+#[test]
 fn exact_prime_profile_rejects_twenty_one_fortieths_dimension_100() {
     let fixture = exact_prime_fixture_for("21", "40", "21/40", 100);
+    assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());
+}
+
+#[test]
+fn exact_prime_profile_rejects_twenty_seven_fiftieths_dimension_96() {
+    let fixture = exact_prime_fixture_for("27", "50", "27/50", 96);
+    assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());
+}
+
+#[test]
+fn exact_prime_profile_rejects_twenty_seven_fiftieths_dimension_100() {
+    let fixture = exact_prime_fixture_for("27", "50", "27/50", 100);
+    assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());
+}
+
+#[test]
+fn exact_prime_profile_rejects_twenty_seven_fiftieths_dimension_108() {
+    let fixture = exact_prime_fixture_for("27", "50", "27/50", 108);
+    assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());
+}
+
+#[test]
+fn exact_prime_profile_rejects_twenty_one_fortieths_dimension_104() {
+    let fixture = exact_prime_fixture_for("21", "40", "21/40", 104);
     assert!(CertificateJson::from_json_str(&fixture.to_string()).is_err());
 }
 

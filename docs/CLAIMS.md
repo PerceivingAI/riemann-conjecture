@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-28T01:27:20Z`
+- **Last updated:** `2026-09-24T18:22:49Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -631,6 +631,17 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0039`, `C-0040`, `C-0044`, `C-0045`, `C-0047`, `C-0048`
 - **Source:** `A-20260826-001`, `F-20260828-001`, `X-20260828-001`
 - **Verification notes:** Historical pre-theorem `X-20260827-005` showed that `N=88` and `N=92` were precision-stable mathematical negatives under the rigorous full-tail Schur reduction even though the truncated scout looked positive; continuation then found `N=96` and `N=100` rigorously stable-positive and selected the smaller `N=96`, whose exact candidate remained unchanged under fixed-parameter 512-to-640-bit reassembly. A separate closed-contract admission added only `(T,N)=(21/40,96)`; `N=100` remains forbidden. Fresh proof-bearing `X-20260828-001` assembled a 512-bit Arb certificate with 64-bit outward matrix endpoints and 32-bit exact dyadic witnesses. Rust independently derives `mu_96>0.69600913384063989`, reconstructs the factor-3 Schur matrix, and proves the even/odd `48 x 48` blocks positive by exact rational congruence and interval Gershgorin, with margins approximately `0.00090134267068206139` and `0.0037494074424420441`. Real-certificate adversarial replay gives exit `2` for a malformed factor and exit `1` for a contract-valid negative diagonal perturbation. The retained certificate SHA-256 is `a455dcb995a56f6d387e79b199cfc6f18ba6fca108fcfe3c00987e1c47b44824`; the Rust replay SHA-256 is `9530b53b00c1e96a1be82b2127adc7d1424e63af444803f169be8434f51d2e83`. The certificate records Git commit `dc8b63c8d47a983d290d6b1ba3d05a621d1d830b` with `git_dirty=true`. The retained theorem gate passes `7/7`. This is finite-support positivity at one support value and does not imply RH.
+
+### C-0057 — Reserved theorem target: strict localized Weil positivity at T=27/50
+
+- **Statement:** This identifier is reserved for the prospective statement that Suzuki's scaled localized Weil quadratic form at `T=27/50`, including the exact `p=2` compressed-translation contribution and mandatory finite-support residual kernel, satisfies `Q_T(w)>0` for every nonzero admissible localized test function `w`. The statement is **not yet asserted as a theorem**.
+- **Type:** `OPEN_REQUIREMENT`
+- **Status:** `PROVISIONAL`
+- **First recorded:** `2026-09-24T18:13:34Z`
+- **Last verified:** `2026-09-24T18:22:49Z` (admission contract verified; theorem verification not performed)
+- **Dependencies:** `C-0039`, `C-0040`, `C-0044`, `C-0045`, `C-0047`, `C-0048`
+- **Source:** `A-20260826-001`, `X-20260923-001`
+- **Verification notes:** Clean canonical pre-theorem `X-20260923-001` reached generator-side `CANDIDATE_READY` at `(T,N)=(27/50,104)` after rigorous full-tail screening rejected `N=100` and accepted `N=104` at 512 bits, with the exact candidate stable under fixed-parameter 640-bit reassembly. On `2026-09-24T18:13:34Z`, the research admission decision was frozen to authorize exactly `(27/50,104)`, with all 56 off-diagonal combinations in the resulting eight-pair support/dimension grid remaining forbidden and explicit nearby controls `(27/50,96)`, `(27/50,100)`, `(27/50,108)`, and `(21/40,104)` required to reject. Phase 2 then implemented that decision independently in the Python theorem exporter, Python semantic validator, raw JSON Schema, Rust pair admission logic, and Rust dimension guard; the test-only corpus now records 8 allowed and 65 forbidden cases. Cross-layer Python/schema checks pass `6/6`, and the complete Rust exact-prime integration/adversarial target passes `24/24`. This establishes contract admission only: no fresh theorem certificate has been generated, no proof-bearing independent Rust replay has been performed, `computations/retained-proofs.json` is unchanged, and retained-claim authority still ends at `C-0056`. `C-0057` therefore remains `PROVISIONAL` / `OPEN_REQUIREMENT`. RH remains unresolved.
 
 ## Entry format
 

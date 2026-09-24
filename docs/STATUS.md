@@ -1,7 +1,7 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-09-24T02:32:15Z`
+- **Last updated:** `2026-09-24T18:22:49Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
@@ -418,6 +418,6 @@ There is therefore no current verifier- or orchestration-performance blocker to 
 
 ## Next research action
 
-The canonical `T=27/50` continuation is complete and has reached the hard pre-theorem stop at `(27/50,104)`. Preserve `X-20260923-001` as generator-side evidence and make no theorem-contract change automatically. Any theorem-facing work at this pair begins only after a separate explicit admission decision; if such a decision is made, it requires fresh proof-bearing certificate generation and independent zero-float Rust replay rather than promoting this candidate bundle.
+Phase 2 of the `(27/50,104)` theorem-admission path is complete. The closed `exact_prime_legendre_schur` v1 contract now admits exactly eight matched pairs, adding only `(T,N)=(27/50,104)`. The Python theorem exporter, separately maintained Python semantic validator, raw JSON Schema, Rust pair whitelist, and Rust finite-dimension guard agree on that admission. The test-only consistency corpus contains 8 allowed pairs, all 56 off-diagonal cross-pairs, and 9 external forbidden controls; the frozen nearby controls `(27/50,96)`, `(27/50,100)`, `(27/50,108)`, and `(21/40,104)` all remain rejected. Cross-layer Python/schema acceptance passes `6/6`; the full Rust exact-prime integration/adversarial target passes `24/24`.
 
-Keep `X-20260827-003` as the verifier-performance baseline. If verifier cost again becomes material at larger dimensions, profile first and preserve the same exact semantic regression corpus rather than changing certificate format preemptively. The eventual structural transition remains entry of the `p=3` compressed translation at `(1/2)log 3`.
+Admission does **not** advance the theorem frontier. `X-20260923-001` remains pre-theorem evidence; no fresh `(27/50,104)` theorem certificate or proof-bearing Rust replay exists; `computations/retained-proofs.json` and `EXPECTED_RETAINED_CLAIMS_V1` still stop at `C-0056`; and `C-0057` remains `PROVISIONAL` / `OPEN_REQUIREMENT`. The immediate next action is Phase 3: audit/freeze the admission diff, run the focused formatting/quality gates, commit the admission implementation, and restore a clean tree before predeclaring any fresh proof-bearing computation.
