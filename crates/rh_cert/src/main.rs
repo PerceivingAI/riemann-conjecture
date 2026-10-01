@@ -4,7 +4,7 @@ use std::path::PathBuf;
 use std::process::ExitCode;
 
 use clap::{Parser, Subcommand};
-use rh_cert::cert::CertificateJson;
+use rh_cert::DispatchedCertificate;
 
 #[derive(Parser, Debug)]
 #[command(name = "rh_cert")]
@@ -33,7 +33,7 @@ fn main() -> ExitCode {
     let cli = Cli::parse();
 
     match cli.command {
-        Commands::Verify { cert, json } => match CertificateJson::from_file(&cert) {
+        Commands::Verify { cert, json } => match DispatchedCertificate::from_file(&cert) {
             Ok(cert_obj) => match cert_obj.verify() {
                 Ok(outcome) => {
                     if json {

@@ -7,11 +7,15 @@
 #![deny(clippy::float_arithmetic)]
 
 pub mod cert;
+pub mod dispatch;
 pub mod gershgorin;
 pub mod interval;
 pub mod ldl;
+pub mod v2;
 
 pub use cert::{CertificateError, CertificateJson, VerificationOutcome, EXPECTED_FORMAT_V1};
+pub use dispatch::DispatchedCertificate;
 pub use gershgorin::{GershgorinBlockReport, GershgorinError};
 pub use interval::{IntervalError, RationalInterval};
 pub use ldl::{LdlError, LdlVerificationReport, RationalIntervalMatrix};
+pub use v2::{CertificateV2, EXPECTED_FORMAT_V2, V2_ALLOWED_CONFIGURATIONS};

@@ -1,7 +1,7 @@
 # Multi-prime mathematical contract
 
 - **Created:** `2026-10-01T10:14:40Z`
-- **Last updated:** `2026-10-01T18:01:33Z`
+- **Last updated:** `2026-10-01T18:41:00Z`
 - **Status:** Authoritative pre-implementation mathematical contract
 
 This document freezes the mathematics that future multi-prime tooling must implement. It does **not** admit a new theorem profile, change `rh-weil-certificate-v1`, or create a theorem claim beyond the already retained one-prime results `C-0050..C-0057`.
@@ -291,9 +291,39 @@ The v2 tail object freezes the mathematical rules already established by `C-0058
 
 P6 focused acceptance, including v1 freeze/admission regression, passes `21/21`; the complete default Python suite passes `602/602` in `374.14 s`. P6 is closed.
 
-## 10. Certification boundary
+## 10. P7 independent Rust v2 verifier
 
-The analytic factor `3` is now explicitly closed by `C-0059` / `F-20261001-002`, but no theorem certification path has been implemented for this contract yet.
+P7 implements the independent exact-rational verifier side without altering the frozen v1 verifier. `crates/rh_cert/src/dispatch.rs` reads the certificate `format` and routes v1 to the historical `cert.rs` path or v2 to `v2.rs`. The v2 path independently enforces the closed P6 structure and first-window arithmetic contract: arithmetic terms must be strictly increasing and unique, the exact active identities must be `[2,3]`, every identity must satisfy `m=base_prime^exponent` with prime base, and the certified shift interval must stay strictly inside `1<tau_m<2`.
+
+Rust does not trust the serialized `complement_contribution` as the value used in the complement. It parses the exact-rational coefficient and norm-bound intervals, derives
+
+```text
+prime_loss_m = coefficient_m * compressed_shift_norm_bound_m
+```
+
+and requires the serialized contribution to enclose the independently derived interval. It then computes
+
+```text
+mu_N = H_N - upper(c_T) - sum_m upper(prime_loss_m) - upper(rho_R)
+```
+
+and rejects the certificate contract unless `mu_N>0`. The verifier independently forms the parity blocks of
+
+```text
+A - (3/mu_N)(GV + GP + GR)
+```
+
+requires `A/GV/GP/GR` to be exactly symmetric and opposite-parity entries to be exactly zero, parses exact lower-triangular invertible witnesses, and recomputes exact rational interval congruence/Gershgorin bounds.
+
+The production Rust v2 theorem whitelist remains empty. Consequently P7 adds verifier capability but admits no theorem pair. Unauthorized v2 certificates are contract failures (CLI exit `2`). The authorized arithmetic path is separately regression-tested so that a structurally valid but nonpositive Schur proof produces a normal theorem failure (`passed=false`, corresponding to CLI exit `1` once a pair is explicitly admitted) rather than a contract error.
+
+The trust boundary is explicit: this zero-float Rust layer verifies exact rational interval proof arithmetic and consistency relationships. It does **not** independently prove that the serialized Arb intervals for transcendental quantities are valid enclosures of the true transcendental constants. A stronger claim would require a separate rigorous Rust transcendental layer.
+
+P7 acceptance is closed: complete `rh_cert` suite `63/63`; strict `cargo clippy -p rh_cert --all-targets -- -D warnings`; `cargo fmt -p rh_cert -- --check`; focused Python v2/frozen-v1 regression `21/21`; complete default Python suite `602/602` in `515.09 s`; retained v1 proof replay `8/8` through the new dispatcher.
+
+## 11. Certification boundary
+
+The analytic factor `3` is explicitly closed by `C-0059` / `F-20261001-002`, and P7 now provides the separate independent Rust v2 exact-rational verification path. The theorem path nevertheless remains closed because the production v2 whitelist is empty and no v2 theorem-bearing exporter/admission, fresh proof run, retained proof, or theorem claim has been introduced.
 
 Future multi-prime theorem tooling must therefore satisfy all of the following before any theorem admission:
 

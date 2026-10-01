@@ -59,6 +59,8 @@ All eight pairs above support registered independently verified finite-support r
 
 **Multi-prime P6 certificate contract — `2026-10-01T17:51:51Z`.** V2 is separate from frozen `rh-weil-certificate-v1`. Use format `rh-weil-certificate-v2` / profile `multi_prime_power_legendre_schur`; term-specific arithmetic data belongs in canonical `arithmetic_terms`, never new top-level `c3`-style constants. The Schur proof uses `GV/GP/GR`, never `G2/G3`. The closed tail rule is the `C-0059` grouped-`V,P,R` factor `3` rule. `scripts/cert/certificate_v2_contract.py` distinguishes schema/structural validity from theorem admission. `V2_ALLOWED_CONFIGURATIONS` is currently empty; do not infer theorem status from a structurally valid v2 file or add a pair while merely implementing verifier/exporter machinery.
 
+**Multi-prime P7 verifier — `2026-10-01T18:22:11Z`.** V2 verification lives in `crates/rh_cert/src/v2.rs` and format routing in `crates/rh_cert/src/dispatch.rs`; do not fold it into or modify frozen `crates/rh_cert/src/cert.rs`. The first v2 window must contain canonical sorted unique terms exactly `[2,3]`. Rust derives prime losses from `coefficient*b_m`, derives and requires positive `mu_N`, reconstructs `A-(3/mu_N)(GV+GP+GR)`, enforces parity, and verifies exact congruence/Gershgorin witnesses. Production `V2_ALLOWED_CONFIGURATIONS` remains empty until an explicit theorem-admission slice. Preserve exit semantics: malformed/unauthorized = contract failure; admitted-but-nonpositive = theorem failure. Do not overstate the trust boundary: Rust verifies exact rational interval arithmetic and serialized consistency, not the truth of upstream transcendental Arb enclosures.
+
 ## 3. Repository map
 
 Use this map before searching broadly.
@@ -211,9 +213,9 @@ Key locations:
 | Neutral exact rational construction helpers | `scripts/cert/exact_prime_schur_common.py` |
 | Closed theorem certificate exporter | `scripts/cert/exact_prime_schur_certificate.py` |
 | Other certificate export support | `scripts/cert/export_certificate.py` |
-| Contract/schema | `docs/CONTRACTS.md`, `docs/contracts/rh-weil-certificate-v1.json` |
+| Contract/schema | `docs/CONTRACTS.md`, `docs/contracts/rh-weil-certificate-v1.json`, `docs/contracts/rh-weil-certificate-v2.json` |
 | Test-only admission drift corpus | `tests/data/exact-prime-admission-v1.json` |
-| Independent verifier | `crates/rh_cert/` |
+| Independent verifier | `crates/rh_cert/` (`cert.rs` frozen v1; `v2.rs` v2; `dispatch.rs` format routing) |
 | Retained proof integrity/replay gate | `scripts/cert/verify_retained_proofs.py`, `computations/retained-proofs.json` |
 | Formal soundness | `formal/` |
 
@@ -224,6 +226,7 @@ Focused admission consistency checks:
 ```text
 uv run --locked --extra test python -m pytest -q tests/test_admission_consistency.py
 cargo test -p rh_cert --test test_exact_prime_schur exact_prime_admission_matches_shared_test_corpus
+cargo test -p rh_cert --test test_certificate_v2
 ```
 
 The continuation driver and `weil_support_candidate_check.py` are **pre-theorem** modules. They must not import/call theorem-admission machinery or grant theorem status.

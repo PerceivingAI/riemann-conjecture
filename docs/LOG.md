@@ -1,10 +1,32 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-01T18:01:33Z`
+- **Last updated:** `2026-10-01T18:41:00Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-01T18:41:00Z — P7 closes with full regression and retained-proof replay
+
+**Type:** Verifier acceptance / retained-theorem regression / process-boundary closure
+
+P7 final acceptance is green: complete Rust `rh_cert` suite `63/63`; strict rustfmt; strict clippy with `-D warnings`; focused Python v2/frozen-v1/admission regression `21/21`; complete default Python suite `602/602` in `515.09 s`; retained theorem chain `8/8` with every `C-0050..C-0057` artifact reporting `HASH PASS / VERIFY PASS` through the new format dispatcher.
+
+The frozen v1 verifier implementation, v1 JSON Schema, and v1 Python exporter still have zero diff, and the v1 schema SHA-256 remains `0a58b6a36055b6b56720d275e96c19d0275948872542491099cd68c454bbed48`. The production v2 theorem whitelist remains empty. P7 therefore adds independent v2 exact-rational verification capability without theorem admission.
+
+---
+
+## 2026-10-01T18:22:11Z — P7 adds independent Rust v2 exact-rational verification
+
+**Type:** Independent verifier / theorem-boundary hardening / v1 freeze preservation
+
+Added `crates/rh_cert/src/v2.rs` plus `crates/rh_cert/src/dispatch.rs`; the CLI now routes by certificate format while the historical v1 `cert.rs` implementation is unchanged. V2 requires canonical sorted unique `[2,3]` arithmetic terms in the first structural window, validates prime-power identities, derives exact-rational prime losses and the complement lower bound, requires `mu_N>0`, reconstructs the grouped factor-3 Schur parity blocks, and recomputes exact congruence/Gershgorin witness margins. The production v2 theorem whitelist is still empty, so P7 adds verification capability without admitting a theorem pair.
+
+Contract-vs-theorem failure semantics are retained: malformed/unauthorized v2 is a contract failure; the internal authorized arithmetic regression confirms structurally valid nonpositive Schur evidence produces a normal theorem failure. The trust boundary remains explicit: Rust validates exact rational interval arithmetic and consistency, not the correctness of upstream transcendental Arb enclosures.
+
+Current acceptance: complete `rh_cert` tests `63/63`; strict clippy and rustfmt pass; focused Python certificate-v2/frozen-v1/admission regression `21/21`; v1 `cert.rs`, v1 schema, and v1 Python exporter have zero diff. Full Python regression remains to be run before P7 closure.
+
+---
 
 ## 2026-10-01T18:01:33Z — P6 closes green after full Python acceptance
 
