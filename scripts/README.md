@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-01T10:28:50Z`
+- **Last updated:** `2026-10-01T11:23:24Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -302,6 +302,24 @@ Rigorous shared assembly for the exact-prime Legendre-Schur proof and continuati
 Additive multi-prime arithmetic operator core. Unlike the frozen one-prime edge-overlap implementation, this module is generic in the active prime powers and translation geometry. It recognizes `m=p^k` with exact integer arithmetic; rigorously constructs `log(m)`, `tau_m`, `Lambda(m)`, and `c_m` using Arb; enumerates the strict active set `log(m)<2T` and fails closed when a requested precision cannot settle a threshold; constructs the left/right translated polynomial pieces on `[-1,1]`; globally partitions by every translation breakpoint; sums all active signed arithmetic images on each cell; and integrates those combined images to obtain `P`, `P^2`, and `G_P=P^2-PD^{-1}P`.
 
 `P^2` is computed from `<P phi_i,P phi_j>`, so mixed terms are present automatically. The focused regression suite includes exact overlap agreement with `first_prime_matrices()` in the one-prime window, a nonzero `P_2/P_3` cross-term test, and a `{2,3,4}` case at `T=7/10` where `tau_2<1`. This module is not yet connected to a multi-prime certificate exporter or verifier.
+
+### `cert/multi_prime_legendre_schur.py`
+
+Full rigorous post-v1 Legendre-Schur assembler. `assemble_multi_prime_schur()` reuses the established rigorous potential and Suzuki residual components but obtains the entire arithmetic block from `cert/prime_power_terms.py`. Outputs include the active terms, combined `P`, operator `P_squared`, `A`, `GV`, `GP`, `GR`, `rho_R`, `mu`, and `schur`. The complement bound derives each compressed-shift norm from the rigorous path-graph chain length rather than assuming the one-prime `tau>1` geometry.
+
+The P3 bridge tests are deliberate: before the `{2,3}` case is accepted, the generic assembler is compared against the frozen v1 path at four historical supports and dimensions 16 through 32. All relevant matrix/scalar enclosures overlap. Only after that bridge passes does the direct `{2,3}` test verify that the combined operator square contains a strictly nonzero cross term and does not reduce to the sum of the two individual squares.
+
+P3 acceptance closes with the integrated focused target at `31/31` and the complete default Python suite at `574/574`. The frozen `cert/legendre_schur.py` remains unchanged.
+
+### `weil_multi_prime_schur_scout.py`
+
+Floating-only reconnaissance for the post-`p=3` path. It independently enumerates the numerically active prime powers, constructs each compressed translation in NumPy/SciPy quadrature, sums the combined `P`, and forms truncated component tail Grams labelled `GV`, `GP`, and `GR`. It reports per-term complement estimates and combined-prime singular-value/tail conditioning. These values are intentionally not Arb bounds and must never be used as theorem evidence.
+
+### `weil_multi_prime_support_candidate_check.py`
+
+Rigorous generator-side exact candidate stage. It consumes `assemble_multi_prime_schur()`, outward-rounds `A`, `GV`, `GP`, and `GR`, outward-rounds every active term's `c_m b_m` contribution separately, reconstructs the exact complement lower bound and factor-3 Schur matrix, and derives exact rational even/odd congruence witnesses. Output diagnostics include the individual active-term constants, `P/P_squared/GP` width conditioning, explicit `GP` widths, exact even/odd Gershgorin margins, and optional lower-vs-higher Arb precision contraction. `--prec`, `--matrix-bits`, and `--witness-bits` are independent controls; `--compare-prec` is diagnostic-only. `--dimension` is required rather than guessed.
+
+P4 acceptance closes with the focused multi-prime/frozen-v1 target at `24/24` and the complete default Python suite at `578/578`.
 
 ## Shared implementation
 

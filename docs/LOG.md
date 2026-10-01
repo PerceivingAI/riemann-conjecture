@@ -1,10 +1,56 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-01T10:36:16Z`
+- **Last updated:** `2026-10-01T11:23:24Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-01T11:23:24Z — P4 closes green after full Python acceptance
+
+**Type:** Tooling acceptance / trust-boundary audit / process cleanup
+
+The complete default Python suite passes `578/578` in `366.32 s`; the focused P4/P3/P2/frozen-v1 target remains `24/24`. Source audits confirm the floating multi-prime scout imports neither Flint nor proof-path modules, while the rigorous candidate imports neither NumPy/SciPy nor the frozen one-prime assembler and contains no `G2` fallback. The frozen `weil_legendre_schur_scout.py` and `weil_support_candidate_check.py` files have no diff.
+
+`git diff --check` passes. A final OS process scan found no remaining repository pytest or multi-prime candidate probe process. No theorem profile, Rust verifier path, Lean layer, retained proof, or theorem admission changed. P4 is closed.
+
+---
+
+## 2026-10-01T11:15:33Z — P4 adds separate multi-prime scout and exact candidate stages
+
+**Type:** Tooling implementation / trust-boundary preservation / diagnostics
+
+Added `scripts/weil_multi_prime_schur_scout.py` and `scripts/weil_multi_prime_support_candidate_check.py`. The scout is intentionally floating/truncated and independently constructs the active prime-power translations and combined `P`; it reports `GV/GP/GR` reconnaissance and combined-prime conditioning only. The candidate stage is rigorous generator-side infrastructure: it consumes the P3 Arb assembler, outward-rounds `A/GV/GP/GR`, rounds each active-term complement contribution separately, reconstructs the exact factor-3 Schur matrix, and derives exact even/odd rational witness margins.
+
+P4 diagnostics now expose active terms individually, complement contributions per term, combined `P/P^2/GP` conditioning widths, `GP` interval widths, exact even/odd margins, and optional lower-vs-higher Arb precision contraction. Arb precision, matrix rounding bits, and witness bits remain independent inputs; comparison precision does not alter the exact rounding or witness controls. The candidate CLI requires an explicit dimension rather than guessing a post-threshold target.
+
+Focused P4/P3/P2/frozen-v1 tests pass `24/24`, `git diff --check` passes, and the frozen one-prime scout/candidate files remain unchanged. No theorem profile, Rust verifier path, retained proof, or theorem admission changed.
+
+---
+
+## 2026-10-01T11:02:29Z — P3 closes green after full Python acceptance
+
+**Type:** Tooling acceptance / equivalence closure / process cleanup
+
+P3 has completed repository-wide Python acceptance. The complete default suite reports `574 passed` in `375.93 s`; the integrated P3/P2/frozen-v1/admission/support-continuation target remains `31/31`. The required ordering was preserved explicitly: the one-prime equivalence bridge passed `4/4` first, and only afterward the `{2,3}` cross-term test passed `1/1`.
+
+The bridge establishes overlapping Arb enclosures between the generic and frozen assemblers for `P`, operator `P^2`, `GP/G2`, `GV`, `GR`, `A`, `rho_R`, `mu`, and the final Schur matrix across four historical one-prime configurations. The subsequent two-prime test rigorously separates the combined constant-mode `P^2` entry from `P_2^2+P_3^2`, with a strictly positive mixed remainder.
+
+`git diff --check` passes, `scripts/cert/legendre_schur.py` has no diff, and the new P3 proof-path module contains no NumPy, SciPy, or `float()` use. A final OS scan reports no remaining repository pytest, retained-verifier, Rust-test, or Lean-build process. No existing theorem admission, certificate contract, Rust verifier, Lean layer, or retained proof artifact changed. P3 is closed.
+
+---
+
+## 2026-10-01T10:55:56Z — P3 builds the generic rigorous Schur assembler and closes the one-prime bridge gate
+
+**Type:** Rigorous tooling implementation / equivalence bridge / multi-prime cross-term verification
+
+`scripts/cert/multi_prime_legendre_schur.py` now implements `assemble_multi_prime_schur()`. The assembler reuses the established rigorous potential and Suzuki residual components, derives the arithmetic block exclusively from the P2 generic piecewise operator, computes generic compressed-shift norm bounds for the complement, and exposes `active_terms`, `P`, `P_squared`, `A`, `GV`, `GP`, `GR`, `rho_R`, `mu`, and `schur`.
+
+The required old/new bridge was executed before the two-prime case. Four one-prime configurations — `(7/20,16)`, `(2/5,24)`, `(17/40,28)`, and `(9/20,32)` — reproduce the frozen path with overlapping Arb enclosures for `P`, operator `P^2`, `GP/G2`, `GV`, `GR`, `A`, `rho_R`, `mu`, and the final Schur matrix. The dedicated bridge target passes `4/4`. Only then was the `{2,3}` case executed: at `T=3/5`, the combined `P^2(0,0)` is rigorously separated from `P_2^2(0,0)+P_3^2(0,0)`, with strictly positive cross remainder, proving mixed terms are retained.
+
+The complete focused P3/P2/frozen-v1/admission/support-continuation target passes `31/31`; `git diff --check` passes and `scripts/cert/legendre_schur.py` has no diff. Full default Python acceptance is running separately. No existing theorem admission, certificate contract, Rust verifier, Lean layer, or retained proof artifact changed.
+
+---
 
 ## 2026-10-01T10:36:16Z — P2 closes with full Python acceptance
 

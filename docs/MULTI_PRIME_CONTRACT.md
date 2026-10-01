@@ -1,7 +1,7 @@
 # Multi-prime mathematical contract
 
 - **Created:** `2026-10-01T10:14:40Z`
-- **Last updated:** `2026-10-01T10:36:16Z`
+- **Last updated:** `2026-10-01T11:02:29Z`
 - **Status:** Authoritative pre-implementation mathematical contract
 
 This document freezes the mathematics that future multi-prime tooling must implement. It does **not** admit a new theorem profile, change `rh-weil-certificate-v1`, or create a theorem claim beyond the already retained one-prime results `C-0050..C-0057`.
@@ -227,7 +227,28 @@ This module is operator infrastructure only. It is not yet wired into a multi-pr
 
 P2 acceptance is green: the focused prime-power/frozen-v1/admission/support target passes `24/24`, and the complete default Python suite passes `567/567`. The historical `scripts/cert/legendre_schur.py` has no diff. `git diff --check` passes, and no repository verification process remains running.
 
-## 7. Certification boundary
+## 7. P3 rigorous multi-prime Schur assembler and v1 bridge
+
+`scripts/cert/multi_prime_legendre_schur.py` now supplies the first full rigorous grouped `V,P,R` assembler through `assemble_multi_prime_schur()`. It reuses the already-rigorous potential and Suzuki residual components but replaces the arithmetic block completely with the P2 generic piecewise prime-power operator. Its canonical output includes `active_terms`, `P`, `P_squared`, `A`, `GV`, `GP`, `GR`, `rho_R`, `mu`, and `schur`, together with the exact support/dimension metadata and rigorous arithmetic norm bounds used in the complement estimate.
+
+The complement arithmetic loss is computed generically from `sum_m c_m b_m`. The shift bound `b_m` is derived from the rigorous compressed-translation chain length `ceil(2/tau_m)` and the exact path-graph norm `2 cos(pi/(L+1))`; unresolved chain thresholds fail closed. The one-prime case uses the exact value `b_2=1`, while the same implementation already handles `tau_2<1` with the next chain norm `sqrt(2)`.
+
+Before accepting any `{2,3}` result, the new assembler was run only in the historical `{2}` region and compared to the frozen `assemble_exact_prime_schur()`/`first_prime_matrices()` path at four existing supports:
+
+```text
+T=7/20,  N=16
+T=2/5,   N=24
+T=17/40, N=28
+T=9/20,  N=32
+```
+
+At each point, the rigorous Arb enclosures for `P`, operator `P^2`, `GP` versus historical `G2`, `GV`, `GR`, `A`, `rho_R`, `mu`, and the resulting Schur matrix overlap entry-for-entry. The bridge subset passes `4/4` before the `{2,3}` test is executed.
+
+Only after that bridge passes, the immediate multi-prime window is exercised directly. At `T=3/5`, the active set is exactly `{2,3}` and the combined operator-square constant-mode entry is rigorously separated from `P_2^2+P_3^2`; the residual difference is strictly positive. Thus the production assembler demonstrably contains nonzero mixed `P_2P_3+P_3P_2` contributions and is not implementing an additive square shortcut.
+
+The focused P3/P2/frozen-v1 regression target passes `31/31`, and the complete default Python suite passes `574/574` in `375.93 s`. `git diff --check` passes, the frozen `scripts/cert/legendre_schur.py` remains byte-unmodified, and the final process scan is clean. P3 is closed. This is rigorous assembler infrastructure only: it does not add a certificate profile, verifier PASS rule, theorem admission, or retained proof.
+
+## 8. Certification boundary
 
 The analytic factor `3` is now explicitly closed by `C-0059` / `F-20261001-002`, but no theorem certification path has been implemented for this contract yet.
 
