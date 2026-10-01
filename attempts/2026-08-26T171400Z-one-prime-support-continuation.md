@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-10-01T11:23:24Z`
+- **Last updated:** `2026-10-01T16:28:33Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -573,3 +573,11 @@ After the bridge gate, the same assembler was run at `T=3/5`, where the strict a
 **Addendum — `2026-10-01T11:15:33Z`.** Added `weil_multi_prime_schur_scout.py` as a strictly floating/truncated reconnaissance instrument and `weil_multi_prime_support_candidate_check.py` as a separate rigorous generator-side exact candidate stage. The frozen one-prime scout and candidate files have no diff. The floating scout independently builds all active prime-power translations and the combined `P`; the rigorous candidate instead consumes the P3 Arb assembler, outward-rounds `A/GV/GP/GR`, reconstructs the complement from separately rounded active-term contributions, and builds exact rational parity witnesses. Candidate diagnostics expose active terms, per-term complement losses, combined-prime/`GP` widths, exact even/odd margins, and optional Arb precision contraction. Precision, matrix rounding bits, and witness bits remain independently controlled. The focused P4/P3/P2/frozen-v1 target passes `24/24`. No theorem/certificate/verifier admission is introduced.
 
 **P4 verification closure — `2026-10-01T11:23:24Z`.** The complete default Python suite passes `578/578` in `366.32 s`. Source-boundary scans confirm the floating scout has no Flint/proof-path imports, the rigorous candidate has no NumPy/SciPy dependency and no frozen `assemble_exact_prime_schur`/`G2` fallback, and `git diff` for the two frozen one-prime stage files is empty. `git diff --check` passes and the final process scan is clean. P4 is closed.
+
+## Multi-prime upgrade P5 — separate continuation driver
+
+**Addendum — `2026-10-01T16:20:18Z`.** Added `weil_multi_prime_continuation_driver.py` without modifying the historical one-prime driver. It inherits the established operational state machine and safeguards but replaces the mathematical hooks with the P4 floating scout, a new rigorous `A/GV/GP/GR` support-screen adapter, and the P4 exact multi-prime candidate stage. The driver proves the strict `log(3)/2 < T < log(4)/2` window with Arb and independently requires active set `{2,3}`. Primary/fallback screening, independent precision/matrix/witness ladders, higher-precision candidate confirmation, bounded spawn pools, `as_completed` observability, deterministic retained ordering, source-fingerprinted cache, atomic writes, output locking, manifest-last sealing, and worker cleanup verification are preserved.
+
+The first real CLI smoke used `T=3/5`, dimensions `8,12`, three scout resolutions, and two scout workers. It correctly terminated at `NO_CANDIDATE` before rigorous work, retained scout levels in canonical order `0,1,2`, sealed active set `[2,3]` and the strict structural window into the manifest, reaped both workers, and reported zero active children. During this smoke the shared bundle writer exposed a historical-role hard code; it was narrowed to an explicit two-role allowlist for the historical and multi-prime pre-theorem drivers while preserving all theorem-boundary validation. Focused multi-prime/frozen-v1 acceptance is `35/35`; bundle/P5 regression is `29/29`.
+
+**P5 verification closure — `2026-10-01T16:28:33Z`.** The complete default Python suite passes `591/591` in `375.99 s`. `git diff --check` passes, and the frozen historical one-prime driver, scout, candidate, and assembler have no diff. The real smoke bundle verified manifest-last publication, canonical scout ordering, two reaped worker processes, and `active_children_after_cleanup=0`; its temporary artifacts were removed. P5 is closed.

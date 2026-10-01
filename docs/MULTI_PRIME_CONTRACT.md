@@ -1,7 +1,7 @@
 # Multi-prime mathematical contract
 
 - **Created:** `2026-10-01T10:14:40Z`
-- **Last updated:** `2026-10-01T11:02:29Z`
+- **Last updated:** `2026-10-01T16:28:33Z`
 - **Status:** Authoritative pre-implementation mathematical contract
 
 This document freezes the mathematics that future multi-prime tooling must implement. It does **not** admit a new theorem profile, change `rh-weil-certificate-v1`, or create a theorem claim beyond the already retained one-prime results `C-0050..C-0057`.
@@ -248,7 +248,21 @@ Only after that bridge passes, the immediate multi-prime window is exercised dir
 
 The focused P3/P2/frozen-v1 regression target passes `31/31`, and the complete default Python suite passes `574/574` in `375.93 s`. `git diff --check` passes, the frozen `scripts/cert/legendre_schur.py` remains byte-unmodified, and the final process scan is clean. P3 is closed. This is rigorous assembler infrastructure only: it does not add a certificate profile, verifier PASS rule, theorem admission, or retained proof.
 
-## 8. Certification boundary
+## 8. P4/P5 research workflow boundary
+
+P4 separates reconnaissance from rigorous exact-candidate construction. `weil_multi_prime_schur_scout.py` is floating/truncated only. `weil_multi_prime_support_candidate_check.py` is generator-side rigorous and uses `A/GV/GP/GR` with per-term complement contributions, but it is still pre-theorem evidence.
+
+P5 adds `weil_multi_prime_continuation_driver.py` as the canonical continuation orchestrator for this contract and future structural windows. It is deliberately separate from the frozen one-prime driver. Its first accepted window is exactly
+
+\[
+\frac{\log 3}{2}<T<\frac{\log 4}{2},
+\]
+
+and it independently requires the active set to be `{2,3}`. The driver preserves the operational continuation chain: floating scout, stable dimension selection, rigorous Arb precision ladder, primary/fallback candidates, independent exact matrix/witness bit ladders, higher-precision candidate confirmation, and only then pre-theorem `CANDIDATE_READY`. Bounded process pools use completion-order observation while retained results remain canonically ordered. Cache and bundle writes are atomic, completion is sealed by a final manifest, and worker cleanup must be verified before finalization.
+
+The continuation bundle format remains pre-theorem-only. Its role validator explicitly admits the historical one-prime driver and the new multi-prime driver, while recursively rejecting any theorem/admission/independent-verification field that is not false. P5 creates no certificate format, verifier PASS rule, theorem admission, or retained proof. P5 acceptance closes with focused multi-prime/frozen-v1 tests at `35/35`, bundle/P5 regression at `29/29`, and the complete default Python suite at `591/591`.
+
+## 9. Certification boundary
 
 The analytic factor `3` is now explicitly closed by `C-0059` / `F-20261001-002`, but no theorem certification path has been implemented for this contract yet.
 

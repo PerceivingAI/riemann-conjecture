@@ -1,10 +1,32 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-01T11:23:24Z`
+- **Last updated:** `2026-10-01T16:28:33Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-01T16:28:33Z — P5 closes green after full Python acceptance
+
+**Type:** Tooling acceptance / frozen-path audit / process cleanup
+
+The complete default Python suite passes `591/591` in `375.99 s`. Focused multi-prime/frozen-v1 acceptance remains `35/35`, and bundle/P5 regression remains `29/29`. `git diff --check` passes; the historical `weil_continuation_driver.py`, `weil_legendre_schur_scout.py`, `weil_support_candidate_check.py`, and `cert/legendre_schur.py` have no diff.
+
+The P5 CLI smoke had already verified a real two-worker scout run, deterministic retained ordering, manifest-last bundle sealing, two reaped workers, and zero active children. Its temporary output and cache were removed. No theorem profile, independent verifier semantics, Lean theorem layer, retained proof, or theorem admission changed. P5 is closed.
+
+---
+
+## 2026-10-01T16:20:18Z — P5 adds the separate multi-prime continuation driver
+
+**Type:** Tooling implementation / orchestration hard cutover / integration smoke
+
+Added `scripts/weil_multi_prime_continuation_driver.py` as a separate driver rather than adding a mode to the historical one-prime implementation. The initial driver fails closed outside `log(3)/2 < T < log(4)/2` and independently confirms the active prime-power set is exactly `{2,3}`. It preserves the mature continuation workflow and operational controls: bounded spawn pools, `as_completed` observation, deterministic retained ordering, rigorous precision ladders, fallback dimension, independent matrix/witness ladders, higher-precision exact-candidate confirmation, source-fingerprinted cache, atomic publication, live run status, output locking, manifest-last sealing, and verified worker cleanup.
+
+Added `scripts/weil_multi_prime_support_continuation_scout.py` for the rigorous `A/GV/GP/GR` screening stage. The shared bundle writer now has an explicit allowlist for the two known pre-theorem driver roles; all theorem-boundary fields remain required false. Focused P5/P4/P3/P2/frozen-v1 acceptance passes `35/35`, and continuation-bundle plus P5 regression passes `29/29`.
+
+A real parallel CLI smoke at `T=3/5`, `N={8,12}` correctly ended `NO_CANDIDATE` at the scout boundary, retained scout levels `[0,1,2]`, sealed `active_terms=[2,3]`, reaped two workers, and reported `active_children_after_cleanup=0`. Temporary smoke artifacts and cache were removed afterward. No theorem profile, Rust verifier, Lean theorem layer, retained proof, or theorem admission changed.
+
+---
 
 ## 2026-10-01T11:23:24Z — P4 closes green after full Python acceptance
 

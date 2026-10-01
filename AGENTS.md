@@ -55,6 +55,8 @@ All eight pairs above support registered independently verified finite-support r
 
 **Multi-prime P4 stages — `2026-10-01T11:15:33Z`.** Use `scripts/weil_multi_prime_schur_scout.py` only for floating reconnaissance and `scripts/weil_multi_prime_support_candidate_check.py` for rigorous generator-side exact candidates. Do not refactor the frozen `weil_legendre_schur_scout.py` or `weil_support_candidate_check.py`. The scout must remain clearly non-proof and truncated. The candidate must use `A/GV/GP/GR`, report active terms and complement contributions separately, expose `GP`/combined-prime conditioning widths and precision contraction, and keep Arb precision, matrix bits, and witness bits as independent controls. It must never emit or imply theorem status.
 
+**Multi-prime P5 driver — `2026-10-01T16:20:18Z`.** For continuation in new structural windows use `scripts/weil_multi_prime_continuation_driver.py`; do not add a multi-prime mode to `weil_continuation_driver.py`. The new driver currently accepts only `log(3)/2 < T < log(4)/2` and independently requires active set `{2,3}`. Preserve its copied operational invariants: bounded spawn pools, `as_completed` completion observation, deterministic final ordering, source-fingerprinted cache with atomic publication, output lock/live status, manifest-last bundle sealing, cleanup verification, independent Arb/matrix/witness ladders, fallback dimension, and higher-precision exact-candidate confirmation. `CANDIDATE_READY` remains pre-theorem. The old driver remains the historical canonical one-prime workflow.
+
 ## 3. Repository map
 
 Use this map before searching broadly.

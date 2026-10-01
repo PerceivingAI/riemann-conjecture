@@ -1,7 +1,7 @@
 # Repository Architecture & Proof Contracts
 
 - **Created:** `2026-08-21T06:00:00Z`
-- **Last updated:** `2026-10-01T11:23:24Z`
+- **Last updated:** `2026-10-01T16:28:33Z`
 - **Status:** Authoritative
 
 This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
@@ -256,6 +256,8 @@ This section closes the mathematical derivation only. No multi-prime certificate
 **P3 rigorous assembler bridge — `2026-10-01T10:55:56Z`.** `scripts/cert/multi_prime_legendre_schur.py` now assembles the complete grouped `V,P,R` Schur reduction using the generic P2 arithmetic operator. Canonical outputs include `active_terms`, `P`, `P_squared`, `A`, `GV`, `GP`, `GR`, `rho_R`, `mu`, and `schur`. Before `{2,3}` use, four one-prime overlap cases (`7/20,N=16`; `2/5,N=24`; `17/40,N=28`; `9/20,N=32`) reproduce the frozen path enclosure-by-enclosure for `P`, `P^2`, `GP/G2`, `A`, `mu`, and the Schur matrix, with the shared `GV`, `GR`, and `rho_R` also agreeing. A subsequent `{2,3}` test proves the combined `P^2` is not `P_2^2+P_3^2`: its constant-mode cross contribution is rigorously nonzero. The focused integrated target passes `31/31` and the complete default Python suite passes `574/574`. P3 still defines no serialized certificate or verifier semantics.
 
 **P4 scout/candidate boundary — `2026-10-01T11:15:33Z`.** Multi-prime reconnaissance and exact candidate construction are now separate stages. `weil_multi_prime_schur_scout.py` is floating-only and has no Arb/certificate dependency; its truncated `GV/GP/GR` and conditioning values are non-proof diagnostics. `weil_multi_prime_support_candidate_check.py` uses the rigorous assembler and exact interval/witness primitives, but remains generator-side pre-theorem evidence. Its exact complement is reconstructed from `c_T + sum_m(c_m b_m) + rho_R`, with every active term outward-rounded and reported separately; the exact Schur uses `A/GV/GP/GR` and factor `3`. Precision, matrix-bit, and witness-bit controls are independent. Focused acceptance passes `24/24` and the complete default Python suite passes `578/578`. No P4 output is a theorem certificate or verifier PASS semantic.
+
+**P5 continuation-driver contract — `2026-10-01T16:20:18Z`.** `scripts/weil_multi_prime_continuation_driver.py` is the canonical continuation orchestrator for new structural windows; it is not a mode switch in the frozen one-prime driver. Its initial admissible research window is strictly `log(3)/2 < T < log(4)/2`, and the driver independently fails closed unless the rigorous active set is exactly `{2,3}`. The driver may end only in the inherited terminal states, including `NO_CANDIDATE`, `SCOUT_UNSTABLE`, `PRECISION_LIMIT_REACHED`, structured candidate failures, or pre-theorem `CANDIDATE_READY`. Completion order is observational only: parallel scout/rigorous results are materialized in deterministic canonical order. Cache keys include a source fingerprint over the multi-prime mathematical dependencies. Bundle publication remains atomic/manifest-last and requires verified worker cleanup. The shared bundle format accepts exactly the historical and multi-prime pre-theorem driver roles; neither role can carry theorem admission or independent-verification status. The complete default Python suite passes `591/591` after this cutover.
 
 ---
 

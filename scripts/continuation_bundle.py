@@ -27,6 +27,12 @@ from scripts.run_observability import (
 
 
 BUNDLE_FORMAT = "rh-continuation-candidate-bundle-v1"
+PRE_THEOREM_DRIVER_ROLES = frozenset(
+    {
+        "pre_theorem_continuation_driver",
+        "pre_theorem_multi_prime_continuation_driver",
+    }
+)
 _PRE_THEOREM_FALSE_FIELDS = frozenset(
     {"theorem_status", "independently_verified", "whitelisted", "automatic_promotion"}
 )
@@ -169,6 +175,8 @@ def _summary_payload(result: dict[str, Any]) -> dict[str, Any]:
 def _configuration_payload(result: dict[str, Any]) -> dict[str, object]:
     keys = (
         "support",
+        "active_terms",
+        "structural_window",
         "dimensions",
         "scout_resolution_count",
         "scout_stability_window",
@@ -310,8 +318,8 @@ def _validate_pre_theorem_terminal_result(result: dict[str, Any]) -> None:
     workflow_state = result.get("workflow_state", state)
     if state not in CONTINUATION_TERMINAL_STATES or workflow_state != state:
         raise ValueError("continuation bundle requires one consistent terminal workflow state")
-    if result.get("role") != "pre_theorem_continuation_driver":
-        raise ValueError("continuation bundle requires the pre-theorem driver result role")
+    if result.get("role") not in PRE_THEOREM_DRIVER_ROLES:
+        raise ValueError("continuation bundle requires an allowed pre-theorem driver result role")
     for field in _PRE_THEOREM_FALSE_FIELDS:
         if result.get(field) is not False:
             raise ValueError(
