@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-09-24T21:34:11Z`
+- **Last updated:** `2026-10-01T10:36:16Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -509,3 +509,51 @@ This closes the fresh-generation/independent-replay gate only. Real-certificate 
 **Addendum — `2026-09-24T21:34:11Z`.** The broader repository acceptance is green after theorem registration: default Python `554/554`; explicit retained-artifact pytest `1/1` with embedded exact `8/8` replay; full `cargo test -p rh_cert`; `cargo fmt -p rh_cert -- --check`; strict `cargo clippy -p rh_cert --all-targets -- -D warnings`; and authoritative `formal/lake build` completing successfully with `8711 jobs`. A repository-wide stale seven-pair/`C-0056` audit corrected current-facing assumptions in the retained acceptance test, `AGENTS.md`, and root `README.md`; historical pre-`C-0057` statements remain preserved as history.
 
 Phases 4 and 5 both passed, so the maintained independently verified finite-support frontier is now `(27/50,104)` / `C-0057`. This remains a finite-support localized Weil result only. RH is still unresolved.
+
+## Multi-prime upgrade P0 — freeze the one-prime v1 baseline
+
+**Addendum — `2026-10-01T09:46:49Z`.** Before any implementation for the `p=3` structural window, the existing theorem path is explicitly frozen rather than refactored in place. `weil_continuation_driver.py`, `assemble_exact_prime_schur()`, the `exact_prime_legendre_schur` profile in `rh-weil-certificate-v1`, and the current Rust v1 verification semantics remain the historical one-prime path for the eight admitted pairs through `(27/50,104)` / `C-0057`.
+
+A new fast regression module, `tests/test_one_prime_v1_freeze.py`, locks four independent invariants: the strict one-prime support gate rejects a rational support immediately above `(1/2)log 3`; the Python theorem admission grid remains exactly the eight existing `(T,N)` pairs; the v1 schema continues to require exactly `c2`, `c_T`, `rho_R` and `GV`, `G2`, `GR` with residual order `32`; and the retained theorem identities remain exactly `C-0050..C-0057` with their existing support/dimension/scope mappings. This is additive protection only: no existing certificate, whitelist entry, proof matrix, retained artifact, or verifier theorem rule is changed. The canonical `8/8` retained replay remains the authoritative byte-level and independent-verifier gate.
+
+**P0 exit gate:** the old theorem path is documented as frozen, its compatibility invariants are executable regressions, and multi-prime work is required to proceed through separate new tooling/contracts rather than silently changing v1. P1 may now define the generic active prime-power mathematical contract.
+
+**Verification addendum — `2026-10-01T10:07:49Z`.** The P0 freeze is green across the full trust stack. The focused freeze/admission/support target passes `15/15`; the complete default Python suite passes `558/558`; full `cargo test -p rh_cert`, Rust format check, and strict Clippy pass; `formal/lake build` completes with `8711 jobs`; and the canonical retained proof audit independently hash-checks and replays all eight theorem certificates with final `RETAINED PROOF CHAIN: PASS - 8/8`. `git diff --check` passes. No retained certificate or production theorem implementation was changed, and a final OS process scan found no remaining repository verification process.
+
+## Multi-prime upgrade P1 — freeze the mathematical contract
+
+**Addendum — `2026-10-01T10:14:40Z`.** Before implementing the structural window above `(1/2)log 3`, the arithmetic and Schur semantics are now frozen separately from the historical one-prime code. Active arithmetic terms are the prime powers `A(T)={m=p^k:log(m)<2T}`, with `tau_m=log(m)/T`, `c_m=Lambda(m)/sqrt(m)`, and signed compressed-translation operators `P_m=-c_mS_m`. For `(log3)/2<T<(log4)/2`, the active set is exactly `{2,3}` and the exact compressed-shift norm formula gives `b_2=b_3=1`.
+
+`F-20261001-001` / `C-0058` closes the generic high-mode complement bound
+
+```text
+mu_N=H_N-c_T-sum_m c_m b_m-rho_R,
+```
+
+so the immediate window loses exactly `c_2+c_3`. `F-20261001-002` / `C-0059` closes the critical factor-3 gate. All arithmetic terms are summed first into `P=P_2+P_3`; consequently the low-to-tail cross block still has exactly three grouped components `B_V+B_P+B_R`, and the same elementary Cauchy-Schwarz/completing-the-square proof gives
+
+```text
+S_N=A_N-(3/mu_N)(G_V+G_P+G_R).
+```
+
+The arithmetic Gram is the combined tail Gram. In the unnormalized Legendre basis,
+
+```text
+G_P=P^2-PD^{-1}P,
+```
+
+where the first `P^2` is the low matrix of the operator square. It therefore contains the mixed `P_2P_3+P_3P_2` contributions; using `G_2+G_3` would drop required terms and is explicitly outside the contract.
+
+The factor `3` is thus mathematically justified before implementation, but no multi-prime theorem certificate/profile/verifier has been built and no theorem pair has been admitted. The complete frozen contract is `docs/MULTI_PRIME_CONTRACT.md`. P1 is closed.
+
+**P1 verification addendum — `2026-10-01T10:19:42Z`.** The one-prime freeze plus admission-consistency target passes `10/10`; `git diff --check` passes; and explicit scans find no `c3` or `G3` broadening in the v1 schema, Python proof generator, or Rust verifier. The P1 work is therefore documentation/derivation only and leaves the production trust boundary unchanged. A final OS scan found no remaining repository verification process.
+
+## Multi-prime upgrade P2 — generic prime-power operator core
+
+**Addendum — `2026-10-01T10:28:50Z`.** `scripts/cert/prime_power_terms.py` now implements the arithmetic operator layer required by the P1 contract without modifying `first_prime_matrices()` or any v1 theorem code. Prime powers are recognized and factored with exact integer arithmetic. Every active term carries its exact base prime/exponent, exact rational support identity, working precision, and rigorous Arb enclosures for `log(m)`, `tau_m`, `Lambda(m)`, and `c_m`. Active-term enumeration follows the strict `log(m)<2T` rule and raises a dedicated fail-closed error if Arb cannot decide the threshold at the requested precision.
+
+The compressed translations are no longer encoded by the one-prime edge identity. For each basis polynomial the module constructs both shifted polynomial actions, partitions `[-1,1]` by all left/right translation breakpoints, determines active pieces rigorously on every cell, sums the signed arithmetic terms there, and integrates the combined piecewise image. The low `P` matrix and the operator-square matrix are therefore derived from the same combined action; `P^2=<P phi_i,P phi_j>` automatically includes mixed prime-power products before `G_P=P^2-PD^{-1}P` is formed.
+
+Focused verification covers four structural boundaries: the new core overlaps the frozen historical `P_2/P_2^2` matrices in the one-prime window; a two-prime test rigorously isolates a strictly positive cross contribution in `P^2`; the exact active set at `T=7/10` is `{2,3,4}` with `tau_2<1` and the same piecewise implementation succeeds; and terms constructed for different rational supports are rejected rather than silently combined. Along with the frozen-v1, admission, and support-continuation regressions, the focused target passes `24/24`. P2 adds no theorem admission or certificate semantics.
+
+**P2 verification closure — `2026-10-01T10:36:16Z`.** The complete default Python suite passes `567/567` in `394.05 s`. `git diff -- scripts/cert/legendre_schur.py` is empty, confirming the frozen one-prime implementation was not modified. `git diff --check` passes. A proof-path dependency scan confirms the new core has no NumPy, SciPy, or `float()` use; its `math` calls are integer-only (`isqrt`, `comb`). A final OS scan found no remaining repository verification process. P2 is closed.

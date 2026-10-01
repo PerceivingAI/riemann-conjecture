@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-09-24T20:22:02Z`
+- **Last updated:** `2026-10-01T10:28:50Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -296,6 +296,12 @@ uv run --locked --extra test python -m pytest -q -m retained_proofs tests/test_r
 ### `cert/legendre_schur.py`
 
 Rigorous shared assembly for the exact-prime Legendre-Schur proof and continuation work. It uses exact rational polynomial algebra for Legendre actions and overlap identities, Arb only for transcendental enclosures, closed logarithmic/log-squared moments for `G_V`, exact edge-overlap geometry for `G_2`, and the canonical Suzuki residual series plus rigorous remainder for `G_R`. The reusable assembler accepts an exact rational one-prime support `T`; theorem-specific certificate wrappers remain responsible for locking allowed supports/dimensions.
+
+### `cert/prime_power_terms.py`
+
+Additive multi-prime arithmetic operator core. Unlike the frozen one-prime edge-overlap implementation, this module is generic in the active prime powers and translation geometry. It recognizes `m=p^k` with exact integer arithmetic; rigorously constructs `log(m)`, `tau_m`, `Lambda(m)`, and `c_m` using Arb; enumerates the strict active set `log(m)<2T` and fails closed when a requested precision cannot settle a threshold; constructs the left/right translated polynomial pieces on `[-1,1]`; globally partitions by every translation breakpoint; sums all active signed arithmetic images on each cell; and integrates those combined images to obtain `P`, `P^2`, and `G_P=P^2-PD^{-1}P`.
+
+`P^2` is computed from `<P phi_i,P phi_j>`, so mixed terms are present automatically. The focused regression suite includes exact overlap agreement with `first_prime_matrices()` in the one-prime window, a nonzero `P_2/P_3` cross-term test, and a `{2,3,4}` case at `T=7/10` where `tau_2<1`. This module is not yet connected to a multi-prime certificate exporter or verifier.
 
 ## Shared implementation
 

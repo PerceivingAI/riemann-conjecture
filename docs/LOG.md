@@ -1,10 +1,80 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-09-24T21:34:11Z`
+- **Last updated:** `2026-10-01T10:36:16Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-01T10:36:16Z — P2 closes with full Python acceptance
+
+**Type:** Tooling acceptance / frozen-boundary audit / process cleanup
+
+The generic prime-power operator core has passed repository-wide Python acceptance. The complete default suite reports `567 passed` in `394.05 s`; the focused P2 plus frozen-v1/admission/support-continuation target remains `24/24`. `git diff -- scripts/cert/legendre_schur.py` is empty, proving the historical one-prime operator implementation was left untouched. `git diff --check` passes apart from expected Windows line-ending notices.
+
+A proof-path dependency scan of `scripts/cert/prime_power_terms.py` finds no NumPy, SciPy, or `float()` use; the only `math` operations are exact integer `isqrt` and `comb`. A final OS process scan reports no remaining repository pytest, retained-verifier, Rust-test, or Lean-build process. P2 is closed without changing theorem admission, v1 certificate semantics, retained proof artifacts, Rust verification, or Lean soundness code.
+
+---
+
+## 2026-10-01T10:28:50Z — P2 adds the generic piecewise prime-power operator core
+
+**Type:** Rigorous tooling implementation / arithmetic operator generalization / frozen-v1 preservation
+
+A new independent proof-path module, `scripts/cert/prime_power_terms.py`, now implements the generic arithmetic operator required by the P1 contract. It recognizes and factors prime powers using integer arithmetic, constructs rigorous Arb enclosures for `log(m)`, `tau_m`, `Lambda(m)`, and `c_m`, enumerates the exact strict active set, and fails closed when an Arb precision cannot establish a prime-power threshold inequality. Each term is bound to the exact rational support used to create it, and mixed-support low-level assembly is rejected.
+
+The compressed translation implementation is genuinely piecewise rather than an extension of the historical `tau_2>1` edge shortcut. Every active term contributes explicit left/right shifted polynomial pieces; all translation breakpoints form a rigorous global partition of `[-1,1]`; the signed pieces are summed before integration; and the combined images directly generate both `P` and `P^2=<P phi_i,P phi_j>`. Consequently the `P_2/P_3` cross products are present automatically, after which `G_P=P^2-PD^{-1}P` is constructed in the exact orthogonal basis.
+
+Focused tests cover exact prime-power factorization, von Mangoldt semantics for powers such as `m=4`, fail-closed threshold behavior, exact overlap with the frozen one-prime matrices, a rigorously nonzero two-prime square cross term, `{2,3,4}` operation at `T=7/10` with `tau_2<1`, mixed-support rejection, and exact-orthogonal-basis enforcement. The new suite passes `9/9`; combined with frozen-v1/admission/support-continuation guards the focused target passes `24/24`. `git diff --check` remains clean apart from Windows line-ending notices. No v1 production theorem code or retained proof artifact was changed.
+
+---
+
+## 2026-10-01T10:19:42Z — P1 contract verification preserves the frozen v1 boundary
+
+**Type:** Mathematical-contract acceptance / regression guard / boundary audit
+
+The new multi-prime mathematical contract was checked against the frozen one-prime implementation. The focused one-prime freeze plus admission-consistency tests pass `10/10`, `git diff --check` passes, and direct scans confirm that `c3` and `G3` do not appear in `docs/contracts/rh-weil-certificate-v1.json`, `scripts/cert/`, or `crates/rh_cert`. The new mathematics is therefore additive documentation/claims only; no production theorem path was broadened.
+
+The factor-3 derivation remains tied to the grouped cross-block decomposition `V,P,R`, and the arithmetic tail Gram is explicitly the combined `G_P`, including mixed `P_2/P_3` terms. A final OS process scan found no remaining repository verification process. P1 is closed.
+
+---
+
+## 2026-10-01T10:14:40Z — Multi-prime upgrade P1 freezes and closes the mathematical contract
+
+**Type:** Analytic contract freeze / generic complement derivation / grouped Schur proof
+
+The post-`p=3` mathematical contract is now frozen in `docs/MULTI_PRIME_CONTRACT.md` before any multi-prime production implementation. Active arithmetic terms are exactly the prime powers satisfying `log(m)<2T`, with normalized shifts `tau_m=log(m)/T`, weights `c_m=Lambda(m)/sqrt(m)`, and signed compressed translations `P_m=-c_mS_m`. In `(log3)/2<T<(log4)/2`, the active set is exactly `{2,3}` and the exact path-graph shift formula gives `b_2=b_3=1`.
+
+`F-20261001-001` / `C-0058` proves the generic complement lower bound `mu_N=H_N-c_T-sum_m c_m b_m-rho_R`, giving the expected `c_2+c_3` loss in the immediate window. `F-20261001-002` / `C-0059` explicitly closes the critical factor-3 gate: the arithmetic terms are first summed into one self-adjoint operator `P`, leaving exactly the three cross-block components `V,P,R`; the original Cauchy-Schwarz/completing-the-square derivation therefore yields `S_N=A_N-(3/mu_N)(G_V+G_P+G_R)`.
+
+The combined arithmetic tail Gram is `G_P=Pi_N P Q_N P Pi_N`, represented in the unnormalized low Legendre basis as `G_P=P^2-PD^{-1}P`, with the first `P^2` denoting the low matrix of the operator square. For `P=P_2+P_3`, the mixed `P_2P_3+P_3P_2` terms are mandatory; `G_2+G_3` is not equivalent and is explicitly forbidden by the contract.
+
+No production theorem code, v1 certificate semantics, theorem admission, or retained artifact changed. P1 closes the mathematics needed for later implementation while preserving the P0 hard boundary around the historical one-prime stack. RH remains unresolved.
+
+---
+
+## 2026-10-01T10:07:49Z — Multi-prime upgrade P0 verification closes green
+
+**Type:** Regression acceptance / trust-stack closure / process cleanup
+
+The one-prime v1 freeze introduced at `2026-10-01T09:46:49Z` has passed repository-wide verification. The focused P0 freeze/admission/support target passes `15/15`, and the complete default Python suite now passes `558/558`, including the four new compatibility regressions. The complete `cargo test -p rh_cert` package passes; `cargo fmt -p rh_cert -- --check` and strict `cargo clippy -p rh_cert --all-targets -- -D warnings` pass; and `formal/lake build` completes successfully with `8711 jobs`.
+
+The canonical retained-proof audit independently hash-checks and replays `C-0050` through `C-0057` with every theorem reporting `HASH PASS VERIFY PASS` and final `RETAINED PROOF CHAIN: PASS - 8/8`. `git diff --check` passes. A final OS process scan found no remaining repository pytest, retained-verifier, Rust-test, or Lean-build process.
+
+P0 is therefore closed without changing any existing certificate, retained artifact, theorem admission, or production v1 verifier rule. The next multi-prime implementation phase is P1: freeze the generic active prime-power mathematical contract and combined-prime Schur/complement semantics.
+
+---
+
+## 2026-10-01T09:46:49Z — Multi-prime upgrade P0 freezes the one-prime v1 baseline
+
+**Type:** Tooling trust-boundary freeze / regression hardening / multi-prime preparation
+
+Before implementing the next structural window, the existing one-prime theorem path was frozen as a compatibility boundary rather than generalized in place. `weil_continuation_driver.py`, `assemble_exact_prime_schur()`, `exact_prime_legendre_schur`, `rh-weil-certificate-v1`, the Rust v1 verifier semantics, and the eight retained theorem identities through `C-0057` remain the historical one-prime stack.
+
+`tests/test_one_prime_v1_freeze.py` now guards the strict support boundary, exact eight-pair Python admission grid, the v1 `c2/G2` certificate shape, and the retained `C-0050..C-0057` support/dimension/scope identities. This fast guard complements rather than replaces the canonical retained-proof audit, which remains responsible for exact certificate hashes and independent zero-float Rust replay. No existing certificate, retained artifact, theorem admission, or verifier PASS rule was modified in P0.
+
+The upgrade therefore proceeds additively. Any multi-prime/prime-power continuation, certificate semantics, or verifier logic must live in a separate path. The next phase is P1: freeze the generic active prime-power mathematical contract and combined-prime Schur/complement derivation.
+
+---
 
 ## 2026-09-24T21:34:11Z — Repository-wide closure passes for C-0057
 

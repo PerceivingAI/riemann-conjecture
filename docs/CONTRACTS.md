@@ -1,7 +1,7 @@
 # Repository Architecture & Proof Contracts
 
 - **Created:** `2026-08-21T06:00:00Z`
-- **Last updated:** `2026-09-24T21:34:11Z`
+- **Last updated:** `2026-10-01T10:28:50Z`
 - **Status:** Authoritative
 
 This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
@@ -151,6 +151,8 @@ give $\langle f,K_kf\rangle\le a_k^{-1}\lVert f\rVert_2^2$. Hence every omitted 
 
 The retained `C-0050` (`T=7/20,N=32`), `C-0051` (`T=2/5,N=40`), `C-0052` (`T=17/40,N=48`), `C-0053` (`T=9/20,N=56`), `C-0054` (`T=19/40,N=68`), `C-0055` (`T=1/2,N=80`), `C-0056` (`T=21/40,N=96`), and `C-0057` (`T=27/50,N=104`) certificates use this rule and are proof-bearing because `C-0045`, `C-0047`, and `C-0048` provide the analytic complement and Schur semantics encoded by the profile. `C-0057` was generated afresh from clean committed provenance, independently accepted by zero-float Rust, passed real-certificate contract/theorem adversarial checks, and is explicitly registered in the retained-proof manifest. Each theorem-bearing pair requires explicit closed-contract admission followed by fresh independent replay and explicit registration; whitelist admission alone never grants theorem status. No other `(T,N)` pair is admitted.
 
+**Frozen v1 boundary — `2026-10-01T09:46:49Z`.** The one-prime theorem contract above is now a historical compatibility boundary for multi-prime development. New structural-window work must not add `c3`, `G3`, new support/dimension admissions, or altered complement/Schur semantics to `rh-weil-certificate-v1`. The Python generator, Python semantic validator, JSON Schema, Rust v1 verifier, and retained `C-0050..C-0057` registrations remain independently closed to the eight configurations above. New prime-power semantics require a separate profile/format and verifier path. `tests/test_one_prime_v1_freeze.py` guards the fast semantic baseline; `scripts.cert.verify_retained_proofs` remains the byte-level and independent-replay authority for the eight stored theorem artifacts.
+
 ### 2.6 Retained theorem-artifact acceptance
 
 Proof-bearing retention is governed by the closed manifest `computations/retained-proofs.json`. Its v1 entries bind each retained theorem claim to one computation ID, repository-relative certificate path, raw-byte SHA-256, support, dimension, claim profile, and verified scope. The manifest contains exactly `C-0050` through `C-0057`; pre-theorem candidates and tooling computations are not proof registrations. The canonical current replay passes `8/8`. The repository-wide closure acceptance also passes the default Python suite, full `rh_cert` tests, strict Clippy, and the authoritative Lean build; these quality gates validate the implementation/trust layers but do not broaden the mathematical scope beyond the eight explicitly retained finite-support claims.
@@ -206,6 +208,50 @@ The Python and Rust validators must reject the following cases before theorem ve
 | Nonzero opposite-parity proof entry | Semantic validation failure |
 | Contract-valid exact-prime perturbation that destroys a Gershgorin margin | Theorem failure, not contract failure |
 | Matrix `[1]` with `exact_scalar_identity` value `-2` | Adjusted LDL failure |
+
+### 2.9 Frozen multi-prime mathematical contract
+
+The authoritative pre-implementation mathematical contract is [`docs/MULTI_PRIME_CONTRACT.md`](MULTI_PRIME_CONTRACT.md). It is additive to the frozen v1 theorem path and does not alter `rh-weil-certificate-v1`.
+
+For any support `T`, active arithmetic terms are the prime powers
+
+```text
+A(T)={m=p^k : log(m)<2T},
+tau_m=log(m)/T,
+c_m=Lambda(m)/sqrt(m).
+```
+
+The signed arithmetic contribution is grouped as one operator `P=sum_m P_m`, with `P_m=-c_mS_m`. For rigorous compressed-shift norm bounds `||S_m||<=b_m`, the generic complement contract is
+
+```text
+mu_N=H_N-c_T-sum_m c_m b_m-rho_R.
+```
+
+In `(log3)/2<T<(log4)/2`, exactly `m={2,3}` are active and the exact shift-norm formula gives `b_2=b_3=1`, hence `mu_N=H_N-c_T-c_2-c_3-rho_R` (`C-0058`).
+
+The critical factor-3 gate is explicitly closed by `C-0059`: after grouping arithmetic first, the cross block remains `B_V+B_P+B_R`, so the same three-component Cauchy-Schwarz argument gives
+
+```text
+S_N=A_N-(3/mu_N)(G_V+G_P+G_R).
+```
+
+The arithmetic tail Gram is the Gram of the **combined** operator:
+
+```text
+G_P=Pi_N P Q_N P Pi_N.
+```
+
+In the unnormalized low Legendre basis it is represented as
+
+```text
+G_P=P^2-PD^{-1}P,
+```
+
+where the first `P^2` is the low matrix of the operator square. For the immediate window `P=P_2+P_3`, this square includes the mixed terms `P_2P_3+P_3P_2`. A future implementation that substitutes `G_2+G_3` for `G_P` violates the frozen contract. The factor `3` counts grouped components `V,P,R`; it does not count prime powers.
+
+This section closes the mathematical derivation only. No multi-prime certificate profile, verifier path, theorem whitelist, or retained theorem registration exists yet. Any such implementation must be separate from v1 and independently verified before theorem use.
+
+**P2 operator-core implementation — `2026-10-01T10:28:50Z`.** `scripts/cert/prime_power_terms.py` now implements the generic arithmetic operator side of this contract without altering the frozen v1 path. It independently recognizes prime powers, rigorously derives their Arb constants, enumerates the strict active set with fail-closed threshold decisions, constructs the combined compressed translations by piecewise polynomial action, derives the combined `P` and operator-square `P^2`, and then computes `G_P=P^2-PD^{-1}P`. The implementation deliberately works beyond the `tau_m>1` geometry used by the historical edge shortcut; tests exercise `{2,3,4}` with `tau_2<1`. This does **not** create a certificate profile or PASS semantic: multi-prime certification remains absent until a later phase.
 
 ---
 

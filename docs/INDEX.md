@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-09-24T21:34:11Z`
+- **Last updated:** `2026-10-01T10:14:40Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -105,6 +105,8 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`F-20260827-002`](../findings/2026-08-27T172610Z-localized-weil-positivity-at-one-half.md) — separately admitted fresh 512-bit exact `N=80` certificate plus independent Rust replay proves strict localized Weil positivity at `T=1/2` (`C-0055`).
 - [`F-20260828-001`](../findings/2026-08-28T012503Z-localized-weil-positivity-at-twenty-one-fortieths.md) — separately admitted fresh 512-bit exact `N=96` certificate plus independent Rust replay proves strict localized Weil positivity at `T=21/40` (`C-0056`).
 - [`F-20260924-001`](../findings/2026-09-24T202202Z-localized-weil-positivity-at-twenty-seven-fiftieths.md) — clean-provenance fresh 512-bit exact `N=104` certificate, independent zero-float Rust replay, adversarial trust-boundary checks, and retained `8/8` replay establish strict localized Weil positivity at `T=27/50` (`C-0057`).
+- [`F-20261001-001`](../findings/2026-10-01T101440Z-generic-prime-power-complement-bound.md) — generic active-prime-power complement loss is `sum_m c_m b_m`; in the immediate `{2,3}` window this is exactly `c_2+c_3`.
+- [`F-20261001-002`](../findings/2026-10-01T101440Z-grouped-arithmetic-schur-reduction.md) — grouping all active arithmetic terms into one operator `P` preserves the three-component `V,P,R` factor-3 Schur reduction and requires the combined tail Gram `G_P` including mixed prime-power terms.
 
 ## Computations
 

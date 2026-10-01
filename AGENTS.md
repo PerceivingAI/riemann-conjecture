@@ -45,6 +45,12 @@ The closed `exact_prime_legendre_schur` theorem contract currently admits exactl
 
 All eight pairs above support registered independently verified finite-support results `C-0050` through `C-0057`. For `(27/50,104)`, historical `X-20260923-001` remains pre-theorem evidence only; the proof-bearing artifact is the separately generated clean-provenance `X-20260924-001`. Its certificate records `git_dirty=false`; independent zero-float `rh_cert` returns exit `0` / `passed=true`; real-certificate attacks correctly separate contract rejection (exit `2`) from a contract-valid theorem failure (exit `1`); and the closed retained-proof chain now passes `8/8`. The current independently verified finite-support frontier is `(27/50,104)` / `C-0057`. RH remains unresolved. Since `T=27/50=0.54` lies close to `(1/2)log 3 ≈ 0.5493`, entry of the `p=3` compressed translation remains the next separate structural boundary rather than something to extrapolate through silently.
 
+**One-prime v1 freeze — `2026-10-01T09:46:49Z`.** Multi-prime development must be additive. Do not repurpose or broaden `weil_continuation_driver.py`, `assemble_exact_prime_schur()`, `exact_prime_legendre_schur`, `rh-weil-certificate-v1`, or the existing Rust v1 PASS semantics for the new structural window. The eight admitted v1 pairs and retained `C-0050..C-0057` identities are regression-guarded by `tests/test_one_prime_v1_freeze.py`; the real retained artifacts remain guarded by the canonical byte-hash + independent-verifier `8/8` replay. New prime-power tooling, certificate formats/profiles, and verifier paths must coexist separately.
+
+**Multi-prime P1 contract — `2026-10-01T10:14:40Z`.** Read `docs/MULTI_PRIME_CONTRACT.md` before implementing any post-`p=3` support tooling. Active arithmetic terms are prime powers satisfying `log(m)<2T`; the immediate window has exactly `{2,3}`. All active arithmetic terms are grouped into one signed operator `P`. The complement loss is `sum_m c_m b_m`, and the Schur decomposition is exactly `V,P,R`, so the proved factor remains `3`. The arithmetic tail Gram must be built from the combined operator square, `G_P=P^2-PD^{-1}P`, including mixed `P_2P_3+P_3P_2` terms. Never replace it by `G_2+G_3` and never modify frozen v1 to implement this path.
+
+**Multi-prime P2 operator core — `2026-10-01T10:28:50Z`.** Use `scripts/cert/prime_power_terms.py` for new prime-power arithmetic work. It is the generic implementation of the P1 operator contract: exact integer prime-power recognition, Arb threshold/constants, fail-closed active-set enumeration, piecewise left/right compressed translations on a global breakpoint partition, combined `P`, combined `P^2`, and `G_P`. It deliberately handles `tau_2<1` and `m=4`; do not reintroduce the historical one-prime edge shortcut into this path. `first_prime_matrices()` remains frozen and must not be refactored to call the new module. The P2 core is not yet a theorem/certificate path.
+
 ## 3. Repository map
 
 Use this map before searching broadly.
@@ -57,6 +63,7 @@ Use this map before searching broadly.
 | `docs/LOG.md` | Append-only chronological research history |
 | `docs/CLAIMS.md` | Stable mathematical claim IDs, status, dependencies, evidence |
 | `docs/CONTRACTS.md` | Authoritative certificate/verifier contract and PASS semantics |
+| `docs/MULTI_PRIME_CONTRACT.md` | Frozen pre-implementation mathematics for active prime powers, generic complement loss, and grouped `V,P,R` Schur reduction |
 | `docs/contracts/` | Machine-readable certificate schema/contract data |
 | `docs/PROTOCOL.md` | Authoritative record/timestamp/status/history rules |
 | `docs/INDEX.md` | Compact navigation index for attempts/findings/computations |

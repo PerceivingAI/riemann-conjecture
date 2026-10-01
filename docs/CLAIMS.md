@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-09-24T21:34:11Z`
+- **Last updated:** `2026-10-01T10:14:40Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -642,6 +642,28 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0039`, `C-0040`, `C-0044`, `C-0045`, `C-0047`, `C-0048`
 - **Source:** `A-20260826-001`, `F-20260924-001`, `X-20260924-001`
 - **Verification notes:** Historical pre-theorem `X-20260923-001` rejected scout-primary `N=100` under rigorous full-tail screening and isolated `N=104` as an exact cross-precision-stable candidate. A separate closed-contract admission added only `(T,N)=(27/50,104)`. Fresh proof-bearing `X-20260924-001` was generated from clean committed HEAD `86f5fd75360892d92cd584bc5f2eab0cae56851b` at 512-bit Arb precision with residual order `32`, 64-bit outward matrix endpoints, 32-bit witnesses, and exact factor `3`; metadata records `git_dirty=false`. The retained certificate SHA-256 is `75187f3be283ca9596a714c4a12822c4c58cd4b33e7624110ff102d68c9aab3f`. Independent zero-float Rust replay exits `0` with `passed=true`, support `27/50`, dimension `104`, and scope `localized_weil_positivity_T_27_50`; it derives exact positive complement/even/odd lower bounds approximately `0.6643369939721553`, `0.0002388902594756742`, and `0.000779387887620489`. Real-certificate adversarial replay rejects factor `2`, mixed `(21/40,104)` and `(1/2,104)` pairs, malformed interval, missing provenance, and missing matrix structure with exit `2`; a contract-valid exact `A(0,0)=-1` perturbation reaches theorem checking and returns exit `1` / `passed=false`, while an unchanged copy returns exit `0` / `passed=true`. The verifier-output SHA-256 is `e29e80bdb4af140db95934732095e45ce761ad82e6eb09b1bf8a5bd5931512ce`. The certificate is explicitly registered in `computations/retained-proofs.json`, and the canonical retained-proof gate independently hash-checks and replays all eight certificates with `RETAINED PROOF CHAIN: PASS - 8/8`. Phase 6 repository-wide closure additionally passes the default Python suite (`554/554`), explicit retained-artifact pytest (`1/1` with embedded `8/8` replay), full `cargo test -p rh_cert`, Rust format check, strict Clippy, and `formal/lake build` (`8711 jobs`). This is finite-support positivity at one support value and does not imply RH.
+
+### C-0058 — Generic prime-power Legendre complement bound
+
+- **Statement:** For `A(T)={m=p^k: log(m)<2T}`, signed arithmetic terms `P_m=-c_mS_m` with `c_m=Lambda(m)/sqrt(m)`, and rigorous compressed-shift norm bounds `||S_m||<=b_m`, the Legendre complement obeys `C_N>=mu_N I` with `mu_N=H_N-c_T-sum_{m in A(T)}c_m b_m-rho_R`. In `(log3)/2<T<(log4)/2`, exactly `m={2,3}` are active and `b_2=b_3=1`, so `mu_N=H_N-c_T-c_2-c_3-rho_R`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-10-01T10:14:40Z`
+- **Last verified:** `2026-10-01T10:14:40Z`
+- **Dependencies:** `C-0039`, `C-0040`, `C-0044`, `C-0045`, `C-0047`
+- **Source:** `F-20261001-001`, `docs/MULTI_PRIME_CONTRACT.md`
+- **Verification notes:** Sum the operator lower bounds `P_m>=-c_m b_m I` with `J>=H_NI`, `V>=0`, and `R>=-rho_RI`. In the immediate window both normalized shifts lie strictly between `1` and `2`, so the exact path-graph formula gives norm `1` for each.
+
+### C-0059 — Grouped multi-prime arithmetic preserves the factor-3 Schur reduction
+
+- **Statement:** Let `P=sum_{m in A(T)}P_m` be the combined signed arithmetic operator. If `C_N>=mu_NI`, `mu_N>0`, and the low-to-tail cross block is grouped as `B_N=B_V+B_P+B_R`, then full positivity follows from `A_N-(3/mu_N)(G_V+G_P+G_R)>0`, with `G_P=Pi_N P Q_N P Pi_N`. In the unnormalized low Legendre basis this is `G_P=P^2-PD^{-1}P`, where the first `P^2` is the low matrix of the operator square. For `P=P_2+P_3`, that square includes `P_2P_3+P_3P_2`, so `G_P` is not generally `G_2+G_3`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED`
+- **First recorded:** `2026-10-01T10:14:40Z`
+- **Last verified:** `2026-10-01T10:14:40Z`
+- **Dependencies:** `C-0048`, `C-0058`
+- **Source:** `F-20261001-002`, `docs/MULTI_PRIME_CONTRACT.md`
+- **Verification notes:** The original three-component Cauchy-Schwarz/completing-the-square proof depends only on the decomposition into three grouped cross blocks. Summing all arithmetic terms into one self-adjoint `P` leaves that argument unchanged. The tail-Gram identity follows from `Q_N=I-Pi_N`; nonorthonormal low-basis composition inserts `D^{-1}`. No positivity or commutativity of individual prime-power operators is assumed.
 
 ## Entry format
 
