@@ -1,7 +1,7 @@
 # Multi-prime mathematical contract
 
 - **Created:** `2026-10-01T10:14:40Z`
-- **Last updated:** `2026-10-01T16:28:33Z`
+- **Last updated:** `2026-10-01T18:01:33Z`
 - **Status:** Authoritative pre-implementation mathematical contract
 
 This document freezes the mathematics that future multi-prime tooling must implement. It does **not** admit a new theorem profile, change `rh-weil-certificate-v1`, or create a theorem claim beyond the already retained one-prime results `C-0050..C-0057`.
@@ -262,7 +262,36 @@ and it independently requires the active set to be `{2,3}`. The driver preserves
 
 The continuation bundle format remains pre-theorem-only. Its role validator explicitly admits the historical one-prime driver and the new multi-prime driver, while recursively rejecting any theorem/admission/independent-verification field that is not false. P5 creates no certificate format, verifier PASS rule, theorem admission, or retained proof. P5 acceptance closes with focused multi-prime/frozen-v1 tests at `35/35`, bundle/P5 regression at `29/29`, and the complete default Python suite at `591/591`.
 
-## 9. Certification boundary
+## 9. P6 certificate-v2 serialization contract
+
+The post-v1 proof path now has a separate structural certificate format, `rh-weil-certificate-v2`, with profile `multi_prime_power_legendre_schur`. The historical v1 schema remains byte-unchanged.
+
+Term-specific arithmetic constants are no longer promoted to top-level names such as `c2` or `c3`. Instead, every active prime power is serialized in canonical increasing-`m` order under `arithmetic_terms` with exact identity
+
+```text
+m, base_prime, exponent
+```
+
+and rational intervals for
+
+```text
+log_m
+tau
+von_mangoldt
+coefficient
+compressed_shift_norm_bound
+complement_contribution
+```
+
+The only current global scalar intervals are `c_T` and `rho_R`. The Schur proof serializes `GV`, the combined arithmetic Gram `GP`, `GR`, and the two exact parity witnesses. There is no `G2` or `G3` field.
+
+The v2 tail object freezes the mathematical rules already established by `C-0058` and `C-0059`: active terms are prime powers with `log(m)<2T`; the complement rule is `H_N-c_T-sum(c_m*b_m)-rho_R`; the three grouped cross-block components are exactly `V,P,R`; and the Schur coefficient is exactly `3/1`, explicitly attributed to `C-0059`. Changing that coefficient or grouping requires a future contract revision rather than an ad hoc certificate field.
+
+`scripts/cert/certificate_v2_contract.py` intentionally separates structural validation from theorem admission. It validates the JSON Schema and canonical cross-field structure, including prime-power identities, increasing term order, reduced rational intervals, full matrix coordinates, and parity-witness dimensions. The production theorem whitelist `V2_ALLOWED_CONFIGURATIONS` is currently empty. Therefore a structurally valid v2 artifact is still only a candidate artifact: no `(T,N)` pair can receive theorem status until an explicit later admission change and independent verifier path exist.
+
+P6 focused acceptance, including v1 freeze/admission regression, passes `21/21`; the complete default Python suite passes `602/602` in `374.14 s`. P6 is closed.
+
+## 10. Certification boundary
 
 The analytic factor `3` is now explicitly closed by `C-0059` / `F-20261001-002`, but no theorem certification path has been implemented for this contract yet.
 

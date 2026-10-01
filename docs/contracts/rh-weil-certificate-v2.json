@@ -1,0 +1,483 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/PerceivingAI/riemann-conjecture/docs/contracts/rh-weil-certificate-v2.json",
+  "title": "RH Weil multi-prime-power exact interval certificate format v2",
+  "description": "Closed syntax contract for generator-produced multi-prime-power Legendre Schur certificates. Structural validity does not imply theorem admission; the production v2 theorem whitelist is maintained separately and is initially empty.",
+  "type": "object",
+  "required": [
+    "format",
+    "claim",
+    "claim_profile",
+    "support_T",
+    "basis",
+    "parity_sector",
+    "dimension",
+    "constants",
+    "arithmetic_terms",
+    "matrix",
+    "tail_bound",
+    "schur_proof",
+    "generator_metadata"
+  ],
+  "properties": {
+    "format": {
+      "const": "rh-weil-certificate-v2"
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_profile": {
+      "const": "multi_prime_power_legendre_schur"
+    },
+    "support_T": {
+      "$ref": "#/$defs/support"
+    },
+    "basis": {
+      "$ref": "#/$defs/legendreBasis"
+    },
+    "parity_sector": {
+      "const": "both"
+    },
+    "dimension": {
+      "type": "integer",
+      "minimum": 2
+    },
+    "constants": {
+      "$ref": "#/$defs/constants"
+    },
+    "arithmetic_terms": {
+      "$ref": "#/$defs/arithmeticTerms"
+    },
+    "matrix": {
+      "$ref": "#/$defs/matrix"
+    },
+    "tail_bound": {
+      "$ref": "#/$defs/multiPrimeLegendreSchurTail"
+    },
+    "schur_proof": {
+      "$ref": "#/$defs/schurProof"
+    },
+    "generator_metadata": {
+      "$ref": "#/$defs/generatorMetadata"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "canonicalInteger": {
+      "type": "string",
+      "pattern": "^-?(0|[1-9][0-9]*)$"
+    },
+    "positiveInteger": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*$"
+    },
+    "rational": {
+      "type": "object",
+      "required": [
+        "num",
+        "den"
+      ],
+      "properties": {
+        "num": {
+          "$ref": "#/$defs/canonicalInteger"
+        },
+        "den": {
+          "$ref": "#/$defs/positiveInteger"
+        }
+      },
+      "additionalProperties": false
+    },
+    "factorThree": {
+      "type": "object",
+      "required": [
+        "num",
+        "den"
+      ],
+      "properties": {
+        "num": {
+          "const": "3"
+        },
+        "den": {
+          "const": "1"
+        }
+      },
+      "additionalProperties": false
+    },
+    "interval": {
+      "type": "object",
+      "required": [
+        "lo_num",
+        "lo_den",
+        "hi_num",
+        "hi_den"
+      ],
+      "properties": {
+        "lo_num": {
+          "$ref": "#/$defs/canonicalInteger"
+        },
+        "lo_den": {
+          "$ref": "#/$defs/positiveInteger"
+        },
+        "hi_num": {
+          "$ref": "#/$defs/canonicalInteger"
+        },
+        "hi_den": {
+          "$ref": "#/$defs/positiveInteger"
+        }
+      },
+      "additionalProperties": false
+    },
+    "support": {
+      "type": "object",
+      "required": [
+        "num",
+        "den",
+        "frac"
+      ],
+      "properties": {
+        "num": {
+          "$ref": "#/$defs/canonicalInteger"
+        },
+        "den": {
+          "$ref": "#/$defs/positiveInteger"
+        },
+        "frac": {
+          "type": "string",
+          "pattern": "^-?(0|[1-9][0-9]*)/[1-9][0-9]*$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "legendreBasis": {
+      "type": "object",
+      "required": [
+        "type",
+        "dimension",
+        "domain"
+      ],
+      "properties": {
+        "type": {
+          "const": "legendre"
+        },
+        "dimension": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "domain": {
+          "const": "[-1, 1]"
+        }
+      },
+      "additionalProperties": false
+    },
+    "constants": {
+      "type": "object",
+      "required": [
+        "c_T",
+        "rho_R"
+      ],
+      "properties": {
+        "c_T": {
+          "$ref": "#/$defs/interval"
+        },
+        "rho_R": {
+          "$ref": "#/$defs/interval"
+        }
+      },
+      "minProperties": 2,
+      "maxProperties": 2,
+      "additionalProperties": false
+    },
+    "arithmeticTerm": {
+      "type": "object",
+      "required": [
+        "m",
+        "base_prime",
+        "exponent",
+        "log_m",
+        "tau",
+        "von_mangoldt",
+        "coefficient",
+        "compressed_shift_norm_bound",
+        "complement_contribution"
+      ],
+      "properties": {
+        "m": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "base_prime": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "exponent": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "log_m": {
+          "$ref": "#/$defs/interval"
+        },
+        "tau": {
+          "$ref": "#/$defs/interval"
+        },
+        "von_mangoldt": {
+          "$ref": "#/$defs/interval"
+        },
+        "coefficient": {
+          "$ref": "#/$defs/interval"
+        },
+        "compressed_shift_norm_bound": {
+          "$ref": "#/$defs/interval"
+        },
+        "complement_contribution": {
+          "$ref": "#/$defs/interval"
+        }
+      },
+      "additionalProperties": false
+    },
+    "arithmeticTerms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/arithmeticTerm"
+      }
+    },
+    "matrixEntry": {
+      "type": "object",
+      "required": [
+        "row",
+        "col",
+        "lo_num",
+        "lo_den",
+        "hi_num",
+        "hi_den"
+      ],
+      "properties": {
+        "row": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "col": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "lo_num": {
+          "$ref": "#/$defs/canonicalInteger"
+        },
+        "lo_den": {
+          "$ref": "#/$defs/positiveInteger"
+        },
+        "hi_num": {
+          "$ref": "#/$defs/canonicalInteger"
+        },
+        "hi_den": {
+          "$ref": "#/$defs/positiveInteger"
+        }
+      },
+      "additionalProperties": false
+    },
+    "matrix": {
+      "type": "object",
+      "required": [
+        "dimension",
+        "entries"
+      ],
+      "properties": {
+        "dimension": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/matrixEntry"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "exactMatrixEntry": {
+      "type": "object",
+      "required": [
+        "row",
+        "col",
+        "num",
+        "den"
+      ],
+      "properties": {
+        "row": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "col": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "num": {
+          "$ref": "#/$defs/canonicalInteger"
+        },
+        "den": {
+          "$ref": "#/$defs/positiveInteger"
+        }
+      },
+      "additionalProperties": false
+    },
+    "exactMatrix": {
+      "type": "object",
+      "required": [
+        "dimension",
+        "entries"
+      ],
+      "properties": {
+        "dimension": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/exactMatrixEntry"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "schurProof": {
+      "type": "object",
+      "required": [
+        "residual_order",
+        "GV",
+        "GP",
+        "GR",
+        "even_witness",
+        "odd_witness"
+      ],
+      "properties": {
+        "residual_order": {
+          "const": 32
+        },
+        "GV": {
+          "$ref": "#/$defs/matrix"
+        },
+        "GP": {
+          "$ref": "#/$defs/matrix"
+        },
+        "GR": {
+          "$ref": "#/$defs/matrix"
+        },
+        "even_witness": {
+          "$ref": "#/$defs/exactMatrix"
+        },
+        "odd_witness": {
+          "$ref": "#/$defs/exactMatrix"
+        }
+      },
+      "additionalProperties": false
+    },
+    "multiPrimeLegendreSchurTail": {
+      "type": "object",
+      "required": [
+        "type",
+        "harmonic_index",
+        "active_set_rule",
+        "complement_rule",
+        "grouped_components",
+        "factor",
+        "factor_claim"
+      ],
+      "properties": {
+        "type": {
+          "const": "multi_prime_power_legendre_component_gram_schur"
+        },
+        "harmonic_index": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "active_set_rule": {
+          "const": "prime_powers_with_log_m_lt_2T"
+        },
+        "complement_rule": {
+          "const": "H_N-c_T-sum(c_m*b_m)-rho_R"
+        },
+        "grouped_components": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": "V"
+            },
+            {
+              "const": "P"
+            },
+            {
+              "const": "R"
+            }
+          ],
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "factor": {
+          "$ref": "#/$defs/factorThree"
+        },
+        "factor_claim": {
+          "const": "C-0059"
+        }
+      },
+      "additionalProperties": false
+    },
+    "generatorMetadata": {
+      "type": "object",
+      "required": [
+        "generator",
+        "script",
+        "version",
+        "git_commit",
+        "git_dirty",
+        "flint_version",
+        "python_flint_version",
+        "prec_bits",
+        "timestamp_utc"
+      ],
+      "properties": {
+        "generator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "script": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "git_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "git_dirty": {
+          "type": "boolean"
+        },
+        "flint_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "python_flint_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "prec_bits": {
+          "type": "integer",
+          "minimum": 32
+        },
+        "timestamp_utc": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?Z$"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

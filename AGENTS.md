@@ -57,6 +57,8 @@ All eight pairs above support registered independently verified finite-support r
 
 **Multi-prime P5 driver — `2026-10-01T16:20:18Z`.** For continuation in new structural windows use `scripts/weil_multi_prime_continuation_driver.py`; do not add a multi-prime mode to `weil_continuation_driver.py`. The new driver currently accepts only `log(3)/2 < T < log(4)/2` and independently requires active set `{2,3}`. Preserve its copied operational invariants: bounded spawn pools, `as_completed` completion observation, deterministic final ordering, source-fingerprinted cache with atomic publication, output lock/live status, manifest-last bundle sealing, cleanup verification, independent Arb/matrix/witness ladders, fallback dimension, and higher-precision exact-candidate confirmation. `CANDIDATE_READY` remains pre-theorem. The old driver remains the historical canonical one-prime workflow.
 
+**Multi-prime P6 certificate contract — `2026-10-01T17:51:51Z`.** V2 is separate from frozen `rh-weil-certificate-v1`. Use format `rh-weil-certificate-v2` / profile `multi_prime_power_legendre_schur`; term-specific arithmetic data belongs in canonical `arithmetic_terms`, never new top-level `c3`-style constants. The Schur proof uses `GV/GP/GR`, never `G2/G3`. The closed tail rule is the `C-0059` grouped-`V,P,R` factor `3` rule. `scripts/cert/certificate_v2_contract.py` distinguishes schema/structural validity from theorem admission. `V2_ALLOWED_CONFIGURATIONS` is currently empty; do not infer theorem status from a structurally valid v2 file or add a pair while merely implementing verifier/exporter machinery.
+
 ## 3. Repository map
 
 Use this map before searching broadly.

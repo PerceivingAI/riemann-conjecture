@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-01T16:28:33Z`
+- **Last updated:** `2026-10-01T18:01:33Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -330,6 +330,12 @@ Rigorous-screen adapter for the multi-prime driver. It assembles `A/GV/GP/GR/mu`
 Canonical continuation workflow for future structural windows, initially hard-limited to `log(3)/2 < T < log(4)/2` with exact active set `{2,3}`. It intentionally duplicates the mature operational orchestration rather than refactoring the historical one-prime driver. Workflow: floating multi-resolution scout → stable dimensions → primary/fallback rigorous Arb precision search → exact matrix/witness bit ladders → generator-side exact candidate → higher Arb precision confirmation → `CANDIDATE_READY` or a fail-closed terminal state. Parallel stages use bounded spawn pools and `as_completed` for immediate observation, then materialize retained output in canonical order. Cache publication and result bundles are atomic; the manifest is the completion seal; worker cleanup must verify zero owned active children before finalization. The old `weil_continuation_driver.py` remains the historical one-prime path.
 
 P5 acceptance closes with focused multi-prime/frozen-v1 tests at `35/35`, bundle/P5 regression at `29/29`, a real parallel CLI smoke with verified cleanup, and the complete default Python suite at `591/591`.
+
+### `cert/certificate_v2_contract.py`
+
+P6 structural contract helper for `rh-weil-certificate-v2`. It loads and validates `docs/contracts/rh-weil-certificate-v2.json`, then applies canonical cross-field checks that JSON Schema alone cannot express: no floats, reduced support/interval rationals, strictly increasing `arithmetic_terms`, prime base validation, `m=base_prime^exponent`, full matrix coordinate coverage, and correct even/odd witness dimensions. This module does **not** export theorem certificates and does not call the Rust verifier. `V2_ALLOWED_CONFIGURATIONS` is deliberately an empty `frozenset`; structure-valid v2 data is not theorem-admitted data.
+
+P6 acceptance closes with `21/21` focused certificate-v2/frozen-v1/admission tests and `602/602` for the complete default Python suite.
 
 ## Shared implementation
 

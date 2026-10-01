@@ -1,10 +1,32 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-01T16:28:33Z`
+- **Last updated:** `2026-10-01T18:01:33Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-01T18:01:33Z — P6 closes green after full Python acceptance
+
+**Type:** Certificate-contract acceptance / v1 freeze audit / theorem-boundary audit
+
+The complete default Python suite passes `602/602` in `374.14 s`; focused certificate-v2 plus frozen-v1/admission tests pass `21/21`. Static scans confirm v2 contains no `c2`, `c3`, `G2`, or `G3` fields and does contain canonical `arithmetic_terms`, combined `GP`, and the `C-0059` factor-3 provenance lock. Production `V2_ALLOWED_CONFIGURATIONS` remains empty.
+
+The historical v1 schema, v1 exporter, and Rust verifier have no diff. No v2 Rust verifier, theorem pair, retained proof, or theorem admission was introduced. P6 is closed.
+
+---
+
+## 2026-10-01T17:51:51Z — P6 introduces closed certificate v2 with empty theorem admission
+
+**Type:** Certificate contract / theorem-boundary hardening / v1 freeze
+
+Added `docs/contracts/rh-weil-certificate-v2.json` with format `rh-weil-certificate-v2` and profile `multi_prime_power_legendre_schur`. V2 replaces one-prime-specific `c2/G2` serialization with canonical `arithmetic_terms` and combined `GP`: each term carries `m,base_prime,exponent` plus exact rational intervals for `log_m`, `tau`, `von_mangoldt`, `coefficient`, compressed-shift norm bound, and complement contribution. Global constants are only `c_T` and `rho_R`. The Schur proof requires `GV/GP/GR` and exact parity witnesses; `c2,c3,G2,G3` are not accepted in the v2 shape.
+
+The v2 tail object is closed to active prime powers with `log(m)<2T`, complement rule `H_N-c_T-sum(c_m*b_m)-rho_R`, grouped components `V,P,R`, factor exactly `3/1`, and explicit provenance `factor_claim=C-0059`. Added `scripts/cert/certificate_v2_contract.py` for schema plus canonical structural validation. The theorem-admission boundary is separate and production `V2_ALLOWED_CONFIGURATIONS=frozenset()`; therefore valid v2 structure admits no theorem pair.
+
+Focused P6 plus frozen-v1/admission regression passes `21/21`. `docs/contracts/rh-weil-certificate-v1.json`, `scripts/cert/export_certificate.py`, and `crates/rh_cert/src/cert.rs` have no diff. No Rust v2 verifier, theorem pair, retained proof, or theorem status was added.
+
+---
 
 ## 2026-10-01T16:28:33Z — P5 closes green after full Python acceptance
 

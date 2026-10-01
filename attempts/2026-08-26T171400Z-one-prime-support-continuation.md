@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-10-01T16:28:33Z`
+- **Last updated:** `2026-10-01T18:01:33Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -581,3 +581,11 @@ After the bridge gate, the same assembler was run at `T=3/5`, where the strict a
 The first real CLI smoke used `T=3/5`, dimensions `8,12`, three scout resolutions, and two scout workers. It correctly terminated at `NO_CANDIDATE` before rigorous work, retained scout levels in canonical order `0,1,2`, sealed active set `[2,3]` and the strict structural window into the manifest, reaped both workers, and reported zero active children. During this smoke the shared bundle writer exposed a historical-role hard code; it was narrowed to an explicit two-role allowlist for the historical and multi-prime pre-theorem drivers while preserving all theorem-boundary validation. Focused multi-prime/frozen-v1 acceptance is `35/35`; bundle/P5 regression is `29/29`.
 
 **P5 verification closure — `2026-10-01T16:28:33Z`.** The complete default Python suite passes `591/591` in `375.99 s`. `git diff --check` passes, and the frozen historical one-prime driver, scout, candidate, and assembler have no diff. The real smoke bundle verified manifest-last publication, canonical scout ordering, two reaped worker processes, and `active_children_after_cleanup=0`; its temporary artifacts were removed. P5 is closed.
+
+## Multi-prime upgrade P6 — separate certificate-v2 contract
+
+**Addendum — `2026-10-01T17:51:51Z`.** Added `docs/contracts/rh-weil-certificate-v2.json` with format `rh-weil-certificate-v2` and profile `multi_prime_power_legendre_schur` rather than extending v1. V2 serializes term-specific arithmetic data through canonical `arithmetic_terms`, each carrying `m,base_prime,exponent` plus exact rational intervals for `log_m`, `tau`, `von_mangoldt`, `coefficient`, compressed-shift norm bound, and complement contribution. Global constants are only `c_T` and `rho_R`. The Schur proof requires `GV`, combined `GP`, `GR`, and exact parity witnesses; `c2,c3,G2,G3` are not part of the v2 shape.
+
+The v2 tail rule is closed to `prime_powers_with_log_m_lt_2T`, complement `H_N-c_T-sum(c_m*b_m)-rho_R`, grouped components `V,P,R`, factor exactly `3/1`, and explicit `factor_claim=C-0059`. Added `scripts/cert/certificate_v2_contract.py` to validate schema plus canonical cross-field structure independently of theorem admission. `V2_ALLOWED_CONFIGURATIONS` is intentionally empty, so no structurally valid v2 artifact is theorem-admitted. Focused P6/frozen-v1/admission regression passes `21/21`. V1 schema/exporter and the Rust verifier remain untouched.
+
+**P6 verification closure — `2026-10-01T18:01:33Z`.** The complete default Python suite passes `602/602` in `374.14 s`. Static contract scans confirm `c2,c3,G2,G3` are absent from v2 while `arithmetic_terms`, `GP`, and `C-0059` are present. `git diff --check` passes and the v1 schema, v1 exporter, and Rust verifier remain byte-unmodified. P6 is closed with an empty production v2 theorem whitelist.
