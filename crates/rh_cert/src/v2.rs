@@ -146,7 +146,7 @@ fn matches_prime_power(m: usize, prime: usize, exponent: usize) -> bool {
     remaining == 1 && actual_exponent == exponent
 }
 
-fn allowed_v2_configuration(support: &BigRational, dimension: usize) -> bool {
+pub fn is_allowed_v2_configuration(support: &BigRational, dimension: usize) -> bool {
     V2_ALLOWED_CONFIGURATIONS.iter().any(|(num, den, dim)| {
         dimension == *dim && *support == BigRational::new(BigInt::from(*num), BigInt::from(*den))
     })
@@ -583,6 +583,7 @@ fn validate_arithmetic_terms(
     let one = BigRational::one();
     let two = BigRational::from_integer(BigInt::from(2));
     let mut prime_losses = Vec::with_capacity(2);
+    let mut log_intervals = Vec::with_capacity(2);
 
     for (index, term) in terms.iter().enumerate() {
         let field = format!("$.arithmetic_terms[{index}]");
@@ -659,7 +660,27 @@ fn validate_arithmetic_terms(
                 "must enclose the independently derived coefficient * compressed_shift_norm_bound interval",
             ));
         }
+        log_intervals.push(log_m);
         prime_losses.push(derived_loss);
+    }
+
+    // Prove the strict first structural window from exact rational interval
+    // endpoints carried by the certificate. For m=3, T > log(3)/2 is proven
+    // only if T exceeds the upper endpoint. For m=2, log(4)/2 = log(2), so
+    // T < log(4)/2 is proven only if T lies below the lower log(2) endpoint.
+    let lower_threshold_upper = &log_intervals[1].hi / &two;
+    if support <= &lower_threshold_upper {
+        return Err(validation_error(
+            "$.support_T",
+            "must be provably strictly greater than log(3)/2",
+        ));
+    }
+    let upper_threshold_lower = &log_intervals[0].lo;
+    if support >= upper_threshold_lower {
+        return Err(validation_error(
+            "$.support_T",
+            "must be provably strictly less than log(4)/2",
+        ));
     }
 
     Ok(prime_losses)
@@ -910,7 +931,7 @@ impl CertificateV2 {
     /// P7 leaves the production whitelist empty, so production calls currently
     /// fail closed here even when the exact rational structure is otherwise valid.
     pub fn verify(&self) -> Result<VerificationOutcome, CertificateError> {
-        if !allowed_v2_configuration(&self.support, self.document.dimension) {
+        if !is_allowed_v2_configuration(&self.support, self.document.dimension) {
             return Err(validation_error(
                 "$.support_T",
                 "v2 theorem configuration is not admitted; the production v2 whitelist is empty",

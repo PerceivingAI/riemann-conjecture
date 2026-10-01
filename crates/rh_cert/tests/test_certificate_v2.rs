@@ -1,8 +1,10 @@
 use std::fs;
 use std::process::Command;
 
+use num_bigint::BigInt;
+use num_rational::BigRational;
 use rh_cert::dispatch::DispatchedCertificate;
-use rh_cert::v2::{CertificateV2, V2_ALLOWED_CONFIGURATIONS};
+use rh_cert::v2::{is_allowed_v2_configuration, CertificateV2, V2_ALLOWED_CONFIGURATIONS};
 use serde_json::{json, Value};
 
 fn interval(value: &str) -> Value {
@@ -70,6 +72,52 @@ fn term(m: usize) -> Value {
     })
 }
 
+fn parse_fraction(text: &str) -> BigRational {
+    let (num, den) = text.split_once('/').expect("fraction support");
+    BigRational::new(
+        BigInt::parse_bytes(num.as_bytes(), 10).expect("numerator"),
+        BigInt::parse_bytes(den.as_bytes(), 10).expect("denominator"),
+    )
+}
+
+fn apply_cross_layer_case(case_id: &str) -> Value {
+    let mut value = fixture();
+    match case_id {
+        "valid_first_window_structure" => {}
+        "missing_m3" => {
+            value["arithmetic_terms"]
+                .as_array_mut()
+                .expect("terms")
+                .pop();
+        }
+        "duplicate_m3" => value["arithmetic_terms"][0] = term(3),
+        "substituted_m3" => value["arithmetic_terms"][1] = term(5),
+        "m4_in_first_window" => {
+            value["arithmetic_terms"][1] = term(4);
+            value["arithmetic_terms"][1]["base_prime"] = json!(2);
+            value["arithmetic_terms"][1]["exponent"] = json!(2);
+        }
+        "malformed_coefficient_interval" => {
+            value["arithmetic_terms"][0]["coefficient"]["lo_den"] = json!("0");
+        }
+        "malformed_norm_interval" => {
+            value["arithmetic_terms"][0]["compressed_shift_norm_bound"] = interval("2");
+        }
+        "missing_gp" => {
+            value["schur_proof"]
+                .as_object_mut()
+                .expect("proof")
+                .remove("GP");
+        }
+        "malformed_gp_interval" => {
+            value["schur_proof"]["GP"]["entries"][0]["lo_den"] = json!("0");
+        }
+        "wrong_factor" => value["tail_bound"]["factor"]["num"] = json!("2"),
+        other => panic!("unknown P8 corpus case {other}"),
+    }
+    value
+}
+
 fn fixture() -> Value {
     let dimension = 4usize;
     json!({
@@ -112,6 +160,80 @@ fn fixture() -> Value {
             "timestamp_utc": "2026-10-01T00:00:00Z"
         }
     })
+}
+
+#[test]
+fn p8_cross_layer_corpus_matches_rust_structural_validator() {
+    let corpus: Value = serde_json::from_str(include_str!(
+        "../../../tests/data/certificate-v2-cross-layer-v1.json"
+    ))
+    .expect("cross-layer corpus");
+    assert_eq!(
+        corpus["format"],
+        "rh-weil-certificate-v2-cross-layer-corpus-v1"
+    );
+    for case in corpus["cases"].as_array().expect("cases") {
+        let id = case["id"].as_str().expect("case id");
+        let expected = case["expected_valid"].as_bool().expect("expected");
+        let actual = CertificateV2::from_json_str(&apply_cross_layer_case(id).to_string()).is_ok();
+        assert_eq!(actual, expected, "cross-layer case {id}");
+    }
+}
+
+#[test]
+fn p8_closed_grid_admission_corpus_matches_rust_whitelist() {
+    let corpus: Value = serde_json::from_str(include_str!(
+        "../../../tests/data/multi-prime-admission-v2.json"
+    ))
+    .expect("admission corpus");
+    assert_eq!(corpus["format"], "multi-prime-admission-corpus-v2");
+    assert!(corpus["allowed"].as_array().expect("allowed").is_empty());
+    let forbidden = corpus["forbidden"].as_array().expect("forbidden");
+    assert_eq!(forbidden.len(), 16);
+    for case in forbidden {
+        let support = parse_fraction(case["support_T"].as_str().expect("support"));
+        let dimension = case["dimension"].as_u64().expect("dimension") as usize;
+        assert!(
+            !is_allowed_v2_configuration(&support, dimension),
+            "unexpected admission for {}/{}",
+            case["support_T"],
+            case["dimension"]
+        );
+    }
+}
+
+#[test]
+fn p8_v2_rejects_exact_and_near_serialized_window_boundaries() {
+    let mut lower_equal = fixture();
+    lower_equal["support_T"] = json!({"num":"1","den":"2","frac":"1/2"});
+    lower_equal["arithmetic_terms"][0]["tau"] = interval("2");
+    lower_equal["arithmetic_terms"][1]["tau"] = interval("2");
+    let error = CertificateV2::from_json_str(&lower_equal.to_string())
+        .expect_err("lower threshold equality must fail closed");
+    assert!(error.to_string().contains("strictly") || error.to_string().contains("log(3)/2"));
+
+    let mut lower_below = fixture();
+    lower_below["support_T"] = json!({"num":"499999","den":"1000000","frac":"499999/1000000"});
+    assert!(CertificateV2::from_json_str(&lower_below.to_string()).is_err());
+
+    let mut upper_equal = fixture();
+    upper_equal["support_T"] = json!({"num":"1","den":"1","frac":"1/1"});
+    assert!(CertificateV2::from_json_str(&upper_equal.to_string()).is_err());
+
+    let mut upper_above = fixture();
+    upper_above["support_T"] = json!({"num":"1000001","den":"1000000","frac":"1000001/1000000"});
+    assert!(CertificateV2::from_json_str(&upper_above.to_string()).is_err());
+}
+
+#[test]
+fn p8_v2_rejects_wrong_parity_in_gp() {
+    let mut value = fixture();
+    value["schur_proof"]["GP"]["entries"][1]["lo_num"] = json!("1");
+    value["schur_proof"]["GP"]["entries"][1]["hi_num"] = json!("1");
+    value["schur_proof"]["GP"]["entries"][4]["lo_num"] = json!("1");
+    value["schur_proof"]["GP"]["entries"][4]["hi_num"] = json!("1");
+    let error = CertificateV2::from_json_str(&value.to_string()).expect_err("wrong parity");
+    assert!(error.to_string().contains("opposite-parity"));
 }
 
 #[test]

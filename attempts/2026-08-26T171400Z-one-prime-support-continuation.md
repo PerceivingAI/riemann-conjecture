@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-10-01T18:41:00Z`
+- **Last updated:** `2026-10-01T19:06:42Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -595,5 +595,11 @@ The v2 tail rule is closed to `prime_powers_with_log_m_lt_2T`, complement `H_N-c
 **Addendum — `2026-10-01T18:22:11Z`.** Added `crates/rh_cert/src/v2.rs` and `crates/rh_cert/src/dispatch.rs`, with CLI dispatch by certificate `format`; frozen v1 verification in `cert.rs` remains unchanged. The v2 verifier independently rejects missing/duplicate/unsorted/substituted arithmetic terms and requires exact first-window identities `[2,3]`; validates exact prime-power identities and first-window `b_m=1`; derives prime-loss intervals from exact-rational `coefficient*b_m`; requires serialized complement contributions to enclose those derived losses; derives positive `mu_N=H_N-c_T-sum(prime_loss_m)-rho_R`; reconstructs the factor-3 `A-(3/mu_N)(GV+GP+GR)` parity blocks; and verifies exact lower-triangular congruence/Gershgorin witnesses.
 
 Production Rust theorem admission remains empty. CLI therefore rejects every currently structurally valid v2 pair as unauthorized contract failure (exit `2`). Internal verifier regression separately exercises the future admitted arithmetic path and proves that a contract-valid nonpositive Schur matrix returns `passed=false` rather than a contract error, preserving theorem-failure semantics. The trust boundary is explicit: Rust verifies zero-float exact rational interval proof arithmetic and consistency but does not independently establish the upstream transcendental Arb enclosures. Rust acceptance passes all `63/63` `rh_cert` tests, strict clippy, and rustfmt; focused Python v2/frozen-v1 regression passes `21/21`.
+
+## Multi-prime upgrade P8 — adversarial/cross-layer pre-continuation gate
+
+**P8 verification closure — `2026-10-01T19:06:42Z`.** Added shared test-only structural corpus `tests/data/certificate-v2-cross-layer-v1.json` and closed admission grid `tests/data/multi-prime-admission-v2.json`. The v2 schema now fixes first-window arithmetic terms to exactly `[2,3]` and unit norm bounds. Python semantics and Rust independently re-check active identities, arithmetic interval relationships, strict support-window separation, matrix symmetry/parity, `GP`, factor, and complement/witness prerequisites. Threshold equality/overlap and low-precision near-threshold cases fail closed; `m=4` is rejected in the first v2 window. The 10-case shared structural corpus gives identical expected outcomes under raw Python Schema, Python semantics, and Rust; threshold/parity cross-field attacks are separately checked in Python/Rust. The 16-case support/dimension admission grid has no allowed entry and is rejected independently by schema admission metadata, Python, and Rust. Production code does not load either corpus.
+
+Focused Python acceptance passes `41/41`; complete Rust verifier acceptance passes `67/67`; strict clippy/rustfmt pass; complete Python passes `608/608` in `387.29 s`; retained proof chain remains `8/8`. Frozen v1 verifier/schema/exporter are unchanged and v2 theorem admission remains empty. P8 is closed without running a real continuation.
 
 **P7 verification closure — `2026-10-01T18:41:00Z`.** The complete default Python suite passes `602/602` in `515.09 s`. The retained proof gate replays `C-0050..C-0057` through the new format dispatcher with `HASH PASS / VERIFY PASS` for every artifact and closes `8/8`. The frozen v1 `cert.rs`, v1 schema, and v1 Python exporter remain unmodified; the v1 schema hash remains `0a58b6a36055b6b56720d275e96c19d0275948872542491099cd68c454bbed48`. P7 is closed with the production v2 theorem whitelist still empty.

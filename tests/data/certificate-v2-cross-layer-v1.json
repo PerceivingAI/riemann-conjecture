@@ -1,0 +1,16 @@
+{
+  "format": "rh-weil-certificate-v2-cross-layer-corpus-v1",
+  "purpose": "test-only",
+  "cases": [
+    {"id": "valid_first_window_structure", "expected_valid": true},
+    {"id": "missing_m3", "expected_valid": false},
+    {"id": "duplicate_m3", "expected_valid": false},
+    {"id": "substituted_m3", "expected_valid": false},
+    {"id": "m4_in_first_window", "expected_valid": false},
+    {"id": "malformed_coefficient_interval", "expected_valid": false},
+    {"id": "malformed_norm_interval", "expected_valid": false},
+    {"id": "missing_gp", "expected_valid": false},
+    {"id": "malformed_gp_interval", "expected_valid": false},
+    {"id": "wrong_factor", "expected_valid": false}
+  ]
+}

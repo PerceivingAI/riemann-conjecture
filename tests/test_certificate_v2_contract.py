@@ -34,6 +34,20 @@ def _interval(value: str = "1") -> dict[str, str]:
     }
 
 
+def _rational_interval(
+    lo_num: str,
+    lo_den: str,
+    hi_num: str | None = None,
+    hi_den: str | None = None,
+) -> dict[str, str]:
+    return {
+        "lo_num": lo_num,
+        "lo_den": lo_den,
+        "hi_num": hi_num if hi_num is not None else lo_num,
+        "hi_den": hi_den if hi_den is not None else lo_den,
+    }
+
+
 def _matrix(dimension: int = 2) -> dict[str, object]:
     entries: list[dict[str, object]] = []
     for row in range(dimension):
@@ -74,11 +88,11 @@ def _term(m: int, base_prime: int, exponent: int) -> dict[str, object]:
         "base_prime": base_prime,
         "exponent": exponent,
         "log_m": _interval(),
-        "tau": _interval(),
+        "tau": _rational_interval("3", "2"),
         "von_mangoldt": _interval(),
-        "coefficient": _interval(),
+        "coefficient": _rational_interval("1", "10"),
         "compressed_shift_norm_bound": _interval(),
-        "complement_contribution": _interval(),
+        "complement_contribution": _rational_interval("1", "10"),
     }
 
 
@@ -89,11 +103,11 @@ def _fixture() -> dict[str, object]:
         "format": CERTIFICATE_FORMAT_V2,
         "claim": "v2-structural-fixture",
         "claim_profile": CLAIM_PROFILE_V2,
-        "support_T": {"num": "3", "den": "5", "frac": "3/5"},
+        "support_T": {"num": "2", "den": "3", "frac": "2/3"},
         "basis": {"type": "legendre", "dimension": 2, "domain": "[-1, 1]"},
         "parity_sector": "both",
         "dimension": 2,
-        "constants": {"c_T": _interval(), "rho_R": _interval()},
+        "constants": {"c_T": _interval("0"), "rho_R": _interval("0")},
         "arithmetic_terms": [_term(2, 2, 1), _term(3, 3, 1)],
         "matrix": matrix,
         "tail_bound": {
@@ -145,8 +159,8 @@ def test_p6_structural_fixture_is_schema_valid_but_not_theorem_admitted() -> Non
     assert validate_certificate_v2_schema(fixture) == (True, "ok")
     assert validate_certificate_v2_structure(fixture) == (True, "ok")
     assert V2_ALLOWED_CONFIGURATIONS == frozenset()
-    assert not is_allowed_v2_configuration(Fraction(3, 5), 2)
-    assert not is_allowed_v2_configuration(Fraction(3, 5), 160)
+    assert not is_allowed_v2_configuration(Fraction(2, 3), 2)
+    assert not is_allowed_v2_configuration(Fraction(2, 3), 160)
 
 
 def test_p6_term_specific_constants_live_only_in_arithmetic_terms() -> None:
@@ -185,20 +199,20 @@ def test_p6_structural_validator_enforces_canonical_term_identity_and_order() ->
     fixture["arithmetic_terms"] = list(reversed(fixture["arithmetic_terms"]))  # type: ignore[index]
     valid, message = validate_certificate_v2_structure(fixture)
     assert valid is False
-    assert "strictly increasing by m" in message
+    assert "strictly increasing by m" in message or "was expected" in message
 
     fixture = _fixture()
     fixture["arithmetic_terms"][1]["base_prime"] = 2  # type: ignore[index]
     valid, message = validate_certificate_v2_structure(fixture)
     assert valid is False
-    assert "m = base_prime^exponent" in message
+    assert "m = base_prime^exponent" in message or "was expected" in message
 
     fixture = _fixture()
     fixture["arithmetic_terms"][1]["base_prime"] = 4  # type: ignore[index]
     fixture["arithmetic_terms"][1]["m"] = 4  # type: ignore[index]
     valid, message = validate_certificate_v2_structure(fixture)
     assert valid is False
-    assert "base_prime must be prime" in message
+    assert "base_prime must be prime" in message or "was expected" in message
 
 
 def test_p6_structural_validator_rejects_noncanonical_intervals_and_dimensions() -> None:

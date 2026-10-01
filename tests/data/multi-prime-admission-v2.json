@@ -1,0 +1,23 @@
+{
+  "format": "multi-prime-admission-corpus-v2",
+  "purpose": "test-only",
+  "allowed": [],
+  "forbidden": [
+    {"support_T": "3/5", "dimension": 104},
+    {"support_T": "3/5", "dimension": 112},
+    {"support_T": "3/5", "dimension": 120},
+    {"support_T": "3/5", "dimension": 128},
+    {"support_T": "5/8", "dimension": 104},
+    {"support_T": "5/8", "dimension": 112},
+    {"support_T": "5/8", "dimension": 120},
+    {"support_T": "5/8", "dimension": 128},
+    {"support_T": "13/20", "dimension": 104},
+    {"support_T": "13/20", "dimension": 112},
+    {"support_T": "13/20", "dimension": 120},
+    {"support_T": "13/20", "dimension": 128},
+    {"support_T": "2/3", "dimension": 104},
+    {"support_T": "2/3", "dimension": 112},
+    {"support_T": "2/3", "dimension": 120},
+    {"support_T": "2/3", "dimension": 128}
+  ]
+}

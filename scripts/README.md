@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-01T18:41:00Z`
+- **Last updated:** `2026-10-01T19:06:42Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -340,6 +340,8 @@ P6 acceptance closes with `21/21` focused certificate-v2/frozen-v1/admission tes
 P7 adds the independent Rust consumer for this structure under `crates/rh_cert/src/v2.rs` with format routing in `crates/rh_cert/src/dispatch.rs`. The Python helper above remains structural/generator-side tooling and does not call or substitute for the Rust verifier. Rust requires exact first-window terms `[2,3]`, independently derives the exact-rational prime losses and `mu_N`, rebuilds the factor-3 `GV+GP+GR` Schur blocks, and checks exact parity witnesses. The production v2 theorem whitelist is still empty. The Rust trust boundary remains exact-rational: it checks serialized interval arithmetic and relationships but does not independently establish the underlying transcendental Arb enclosures.
 
 P7 closure: Rust `63/63`, strict clippy/rustfmt, focused Python `21/21`, complete default Python `602/602`, and retained theorem replay `8/8`.
+
+P8 hardens the pre-continuation boundary. `certificate_v2_contract.py` now semantically enforces exact first-window terms `[2,3]`, exact `b_m=1`, coefficient/norm/complement relationships, matrix symmetry/parity, and fail-closed strict support from the serialized log intervals. The JSON Schema independently closes the serializable term shape to `[2,3]`. Cross-layer structural cases live in `tests/data/certificate-v2-cross-layer-v1.json`; closed theorem-admission cases live in `tests/data/multi-prime-admission-v2.json`. These are test-only oracles and are never production inputs. P8 closure is focused Python `41/41`, Rust `67/67`, full Python `608/608`, retained replay `8/8`, with strict clippy/rustfmt.
 
 ## Shared implementation
 

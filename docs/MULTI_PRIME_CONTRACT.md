@@ -1,7 +1,7 @@
 # Multi-prime mathematical contract
 
 - **Created:** `2026-10-01T10:14:40Z`
-- **Last updated:** `2026-10-01T18:41:00Z`
+- **Last updated:** `2026-10-01T19:06:42Z`
 - **Status:** Authoritative pre-implementation mathematical contract
 
 This document freezes the mathematics that future multi-prime tooling must implement. It does **not** admit a new theorem profile, change `rh-weil-certificate-v1`, or create a theorem claim beyond the already retained one-prime results `C-0050..C-0057`.
@@ -321,7 +321,19 @@ The trust boundary is explicit: this zero-float Rust layer verifies exact ration
 
 P7 acceptance is closed: complete `rh_cert` suite `63/63`; strict `cargo clippy -p rh_cert --all-targets -- -D warnings`; `cargo fmt -p rh_cert -- --check`; focused Python v2/frozen-v1 regression `21/21`; complete default Python suite `602/602` in `515.09 s`; retained v1 proof replay `8/8` through the new dispatcher.
 
-## 11. Certification boundary
+## 11. P8 adversarial and cross-layer gate
+
+Before a real continuation, the first v2 window is now locked at all three structural layers. The JSON Schema requires exactly two arithmetic terms, in order `m=2,3`, with the corresponding prime identities and exact `b_m=1`. Python semantics and Rust independently repeat the identity checks and prove the strict support window from serialized exact-rational log enclosures: `T > upper(log(3))/2` and `T < lower(log(2))`. Therefore threshold equality, enclosure overlap, or insufficient separation fails closed rather than being rounded into the window.
+
+The shared test-only structural corpus is `tests/data/certificate-v2-cross-layer-v1.json`. It covers one valid fixture plus missing, duplicated, or substituted `m=3`; forbidden `m=4`; malformed coefficient or norm intervals; missing or malformed `GP`; and wrong factor. Raw Python JSON Schema, Python semantic validation, and Rust independently replay all ten cases and agree on every expected result. Wrong-parity and threshold arithmetic are separate Python/Rust adversarial tests because those are cross-field relationships that JSON Schema cannot express.
+
+The theorem-admission grid is separately frozen in `tests/data/multi-prime-admission-v2.json`: 16 combinations formed from supports `{3/5,5/8,13/20,2/3}` and dimensions `{104,112,120,128}`, all forbidden. Schema-side `$defs.theoremAdmission`, Python production admission, and Rust production admission independently reject the entire grid. Both corpus files are acceptance oracles only and production code is regression-guarded against loading them.
+
+The frozen v1 support gate remains strict and rejects support beyond the `log(3)/2` boundary; the real v2 continuation gate continues to prove `log(3)/2<T<log(4)/2` with Arb and independently requires active set exactly `{2,3}`. The existing internal Rust authorized-arithmetic regression also confirms a structurally valid negative Schur certificate returns `passed=false` instead of being mislabeled a contract error.
+
+P8 acceptance: focused Python `41/41`; complete Rust `67/67`; strict clippy and rustfmt; complete Python `608/608` in `387.29 s`; retained v1 proof replay `8/8`. No v2 theorem pair is admitted.
+
+## 12. Certification boundary
 
 The analytic factor `3` is explicitly closed by `C-0059` / `F-20261001-002`, and P7 now provides the separate independent Rust v2 exact-rational verification path. The theorem path nevertheless remains closed because the production v2 whitelist is empty and no v2 theorem-bearing exporter/admission, fresh proof run, retained proof, or theorem claim has been introduced.
 

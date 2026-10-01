@@ -1,10 +1,20 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-01T18:41:00Z`
+- **Last updated:** `2026-10-01T19:06:42Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-01T19:06:42Z — P8 closes adversarial and cross-layer gates before continuation
+
+**Type:** Cross-layer contract hardening / adversarial acceptance / closed admission grid
+
+The first v2 certificate window is now fail-closed across schema, Python semantics, and Rust. Schema fixes the serializable arithmetic set to canonical `[2,3]` with exact unit norm bounds; semantic/Rust layers independently verify arithmetic relationships and strict support-window separation from exact-rational interval endpoints. Added a shared 10-case structural corpus and a separate 16-case all-forbidden theorem-admission grid; production code is prohibited from loading either test oracle. Separate threshold/parity attacks cover cross-field relations that raw JSON Schema cannot express. A structurally valid negative Rust fixture continues to return theorem failure rather than contract failure.
+
+Acceptance is green: focused Python `41/41`; complete Rust `67/67`; strict clippy/rustfmt; complete Python `608/608` in `387.29 s`; retained proof replay `8/8`. Frozen v1 verifier/schema/exporter remain unchanged, and production v2 theorem admission remains empty. No real continuation was run in P8.
+
+---
 
 ## 2026-10-01T18:41:00Z — P7 closes with full regression and retained-proof replay
 

@@ -61,6 +61,8 @@ All eight pairs above support registered independently verified finite-support r
 
 **Multi-prime P7 verifier — `2026-10-01T18:22:11Z`.** V2 verification lives in `crates/rh_cert/src/v2.rs` and format routing in `crates/rh_cert/src/dispatch.rs`; do not fold it into or modify frozen `crates/rh_cert/src/cert.rs`. The first v2 window must contain canonical sorted unique terms exactly `[2,3]`. Rust derives prime losses from `coefficient*b_m`, derives and requires positive `mu_N`, reconstructs `A-(3/mu_N)(GV+GP+GR)`, enforces parity, and verifies exact congruence/Gershgorin witnesses. Production `V2_ALLOWED_CONFIGURATIONS` remains empty until an explicit theorem-admission slice. Preserve exit semantics: malformed/unauthorized = contract failure; admitted-but-nonpositive = theorem failure. Do not overstate the trust boundary: Rust verifies exact rational interval arithmetic and serialized consistency, not the truth of upstream transcendental Arb enclosures.
 
+**Multi-prime P8 adversarial gate — `2026-10-01T19:06:42Z`.** Before any real v2 continuation, preserve `tests/data/certificate-v2-cross-layer-v1.json` and `tests/data/multi-prime-admission-v2.json` as test-only acceptance corpora; production code must never load them. First-window v2 certificates must serialize exactly `[2,3]` with exact `b_m=1`. Python semantics and Rust must independently prove strict support using the serialized rational log enclosures and reject equality/overlap. Keep parity and threshold tests in semantic/Rust layers; raw JSON Schema cannot prove those cross-field arithmetic relations. The v2 admission grid currently has zero allowed pairs, so do not add an admitted pair as part of testing/tooling work. A valid negative theorem matrix must remain theorem failure, not contract failure.
+
 ## 3. Repository map
 
 Use this map before searching broadly.
@@ -227,6 +229,7 @@ Focused admission consistency checks:
 uv run --locked --extra test python -m pytest -q tests/test_admission_consistency.py
 cargo test -p rh_cert --test test_exact_prime_schur exact_prime_admission_matches_shared_test_corpus
 cargo test -p rh_cert --test test_certificate_v2
+uv run --locked --extra test python -m pytest -q tests/test_v2_adversarial_consistency.py
 ```
 
 The continuation driver and `weil_support_candidate_check.py` are **pre-theorem** modules. They must not import/call theorem-admission machinery or grant theorem status.
