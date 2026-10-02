@@ -87,10 +87,17 @@ fn main() {
 
             let a = 2.0 * s0 - 1.0;
             let q = -s0 / (s0 - 1.0);
-            println!("================================================================================");
+            println!(
+                "================================================================================"
+            );
             println!("PRIME-LAGUERRE TRACE CALCULATOR (Native Rayon Engine)");
-            println!("================================================================================");
-            println!("s0={s0:.6}  A={a:.6}  q={q:.6}  |q|={:.6}  max_n={n_max}", q.abs());
+            println!(
+                "================================================================================"
+            );
+            println!(
+                "s0={s0:.6}  A={a:.6}  q={q:.6}  |q|={:.6}  max_n={n_max}",
+                q.abs()
+            );
             println!("Cutoffs: {:?}", cutoff_list);
             println!();
 
@@ -104,7 +111,12 @@ fn main() {
                 for entry in &res.entries {
                     println!(
                         "{:3} | {:20.10e} | {:20.10e} | {:20.10e} | {:11.6} | {:10.6}",
-                        entry.n, entry.p_n, entry.pole_term, entry.s_n, entry.s_n_root, entry.p_n_root
+                        entry.n,
+                        entry.p_n,
+                        entry.pole_term,
+                        entry.s_n,
+                        entry.s_n_root,
+                        entry.p_n_root
                     );
                 }
                 println!();
@@ -130,18 +142,19 @@ fn main() {
             simpson_steps,
             output_json,
         } => {
-            let n_list: Vec<usize> = n
-                .split(',')
-                .filter_map(|s| s.trim().parse().ok())
-                .collect();
+            let n_list: Vec<usize> = n.split(',').filter_map(|s| s.trim().parse().ok()).collect();
             let bins_list: Vec<f64> = u_bins
                 .split(',')
                 .filter_map(|s| s.trim().parse().ok())
                 .collect();
 
-            println!("================================================================================");
+            println!(
+                "================================================================================"
+            );
             println!("RANGE DECOMPOSITION IN TURNING-SCALE u=t/(4n) BINS");
-            println!("================================================================================");
+            println!(
+                "================================================================================"
+            );
             println!("s0={s0:.6}  max_m={max_m}  u_bins={:?}", bins_list);
             println!();
 
@@ -155,7 +168,12 @@ fn main() {
                 for b in &res.bins {
                     println!(
                         "[{:4.2},{:4.2}) | {:22.12e} | {:22.12e} | {:22.12e} | {:10}",
-                        b.u_lo, b.u_hi, b.discrete_sum, b.continuous_integral, b.discrepancy, b.count_prime_powers
+                        b.u_lo,
+                        b.u_hi,
+                        b.discrete_sum,
+                        b.continuous_integral,
+                        b.discrepancy,
+                        b.count_prime_powers
                     );
                 }
                 println!("-----------+------------------------+------------------------+------------------------+------------");
@@ -184,10 +202,17 @@ fn main() {
                 .filter_map(|s| s.trim().parse().ok())
                 .collect();
 
-            println!("================================================================================");
+            println!(
+                "================================================================================"
+            );
             println!("BENCHMARK: MULTI-THREADED RAYON SIEVE + BATCH LAGUERRE RECURRENCE");
-            println!("================================================================================");
-            println!("s0={s0:.6}  max_n={n_max}  threads={}", rayon::current_num_threads());
+            println!(
+                "================================================================================"
+            );
+            println!(
+                "s0={s0:.6}  max_n={n_max}  threads={}",
+                rayon::current_num_threads()
+            );
             println!();
 
             for &cutoff in &cutoff_list {

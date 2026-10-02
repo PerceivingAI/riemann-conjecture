@@ -64,7 +64,7 @@ from scripts.weil_multi_prime_support_candidate_check import (
 from scripts.weil_multi_prime_support_continuation_scout import scout_support
 
 
-DRIVER_VERSION = "multi-prime-continuation-driver-p5-v1"
+DRIVER_VERSION = "multi-prime-continuation-driver-p9-phase9-v3"
 SCOUT_RELATIVE_CONVERGENCE_TOLERANCE = 1e-2
 SCOUT_STABILITY_WINDOW = 3
 CANONICAL_SCOUT_RESOLUTION_COUNT = 8
@@ -505,20 +505,24 @@ def build_precision_ladder(start: int = 128, maximum: int = 512) -> list[int]:
     return ladder
 
 
-CACHE_VERSION = "multi-prime-continuation-driver-v1"
+CACHE_VERSION = "multi-prime-continuation-driver-v3"
 CACHE_SOURCE_PATHS = (
     "scripts/weil_multi_prime_continuation_driver.py",
     "scripts/weil_multi_prime_schur_scout.py",
     "scripts/weil_multi_prime_support_continuation_scout.py",
     "scripts/weil_multi_prime_support_candidate_check.py",
     "scripts/precision_diagnostics.py",
+    "scripts/multi_prime_precision_diagnostics.py",
     "scripts/cert/exact_prime_schur_common.py",
+    "scripts/cert/multi_prime_exact_witness.py",
     "scripts/cert/multi_prime_legendre_schur.py",
     "scripts/cert/prime_power_terms.py",
     "scripts/cert/legendre_schur.py",
     "scripts/cert/residual_kernel.py",
     "scripts/cert/matrices.py",
     "scripts/cert/constants.py",
+    "scripts/audit_multi_prime_candidate.py",
+    "scripts/continuation_bundle.py",
     "uv.lock",
 )
 
@@ -668,10 +672,10 @@ def _classify_reconnaissance(rows: list[ScoutDimensionResult]) -> str:
 def _precision_pair_diagnostics(
     previous: dict[str, object], current: dict[str, object]
 ) -> dict[str, object]:
-    def change(name: str) -> float | None:
-        if name not in previous or name not in current:
+    def change(name: str) -> str | None:
+        if previous.get(name) is None or current.get(name) is None:
             return None
-        return abs(float(current[name]) - float(previous[name]))
+        return str(abs(_fraction_metric(current, name) - _fraction_metric(previous, name)))
 
     width_names = (
         "A_max",
@@ -687,26 +691,29 @@ def _precision_pair_diagnostics(
     if not isinstance(previous_widths, dict) or not isinstance(current_widths, dict):
         raise ValueError("rigorous result is missing interval widths")
     width_changes = {
-        name: float(current_widths[name]) - float(previous_widths[name])
+        name: Fraction(current_widths[name]) - Fraction(previous_widths[name])
         for name in width_names
     }
     signs = {
-        "mu_lower_positive": (float(current["mu_lower"]) > 0)
-        == (float(previous["mu_lower"]) > 0),
-        "finite_block_positive": (
-            float(current["finite_block_min_eigenvalue_midpoint"]) > 0
+        label: (_fraction_metric(current, name) > 0)
+        == (_fraction_metric(previous, name) > 0)
+        for label, name in (
+            ("mu_lower_positive", "mu_lower"),
+            ("finite_block_positive", "finite_block_min_eigenvalue_midpoint"),
+            ("schur_positive", "schur_min_eigenvalue_midpoint"),
         )
-        == (float(previous["finite_block_min_eigenvalue_midpoint"]) > 0),
-        "schur_positive": (float(current["schur_min_eigenvalue_midpoint"]) > 0)
-        == (float(previous["schur_min_eigenvalue_midpoint"]) > 0),
     }
 
-    penalty_changes: dict[str, float] | None = None
+    penalty_changes: dict[str, str | None] | None = None
     previous_penalties = previous.get("component_schur_penalty_operator_norm_midpoint")
     current_penalties = current.get("component_schur_penalty_operator_norm_midpoint")
     if isinstance(previous_penalties, dict) and isinstance(current_penalties, dict):
         penalty_changes = {
-            name: abs(float(current_penalties[name]) - float(previous_penalties[name]))
+            name: (
+                str(abs(Fraction(current_penalties[name]) - Fraction(previous_penalties[name])))
+                if current_penalties[name] is not None and previous_penalties[name] is not None
+                else None
+            )
             for name in ("GV", "GP", "GR")
         }
 
@@ -722,7 +729,7 @@ def _precision_pair_diagnostics(
         "rho_R_upper_change": change("rho_R_upper"),
         "residual_remainder_upper_change": change("residual_remainder_upper"),
         "component_penalty_midpoint_changes": penalty_changes,
-        "interval_width_changes": width_changes,
+        "interval_width_changes": {name: str(delta) for name, delta in width_changes.items()},
         "widths_reduced": all(delta <= 0 for delta in width_changes.values()),
         "signs_stable": signs,
         "all_key_signs_stable": all(signs.values()),
@@ -739,7 +746,7 @@ def _precision_instability_reasons(
     """Explain why the current Arb result is not yet precision-qualified."""
     reasons: list[str] = []
     if not usable:
-        reasons.append("non_finite_key_quantity")
+        reasons.append("midpoint_diagnostic_unavailable")
         return reasons
     if diagnostics is None:
         reasons.append("no_prior_precision_for_stability_check")
@@ -750,7 +757,7 @@ def _precision_instability_reasons(
             reasons.append("interval_widths_not_reduced")
         if not stable_change:
             reasons.append("midpoint_not_stable")
-    if float(schur_value) < 0 and (
+    if Fraction(str(schur_value)) < 0 and (
         diagnostics is None
         or diagnostics["all_key_signs_stable"] is not True
         or diagnostics["widths_reduced"] is not True
@@ -782,11 +789,9 @@ def _escalate_rigorous_screen(
     *,
     progress: LiveProgress | None = None,
 ) -> dict[str, object]:
-    import math
-
     attempts: list[dict[str, object]] = []
     pair_diagnostics: list[dict[str, object]] = []
-    previous_schur: float | None = None
+    previous_schur: Fraction | None = None
     previous_result: dict[str, object] | None = None
     for precision in precisions:
         if progress is not None:
@@ -823,19 +828,15 @@ def _escalate_rigorous_screen(
                 progress.emit(f"N={dimension} precision={precision} assembly-failed")
             continue
 
-        schur = result["schur_min_eigenvalue_midpoint"]
-        finite = result["finite_block_min_eigenvalue_midpoint"]
-        mu_lower = result["mu_lower"]
-        usable = all(
-            isinstance(value, (int, float))
-            and math.isfinite(float(value))
-            for value in (schur, finite, mu_lower)
-        )
+        usable = result.get("midpoint_diagnostics_available") is True
+        schur = _fraction_metric(result, "schur_min_eigenvalue_midpoint") if usable else None
+        finite = _fraction_metric(result, "finite_block_min_eigenvalue_midpoint") if usable else None
+        mu_lower = _fraction_metric(result, "mu_lower")
         stable_change = (
             previous_schur is not None
-            and usable
-            and abs(float(schur) - previous_schur)
-            <= 1e-3 * max(abs(float(schur)), abs(previous_schur), 1e-12)
+            and schur is not None
+            and abs(schur - previous_schur)
+            <= Fraction(1, 1000) * max(abs(schur), abs(previous_schur), Fraction(1, 10**12))
         )
         attempt = {
             **result,
@@ -843,13 +844,16 @@ def _escalate_rigorous_screen(
             "stable_change": stable_change,
         }
         diagnostics: dict[str, object] | None = None
-        if previous_result is not None:
+        if previous_result is not None and usable:
             diagnostics = _precision_pair_diagnostics(previous_result, attempt)
             attempt["change_from_previous"] = diagnostics
             pair_diagnostics.append(diagnostics)
             _mark_previous_precision_contradiction(
                 previous_result, diagnostics, stable_change
             )
+        elif previous_result is not None:
+            previous_result["precision_status"] = PRECISION_STATUS_INSUFFICIENT
+            previous_result["precision_reasons"].append("higher_precision_diagnostic_unavailable")
         attempt["precision_status"] = PRECISION_STATUS_INSUFFICIENT
         attempt["precision_reasons"] = _precision_instability_reasons(
             usable=usable,
@@ -867,9 +871,9 @@ def _escalate_rigorous_screen(
             usable
             and stable_change
             and diagnostics_stable
-            and float(mu_lower) > 0
-            and float(finite) > 0
-            and float(schur) > 0
+            and mu_lower > 0
+            and finite > 0
+            and schur > 0
         ):
             attempt["precision_status"] = PRECISION_STATUS_STABLE
             attempt["precision_reasons"] = ["stable_against_previous_precision"]
@@ -884,7 +888,7 @@ def _escalate_rigorous_screen(
             }
         if progress is not None:
             progress.emit(f"N={dimension} precision={precision} insufficient")
-        previous_schur = float(schur) if usable else None
+        previous_schur = schur
         previous_result = attempt if usable else None
 
     if len(attempts) >= 2:
@@ -896,12 +900,12 @@ def _escalate_rigorous_screen(
             and isinstance(current.get("change_from_previous"), dict)
             and current["change_from_previous"]["all_key_signs_stable"] is True
             and current["change_from_previous"]["widths_reduced"] is True
-            and float(previous["mu_lower"]) > 0
-            and float(current["mu_lower"]) > 0
-            and float(previous["finite_block_min_eigenvalue_midpoint"]) > 0
-            and float(current["finite_block_min_eigenvalue_midpoint"]) > 0
-            and float(previous["schur_min_eigenvalue_midpoint"]) < 0
-            and float(current["schur_min_eigenvalue_midpoint"]) < 0
+            and _fraction_metric(previous, "mu_lower") > 0
+            and _fraction_metric(current, "mu_lower") > 0
+            and _fraction_metric(previous, "finite_block_min_eigenvalue_midpoint") > 0
+            and _fraction_metric(current, "finite_block_min_eigenvalue_midpoint") > 0
+            and _fraction_metric(previous, "schur_min_eigenvalue_midpoint") < 0
+            and _fraction_metric(current, "schur_min_eigenvalue_midpoint") < 0
         ):
             current["precision_status"] = PRECISION_STATUS_MATHEMATICAL_NEGATIVE
             current["precision_reasons"] = [
@@ -982,6 +986,7 @@ def _construct_candidate(
                         "failure_stage": exc.stage,
                         "error_type": type(exc).__name__,
                         "error": str(exc),
+                        "audit_inputs": exc.audit_inputs,
                     }
                 )
             except Exception as exc:
@@ -1025,16 +1030,16 @@ def _successful_candidate_attempt(candidate: dict[str, object]) -> dict[str, obj
 def _fraction_metric(attempt: dict[str, object], name: str) -> Fraction:
     value = attempt.get(name)
     if not isinstance(value, str):
-        raise ValueError(f"candidate attempt is missing exact {name}")
+        raise ValueError(f"diagnostic is missing exact {name}")
     return Fraction(value)
 
 
-def _relative_fraction_change(previous: Fraction, current: Fraction) -> float:
+def _relative_fraction_change(previous: Fraction, current: Fraction) -> Fraction:
     delta = abs(current - previous)
     scale = max(abs(previous), abs(current))
     if scale == 0:
-        return 0.0
-    return float(delta / scale)
+        return Fraction(0)
+    return delta / scale
 
 
 def _candidate_precision_pair_diagnostics(
@@ -1066,16 +1071,16 @@ def _candidate_precision_pair_diagnostics(
     ):
         raise ValueError("candidate working-precision diagnostics are incomplete")
 
-    matrix_width_changes: dict[str, float] = {}
+    matrix_width_changes: dict[str, str] = {}
     matrix_widths_reduced = True
     for name in ("A", "GV", "GP", "GR"):
         previous_row = previous_matrices[name]  # type: ignore[index]
         current_row = current_matrices[name]  # type: ignore[index]
         if not isinstance(previous_row, dict) or not isinstance(current_row, dict):
             raise ValueError("candidate matrix-width diagnostics are malformed")
-        previous_width = float(previous_row["max_width"])
-        current_width = float(current_row["max_width"])
-        matrix_width_changes[name] = current_width - previous_width
+        previous_width = Fraction(previous_row["max_width"])
+        current_width = Fraction(current_row["max_width"])
+        matrix_width_changes[name] = str(current_width - previous_width)
         matrix_widths_reduced = matrix_widths_reduced and current_width <= previous_width
 
     scalar_width_changes: dict[str, str] = {}
@@ -1111,7 +1116,7 @@ def _candidate_precision_pair_diagnostics(
         )
 
     margins_stable = all(
-        change <= CANDIDATE_MARGIN_RELATIVE_STABILITY_TOLERANCE
+        change <= Fraction(str(CANDIDATE_MARGIN_RELATIVE_STABILITY_TOLERANCE))
         for change in relative_changes.values()
     )
     all_positive = all(value > 0 for value in (*previous_metrics.values(), *current_metrics.values()))
@@ -1133,7 +1138,7 @@ def _candidate_precision_pair_diagnostics(
     return {
         "from_precision_bits": previous["precision_bits"],
         "to_precision_bits": current["precision_bits"],
-        "exact_margin_relative_changes": relative_changes,
+        "exact_margin_relative_changes": {name: str(change) for name, change in relative_changes.items()},
         "exact_margin_signs_stable": signs_stable,
         "exact_margins_stable": margins_stable,
         "working_matrix_width_changes": matrix_width_changes,
@@ -1210,6 +1215,7 @@ def _confirm_candidate_precision_stability(
                     "failure_stage": exc.stage,
                     "error_type": type(exc).__name__,
                     "error": str(exc),
+                    "audit_inputs": exc.audit_inputs,
                 }
             )
             if progress is not None:
@@ -2269,6 +2275,8 @@ def _display_precision_attempt(attempt: dict[str, object]) -> str:
         reasons = attempt.get("precision_reasons", [])
         if isinstance(reasons, list):
             reason_set = {str(reason) for reason in reasons}
+            if "midpoint_diagnostic_unavailable" in reason_set:
+                return "insufficient precision - midpoint diagnostic unavailable"
             if "contradicted_by_higher_precision" in reason_set:
                 return "insufficient precision - contradicted at higher precision"
             if "key_sign_changed_at_higher_precision" in reason_set:

@@ -130,8 +130,8 @@ def _stage_wrappers(stack: ExitStack, records: dict[str, dict[str, float]]) -> N
         if hasattr(assembly, name):
             install(assembly, name)
     for name in ("enumerate_active_prime_power_terms", "_orthogonal_basis_norms", "_sorted_breakpoints",
-                 "_arb_poly_shift", "combined_piecewise_images", "_interval_moments", "_integrated_product",
-                 "_exact_inner", "_low_matrix_from_images",
+                 "_legendre_expansions", "_affine_legendre", "_local_basis", "_translation_partition",
+                 "_combined_local_images", "_legendre_inner", "_exact_inner", "_low_matrix_from_images",
                  "_operator_square_matrix_from_images", "_tail_gram"):
         # A replacement may remove obsolete helpers; profile only existing operations.
         if hasattr(arithmetic, name):

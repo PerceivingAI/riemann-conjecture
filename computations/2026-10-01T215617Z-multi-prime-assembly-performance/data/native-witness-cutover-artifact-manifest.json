@@ -1,0 +1,358 @@
+{
+  "utc": "2026-10-02T09:58:07Z",
+  "role": "raw-byte Phase11 evidence and native-witness implementation acceptance seal",
+  "artifacts": [
+    {
+      "path": "native-witness-cutover-source-provenance.json",
+      "bytes": 8951,
+      "sha256": "6076b27eec1a652efb4b18041a65c5fb2636ed82975a8a68c788d71e15717624"
+    },
+    {
+      "path": "native-witness-cutover-source-snapshot.zip",
+      "bytes": 224795,
+      "sha256": "203ffb1b5ccd20aa6d7a6057f4956ca84d497bb71ed78d0e3b23ca7aa85a4d26"
+    },
+    {
+      "path": "native-witness-cutover-process-cleanup.json",
+      "bytes": 1000,
+      "sha256": "9fba6415e68cb1eef5a2c6dfef641220fcff06ff64cddc85489126e0cbef4e7f"
+    },
+    {
+      "path": "native-witness-cutover-acceptance.json",
+      "bytes": 1550,
+      "sha256": "be69a553460dc7579a6f1f0c7e9d4d4f95def932f0df77528f6f11c8f929a7d4"
+    },
+    {
+      "path": "native-witness-cutover-cost.json",
+      "bytes": 2522,
+      "sha256": "71e10bdfcf329afb5c29f6323006bf6d1d251451babc826bde8bc31efe643149"
+    },
+    {
+      "path": "native-witness-cutover-acceptance-source.py",
+      "bytes": 1181,
+      "sha256": "e6d694aa0f45233108194abb068c62f76746ec3c7b21232197d3427541aa4bf1"
+    },
+    {
+      "path": "native-witness-cutover-smoke.json",
+      "bytes": 4097,
+      "sha256": "64b0fbb856aa3a52e21a3f535381d241b4c48e0df74345d090e7c6ab34ad167d"
+    },
+    {
+      "path": "native-witness-cutover-smoke-source.py",
+      "bytes": 4510,
+      "sha256": "dd5e001bcd050a30714cdc0f81be54b4c88e8c3a19336e7caad503a2470100e4"
+    },
+    {
+      "path": "phase11-complete-workflow-cost.json",
+      "bytes": 4415,
+      "sha256": "1d4bff4646fc1a70e7fb0c11e6fbef5e34dd7787107ab9b29e038d3fa1f60156"
+    },
+    {
+      "path": "phase11-control-exact-replay.json",
+      "bytes": 8828,
+      "sha256": "85c201195f92ac61ea38b11731e39686d6d8763ab64b775741c74868c512c16f"
+    },
+    {
+      "path": "phase11-control-base640-confirmation-attempt1-exact-audit.json",
+      "bytes": 659,
+      "sha256": "be55f416c437f502314f907019929d1603af00033bff5d10b5d20048345d6349"
+    },
+    {
+      "path": "phase11-control-base640-base-attempt1-exact-audit.json",
+      "bytes": 659,
+      "sha256": "24427e3f4b0554d910a68ef83255e07220a276c5463f538d420b34f0dd010262"
+    },
+    {
+      "path": "phase11-control-base512-confirmation-attempt1-exact-audit.json",
+      "bytes": 659,
+      "sha256": "24427e3f4b0554d910a68ef83255e07220a276c5463f538d420b34f0dd010262"
+    },
+    {
+      "path": "phase11-control-base512-base-attempt1-exact-audit.json",
+      "bytes": 659,
+      "sha256": "481c2003d9be95e4843788a3bc7907b193b93cd6ba485b64c97204744c42278d"
+    },
+    {
+      "path": "phase11-witness-kernel-exact-audit.json",
+      "bytes": 1312,
+      "sha256": "5166264937547ae998ea2e82dd209c27035f55c5d16771976588eca0e906c06a"
+    },
+    {
+      "path": "phase11-witness-kernel-N196-prefix97.zip",
+      "bytes": 1435822,
+      "sha256": "cb23814e9970793bb11b39b865d42ad6628dbd455d8ecf31336e294f35a8c877"
+    },
+    {
+      "path": "phase11-witness-kernel-cost.json",
+      "bytes": 6743,
+      "sha256": "bee9246926a62918645a8be5f5cab68e3d8c9550551f2d19b5d7b7354fc2dda0"
+    },
+    {
+      "path": "phase11-witness-kernel-N192-prefix95.zip",
+      "bytes": 1358883,
+      "sha256": "769aea634c629053b1e19dcab9301d493c09b0bbacb6e868b32c12a0982c945f"
+    },
+    {
+      "path": "phase11-control-exact-replay-source.py",
+      "bytes": 2759,
+      "sha256": "b94cf4e366bdb2387c6dca07cfc25284aad58619d95df6ffa5d3c35732037f43"
+    },
+    {
+      "path": "phase11-negative-exact-audit.json",
+      "bytes": 12240,
+      "sha256": "f4a2b16d3e104e57f9f1a0e9f0fc1e524fdc2a2744529ed828b6330e133b2a7c"
+    },
+    {
+      "path": "phase11-preflight.json",
+      "bytes": 12855380,
+      "sha256": "59ced93f5b31e835d9df3b1f70791d3151f87518022ca56ebc4da23944ef2ec8"
+    },
+    {
+      "path": "phase11-control-base640.json",
+      "bytes": 5357338,
+      "sha256": "517c07f1e928e3c421f0352f9efc88c6a9ef199e94ca70d02e2685246e6134f1"
+    },
+    {
+      "path": "phase11-control-base640-confirmation-attempt1-audit-inputs.json",
+      "bytes": 1315635,
+      "sha256": "773e99602f3898b125aa6042bbbc6c0d3105de606db3de22d2a954879eff7bd2"
+    },
+    {
+      "path": "phase11-control-base640-base-attempt1-audit-inputs.json",
+      "bytes": 1315053,
+      "sha256": "617bf49c146f637ce8aedd5c3e75542d31e410cfc9b5f86d3f12b95bbeba3eba"
+    },
+    {
+      "path": "phase11-control-base512.json",
+      "bytes": 5350104,
+      "sha256": "197c71b7c0cff1f9b2273a20f894460d44c55add1881fc5387ad9799a663ba39"
+    },
+    {
+      "path": "phase11-control-base512-confirmation-attempt1-audit-inputs.json",
+      "bytes": 1315053,
+      "sha256": "617bf49c146f637ce8aedd5c3e75542d31e410cfc9b5f86d3f12b95bbeba3eba"
+    },
+    {
+      "path": "phase11-control-base512-base-attempt1-audit-inputs.json",
+      "bytes": 1314477,
+      "sha256": "a1149024c3b18cb05ae680d4a126c112dabc54a8dda814c4b9f71fedc038355b"
+    },
+    {
+      "path": "phase11-candidate-commands.json",
+      "bytes": 11642,
+      "sha256": "ff765b9c237b105b26ddcb487252572c14b27599d54e4bd33d98da094143c8a7"
+    },
+    {
+      "path": "phase11-candidates-512-104-56.json",
+      "bytes": 7620,
+      "sha256": "40464cbd6fa5b5b5995a9e3891a3a015f60a786597dc0250eff3797c857e158d"
+    },
+    {
+      "path": "phase11-candidate-inputs-N196-p512-m104-w56.zip",
+      "bytes": 2540106,
+      "sha256": "0c46ffd8de2ca55b9942c4c45520c5b83ba756a02c57ccf554617ec87c189668"
+    },
+    {
+      "path": "phase11-candidate-inputs-N192-p512-m104-w56.zip",
+      "bytes": 2438786,
+      "sha256": "e83f58cd43b44edd72d4f6f92bcfec71d66bf22f9f50ff78c37e3f845b2e780f"
+    },
+    {
+      "path": "phase11-candidates-768-64-32.json",
+      "bytes": 9466,
+      "sha256": "65be056a171640eca7228c53bb510d03f6fdbeed430cfb73499bdb819a7280c1"
+    },
+    {
+      "path": "phase11-candidate-inputs-N196-p768-m64-w32.zip",
+      "bytes": 1786957,
+      "sha256": "79c63e7bac2996086da701984ce260a1ce682f5f7f31d65479da3db379820ce4"
+    },
+    {
+      "path": "phase11-candidate-inputs-N192-p768-m64-w32.zip",
+      "bytes": 1715757,
+      "sha256": "eab10c5d38e3959913628047849a36970fb878d0ffcdcee1684f1e20c9cb89d6"
+    },
+    {
+      "path": "phase11-candidates-640-64-32.json",
+      "bytes": 8558,
+      "sha256": "7ac4730d2194eaf09a979413dc9c62cba4a95bfc2a90323f3628b90abe0d82aa"
+    },
+    {
+      "path": "phase11-candidate-inputs-N196-p640-m64-w32.zip",
+      "bytes": 1786678,
+      "sha256": "05ab4b7eb1d9f18626c038ce6831904385537a778a778403ee2860a219a3b15e"
+    },
+    {
+      "path": "phase11-witness-kernel-replay-source.py",
+      "bytes": 2274,
+      "sha256": "0917d7360f7536a3895d43225b8be5456d719f44c33da157b7288350e5bc9254"
+    },
+    {
+      "path": "phase11-candidate-inputs-N192-p640-m64-w32.zip",
+      "bytes": 1715480,
+      "sha256": "1af8b6e9a51224f58c65eb92a8c04e538f9c87c64936a08936664eedc1bad3a9"
+    },
+    {
+      "path": "phase11-candidates-512-64-32.json",
+      "bytes": 7625,
+      "sha256": "c20af25637683347ef09bacfeaea6ac03d52761ce73c40b18d2ad7538a4f32ea"
+    },
+    {
+      "path": "phase11-candidate-inputs-N196-p512-m64-w32.zip",
+      "bytes": 1786371,
+      "sha256": "3d99fcc2a6e43c165d1bae8d4f1e291ff4da03fbc107d8f7602191c558bd5e26"
+    },
+    {
+      "path": "phase11-witness-kernel-source.py",
+      "bytes": 4168,
+      "sha256": "0554efa7abbd3e11bb5251b594dd20f6777a138e6a7e2e4ca5dd8bcb4a042ed7"
+    },
+    {
+      "path": "phase11-candidate-inputs-N192-p512-m64-w32.zip",
+      "bytes": 1715178,
+      "sha256": "91a1431c0b1e87d11c6907791ee8bb62f06df50df2e1093cca01953247072d59"
+    },
+    {
+      "path": "phase11-measurement-commands.json",
+      "bytes": 9283,
+      "sha256": "a27be5f1492dc6578b1be819fdfb05a322c13c5e5f36bd8fe2751ed5d988338a"
+    },
+    {
+      "path": "phase11-scout.json",
+      "bytes": 202312,
+      "sha256": "ab0fe0aff50f05d18bd4cd98eba391627bc3a11fdbea32d49af8a26f49bf4943"
+    },
+    {
+      "path": "phase11-throughput-768.json",
+      "bytes": 5010,
+      "sha256": "f47936de4d87a23bd90eeead898158fa00cac59dcb272854edec892a6d1ff1e0"
+    },
+    {
+      "path": "phase11-throughput-512.json",
+      "bytes": 5015,
+      "sha256": "eace9b7073332210e0c520e595d4c32472cb3b58727b7a32e61153cece72a156"
+    },
+    {
+      "path": "phase11-throughput-128.json",
+      "bytes": 5009,
+      "sha256": "bec8af6dacda684914d1c21ac82d57c3d438b9eea5426b4938f2cbe65b7e3d21"
+    },
+    {
+      "path": "phase11-negative-exact-audit-source.py",
+      "bytes": 4950,
+      "sha256": "907c2b66a77814878fff72bb1c531fdabe4391515ffebb0d37cf4258eda5d342"
+    },
+    {
+      "path": "phase11-cprofile-512.json",
+      "bytes": 21891,
+      "sha256": "f5ad86a4c7bf012093113d9cbe2d783f1b6504c4a0ef611b470146ff42c3c5cb"
+    },
+    {
+      "path": "phase11-stages-512.json",
+      "bytes": 15598,
+      "sha256": "d0b725d4a78263627bfaa89d4b3775f4a5ce85debf7bf4e6ffa703a8035e6595"
+    },
+    {
+      "path": "phase11-isolated-768.json",
+      "bytes": 2904,
+      "sha256": "e168574bdcbcdf1b99cc05c203f89480a2d26cbab7860e8f07a3582265f868c8"
+    },
+    {
+      "path": "phase11-isolated-640.json",
+      "bytes": 2903,
+      "sha256": "ca9b25f6d03002f1b6a7fb3bdee20143f1297a29cbe5fd73b13dc47083a3c9aa"
+    },
+    {
+      "path": "phase11-isolated-512.json",
+      "bytes": 2902,
+      "sha256": "7c33c9a5759d3d4f2796793e7900c3f8a5d0427c65f3afab36ec9bb60e4a9fca"
+    },
+    {
+      "path": "phase11-isolated-384.json",
+      "bytes": 2901,
+      "sha256": "e28ed3ed2e0fead182d9bfd51b19d0dda1bfa9a00fb3c26a5018075413f4bacb"
+    },
+    {
+      "path": "phase11-isolated-256.json",
+      "bytes": 2897,
+      "sha256": "e8231c65e15a4d602964298b09e21a5ded67bfe9dfa88c7eba389743582f7eb6"
+    },
+    {
+      "path": "phase11-isolated-128.json",
+      "bytes": 2903,
+      "sha256": "e30dc40c8e03f8fc28a02fefd5ce2286651ae45aea7fe1ddfae09f07634a03e4"
+    },
+    {
+      "path": "phase11-acceptance.json",
+      "bytes": 12835,
+      "sha256": "47693070cf863ffae2c300fdf4a34f4b9ee0352819610db6e551460001326e5a"
+    },
+    {
+      "path": "phase11-cost-structure.json",
+      "bytes": 25503,
+      "sha256": "6267ce3151d80313f786bae24062f1561a6c3a29f07cebf176c364207a8ecd24"
+    },
+    {
+      "path": "phase11-candidate-batch-source.py",
+      "bytes": 1909,
+      "sha256": "b7444eb08ab342b71457e1c508936959a1a10b964c2dd71b5bca28052cff3e35"
+    },
+    {
+      "path": "phase11-candidate-cost-source.py",
+      "bytes": 2573,
+      "sha256": "aa04d98d7c1195f78c040679bfeb40e77611da5ff5205b286e16293667b645aa"
+    },
+    {
+      "path": "phase11-measurement-source.py",
+      "bytes": 4888,
+      "sha256": "4597d14524520fc9241e2994c8111388c8801e192ea0004f6058ca3ff5e726f0"
+    },
+    {
+      "path": "phase11-preflight-source.py",
+      "bytes": 16429,
+      "sha256": "89bd30d32cb8943f838d299a02c49948e6a45388fafcfa5fa9fd06defdedea32"
+    },
+    {
+      "path": "phase11-acceptance-source.py",
+      "bytes": 2392,
+      "sha256": "ac0964b5b7540f5fcf2997b572a02c83257a8de7ca16c32f5f2b911cb0eac9f2"
+    },
+    {
+      "path": "phase11-source-provenance.json",
+      "bytes": 6114,
+      "sha256": "455428e80932d3d77f235fdd9d5f6e20e6a4abd538d7d08d16c36878314a45da"
+    },
+    {
+      "path": "phase11-source-snapshot.zip",
+      "bytes": 226334,
+      "sha256": "2827fc1592a3e662bd719844b38e8d95a95c8cda15b5cb3353de59295ffb4079"
+    }
+  ],
+  "artifact_count": 65,
+  "current_source_snapshot": "native-witness-cutover-source-snapshot.zip",
+  "source_provenance": "native-witness-cutover-source-provenance.json",
+  "tooling_acceptance": "PASS",
+  "post_cutover_focused_python_passed": 77,
+  "post_cutover_full_python_passed": 715,
+  "pre_cutover_workspace_rust_passed": 82,
+  "pre_cutover_workspace_format_and_strict_clippy": "PASS",
+  "pre_cutover_retained_proof_chain": "8/8 PASS",
+  "frozen_shared_controls_unchanged": 12,
+  "independent_exact_target_rejections": 8,
+  "independent_exact_positive_control_audits": 4,
+  "same_input_native_smoke": "PASS",
+  "matching_scoped_process_survivors": 0,
+  "obsolete_60_hour_draft_withdrawn": true,
+  "declared_allowance_hours_per_fresh_run": 2,
+  "phase12_launched": false,
+  "theorem_admission": false,
+  "RH_status": "UNRESOLVED",
+  "maintained_document_sha256": {
+    "notes/ADD_PLAN.md": "f3d175bac9f5a1d42c3d5c59c79812b5911a1da79fbbdba219412da2c0d1c96f",
+    "scripts/README.md": "9efca55df35032d6bbe5847c51d98edeb923c5604cbd924da99d8744c60392cc",
+    "docs/STATUS.md": "91d40702aeb150aeadba44202c56081e9ac246985f4f1abe4d75e8f9aa9a42a7",
+    "docs/LOG.md": "972e65ecd9eb584cf977d9b94bd22d19d40fcb07cd74f507f2b1aeb1a19363c1",
+    "docs/INDEX.md": "e915885e8f7d3341e6afeae0cc763d9ae3999988905a0e51e7707eeb05c877b7",
+    "computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md": "2d653c9da8b82139a09f82b3563d5f42a304d82c21074315936579c1f29fb9f4"
+  }
+}

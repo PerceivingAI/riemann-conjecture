@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "--extra",
+    "test",
+    "python",
+    "-m",
+    "pytest",
+    "-n",
+    "0",
+    "-q",
+    "tests/test_multi_prime_precision_diagnostics.py",
+    "tests/test_multi_prime_continuation_driver.py",
+    "tests/test_multi_prime_p4_stages.py",
+    "tests/test_multi_prime_assembly_performance.py",
+    "tests/test_prime_power_terms.py",
+    "tests/test_multi_prime_legendre_schur.py",
+    "tests/test_certificate_v2_contract.py",
+    "tests/test_v2_adversarial_consistency.py",
+    "tests/test_one_prime_v1_freeze.py",
+    "tests/test_admission_consistency.py",
+    "tests/test_continuation_bundle.py",
+    "tests/test_pre_theorem_boundary.py"
+  ],
+  "exit_code": 0
+}

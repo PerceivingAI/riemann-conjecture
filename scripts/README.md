@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-01T21:04:17Z`
+- **Last updated:** `2026-10-02T09:49:35Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -323,7 +323,7 @@ P4 acceptance closes with the focused multi-prime/frozen-v1 target at `24/24` an
 
 ### `weil_multi_prime_support_continuation_scout.py`
 
-Rigorous-screen adapter for the multi-prime driver. It assembles `A/GV/GP/GR/mu` with `assemble_multi_prime_schur()`, independently confirms active terms `[2,3]`, and converts only certified Arb midpoints to floats for dimension ranking and precision-stability diagnostics. It is not the floating first-stage scout and it does not construct exact candidates.
+Rigorous-screen adapter for the multi-prime driver. It assembles `A/GV/GP/GR/mu` with `assemble_multi_prime_schur()` and independently confirms active terms `[2,3]`. Endpoints, widths and widest-entry diagnostics serialize as exact rationals. Midpoint eigendiagnostics use power-of-two scaling before binary64 conversion and restore units as rational numerical values, not certified spectral bounds. Unavailable diagnostics are explicit and require more precision, not failed assembly or mathematical rejection. It does not construct exact candidates.
 
 ### `weil_multi_prime_continuation_driver.py`
 
@@ -375,6 +375,50 @@ Phase 4 observes `34.893/37.460 s` isolated 512-bit assembly and `38.208 s` two-
 The user subsequently authorized the unchanged phase 5 qualification despite those blockers. [X-20261002-001](../computations/2026-10-02T010121Z-t11-20-multi-prime-qualification-after-hardening/record.md) records natural completion in `168.78 s` at `PRECISION_LIMIT_REACHED`: scout selects `192/196`; 128-bit screens report float-conversion overflow, and 256/384/512 remain insufficient. No candidate construction or mathematical rejection occurred. Source snapshots and final driver artifacts are retained, but phase 6 byte audit/reproduction was not run. P9 remains NOT QUALIFIED; do not change frozen controls to hide the conditioning limit.
 
 Phase 6 independently audits both final manifests and every listed artifact, `18/18` per run, plus ordered result-payload digests. Fresh-cache Run B uses the same source snapshot and settings, naturally finishing in `169.39 s` at `PRECISION_LIMIT_REACHED`. Exact recursive canonical comparison passes with zero mathematical/diagnostic differences after predeclared metadata exclusions; `17/18` artifacts are byte-identical. A separate Windows process scan finds zero qualification survivors. These operational checks pass, but the qualification gate fails because both runs stop before candidate construction. P9 remains NOT QUALIFIED; no admission or further retry occurred.
+
+Phase 7 separates exact-safe multi-prime diagnostics in `multi_prime_precision_diagnostics.py`, leaving the shared frozen-v1 helpers unchanged. Screening and candidate confirmation use exact width, sign and margin-tolerance comparisons, including overflow/underflow cases. The workflow version is `multi-prime-continuation-driver-p9-phase7-v2`; cache contract is `multi-prime-continuation-driver-v2`, with the new numerical dependency fingerprinted. Old float-payload cache entries cannot be reused. Rational-valued diagnostic fields now serialize as strings rather than binary64 numbers.
+
+Phase 7 focused acceptance passes `144/144`. Real uncached 128-bit `192/196` screens complete without conversion exceptions but remain insufficient precision. A known one-prime overlap candidate confirms from Arb `256` to `384` at fixed `64/32` bits; this is not `{2,3}` target readiness. Commands, exact outputs and source hashes are retained in [X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md). No conditioning redesign or qualification retry occurred; P9 remains NOT QUALIFIED.
+
+
+### `profile_multi_prime_conditioning.py`
+
+Enclosure diagnostic, never qualification. `--representations cell-legendre` now exercises production generic arithmetic. `global` and `cell-monomial` are explicit historical controls confined to this diagnostic. `--group-potential` uses production exact harmonic contractions; omitting it selects historical per-moment rounding as a control, not a production fallback. The diagnostic CLI uses canonical Legendre modes; the production operator also accepts arbitrary exact orthogonal polynomial bases.
+
+Profiles retain exact rational widths/coefficient bounds through basis conversion, local affine coefficients, combined images, sampled control products/primitives/endpoints, and full `P/P_squared/PD^-1P/GP/A/GV/GR/Schur` matrices. Local Legendre integration uses diagonal exact norms instead of primitives. Product-stage probes sample diagonal degrees `0,N//2,N-2,N-1`; coefficient/matrix profiles are full. Basis-conversion measurements in local runs are controls. No wall-clock figure or width threshold grants acceptance.
+
+`--witness-precision` requests actual outward candidate construction at that Arb precision, with independent `--matrix-bits` and `--witness-bits`. It reuses the genuinely assembled matrices. Exact rounded inputs are retained in candidate ZIPs, including when witness construction fails; failed inputs do not contain a successful witness. `--rayleigh-check` checks a leading-midpoint-system last-coordinate direction rounded to the requested witness bits against the rigorous even Schur block; it is not a spectral sign oracle. Complete intervals/vectors carry SHA-256 and are diagnostic inputs, never theorem certificates.
+
+```text
+uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 16 --precisions 128,256 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-small-comparison.json
+uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 192,196 --precisions 128,256,384,512 --representations cell-legendre --group-potential --witness-precision 384 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-grouped-potential-targets.json
+uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 192,196 --precisions 384 --representations cell-legendre --group-potential --rayleigh-check --matrix-bits 104 --witness-bits 56 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-rayleigh-cli.json
+```
+
+[X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) records Phase 8 selected Arb-512 full-Schur widths `6.5763e-82/2.1290e-80`, but actual candidates fail at both `64/32` and frozen-maximal `104/56` bits. Strict negative exact interval directions at `192/196` independently replay `2/2`. Phase 9 implements the selected representation without changing the sufficient Schur test, support/grid, bounds or precision caps. P9 remains NOT QUALIFIED/P10 blocked. The rejection is not localized Weil-form negativity or an RH counterexample.
+
+### `audit_multi_prime_candidate.py`
+
+Standalone zero-float replay of `rh-multi-prime-candidate-audit-v1` inputs. Successful `weil_multi_prime_support_candidate_check.run_candidate()` results now contain `audit_inputs`: outward-rounded `A/GV/GP/GR`, exact complement inputs and prime losses, controls/basis/factor, both dyadic witness matrices and exact margins. The auditor reconstructs the positive complement and factor-3 Schur matrix, checks dimensions, parity and scalar relationships, and independently evaluates congruence centers/radii with native rational matrices. Reported margins must match the recomputed strictly positive values.
+
+```text
+uv run --locked python -m scripts.audit_multi_prime_candidate --input computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-base-audit-inputs.json --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-base-audit.json
+uv run --locked python -m scripts.audit_multi_prime_candidate --input computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-confirmation-audit-inputs.json --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-confirmation-audit.json
+```
+
+These exercised inputs are the existing one-prime overlap control `T=2/5,N=40`, with fixed `64/32` bits and real Arb `256 -> 384` confirmation. They are not substitute qualification evidence for frozen `{2,3}` targets. Replay checks serialized rational arithmetic, not upstream transcendental enclosures or theorem admission; it never calls Rust.
+
+The multi-prime workflow/cache versions are `multi-prime-continuation-driver-p9-phase9-v3` / `multi-prime-continuation-driver-v3`. Old cache entries cannot satisfy the new proof-input contract. Source fingerprints include the auditor and bundle publisher. Multi-prime bundle format is `rh-multi-prime-continuation-candidate-bundle-v2`; positive bundles require separate manifest-listed base and fixed-input higher-precision audit artifacts. Frozen one-prime bundle format and behavior remain unchanged.
+
+Production piecewise images in `cert/prime_power_terms.py` expose `PiecewisePolynomial.legendre_coefficients`, representing `t=(x-(lower+upper)/2)/((upper-lower)/2)`. Global monomial `coefficients` and global translation/integration helpers are removed from that production module. An empty local coefficient tuple denotes the zero image on an inactive cell.
+
+Phase 9 implementation/equivalence verification passes `159/159` focused and `696/696` default Python tests. The real frozen `192/196` candidates at Arb 384 and `104/56` bits still fail final even pivots `95/97`. Fresh independent exact replay proves strict negative directions in both complete rounded candidate Schur matrices (`2/2`) and all four Arb-384/512 matrices (`4/4`); all eight matrix-stage widths contract (`16/16`). The positive overlap control and component packaging smoke are not substitute qualification. Full readiness remains **BLOCKED**; no frozen-target positive base/confirmation exists, no qualification ran, and no support/grid/criterion or theorem-admission change occurred. Exact inputs, source snapshots, commands and audits are retained in [X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md).
+
+### Native multi-prime exact witnesses
+
+`cert/multi_prime_exact_witness.py` implements the candidate's exact witness path separately from frozen v1. Fraction-free integer midpoint elimination accumulates inverse unit-lower LDL rows directly; exact quotient/remainder rounding and native midpoint/radius congruence preserve the same dyadic witness and strict Gershgorin margin. The independent auditor remains separate. Cache and candidate-profile fingerprints include the backend.
+
+Phase 11's one retained-input smoke produces identical full rounded candidate inputs/rejection and identical proper-block witness/margin. Actual N196 candidate time falls `541.946 -> 53.525 s`; complete 97-mode proper witness time falls `1306.928 -> 22.725 s`. This is not positive full-target evidence. Post-cutover focused/default Python pass `77/77` and `715/715`; twelve frozen/shared byte controls remain unchanged. The reassessed external allowance is two hours per fresh run, four hours for the pair, not a launch authorization or full-positive runtime bound. Native memory is not claimed measured. See the Phase 11 addendum in [X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md). No further benchmark sweep or Phase 12 run occurred.
 
 
 ## Shared implementation

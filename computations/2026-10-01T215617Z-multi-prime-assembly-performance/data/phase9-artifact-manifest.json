@@ -1,0 +1,178 @@
+{
+  "created_utc": "2026-10-02T06:08:40Z",
+  "role": "phase9_production_implementation_and_exact_arithmetic_evidence_not_qualification",
+  "artifacts": [
+    {
+      "path": "phase9-commands.json",
+      "bytes": 5167,
+      "sha256": "318e8e58b9c06010a24eb6c691a05a8be1b83e7929298526690dd978f0490917"
+    },
+    {
+      "path": "phase9-diagnostic-control-smoke.json",
+      "bytes": 51761,
+      "sha256": "95c81b179275712bd465e8a15f2d90bb4edf525d2fd3999255514dbdf3c1bc38"
+    },
+    {
+      "path": "phase9-final-integrity-checks.json",
+      "bytes": 7435,
+      "sha256": "80596d5d4366fa02ce84bd499b549fc29c8b4d164cb005d06a8ef23683c54c6f"
+    },
+    {
+      "path": "phase9-final-source-snapshot.zip",
+      "bytes": 210232,
+      "sha256": "a196f88cd1d00442fd76141493b4190ad15aab20bd0e4f9e8337e771f9fce741"
+    },
+    {
+      "path": "phase9-full-python-console.txt",
+      "bytes": 1181,
+      "sha256": "a7738826708a338282f60c40db7f0004e997380a1b37fae6af05d261622b2397"
+    },
+    {
+      "path": "phase9-negative-exact-audit-command.json",
+      "bytes": 5349,
+      "sha256": "8442d91fb9371563050b4140bdde0b09bac0eff446b245126f6bf716e88db50a"
+    },
+    {
+      "path": "phase9-negative-exact-audit-source.py",
+      "bytes": 4896,
+      "sha256": "3d1fc99f6769f7ca2c56fde7a4285b453fde90eb805d627ec5f14baca4232264"
+    },
+    {
+      "path": "phase9-negative-exact-audit.json",
+      "bytes": 7141,
+      "sha256": "9d3d00f873b4ce22b7f935885da1cd6b1a093c8b20c3c426ff6cfa5e39260ad7"
+    },
+    {
+      "path": "phase9-overlap-base-audit-inputs.json",
+      "bytes": 1370904,
+      "sha256": "fe5ab890d03748e0a8f470702f5a89dc084a4a576b9d2d97aff1a81224b925bd"
+    },
+    {
+      "path": "phase9-overlap-base-audit.json",
+      "bytes": 659,
+      "sha256": "676eeb22ed9795e5c00aa1781f7a0d41ad4e2e2921949007ec3a0bcf7fdd162f"
+    },
+    {
+      "path": "phase9-overlap-base.json",
+      "bytes": 1491856,
+      "sha256": "f93ed7739cc82069d44029e386e2a96fdc00979f0a6cdf760ccb55d8719a770f"
+    },
+    {
+      "path": "phase9-overlap-confirmation-audit-inputs.json",
+      "bytes": 1370005,
+      "sha256": "e15cb87a4610c05df35842d86992964ad1f34ebc57d0b5b1e9d5e210e86cae94"
+    },
+    {
+      "path": "phase9-overlap-confirmation-audit.json",
+      "bytes": 659,
+      "sha256": "aea32695d8527145e6af61cab255390b2edbeb8e35b6ac113f4f3170378f5e90"
+    },
+    {
+      "path": "phase9-overlap-confirmation-command.json",
+      "bytes": 3121,
+      "sha256": "9739f2195e1068ba11be972a436ff83e72358bcbeeb75d8901e860c2408fce11"
+    },
+    {
+      "path": "phase9-overlap-confirmation-source.py",
+      "bytes": 2647,
+      "sha256": "4ddffd9c0b3b61ac2f686a9ec4980a7035d2da55aa5c7db4e85125278ddb9c42"
+    },
+    {
+      "path": "phase9-overlap-confirmation.json",
+      "bytes": 3437550,
+      "sha256": "abb96f0ab155515015075ecdeed9cac70246abac7de8599618c7abaf7f078efc"
+    },
+    {
+      "path": "phase9-packaging-smoke.json",
+      "bytes": 693,
+      "sha256": "ae0405e19e1238de7981d21564be98709437fee1ba68e298c30706cb75f2fc5c"
+    },
+    {
+      "path": "phase9-precision-contraction.json",
+      "bytes": 7248,
+      "sha256": "1c0ad3f76b58b6af7a878209b59076df03966d5399ca0cb3fec0fb9abbbcddb8"
+    },
+    {
+      "path": "phase9-process-cleanup.json",
+      "bytes": 996,
+      "sha256": "80365b35ff586377a328a2eb4a84fd0f3239a20802a71176700d0f7a6f91a9c2"
+    },
+    {
+      "path": "phase9-source-provenance.json",
+      "bytes": 4282,
+      "sha256": "544d21e8df95cb4393c6080adfb3e36cee4480721291cb6cef42d1c08e0fb8f0"
+    },
+    {
+      "path": "phase9-source-snapshot.zip",
+      "bytes": 205409,
+      "sha256": "4db60cad6ffa7b4eae2d7400fed530abe01f809380586afb1cc68bac89760e5f"
+    },
+    {
+      "path": "phase9-stage-profiler-smoke.json",
+      "bytes": 8417,
+      "sha256": "c3779a25dbddfed106002112ecf5c9ded4a6ea19e2e75d3c5da32cd34f8c9ae8"
+    },
+    {
+      "path": "phase9-targets-N192-p384-cell-legendre.zip",
+      "bytes": 973532,
+      "sha256": "a2e745022a71d5617561a83ecae037254afa573a9125a8986814de0514657683"
+    },
+    {
+      "path": "phase9-targets-N192-p512-cell-legendre.zip",
+      "bytes": 1193795,
+      "sha256": "b93646789fbf436f7ff606538a44bb0137962e94950207d933dc2688ae43d0e0"
+    },
+    {
+      "path": "phase9-targets-N196-p384-cell-legendre.zip",
+      "bytes": 1020268,
+      "sha256": "0994f80a40fdcf7ccbb97ecb6aa0bdb6485be7ce34b9917fa33717c7dde5b9dc"
+    },
+    {
+      "path": "phase9-targets-N196-p512-cell-legendre.zip",
+      "bytes": 1250383,
+      "sha256": "c501c271f648c2c9afa53d29a3cf4a1cc6f132865755c19ae9b6dfe1074beaa7"
+    },
+    {
+      "path": "phase9-targets-candidate-N192-p384-cell-legendre.zip",
+      "bytes": 2438378,
+      "sha256": "0d4bca178021458a0dd46c17b092ea2393a1c2ed133cd8dccc78606bb8bda7ed"
+    },
+    {
+      "path": "phase9-targets-candidate-N196-p384-cell-legendre.zip",
+      "bytes": 2539693,
+      "sha256": "9f0b0bbcfebc9ccb482f2ebe1c36e6b6e3c33932c8752863c7ae67e1660a483d"
+    },
+    {
+      "path": "phase9-targets.json",
+      "bytes": 53154,
+      "sha256": "6ba2b0c4c53603ece09a45782053d5367ebb432bb7d551b242507cbb331b8899"
+    },
+    {
+      "path": "phase9-verification-summary.json",
+      "bytes": 1698,
+      "sha256": "ef9b38819fc7727a3fee205e147fccbe4c4fa3028d422a219ad16a5c209c0a24"
+    }
+  ],
+  "artifact_count": 30,
+  "measurement_source_snapshot": "phase9-source-snapshot.zip",
+  "final_source_snapshot": "phase9-final-source-snapshot.zip",
+  "maintained_document_sha256": {
+    "scripts/README.md": "14f4a8460e292dc6e57779b66cb6a7ab5f9de079ebe86748b14a8ac8e97d93e1",
+    "notes/ADD_PLAN.md": "fb78e20ffc89f90fa0672ae27dd2dfcfc4f136f7f5aae763dbe7568cf17ecacb",
+    "docs/STATUS.md": "b1cf3b2b680a3e2ce8576530964b09b7225a5c06f6840a219ca1bf7905e01d29",
+    "docs/LOG.md": "3013116ab99b5819e15d84266990433a97de2eaf39b5f69b812fc3ead3007ba6",
+    "docs/INDEX.md": "54c1917ca77c3840ec815dd483360178d2e9bd62e0385636defd8e5f990d410e",
+    "computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md": "c3eef39366bfc6f8c4a1101a72b23fca61359cd78fdb98541a36c131fe8ebf1c"
+  },
+  "phase8_raw_artifacts_unchanged": 31,
+  "implementation_equivalence_verification": "COMPLETE",
+  "positive_candidate_acceptance": "BLOCKED",
+  "frozen_target_negative_directions": {
+    "Arb_interval": 4,
+    "exact_rounded_candidate": 2
+  },
+  "theorem_admission": false,
+  "canonical_driver_run": false,
+  "phase10_executed": false,
+  "rh_status": "UNRESOLVED"
+}

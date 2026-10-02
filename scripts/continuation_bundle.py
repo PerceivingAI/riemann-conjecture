@@ -17,6 +17,7 @@ from pathlib import Path
 from typing import Any
 
 import flint
+from scripts.audit_multi_prime_candidate import audit_candidate_inputs
 
 from scripts.run_observability import (
     LIVE_DIRECTORY_NAME,
@@ -27,6 +28,7 @@ from scripts.run_observability import (
 
 
 BUNDLE_FORMAT = "rh-continuation-candidate-bundle-v1"
+MULTI_PRIME_BUNDLE_FORMAT = "rh-multi-prime-continuation-candidate-bundle-v2"
 PRE_THEOREM_DRIVER_ROLES = frozenset(
     {
         "pre_theorem_continuation_driver",
@@ -328,6 +330,56 @@ def _validate_pre_theorem_terminal_result(result: dict[str, Any]) -> None:
     _validate_pre_theorem_fields(result)
 
 
+def _multi_prime_candidate_audits(result: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    """Require complete replayable proof inputs before sealing a positive run."""
+    artifacts: dict[str, dict[str, Any]] = {}
+    if result["state"] == "CANDIDATE_READY" and _selected_candidate_payload(result) is None:
+        raise ValueError("positive multi-prime bundle lacks its selected candidate")
+    for run in result.get("candidates", []):
+        stability = run.get("candidate_precision_stability", {})
+        if not isinstance(stability, dict):
+            stability = {}
+        attempts = [*run.get("attempts", []), *stability.get("attempts", [])]
+        for attempt in attempts:
+            if attempt.get("all_margins_positive") is not True:
+                continue
+            proof = attempt.get("audit_inputs")
+            if not isinstance(proof, dict):
+                raise ValueError("positive multi-prime candidate lacks exact audit inputs")
+            for field in ("dimension", "precision_bits", "matrix_bits", "witness_bits",
+                          "mu_lower", "even_gershgorin_margin", "odd_gershgorin_margin"):
+                if proof.get(field) != attempt.get(field):
+                    raise ValueError(f"candidate/audit {field} mismatch")
+            if proof["support"] != result["support"] or proof["residual_order"] != result["residual_order"]:
+                raise ValueError("candidate audit differs from run support/residual order")
+            if proof["dimension"] != run["dimension"]:
+                raise ValueError("candidate audit differs from its dimension identity")
+            if [term["m"] for term in proof["active_terms"]] != result["active_terms"]:
+                raise ValueError("candidate audit differs from run active terms")
+            audit_candidate_inputs(proof)
+            path = (f"candidate/exact-audit-N{proof['dimension']:03d}-p{proof['precision_bits']}"
+                    f"-m{proof['matrix_bits']}-w{proof['witness_bits']}.json")
+            if path in artifacts and artifacts[path] != proof:
+                raise ValueError("conflicting candidate audits for one exact configuration")
+            artifacts[path] = proof
+        if result["state"] == "CANDIDATE_READY" and run["dimension"] == result["selected_candidate_dimension"]:
+            base = _selected_candidate_payload(result)
+            confirmation_precision = stability.get("selected_confirmation_precision_bits")
+            if base is None or stability.get("qualified") is not True or type(confirmation_precision) is not int:
+                raise ValueError("positive multi-prime bundle requires qualified exact confirmation")
+            confirmation = next((attempt for attempt in stability.get("attempts", [])
+                                 if attempt.get("precision_bits") == confirmation_precision
+                                 and attempt.get("all_margins_positive") is True), None)
+            if confirmation is None or confirmation_precision <= base["precision_bits"]:
+                raise ValueError("positive multi-prime bundle lacks higher-precision confirmation audit")
+            for field in ("matrix_bits", "witness_bits", "dimension", "residual_order", "support"):
+                if confirmation.get(field) != base.get(field):
+                    raise ValueError("candidate confirmation changes fixed exact inputs")
+    if result["state"] == "CANDIDATE_READY" and not artifacts:
+        raise ValueError("positive multi-prime bundle lacks selected candidate audit evidence")
+    return artifacts
+
+
 def write_continuation_bundle(
     result: dict[str, Any],
     output_dir: Path,
@@ -353,6 +405,8 @@ def write_continuation_bundle(
     actual_result_digest = _result_payload_digest(result)
     if actual_result_digest != result_payload_sha256:
         raise ValueError("result payload digest does not match final result")
+    multi_prime = result["role"] == "pre_theorem_multi_prime_continuation_driver"
+    exact_audits = _multi_prime_candidate_audits(result) if multi_prime else {}
     if output_dir.exists():
         entries = list(output_dir.iterdir())
         allowed_names = {LIVE_DIRECTORY_NAME, RUN_LOCK_FILENAME}
@@ -444,6 +498,9 @@ def write_continuation_bundle(
             "rigorous_screening_failure",
         )
 
+    for path, payload in exact_audits.items():
+        write(path, payload, "pre_theorem_exact_candidate_audit")
+
     write(
         "candidate/candidate.json",
         {
@@ -469,7 +526,7 @@ def write_continuation_bundle(
     artifacts.sort(key=lambda artifact: str(artifact["path"]))
     completed = run_completed_at or utc_now()
     manifest = {
-        "format": BUNDLE_FORMAT,
+        "format": MULTI_PRIME_BUNDLE_FORMAT if multi_prime else BUNDLE_FORMAT,
         "role": "pre_theorem_continuation_bundle_manifest",
         "driver_version": result.get("driver_version"),
         "cache_version": result.get("cache_version"),

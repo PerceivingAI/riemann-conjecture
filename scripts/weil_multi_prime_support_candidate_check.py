@@ -18,21 +18,24 @@ from flint import arb, ctx
 
 from scripts.cert.constants import arb_to_rational_enclosure, c_T_enclosure
 from scripts.cert.exact_prime_schur_common import (
+    exact_matrix_json,
     coarsen_matrix,
     dyadic_outward_interval,
     force_exact_parity_zeros,
-    make_witness,
+    interval_matrix_json,
     parity_block,
 )
 from scripts.cert.legendre_schur import harmonic
 from scripts.cert.matrices import RationalInterval, RationalIntervalMatrix
 from scripts.cert.multi_prime_legendre_schur import assemble_multi_prime_schur
+from scripts.cert.multi_prime_exact_witness import make_witness
+from scripts.multi_prime_precision_diagnostics import arb_matrix_exact_width_diagnostics
 from scripts.precision_diagnostics import (
-    arb_matrix_width_diagnostics,
     arb_width_fraction,
     exact_matrix_width_diagnostics,
     fraction_text,
 )
+from scripts.audit_multi_prime_candidate import AUDIT_FORMAT, AUDIT_ROLE
 
 THEOREM_STATUS = False
 PROMOTION_REQUIREMENTS = (
@@ -49,9 +52,10 @@ FORBIDDEN_AUTOMATIC_ACTIONS = (
 
 
 class CandidateStageError(RuntimeError):
-    def __init__(self, stage: str, message: str) -> None:
+    def __init__(self, stage: str, message: str, *, audit_inputs: dict[str, object] | None = None) -> None:
         super().__init__(message)
         self.stage = stage
+        self.audit_inputs = audit_inputs
 
 
 def theorem_boundary_payload() -> dict[str, object]:
@@ -223,12 +227,12 @@ def run_candidate(
         )
         active_terms, exact_contributions = _active_term_diagnostics(assembled, matrix_bits)
         matrix_widths = {
-            name: arb_matrix_width_diagnostics(assembled[name])  # type: ignore[arg-type]
+            name: arb_matrix_exact_width_diagnostics(assembled[name])  # type: ignore[arg-type]
             for name in ("A", "GV", "GP", "GR", "P", "P_squared")
         }
-        p_width = _matrix_max_width_fraction(assembled["P"])  # type: ignore[arg-type]
-        p_squared_width = _matrix_max_width_fraction(assembled["P_squared"])  # type: ignore[arg-type]
-        gp_width = _matrix_max_width_fraction(assembled["GP"])  # type: ignore[arg-type]
+        p_width = Fraction(matrix_widths["P"]["max_width"])
+        p_squared_width = Fraction(matrix_widths["P_squared"]["max_width"])
+        gp_width = Fraction(matrix_widths["GP"]["max_width"])
         working_precision_diagnostics = {
             "matrix_widths": matrix_widths,
             "scalar_widths": {
@@ -280,11 +284,29 @@ def run_candidate(
         )
     except (ValueError, RuntimeError, ZeroDivisionError) as exc:
         raise CandidateStageError("rounding", str(exc)) from exc
+    audit_inputs = {
+        "format": AUDIT_FORMAT, "role": AUDIT_ROLE, **theorem_boundary_payload(),
+        "support": str(support), "dimension": dimension, "precision_bits": prec,
+        "residual_order": residual_order, "matrix_bits": matrix_bits, "witness_bits": witness_bits,
+        "basis": "unnormalized_legendre_degree_order", "factor": "3",
+        "matrices": {name: interval_matrix_json(matrix)
+                     for name, matrix in (("A", a), ("GV", gv), ("GP", gp), ("GR", gr))},
+        "c_T": {"lower": fraction_text(c_t.lo), "upper": fraction_text(c_t.hi)},
+        "rho_R": {"lower": fraction_text(rho_r.lo), "upper": fraction_text(rho_r.hi)},
+        "active_terms": active_terms, "mu_lower": fraction_text(mu_lower),
+    }
     try:
-        _, even_margin = make_witness(parity_block(schur, 0), witness_bits)
-        _, odd_margin = make_witness(parity_block(schur, 1), witness_bits)
+        even_witness, even_margin = make_witness(parity_block(schur, 0), witness_bits)
+        odd_witness, odd_margin = make_witness(parity_block(schur, 1), witness_bits)
     except (ValueError, RuntimeError, ZeroDivisionError) as exc:
-        raise CandidateStageError("witness", str(exc)) from exc
+        audit_inputs["status"] = "WITNESS_FAILED"
+        raise CandidateStageError("witness", str(exc), audit_inputs=audit_inputs) from exc
+    audit_inputs.update({
+        "status": "CANDIDATE_READY",
+        "witnesses": {"even": exact_matrix_json(even_witness), "odd": exact_matrix_json(odd_witness)},
+        "even_gershgorin_margin": fraction_text(even_margin),
+        "odd_gershgorin_margin": fraction_text(odd_margin),
+    })
 
     precision_contraction: dict[str, object]
     if comparison_prec is None:
@@ -331,6 +353,7 @@ def run_candidate(
         "working_precision_diagnostics": working_precision_diagnostics,
         "exact_rounding_diagnostics": exact_rounding_diagnostics,
         "precision_contraction": precision_contraction,
+        "audit_inputs": audit_inputs,
         "mu_lower": fraction_text(mu_lower),
         "even_gershgorin_margin": fraction_text(even_margin),
         "odd_gershgorin_margin": fraction_text(odd_margin),

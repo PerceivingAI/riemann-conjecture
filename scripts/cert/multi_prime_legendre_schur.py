@@ -2,9 +2,9 @@
 
 This is the additive post-v1 assembler defined by the multi-prime contract.
 It deliberately leaves ``assemble_exact_prime_schur()`` and
-``first_prime_matrices()`` untouched.  The archimedean potential and Suzuki
-residual components reuse the already-rigorous shared implementations, while
-the complete arithmetic component is supplied by ``prime_power_terms``.
+``first_prime_matrices()`` untouched.  The archimedean potential uses exact
+grouped harmonic-moment contractions of the same analytic integrals; the Suzuki
+residual is unchanged.  ``prime_power_terms`` supplies the complete arithmetic.
 
 The arithmetic operator is formed first as
 
@@ -28,8 +28,6 @@ from scripts.cert.legendre_schur import (
     harmonic,
     legendre_norm_sq,
     legendre_polynomials,
-    potential_moment,
-    potential_square_moment,
 )
 from scripts.cert.prime_power_terms import (
     ArbMatrix,
@@ -49,27 +47,39 @@ from scripts.cert.residual_kernel import (
 def _potential_matrices(
     polys: Sequence[Sequence[Fraction]], prec: int,
 ) -> tuple[ArbMatrix, ArbMatrix]:
-    """Same exact potential moments as v1, with native exact convolution."""
+    """Contract rational harmonic moments before introducing Arb constants."""
     exact = _exact_polynomials(polys)
     parities = _polynomial_parities(polys)
     max_power = 2 * max(poly.degree() for poly in exact)
+    harmonics, harmonics_squared = [fmpq(0)], [fmpq(0)]
+    for k in range(1, max_power + 3):
+        harmonics.append(harmonics[-1] + fmpq(1, k))
+        harmonics_squared.append(harmonics_squared[-1] + fmpq(1, k * k))
+    moments = []
+    for r in range(max_power // 2 + 1):
+        alpha = 2 * harmonics[2 * r + 2] - harmonics[r + 1]
+        beta = 4 * harmonics_squared[2 * r + 2] - harmonics_squared[r + 1]
+        u = fmpq(1, 2 * r + 1)
+        moments.append((u, alpha * u, (alpha * alpha + beta) * u))
     with ctx.workprec(prec):
         log2, pi = arb.const_log2(), arb.pi()
-        moments = [potential_moment(k, log2) for k in range(max_power + 1)]
-        square_moments = [
-            potential_square_moment(k, log2, pi) for k in range(max_power + 1)
-        ]
+        minus_two_log2 = -2 * log2
+        square_u_factor = 2 * log2 * log2 - pi * pi / 6
         v, v2 = _zero_matrix(len(polys)), _zero_matrix(len(polys))
         for i, left in enumerate(exact):
             for j in range(i, len(exact)):
                 if _opposite_parity(parities[i], parities[j]):
                     continue
-                value, square = arb(0), arb(0)
+                u, e, f = fmpq(0), fmpq(0), fmpq(0)
                 for power, coefficient in enumerate((left * exact[j]).coeffs()):
-                    if coefficient:
-                        c = arb(coefficient)
-                        value += c * moments[power]
-                        square += c * square_moments[power]
+                    if coefficient and power % 2 == 0:
+                        moment_u, moment_e, moment_f = moments[power // 2]
+                        u += coefficient * moment_u
+                        e += coefficient * moment_e
+                        f += coefficient * moment_f
+                u_ball, e_ball = arb(u), arb(e)
+                value = e_ball + minus_two_log2 * u_ball
+                square = square_u_factor * u_ball + minus_two_log2 * e_ball + arb(f / 2)
                 v[i][j] = v[j][i] = value
                 v2[i][j] = v2[j][i] = square
         return v, v2

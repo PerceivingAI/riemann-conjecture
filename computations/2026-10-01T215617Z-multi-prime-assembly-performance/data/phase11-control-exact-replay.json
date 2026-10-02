@@ -1,0 +1,130 @@
+{
+  "utc": "2026-10-02T09:12:59Z",
+  "role": "fresh-process rational positive-control replay, not successful frozen targets",
+  "status": "PASS",
+  "results": [
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "scripts.audit_multi_prime_candidate",
+        "--input",
+        "computations\\2026-10-01T215617Z-multi-prime-assembly-performance\\data\\phase11-control-base512-base-attempt1-audit-inputs.json",
+        "--output-json",
+        "computations\\2026-10-01T215617Z-multi-prime-assembly-performance\\data\\phase11-control-base512-base-attempt1-exact-audit.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.41021879998152144,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"support\": \"2/5\",\n  \"dimension\": 40,\n  \"precision_bits\": 512,\n  \"mu_lower\": \"204763965063875439828830975315969/279999117022207171124858034585600\",\n  \"even_gershgorin_margin\": \"291013193551952724015463808175474710479116201209708658055341842812589/69677566692051887152838805601663693190838498122970533194691019605540864\",\n  \"odd_gershgorin_margin\": \"914206706526613484429085009770339752781259422216689214918521241817651/69677566692051887152838805601663693190838498122970533194691019605540864\",\n  \"theorem_status\": false,\n  \"trust_boundary\": \"serialized rational arithmetic only; no Arb enclosure certification or admission\"\n}\n",
+      "stderr": "",
+      "source_sha256": "a1149024c3b18cb05ae680d4a126c112dabc54a8dda814c4b9f71fedc038355b",
+      "audit": {
+        "status": "PASS",
+        "support": "2/5",
+        "dimension": 40,
+        "precision_bits": 512,
+        "mu_lower": "204763965063875439828830975315969/279999117022207171124858034585600",
+        "even_gershgorin_margin": "291013193551952724015463808175474710479116201209708658055341842812589/69677566692051887152838805601663693190838498122970533194691019605540864",
+        "odd_gershgorin_margin": "914206706526613484429085009770339752781259422216689214918521241817651/69677566692051887152838805601663693190838498122970533194691019605540864",
+        "theorem_status": false,
+        "trust_boundary": "serialized rational arithmetic only; no Arb enclosure certification or admission"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "scripts.audit_multi_prime_candidate",
+        "--input",
+        "computations\\2026-10-01T215617Z-multi-prime-assembly-performance\\data\\phase11-control-base512-confirmation-attempt1-audit-inputs.json",
+        "--output-json",
+        "computations\\2026-10-01T215617Z-multi-prime-assembly-performance\\data\\phase11-control-base512-confirmation-attempt1-exact-audit.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.49012540001422167,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"support\": \"2/5\",\n  \"dimension\": 40,\n  \"precision_bits\": 640,\n  \"mu_lower\": \"204763965063875439828830975315969/279999117022207171124858034585600\",\n  \"even_gershgorin_margin\": \"291013193551952724015463808175474710479116201209708658055341842812589/69677566692051887152838805601663693190838498122970533194691019605540864\",\n  \"odd_gershgorin_margin\": \"914206706526613484429085009770339752781259422216689214918521241817651/69677566692051887152838805601663693190838498122970533194691019605540864\",\n  \"theorem_status\": false,\n  \"trust_boundary\": \"serialized rational arithmetic only; no Arb enclosure certification or admission\"\n}\n",
+      "stderr": "",
+      "source_sha256": "617bf49c146f637ce8aedd5c3e75542d31e410cfc9b5f86d3f12b95bbeba3eba",
+      "audit": {
+        "status": "PASS",
+        "support": "2/5",
+        "dimension": 40,
+        "precision_bits": 640,
+        "mu_lower": "204763965063875439828830975315969/279999117022207171124858034585600",
+        "even_gershgorin_margin": "291013193551952724015463808175474710479116201209708658055341842812589/69677566692051887152838805601663693190838498122970533194691019605540864",
+        "odd_gershgorin_margin": "914206706526613484429085009770339752781259422216689214918521241817651/69677566692051887152838805601663693190838498122970533194691019605540864",
+        "theorem_status": false,
+        "trust_boundary": "serialized rational arithmetic only; no Arb enclosure certification or admission"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "scripts.audit_multi_prime_candidate",
+        "--input",
+        "computations\\2026-10-01T215617Z-multi-prime-assembly-performance\\data\\phase11-control-base640-base-attempt1-audit-inputs.json",
+        "--output-json",
+        "computations\\2026-10-01T215617Z-multi-prime-assembly-performance\\data\\phase11-control-base640-base-attempt1-exact-audit.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.45761700000730343,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"support\": \"2/5\",\n  \"dimension\": 40,\n  \"precision_bits\": 640,\n  \"mu_lower\": \"204763965063875439828830975315969/279999117022207171124858034585600\",\n  \"even_gershgorin_margin\": \"291013193551952724015463808175474710479116201209708658055341842812589/69677566692051887152838805601663693190838498122970533194691019605540864\",\n  \"odd_gershgorin_margin\": \"914206706526613484429085009770339752781259422216689214918521241817651/69677566692051887152838805601663693190838498122970533194691019605540864\",\n  \"theorem_status\": false,\n  \"trust_boundary\": \"serialized rational arithmetic only; no Arb enclosure certification or admission\"\n}\n",
+      "stderr": "",
+      "source_sha256": "617bf49c146f637ce8aedd5c3e75542d31e410cfc9b5f86d3f12b95bbeba3eba",
+      "audit": {
+        "status": "PASS",
+        "support": "2/5",
+        "dimension": 40,
+        "precision_bits": 640,
+        "mu_lower": "204763965063875439828830975315969/279999117022207171124858034585600",
+        "even_gershgorin_margin": "291013193551952724015463808175474710479116201209708658055341842812589/69677566692051887152838805601663693190838498122970533194691019605540864",
+        "odd_gershgorin_margin": "914206706526613484429085009770339752781259422216689214918521241817651/69677566692051887152838805601663693190838498122970533194691019605540864",
+        "theorem_status": false,
+        "trust_boundary": "serialized rational arithmetic only; no Arb enclosure certification or admission"
+      }
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "scripts.audit_multi_prime_candidate",
+        "--input",
+        "computations\\2026-10-01T215617Z-multi-prime-assembly-performance\\data\\phase11-control-base640-confirmation-attempt1-audit-inputs.json",
+        "--output-json",
+        "computations\\2026-10-01T215617Z-multi-prime-assembly-performance\\data\\phase11-control-base640-confirmation-attempt1-exact-audit.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.43555289998766966,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"support\": \"2/5\",\n  \"dimension\": 40,\n  \"precision_bits\": 768,\n  \"mu_lower\": \"204763965063875439828830975315969/279999117022207171124858034585600\",\n  \"even_gershgorin_margin\": \"291013193551952724015463808175474710479116201209708658055341842812589/69677566692051887152838805601663693190838498122970533194691019605540864\",\n  \"odd_gershgorin_margin\": \"914206706526613484429085009770339752781259422216689214918521241817651/69677566692051887152838805601663693190838498122970533194691019605540864\",\n  \"theorem_status\": false,\n  \"trust_boundary\": \"serialized rational arithmetic only; no Arb enclosure certification or admission\"\n}\n",
+      "stderr": "",
+      "source_sha256": "773e99602f3898b125aa6042bbbc6c0d3105de606db3de22d2a954879eff7bd2",
+      "audit": {
+        "status": "PASS",
+        "support": "2/5",
+        "dimension": 40,
+        "precision_bits": 768,
+        "mu_lower": "204763965063875439828830975315969/279999117022207171124858034585600",
+        "even_gershgorin_margin": "291013193551952724015463808175474710479116201209708658055341842812589/69677566692051887152838805601663693190838498122970533194691019605540864",
+        "odd_gershgorin_margin": "914206706526613484429085009770339752781259422216689214918521241817651/69677566692051887152838805601663693190838498122970533194691019605540864",
+        "theorem_status": false,
+        "trust_boundary": "serialized rational arithmetic only; no Arb enclosure certification or admission"
+      }
+    }
+  ],
+  "independent_fresh_640_exact_inputs_identical": true,
+  "qualification_run": false,
+  "theorem_admission": false
+}

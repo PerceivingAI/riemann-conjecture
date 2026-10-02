@@ -6,7 +6,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pytest
-from flint import ctx
+from flint import arb, ctx
 
 from scripts import weil_multi_prime_schur_scout as scout_module
 from scripts import weil_multi_prime_support_candidate_check as candidate_module
@@ -164,6 +164,21 @@ def test_real_candidate_rounding_and_exact_witnesses_survive_independent_control
 
 
 def test_real_nonpositive_candidate_fails_at_exact_witness_gate():
+    with pytest.raises(candidate_module.CandidateStageError) as error:
+        candidate_module.run_candidate(
+            Fraction(2, 5), dimension=24, prec=256, residual_order=32,
+            matrix_bits=64, witness_bits=32,
+        )
+    assert error.value.stage == "witness"
+
+
+def test_candidate_with_width_outside_binary64_reaches_exact_witness_gate(monkeypatch):
+    def assemble_with_unresolved_gram(**kwargs):
+        assembled = assemble_multi_prime_schur(**kwargs)
+        assembled["GP"][0][0] += arb(0, arb("1e400"))
+        return assembled
+
+    monkeypatch.setattr(candidate_module, "assemble_multi_prime_schur", assemble_with_unresolved_gram)
     with pytest.raises(candidate_module.CandidateStageError) as error:
         candidate_module.run_candidate(
             Fraction(2, 5), dimension=24, prec=256, residual_order=32,

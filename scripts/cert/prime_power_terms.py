@@ -24,7 +24,7 @@ from fractions import Fraction
 from itertools import count
 from typing import Sequence
 
-from flint import arb, arb_poly, ctx, fmpq, fmpq_poly
+from flint import arb, ctx, fmpq, fmpq_poly
 
 FractionPoly = list[Fraction]
 ArbPoly = list[arb]
@@ -65,11 +65,11 @@ class PrimePowerTerm:
 
 @dataclass(frozen=True)
 class PiecewisePolynomial:
-    """One polynomial piece on a rigorously ordered interval."""
+    """Legendre coefficients in t=(x-center)/radius on one strict cell."""
 
     lower: arb
     upper: arb
-    coefficients: tuple[arb, ...]
+    legendre_coefficients: tuple[arb, ...]
 
 
 @dataclass(frozen=True)
@@ -258,34 +258,6 @@ def _arb_fraction(value: Fraction) -> arb:
     return arb(value.numerator) / value.denominator
 
 
-def _arb_poly(poly: Sequence[Fraction]) -> ArbPoly:
-    return [_arb_fraction(value) for value in poly]
-
-
-def _arb_poly_shift(poly: Sequence[Fraction], shift: arb) -> ArbPoly:
-    """Return coefficients of ``poly(x + shift)`` with rigorous Arb entries."""
-    coefficients = arb_poly(_arb_poly(poly))(arb_poly([shift, 1])).coeffs()
-    # Retain the coefficient shape even when Flint trims exact trailing zeros.
-    coefficients.extend(arb(0) for _ in range(len(poly) - len(coefficients)))
-    return coefficients
-
-
-def _arb_poly_add_in_place(target: ArbPoly, source: Sequence[arb], scale: arb) -> None:
-    if len(source) > len(target):
-        target.extend(arb(0) for _ in range(len(source) - len(target)))
-    for index, value in enumerate(source):
-        target[index] += scale * value
-
-
-def _integrated_product(left: arb_poly, right: arb_poly, interval: tuple[arb, arb]) -> arb:
-    """Integrate the full interval product using native Arb antiderivative evaluation."""
-    if not len(left) or not len(right):
-        return arb(0)
-    primitive = (left * right).integral()
-    lower, upper = interval
-    return primitive(upper) - primitive(lower)
-
-
 def _exact_polynomials(polys: Sequence[Sequence[Fraction]]) -> list[fmpq_poly]:
     return [
         fmpq_poly([fmpq(value.numerator, value.denominator) for value in poly])
@@ -380,123 +352,176 @@ def _activity(midpoint: arb, boundary: arb, *, before: bool, term: PrimePowerTer
     )
 
 
+def _legendre_expansions(polys: Sequence[Sequence[Fraction]]) -> tuple[tuple[fmpq, ...], ...]:
+    """Convert any exact polynomial to global Legendre coefficients over Q."""
+    exact = _exact_polynomials(polys)
+    degree = max(poly.degree() for poly in exact)
+    canonical = [fmpq_poly([1])]
+    if degree >= 1:
+        x = fmpq_poly([0, 1])
+        canonical.append(x)
+        for k in range(1, degree):
+            canonical.append(((2 * k + 1) * x * canonical[-1] - k * canonical[-2])
+                             * fmpq(1, k + 1))
+    expansions = []
+    for poly in exact:
+        coefficients = [fmpq(0) for _ in range(poly.degree() + 1)]
+        remaining = poly
+        while remaining.degree() >= 0:
+            k = remaining.degree()
+            coefficient = remaining[k] / canonical[k][k]
+            coefficients[k] = coefficient
+            remaining = remaining - canonical[k] * coefficient
+        expansions.append(tuple(coefficients))
+    return tuple(expansions)
+
+
+def _affine_legendre(degree: int, center: arb, radius: arb) -> tuple[tuple[arb, ...], ...]:
+    """Enclose L_k(center+radius*t) directly in the Legendre basis of t."""
+    table = [(arb(1),)]
+    if degree >= 1:
+        table.append((center, radius))
+    for k in range(1, degree):
+        previous, older = table[-1], table[-2]
+        multiplied = [arb(0) for _ in range(k + 2)]
+        for j, value in enumerate(previous):
+            multiplied[j] += center * value
+            multiplied[j + 1] += radius * value * (j + 1) / (2 * j + 1)
+            if j:
+                multiplied[j - 1] += radius * value * j / (2 * j + 1)
+        table.append(tuple(((2 * k + 1) * value - (k * older[j] if j < len(older) else 0))
+                           / (k + 1) for j, value in enumerate(multiplied)))
+    return tuple(table)
+
+
+def _local_basis(expansions: Sequence[Sequence[fmpq]], table: Sequence[Sequence[arb]]) -> tuple[tuple[arb, ...], ...]:
+    transformed = []
+    for coefficients in expansions:
+        occupied = [(k, value) for k, value in enumerate(coefficients) if value]
+        if len(occupied) == 1 and occupied[0][1] == 1:
+            transformed.append(tuple(table[occupied[0][0]]))
+            continue
+        values = [arb(0) for _ in coefficients]
+        for k, coefficient in occupied:
+            scale = arb(coefficient)
+            for j, value in enumerate(table[k]):
+                values[j] += scale * value
+        transformed.append(tuple(values))
+    return tuple(transformed)
+
+
+def _translation_partition(terms: Sequence[PrimePowerTerm]) -> tuple[arb, ...]:
+    term_ids = [term.m for term in terms]
+    if term_ids != sorted(term_ids) or len(term_ids) != len(set(term_ids)):
+        raise ValueError("prime-power terms must be unique and sorted by m")
+    if len({term.support for term in terms}) > 1:
+        raise ValueError("prime-power terms must share one exact rational support")
+    return _sorted_breakpoints(terms) if terms else (arb(-1), arb(1))
+
+
+def _combined_local_images(
+    expansions: Sequence[Sequence[fmpq]],
+    terms: Sequence[PrimePowerTerm],
+    breakpoints: Sequence[arb],
+) -> tuple[tuple[PiecewisePolynomial, ...], ...]:
+    degree = max(len(coefficients) for coefficients in expansions) - 1
+    images: list[list[PiecewisePolynomial]] = [[] for _ in expansions]
+    for lower, upper in zip(breakpoints[:-1], breakpoints[1:], strict=True):
+        center, radius = (lower + upper) / 2, (upper - lower) / 2
+        combined = [[arb(0) for _ in coefficients] for coefficients in expansions]
+        active = False
+        for term in terms:
+            for before, boundary, shift in (
+                (True, 1 - term.tau, term.tau),
+                (False, -1 + term.tau, -term.tau),
+            ):
+                if not _activity(center, boundary, before=before, term=term):
+                    continue
+                active = True
+                translated = _local_basis(expansions, _affine_legendre(degree, center + shift, radius))
+                for values, coefficients in zip(combined, translated, strict=True):
+                    for k, value in enumerate(coefficients):
+                        values[k] -= term.coefficient * value
+        for pieces, values in zip(images, combined, strict=True):
+            pieces.append(PiecewisePolynomial(lower, upper, tuple(values) if active else ()))
+    return tuple(tuple(pieces) for pieces in images)
+
+
 def combined_piecewise_images(
     polys: Sequence[Sequence[Fraction]],
     terms: Sequence[PrimePowerTerm],
     prec: int = 256,
 ) -> tuple[tuple[arb, ...], tuple[tuple[PiecewisePolynomial, ...], ...]]:
-    """Apply the combined signed arithmetic operator to every basis polynomial.
+    """Apply combined P in cell-local Legendre coordinates, summing before square.
 
-    All translation breakpoints from all active terms are globally partitioned.
-    On each open subinterval the correct left/right shifted polynomial pieces
-    are summed.  Endpoint values are irrelevant to the quadratic form because
-    they have measure zero.
+    Piece coefficients describe t=(x-(lower+upper)/2)/((upper-lower)/2).
+    An empty coefficient tuple is the zero image on an inactive cell.
     """
     if not polys:
         raise ValueError("at least one basis polynomial is required")
-    if not terms:
-        with ctx.workprec(prec):
-            breakpoints = (arb(-1), arb(1))
-            images = tuple(
-                (
-                    PiecewisePolynomial(
-                        lower=breakpoints[0],
-                        upper=breakpoints[1],
-                        coefficients=tuple(arb(0) for _ in poly),
-                    ),
-                )
-                for poly in polys
-            )
-            return breakpoints, images
-
-    term_ids = [term.m for term in terms]
-    if term_ids != sorted(term_ids) or len(term_ids) != len(set(term_ids)):
-        raise ValueError("prime-power terms must be unique and sorted by m")
-
+    if prec < 32:
+        raise ValueError("prec must be at least 32 bits")
+    expansions = _legendre_expansions(polys)
     with ctx.workprec(prec):
-        breakpoints = _sorted_breakpoints(terms)
-        shifted: list[list[tuple[ArbPoly, ArbPoly]]] = []
-        for poly in polys:
-            per_term: list[tuple[ArbPoly, ArbPoly]] = []
-            for term in terms:
-                plus = _arb_poly_shift(poly, term.tau)
-                minus = _arb_poly_shift(poly, -term.tau)
-                per_term.append((plus, minus))
-            shifted.append(per_term)
-        partition = tuple(zip(breakpoints[:-1], breakpoints[1:], strict=True))
-        activities = []
-        for lower, upper in partition:
-            midpoint = (lower + upper) / 2
-            activities.append(tuple(
-                (
-                    _activity(midpoint, 1 - term.tau, before=True, term=term),
-                    _activity(midpoint, -1 + term.tau, before=False, term=term),
-                    -term.coefficient,
-                )
-                for term in terms
-            ))
-
-        all_images: list[tuple[PiecewisePolynomial, ...]] = []
-        for basis_index, poly in enumerate(polys):
-            pieces: list[PiecewisePolynomial] = []
-            for cell_index, (lower, upper) in enumerate(partition):
-                coefficients = [arb(0) for _ in poly]
-                for term_index, (plus_active, minus_active, scale) in enumerate(activities[cell_index]):
-                    plus_poly, minus_poly = shifted[basis_index][term_index]
-                    if plus_active:
-                        _arb_poly_add_in_place(coefficients, plus_poly, scale)
-                    if minus_active:
-                        _arb_poly_add_in_place(coefficients, minus_poly, scale)
-                pieces.append(
-                    PiecewisePolynomial(
-                        lower=lower,
-                        upper=upper,
-                        coefficients=tuple(coefficients),
-                    )
-                )
-            all_images.append(tuple(pieces))
-        return breakpoints, tuple(all_images)
+        breakpoints = _translation_partition(terms)
+        return breakpoints, _combined_local_images(expansions, terms, breakpoints)
 
 
 def _zero_matrix(n: int) -> ArbMatrix:
     return [[arb(0) for _ in range(n)] for _ in range(n)]
 
 
+def _legendre_inner(left: Sequence[arb], right: Sequence[arb], weights: Sequence[arb]) -> arb:
+    # Different degrees are implicitly zero-padded in this diagonal norm sum.
+    return sum((a * b * weight for a, b, weight in zip(left, right, weights)), arb(0))
+
+
 def _low_matrix_from_images(
-    basis: Sequence[arb_poly],
-    images: Sequence[Sequence[arb_poly]],
-    intervals: Sequence[tuple[arb, arb]],
+    expansions: Sequence[Sequence[fmpq]],
+    images: Sequence[Sequence[PiecewisePolynomial]],
+    breakpoints: Sequence[arb],
     parities: Sequence[int | None],
 ) -> ArbMatrix:
-    n = len(basis)
+    n = len(expansions)
     out = _zero_matrix(n)
+    degree = max(len(coefficients) for coefficients in expansions) - 1
+    weights = tuple(arb(2) / (2 * k + 1) for k in range(degree + 1))
+    for cell, (lower, upper) in enumerate(zip(breakpoints[:-1], breakpoints[1:], strict=True)):
+        if all(not image[cell].legendre_coefficients for image in images):
+            continue
+        center, radius = (lower + upper) / 2, (upper - lower) / 2
+        basis = _local_basis(expansions, _affine_legendre(degree, center, radius))
+        for i in range(n):
+            for j in range(i, n):
+                if not _opposite_parity(parities[i], parities[j]):
+                    out[i][j] += radius * _legendre_inner(basis[i], images[j][cell].legendre_coefficients, weights)
     for i in range(n):
-        for j in range(i, n):
-            # Reflection commutes with every signed left+right translation.
-            if _opposite_parity(parities[i], parities[j]):
-                continue
-            value = arb(0)
-            for image, interval in zip(images[j], intervals, strict=True):
-                value += _integrated_product(basis[i], image, interval)
-            out[i][j] = out[j][i] = value
+        for j in range(i):
+            out[i][j] = out[j][i]
     return out
 
 
 def _operator_square_matrix_from_images(
-    images: Sequence[Sequence[arb_poly]],
-    intervals: Sequence[tuple[arb, arb]],
+    images: Sequence[Sequence[PiecewisePolynomial]],
+    breakpoints: Sequence[arb],
     parities: Sequence[int | None],
 ) -> ArbMatrix:
     n = len(images)
     out = _zero_matrix(n)
-    for i in range(n):
-        for j in range(i, n):
-            if _opposite_parity(parities[i], parities[j]):
+    degree = max(len(piece.legendre_coefficients) for image in images for piece in image)
+    weights = tuple(arb(2) / (2 * k + 1) for k in range(degree))
+    for cell, (lower, upper) in enumerate(zip(breakpoints[:-1], breakpoints[1:], strict=True)):
+        radius = (upper - lower) / 2
+        for i in range(n):
+            left = images[i][cell].legendre_coefficients
+            if not left:
                 continue
-            value = arb(0)
-            for left, right, interval in zip(images[i], images[j], intervals, strict=True):
-                value += _integrated_product(left, right, interval)
-            out[i][j] = out[j][i] = value
+            for j in range(i, n):
+                if not _opposite_parity(parities[i], parities[j]):
+                    out[i][j] += radius * _legendre_inner(left, images[j][cell].legendre_coefficients, weights)
+    for i in range(n):
+        for j in range(i):
+            out[i][j] = out[j][i]
     return out
 
 
@@ -531,22 +556,16 @@ def assemble_combined_prime_power_operator(
     """Assemble ``P``, ``P^2``, and ``G_P`` from already-certified terms."""
     if prec < 32:
         raise ValueError("prec must be at least 32 bits")
+    if not polys:
+        raise ValueError("at least one basis polynomial is required")
     norms = _orthogonal_basis_norms(polys)
-    if terms:
-        supports = {term.support for term in terms}
-        if len(supports) != 1:
-            raise ValueError("prime-power terms must share one exact rational support")
-
+    expansions = _legendre_expansions(polys)
     with ctx.workprec(prec):
-        breakpoints, images = combined_piecewise_images(polys, terms, prec)
-        basis = tuple(arb_poly(_arb_poly(poly)) for poly in polys)
-        native_images = tuple(
-            tuple(arb_poly(list(piece.coefficients)) for piece in image) for image in images
-        )
-        intervals = tuple(zip(breakpoints[:-1], breakpoints[1:], strict=True))
+        breakpoints = _translation_partition(terms)
+        images = _combined_local_images(expansions, terms, breakpoints)
         parities = _polynomial_parities(polys)
-        p_matrix = _low_matrix_from_images(basis, native_images, intervals, parities)
-        p_squared_matrix = _operator_square_matrix_from_images(native_images, intervals, parities)
+        p_matrix = _low_matrix_from_images(expansions, images, breakpoints, parities)
+        p_squared_matrix = _operator_square_matrix_from_images(images, breakpoints, parities)
         g_p = _tail_gram(p_matrix, p_squared_matrix, norms)
         return PrimePowerOperatorAssembly(
             terms=tuple(terms),

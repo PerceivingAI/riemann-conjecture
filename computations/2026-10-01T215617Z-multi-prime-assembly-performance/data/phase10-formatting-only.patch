@@ -1,0 +1,1014 @@
+--- before/crates/rh_engine/src/laguerre.rs
++++ after/crates/rh_engine/src/laguerre.rs
+@@ -1,96 +1,96 @@
+-//! High-performance evaluations of generalized Laguerre polynomials $L_n^{(\alpha)}(t)$.
+-
+-/// Compute $L_n^{(1)}(t)$ for a single degree.
+-#[inline]
+-pub fn laguerre_l1(degree: usize, t: f64) -> f64 {
+-    if degree == 0 {
+-        return 1.0;
+-    }
+-    let mut prev = 1.0; // L_0^(1)
+-    let mut cur = 2.0 - t; // L_1^(1)
+-
+-    for k in 1..degree {
+-        let k_f = k as f64;
+-        let next = ((2.0 * k_f + 2.0 - t) * cur - (k_f + 1.0) * prev) / (k_f + 1.0);
+-        prev = cur;
+-        cur = next;
+-    }
+-    cur
+-}
+-
+-/// Compute $L_0^{(1)}(t), L_1^{(1)}(t), \dots, L_{\text{max\_degree}}^{(1)}(t)$ in a single pass.
+-///
+-/// Fills the output slice `out` where `out.len() >= max_degree + 1`.
+-#[inline]
+-pub fn laguerre_l1_batch(max_degree: usize, t: f64, out: &mut [f64]) {
+-    assert!(out.len() > max_degree, "Output buffer too small");
+-    out[0] = 1.0;
+-    if max_degree == 0 {
+-        return;
+-    }
+-    out[1] = 2.0 - t;
+-
+-    for k in 1..max_degree {
+-        let k_f = k as f64;
+-        out[k + 1] = ((2.0 * k_f + 2.0 - t) * out[k] - (k_f + 1.0) * out[k - 1]) / (k_f + 1.0);
+-    }
+-}
+-
+-/// Compute generalized $L_n^{(\alpha)}(t)$ for arbitrary non-negative integer $\alpha$.
+-#[inline]
+-pub fn laguerre_alpha(degree: usize, alpha: usize, t: f64) -> f64 {
+-    if degree == 0 {
+-        return 1.0;
+-    }
+-    let a_f = alpha as f64;
+-    let mut prev = 1.0; // L_0^(alpha)
+-    let mut cur = 1.0 + a_f - t; // L_1^(alpha)
+-
+-    for k in 1..degree {
+-        let k_f = k as f64;
+-        let next = ((2.0 * k_f + 1.0 + a_f - t) * cur - (k_f + a_f) * prev) / (k_f + 1.0);
+-        prev = cur;
+-        cur = next;
+-    }
+-    cur
+-}
+-
+-#[cfg(test)]
+-mod tests {
+-    use super::*;
+-
+-    #[test]
+-    fn test_laguerre_l1_small() {
+-        let t = 0.5;
+-        assert_eq!(laguerre_l1(0, t), 1.0);
+-        assert!((laguerre_l1(1, t) - 1.5).abs() < 1e-14); // 2 - 0.5 = 1.5
+-        // L_2^(1)(t) = 3 - 3t + 0.5 t^2 = 3 - 1.5 + 0.125 = 1.625
+-        assert!((laguerre_l1(2, t) - 1.625).abs() < 1e-14);
+-    }
+-
+-    #[test]
+-    fn test_batch_matches_scalar() {
+-        let t = 2.5;
+-        let max_n = 32;
+-        let mut batch = vec![0.0; max_n + 1];
+-        laguerre_l1_batch(max_n, t, &mut batch);
+-
+-        for (n, &actual) in batch.iter().enumerate() {
+-            let scalar = laguerre_l1(n, t);
+-            assert!((actual - scalar).abs() < 1e-12 * (1.0 + scalar.abs()));
+-        }
+-    }
+-
+-    #[test]
+-    fn test_contiguous_identity() {
+-        // L_n^(0)(t) == L_n^(1)(t) - L_{n-1}^(1)(t)
+-        for n in 1..=20 {
+-            for &t in &[0.1, 1.0, 3.5, 10.0] {
+-                let l0 = laguerre_alpha(n, 0, t);
+-                let l1_curr = laguerre_alpha(n, 1, t);
+-                let l1_prev = laguerre_alpha(n - 1, 1, t);
+-                assert!((l0 - (l1_curr - l1_prev)).abs() < 1e-11 * (1.0 + l0.abs()));
+-            }
+-        }
+-    }
+-}
++//! High-performance evaluations of generalized Laguerre polynomials $L_n^{(\alpha)}(t)$.
++
++/// Compute $L_n^{(1)}(t)$ for a single degree.
++#[inline]
++pub fn laguerre_l1(degree: usize, t: f64) -> f64 {
++    if degree == 0 {
++        return 1.0;
++    }
++    let mut prev = 1.0; // L_0^(1)
++    let mut cur = 2.0 - t; // L_1^(1)
++
++    for k in 1..degree {
++        let k_f = k as f64;
++        let next = ((2.0 * k_f + 2.0 - t) * cur - (k_f + 1.0) * prev) / (k_f + 1.0);
++        prev = cur;
++        cur = next;
++    }
++    cur
++}
++
++/// Compute $L_0^{(1)}(t), L_1^{(1)}(t), \dots, L_{\text{max\_degree}}^{(1)}(t)$ in a single pass.
++///
++/// Fills the output slice `out` where `out.len() >= max_degree + 1`.
++#[inline]
++pub fn laguerre_l1_batch(max_degree: usize, t: f64, out: &mut [f64]) {
++    assert!(out.len() > max_degree, "Output buffer too small");
++    out[0] = 1.0;
++    if max_degree == 0 {
++        return;
++    }
++    out[1] = 2.0 - t;
++
++    for k in 1..max_degree {
++        let k_f = k as f64;
++        out[k + 1] = ((2.0 * k_f + 2.0 - t) * out[k] - (k_f + 1.0) * out[k - 1]) / (k_f + 1.0);
++    }
++}
++
++/// Compute generalized $L_n^{(\alpha)}(t)$ for arbitrary non-negative integer $\alpha$.
++#[inline]
++pub fn laguerre_alpha(degree: usize, alpha: usize, t: f64) -> f64 {
++    if degree == 0 {
++        return 1.0;
++    }
++    let a_f = alpha as f64;
++    let mut prev = 1.0; // L_0^(alpha)
++    let mut cur = 1.0 + a_f - t; // L_1^(alpha)
++
++    for k in 1..degree {
++        let k_f = k as f64;
++        let next = ((2.0 * k_f + 1.0 + a_f - t) * cur - (k_f + a_f) * prev) / (k_f + 1.0);
++        prev = cur;
++        cur = next;
++    }
++    cur
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++
++    #[test]
++    fn test_laguerre_l1_small() {
++        let t = 0.5;
++        assert_eq!(laguerre_l1(0, t), 1.0);
++        assert!((laguerre_l1(1, t) - 1.5).abs() < 1e-14); // 2 - 0.5 = 1.5
++                                                          // L_2^(1)(t) = 3 - 3t + 0.5 t^2 = 3 - 1.5 + 0.125 = 1.625
++        assert!((laguerre_l1(2, t) - 1.625).abs() < 1e-14);
++    }
++
++    #[test]
++    fn test_batch_matches_scalar() {
++        let t = 2.5;
++        let max_n = 32;
++        let mut batch = vec![0.0; max_n + 1];
++        laguerre_l1_batch(max_n, t, &mut batch);
++
++        for (n, &actual) in batch.iter().enumerate() {
++            let scalar = laguerre_l1(n, t);
++            assert!((actual - scalar).abs() < 1e-12 * (1.0 + scalar.abs()));
++        }
++    }
++
++    #[test]
++    fn test_contiguous_identity() {
++        // L_n^(0)(t) == L_n^(1)(t) - L_{n-1}^(1)(t)
++        for n in 1..=20 {
++            for &t in &[0.1, 1.0, 3.5, 10.0] {
++                let l0 = laguerre_alpha(n, 0, t);
++                let l1_curr = laguerre_alpha(n, 1, t);
++                let l1_prev = laguerre_alpha(n - 1, 1, t);
++                assert!((l0 - (l1_curr - l1_prev)).abs() < 1e-11 * (1.0 + l0.abs()));
++            }
++        }
++    }
++}
+--- before/crates/rh_engine/src/lib.rs
++++ after/crates/rh_engine/src/lib.rs
+@@ -1,20 +1,19 @@
+-//! High-performance native calculation engine for Riemann Hypothesis prime-trace and turning-scale investigations.
+-
+-pub mod bins;
+-pub mod laguerre;
+-pub mod phase;
+-pub mod sieve;
+-pub mod summation;
+-pub mod trace;
+-
+-pub use bins::{compute_range_bins, BinEntry, RangeBinResult};
+-pub use laguerre::{laguerre_alpha, laguerre_l1, laguerre_l1_batch};
+-pub use phase::{
+-    critical_cayley_phase_per_n, gamma_from_small_u_stationary_u,
+-    gamma_from_uniform_preturning_u, laguerre_uniform_xi, small_u_stationary_t_from_gamma,
+-    small_u_stationary_u_from_gamma, uniform_preturning_stationary_t_from_gamma,
+-    uniform_preturning_stationary_u_from_gamma,
+-};
+-pub use sieve::{higher_prime_powers, sieve_segment, simple_sieve, PrimePower};
+-pub use summation::NeumaierSum;
+-pub use trace::{compute_prime_trace, TraceEntry, TraceResult};
++//! High-performance native calculation engine for Riemann Hypothesis prime-trace and turning-scale investigations.
++
++pub mod bins;
++pub mod laguerre;
++pub mod phase;
++pub mod sieve;
++pub mod summation;
++pub mod trace;
++
++pub use bins::{compute_range_bins, BinEntry, RangeBinResult};
++pub use laguerre::{laguerre_alpha, laguerre_l1, laguerre_l1_batch};
++pub use phase::{
++    critical_cayley_phase_per_n, gamma_from_small_u_stationary_u, gamma_from_uniform_preturning_u,
++    laguerre_uniform_xi, small_u_stationary_t_from_gamma, small_u_stationary_u_from_gamma,
++    uniform_preturning_stationary_t_from_gamma, uniform_preturning_stationary_u_from_gamma,
++};
++pub use sieve::{higher_prime_powers, sieve_segment, simple_sieve, PrimePower};
++pub use summation::NeumaierSum;
++pub use trace::{compute_prime_trace, TraceEntry, TraceResult};
+--- before/crates/rh_engine/src/sieve.rs
++++ after/crates/rh_engine/src/sieve.rs
+@@ -1,168 +1,172 @@
+-//! Segmented bit-sieve and von Mangoldt prime-power generation.
+-
+-/// Generate primes up to `limit` using a standard odd-only sieve.
+-pub fn simple_sieve(limit: usize) -> Vec<usize> {
+-    if limit < 2 {
+-        return Vec::new();
+-    }
+-    let mut primes = Vec::new();
+-    primes.push(2);
+-    if limit == 2 {
+-        return primes;
+-    }
+-
+-    let num_odds = (limit - 1) / 2;
+-    // is_composite[i] represents 2*i + 3
+-    let mut is_composite = vec![false; num_odds];
+-    let sqrt_limit = (limit as f64).sqrt() as usize;
+-
+-    for i in 0..num_odds {
+-        if !is_composite[i] {
+-            let p = 2 * i + 3;
+-            primes.push(p);
+-            if p <= sqrt_limit {
+-                // p*p = (2*i + 3)^2 = 4*i^2 + 12*i + 9
+-                // Index of p*p: (p*p - 3) / 2 = 2*i^2 + 6*i + 3
+-                let mut j = 2 * i * i + 6 * i + 3;
+-                while j < num_odds {
+-                    is_composite[j] = true;
+-                    j += p;
+-                }
+-            }
+-        }
+-    }
+-    primes
+-}
+-
+-/// A prime power item: $(m, \Lambda(m)) = (p^k, \ln p)$.
+-#[derive(Debug, Clone, Copy, PartialEq)]
+-pub struct PrimePower {
+-    pub m: u64,
+-    pub log_p: f64,
+-}
+-
+-/// Collect all higher prime powers $p^k \le \text{limit}$ with $k \ge 2$.
+-///
+-/// For $X = 10^8$, there are only ~3,800 such prime powers.
+-pub fn higher_prime_powers(limit: u64) -> Vec<PrimePower> {
+-    let mut powers = Vec::new();
+-    if limit < 4 {
+-        return powers;
+-    }
+-    let sqrt_limit = (limit as f64).sqrt() as usize;
+-    let base_primes = simple_sieve(sqrt_limit);
+-
+-    for &p in &base_primes {
+-        let p_u64 = p as u64;
+-        let log_p = (p as f64).ln();
+-        let mut cur = p_u64.checked_mul(p_u64);
+-
+-        while let Some(m) = cur {
+-            if m > limit {
+-                break;
+-            }
+-            powers.push(PrimePower { m, log_p });
+-            cur = m.checked_mul(p_u64);
+-        }
+-    }
+-
+-    powers.sort_by_key(|item| item.m);
+-    powers
+-}
+-
+-/// Sieve segment helper for parallel processing.
+-///
+-/// Sieves odd numbers in the range `[low, high]` (both inclusive) using base primes.
+-pub fn sieve_segment<F>(low: u64, high: u64, base_primes: &[usize], mut on_prime: F)
+-where
+-    F: FnMut(u64),
+-{
+-    if low > high {
+-        return;
+-    }
+-    // Adjust low/high to odd boundaries
+-    let odd_low = if low.is_multiple_of(2) { low + 1 } else { low };
+-    let odd_high = if high.is_multiple_of(2) { high.saturating_sub(1) } else { high };
+-
+-    if odd_low > odd_high {
+-        return;
+-    }
+-
+-    // Special case for 2 if in range
+-    if low <= 2 && high >= 2 {
+-        on_prime(2);
+-    }
+-    if odd_high < 3 {
+-        return;
+-    }
+-    let start_odd = odd_low.max(3);
+-    let num_odds = ((odd_high - start_odd) / 2 + 1) as usize;
+-    let mut is_composite = vec![false; num_odds];
+-
+-    for &p_usize in base_primes {
+-        let p = p_usize as u64;
+-        if p == 2 {
+-            continue;
+-        }
+-        if p * p > odd_high {
+-            break;
+-        }
+-
+-        // Find smallest odd multiple of p >= start_odd
+-        let mut first_mult = start_odd.div_ceil(p) * p;
+-        if first_mult.is_multiple_of(2) {
+-            first_mult += p;
+-        }
+-        if first_mult < p * p {
+-            first_mult = p * p;
+-        }
+-
+-        while first_mult <= odd_high {
+-            let idx = ((first_mult - start_odd) / 2) as usize;
+-            if idx < num_odds {
+-                is_composite[idx] = true;
+-            }
+-            first_mult += 2 * p;
+-        }
+-    }
+-
+-    for (i, &comp) in is_composite.iter().enumerate() {
+-        if !comp {
+-            let p = start_odd + 2 * (i as u64);
+-            on_prime(p);
+-        }
+-    }
+-}
+-
+-#[cfg(test)]
+-mod tests {
+-    use super::*;
+-
+-    #[test]
+-    fn test_simple_sieve() {
+-        let primes = simple_sieve(30);
+-        assert_eq!(primes, vec![2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
+-    }
+-
+-    #[test]
+-    fn test_higher_prime_powers() {
+-        let powers = higher_prime_powers(35);
+-        let ms: Vec<u64> = powers.iter().map(|p| p.m).collect();
+-        // 4=2^2, 8=2^3, 9=3^2, 16=2^4, 25=5^2, 27=3^3, 32=2^5
+-        assert_eq!(ms, vec![4, 8, 9, 16, 25, 27, 32]);
+-    }
+-
+-    #[test]
+-    fn test_sieve_segment_matches_simple() {
+-        let limit = 1000;
+-        let base_primes = simple_sieve((limit as f64).sqrt() as usize);
+-        let mut segmented_primes = Vec::new();
+-
+-        sieve_segment(1, 1000, &base_primes, |p| {
+-            segmented_primes.push(p);
+-        });
+-
+-        let expected: Vec<u64> = simple_sieve(1000).into_iter().map(|x| x as u64).collect();
+-        assert_eq!(segmented_primes, expected);
+-    }
+-}
++//! Segmented bit-sieve and von Mangoldt prime-power generation.
++
++/// Generate primes up to `limit` using a standard odd-only sieve.
++pub fn simple_sieve(limit: usize) -> Vec<usize> {
++    if limit < 2 {
++        return Vec::new();
++    }
++    let mut primes = Vec::new();
++    primes.push(2);
++    if limit == 2 {
++        return primes;
++    }
++
++    let num_odds = (limit - 1) / 2;
++    // is_composite[i] represents 2*i + 3
++    let mut is_composite = vec![false; num_odds];
++    let sqrt_limit = (limit as f64).sqrt() as usize;
++
++    for i in 0..num_odds {
++        if !is_composite[i] {
++            let p = 2 * i + 3;
++            primes.push(p);
++            if p <= sqrt_limit {
++                // p*p = (2*i + 3)^2 = 4*i^2 + 12*i + 9
++                // Index of p*p: (p*p - 3) / 2 = 2*i^2 + 6*i + 3
++                let mut j = 2 * i * i + 6 * i + 3;
++                while j < num_odds {
++                    is_composite[j] = true;
++                    j += p;
++                }
++            }
++        }
++    }
++    primes
++}
++
++/// A prime power item: $(m, \Lambda(m)) = (p^k, \ln p)$.
++#[derive(Debug, Clone, Copy, PartialEq)]
++pub struct PrimePower {
++    pub m: u64,
++    pub log_p: f64,
++}
++
++/// Collect all higher prime powers $p^k \le \text{limit}$ with $k \ge 2$.
++///
++/// For $X = 10^8$, there are only ~3,800 such prime powers.
++pub fn higher_prime_powers(limit: u64) -> Vec<PrimePower> {
++    let mut powers = Vec::new();
++    if limit < 4 {
++        return powers;
++    }
++    let sqrt_limit = (limit as f64).sqrt() as usize;
++    let base_primes = simple_sieve(sqrt_limit);
++
++    for &p in &base_primes {
++        let p_u64 = p as u64;
++        let log_p = (p as f64).ln();
++        let mut cur = p_u64.checked_mul(p_u64);
++
++        while let Some(m) = cur {
++            if m > limit {
++                break;
++            }
++            powers.push(PrimePower { m, log_p });
++            cur = m.checked_mul(p_u64);
++        }
++    }
++
++    powers.sort_by_key(|item| item.m);
++    powers
++}
++
++/// Sieve segment helper for parallel processing.
++///
++/// Sieves odd numbers in the range `[low, high]` (both inclusive) using base primes.
++pub fn sieve_segment<F>(low: u64, high: u64, base_primes: &[usize], mut on_prime: F)
++where
++    F: FnMut(u64),
++{
++    if low > high {
++        return;
++    }
++    // Adjust low/high to odd boundaries
++    let odd_low = if low.is_multiple_of(2) { low + 1 } else { low };
++    let odd_high = if high.is_multiple_of(2) {
++        high.saturating_sub(1)
++    } else {
++        high
++    };
++
++    if odd_low > odd_high {
++        return;
++    }
++
++    // Special case for 2 if in range
++    if low <= 2 && high >= 2 {
++        on_prime(2);
++    }
++    if odd_high < 3 {
++        return;
++    }
++    let start_odd = odd_low.max(3);
++    let num_odds = ((odd_high - start_odd) / 2 + 1) as usize;
++    let mut is_composite = vec![false; num_odds];
++
++    for &p_usize in base_primes {
++        let p = p_usize as u64;
++        if p == 2 {
++            continue;
++        }
++        if p * p > odd_high {
++            break;
++        }
++
++        // Find smallest odd multiple of p >= start_odd
++        let mut first_mult = start_odd.div_ceil(p) * p;
++        if first_mult.is_multiple_of(2) {
++            first_mult += p;
++        }
++        if first_mult < p * p {
++            first_mult = p * p;
++        }
++
++        while first_mult <= odd_high {
++            let idx = ((first_mult - start_odd) / 2) as usize;
++            if idx < num_odds {
++                is_composite[idx] = true;
++            }
++            first_mult += 2 * p;
++        }
++    }
++
++    for (i, &comp) in is_composite.iter().enumerate() {
++        if !comp {
++            let p = start_odd + 2 * (i as u64);
++            on_prime(p);
++        }
++    }
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++
++    #[test]
++    fn test_simple_sieve() {
++        let primes = simple_sieve(30);
++        assert_eq!(primes, vec![2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
++    }
++
++    #[test]
++    fn test_higher_prime_powers() {
++        let powers = higher_prime_powers(35);
++        let ms: Vec<u64> = powers.iter().map(|p| p.m).collect();
++        // 4=2^2, 8=2^3, 9=3^2, 16=2^4, 25=5^2, 27=3^3, 32=2^5
++        assert_eq!(ms, vec![4, 8, 9, 16, 25, 27, 32]);
++    }
++
++    #[test]
++    fn test_sieve_segment_matches_simple() {
++        let limit = 1000;
++        let base_primes = simple_sieve((limit as f64).sqrt() as usize);
++        let mut segmented_primes = Vec::new();
++
++        sieve_segment(1, 1000, &base_primes, |p| {
++            segmented_primes.push(p);
++        });
++
++        let expected: Vec<u64> = simple_sieve(1000).into_iter().map(|x| x as u64).collect();
++        assert_eq!(segmented_primes, expected);
++    }
++}
+--- before/crates/rh_engine/src/main.rs
++++ after/crates/rh_engine/src/main.rs
+@@ -1,203 +1,228 @@
+-//! CLI for the high-performance Riemann Hypothesis calculation engine.
+-
+-use clap::{Parser, Subcommand};
+-use std::fs;
+-use std::path::Path;
+-
+-use rh_engine::bins::compute_range_bins;
+-use rh_engine::trace::compute_prime_trace;
+-
+-#[derive(Parser)]
+-#[command(name = "rh_engine")]
+-#[command(about = "High-performance native calculation engine for Riemann Hypothesis prime-trace analysis", long_about = None)]
+-struct Cli {
+-    #[command(subcommand)]
+-    command: Commands,
+-}
+-
+-#[derive(Subcommand)]
+-enum Commands {
+-    /// Compute the prime-Laguerre trace P_n(X) and discrepancy S_n(X) across cutoffs
+-    PrimeTrace {
+-        #[arg(long, default_value_t = 3.0)]
+-        s0: f64,
+-
+-        #[arg(long, default_value_t = 16)]
+-        n_max: usize,
+-
+-        #[arg(long, default_value = "10000,100000,1000000")]
+-        cutoffs: String,
+-
+-        #[arg(long, default_value_t = 131072)]
+-        segment_size: usize,
+-
+-        #[arg(long)]
+-        output_json: Option<String>,
+-    },
+-
+-    /// Compute turning-scale range decomposition into u = t/(4n) bins
+-    RangeBins {
+-        #[arg(long, default_value_t = 3.0)]
+-        s0: f64,
+-
+-        #[arg(long, default_value = "8,12,16")]
+-        n: String,
+-
+-        #[arg(long, default_value_t = 2_000_000)]
+-        max_m: u64,
+-
+-        #[arg(long, default_value = "0,0.25,0.5,0.75,1.0,1.25,1.5")]
+-        u_bins: String,
+-
+-        #[arg(long, default_value_t = 1000)]
+-        simpson_steps: usize,
+-
+-        #[arg(long)]
+-        output_json: Option<String>,
+-    },
+-
+-    /// Benchmark multi-threaded sieving and recurrence throughput
+-    Benchmark {
+-        #[arg(long, default_value_t = 3.0)]
+-        s0: f64,
+-
+-        #[arg(long, default_value_t = 16)]
+-        n_max: usize,
+-
+-        #[arg(long, default_value = "1000000,10000000,50000000")]
+-        cutoffs: String,
+-    },
+-}
+-
+-fn main() {
+-    let cli = Cli::parse();
+-
+-    match cli.command {
+-        Commands::PrimeTrace {
+-            s0,
+-            n_max,
+-            cutoffs,
+-            segment_size,
+-            output_json,
+-        } => {
+-            let cutoff_list: Vec<u64> = cutoffs
+-                .split(',')
+-                .filter_map(|s| s.trim().parse().ok())
+-                .collect();
+-
+-            let a = 2.0 * s0 - 1.0;
+-            let q = -s0 / (s0 - 1.0);
+-            println!("================================================================================");
+-            println!("PRIME-LAGUERRE TRACE CALCULATOR (Native Rayon Engine)");
+-            println!("================================================================================");
+-            println!("s0={s0:.6}  A={a:.6}  q={q:.6}  |q|={:.6}  max_n={n_max}", q.abs());
+-            println!("Cutoffs: {:?}", cutoff_list);
+-            println!();
+-
+-            let mut all_results = Vec::new();
+-
+-            for &cutoff in &cutoff_list {
+-                let res = compute_prime_trace(s0, n_max, cutoff, segment_size);
+-                println!("--- Cutoff X = {cutoff} ({:.3}s) ---", res.elapsed_secs);
+-                println!("  n |        P_n(X)        |        Pole(1-q^n)   |        S_n(X)        | |S_n|^(1/n) | |P_n|^(1/n)");
+-                println!("----+----------------------+----------------------+----------------------+-------------+------------");
+-                for entry in &res.entries {
+-                    println!(
+-                        "{:3} | {:20.10e} | {:20.10e} | {:20.10e} | {:11.6} | {:10.6}",
+-                        entry.n, entry.p_n, entry.pole_term, entry.s_n, entry.s_n_root, entry.p_n_root
+-                    );
+-                }
+-                println!();
+-                all_results.push(res);
+-            }
+-
+-            if let Some(json_path) = output_json {
+-                if let Some(parent) = Path::new(&json_path).parent() {
+-                    let _ = fs::create_dir_all(parent);
+-                }
+-                if let Ok(serialized) = serde_json::to_string_pretty(&all_results) {
+-                    let _ = fs::write(&json_path, serialized);
+-                    println!("Saved JSON output to: {json_path}");
+-                }
+-            }
+-        }
+-
+-        Commands::RangeBins {
+-            s0,
+-            n,
+-            max_m,
+-            u_bins,
+-            simpson_steps,
+-            output_json,
+-        } => {
+-            let n_list: Vec<usize> = n
+-                .split(',')
+-                .filter_map(|s| s.trim().parse().ok())
+-                .collect();
+-            let bins_list: Vec<f64> = u_bins
+-                .split(',')
+-                .filter_map(|s| s.trim().parse().ok())
+-                .collect();
+-
+-            println!("================================================================================");
+-            println!("RANGE DECOMPOSITION IN TURNING-SCALE u=t/(4n) BINS");
+-            println!("================================================================================");
+-            println!("s0={s0:.6}  max_m={max_m}  u_bins={:?}", bins_list);
+-            println!();
+-
+-            let mut all_results = Vec::new();
+-
+-            for &deg in &n_list {
+-                let res = compute_range_bins(s0, deg, max_m, &bins_list, simpson_steps);
+-                println!("--- n = {deg} ({:.3}s) ---", res.elapsed_secs);
+-                println!("   u_bin   |  Discrete Sum (Primes) | Continuous Density Int |      Discrepancy       | Prime Count");
+-                println!("-----------+------------------------+------------------------+------------------------+------------");
+-                for b in &res.bins {
+-                    println!(
+-                        "[{:4.2},{:4.2}) | {:22.12e} | {:22.12e} | {:22.12e} | {:10}",
+-                        b.u_lo, b.u_hi, b.discrete_sum, b.continuous_integral, b.discrepancy, b.count_prime_powers
+-                    );
+-                }
+-                println!("-----------+------------------------+------------------------+------------------------+------------");
+-                println!(
+-                    "TOTAL      | {:22.12e} | {:22.12e} | {:22.12e} |",
+-                    res.total_discrete, res.total_continuous, res.total_discrepancy
+-                );
+-                println!();
+-                all_results.push(res);
+-            }
+-
+-            if let Some(json_path) = output_json {
+-                if let Some(parent) = Path::new(&json_path).parent() {
+-                    let _ = fs::create_dir_all(parent);
+-                }
+-                if let Ok(serialized) = serde_json::to_string_pretty(&all_results) {
+-                    let _ = fs::write(&json_path, serialized);
+-                    println!("Saved JSON output to: {json_path}");
+-                }
+-            }
+-        }
+-
+-        Commands::Benchmark { s0, n_max, cutoffs } => {
+-            let cutoff_list: Vec<u64> = cutoffs
+-                .split(',')
+-                .filter_map(|s| s.trim().parse().ok())
+-                .collect();
+-
+-            println!("================================================================================");
+-            println!("BENCHMARK: MULTI-THREADED RAYON SIEVE + BATCH LAGUERRE RECURRENCE");
+-            println!("================================================================================");
+-            println!("s0={s0:.6}  max_n={n_max}  threads={}", rayon::current_num_threads());
+-            println!();
+-
+-            for &cutoff in &cutoff_list {
+-                let res = compute_prime_trace(s0, n_max, cutoff, 131072);
+-                let primes_per_sec = (cutoff as f64) / res.elapsed_secs / 1_000_000.0;
+-                println!(
+-                    "Cutoff X = {:10}: elapsed = {:7.3}s | throughput = {:6.2} M items/sec",
+-                    cutoff, res.elapsed_secs, primes_per_sec
+-                );
+-            }
+-        }
+-    }
+-}
++//! CLI for the high-performance Riemann Hypothesis calculation engine.
++
++use clap::{Parser, Subcommand};
++use std::fs;
++use std::path::Path;
++
++use rh_engine::bins::compute_range_bins;
++use rh_engine::trace::compute_prime_trace;
++
++#[derive(Parser)]
++#[command(name = "rh_engine")]
++#[command(about = "High-performance native calculation engine for Riemann Hypothesis prime-trace analysis", long_about = None)]
++struct Cli {
++    #[command(subcommand)]
++    command: Commands,
++}
++
++#[derive(Subcommand)]
++enum Commands {
++    /// Compute the prime-Laguerre trace P_n(X) and discrepancy S_n(X) across cutoffs
++    PrimeTrace {
++        #[arg(long, default_value_t = 3.0)]
++        s0: f64,
++
++        #[arg(long, default_value_t = 16)]
++        n_max: usize,
++
++        #[arg(long, default_value = "10000,100000,1000000")]
++        cutoffs: String,
++
++        #[arg(long, default_value_t = 131072)]
++        segment_size: usize,
++
++        #[arg(long)]
++        output_json: Option<String>,
++    },
++
++    /// Compute turning-scale range decomposition into u = t/(4n) bins
++    RangeBins {
++        #[arg(long, default_value_t = 3.0)]
++        s0: f64,
++
++        #[arg(long, default_value = "8,12,16")]
++        n: String,
++
++        #[arg(long, default_value_t = 2_000_000)]
++        max_m: u64,
++
++        #[arg(long, default_value = "0,0.25,0.5,0.75,1.0,1.25,1.5")]
++        u_bins: String,
++
++        #[arg(long, default_value_t = 1000)]
++        simpson_steps: usize,
++
++        #[arg(long)]
++        output_json: Option<String>,
++    },
++
++    /// Benchmark multi-threaded sieving and recurrence throughput
++    Benchmark {
++        #[arg(long, default_value_t = 3.0)]
++        s0: f64,
++
++        #[arg(long, default_value_t = 16)]
++        n_max: usize,
++
++        #[arg(long, default_value = "1000000,10000000,50000000")]
++        cutoffs: String,
++    },
++}
++
++fn main() {
++    let cli = Cli::parse();
++
++    match cli.command {
++        Commands::PrimeTrace {
++            s0,
++            n_max,
++            cutoffs,
++            segment_size,
++            output_json,
++        } => {
++            let cutoff_list: Vec<u64> = cutoffs
++                .split(',')
++                .filter_map(|s| s.trim().parse().ok())
++                .collect();
++
++            let a = 2.0 * s0 - 1.0;
++            let q = -s0 / (s0 - 1.0);
++            println!(
++                "================================================================================"
++            );
++            println!("PRIME-LAGUERRE TRACE CALCULATOR (Native Rayon Engine)");
++            println!(
++                "================================================================================"
++            );
++            println!(
++                "s0={s0:.6}  A={a:.6}  q={q:.6}  |q|={:.6}  max_n={n_max}",
++                q.abs()
++            );
++            println!("Cutoffs: {:?}", cutoff_list);
++            println!();
++
++            let mut all_results = Vec::new();
++
++            for &cutoff in &cutoff_list {
++                let res = compute_prime_trace(s0, n_max, cutoff, segment_size);
++                println!("--- Cutoff X = {cutoff} ({:.3}s) ---", res.elapsed_secs);
++                println!("  n |        P_n(X)        |        Pole(1-q^n)   |        S_n(X)        | |S_n|^(1/n) | |P_n|^(1/n)");
++                println!("----+----------------------+----------------------+----------------------+-------------+------------");
++                for entry in &res.entries {
++                    println!(
++                        "{:3} | {:20.10e} | {:20.10e} | {:20.10e} | {:11.6} | {:10.6}",
++                        entry.n,
++                        entry.p_n,
++                        entry.pole_term,
++                        entry.s_n,
++                        entry.s_n_root,
++                        entry.p_n_root
++                    );
++                }
++                println!();
++                all_results.push(res);
++            }
++
++            if let Some(json_path) = output_json {
++                if let Some(parent) = Path::new(&json_path).parent() {
++                    let _ = fs::create_dir_all(parent);
++                }
++                if let Ok(serialized) = serde_json::to_string_pretty(&all_results) {
++                    let _ = fs::write(&json_path, serialized);
++                    println!("Saved JSON output to: {json_path}");
++                }
++            }
++        }
++
++        Commands::RangeBins {
++            s0,
++            n,
++            max_m,
++            u_bins,
++            simpson_steps,
++            output_json,
++        } => {
++            let n_list: Vec<usize> = n.split(',').filter_map(|s| s.trim().parse().ok()).collect();
++            let bins_list: Vec<f64> = u_bins
++                .split(',')
++                .filter_map(|s| s.trim().parse().ok())
++                .collect();
++
++            println!(
++                "================================================================================"
++            );
++            println!("RANGE DECOMPOSITION IN TURNING-SCALE u=t/(4n) BINS");
++            println!(
++                "================================================================================"
++            );
++            println!("s0={s0:.6}  max_m={max_m}  u_bins={:?}", bins_list);
++            println!();
++
++            let mut all_results = Vec::new();
++
++            for &deg in &n_list {
++                let res = compute_range_bins(s0, deg, max_m, &bins_list, simpson_steps);
++                println!("--- n = {deg} ({:.3}s) ---", res.elapsed_secs);
++                println!("   u_bin   |  Discrete Sum (Primes) | Continuous Density Int |      Discrepancy       | Prime Count");
++                println!("-----------+------------------------+------------------------+------------------------+------------");
++                for b in &res.bins {
++                    println!(
++                        "[{:4.2},{:4.2}) | {:22.12e} | {:22.12e} | {:22.12e} | {:10}",
++                        b.u_lo,
++                        b.u_hi,
++                        b.discrete_sum,
++                        b.continuous_integral,
++                        b.discrepancy,
++                        b.count_prime_powers
++                    );
++                }
++                println!("-----------+------------------------+------------------------+------------------------+------------");
++                println!(
++                    "TOTAL      | {:22.12e} | {:22.12e} | {:22.12e} |",
++                    res.total_discrete, res.total_continuous, res.total_discrepancy
++                );
++                println!();
++                all_results.push(res);
++            }
++
++            if let Some(json_path) = output_json {
++                if let Some(parent) = Path::new(&json_path).parent() {
++                    let _ = fs::create_dir_all(parent);
++                }
++                if let Ok(serialized) = serde_json::to_string_pretty(&all_results) {
++                    let _ = fs::write(&json_path, serialized);
++                    println!("Saved JSON output to: {json_path}");
++                }
++            }
++        }
++
++        Commands::Benchmark { s0, n_max, cutoffs } => {
++            let cutoff_list: Vec<u64> = cutoffs
++                .split(',')
++                .filter_map(|s| s.trim().parse().ok())
++                .collect();
++
++            println!(
++                "================================================================================"
++            );
++            println!("BENCHMARK: MULTI-THREADED RAYON SIEVE + BATCH LAGUERRE RECURRENCE");
++            println!(
++                "================================================================================"
++            );
++            println!(
++                "s0={s0:.6}  max_n={n_max}  threads={}",
++                rayon::current_num_threads()
++            );
++            println!();
++
++            for &cutoff in &cutoff_list {
++                let res = compute_prime_trace(s0, n_max, cutoff, 131072);
++                let primes_per_sec = (cutoff as f64) / res.elapsed_secs / 1_000_000.0;
++                println!(
++                    "Cutoff X = {:10}: elapsed = {:7.3}s | throughput = {:6.2} M items/sec",
++                    cutoff, res.elapsed_secs, primes_per_sec
++                );
++            }
++        }
++    }
++}

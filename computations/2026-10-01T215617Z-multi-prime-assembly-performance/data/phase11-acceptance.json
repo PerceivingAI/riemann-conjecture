@@ -1,0 +1,112 @@
+{
+  "role": "Phase 11 full tooling acceptance, not qualification",
+  "status": "PASS",
+  "started_utc": "2026-10-02T06:58:02.857412+00:00",
+  "results": [
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "--extra",
+        "test",
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_prime_power_terms.py",
+        "tests/test_prime_power_local_legendre.py",
+        "tests/test_multi_prime_legendre_schur.py",
+        "tests/test_multi_prime_potential_grouping.py",
+        "tests/test_multi_prime_assembly_performance.py",
+        "tests/test_multi_prime_candidate_audit.py",
+        "tests/test_multi_prime_p4_stages.py",
+        "tests/test_multi_prime_precision_diagnostics.py",
+        "tests/test_multi_prime_continuation_driver.py",
+        "tests/test_continuation_bundle.py",
+        "tests/test_one_prime_v1_freeze.py",
+        "tests/test_admission_consistency.py",
+        "tests/test_v2_adversarial_consistency.py",
+        "tests/test_pre_theorem_boundary.py",
+        "tests/test_certificate_v2_contract.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 22.94037820000085,
+      "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0\nrootdir: D:\\riemann-conjecture\nconfigfile: pyproject.toml\nplugins: hypothesis-6.165.10, xdist-3.8.0\ncreated: 2/2 workers\n2 workers [170 items]\n\n........................................................................ [ 42%]\n........................................................................ [ 84%]\n..........................                                               [100%]\n============================ 170 passed in 22.23s =============================\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "--extra",
+        "test",
+        "python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 373.35365990002174,
+      "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0\nrootdir: D:\\riemann-conjecture\nconfigfile: pyproject.toml\ntestpaths: tests\nplugins: hypothesis-6.165.10, xdist-3.8.0\ncreated: 2/2 workers\n2 workers [696 items]\n\n........................................................................ [ 10%]\n........................................................................ [ 20%]\n........................................................................ [ 31%]\n........................................................................ [ 41%]\n........................................................................ [ 51%]\n........................................................................ [ 62%]\n........................................................................ [ 72%]\n........................................................................ [ 82%]\n........................................................................ [ 93%]\n................................................                         [100%]\n======================= 696 passed in 372.55s (0:06:12) =======================\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--workspace"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 43.16779589999351,
+      "stdout": "\nrunning 2 tests\ntest v2::tests::authorized_arithmetic_path_passes_positive_fixture ... ok\ntest v2::tests::authorized_arithmetic_path_returns_theorem_failure_for_nonpositive_schur ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 3 tests\ntest tail_lower_bound_is_absorbed_before_ldl ... ok\ntest shared_conformance_corpus_matches_rust_validator ... ok\ntest cli_exit_codes_distinguish_theorem_failure_from_contract_error ... ok\n\ntest result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.39s\n\n\nrunning 17 tests\ntest p8_closed_grid_admission_corpus_matches_rust_whitelist ... ok\ntest v2_production_theorem_whitelist_is_empty ... ok\ntest dispatch_accepts_v2_structure_but_verify_rejects_unauthorized_pair ... ok\ntest p8_v2_rejects_wrong_parity_in_gp ... ok\ntest v2_rejects_duplicate_term ... ok\ntest v2_rejects_missing_term ... ok\ntest v2_rejects_nonpositive_independently_derived_mu ... ok\ntest p8_v2_rejects_exact_and_near_serialized_window_boundaries ... ok\ntest v2_rejects_nonzero_cross_parity_entry ... ok\ntest v2_rejects_substituted_term ... ok\ntest v2_rejects_understated_serialized_prime_loss ... ok\ntest v2_rejects_singular_exact_witness ... ok\ntest v2_rejects_unsorted_terms ... ok\ntest v2_rejects_wrong_prime_power_identity ... ok\ntest v2_rejects_wrong_factor_or_unverified_factor_claim ... ok\ntest p8_cross_layer_corpus_matches_rust_structural_validator ... ok\ntest cli_dispatch_returns_contract_failure_for_structurally_valid_but_unauthorized_v2 ... ok\n\ntest result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s\n\n\nrunning 24 tests\ntest exact_prime_profile_accepts_t_two_fifths_dimension_40 ... ok\ntest exact_prime_profile_accepts_seventeen_fortieths_dimension_48 ... ok\ntest exact_prime_profile_accepts_nine_twentieths_dimension_56 ... ok\ntest exact_prime_profile_distinguishes_theorem_failure ... ok\ntest exact_prime_profile_accepts_nineteen_fortieths_dimension_68 ... ok\ntest exact_prime_profile_recomputes_schur_and_passes ... ok\ntest exact_prime_profile_rejects_mixed_nine_twentieths_pair ... ok\ntest exact_prime_profile_accepts_one_half_dimension_80 ... ok\ntest exact_prime_profile_rejects_mixed_whitelist_pair ... ok\ntest exact_prime_profile_rejects_mixed_seventeen_fortieths_pair ... ok\ntest exact_prime_profile_rejects_mixed_nineteen_fortieths_pair ... ok\ntest exact_prime_profile_rejects_nonpositive_complement_bound ... ok\ntest exact_prime_profile_rejects_nonzero_cross_parity_entry ... ok\ntest exact_prime_profile_rejects_singular_witness ... ok\ntest exact_prime_profile_accepts_twenty_one_fortieths_dimension_96 ... ok\ntest exact_prime_profile_rejects_one_half_dimension_76 ... ok\ntest exact_prime_profile_accepts_twenty_seven_fiftieths_dimension_104 ... ok\ntest exact_prime_profile_rejects_twenty_one_fortieths_dimension_100 ... ok\ntest exact_prime_profile_rejects_wrong_factor ... ok\ntest exact_prime_profile_rejects_twenty_one_fortieths_dimension_104 ... ok\ntest exact_prime_profile_rejects_twenty_seven_fiftieths_dimension_100 ... ok\ntest exact_prime_profile_rejects_twenty_seven_fiftieths_dimension_108 ... ok\ntest exact_prime_profile_rejects_twenty_seven_fiftieths_dimension_96 ... ok\ntest exact_prime_admission_matches_shared_test_corpus ... ok\n\ntest result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 37.92s\n\n\nrunning 2 tests\ntest optimized_generic_congruence_preserves_nonsymmetric_inputs ... ok\ntest optimized_congruence_matches_naive_dense_reference_exactly ... ok\n\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 7 tests\ntest test_division_by_zero_fails ... ok\ntest test_fraction_string_parsing ... ok\ntest test_interval_squaring ... ok\ntest test_arithmetic_operations ... ok\ntest exact_rational_scaling_matches_point_interval_multiplication ... ok\ntest test_interval_construction ... ok\ntest test_predicates ... ok\n\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 6 tests\ntest scalar_identity_shift_changes_only_the_diagonal ... ok\ntest test_2x2_positive_definite_matrix ... ok\ntest test_2x2_indefinite_matrix ... ok\ntest test_non_symmetric_matrix_rejection ... ok\ntest test_identity_matrix ... ok\ntest test_3x3_positive_definite_matrix ... ok\n\ntest result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 6 tests\ntest prop_interval_addition_inclusion ... ok\ntest prop_interval_squaring_inclusion ... ok\ntest prop_interval_division_inclusion ... ok\ntest prop_interval_subtraction_inclusion ... ok\ntest prop_interval_multiplication_inclusion ... ok\ntest prop_diagonally_dominant_matrices_are_positive_definite ... ok\n\ntest result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s\n\n\nrunning 11 tests\ntest laguerre::tests::test_contiguous_identity ... ok\ntest laguerre::tests::test_laguerre_l1_small ... ok\ntest laguerre::tests::test_batch_matches_scalar ... ok\ntest phase::tests::test_small_u_formula_inversion ... ok\ntest phase::tests::test_uniform_formula_inversion ... ok\ntest phase::tests::test_uniform_phase_matches_critical_cayley_phase ... ok\ntest phase::tests::test_uniform_t_and_u_relation ... ok\ntest sieve::tests::test_higher_prime_powers ... ok\ntest sieve::tests::test_sieve_segment_matches_simple ... ok\ntest sieve::tests::test_simple_sieve ... ok\ntest summation::tests::test_neumaier_precision ... ok\n\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 4 tests\ntest test_laguerre_contiguous_relations ... ok\ntest test_prime_count_invariants ... ok\ntest test_trace_degree_one_matches_prime_sum ... ok\ntest test_range_bins_partition_consistency ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr": "   Compiling rh_cert v0.1.0 (D:\\riemann-conjecture\\crates\\rh_cert)\n   Compiling rh_engine v0.1.0 (D:\\riemann-conjecture\\crates\\rh_engine)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.59s\n     Running unittests src\\lib.rs (target\\debug\\deps\\rh_cert-bb74a5fe39e2e392.exe)\n     Running unittests src\\main.rs (target\\debug\\deps\\rh_cert-433f5a9b72efbbda.exe)\n     Running tests\\test_cert.rs (target\\debug\\deps\\test_cert-1c31bfa45d4c9228.exe)\n     Running tests\\test_certificate_v2.rs (target\\debug\\deps\\test_certificate_v2-8b78f95897464afd.exe)\n     Running tests\\test_exact_prime_schur.rs (target\\debug\\deps\\test_exact_prime_schur-c26896df1c99a106.exe)\n     Running tests\\test_gershgorin.rs (target\\debug\\deps\\test_gershgorin-adb8f76e4eb2da74.exe)\n     Running tests\\test_interval.rs (target\\debug\\deps\\test_interval-bbbf8f736a2a9251.exe)\n     Running tests\\test_ldl.rs (target\\debug\\deps\\test_ldl-4dcd050a3c2aac0b.exe)\n     Running tests\\test_proptest.rs (target\\debug\\deps\\test_proptest-9a5fc5aa64e36c72.exe)\n     Running unittests src\\lib.rs (target\\debug\\deps\\rh_engine-9b4267177e654e0a.exe)\n     Running unittests src\\main.rs (target\\debug\\deps\\rh_engine-c612629126a2d557.exe)\n     Running tests\\test_invariants.rs (target\\debug\\deps\\test_invariants-263e59036d9285a9.exe)\n   Doc-tests rh_cert\n   Doc-tests rh_engine\n"
+    },
+    {
+      "argv": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.3222261000191793,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--workspace",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.4863388999947347,
+      "stdout": "",
+      "stderr": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.27s\n"
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "scripts.cert.verify_retained_proofs"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 380.66837769999984,
+      "stdout": "C-0050 HASH PASS VERIFY PASS T=7/20 N=32\nC-0051 HASH PASS VERIFY PASS T=2/5 N=40\nC-0052 HASH PASS VERIFY PASS T=17/40 N=48\nC-0053 HASH PASS VERIFY PASS T=9/20 N=56\nC-0054 HASH PASS VERIFY PASS T=19/40 N=68\nC-0055 HASH PASS VERIFY PASS T=1/2 N=80\nC-0056 HASH PASS VERIFY PASS T=21/40 N=96\nC-0057 HASH PASS VERIFY PASS T=27/50 N=104\nRETAINED PROOF CHAIN: PASS - 8/8\n",
+      "stderr": ""
+    }
+  ],
+  "finished_utc": "2026-10-02T07:11:43.800297+00:00"
+}

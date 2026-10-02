@@ -1,10 +1,68 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-02T01:25:32Z`
+- **Last updated:** `2026-10-02T09:49:35Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-02T09:49:35Z. Native exact witnesses remove the remaining multi-prime Fraction bottleneck
+
+**Type:** Tool performance implementation / exact equivalence / Phase 11 engineering acceptance
+
+[X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) retains Phase 11 acceptance and the actual screening/candidate/confirmation components. Pre-cutover focused/full Python pass `170/170` and `696/696`, workspace Rust `82/82`, workspace format/strict Clippy and retained replay `8/8`. Both actual target ladders reject in `109.598 s` with two workers; eight rounded target rejection audits and four positive overlap proof audits pass.
+
+The user stopped repeated expensive benchmarking and required implementation. New multi-prime-only witness arithmetic uses fraction-free integer elimination with direct inverse-factor accumulation, exact dyadic rounding and native midpoint/radius congruence. Frozen/shared v1 stays byte-identical. One real-input smoke reduces the complete 97-mode proper witness from `1306.928 s` to `22.725 s` and the actual N196 candidate from `541.946 s` to `53.525 s`. Exact witnesses/margins, rounded inputs and final-pivot rejection are unchanged. Post-cutover focused/full Python pass `77/77` and `715/715`; twelve frozen/shared byte controls pass.
+
+The old 60-hour cost draft is obsolete. The new native conditional model declares two hours per fresh run, four hours for the pair, with explicit full-positive/integrated/memory limits. Source/command/result snapshots and independent scoped zero-survivor cleanup are retained. Phase 11 tooling acceptance passes; Phase 12 has not launched. No support/grid/precision, operator bound, criterion, admission, Rust/Lean or theorem change occurs. Strict sufficient-Schur rejection remains a legitimate engineering outcome, not an RH counterexample.
+
+## 2026-10-02T06:23:49Z. Phase 10 closes workspace formatting without numerical changes
+
+**Type:** Isolated formatting cleanup / affected Rust acceptance
+
+[X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) retains a separate rustfmt-only patch for `rh_engine`'s `laguerre.rs`, `lib.rs`, `sieve.rs` and `main.rs`. Before/after source-token comparison confirms only whitespace/newline wrapping and optional trailing commas; five other engine files remain byte-identical.
+
+Complete-workspace `cargo fmt --all -- --check` passes, engine unit/integration tests pass `15/15`, and strict complete-workspace Clippy passes. A real prime-trace CLI smoke checks `8/8` rows against independent integer prime-power recognition and explicit small Laguerre polynomials, including poles, discrepancies and roots.
+
+Phase 10's gate passes. All `30` Phase 9 source/test inputs and `30` raw artifacts are unchanged. No numerical source, contract, cache/workflow version, admission or qualification changed; Python, certificate-verifier tests, Lean and retained theorem replay were not rerun. P9 remains NOT QUALIFIED/P10 upgrade closure blocked by the frozen sufficient-Schur rejection. Phases 11 and 12 have not started.
+
+## 2026-10-02T05:44:54Z. Phase 9 implements stable generic arithmetic without changing target acceptance
+
+**Type:** Production numerical cutover / independent exact replay / preserved mathematical stop
+
+[X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) implements cell-local Legendre arithmetic after exact rational basis conversion and grouped potential-moment contractions. Mixed squares, exact basis norms/coefficient parity, strict topology, residual/complement and factor `3` remain unchanged. Global-coordinate production helpers and image semantics are removed; historical diagnostic controls remain separate. Twelve frozen/shared controls retain their byte hashes.
+
+Focused acceptance passes `159/159` in `26.36 s`; full default Python passes `696/696` in `372.58 s`. A synthetic success fixture initially created coincident breakpoints and correctly failed closed; its intended noncoincident case is corrected and explicit coincidence rejection retained. Production topology is not relaxed.
+
+Candidates now retain exact rounded matrices, scalar losses and witnesses. Independent zero-float replay reconstructs real overlap `2/5,40` base/confirmation proofs at fixed `64/32`, Arb `256 -> 384`, `2/2 PASS`. Positive multi-prime publication requires manifest-listed exact base and fixed-input confirmation artifacts. Workflow/cache advance to `multi-prime-continuation-driver-p9-phase9-v3` / `multi-prime-continuation-driver-v3`, with new dependencies fingerprinted and a separate multi-prime bundle format.
+
+Frozen `11/20,192/196` candidates at Arb 384, `104/56`, still fail final even LDL pivots `95/97`. Exact input replay proves both rounded sufficient Schur matrices have strict negative directions, `2/2`; all four Arb-384/512 directions also replay negative. Full-Schur widths contract to `6.5763e-82/2.1290e-80`. Implementation/equivalence verification completes, but the full positive-candidate readiness gate remains BLOCKED. No successful target base/confirmation or qualification is claimed.
+
+P9 remains NOT QUALIFIED/P10 blocked. No support/grid/criterion, precision-cap, v1, admission, Rust/Lean/retained-proof or workspace-formatting change occurs. This is rejection of the sufficient Schur test, not localized Weil-form negativity or an RH counterexample. A separate research decision remains required before changing frozen research settings.
+
+## 2026-10-02T04:24:32Z. Phase 8 selects stable evaluation and rejects the frozen sufficient Schur targets
+
+**Type:** Conditioning diagnosis / generator-side mathematical rejection / research stop
+
+[X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) retains global, cell-monomial and cell-Legendre stage profiles at small structural cases and `192/196`. Global coefficient/product/endpoint amplification occurs before final tail subtraction. Selected cell-local Legendre arithmetic preserves combined-prime mixed terms; exact rational grouping of existing potential moments removes the separate full-Schur cancellation. Exact identities/enclosure arguments, small full-entry overlaps and `100` exact inner-product pairs are retained.
+
+At Arb 512, full-Schur widths fall from `1.8827e142/5.3628e148` to `6.5763e-82/2.1290e-80`. All eight matrix-stage widths contract over `128/256/384/512`. This closes Phase 8's diagnostic gate, not candidate acceptance.
+
+Actual Arb-384 candidates fail final even LDL pivots `95/97` at both `64/32` and frozen-maximal `104/56` bits. Retained nonzero vectors have exact interval Rayleigh upper bounds `-0.139224102100/-0.0452493461716`; normalized bounds are `-1.50060485641e-5/-2.93867348887e-5`. Independently executed zero-float input replay passes `2/2`; source snapshots, exact matrices/vectors, command argv and cleanup evidence are retained.
+
+This rejects the unchanged sufficient factor-3 Schur test at the frozen targets, not localized Weil positivity or RH. Production and all 23 Phase 7 source/test inputs remain byte-identical. No Phase 9 implementation, qualification retry, admission or trust-chain replay occurred. P9 remains NOT QUALIFIED/P10 blocked; the plan's stop condition requires a separate research decision before changing support, grid or acceptance criteria.
+
+## 2026-10-02T02:58:34Z. Phase 7 removes unsafe multi-prime diagnostic conversion
+
+**Type:** Exact-safe diagnostic implementation / component verification
+
+[X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) retains source hashes/snapshot, exact screen and candidate results, commands and focused acceptance. Multi-prime bounds, widths, restored numerical eigenvalue units and margin-change ratios now serialize as rationals. The driver makes exact width/sign/tolerance comparisons, scales before midpoint eigensolving, and treats unavailable diagnostics as insufficient precision rather than failed assembly or stable negativity.
+
+Focused P2/P3/P8, candidate/driver, bundle, admission and frozen-v1 checks pass `144/144` in `36.74 s`. Actual uncached `11/20,192/196` 128-bit screens finish in `29.171/31.254 s`, with zero assembly failures and exact positive complements. Both remain insufficient precision, with native GP widths around `2.140e366/9.848e375`. The known one-prime overlap candidate qualifies fixed `64/32`-bit confirmation from Arb `256` to `384`; no target readiness follows.
+
+Workflow/cache versions advance to `multi-prime-continuation-driver-p9-phase7-v2` / `multi-prime-continuation-driver-v2`, with the new helper included in fingerprints. Seven frozen v1 hashes and both shared helper hashes are unchanged. Full trust-layer acceptance and workspace formatting were not rerun. Phase 7 passes; phases 8 through 12 remain unexecuted. No P9 retry, theorem admission, verifier change or claim was made.
+
+---
 
 ## 2026-10-02T01:25:32Z. Phase 6 audits and reproduces the conditioning limit
 

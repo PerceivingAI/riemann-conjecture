@@ -1,0 +1,21 @@
+{
+  "role": "component_packaging_smoke_not_qualification",
+  "status": "PASS",
+  "audit_artifacts": [
+    {
+      "path": "candidate/exact-audit-N040-p256-m64-w32.json",
+      "kind": "pre_theorem_exact_candidate_audit",
+      "sha256": "7780bc2ac566a711d38b85744c77a501c796d1195c2f637ba5519eac46a9de09",
+      "bytes": 1314799
+    },
+    {
+      "path": "candidate/exact-audit-N040-p384-m64-w32.json",
+      "kind": "pre_theorem_exact_candidate_audit",
+      "sha256": "883403d58b2aa61aac6dcb3b9e911a55c3b8b0edabe879abe97a280b439cc004",
+      "bytes": 1313900
+    }
+  ],
+  "source": "real_overlap_candidates",
+  "theorem_status": false,
+  "canonical_driver_run": false
+}

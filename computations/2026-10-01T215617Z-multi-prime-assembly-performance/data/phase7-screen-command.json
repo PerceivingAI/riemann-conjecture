@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-c",
+    "from fractions import Fraction\nfrom pathlib import Path\nimport json, time\nfrom scripts import weil_multi_prime_continuation_driver as driver\noutput = Path(\"computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase7-target-screens.json\")\nrows = []\nfor dimension in (192, 196):\n    started = time.perf_counter()\n    result = driver._escalate_rigorous_screen(Fraction(11,20), dimension, [128], 32)\n    rows.append({\"dimension\": dimension, \"wall_seconds\": time.perf_counter()-started, \"result\": result})\n    print(f\"N={dimension}: {result['status']}; assembly failures=\" + str(sum(row.get('status') == 'assembly_failed' for row in result['attempts'])), flush=True)\npayload = {\"role\": \"phase7_component_smoke_not_qualification\", \"driver_version\": driver.DRIVER_VERSION, \"cache_version\": driver.CACHE_VERSION, \"source_fingerprint\": driver._cache_source_fingerprint(), \"support\": \"11/20\", \"precision_bits\": 128, \"residual_order\": 32, \"cache_used\": False, \"screens\": rows}\noutput.write_text(json.dumps(payload, indent=2, allow_nan=False)+\"\\n\", encoding=\"utf-8\")\nfor row in rows:\n    attempt=row['result']['attempts'][0]\n    assert attempt['precision_status'] == driver.PRECISION_STATUS_INSUFFICIENT\n    assert attempt['active_terms'] == [2,3]\n    assert Fraction(attempt['mu_lower']) > 0\n    assert Fraction(attempt['interval_widths']['GP_max']) > 0\n    assert attempt.get('status') != 'assembly_failed'\nprint('Two real 128-bit target screens completed and serialized exact diagnostics; no qualification attempted.', flush=True)\n"
+  ],
+  "cwd": "D:\\riemann-conjecture",
+  "started_utc": "2026-10-02T02:48:59Z"
+}

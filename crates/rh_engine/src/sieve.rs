@@ -82,7 +82,11 @@ where
     }
     // Adjust low/high to odd boundaries
     let odd_low = if low.is_multiple_of(2) { low + 1 } else { low };
-    let odd_high = if high.is_multiple_of(2) { high.saturating_sub(1) } else { high };
+    let odd_high = if high.is_multiple_of(2) {
+        high.saturating_sub(1)
+    } else {
+        high
+    };
 
     if odd_low > odd_high {
         return;

@@ -1,0 +1,20 @@
+{
+  "commands": [
+    "uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 16 --precisions 128,256 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-small-comparison.json",
+    "uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 192,196 --precisions 128,256,512 --witness-precision 512 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-target-comparison.json",
+    "uv run --locked python -m scripts.profile_multi_prime_conditioning --support 7/10 --dimensions 12 --precisions 128,256 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-prime-power-boundary.json",
+    "uv run --locked python -m scripts.profile_multi_prime_conditioning --support 2/5 --dimensions 16 --precisions 128,256 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-one-prime-overlap.json",
+    "uv run --locked python -m scripts.profile_multi_prime_conditioning --support 1/4 --dimensions 12 --precisions 128,256 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-empty-arithmetic.json",
+    "uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 16 --precisions 128,256 --group-potential --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-grouped-potential-small.json",
+    "uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 192,196 --precisions 128,256,384,512 --representations cell-legendre --group-potential --witness-precision 384 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-grouped-potential-targets.json",
+    "uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 192,196 --precisions 384 --representations cell-legendre --group-potential --witness-precision 384 --matrix-bits 104 --witness-bits 56 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-frozen-max-candidates.json",
+    "uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 192,196 --precisions 384 --representations cell-legendre --group-potential --rayleigh-check --matrix-bits 104 --witness-bits 56 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-rayleigh-cli.json"
+  ],
+  "working_directory": "D:\\riemann-conjecture",
+  "source_versions": [
+    "phase8-diagnostic-source.py",
+    "phase8-diagnostic-grouped-source.py",
+    "phase8-diagnostic-final-source.py",
+    "scripts/profile_multi_prime_conditioning.py"
+  ]
+}

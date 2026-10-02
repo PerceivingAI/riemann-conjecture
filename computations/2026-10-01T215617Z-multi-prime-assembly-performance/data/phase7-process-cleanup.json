@@ -1,0 +1,17 @@
+{
+  "method": "independent Windows CIM process-name and command-line scan",
+  "scope": "pytest, multi-prime component CLI and phase7 standalone commands",
+  "excluded_live_eval_pids": [
+    16868,
+    28896
+  ],
+  "matching_processes": [],
+  "related_survivors": [],
+  "status": "PASS",
+  "command_argv": [
+    "powershell",
+    "-NoProfile",
+    "-Command",
+    "Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(python|pythonw|uv)(\\.exe)?$' -and $_.CommandLine -match 'pytest|weil_multi_prime|phase7-' } | Select-Object ProcessId,ParentProcessId,Name,CommandLine | ConvertTo-Json -Depth 3"
+  ]
+}

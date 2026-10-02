@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-c",
+    "from flint import arb,arb_poly,ctx\nfrom scripts.cert.legendre_schur import legendre_polynomials\nfrom scripts.cert.prime_power_terms import _arb_poly_shift, enumerate_active_prime_power_terms, _sorted_breakpoints\nfrom scripts.precision_diagnostics import arb_width_fraction\nfrom decimal import Decimal,localcontext\nwith ctx.workprec(128):\n    polys=legendre_polynomials(191)\n    terms=enumerate_active_prime_power_terms(11,20,128)\n    shift=_arb_poly_shift(polys[-1],terms[1].tau)\n    bp=_sorted_breakpoints(terms)\n    a=(bp[0]+bp[1])/2+terms[1].tau\n    b=(bp[1]-bp[0])/2\n    affine=arb_poly([a,b]); previous=arb_poly([1]); current=affine\n    for n in range(1,191): previous,current=current,((2*n+1)*affine*current-n*previous)*(1/arb(n+1))\n    global_width=max(arb_width_fraction(c) for c in shift)\n    local_width=max(arb_width_fraction(c) for c in current.coeffs())\n    with localcontext() as context:\n        context.prec=8\n        def decimal(f): return Decimal(f.numerator)/Decimal(f.denominator)\n        print('Global shift max coefficient width:',decimal(global_width))\n        print('Direct local monomial recurrence max coefficient width:',decimal(local_width))\n    assert local_width < global_width\n"
+  ],
+  "exit_code": 0,
+  "stdout": "Global shift max coefficient width: 1.7816736E+111\nDirect local monomial recurrence max coefficient width: 7.7337826E+34\n",
+  "stderr": ""
+}

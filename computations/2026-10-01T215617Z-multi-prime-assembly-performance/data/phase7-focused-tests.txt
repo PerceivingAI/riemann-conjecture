@@ -1,0 +1,22 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\riemann-conjecture
+configfile: pyproject.toml
+plugins: hypothesis-6.165.10, xdist-3.8.0
+collected 144 items
+
+tests\test_multi_prime_precision_diagnostics.py ...................      [ 13%]
+tests\test_multi_prime_continuation_driver.py ................           [ 24%]
+tests\test_multi_prime_p4_stages.py ..........                           [ 31%]
+tests\test_multi_prime_assembly_performance.py ......................... [ 48%]
+...                                                                      [ 50%]
+tests\test_prime_power_terms.py ............                             [ 59%]
+tests\test_multi_prime_legendre_schur.py ........                        [ 64%]
+tests\test_certificate_v2_contract.py ...........                        [ 72%]
+tests\test_v2_adversarial_consistency.py ......                          [ 76%]
+tests\test_one_prime_v1_freeze.py ....                                   [ 79%]
+tests\test_admission_consistency.py ......                               [ 83%]
+tests\test_continuation_bundle.py ..................                     [ 95%]
+tests\test_pre_theorem_boundary.py ......                                [100%]
+
+============================ 144 passed in 36.74s =============================
