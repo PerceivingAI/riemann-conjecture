@@ -1,0 +1,262 @@
+   Compiling rh_cert v0.1.0 (D:\riemann-conjecture\crates\rh_cert)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.75s
+     Running unittests src\lib.rs (target\debug\deps\rh_cert-bb74a5fe39e2e392.exe)
+
+running 2 tests
+test v2::tests::authorized_arithmetic_path_returns_theorem_failure_for_nonpositive_schur ... ok
+test v2::tests::authorized_arithmetic_path_passes_positive_fixture ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\main.rs (target\debug\deps\rh_cert-433f5a9b72efbbda.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\test_cert.rs (target\debug\deps\test_cert-1c31bfa45d4c9228.exe)
+
+running 3 tests
+test tail_lower_bound_is_absorbed_before_ldl ... ok
+test shared_conformance_corpus_matches_rust_validator ... ok
+test cli_exit_codes_distinguish_theorem_failure_from_contract_error ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.39s
+
+     Running tests\test_certificate_v2.rs (target\debug\deps\test_certificate_v2-8b78f95897464afd.exe)
+
+running 17 tests
+test p8_closed_grid_admission_corpus_matches_rust_whitelist ... ok
+test v2_production_theorem_whitelist_is_empty ... ok
+test p8_v2_rejects_wrong_parity_in_gp ... ok
+test dispatch_accepts_v2_structure_but_verify_rejects_unauthorized_pair ... ok
+test v2_rejects_duplicate_term ... ok
+test v2_rejects_nonpositive_independently_derived_mu ... ok
+test v2_rejects_missing_term ... ok
+test p8_v2_rejects_exact_and_near_serialized_window_boundaries ... ok
+test v2_rejects_understated_serialized_prime_loss ... ok
+test v2_rejects_nonzero_cross_parity_entry ... ok
+test v2_rejects_singular_exact_witness ... ok
+test v2_rejects_unsorted_terms ... ok
+test v2_rejects_substituted_term ... ok
+test v2_rejects_wrong_prime_power_identity ... ok
+test v2_rejects_wrong_factor_or_unverified_factor_claim ... ok
+test p8_cross_layer_corpus_matches_rust_structural_validator ... ok
+test cli_dispatch_returns_contract_failure_for_structurally_valid_but_unauthorized_v2 ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests\test_exact_prime_schur.rs (target\debug\deps\test_exact_prime_schur-c26896df1c99a106.exe)
+
+running 24 tests
+test exact_prime_profile_accepts_t_two_fifths_dimension_40 ... ok
+test exact_prime_profile_accepts_seventeen_fortieths_dimension_48 ... ok
+test exact_prime_profile_accepts_nine_twentieths_dimension_56 ... ok
+test exact_prime_profile_distinguishes_theorem_failure ... ok
+test exact_prime_profile_accepts_nineteen_fortieths_dimension_68 ... ok
+test exact_prime_profile_recomputes_schur_and_passes ... ok
+test exact_prime_profile_rejects_mixed_nine_twentieths_pair ... ok
+test exact_prime_profile_accepts_one_half_dimension_80 ... ok
+test exact_prime_profile_rejects_mixed_whitelist_pair ... ok
+test exact_prime_profile_rejects_mixed_seventeen_fortieths_pair ... ok
+test exact_prime_profile_rejects_mixed_nineteen_fortieths_pair ... ok
+test exact_prime_profile_rejects_nonpositive_complement_bound ... ok
+test exact_prime_profile_rejects_nonzero_cross_parity_entry ... ok
+test exact_prime_profile_rejects_singular_witness ... ok
+test exact_prime_profile_accepts_twenty_one_fortieths_dimension_96 ... ok
+test exact_prime_profile_rejects_one_half_dimension_76 ... ok
+test exact_prime_profile_accepts_twenty_seven_fiftieths_dimension_104 ... ok
+test exact_prime_profile_rejects_twenty_one_fortieths_dimension_100 ... ok
+test exact_prime_profile_rejects_wrong_factor ... ok
+test exact_prime_profile_rejects_twenty_one_fortieths_dimension_104 ... ok
+test exact_prime_profile_rejects_twenty_seven_fiftieths_dimension_100 ... ok
+test exact_prime_profile_rejects_twenty_seven_fiftieths_dimension_96 ... ok
+test exact_prime_profile_rejects_twenty_seven_fiftieths_dimension_108 ... ok
+test exact_prime_admission_matches_shared_test_corpus ... ok
+
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 37.70s
+
+     Running tests\test_gershgorin.rs (target\debug\deps\test_gershgorin-adb8f76e4eb2da74.exe)
+
+running 2 tests
+test optimized_generic_congruence_preserves_nonsymmetric_inputs ... ok
+test optimized_congruence_matches_naive_dense_reference_exactly ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\test_interval.rs (target\debug\deps\test_interval-bbbf8f736a2a9251.exe)
+
+running 7 tests
+test test_fraction_string_parsing ... ok
+test test_division_by_zero_fails ... ok
+test test_arithmetic_operations ... ok
+test test_interval_construction ... ok
+test test_interval_squaring ... ok
+test exact_rational_scaling_matches_point_interval_multiplication ... ok
+test test_predicates ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\test_ldl.rs (target\debug\deps\test_ldl-4dcd050a3c2aac0b.exe)
+
+running 6 tests
+test scalar_identity_shift_changes_only_the_diagonal ... ok
+test test_identity_matrix ... ok
+test test_2x2_positive_definite_matrix ... ok
+test test_2x2_indefinite_matrix ... ok
+test test_non_symmetric_matrix_rejection ... ok
+test test_3x3_positive_definite_matrix ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\test_proptest.rs (target\debug\deps\test_proptest-9a5fc5aa64e36c72.exe)
+
+running 6 tests
+test prop_interval_squaring_inclusion ... ok
+test prop_interval_addition_inclusion ... ok
+test prop_interval_subtraction_inclusion ... ok
+test prop_interval_division_inclusion ... ok
+test prop_interval_multiplication_inclusion ... ok
+test prop_diagonally_dominant_matrices_are_positive_definite ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+
+   Doc-tests rh_cert
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+Diff in \\?\D:\riemann-conjecture\crates\rh_engine\src\laguerre.rs:64:
+         let t = 0.5;
+         assert_eq!(laguerre_l1(0, t), 1.0);
+         assert!((laguerre_l1(1, t) - 1.5).abs() < 1e-14); // 2 - 0.5 = 1.5
+-        // L_2^(1)(t) = 3 - 3t + 0.5 t^2 = 3 - 1.5 + 0.125 = 1.625
++                                                          // L_2^(1)(t) = 3 - 3t + 0.5 t^2 = 3 - 1.5 + 0.125 = 1.625
+         assert!((laguerre_l1(2, t) - 1.625).abs() < 1e-14);
+     }
+ 
+Diff in \\?\D:\riemann-conjecture\crates\rh_engine\src\lib.rs:10:
+ pub use bins::{compute_range_bins, BinEntry, RangeBinResult};
+ pub use laguerre::{laguerre_alpha, laguerre_l1, laguerre_l1_batch};
+ pub use phase::{
+-    critical_cayley_phase_per_n, gamma_from_small_u_stationary_u,
+-    gamma_from_uniform_preturning_u, laguerre_uniform_xi, small_u_stationary_t_from_gamma,
+-    small_u_stationary_u_from_gamma, uniform_preturning_stationary_t_from_gamma,
+-    uniform_preturning_stationary_u_from_gamma,
++    critical_cayley_phase_per_n, gamma_from_small_u_stationary_u, gamma_from_uniform_preturning_u,
++    laguerre_uniform_xi, small_u_stationary_t_from_gamma, small_u_stationary_u_from_gamma,
++    uniform_preturning_stationary_t_from_gamma, uniform_preturning_stationary_u_from_gamma,
+ };
+ pub use sieve::{higher_prime_powers, sieve_segment, simple_sieve, PrimePower};
+ pub use summation::NeumaierSum;
+Diff in \\?\D:\riemann-conjecture\crates\rh_engine\src\sieve.rs:82:
+     }
+     // Adjust low/high to odd boundaries
+     let odd_low = if low.is_multiple_of(2) { low + 1 } else { low };
+-    let odd_high = if high.is_multiple_of(2) { high.saturating_sub(1) } else { high };
++    let odd_high = if high.is_multiple_of(2) {
++        high.saturating_sub(1)
++    } else {
++        high
++    };
+ 
+     if odd_low > odd_high {
+         return;
+Diff in \\?\D:\riemann-conjecture\crates\rh_engine\src\main.rs:87:
+ 
+             let a = 2.0 * s0 - 1.0;
+             let q = -s0 / (s0 - 1.0);
+-            println!("================================================================================");
++            println!(
++                "================================================================================"
++            );
+             println!("PRIME-LAGUERRE TRACE CALCULATOR (Native Rayon Engine)");
+-            println!("================================================================================");
+-            println!("s0={s0:.6}  A={a:.6}  q={q:.6}  |q|={:.6}  max_n={n_max}", q.abs());
++            println!(
++                "================================================================================"
++            );
++            println!(
++                "s0={s0:.6}  A={a:.6}  q={q:.6}  |q|={:.6}  max_n={n_max}",
++                q.abs()
++            );
+             println!("Cutoffs: {:?}", cutoff_list);
+             println!();
+ 
+Diff in \\?\D:\riemann-conjecture\crates\rh_engine\src\main.rs:104:
+                 for entry in &res.entries {
+                     println!(
+                         "{:3} | {:20.10e} | {:20.10e} | {:20.10e} | {:11.6} | {:10.6}",
+-                        entry.n, entry.p_n, entry.pole_term, entry.s_n, entry.s_n_root, entry.p_n_root
++                        entry.n,
++                        entry.p_n,
++                        entry.pole_term,
++                        entry.s_n,
++                        entry.s_n_root,
++                        entry.p_n_root
+                     );
+                 }
+                 println!();
+Diff in \\?\D:\riemann-conjecture\crates\rh_engine\src\main.rs:130:
+             simpson_steps,
+             output_json,
+         } => {
+-            let n_list: Vec<usize> = n
+-                .split(',')
+-                .filter_map(|s| s.trim().parse().ok())
+-                .collect();
++            let n_list: Vec<usize> = n.split(',').filter_map(|s| s.trim().parse().ok()).collect();
+             let bins_list: Vec<f64> = u_bins
+                 .split(',')
+                 .filter_map(|s| s.trim().parse().ok())
+Diff in \\?\D:\riemann-conjecture\crates\rh_engine\src\main.rs:140:
+                 .collect();
+ 
+-            println!("================================================================================");
++            println!(
++                "================================================================================"
++            );
+             println!("RANGE DECOMPOSITION IN TURNING-SCALE u=t/(4n) BINS");
+-            println!("================================================================================");
++            println!(
++                "================================================================================"
++            );
+             println!("s0={s0:.6}  max_m={max_m}  u_bins={:?}", bins_list);
+             println!();
+ 
+Diff in \\?\D:\riemann-conjecture\crates\rh_engine\src\main.rs:155:
+                 for b in &res.bins {
+                     println!(
+                         "[{:4.2},{:4.2}) | {:22.12e} | {:22.12e} | {:22.12e} | {:10}",
+-                        b.u_lo, b.u_hi, b.discrete_sum, b.continuous_integral, b.discrepancy, b.count_prime_powers
++                        b.u_lo,
++                        b.u_hi,
++                        b.discrete_sum,
++                        b.continuous_integral,
++                        b.discrepancy,
++                        b.count_prime_powers
+                     );
+                 }
+                 println!("-----------+------------------------+------------------------+------------------------+------------");
+Diff in \\?\D:\riemann-conjecture\crates\rh_engine\src\main.rs:184:
+                 .filter_map(|s| s.trim().parse().ok())
+                 .collect();
+ 
+-            println!("================================================================================");
++            println!(
++                "================================================================================"
++            );
+             println!("BENCHMARK: MULTI-THREADED RAYON SIEVE + BATCH LAGUERRE RECURRENCE");
+-            println!("================================================================================");
+-            println!("s0={s0:.6}  max_n={n_max}  threads={}", rayon::current_num_threads());
++            println!(
++                "================================================================================"
++            );
++            println!(
++                "s0={s0:.6}  max_n={n_max}  threads={}",
++                rayon::current_num_threads()
++            );
+             println!();
+ 
+             for &cutoff in &cutoff_list {

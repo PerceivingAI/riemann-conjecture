@@ -1,0 +1,26 @@
+{
+  "format": "riemann-run-identity-v1",
+  "run_id": "20261001T192935Z-4be85c74",
+  "driver": "weil_multi_prime_continuation_driver",
+  "driver_version": "multi-prime-continuation-driver-p5-v1",
+  "support": "11/20",
+  "dimensions": [
+    96,
+    100,
+    104,
+    108,
+    112,
+    116,
+    120,
+    124,
+    128,
+    132,
+    136,
+    140,
+    144
+  ],
+  "pid": 8608,
+  "started_at_utc": "2026-10-01T19:29:35Z",
+  "git_commit": "a26817d3e1bc22b6ed7aa3effefb96f172cb83fa",
+  "git_dirty": true
+}

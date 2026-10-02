@@ -1,0 +1,137 @@
+{
+  "created_utc": "2026-10-01T23:34:12Z",
+  "scope": "Phase 4 only: diagnostic component benchmarks and complete regression gates; no run_driver or P9 qualification",
+  "head": "a26817d3e1bc22b6ed7aa3effefb96f172cb83fa",
+  "source_sha256": {
+    "scripts/cert/prime_power_terms.py": "20d68c881a1e8c4d328aaf7a57eb9efee364d9952cdf20901ec98e68399fb6b3",
+    "scripts/cert/multi_prime_legendre_schur.py": "29bec865f8821cf5db5213e8b139b406155a9881067b5169c3b7650ccdb8bad4",
+    "scripts/weil_multi_prime_support_candidate_check.py": "51c40e1ce772e7a3dff3861dd5de321e7cba78cda6bf8fafe5233c97ef321981",
+    "scripts/weil_multi_prime_continuation_driver.py": "176fac492be0a5bace59aeac4ef79d0592cad3d8cafeb0305b25afb3cb1096fd",
+    "scripts/weil_continuation_driver.py": "e94693a0348c779565447ad45a09bd620a25303ed126274ec76c73fc53a58e68",
+    "scripts/weil_legendre_schur_scout.py": "8363d65049e032d64ded75c44ae949cbce0c302596e0b770e00049c753bf41c2",
+    "scripts/weil_support_candidate_check.py": "9dbf1d5ecd60fff6d490bc26602219b72e4ae19cf0cf17b5b4772fd8fa8a8b78",
+    "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+    "scripts/cert/export_certificate.py": "e8561a9afaf4dd0fb8815db29f2e0c80b5b3650bd2db8051e2b668da61407f96",
+    "docs/contracts/rh-weil-certificate-v1.json": "0a58b6a36055b6b56720d275e96c19d0275948872542491099cd68c454bbed48",
+    "crates/rh_cert/src/cert.rs": "bd71fcf341d70a44e1fe8f126393e95b785c4164ea796ce69966f0af4ce10140",
+    "scripts/profile_multi_prime_assembly.py": "dfc2f65570a86bdfac967904c9389f9fdfca21f4709e25bdbfe3f0ee364da2c1",
+    "scripts/profile_multi_prime_workflow.py": "98bcb1dc6785745d473dd825b2219a8b2070ac64eaad8627a8525f4e4bc0833f",
+    "scripts/weil_multi_prime_schur_scout.py": "2f40bd874bde180b730a9d8d666e2d68d3ccd557ec97b2c6a6190b90b2f2a2ba",
+    "scripts/weil_multi_prime_support_continuation_scout.py": "81070aee98dfb057bc01cb8f436a1977d6d8a2cc6125228d585ea7e651ba9508",
+    "scripts/cert/exact_prime_schur_common.py": "7f11aad2ae3c77ff6b8ceda9f99d1bbaef73a5f6b1460496bfaca729cf65b486",
+    "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+    "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+    "scripts/continuation_bundle.py": "a350e5b196e3814a7827ae3fa1ba6a38bd7560285ceed5ba21a7e90f8d30c24c",
+    "scripts/run_observability.py": "e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c58a95",
+    "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a",
+    "pyproject.toml": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+  },
+  "baseline": "Retain original measured N=32,64,96,128; do not rerun historical failures or treat censored simultaneous runs as isolated timings",
+  "isolated_timing": {
+    "support": "11/20",
+    "residual_order": 32,
+    "precision_bits": [
+      128,
+      256,
+      384,
+      512,
+      640,
+      768
+    ],
+    "dimensions_at_128": [
+      32,
+      64,
+      96,
+      128,
+      160,
+      192,
+      196
+    ],
+    "dimensions_at_other_precisions": [
+      192,
+      196
+    ],
+    "cache": "none",
+    "overlapping_cpu_checks": "none during reported target timings"
+  },
+  "stages": {
+    "dimensions": [
+      192,
+      196
+    ],
+    "precision_bits": 512,
+    "nested_times": "do not sum inclusive stages"
+  },
+  "throughput": {
+    "dimensions": [
+      192,
+      196
+    ],
+    "precision_bits": [
+      128,
+      512,
+      768
+    ],
+    "workers": 2,
+    "model": "driver verified spawn pool; one numerical-library thread per worker by default"
+  },
+  "candidate_cost": {
+    "dimensions": [
+      192,
+      196
+    ],
+    "precision_bits": [
+      512,
+      640,
+      768
+    ],
+    "matrix_bits": 64,
+    "witness_bits": 32,
+    "extra_resolution_case": {
+      "dimension": 192,
+      "precision_bits": 512,
+      "matrix_bits": 104,
+      "witness_bits": 56
+    },
+    "method": "sequential run_candidate with nested component timers; retain expected failure outcomes without theorem promotion"
+  },
+  "scout_cost": {
+    "support": "11/20",
+    "dimensions": [
+      148,
+      152,
+      156,
+      160,
+      164,
+      168,
+      172,
+      176,
+      180,
+      184,
+      188,
+      192,
+      196,
+      200,
+      204,
+      208,
+      212,
+      216,
+      220,
+      224,
+      228,
+      232,
+      236,
+      240,
+      244,
+      248,
+      252,
+      256
+    ],
+    "resolutions": 8,
+    "workers": 3,
+    "method": "floating component only, no selection/qualification state machine"
+  },
+  "publication_cost": "Measured JSON serialization, SHA256, fsync and atomic progress publication; final report publication excluded. Full sealing cost will be an explicitly labeled estimate with margin.",
+  "full_cost_model": "Include both rigorous ladders, worst 16 matrix/witness cases per survivor, fixed-bit higher-precision confirmations, scouting, normalization/serialization/sealing and worker startup/cleanup. Report expected-path and conservative ceilings separately.",
+  "external_allowance": "Determine and predeclare after actual component measurements, before any future phase 5 launch."
+}

@@ -1,10 +1,86 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-01T19:06:42Z`
+- **Last updated:** `2026-10-02T01:25:32Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-02T01:25:32Z. Phase 6 audits and reproduces the conditioning limit
+
+**Type:** Independent operational artifact audit / fresh-cache reproduction / cleanup
+
+[X-20261002-001](../computations/2026-10-02T010121Z-t11-20-multi-prime-qualification-after-hardening/record.md) independently validates canonical relative paths, raw byte sizes and SHA-256 for all `18/18` artifacts in each Run A/B manifest, plus ordered result-payload digests and semantic consistency. Run B changes only cache/output destinations, starts with a fresh cache under the prelaunch reproduction policy and retains the same 19-file source snapshot and frozen controls.
+
+Run B naturally terminates in `169.39 s` at `PRECISION_LIMIT_REACHED`; Run A took `168.78 s`. Exact recursive comparison finds zero retained mathematical/diagnostic differences, with only declared execution metadata excluded. Seventeen artifact files are byte-identical; summary bytes differ only by cache destination. Both runs select `192/196`, exhaust the same `128/256/384/512` history and reach no candidate, exact margins or higher-precision candidate stability.
+
+The separate Windows CIM scan finds zero qualification-related survivors, excluding the two identified live Eval harness processes. Each driver reports five reaped managed workers and zero active children. Seven frozen hashes still match the original capture. Artifact audit, reproducibility and cleanup pass, but the qualification gate fails because neither run reaches `CANDIDATE_READY`. P9 remains NOT QUALIFIED, not a mathematical rejection. No source change, third retry, theorem admission or commit occurred.
+
+---
+
+## 2026-10-02T01:06:38Z. Frozen P9 phase 5 rerun reaches a precision limit
+
+**Type:** Non-theorem canonical qualification execution
+
+User authorized phase 5 after the phase 4 blockers were reported. [X-20261002-001](../computations/2026-10-02T010121Z-t11-20-multi-prime-qualification-after-hardening/record.md) captures HEAD, the dirty tracked patch, source snapshot/hashes, driver fingerprint, fresh cache/output directories and the unchanged frozen settings before results. Historical Run A/C/E artifacts were preserved.
+
+The canonical driver completed naturally in `168.78 s`, selected primary/fallback `192/196`, and exhausted both rigorous ladders. At 128 bits the screens reported `OverflowError: integer division result too large for a float`; at 256/384/512 both remained `INSUFFICIENT_PRECISION`. Final state is **`PRECISION_LIMIT_REACHED`**. Positive complements did not overcome enormous `GP` widths or unstable midpoints. No mathematical rejection or candidate construction occurred.
+
+The driver emitted its final manifest and reported five managed workers reaped, zero active children and no cleanup escalation. All captured source hashes and numerical controls remained unchanged. This is not phase 6 artifact audit/reproduction or an OS-wide cleanup audit. P9 remains **NOT QUALIFIED**, phase 4 blockers remain recorded, and no theorem admission or commit occurred.
+
+---
+
+## 2026-10-02T00:29:37Z. Phase 4 target measurements; readiness gate blocked
+
+**Type:** Non-theorem performance measurement / acceptance / conditioning blocker
+
+[X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) retains uncached isolated `N=192/196` measurements through Arb 768, exact candidate component costs, bounded spawn throughput and the complete scout-component cost. Assembly takes `34.893/37.460 s` at 512 bits, versus `38.208 s` for the two-worker pair. Actual old/new measured 128-bit speedups at `N=32..128` are `61.03..136.43`; no isolated old target timing or fabricated target speedup is claimed.
+
+Candidate cases at 512/640/768 all fail midpoint LDL witnesses. At 768, native `GP` widths remain `2.819e64/4.574e70`; maximum frozen matrix/witness bits `104/56` also fail at base 512. This is unresolved conditioning, not a mathematical negative. A measured-cost/extrapolation model predeclares a 12-hour external allowance with explicit reserves for unmeasured full witness completion and sealing; it is not launch permission.
+
+Focused Python passes `121/121`, full default Python `647/647`, Rust `67/67`, strict Clippy, scoped `rh_cert` formatting and retained byte-integrity/independent replay `8/8`. Workspace rustfmt fails in four untouched `rh_engine` files, preserved as unrelated work. All seven frozen hashes match the original capture, all four production hashes match phase 3, and owned workers are reaped. Phase 4 measurements/checks are executed but its readiness gate is **BLOCKED**. No P9 qualification, reproduction or admission was run.
+
+---
+
+## 2026-10-01T23:14:26Z. Generic assembler phase 3 equivalence and regression guards
+
+**Type:** Non-theorem implementation verification / structural performance guards
+
+[X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) closes phase 3 with `121/121` focused tests in `34.49 s`. Independent references now evaluate both matrix triangles without parity skips and reconstruct activity per basis/cell/term. The support grid includes empty arithmetic, one-prime overlap, two distinct `{2,3}` supports, and `{2,3,4}` with `tau_2<1`. Checks cover exact norms and residual image coefficients, rational integral containment, tighter high-precision enclosures, symmetry, parity, strict threshold/topology failures, and bounded shifts/activity/integrations/moment work.
+
+Real screen-cache tests isolate precision/support and force recomputation after copied generic-source bytes change. Mocked diagnostic echo and presence-only checks were replaced with real candidate rounding, complement, factor-3 Schur, independent congruence/Gershgorin, and negative-witness tests. Both acceptance corpora remain test-only.
+
+A fresh real CLI overlap smoke at `T=2/5,N=40`, Arb `384` versus `128`, matrix/witness `72/40`, returns positive exact generator margins and nonincreasing widths without theorem status. Production source was unchanged in this phase; all seven frozen hashes match the phase 1 originals. The final process scan found no remaining verification workers after excluding the identified live Eval harness.
+
+Phase 4 full acceptance and target higher-precision/throughput measurements remain pending. P9 qualification/reproduction was not run and v2 admission remains empty.
+
+---
+
+## 2026-10-01T22:39:34Z — Generic rigorous assembler performance phases 1 and 2
+
+**Type:** Performance hardening / isolated rigorous assembly / non-theorem verification
+
+[X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) captures source/environment provenance, baseline source snapshots, frozen-file hashes, and isolated wall/CPU profiling. Baseline 128-bit `N=32,64,96,128` assemblies take `9.490,80.324,320.340,897.221 s`. Fraction convolution in residual inner products dominates; repeated potential moments and generic polynomial products are secondary costs. Measured scaling explains the historical P9 execution boundary without rerunning the failed one-hour qualification.
+
+The separate generic path now uses native exact rational and Arb polynomial arithmetic, residual monomial-action reuse, coefficient-certified parity, native shift/integration, and cached diagonal scaling. Final isolated wall times are `0.165,0.894,2.738,6.779 s` at the same baseline dimensions. Target `N=192/196` complete in `26.259/28.069 s`. Full timing/stage data and intermediate measurements are retained.
+
+Focused Python acceptance passes `65/65`, including frozen-v1 bridges, mixed-square regressions, exact residual-image equality, parity/mixed-basis references, candidate/driver/cache checks, and v2 adversarial boundaries. A real new-path one-prime overlap smoke at `T=2/5,N=40`, 256-bit Arb and 64/32-bit matrix/witness settings, returns a positive exact generator candidate with nonincreasing 128-to-256-bit widths. All seven frozen files are byte-identical to their starting state. OS scan excludes the active tool harness and finds no remaining benchmark/candidate/test workers.
+
+Only phases 1 and 2 are complete. Full acceptance, higher-precision target measurements, and P9 qualification/reproduction remain pending. No P9 run, theorem admission, certificate-contract change, independent-verifier change, or retained-proof promotion occurred.
+
+---
+
+## 2026-10-01T21:04:17Z — P9 closes NOT QUALIFIED on rigorous-stage performance
+
+**Type:** Non-theorem qualification / performance boundary / process cleanup
+
+The first real `{2,3}` qualification at `T=11/20` did not reach the proof-bearing candidate path. The original frozen grid `N=96..144 step 4` completed as a clean scout-only `NO_CANDIDATE` bundle. A separately predeclared extension `N=148..256 step 4` found stable-positive floating behavior beginning at `N=192` and selected rigorous targets `N=192,196`.
+
+Run C was terminated by the external ~30-minute execution limit before either first 128-bit rigorous assembly completed. Run E repeated the identical extension with a one-hour allowance; both workers remained continuously CPU-active, but neither 128-bit assembly returned before the hard one-hour limit. The process controller terminated and reaped the complete tree; final process scan is clean. No rigorous cache entry was committed.
+
+P9 is therefore closed as **NOT QUALIFIED — rigorous-stage performance blocker**. This is not a mathematical negative for `T=11/20`, `N=192`, or `N=196`. No completed rigorous `GP`, `mu_N`, precision escalation, exact candidate, stability result, reproduction bundle, theorem admission, retained proof, or theorem claim exists. A separate performance-hardening slice is required before another qualification.
+
+---
 
 ## 2026-10-01T19:06:42Z — P8 closes adversarial and cross-layer gates before continuation
 

@@ -1,0 +1,32 @@
+{
+  "run-a": {
+    "manifest_format_role": "PASS",
+    "candidate_support": "PASS",
+    "stable_positive_frontier": "PASS",
+    "reconnaissance_resolution_order": "PASS",
+    "rigorous_identity_controls": "PASS",
+    "selection": {
+      "scout_primary_dimension": 192,
+      "selected_dimension": null,
+      "selected_candidate_dimension": null,
+      "fallback_dimensions": [
+        196
+      ]
+    }
+  },
+  "run-b": {
+    "manifest_format_role": "PASS",
+    "candidate_support": "PASS",
+    "stable_positive_frontier": "PASS",
+    "reconnaissance_resolution_order": "PASS",
+    "rigorous_identity_controls": "PASS",
+    "selection": {
+      "scout_primary_dimension": 192,
+      "selected_dimension": null,
+      "selected_candidate_dimension": null,
+      "fallback_dimensions": [
+        196
+      ]
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "focused_python": {
+    "passed": 121,
+    "seconds": 33.47,
+    "output": "phase4-focused-output.txt"
+  },
+  "full_python": {
+    "passed": 647,
+    "seconds": 422.02,
+    "workers": 2,
+    "output": "phase4-full-python-output.txt",
+    "excluded_tiers": [
+      "slow_acceptance",
+      "retained_proofs",
+      "parallel_acceptance"
+    ]
+  },
+  "rust_tests": {
+    "passed": 67,
+    "suites": 10,
+    "output": "phase4-rust-tests-workspace-format-output.txt"
+  },
+  "workspace_rustfmt": {
+    "status": "FAILED",
+    "command": "cargo fmt --all -- --check",
+    "exit_code": 1,
+    "unmodified_files": [
+      "crates/rh_engine/src/laguerre.rs",
+      "crates/rh_engine/src/lib.rs",
+      "crates/rh_engine/src/sieve.rs",
+      "crates/rh_engine/src/main.rs"
+    ],
+    "action": "Preserve unrelated source; do not substitute scoped formatting for the workspace gate."
+  },
+  "rh_cert_rustfmt": {
+    "status": "PASSED",
+    "command": "cargo fmt -p rh_cert -- --check"
+  },
+  "clippy": {
+    "status": "PASSED",
+    "command": "cargo clippy -p rh_cert --all-targets -- -D warnings"
+  },
+  "retained_replay": {
+    "passed": 8,
+    "total": 8,
+    "hash_and_independent_verification": true,
+    "output": "phase4-clippy-retained-output.txt",
+    "pipeline_wall_seconds": 375.24
+  },
+  "acceptance_status": "BLOCKED_BY_WORKSPACE_FORMAT"
+}

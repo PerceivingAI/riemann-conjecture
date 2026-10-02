@@ -147,3 +147,14 @@ def test_combined_operator_requires_exact_orthogonal_basis() -> None:
             [term],
             prec=96,
         )
+
+
+@pytest.mark.parametrize("tau", ["1", "1 +/- 0.01", "2"])
+def test_piecewise_topology_fails_closed_at_unresolved_shift_boundaries(tau) -> None:
+    from dataclasses import replace
+
+    from scripts.cert.prime_power_terms import PiecewiseTopologyError
+
+    term = replace(prime_power_term(2, 7, 10, prec=128), tau=arb(tau))
+    with pytest.raises(PiecewiseTopologyError, match="certify|order"):
+        assemble_combined_prime_power_operator(legendre_polynomials(2), [term], prec=128)

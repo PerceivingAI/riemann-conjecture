@@ -1,0 +1,76 @@
+{
+  "scanned_utc": "2026-10-02T01:23:02Z",
+  "method": "Get-CimInstance Win32_Process | Select-Object ProcessId,ParentProcessId,Name,CommandLine | ConvertTo-Json -Depth 3",
+  "scope": "OS-wide CIM snapshot filtered by Python/uv/Rust executable names, recorded driver PID/PPID ancestry, command lines and repository/run paths",
+  "recorded_driver_parent_pids": [
+    10864,
+    18000
+  ],
+  "recorded_worker_pid_limitation": "Driver manifests serialize counts and parent PID, not individual worker PID lists; ancestry and command-line matching supplement the owned-worker count.",
+  "raw_named_or_owned_processes": [
+    {
+      "ProcessId": 12568,
+      "ParentProcessId": 23548,
+      "Name": "python.exe",
+      "CommandLine": "C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\python.exe -u C:\\Users\\carlo\\AppData\\Local\\Temp\\omp-python-runner\\runner-2lu0do4aassi1.py"
+    },
+    {
+      "ProcessId": 28896,
+      "ParentProcessId": 14924,
+      "Name": "python.exe",
+      "CommandLine": "D:\\riemann-conjecture\\.venv\\Scripts\\python.exe -u C:\\Users\\carlo\\AppData\\Local\\Temp\\omp-python-runner\\runner-2lu0do4aassi1.py"
+    },
+    {
+      "ProcessId": 16868,
+      "ParentProcessId": 28896,
+      "Name": "python.exe",
+      "CommandLine": "D:\\riemann-conjecture\\.venv\\Scripts\\python.exe -u C:\\Users\\carlo\\AppData\\Local\\Temp\\omp-python-runner\\runner-2lu0do4aassi1.py"
+    }
+  ],
+  "excluded_live_eval_harness": [
+    {
+      "ProcessId": 28896,
+      "ParentProcessId": 14924,
+      "Name": "python.exe",
+      "CommandLine": "D:\\riemann-conjecture\\.venv\\Scripts\\python.exe -u C:\\Users\\carlo\\AppData\\Local\\Temp\\omp-python-runner\\runner-2lu0do4aassi1.py"
+    },
+    {
+      "ProcessId": 16868,
+      "ParentProcessId": 28896,
+      "Name": "python.exe",
+      "CommandLine": "D:\\riemann-conjecture\\.venv\\Scripts\\python.exe -u C:\\Users\\carlo\\AppData\\Local\\Temp\\omp-python-runner\\runner-2lu0do4aassi1.py"
+    }
+  ],
+  "qualification_related_survivors": [],
+  "qualification_related_survivor_count": 0,
+  "processes_terminated": [],
+  "status": "PASS",
+  "driver_reported_owned_worker_counts": {
+    "run-a": {
+      "scope": "driver_managed_process_pool_workers",
+      "parent_pid": 18000,
+      "worker_model": "spawn",
+      "worker_cleanup_verified": true,
+      "active_children_after_cleanup": 0,
+      "executors_shutdown": 2,
+      "worker_processes_reaped": 5,
+      "cleanup_escalations": 0,
+      "workers_joined_after_shutdown": 0,
+      "workers_terminated": 0,
+      "workers_killed": 0
+    },
+    "run-b": {
+      "scope": "driver_managed_process_pool_workers",
+      "parent_pid": 10864,
+      "worker_model": "spawn",
+      "worker_cleanup_verified": true,
+      "active_children_after_cleanup": 0,
+      "executors_shutdown": 2,
+      "worker_processes_reaped": 5,
+      "cleanup_escalations": 0,
+      "workers_joined_after_shutdown": 0,
+      "workers_terminated": 0,
+      "workers_killed": 0
+    }
+  }
+}

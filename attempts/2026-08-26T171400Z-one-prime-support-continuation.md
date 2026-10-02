@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-10-01T19:06:42Z`
+- **Last updated:** `2026-10-01T21:04:17Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -596,10 +596,20 @@ The v2 tail rule is closed to `prime_powers_with_log_m_lt_2T`, complement `H_N-c
 
 Production Rust theorem admission remains empty. CLI therefore rejects every currently structurally valid v2 pair as unauthorized contract failure (exit `2`). Internal verifier regression separately exercises the future admitted arithmetic path and proves that a contract-valid nonpositive Schur matrix returns `passed=false` rather than a contract error, preserving theorem-failure semantics. The trust boundary is explicit: Rust verifies zero-float exact rational interval proof arithmetic and consistency but does not independently establish the upstream transcendental Arb enclosures. Rust acceptance passes all `63/63` `rh_cert` tests, strict clippy, and rustfmt; focused Python v2/frozen-v1 regression passes `21/21`.
 
+**P7 verification closure — `2026-10-01T18:41:00Z`.** The complete default Python suite passes `602/602` in `515.09 s`. The retained proof gate replays `C-0050..C-0057` through the new format dispatcher with `HASH PASS / VERIFY PASS` for every artifact and closes `8/8`. The frozen v1 `cert.rs`, v1 schema, and v1 Python exporter remain unmodified; the v1 schema hash remains `0a58b6a36055b6b56720d275e96c19d0275948872542491099cd68c454bbed48`. P7 is closed with the production v2 theorem whitelist still empty.
+
 ## Multi-prime upgrade P8 — adversarial/cross-layer pre-continuation gate
 
 **P8 verification closure — `2026-10-01T19:06:42Z`.** Added shared test-only structural corpus `tests/data/certificate-v2-cross-layer-v1.json` and closed admission grid `tests/data/multi-prime-admission-v2.json`. The v2 schema now fixes first-window arithmetic terms to exactly `[2,3]` and unit norm bounds. Python semantics and Rust independently re-check active identities, arithmetic interval relationships, strict support-window separation, matrix symmetry/parity, `GP`, factor, and complement/witness prerequisites. Threshold equality/overlap and low-precision near-threshold cases fail closed; `m=4` is rejected in the first v2 window. The 10-case shared structural corpus gives identical expected outcomes under raw Python Schema, Python semantics, and Rust; threshold/parity cross-field attacks are separately checked in Python/Rust. The 16-case support/dimension admission grid has no allowed entry and is rejected independently by schema admission metadata, Python, and Rust. Production code does not load either corpus.
 
 Focused Python acceptance passes `41/41`; complete Rust verifier acceptance passes `67/67`; strict clippy/rustfmt pass; complete Python passes `608/608` in `387.29 s`; retained proof chain remains `8/8`. Frozen v1 verifier/schema/exporter are unchanged and v2 theorem admission remains empty. P8 is closed without running a real continuation.
 
-**P7 verification closure — `2026-10-01T18:41:00Z`.** The complete default Python suite passes `602/602` in `515.09 s`. The retained proof gate replays `C-0050..C-0057` through the new format dispatcher with `HASH PASS / VERIFY PASS` for every artifact and closes `8/8`. The frozen v1 `cert.rs`, v1 schema, and v1 Python exporter remain unmodified; the v1 schema hash remains `0a58b6a36055b6b56720d275e96c19d0275948872542491099cd68c454bbed48`. P7 is closed with the production v2 theorem whitelist still empty.
+## Multi-prime upgrade P9 — non-theorem qualification
+
+**P9 closure — `2026-10-01T21:04:17Z`.** The predeclared qualification at `T=11/20` is closed as **NOT QUALIFIED — rigorous-stage performance blocker**.
+
+Run A used the original frozen grid `96..144 step 4` and sealed `NO_CANDIDATE` after all eight floating resolutions; active set `[2,3]`, deterministic ordering, worker reaping, and `active_children_after_cleanup=0` were verified.
+
+A separately predeclared extension `148..256 step 4` found stable-positive floating behavior beginning at `N=192` and selected `N=192` plus fallback `N=196` for rigorous screening. Run C was externally terminated after `1789.426 s` with both workers still in their first 128-bit assemblies. Run E retried the identical frozen extension and remained healthy/CPU-active for the full hour, but at `3590.867 s` neither rigorous assembly had returned. The external one-hour session boundary terminated and reaped the full process tree; a final OS scan found no repository processes. No rigorous cache file was committed.
+
+Therefore P9 does not establish completed rigorous `GP`, complement `mu_N`, precision escalation, exact candidate construction, candidate stability, `CANDIDATE_READY`, or reproducibility. It also does not establish a mathematical negative at the selected dimensions. No theorem admission, certificate, retained proof, or claim was created. The next prerequisite is performance hardening of the generic rigorous multi-prime assembler before a newly predeclared qualification.

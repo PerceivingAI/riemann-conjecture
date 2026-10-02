@@ -1,0 +1,59 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\riemann-conjecture
+configfile: pyproject.toml
+plugins: hypothesis-6.165.10, xdist-3.8.0
+collected 67 items
+
+tests\test_multi_prime_assembly_performance.py ......................... [ 37%]
+F.                                                                       [ 40%]
+tests\test_multi_prime_p4_stages.py .........                            [ 53%]
+tests\test_multi_prime_continuation_driver.py .............              [ 73%]
+tests\test_prime_power_terms.py ............                             [ 91%]
+tests\test_multi_prime_legendre_schur.py ......                          [100%]
+
+================================== FAILURES ===================================
+_____ test_residual_monomial_actions_are_reused_with_exact_image_equality _____
+
+    def test_residual_monomial_actions_are_reused_with_exact_image_equality():
+        polys = frozen.legendre_polynomials(5)
+        with patch.object(assembly, "_abs_power_action", wraps=assembly._abs_power_action) as actions, \
+                patch.object(assembly, "_exact_inner", wraps=assembly._exact_inner) as integrals:
+            images, low, square, delta = assembly._residual_truncation_operator(polys, 16, 160, 11, 20)
+        degrees = [k for k, c in enumerate(assembly._suzuki_residual_series_coefficients(16)) if c]
+        pairs = [(call.args[0], call.args[1].degree()) for call in actions.call_args_list]
+        assert sorted(pairs) == sorted((degree, k) for k in range(6) for degree in degrees)
+        assert integrals.call_count == 24  # Two matrices, six triangular pairs per parity.
+        old_images, old_low, old_square, old_delta = frozen.residual_truncation_operator(polys, 16, 160, 11, 20)
+        for image, old in zip(images, old_images, strict=True):
+            assert [Fraction(int(c.p), int(c.q)) for c in image.coeffs()] == old
+        for new, old in ((low, old_low), (square, old_square)):
+            for i in range(6):
+                for j in range(6):
+>                   assert arb_to_rational_enclosure(new[i][j]) == arb_to_rational_enclosure(old[i][j])
+E                   assert (Fraction(145...913983135744)) == (Fraction(898...799813685248))
+E                     
+E                     At index 0 diff: Fraction(1458534722144933242414963398558584782802410965965, 365375409332725729550921208179070754913983135744) != Fraction(8988914228183819, 2251799813685248)
+E                     
+E                     Full diff:
+E                       (
+E                     -     Fraction(8988914228183819, 2251799813685248),
+E                     -     Fraction(8988914228183821, 2251799813685248),
+E                     +     Fraction(1458534722144933242414963398558584782802410965965, 365375409332725729550921208179070754913983135744),
+E                     +     Fraction(1458534722144933242414963398558584782802410965967, 365375409332725729550921208179070754913983135744),
+E                       )
+
+tests\test_multi_prime_assembly_performance.py:282: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_multi_prime_assembly_performance.py::test_residual_monomial_actions_are_reused_with_exact_image_equality - assert (Fraction(145...913983135744)) == (Fraction(898...799813685248))
+  
+  At index 0 diff: Fraction(1458534722144933242414963398558584782802410965965, 365375409332725729550921208179070754913983135744) != Fraction(8988914228183819, 2251799813685248)
+  
+  Full diff:
+    (
+  -     Fraction(8988914228183819, 2251799813685248),
+  -     Fraction(8988914228183821, 2251799813685248),
+  +     Fraction(1458534722144933242414963398558584782802410965965, 365375409332725729550921208179070754913983135744),
+  +     Fraction(1458534722144933242414963398558584782802410965967, 365375409332725729550921208179070754913983135744),
+    )
+======================== 1 failed, 66 passed in 32.33s ========================

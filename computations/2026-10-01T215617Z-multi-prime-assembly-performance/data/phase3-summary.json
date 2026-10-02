@@ -1,0 +1,74 @@
+{
+  "completed_utc": "2026-10-01T23:14:26Z",
+  "scope": "Phase 3 only; phases 4 through 6 not executed",
+  "pytest": {
+    "passed": 121,
+    "failed": 0,
+    "seconds": 34.49,
+    "workers": 0,
+    "output": "phase3-final-focused-output.txt"
+  },
+  "candidate_smoke": {
+    "artifact": "phase3-candidate-smoke-one-prime-bridge.json",
+    "status": "CANDIDATE_READY",
+    "support": "2/5",
+    "dimension": 40,
+    "precision_bits": 384,
+    "comparison_precision_bits": 128,
+    "matrix_bits": 72,
+    "witness_bits": 40,
+    "mu_lower": "52419575056352112599960246535458339/71679773957685035807963656853913600",
+    "even_gershgorin_margin": "312473038982531325963983367141510337436922617731941410735398920267414324166813/74815717551805439619525612614940503275972827513035566611697512806793479544897536",
+    "odd_gershgorin_margin": "3926487948555160933381134638055704875507863931533826469893008933938296016110125/299262870207221758478102450459762013103891310052142266446790051227173918179590144",
+    "all_widths_nonincreasing": true,
+    "theorem_status": false
+  },
+  "production_and_frozen_sha256": {
+    "scripts/cert/prime_power_terms.py": "20d68c881a1e8c4d328aaf7a57eb9efee364d9952cdf20901ec98e68399fb6b3",
+    "scripts/cert/multi_prime_legendre_schur.py": "29bec865f8821cf5db5213e8b139b406155a9881067b5169c3b7650ccdb8bad4",
+    "scripts/weil_multi_prime_support_candidate_check.py": "51c40e1ce772e7a3dff3861dd5de321e7cba78cda6bf8fafe5233c97ef321981",
+    "scripts/weil_multi_prime_continuation_driver.py": "176fac492be0a5bace59aeac4ef79d0592cad3d8cafeb0305b25afb3cb1096fd",
+    "scripts/weil_continuation_driver.py": "e94693a0348c779565447ad45a09bd620a25303ed126274ec76c73fc53a58e68",
+    "scripts/weil_legendre_schur_scout.py": "8363d65049e032d64ded75c44ae949cbce0c302596e0b770e00049c753bf41c2",
+    "scripts/weil_support_candidate_check.py": "9dbf1d5ecd60fff6d490bc26602219b72e4ae19cf0cf17b5b4772fd8fa8a8b78",
+    "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+    "scripts/cert/export_certificate.py": "e8561a9afaf4dd0fb8815db29f2e0c80b5b3650bd2db8051e2b668da61407f96",
+    "docs/contracts/rh-weil-certificate-v1.json": "0a58b6a36055b6b56720d275e96c19d0275948872542491099cd68c454bbed48",
+    "crates/rh_cert/src/cert.rs": "bd71fcf341d70a44e1fe8f126393e95b785c4164ea796ce69966f0af4ce10140"
+  },
+  "test_sha256": {
+    "tests/test_multi_prime_assembly_performance.py": "0fb0aec9b072182b557a7d99a677a58f95a91eb2112aa02d2de2618312d80039",
+    "tests/test_prime_power_terms.py": "809c3a1da125fddbf96a5f5d0cf39eec96ac0f7dbe8c24f438bf3ad953b7a921",
+    "tests/test_multi_prime_legendre_schur.py": "be4cbfa9780518493278ff2c8a0d602df0ae74b202d50c88ed8999826e0f9374",
+    "tests/test_multi_prime_p4_stages.py": "d851d3310c94cf00a3feedb9c823b3b03cf0794fec7622501aba75212989d2fe",
+    "tests/test_multi_prime_continuation_driver.py": "8989b9ba48d840242dfb75e2f7ff07a1f374ec94d01fffb6d35210f2047ccbbb"
+  },
+  "process_scan": {
+    "raw_processes": [
+      {
+        "ProcessId": 28896,
+        "ParentProcessId": 14924,
+        "Name": "python.exe",
+        "CommandLine": "D:\\riemann-conjecture\\.venv\\Scripts\\python.exe -u C:\\Users\\carlo\\AppData\\Local\\Temp\\omp-python-runner\\runner-2lu0do4aassi1.py"
+      },
+      {
+        "ProcessId": 16868,
+        "ParentProcessId": 28896,
+        "Name": "python.exe",
+        "CommandLine": "D:\\riemann-conjecture\\.venv\\Scripts\\python.exe -u C:\\Users\\carlo\\AppData\\Local\\Temp\\omp-python-runner\\runner-2lu0do4aassi1.py"
+      }
+    ],
+    "excluded_eval_harness_ids": [
+      16868,
+      28896
+    ],
+    "other_matching_processes": []
+  },
+  "production_corpora_scan": "Only scripts/README.md mentions the two corpus filenames; no production Python or Rust source matches.",
+  "whitespace_check": {
+    "command": "git diff --check",
+    "exit_code": 0,
+    "warnings": "LF-to-CRLF warnings only after correcting the added EOF blank line"
+  },
+  "documentation_and_retained_evidence_verified": true
+}

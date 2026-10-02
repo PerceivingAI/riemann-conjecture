@@ -1,0 +1,444 @@
+{
+  "baseline_comparison": [
+    {
+      "dimension": 32,
+      "old_wall_seconds": 9.48997560000862,
+      "old_cpu_seconds": 9.25,
+      "old_peak_memory_bytes": 46530560,
+      "old_status": "measured",
+      "new_wall_seconds": 0.1554859000025317,
+      "new_cpu_seconds": 0.140625,
+      "new_peak_memory_bytes": 47919104,
+      "wall_speedup": 61.03431629397971,
+      "cpu_speedup": 65.77777777777777
+    },
+    {
+      "dimension": 64,
+      "old_wall_seconds": 80.32360540001537,
+      "old_cpu_seconds": 77.4375,
+      "old_peak_memory_bytes": 50110464,
+      "old_status": "measured",
+      "new_wall_seconds": 0.8596739000058733,
+      "new_cpu_seconds": 0.828125,
+      "new_peak_memory_bytes": 51884032,
+      "wall_speedup": 93.43497039920207,
+      "cpu_speedup": 93.50943396226415
+    },
+    {
+      "dimension": 96,
+      "old_wall_seconds": 320.3400057000108,
+      "old_cpu_seconds": 311.203125,
+      "old_peak_memory_bytes": 55791616,
+      "old_status": "measured",
+      "new_wall_seconds": 2.661241299996618,
+      "new_cpu_seconds": 2.640625,
+      "new_peak_memory_bytes": 59080704,
+      "wall_speedup": 120.3724012927418,
+      "cpu_speedup": 117.85207100591715
+    },
+    {
+      "dimension": 128,
+      "old_wall_seconds": 897.2212371999922,
+      "old_cpu_seconds": 881.5625,
+      "old_peak_memory_bytes": 67710976,
+      "old_status": "measured",
+      "new_wall_seconds": 6.576211000006879,
+      "new_cpu_seconds": 6.453125,
+      "new_peak_memory_bytes": 73703424,
+      "wall_speedup": 136.43437493095243,
+      "cpu_speedup": 136.61016949152543
+    },
+    {
+      "dimension": 160,
+      "old_wall_seconds": null,
+      "old_cpu_seconds": null,
+      "old_peak_memory_bytes": null,
+      "old_status": "unattempted",
+      "new_wall_seconds": 13.876996500010137,
+      "new_cpu_seconds": 13.84375,
+      "new_peak_memory_bytes": 88084480,
+      "wall_speedup": null,
+      "cpu_speedup": null
+    },
+    {
+      "dimension": 192,
+      "old_wall_seconds": null,
+      "old_cpu_seconds": null,
+      "old_peak_memory_bytes": null,
+      "old_status": "no isolated baseline; historical parallel run right-censored",
+      "new_wall_seconds": 25.530260100000305,
+      "new_cpu_seconds": 25.34375,
+      "new_peak_memory_bytes": 106299392,
+      "wall_speedup": null,
+      "cpu_speedup": null
+    },
+    {
+      "dimension": 196,
+      "old_wall_seconds": null,
+      "old_cpu_seconds": null,
+      "old_peak_memory_bytes": null,
+      "old_status": "no isolated baseline; historical parallel run right-censored",
+      "new_wall_seconds": 27.489650800009258,
+      "new_cpu_seconds": 27.4375,
+      "new_peak_memory_bytes": 110284800,
+      "wall_speedup": null,
+      "cpu_speedup": null
+    }
+  ],
+  "precision_samples": {
+    "128": [
+      {
+        "dimension": 32,
+        "precision_bits": 128,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 0.1554859000025317,
+        "cpu_seconds": 0.140625,
+        "peak_memory_bytes": 47919104,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[-1.21260944081829 +/- 1.71e-15]",
+        "mu_positive": false,
+        "schur_assembled": false,
+        "theorem_status": false
+      },
+      {
+        "dimension": 64,
+        "precision_bits": 128,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 0.8596739000058733,
+        "cpu_seconds": 0.828125,
+        "peak_memory_bytes": 51884032,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[-0.527213732549039 +/- 3.70e-16]",
+        "mu_positive": false,
+        "schur_assembled": false,
+        "theorem_status": false
+      },
+      {
+        "dimension": 96,
+        "precision_bits": 128,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 2.661241299996618,
+        "cpu_seconds": 2.640625,
+        "peak_memory_bytes": 59080704,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[-0.124341488699367 +/- 2.40e-16]",
+        "mu_positive": false,
+        "schur_assembled": false,
+        "theorem_status": false
+      },
+      {
+        "dimension": 128,
+        "precision_bits": 128,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 6.576211000006879,
+        "cpu_seconds": 6.453125,
+        "peak_memory_bytes": 73703424,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.162042456334364 +/- 1.86e-17]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      },
+      {
+        "dimension": 160,
+        "precision_bits": 128,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 13.876996500010137,
+        "cpu_seconds": 13.84375,
+        "peak_memory_bytes": 88084480,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.384406588684933 +/- 4.75e-16]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      },
+      {
+        "dimension": 192,
+        "precision_bits": 128,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 25.530260100000305,
+        "cpu_seconds": 25.34375,
+        "peak_memory_bytes": 106299392,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.566208306785962 +/- 1.74e-16]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      },
+      {
+        "dimension": 196,
+        "precision_bits": 128,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 27.489650800009258,
+        "cpu_seconds": 27.4375,
+        "peak_memory_bytes": 110284800,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.586774539056011 +/- 3.69e-16]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      }
+    ],
+    "256": [
+      {
+        "dimension": 192,
+        "precision_bits": 256,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 31.312798200000543,
+        "cpu_seconds": 31.0625,
+        "peak_memory_bytes": 113147904,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.566208306785962 +/- 1.74e-16]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      },
+      {
+        "dimension": 196,
+        "precision_bits": 256,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 33.571783300023526,
+        "cpu_seconds": 33.34375,
+        "peak_memory_bytes": 119336960,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.586774539056011 +/- 3.69e-16]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      }
+    ],
+    "384": [
+      {
+        "dimension": 192,
+        "precision_bits": 384,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 32.829540200007614,
+        "cpu_seconds": 32.671875,
+        "peak_memory_bytes": 116469760,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.566208306785962 +/- 1.74e-16]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      },
+      {
+        "dimension": 196,
+        "precision_bits": 384,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 35.2198677000124,
+        "cpu_seconds": 34.984375,
+        "peak_memory_bytes": 123035648,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.586774539056011 +/- 3.69e-16]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      }
+    ],
+    "512": [
+      {
+        "dimension": 192,
+        "precision_bits": 512,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 34.892559800005984,
+        "cpu_seconds": 34.75,
+        "peak_memory_bytes": 119734272,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.566208306785962 +/- 1.74e-16]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      },
+      {
+        "dimension": 196,
+        "precision_bits": 512,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 37.459687499998836,
+        "cpu_seconds": 37.21875,
+        "peak_memory_bytes": 127062016,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.586774539056011 +/- 3.69e-16]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      }
+    ],
+    "640": [
+      {
+        "dimension": 192,
+        "precision_bits": 640,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 36.97151609999128,
+        "cpu_seconds": 36.671875,
+        "peak_memory_bytes": 123498496,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.566208306785962 +/- 1.74e-16]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      },
+      {
+        "dimension": 196,
+        "precision_bits": 640,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 39.572309899987886,
+        "cpu_seconds": 39.3125,
+        "peak_memory_bytes": 130891776,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.586774539056011 +/- 3.69e-16]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      }
+    ],
+    "768": [
+      {
+        "dimension": 192,
+        "precision_bits": 768,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 39.205340299988165,
+        "cpu_seconds": 38.90625,
+        "peak_memory_bytes": 126386176,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.566208306785962 +/- 1.74e-16]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      },
+      {
+        "dimension": 196,
+        "precision_bits": 768,
+        "residual_order": 32,
+        "support": "11/20",
+        "mode": "timing",
+        "status": "completed",
+        "wall_seconds": 41.951421300007496,
+        "cpu_seconds": 41.8125,
+        "peak_memory_bytes": 134729728,
+        "stages": {},
+        "active_terms": [
+          2,
+          3
+        ],
+        "mu": "[0.586774539056011 +/- 3.69e-16]",
+        "mu_positive": true,
+        "schur_assembled": true,
+        "theorem_status": false
+      }
+    ]
+  },
+  "stage_artifact": "phase4-stages-512.json",
+  "memory_scope": "process-lifetime high-water mark; sequential samples are not independent allocation peaks"
+}

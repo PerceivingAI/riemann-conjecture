@@ -1,0 +1,1361 @@
+{
+  "role": "pre_theorem_multi_prime_continuation_driver",
+  "driver_version": "multi-prime-continuation-driver-p5-v1",
+  "cache_version": "multi-prime-continuation-driver-v1",
+  "state": "NO_CANDIDATE",
+  "status": "NO_CANDIDATE",
+  "workflow_state": "NO_CANDIDATE",
+  "workflow_trace": [
+    {
+      "sequence": 0,
+      "from": null,
+      "to": "VALIDATE_INPUT",
+      "reason": "driver_started",
+      "details": {}
+    },
+    {
+      "sequence": 1,
+      "from": "VALIDATE_INPUT",
+      "to": "FLOAT_SCOUT",
+      "reason": "validated_driver_inputs",
+      "details": {
+        "support": "11/20",
+        "dimension_count": 13,
+        "resolution_count": 8,
+        "scout_workers": 3
+      }
+    },
+    {
+      "sequence": 2,
+      "from": "FLOAT_SCOUT",
+      "to": "CHECK_SCOUT_STABILITY",
+      "reason": "floating_scout_complete",
+      "details": {
+        "completed_resolutions": 8,
+        "failed_resolutions": 0
+      }
+    },
+    {
+      "sequence": 3,
+      "from": "CHECK_SCOUT_STABILITY",
+      "to": "NO_CANDIDATE",
+      "reason": "no_stable_positive_scout_dimension",
+      "details": {
+        "stable_dimensions": []
+      }
+    }
+  ],
+  "theorem_status": false,
+  "independently_verified": false,
+  "whitelisted": false,
+  "automatic_promotion": false,
+  "promotion_requirements": [
+    "explicit_closed_contract_admission",
+    "retained_full_certificate_generation",
+    "fresh_independent_rust_verifier_pass"
+  ],
+  "forbidden_automatic_actions": [
+    "emit_theorem_certificate",
+    "edit_closed_contract_or_whitelist",
+    "invoke_independent_rust_verifier",
+    "grant_theorem_status"
+  ],
+  "support": "11/20",
+  "active_terms": [
+    2,
+    3
+  ],
+  "structural_window": "log(3)/2 < T < log(4)/2",
+  "dimensions": [
+    96,
+    100,
+    104,
+    108,
+    112,
+    116,
+    120,
+    124,
+    128,
+    132,
+    136,
+    140,
+    144
+  ],
+  "scout_resolution_count": 8,
+  "scout_stability_window": 3,
+  "scout_resolution_plan": [
+    {
+      "level": 0,
+      "max_mode": 184,
+      "quadrature_order": 956,
+      "shift_order": 478
+    },
+    {
+      "level": 1,
+      "max_mode": 224,
+      "quadrature_order": 1116,
+      "shift_order": 558
+    },
+    {
+      "level": 2,
+      "max_mode": 264,
+      "quadrature_order": 1276,
+      "shift_order": 638
+    },
+    {
+      "level": 3,
+      "max_mode": 304,
+      "quadrature_order": 1436,
+      "shift_order": 718
+    },
+    {
+      "level": 4,
+      "max_mode": 344,
+      "quadrature_order": 1596,
+      "shift_order": 798
+    },
+    {
+      "level": 5,
+      "max_mode": 384,
+      "quadrature_order": 1756,
+      "shift_order": 878
+    },
+    {
+      "level": 6,
+      "max_mode": 424,
+      "quadrature_order": 1916,
+      "shift_order": 958
+    },
+    {
+      "level": 7,
+      "max_mode": 464,
+      "quadrature_order": 2076,
+      "shift_order": 1038
+    }
+  ],
+  "precision_ladder": [
+    128,
+    256,
+    384,
+    512
+  ],
+  "precision_start": 128,
+  "precision_max": 512,
+  "matrix_bits_start": 64,
+  "matrix_bits_max": 104,
+  "witness_bits_start": 32,
+  "witness_bits_max": 56,
+  "candidate_precision_step": 128,
+  "candidate_precision_extra_steps": 2,
+  "scout_workers": 3,
+  "rigorous_workers": 2,
+  "cache_dir": ".cache\\p9-t11-20-qualification",
+  "residual_order": 32,
+  "matrix_bits_ladder": [
+    64,
+    80,
+    96,
+    104
+  ],
+  "witness_bits_ladder": [
+    32,
+    40,
+    48,
+    56
+  ],
+  "reconnaissance": [
+    {
+      "dimension": 96,
+      "classification": "negative",
+      "stability_max_modes": [
+        384,
+        424,
+        464
+      ],
+      "resolutions": [
+        {
+          "dimension": 96,
+          "mu_scout": -0.12239825508219404,
+          "finite_block_min_eigenvalue": 4.246033012758046e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.550476829526764e-08,
+          "max_mode": 184,
+          "quadrature_order": 956,
+          "shift_order": 478,
+          "status": "negative"
+        },
+        {
+          "dimension": 96,
+          "mu_scout": -0.12239891755928767,
+          "finite_block_min_eigenvalue": 4.529514677598416e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.8857443000283026e-08,
+          "max_mode": 224,
+          "quadrature_order": 1116,
+          "shift_order": 558,
+          "status": "negative"
+        },
+        {
+          "dimension": 96,
+          "mu_scout": -0.12239934694046006,
+          "finite_block_min_eigenvalue": 4.7132800887485347e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.099501704117307e-08,
+          "max_mode": 264,
+          "quadrature_order": 1276,
+          "shift_order": 638,
+          "status": "negative"
+        },
+        {
+          "dimension": 96,
+          "mu_scout": -0.12239964101441725,
+          "finite_block_min_eigenvalue": 4.839166709989611e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.2488896272604896e-08,
+          "max_mode": 304,
+          "quadrature_order": 1436,
+          "shift_order": 718,
+          "status": "negative"
+        },
+        {
+          "dimension": 96,
+          "mu_scout": -0.1223998511904405,
+          "finite_block_min_eigenvalue": 4.92910822736967e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.3582475574039124e-08,
+          "max_mode": 344,
+          "quadrature_order": 1596,
+          "shift_order": 798,
+          "status": "negative"
+        },
+        {
+          "dimension": 96,
+          "mu_scout": -0.12240000659344386,
+          "finite_block_min_eigenvalue": 4.995615644490681e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.438373537345897e-08,
+          "max_mode": 384,
+          "quadrature_order": 1756,
+          "shift_order": 878,
+          "status": "negative"
+        },
+        {
+          "dimension": 96,
+          "mu_scout": -0.12240012472531614,
+          "finite_block_min_eigenvalue": 5.046142120530487e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.5009886231351576e-08,
+          "max_mode": 424,
+          "quadrature_order": 1916,
+          "shift_order": 958,
+          "status": "negative"
+        },
+        {
+          "dimension": 96,
+          "mu_scout": -0.12240021661737721,
+          "finite_block_min_eigenvalue": 5.0854857635330494e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.550085433381488e-08,
+          "max_mode": 464,
+          "quadrature_order": 2076,
+          "shift_order": 1038,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 100,
+      "classification": "negative",
+      "stability_max_modes": [
+        384,
+        424,
+        464
+      ],
+      "resolutions": [
+        {
+          "dimension": 100,
+          "mu_scout": -0.08178388499801503,
+          "finite_block_min_eigenvalue": 4.2450304888681594e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.5821419355714565e-08,
+          "max_mode": 184,
+          "quadrature_order": 956,
+          "shift_order": 478,
+          "status": "negative"
+        },
+        {
+          "dimension": 100,
+          "mu_scout": -0.08178454747510866,
+          "finite_block_min_eigenvalue": 4.5285120981661155e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.936601452611178e-08,
+          "max_mode": 224,
+          "quadrature_order": 1116,
+          "shift_order": 558,
+          "status": "negative"
+        },
+        {
+          "dimension": 100,
+          "mu_scout": -0.08178497685628106,
+          "finite_block_min_eigenvalue": 4.712277474427571e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.161237918213888e-08,
+          "max_mode": 264,
+          "quadrature_order": 1276,
+          "shift_order": 638,
+          "status": "negative"
+        },
+        {
+          "dimension": 100,
+          "mu_scout": -0.08178527093023824,
+          "finite_block_min_eigenvalue": 4.838164082784171e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.319045847517722e-08,
+          "max_mode": 304,
+          "quadrature_order": 1436,
+          "shift_order": 718,
+          "status": "negative"
+        },
+        {
+          "dimension": 100,
+          "mu_scout": -0.08178548110626149,
+          "finite_block_min_eigenvalue": 4.9281055586955727e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.435568526521106e-08,
+          "max_mode": 344,
+          "quadrature_order": 1596,
+          "shift_order": 798,
+          "status": "negative"
+        },
+        {
+          "dimension": 100,
+          "mu_scout": -0.08178563650926485,
+          "finite_block_min_eigenvalue": 4.994612986306481e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.520734290153141e-08,
+          "max_mode": 384,
+          "quadrature_order": 1756,
+          "shift_order": 878,
+          "status": "negative"
+        },
+        {
+          "dimension": 100,
+          "mu_scout": -0.08178575464113713,
+          "finite_block_min_eigenvalue": 5.045139462082786e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.5876433527751567e-08,
+          "max_mode": 424,
+          "quadrature_order": 1916,
+          "shift_order": 958,
+          "status": "negative"
+        },
+        {
+          "dimension": 100,
+          "mu_scout": -0.0817858465331982,
+          "finite_block_min_eigenvalue": 5.0844829604987484e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.640822483951842e-08,
+          "max_mode": 464,
+          "quadrature_order": 2076,
+          "shift_order": 1038,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 104,
+      "classification": "negative",
+      "stability_max_modes": [
+        384,
+        424,
+        464
+      ],
+      "resolutions": [
+        {
+          "dimension": 104,
+          "mu_scout": -0.04275485085091546,
+          "finite_block_min_eigenvalue": 4.244635551075678e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.7345030786452146e-08,
+          "max_mode": 184,
+          "quadrature_order": 956,
+          "shift_order": 478,
+          "status": "negative"
+        },
+        {
+          "dimension": 104,
+          "mu_scout": -0.04275551332800909,
+          "finite_block_min_eigenvalue": 4.5281169605786044e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.123748726877833e-08,
+          "max_mode": 224,
+          "quadrature_order": 1116,
+          "shift_order": 558,
+          "status": "negative"
+        },
+        {
+          "dimension": 104,
+          "mu_scout": -0.04275594270918148,
+          "finite_block_min_eigenvalue": 4.711882274162022e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.372732793225929e-08,
+          "max_mode": 264,
+          "quadrature_order": 1276,
+          "shift_order": 638,
+          "status": "negative"
+        },
+        {
+          "dimension": 104,
+          "mu_scout": -0.04275623678313867,
+          "finite_block_min_eigenvalue": 4.8377687936070616e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.543860816151907e-08,
+          "max_mode": 304,
+          "quadrature_order": 1436,
+          "shift_order": 718,
+          "status": "negative"
+        },
+        {
+          "dimension": 104,
+          "mu_scout": -0.04275644695916192,
+          "finite_block_min_eigenvalue": 4.927710327862956e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.6775656471029114e-08,
+          "max_mode": 344,
+          "quadrature_order": 1596,
+          "shift_order": 798,
+          "status": "negative"
+        },
+        {
+          "dimension": 104,
+          "mu_scout": -0.042756602362165275,
+          "finite_block_min_eigenvalue": 4.994217629810114e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.773509372894658e-08,
+          "max_mode": 384,
+          "quadrature_order": 1756,
+          "shift_order": 878,
+          "status": "negative"
+        },
+        {
+          "dimension": 104,
+          "mu_scout": -0.04275672049403756,
+          "finite_block_min_eigenvalue": 5.044744051764272e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.846952919189131e-08,
+          "max_mode": 424,
+          "quadrature_order": 1916,
+          "shift_order": 958,
+          "status": "negative"
+        },
+        {
+          "dimension": 104,
+          "mu_scout": -0.04275681238609863,
+          "finite_block_min_eigenvalue": 5.0840875508964146e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.907112673622917e-08,
+          "max_mode": 464,
+          "quadrature_order": 2076,
+          "shift_order": 1038,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 108,
+      "classification": "negative",
+      "stability_max_modes": [
+        384,
+        424,
+        464
+      ],
+      "resolutions": [
+        {
+          "dimension": 108,
+          "mu_scout": -0.005192025411172807,
+          "finite_block_min_eigenvalue": 4.244491816605361e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.277577966291506e-08,
+          "max_mode": 184,
+          "quadrature_order": 956,
+          "shift_order": 478,
+          "status": "negative"
+        },
+        {
+          "dimension": 108,
+          "mu_scout": -0.005192687888266434,
+          "finite_block_min_eigenvalue": 4.527973153750663e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.840518454620071e-08,
+          "max_mode": 224,
+          "quadrature_order": 1116,
+          "shift_order": 558,
+          "status": "negative"
+        },
+        {
+          "dimension": 108,
+          "mu_scout": -0.0051931172694388295,
+          "finite_block_min_eigenvalue": 4.711738443849603e-08,
+          "truncated_factor3_schur_min_eigenvalue": 6.23130142682802e-08,
+          "max_mode": 264,
+          "quadrature_order": 1276,
+          "shift_order": 638,
+          "status": "negative"
+        },
+        {
+          "dimension": 108,
+          "mu_scout": -0.005193411343396015,
+          "finite_block_min_eigenvalue": 4.837624900124087e-08,
+          "truncated_factor3_schur_min_eigenvalue": 6.505788344992914e-08,
+          "max_mode": 304,
+          "quadrature_order": 1436,
+          "shift_order": 718,
+          "status": "negative"
+        },
+        {
+          "dimension": 108,
+          "mu_scout": -0.005193621519419267,
+          "finite_block_min_eigenvalue": 4.9275663221783486e-08,
+          "truncated_factor3_schur_min_eigenvalue": 6.708777651441532e-08,
+          "max_mode": 344,
+          "quadrature_order": 1596,
+          "shift_order": 798,
+          "status": "negative"
+        },
+        {
+          "dimension": 108,
+          "mu_scout": -0.005193776922422622,
+          "finite_block_min_eigenvalue": 4.9940736436432626e-08,
+          "truncated_factor3_schur_min_eigenvalue": 6.86889689607255e-08,
+          "max_mode": 384,
+          "quadrature_order": 1756,
+          "shift_order": 878,
+          "status": "negative"
+        },
+        {
+          "dimension": 108,
+          "mu_scout": -0.005193895054294906,
+          "finite_block_min_eigenvalue": 5.044600034808031e-08,
+          "truncated_factor3_schur_min_eigenvalue": 6.994756318313759e-08,
+          "max_mode": 424,
+          "quadrature_order": 1916,
+          "shift_order": 958,
+          "status": "negative"
+        },
+        {
+          "dimension": 108,
+          "mu_scout": -0.005193986946355977,
+          "finite_block_min_eigenvalue": 5.083943565394953e-08,
+          "truncated_factor3_schur_min_eigenvalue": 7.11473066713153e-08,
+          "max_mode": 464,
+          "quadrature_order": 2076,
+          "shift_order": 1038,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 112,
+      "classification": "negative",
+      "stability_max_modes": [
+        384,
+        424,
+        464
+      ],
+      "resolutions": [
+        {
+          "dimension": 112,
+          "mu_scout": 0.03101077604392266,
+          "finite_block_min_eigenvalue": 4.24386642138968e-08,
+          "truncated_factor3_schur_min_eigenvalue": -96.56136726722886,
+          "max_mode": 184,
+          "quadrature_order": 956,
+          "shift_order": 478,
+          "status": "negative"
+        },
+        {
+          "dimension": 112,
+          "mu_scout": 0.031010113566829034,
+          "finite_block_min_eigenvalue": 4.527347825458032e-08,
+          "truncated_factor3_schur_min_eigenvalue": -101.87343280489156,
+          "max_mode": 224,
+          "quadrature_order": 1116,
+          "shift_order": 558,
+          "status": "negative"
+        },
+        {
+          "dimension": 112,
+          "mu_scout": 0.03100968418565664,
+          "finite_block_min_eigenvalue": 4.7111129536402357e-08,
+          "truncated_factor3_schur_min_eigenvalue": -105.76787859308882,
+          "max_mode": 264,
+          "quadrature_order": 1276,
+          "shift_order": 638,
+          "status": "negative"
+        },
+        {
+          "dimension": 112,
+          "mu_scout": 0.031009390111699453,
+          "finite_block_min_eigenvalue": 4.836999503185813e-08,
+          "truncated_factor3_schur_min_eigenvalue": -108.74303780996163,
+          "max_mode": 304,
+          "quadrature_order": 1436,
+          "shift_order": 718,
+          "status": "negative"
+        },
+        {
+          "dimension": 112,
+          "mu_scout": 0.0310091799356762,
+          "finite_block_min_eigenvalue": 4.926940883254659e-08,
+          "truncated_factor3_schur_min_eigenvalue": -110.92190956525803,
+          "max_mode": 344,
+          "quadrature_order": 1596,
+          "shift_order": 798,
+          "status": "negative"
+        },
+        {
+          "dimension": 112,
+          "mu_scout": 0.031009024532672846,
+          "finite_block_min_eigenvalue": 4.9934481568444565e-08,
+          "truncated_factor3_schur_min_eigenvalue": -112.50279199936601,
+          "max_mode": 384,
+          "quadrature_order": 1756,
+          "shift_order": 878,
+          "status": "negative"
+        },
+        {
+          "dimension": 112,
+          "mu_scout": 0.031008906400800562,
+          "finite_block_min_eigenvalue": 5.043974607634608e-08,
+          "truncated_factor3_schur_min_eigenvalue": -113.99573817735617,
+          "max_mode": 424,
+          "quadrature_order": 1916,
+          "shift_order": 958,
+          "status": "negative"
+        },
+        {
+          "dimension": 112,
+          "mu_scout": 0.03100881450873949,
+          "finite_block_min_eigenvalue": 5.083318159473796e-08,
+          "truncated_factor3_schur_min_eigenvalue": -115.11171435177752,
+          "max_mode": 464,
+          "quadrature_order": 2076,
+          "shift_order": 1038,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 116,
+      "classification": "negative",
+      "stability_max_modes": [
+        384,
+        424,
+        464
+      ],
+      "resolutions": [
+        {
+          "dimension": 116,
+          "mu_scout": 0.0659486052196927,
+          "finite_block_min_eigenvalue": 4.2435723326829626e-08,
+          "truncated_factor3_schur_min_eigenvalue": -42.01178782536098,
+          "max_mode": 184,
+          "quadrature_order": 956,
+          "shift_order": 478,
+          "status": "negative"
+        },
+        {
+          "dimension": 116,
+          "mu_scout": 0.06594794274259907,
+          "finite_block_min_eigenvalue": 4.527053817745238e-08,
+          "truncated_factor3_schur_min_eigenvalue": -44.593860406067336,
+          "max_mode": 224,
+          "quadrature_order": 1116,
+          "shift_order": 558,
+          "status": "negative"
+        },
+        {
+          "dimension": 116,
+          "mu_scout": 0.06594751336142668,
+          "finite_block_min_eigenvalue": 4.7108190680033965e-08,
+          "truncated_factor3_schur_min_eigenvalue": -46.46808779730807,
+          "max_mode": 264,
+          "quadrature_order": 1276,
+          "shift_order": 638,
+          "status": "negative"
+        },
+        {
+          "dimension": 116,
+          "mu_scout": 0.0659472192874695,
+          "finite_block_min_eigenvalue": 4.836705637109517e-08,
+          "truncated_factor3_schur_min_eigenvalue": -47.8722314023492,
+          "max_mode": 304,
+          "quadrature_order": 1436,
+          "shift_order": 718,
+          "status": "negative"
+        },
+        {
+          "dimension": 116,
+          "mu_scout": 0.06594700911144624,
+          "finite_block_min_eigenvalue": 4.926647041751029e-08,
+          "truncated_factor3_schur_min_eigenvalue": -48.947277078609034,
+          "max_mode": 344,
+          "quadrature_order": 1596,
+          "shift_order": 798,
+          "status": "negative"
+        },
+        {
+          "dimension": 116,
+          "mu_scout": 0.06594685370844289,
+          "finite_block_min_eigenvalue": 4.9931542980380517e-08,
+          "truncated_factor3_schur_min_eigenvalue": -49.71397092826771,
+          "max_mode": 384,
+          "quadrature_order": 1756,
+          "shift_order": 878,
+          "status": "negative"
+        },
+        {
+          "dimension": 116,
+          "mu_scout": 0.0659467355765706,
+          "finite_block_min_eigenvalue": 5.043680877706694e-08,
+          "truncated_factor3_schur_min_eigenvalue": -50.397188601512966,
+          "max_mode": 424,
+          "quadrature_order": 1916,
+          "shift_order": 958,
+          "status": "negative"
+        },
+        {
+          "dimension": 116,
+          "mu_scout": 0.06594664368450953,
+          "finite_block_min_eigenvalue": 5.083024404193863e-08,
+          "truncated_factor3_schur_min_eigenvalue": -50.999303518384565,
+          "max_mode": 464,
+          "quadrature_order": 2076,
+          "shift_order": 1038,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 120,
+      "classification": "negative",
+      "stability_max_modes": [
+        384,
+        424,
+        464
+      ],
+      "resolutions": [
+        {
+          "dimension": 120,
+          "mu_scout": 0.09970688471575961,
+          "finite_block_min_eigenvalue": 4.243450824573338e-08,
+          "truncated_factor3_schur_min_eigenvalue": -25.432870698204738,
+          "max_mode": 184,
+          "quadrature_order": 956,
+          "shift_order": 478,
+          "status": "negative"
+        },
+        {
+          "dimension": 120,
+          "mu_scout": 0.09970622223866599,
+          "finite_block_min_eigenvalue": 4.5269323819301724e-08,
+          "truncated_factor3_schur_min_eigenvalue": -27.25412136954406,
+          "max_mode": 224,
+          "quadrature_order": 1116,
+          "shift_order": 558,
+          "status": "negative"
+        },
+        {
+          "dimension": 120,
+          "mu_scout": 0.09970579285749359,
+          "finite_block_min_eigenvalue": 4.710697683152608e-08,
+          "truncated_factor3_schur_min_eigenvalue": -28.50829938768915,
+          "max_mode": 264,
+          "quadrature_order": 1276,
+          "shift_order": 638,
+          "status": "negative"
+        },
+        {
+          "dimension": 120,
+          "mu_scout": 0.0997054987835364,
+          "finite_block_min_eigenvalue": 4.8365842802880435e-08,
+          "truncated_factor3_schur_min_eigenvalue": -29.45980339549105,
+          "max_mode": 304,
+          "quadrature_order": 1436,
+          "shift_order": 718,
+          "status": "negative"
+        },
+        {
+          "dimension": 120,
+          "mu_scout": 0.09970528860751315,
+          "finite_block_min_eigenvalue": 4.926525623969723e-08,
+          "truncated_factor3_schur_min_eigenvalue": -30.202341901502614,
+          "max_mode": 344,
+          "quadrature_order": 1596,
+          "shift_order": 798,
+          "status": "negative"
+        },
+        {
+          "dimension": 120,
+          "mu_scout": 0.0997051332045098,
+          "finite_block_min_eigenvalue": 4.993033072589105e-08,
+          "truncated_factor3_schur_min_eigenvalue": -30.765690344940715,
+          "max_mode": 384,
+          "quadrature_order": 1756,
+          "shift_order": 878,
+          "status": "negative"
+        },
+        {
+          "dimension": 120,
+          "mu_scout": 0.09970501507263752,
+          "finite_block_min_eigenvalue": 5.04355953391165e-08,
+          "truncated_factor3_schur_min_eigenvalue": -31.17488164388731,
+          "max_mode": 424,
+          "quadrature_order": 1916,
+          "shift_order": 958,
+          "status": "negative"
+        },
+        {
+          "dimension": 120,
+          "mu_scout": 0.09970492318057644,
+          "finite_block_min_eigenvalue": 5.082903082112951e-08,
+          "truncated_factor3_schur_min_eigenvalue": -31.587313793594355,
+          "max_mode": 464,
+          "quadrature_order": 2076,
+          "shift_order": 1038,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 124,
+      "classification": "negative",
+      "stability_max_modes": [
+        384,
+        424,
+        464
+      ],
+      "resolutions": [
+        {
+          "dimension": 124,
+          "mu_scout": 0.13236266626699766,
+          "finite_block_min_eigenvalue": 4.242980358458092e-08,
+          "truncated_factor3_schur_min_eigenvalue": -17.420619013722884,
+          "max_mode": 184,
+          "quadrature_order": 956,
+          "shift_order": 478,
+          "status": "negative"
+        },
+        {
+          "dimension": 124,
+          "mu_scout": 0.13236200378990404,
+          "finite_block_min_eigenvalue": 4.526461929427329e-08,
+          "truncated_factor3_schur_min_eigenvalue": -18.7680716339598,
+          "max_mode": 224,
+          "quadrature_order": 1116,
+          "shift_order": 558,
+          "status": "negative"
+        },
+        {
+          "dimension": 124,
+          "mu_scout": 0.13236157440873164,
+          "finite_block_min_eigenvalue": 4.710227265060492e-08,
+          "truncated_factor3_schur_min_eigenvalue": -19.72618529500692,
+          "max_mode": 264,
+          "quadrature_order": 1276,
+          "shift_order": 638,
+          "status": "negative"
+        },
+        {
+          "dimension": 124,
+          "mu_scout": 0.13236128033477446,
+          "finite_block_min_eigenvalue": 4.83611386702755e-08,
+          "truncated_factor3_schur_min_eigenvalue": -20.476008980204824,
+          "max_mode": 304,
+          "quadrature_order": 1436,
+          "shift_order": 718,
+          "status": "negative"
+        },
+        {
+          "dimension": 124,
+          "mu_scout": 0.1323610701587512,
+          "finite_block_min_eigenvalue": 4.9260553120994474e-08,
+          "truncated_factor3_schur_min_eigenvalue": -21.03656239183578,
+          "max_mode": 344,
+          "quadrature_order": 1596,
+          "shift_order": 798,
+          "status": "negative"
+        },
+        {
+          "dimension": 124,
+          "mu_scout": 0.13236091475574785,
+          "finite_block_min_eigenvalue": 4.9925626343374716e-08,
+          "truncated_factor3_schur_min_eigenvalue": -21.497587834894013,
+          "max_mode": 384,
+          "quadrature_order": 1756,
+          "shift_order": 878,
+          "status": "negative"
+        },
+        {
+          "dimension": 124,
+          "mu_scout": 0.13236079662387557,
+          "finite_block_min_eigenvalue": 5.043089227117741e-08,
+          "truncated_factor3_schur_min_eigenvalue": -21.81097185303491,
+          "max_mode": 424,
+          "quadrature_order": 1916,
+          "shift_order": 958,
+          "status": "negative"
+        },
+        {
+          "dimension": 124,
+          "mu_scout": 0.1323607047318145,
+          "finite_block_min_eigenvalue": 5.082432689436635e-08,
+          "truncated_factor3_schur_min_eigenvalue": -22.109970707398976,
+          "max_mode": 464,
+          "quadrature_order": 2076,
+          "shift_order": 1038,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 128,
+      "classification": "negative",
+      "stability_max_modes": [
+        384,
+        424,
+        464
+      ],
+      "resolutions": [
+        {
+          "dimension": 128,
+          "mu_scout": 0.16398568995153706,
+          "finite_block_min_eigenvalue": 4.2427752773574863e-08,
+          "truncated_factor3_schur_min_eigenvalue": -12.645129793771357,
+          "max_mode": 184,
+          "quadrature_order": 956,
+          "shift_order": 478,
+          "status": "negative"
+        },
+        {
+          "dimension": 128,
+          "mu_scout": 0.16398502747444343,
+          "finite_block_min_eigenvalue": 4.5262568429195136e-08,
+          "truncated_factor3_schur_min_eigenvalue": -13.826879363264595,
+          "max_mode": 224,
+          "quadrature_order": 1116,
+          "shift_order": 558,
+          "status": "negative"
+        },
+        {
+          "dimension": 128,
+          "mu_scout": 0.16398459809327104,
+          "finite_block_min_eigenvalue": 4.710022194366659e-08,
+          "truncated_factor3_schur_min_eigenvalue": -14.578992854242541,
+          "max_mode": 264,
+          "quadrature_order": 1276,
+          "shift_order": 638,
+          "status": "negative"
+        },
+        {
+          "dimension": 128,
+          "mu_scout": 0.16398430401931385,
+          "finite_block_min_eigenvalue": 4.835908662212799e-08,
+          "truncated_factor3_schur_min_eigenvalue": -15.173021969086793,
+          "max_mode": 304,
+          "quadrature_order": 1436,
+          "shift_order": 718,
+          "status": "negative"
+        },
+        {
+          "dimension": 128,
+          "mu_scout": 0.1639840938432906,
+          "finite_block_min_eigenvalue": 4.9258501503764733e-08,
+          "truncated_factor3_schur_min_eigenvalue": -15.636243378540975,
+          "max_mode": 344,
+          "quadrature_order": 1596,
+          "shift_order": 798,
+          "status": "negative"
+        },
+        {
+          "dimension": 128,
+          "mu_scout": 0.16398393844028725,
+          "finite_block_min_eigenvalue": 4.9923575609326774e-08,
+          "truncated_factor3_schur_min_eigenvalue": -16.000262561729173,
+          "max_mode": 384,
+          "quadrature_order": 1756,
+          "shift_order": 878,
+          "status": "negative"
+        },
+        {
+          "dimension": 128,
+          "mu_scout": 0.16398382030841496,
+          "finite_block_min_eigenvalue": 5.042883988835539e-08,
+          "truncated_factor3_schur_min_eigenvalue": -16.303931475964625,
+          "max_mode": 424,
+          "quadrature_order": 1916,
+          "shift_order": 958,
+          "status": "negative"
+        },
+        {
+          "dimension": 128,
+          "mu_scout": 0.1639837284163539,
+          "finite_block_min_eigenvalue": 5.0822275650186535e-08,
+          "truncated_factor3_schur_min_eigenvalue": -16.514743428408636,
+          "max_mode": 464,
+          "quadrature_order": 2076,
+          "shift_order": 1038,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 132,
+      "classification": "negative",
+      "stability_max_modes": [
+        384,
+        424,
+        464
+      ],
+      "resolutions": [
+        {
+          "dimension": 132,
+          "mu_scout": 0.19463928099035765,
+          "finite_block_min_eigenvalue": 4.242732114507434e-08,
+          "truncated_factor3_schur_min_eigenvalue": -9.560321662310756,
+          "max_mode": 184,
+          "quadrature_order": 956,
+          "shift_order": 478,
+          "status": "negative"
+        },
+        {
+          "dimension": 132,
+          "mu_scout": 0.19463861851326403,
+          "finite_block_min_eigenvalue": 4.5262136031551986e-08,
+          "truncated_factor3_schur_min_eigenvalue": -10.54801581319851,
+          "max_mode": 224,
+          "quadrature_order": 1116,
+          "shift_order": 558,
+          "status": "negative"
+        },
+        {
+          "dimension": 132,
+          "mu_scout": 0.19463818913209163,
+          "finite_block_min_eigenvalue": 4.709978928053131e-08,
+          "truncated_factor3_schur_min_eigenvalue": -11.19727248926829,
+          "max_mode": 264,
+          "quadrature_order": 1276,
+          "shift_order": 638,
+          "status": "negative"
+        },
+        {
+          "dimension": 132,
+          "mu_scout": 0.19463789505813445,
+          "finite_block_min_eigenvalue": 4.835865436390663e-08,
+          "truncated_factor3_schur_min_eigenvalue": -11.69702688409269,
+          "max_mode": 304,
+          "quadrature_order": 1436,
+          "shift_order": 718,
+          "status": "negative"
+        },
+        {
+          "dimension": 132,
+          "mu_scout": 0.1946376848821112,
+          "finite_block_min_eigenvalue": 4.9258069661778704e-08,
+          "truncated_factor3_schur_min_eigenvalue": -12.10549065440404,
+          "max_mode": 344,
+          "quadrature_order": 1596,
+          "shift_order": 798,
+          "status": "negative"
+        },
+        {
+          "dimension": 132,
+          "mu_scout": 0.19463752947910784,
+          "finite_block_min_eigenvalue": 4.992314315450091e-08,
+          "truncated_factor3_schur_min_eigenvalue": -12.41713405842751,
+          "max_mode": 384,
+          "quadrature_order": 1756,
+          "shift_order": 878,
+          "status": "negative"
+        },
+        {
+          "dimension": 132,
+          "mu_scout": 0.19463741134723556,
+          "finite_block_min_eigenvalue": 5.042840708198682e-08,
+          "truncated_factor3_schur_min_eigenvalue": -12.674102532264865,
+          "max_mode": 424,
+          "quadrature_order": 1916,
+          "shift_order": 958,
+          "status": "negative"
+        },
+        {
+          "dimension": 132,
+          "mu_scout": 0.19463731945517448,
+          "finite_block_min_eigenvalue": 5.08218429750933e-08,
+          "truncated_factor3_schur_min_eigenvalue": -12.874943730680016,
+          "max_mode": 464,
+          "quadrature_order": 2076,
+          "shift_order": 1038,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 136,
+      "classification": "negative",
+      "stability_max_modes": [
+        384,
+        424,
+        464
+      ],
+      "resolutions": [
+        {
+          "dimension": 136,
+          "mu_scout": 0.2243811131338811,
+          "finite_block_min_eigenvalue": 4.242382196433721e-08,
+          "truncated_factor3_schur_min_eigenvalue": -7.306767021739444,
+          "max_mode": 184,
+          "quadrature_order": 956,
+          "shift_order": 478,
+          "status": "negative"
+        },
+        {
+          "dimension": 136,
+          "mu_scout": 0.22438045065678747,
+          "finite_block_min_eigenvalue": 4.525863706271704e-08,
+          "truncated_factor3_schur_min_eigenvalue": -8.254648267727386,
+          "max_mode": 224,
+          "quadrature_order": 1116,
+          "shift_order": 558,
+          "status": "negative"
+        },
+        {
+          "dimension": 136,
+          "mu_scout": 0.22438002127561507,
+          "finite_block_min_eigenvalue": 4.709629132222354e-08,
+          "truncated_factor3_schur_min_eigenvalue": -8.798304773403373,
+          "max_mode": 264,
+          "quadrature_order": 1276,
+          "shift_order": 638,
+          "status": "negative"
+        },
+        {
+          "dimension": 136,
+          "mu_scout": 0.22437972720165789,
+          "finite_block_min_eigenvalue": 4.835515543571024e-08,
+          "truncated_factor3_schur_min_eigenvalue": -9.240415936151884,
+          "max_mode": 304,
+          "quadrature_order": 1436,
+          "shift_order": 718,
+          "status": "negative"
+        },
+        {
+          "dimension": 136,
+          "mu_scout": 0.22437951702563463,
+          "finite_block_min_eigenvalue": 4.9254570896296657e-08,
+          "truncated_factor3_schur_min_eigenvalue": -9.593320896549486,
+          "max_mode": 344,
+          "quadrature_order": 1596,
+          "shift_order": 798,
+          "status": "negative"
+        },
+        {
+          "dimension": 136,
+          "mu_scout": 0.22437936162263128,
+          "finite_block_min_eigenvalue": 4.991964384497828e-08,
+          "truncated_factor3_schur_min_eigenvalue": -9.877204067483216,
+          "max_mode": 384,
+          "quadrature_order": 1756,
+          "shift_order": 878,
+          "status": "negative"
+        },
+        {
+          "dimension": 136,
+          "mu_scout": 0.224379243490759,
+          "finite_block_min_eigenvalue": 5.0424908252621165e-08,
+          "truncated_factor3_schur_min_eigenvalue": -10.091784491122503,
+          "max_mode": 424,
+          "quadrature_order": 1916,
+          "shift_order": 958,
+          "status": "negative"
+        },
+        {
+          "dimension": 136,
+          "mu_scout": 0.22437915159869792,
+          "finite_block_min_eigenvalue": 5.081834351334185e-08,
+          "truncated_factor3_schur_min_eigenvalue": -10.285553001371433,
+          "max_mode": 464,
+          "quadrature_order": 2076,
+          "shift_order": 1038,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 140,
+      "classification": "negative",
+      "stability_max_modes": [
+        384,
+        424,
+        464
+      ],
+      "resolutions": [
+        {
+          "dimension": 140,
+          "mu_scout": 0.25326386176564153,
+          "finite_block_min_eigenvalue": 4.242198500911895e-08,
+          "truncated_factor3_schur_min_eigenvalue": -5.623046793232339,
+          "max_mode": 184,
+          "quadrature_order": 956,
+          "shift_order": 478,
+          "status": "negative"
+        },
+        {
+          "dimension": 140,
+          "mu_scout": 0.2532631992885479,
+          "finite_block_min_eigenvalue": 4.525680078043322e-08,
+          "truncated_factor3_schur_min_eigenvalue": -6.515606059033345,
+          "max_mode": 224,
+          "quadrature_order": 1116,
+          "shift_order": 558,
+          "status": "negative"
+        },
+        {
+          "dimension": 140,
+          "mu_scout": 0.2532627699073755,
+          "finite_block_min_eigenvalue": 4.7094453839227956e-08,
+          "truncated_factor3_schur_min_eigenvalue": -7.021553362536547,
+          "max_mode": 264,
+          "quadrature_order": 1276,
+          "shift_order": 638,
+          "status": "negative"
+        },
+        {
+          "dimension": 140,
+          "mu_scout": 0.2532624758334183,
+          "finite_block_min_eigenvalue": 4.835331845159591e-08,
+          "truncated_factor3_schur_min_eigenvalue": -7.401068998475335,
+          "max_mode": 304,
+          "quadrature_order": 1436,
+          "shift_order": 718,
+          "status": "negative"
+        },
+        {
+          "dimension": 140,
+          "mu_scout": 0.25326226565739507,
+          "finite_block_min_eigenvalue": 4.925273373219177e-08,
+          "truncated_factor3_schur_min_eigenvalue": -7.7168073922193,
+          "max_mode": 344,
+          "quadrature_order": 1596,
+          "shift_order": 798,
+          "status": "negative"
+        },
+        {
+          "dimension": 140,
+          "mu_scout": 0.2532621102543917,
+          "finite_block_min_eigenvalue": 4.991780661907258e-08,
+          "truncated_factor3_schur_min_eigenvalue": -7.970072113990485,
+          "max_mode": 384,
+          "quadrature_order": 1756,
+          "shift_order": 878,
+          "status": "negative"
+        },
+        {
+          "dimension": 140,
+          "mu_scout": 0.25326199212251943,
+          "finite_block_min_eigenvalue": 5.0423071939131654e-08,
+          "truncated_factor3_schur_min_eigenvalue": -8.162029331573184,
+          "max_mode": 424,
+          "quadrature_order": 1916,
+          "shift_order": 958,
+          "status": "negative"
+        },
+        {
+          "dimension": 140,
+          "mu_scout": 0.25326190023045836,
+          "finite_block_min_eigenvalue": 5.0816506924387906e-08,
+          "truncated_factor3_schur_min_eigenvalue": -8.336028131412125,
+          "max_mode": 464,
+          "quadrature_order": 2076,
+          "shift_order": 1038,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 144,
+      "classification": "negative",
+      "stability_max_modes": [
+        384,
+        424,
+        464
+      ],
+      "resolutions": [
+        {
+          "dimension": 144,
+          "mu_scout": 0.28133576530578,
+          "finite_block_min_eigenvalue": 4.242170234854006e-08,
+          "truncated_factor3_schur_min_eigenvalue": -4.286076666370599,
+          "max_mode": 184,
+          "quadrature_order": 956,
+          "shift_order": 478,
+          "status": "negative"
+        },
+        {
+          "dimension": 144,
+          "mu_scout": 0.28133510282868635,
+          "finite_block_min_eigenvalue": 4.525651749418768e-08,
+          "truncated_factor3_schur_min_eigenvalue": -5.145666708611515,
+          "max_mode": 224,
+          "quadrature_order": 1116,
+          "shift_order": 558,
+          "status": "negative"
+        },
+        {
+          "dimension": 144,
+          "mu_scout": 0.28133467344751395,
+          "finite_block_min_eigenvalue": 4.709417075134192e-08,
+          "truncated_factor3_schur_min_eigenvalue": -5.614728124102487,
+          "max_mode": 264,
+          "quadrature_order": 1276,
+          "shift_order": 638,
+          "status": "negative"
+        },
+        {
+          "dimension": 144,
+          "mu_scout": 0.28133437937355676,
+          "finite_block_min_eigenvalue": 4.835303677240821e-08,
+          "truncated_factor3_schur_min_eigenvalue": -5.962308499503186,
+          "max_mode": 304,
+          "quadrature_order": 1436,
+          "shift_order": 718,
+          "status": "negative"
+        },
+        {
+          "dimension": 144,
+          "mu_scout": 0.2813341691975335,
+          "finite_block_min_eigenvalue": 4.925245179351862e-08,
+          "truncated_factor3_schur_min_eigenvalue": -6.246352881909794,
+          "max_mode": 344,
+          "quadrature_order": 1596,
+          "shift_order": 798,
+          "status": "negative"
+        },
+        {
+          "dimension": 144,
+          "mu_scout": 0.28133401379453016,
+          "finite_block_min_eigenvalue": 4.991752504071056e-08,
+          "truncated_factor3_schur_min_eigenvalue": -6.4830176589693576,
+          "max_mode": 384,
+          "quadrature_order": 1756,
+          "shift_order": 878,
+          "status": "negative"
+        },
+        {
+          "dimension": 144,
+          "mu_scout": 0.2813338956626579,
+          "finite_block_min_eigenvalue": 5.042279053864985e-08,
+          "truncated_factor3_schur_min_eigenvalue": -6.670040110766417,
+          "max_mode": 424,
+          "quadrature_order": 1916,
+          "shift_order": 958,
+          "status": "negative"
+        },
+        {
+          "dimension": 144,
+          "mu_scout": 0.2813338037705968,
+          "finite_block_min_eigenvalue": 5.081622540445264e-08,
+          "truncated_factor3_schur_min_eigenvalue": -6.814517454354184,
+          "max_mode": 464,
+          "quadrature_order": 2076,
+          "shift_order": 1038,
+          "status": "negative"
+        }
+      ]
+    }
+  ],
+  "scout_failures": [],
+  "rigorous_screening": [],
+  "rigorous_failures": [],
+  "candidates": [],
+  "candidate_failures": [],
+  "scout_primary_dimension": null,
+  "selected_dimension": null,
+  "selected_candidate_dimension": null,
+  "fallback_dimensions": [],
+  "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed."
+}

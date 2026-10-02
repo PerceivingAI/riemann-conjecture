@@ -1,0 +1,88 @@
+{
+  "declared_utc": "2026-10-02T00:29:37Z",
+  "controls": {
+    "support": "11/20",
+    "dimensions": [
+      192,
+      196
+    ],
+    "scout_grid": [
+      148,
+      152,
+      156,
+      160,
+      164,
+      168,
+      172,
+      176,
+      180,
+      184,
+      188,
+      192,
+      196,
+      200,
+      204,
+      208,
+      212,
+      216,
+      220,
+      224,
+      228,
+      232,
+      236,
+      240,
+      244,
+      248,
+      252,
+      256
+    ],
+    "scout_resolutions": 8,
+    "scout_workers": 3,
+    "rigorous_workers": 2,
+    "arb_ladder": [
+      128,
+      256,
+      384,
+      512
+    ],
+    "matrix_ladder": [
+      64,
+      80,
+      96,
+      104
+    ],
+    "witness_ladder": [
+      32,
+      40,
+      48,
+      56
+    ],
+    "confirmation_precisions": [
+      640,
+      768
+    ],
+    "residual_order": 32,
+    "cache": "fresh; no cache reuse assumed"
+  },
+  "measured_bit_cost_ratio": 1.2845559329408547,
+  "estimated_base_candidate_seconds": 207.82138846980155,
+  "estimated_confirmation_candidate_seconds": 383.27266442956375,
+  "estimated_two_rigorous_ladders_seconds": 138.49584107189,
+  "scout_measured_seconds": 10.668968100013444,
+  "unmeasured_screening_serialization_sealing_reserve_seconds": 120,
+  "candidate_attempts_worst_case": 32,
+  "confirmation_attempts_worst_case": 4,
+  "failed_path_extrapolation_seconds": 8452.539897923809,
+  "unobserved_success_completion_reserve_factor": 4,
+  "reserved_total_seconds": 33002.66516417952,
+  "additional_headroom_factor": 1.25,
+  "predeclared_external_allowance_seconds": 43200,
+  "status": "ESTIMATE_NOT_A_RUNTIME_BOUND; qualification launch BLOCKED",
+  "limitations": [
+    "Failed witnesses stop before full two-parity completion; factor4 is a conservative reserve, not a measured upper bound.",
+    "N196 maximum-bit cost extrapolates the measured N192 bit-cost ratio.",
+    "Rigorous eigendiagnostics and final bundle sealing are not separately measured; included in 120-second reserve.",
+    "All candidate/confirmation work remains sequential; at most two rigorous ladders run concurrently.",
+    "Re-estimate after any separately approved conditioning redesign."
+  ]
+}

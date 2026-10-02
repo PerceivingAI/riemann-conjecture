@@ -1,0 +1,227 @@
+{
+  "role": "manual_multi_prime_component_cost_benchmark",
+  "theorem_status": false,
+  "provenance": {
+    "utc": "2026-10-02T00:06:51.151354+00:00",
+    "head": "a26817d3e1bc22b6ed7aa3effefb96f172cb83fa",
+    "source_sha256": {
+      "scripts/profile_multi_prime_assembly.py": "dfc2f65570a86bdfac967904c9389f9fdfca21f4709e25bdbfe3f0ee364da2c1",
+      "scripts/cert/multi_prime_legendre_schur.py": "29bec865f8821cf5db5213e8b139b406155a9881067b5169c3b7650ccdb8bad4",
+      "scripts/cert/prime_power_terms.py": "20d68c881a1e8c4d328aaf7a57eb9efee364d9952cdf20901ec98e68399fb6b3",
+      "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+      "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a",
+      "scripts/profile_multi_prime_workflow.py": "9b3fb5e602b7ce7cf3c60e7208ce86e637fafaef61d22c4ddf40b0ff7444b8a3"
+    },
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+    "cpu_count": 6,
+    "versions": {
+      "python-flint": "0.9.0",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1"
+    },
+    "cache_policy": "no continuation cache; diagnostic components only",
+    "peak_memory_scope": "process lifetime high-water mark, not per-stage allocation",
+    "continuation_source_fingerprint": "558515583ef6c39456eccdc877fcf6fefc018dcdebe09bd564332cf3b2d530e6"
+  },
+  "configuration": {
+    "mode": "candidate",
+    "support": "11/20",
+    "dimensions": [
+      192,
+      196
+    ],
+    "precision": 640,
+    "residual_order": 32,
+    "matrix_bits": 64,
+    "witness_bits": 32,
+    "workers": 1,
+    "scout_resolutions": 8,
+    "output_json": "computations\\2026-10-01T215617Z-multi-prime-assembly-performance\\data\\phase4-candidates-640-64-32.json"
+  },
+  "status": "completed",
+  "active_dimension": null,
+  "samples": [
+    {
+      "dimension": 192,
+      "precision_bits": 640,
+      "residual_order": 32,
+      "matrix_bits": 64,
+      "witness_bits": 32,
+      "support": "11/20",
+      "status": "completed",
+      "candidate_outcome": "witness_failed",
+      "error": {
+        "type": "CandidateStageError",
+        "stage": "witness",
+        "message": "midpoint LDL pivot 67 is not positive"
+      },
+      "wall_seconds": 209.0579393999942,
+      "cpu_seconds": 207.953125,
+      "peak_memory_bytes": 176062464,
+      "stages": {
+        "assemble_multi_prime_schur": {
+          "calls": 1,
+          "wall_inclusive": 36.94406889998936,
+          "cpu_inclusive": 36.6875
+        },
+        "dyadic_outward_interval": {
+          "calls": 4,
+          "wall_inclusive": 0.0002853000187315047,
+          "cpu_inclusive": 0.0
+        },
+        "_active_term_diagnostics": {
+          "calls": 1,
+          "wall_inclusive": 0.0003487000067252666,
+          "cpu_inclusive": 0.0
+        },
+        "coarsen_matrix": {
+          "calls": 4,
+          "wall_inclusive": 1.7084858000162058,
+          "cpu_inclusive": 1.734375
+        },
+        "_exact_multi_prime_schur": {
+          "calls": 1,
+          "wall_inclusive": 1.228115699981572,
+          "cpu_inclusive": 1.21875
+        },
+        "make_witness": {
+          "calls": 1,
+          "wall_inclusive": 165.86370190000162,
+          "cpu_inclusive": 165.015625
+        }
+      },
+      "result": null,
+      "theorem_status": false,
+      "post_timing_native_max_widths": {
+        "A": "401836337775669643525299896320/1",
+        "GV": "254625429/1569275433846670190958947355801916604025588861116008628224",
+        "GP": "9961185420957205303458314803697097320628242577518666092167089543146357868944248940494627548628374257664/1",
+        "GR": "670988387/4784065733063810973581885157618788676291241975216665977767007373648750357731006099232824032039924032894289638403441329240212719241920971274455782595989040464660523567661989180298099889009174801022976",
+        "P": "401836333643598971014360334336/1",
+        "P_squared": "9961185387582407867194094766274883161728990786851407930344390012723832746722065725172118954519591649280/1",
+        "schur": "52778379146147806150770780220699130754142506210459400977183375195201586026214106622503305980007505985536/1"
+      },
+      "post_timing_mu_enclosure": {
+        "lower": "10835111033083213204702643249021868918137721294400221868364102110060481640097245700123132787811948478331352896654695586058245432283509192973821535547470148699309896986859523175870052169996374307572091/19136262932255243894327540630475154705164967900866663911068029494595001430924024396931296128159696131577158553613765316960850876967683885097823130383956161858642094270647956721192399556036699204091904",
+        "upper": "10835111033083213204702643249021868918137721294400221868364102110060481640097245700123132787811948478331352896654695586058245432283509192973821535547470148699309896986859523175870052169996375825249925/19136262932255243894327540630475154705164967900866663911068029494595001430924024396931296128159696131577158553613765316960850876967683885097823130383956161858642094270647956721192399556036699204091904",
+        "width": "758838917/9568131466127621947163770315237577352582483950433331955534014747297500715462012198465648064079848065788579276806882658480425438483841942548911565191978080929321047135323978360596199778018349602045952"
+      }
+    },
+    {
+      "dimension": 196,
+      "precision_bits": 640,
+      "residual_order": 32,
+      "matrix_bits": 64,
+      "witness_bits": 32,
+      "support": "11/20",
+      "status": "completed",
+      "candidate_outcome": "witness_failed",
+      "error": {
+        "type": "CandidateStageError",
+        "stage": "witness",
+        "message": "midpoint LDL pivot 67 is not positive"
+      },
+      "wall_seconds": 225.400461799989,
+      "cpu_seconds": 224.265625,
+      "peak_memory_bytes": 188833792,
+      "stages": {
+        "assemble_multi_prime_schur": {
+          "calls": 1,
+          "wall_inclusive": 39.42037410000921,
+          "cpu_inclusive": 39.203125
+        },
+        "dyadic_outward_interval": {
+          "calls": 4,
+          "wall_inclusive": 0.00026529995375312865,
+          "cpu_inclusive": 0.0
+        },
+        "_active_term_diagnostics": {
+          "calls": 1,
+          "wall_inclusive": 0.00030929999775253236,
+          "cpu_inclusive": 0.0
+        },
+        "coarsen_matrix": {
+          "calls": 4,
+          "wall_inclusive": 1.750164600001881,
+          "cpu_inclusive": 1.75
+        },
+        "_exact_multi_prime_schur": {
+          "calls": 1,
+          "wall_inclusive": 1.2894588999915868,
+          "cpu_inclusive": 1.265625
+        },
+        "make_witness": {
+          "calls": 1,
+          "wall_inclusive": 179.46834230000968,
+          "cpu_inclusive": 178.59375
+        }
+      },
+      "result": null,
+      "theorem_status": false,
+      "post_timing_native_max_widths": {
+        "A": "19232929358556650740106275154034688/1",
+        "GV": "277165041/1532495540865888858358347027150309183618739122183602176",
+        "GP": "16155123967977187133506585596582508650498761967157819855793122440692896942150157583216905134235168893881548800/1",
+        "GR": "670988387/4784065733063810973581885157618788676291241975216665977767007373648750357731006099232824032039924032894289638403441329240212719241920971274455782595989040464660523567661989180298099889009174801022976",
+        "P": "19232929223156958943267807586942976/1",
+        "P_squared": "16155123932981175536978394806622473016616820121507108961501723457880567239590909596026890362658958061512687616/1",
+        "schur": "82596243283216714764388394277080388219649004395819593398175104295517034065191132562347180625280396520109113344/1"
+      },
+      "post_timing_mu_enclosure": {
+        "lower": "11228671861328693133145595324578807288117045725761177923188806639963857394320446404331204078286385778460030797567312884675566688670050276848523424955050408127335164134448532170265638750516707254929787/19136262932255243894327540630475154705164967900866663911068029494595001430924024396931296128159696131577158553613765316960850876967683885097823130383956161858642094270647956721192399556036699204091904",
+        "upper": "11228671861328693133145595324578807288117045725761177923188806639963857394320446404331204078286385778460030797567312884675566688670050276848523424955050408127335164134448532170265638750516708772607621/19136262932255243894327540630475154705164967900866663911068029494595001430924024396931296128159696131577158553613765316960850876967683885097823130383956161858642094270647956721192399556036699204091904",
+        "width": "758838917/9568131466127621947163770315237577352582483950433331955534014747297500715462012198465648064079848065788579276806882658480425438483841942548911565191978080929321047135323978360596199778018349602045952"
+      }
+    }
+  ],
+  "completion_observation_order": [
+    192,
+    196
+  ],
+  "progress_publications": [
+    {
+      "wall_seconds": 0.0020948000019416213,
+      "cpu_seconds": 0.015625,
+      "bytes": 2511,
+      "sha256": "f60762a878f1dfa8e1f58aa655cacbc339f2c4f0c8b255bb893abf293540ffdb"
+    },
+    {
+      "wall_seconds": 0.002058499987469986,
+      "cpu_seconds": 0.0,
+      "bytes": 2705,
+      "sha256": "9ec840fae55e2fa1e0894b8011c6ff1475d4379e8b64c6b560107f29af583fb2"
+    },
+    {
+      "wall_seconds": 0.006571800011442974,
+      "cpu_seconds": 0.0,
+      "bytes": 6353,
+      "sha256": "2d4d40f86c59d87a14834321e275d6f0a4e0e54402a8b9a29fb0f82a1b17f8e7"
+    },
+    {
+      "wall_seconds": 0.0024406000156886876,
+      "cpu_seconds": 0.0,
+      "bytes": 6540,
+      "sha256": "96adefa8ac6b8670f5ea2e9b0512103d7cdcc3370c068bc43bfe543dad6c2f6a"
+    },
+    {
+      "wall_seconds": 0.0028101000061724335,
+      "cpu_seconds": 0.0,
+      "bytes": 10211,
+      "sha256": "1bc71888e3900743564466f13ab5311f50a19b0cdffdf16e37c311d4057eebd9"
+    }
+  ],
+  "publication_scope": "JSON serialization/hash/fsync/atomic writes; final report publication excluded",
+  "wall_seconds_including_lifecycle": 439.0068261999986,
+  "parent_cpu_seconds": 436.71875,
+  "parent_peak_memory_bytes": 188833792
+}

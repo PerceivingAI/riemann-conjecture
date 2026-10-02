@@ -1,0 +1,8 @@
+{
+  "format": "riemann-output-lock-v1",
+  "run_id": "20261001T200235Z-2f0b0012",
+  "command": "weil_multi_prime_continuation_driver",
+  "support": "11/20",
+  "pid": 5908,
+  "started_at_utc": "2026-10-01T20:02:35Z"
+}

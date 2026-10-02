@@ -1,0 +1,232 @@
+{
+  "run": "run-b",
+  "audited_utc": "2026-10-02T01:21:32Z",
+  "artifact_integrity": "PASS",
+  "artifact_count": 18,
+  "artifacts": [
+    {
+      "path": "candidate/candidate.json",
+      "bytes": 495,
+      "sha256": "6a2cd82406970e85650285d235fc7d6b552d8929303b422d119b7b67de118bc0",
+      "status": "PASS"
+    },
+    {
+      "path": "rigorous/N192-p128.json",
+      "bytes": 480,
+      "sha256": "5b91d792422e36334270130f23d2e20d048dc32fe67143205dbb0e2fe8ee981e",
+      "status": "PASS"
+    },
+    {
+      "path": "rigorous/N192-p256.json",
+      "bytes": 2353,
+      "sha256": "c5d42626c42805c5de60656a4495b18c71d51dcaf7fb9f792f1495bd9d01e24c",
+      "status": "PASS"
+    },
+    {
+      "path": "rigorous/N192-p384.json",
+      "bytes": 3413,
+      "sha256": "375537d4b7080dcc3c5a0d68730f390f1a759ee044ec9b1e3ac8bef33bdbad58",
+      "status": "PASS"
+    },
+    {
+      "path": "rigorous/N192-p512.json",
+      "bytes": 3368,
+      "sha256": "d257a50215f2335a5f0007ad23c086227ea443abdab0b7981c142eb5bcc1e5ac",
+      "status": "PASS"
+    },
+    {
+      "path": "rigorous/N196-p128.json",
+      "bytes": 480,
+      "sha256": "411a9da0ac1876f22bea610c2a1f987b680245105f62242561860499c5b26bd4",
+      "status": "PASS"
+    },
+    {
+      "path": "rigorous/N196-p256.json",
+      "bytes": 2359,
+      "sha256": "77feee113f64e4442cde2295b62ab27ca77cac8b1cff16b5e51811e30754b783",
+      "status": "PASS"
+    },
+    {
+      "path": "rigorous/N196-p384.json",
+      "bytes": 3394,
+      "sha256": "627c9714c1c4ff3f3c660bee0c80fbcd833b48ae4d590a260f71fa7ef29a3504",
+      "status": "PASS"
+    },
+    {
+      "path": "rigorous/N196-p512.json",
+      "bytes": 3365,
+      "sha256": "2fc333f77816e79ea920c36485eed8e6763dfa3ea4e18f22692265c2815a40d2",
+      "status": "PASS"
+    },
+    {
+      "path": "scout/resolution-01.json",
+      "bytes": 21987,
+      "sha256": "18626228c414091e7875f8938d0008896ffe9a69a59b3c304bf3e1b0772e812a",
+      "status": "PASS"
+    },
+    {
+      "path": "scout/resolution-02.json",
+      "bytes": 21993,
+      "sha256": "8951660ba4a5de65c8ab9cb1ac61c9a8831c1a6e8d84b8ba4d9583d4b7714264",
+      "status": "PASS"
+    },
+    {
+      "path": "scout/resolution-03.json",
+      "bytes": 21988,
+      "sha256": "2aefaa6081345edc576a837302cb97d2a81cd9ac76a7d079d6807ce1852f5a19",
+      "status": "PASS"
+    },
+    {
+      "path": "scout/resolution-04.json",
+      "bytes": 21982,
+      "sha256": "e96738d3f3906360765357631c121b52b00412f67a2470faed4d107cd6e7a8ff",
+      "status": "PASS"
+    },
+    {
+      "path": "scout/resolution-05.json",
+      "bytes": 21999,
+      "sha256": "db74003463fceaf838ba526b20bded8400d77e4daa944fa694c23b96dda5b59f",
+      "status": "PASS"
+    },
+    {
+      "path": "scout/resolution-06.json",
+      "bytes": 21993,
+      "sha256": "1df433fc0cf3704efb314905cb6cac349c9132ae0a4bdb80e0a53ebe06bf10b2",
+      "status": "PASS"
+    },
+    {
+      "path": "scout/resolution-07.json",
+      "bytes": 21980,
+      "sha256": "5c8fdcea0221cfd25fee9fcce41d13313500863de1ea3a39e675098ad7950854",
+      "status": "PASS"
+    },
+    {
+      "path": "scout/resolution-08.json",
+      "bytes": 21968,
+      "sha256": "b571f67fd83f7a776616508b4238463a0da9c56d759ae2ccdc00b46fd949a8e4",
+      "status": "PASS"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 115770,
+      "sha256": "318d9a782ac21f3e6bfc540de97ab6efc545df01edff30b8f8b9a6f13f8b7387",
+      "status": "PASS"
+    }
+  ],
+  "manifest_sha256": "d81da133f292557cfab951a13e480d678cf6cd92e9e3152788a565a2a4494610",
+  "ordered_result_payload_digest": "PASS",
+  "scout_runs_insertion_index": 35,
+  "frozen_controls_and_ordering": "PASS",
+  "summary_candidate_manifest_consistency": "PASS",
+  "theorem_boundary_fields_checked": [
+    "manifest/theorem_status",
+    "manifest/independently_verified",
+    "manifest/whitelisted",
+    "candidate/candidate.json/theorem_status",
+    "candidate/candidate.json/independently_verified",
+    "candidate/candidate.json/whitelisted",
+    "summary.json/theorem_status",
+    "summary.json/independently_verified",
+    "summary.json/whitelisted",
+    "summary.json/automatic_promotion"
+  ],
+  "reported_managed_worker_lifecycle": {
+    "scope": "driver_managed_process_pool_workers",
+    "parent_pid": 10864,
+    "worker_model": "spawn",
+    "worker_cleanup_verified": true,
+    "active_children_after_cleanup": 0,
+    "executors_shutdown": 2,
+    "worker_processes_reaped": 5,
+    "cleanup_escalations": 0,
+    "workers_joined_after_shutdown": 0,
+    "workers_terminated": 0,
+    "workers_killed": 0
+  },
+  "rigorous_history": [
+    {
+      "dimension": 192,
+      "precision_bits": 128,
+      "precision_status": "ASSEMBLY_FAILED",
+      "mu_lower": null,
+      "GP_max_width": null,
+      "cache_hit": null,
+      "error": "integer division result too large for a float"
+    },
+    {
+      "dimension": 192,
+      "precision_bits": 256,
+      "precision_status": "INSUFFICIENT_PRECISION",
+      "mu_lower": 0.5662083067859621,
+      "GP_max_width": 1.892493729371451e+289,
+      "cache_hit": null,
+      "error": null
+    },
+    {
+      "dimension": 192,
+      "precision_bits": 384,
+      "precision_status": "INSUFFICIENT_PRECISION",
+      "mu_lower": 0.5662083067859621,
+      "GP_max_width": 1.1773775314997474e+213,
+      "cache_hit": null,
+      "error": null
+    },
+    {
+      "dimension": 192,
+      "precision_bits": 512,
+      "precision_status": "INSUFFICIENT_PRECISION",
+      "mu_lower": 0.5662083067859621,
+      "GP_max_width": 3.553278510597645e+141,
+      "cache_hit": null,
+      "error": null
+    },
+    {
+      "dimension": 196,
+      "precision_bits": 128,
+      "precision_status": "ASSEMBLY_FAILED",
+      "mu_lower": null,
+      "GP_max_width": null,
+      "cache_hit": null,
+      "error": "integer division result too large for a float"
+    },
+    {
+      "dimension": 196,
+      "precision_bits": 256,
+      "precision_status": "INSUFFICIENT_PRECISION",
+      "mu_lower": 0.5867745390560106,
+      "GP_max_width": 8.396781361808674e+298,
+      "cache_hit": null,
+      "error": null
+    },
+    {
+      "dimension": 196,
+      "precision_bits": 384,
+      "precision_status": "INSUFFICIENT_PRECISION",
+      "mu_lower": 0.5867745390560106,
+      "GP_max_width": 7.350898307772678e+221,
+      "cache_hit": null,
+      "error": null
+    },
+    {
+      "dimension": 196,
+      "precision_bits": 512,
+      "precision_status": "INSUFFICIENT_PRECISION",
+      "mu_lower": 0.5867745390560106,
+      "GP_max_width": 1.048913732729125e+148,
+      "cache_hit": null,
+      "error": null
+    }
+  ],
+  "qualification_requirements": {
+    "both_runs_candidate_ready": "UNMET: this run ends at PRECISION_LIMIT_REACHED",
+    "combined_operator_path": "source-bound generic rigorous screening completed at 256/384/512; GP diagnostics serialized, full P_squared/GP matrices not serialized",
+    "separate_prime_losses": "floating per-term contributions present; rigorous/exact candidate per-term losses NOT REACHED",
+    "rigorous_complement": "positive at completed screens",
+    "exact_candidate_complement": "NOT REACHED",
+    "positive_even_odd_exact_margins": "NOT REACHED",
+    "selected_matrix_witness_bits": "NONE",
+    "fixed_input_candidate_precision_stability": "NOT REACHED"
+  },
+  "final_state": "PRECISION_LIMIT_REACHED",
+  "qualification_gate": "NOT QUALIFIED"
+}

@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-10-02T01:14:49Z",
+  "source_snapshot_sha256": "7b8ad4bedd1dff8927e06d6078c8b55fa295a30f07f8bb8cb320487e2069a32e",
+  "source_fingerprint": "558515583ef6c39456eccdc877fcf6fefc018dcdebe09bd564332cf3b2d530e6",
+  "all_19_sources_and_archive_verified": true,
+  "command": "uv run --locked python -m scripts.weil_multi_prime_continuation_driver --support 11/20 --n-min 148 --n-max 256 --n-step 4 --scout-resolutions 8 --scout-workers 3 --rigorous-workers 2 --precision-start 128 --precision-max 512 --residual-order 32 --matrix-bits-start 64 --matrix-bits-max 104 --witness-bits-start 32 --witness-bits-max 56 --candidate-precision-step 128 --candidate-precision-extra-steps 2 --cache-dir computations/2026-10-02T010121Z-t11-20-multi-prime-qualification-after-hardening/data/cache-b --output-dir computations/2026-10-02T010121Z-t11-20-multi-prime-qualification-after-hardening/data/run-b",
+  "only_command_changes": [
+    "cache-a -> cache-b",
+    "run-a -> run-b"
+  ],
+  "cache_b_absent_before_launch": true,
+  "run_b_absent_before_launch": true,
+  "cache_policy_before_run_a": "record.md prelaunch reproduction procedure required a separate fresh cache/output pair; no warm-cache policy is chosen after results",
+  "canonical_comparison": "exact recursive equality; numeric diagnostics retained with no tolerances or rounding",
+  "execution_metadata_exclusions": [
+    "summary/cache_dir",
+    "recursive cache_hit flags",
+    "manifest/configuration/cache_dir",
+    "manifest/run_started_at_utc",
+    "manifest/run_completed_at_utc",
+    "manifest/process_lifecycle/parent_pid",
+    "manifest/artifacts/*/sha256 (raw bytes independently audited)",
+    "manifest/finalization/result_payload_sha256 (ordered raw payload digest independently verified)"
+  ],
+  "external_allowance_seconds": 43200,
+  "qualification_gate": "both CANDIDATE_READY required; already unmet by Run A; audit/reproduction remains executable"
+}

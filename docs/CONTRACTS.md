@@ -1,7 +1,7 @@
 # Repository Architecture & Proof Contracts
 
 - **Created:** `2026-08-21T06:00:00Z`
-- **Last updated:** `2026-10-01T19:06:42Z`
+- **Last updated:** `2026-10-01T21:04:17Z`
 - **Status:** Authoritative
 
 This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
@@ -266,6 +266,8 @@ This section closes the mathematical derivation only. No multi-prime certificate
 P7 acceptance: complete Rust verifier suite `63/63`; strict rustfmt and clippy with `-D warnings`; focused Python v2/v1 contract regression `21/21`; complete default Python suite `602/602`; retained v1 proof replay `8/8`. These checks do not alter the empty v2 theorem whitelist.
 
 **P8 v2 adversarial/cross-layer contract — `2026-10-01T19:06:42Z`.** For the current first v2 structural window, the root JSON Schema fixes `arithmetic_terms` to exactly `[(2,2,1),(3,3,1)]` in canonical order and requires each serialized `compressed_shift_norm_bound` to be exactly `1/1`. Python semantic validation and Rust independently re-check the active set, prime-power identities, coefficient/norm/complement interval consistency, exact symmetry/parity of `A/GV/GP/GR`, and strict support-window relations from the serialized exact-rational log enclosures. The strict contract is fail-closed: lower-window validity requires `T > upper(log_3)/2`; upper-window validity requires `T < lower(log_2)=lower(log_4/2)`; equality or interval overlap is rejection. The test-only cross-layer corpus `tests/data/certificate-v2-cross-layer-v1.json` has 10 shared structural cases whose expected validity is independently checked by raw Python JSON Schema, Python semantic validation, and Rust. Cross-field threshold/parity attacks are tested separately in Python and Rust because JSON Schema has no mechanism for those rational matrix/support relations. The separate closed-grid admission corpus `tests/data/multi-prime-admission-v2.json` contains 16 forbidden support/dimension pairs and no allowed pair; the schema admission sub-contract `$defs.theoremAdmission`, Python `V2_ALLOWED_CONFIGURATIONS`, and Rust `V2_ALLOWED_CONFIGURATIONS` independently reject every grid entry. Neither test corpus is loaded by production code. A valid negative Schur proof remains theorem failure rather than malformed-contract failure. The production v2 theorem whitelist is still empty.
+
+**P9 non-theorem qualification boundary — `2026-10-01T21:04:17Z`.** The first real qualification at `T=11/20` did not reach a proof-bearing terminal state. The original frozen grid `96..144 step 4` sealed `NO_CANDIDATE` at the floating stage. A separately predeclared extension `148..256 step 4` found the stable-positive scout frontier at `N=192` and selected rigorous targets `192,196`, but neither first 128-bit rigorous assembly completed before external execution limits of approximately 30 minutes and then one hour. Both workers remained CPU-active; no rigorous result or cache entry was committed. Therefore there is no completed P9 evidence for `GP`, `mu_N`, precision escalation, exact witnesses, candidate stability, `CANDIDATE_READY`, or reproducibility. This outcome is **NOT QUALIFIED — rigorous-stage performance blocker**, not a mathematical negative. P9 does not authorize grid extension, theorem admission, certificate generation, or any support/dimension claim. A separate performance-hardening slice is required before another qualification.
 
 ---
 

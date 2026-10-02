@@ -1,0 +1,315 @@
+{
+  "role": "manual_multi_prime_component_cost_benchmark",
+  "theorem_status": false,
+  "provenance": {
+    "utc": "2026-10-01T23:35:04.163044+00:00",
+    "head": "a26817d3e1bc22b6ed7aa3effefb96f172cb83fa",
+    "source_sha256": {
+      "scripts/profile_multi_prime_assembly.py": "dfc2f65570a86bdfac967904c9389f9fdfca21f4709e25bdbfe3f0ee364da2c1",
+      "scripts/cert/multi_prime_legendre_schur.py": "29bec865f8821cf5db5213e8b139b406155a9881067b5169c3b7650ccdb8bad4",
+      "scripts/cert/prime_power_terms.py": "20d68c881a1e8c4d328aaf7a57eb9efee364d9952cdf20901ec98e68399fb6b3",
+      "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+      "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a",
+      "scripts/profile_multi_prime_workflow.py": "98bcb1dc6785745d473dd825b2219a8b2070ac64eaad8627a8525f4e4bc0833f"
+    },
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+    "cpu_count": 6,
+    "versions": {
+      "python-flint": "0.9.0",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1"
+    },
+    "cache_policy": "no continuation cache; diagnostic components only",
+    "peak_memory_scope": "process lifetime high-water mark, not per-stage allocation",
+    "continuation_source_fingerprint": "558515583ef6c39456eccdc877fcf6fefc018dcdebe09bd564332cf3b2d530e6"
+  },
+  "configuration": {
+    "mode": "scout",
+    "support": "11/20",
+    "dimensions": [
+      8,
+      12
+    ],
+    "precision": 512,
+    "residual_order": 32,
+    "matrix_bits": 64,
+    "witness_bits": 32,
+    "workers": 2,
+    "scout_resolutions": 2,
+    "output_json": "computations\\2026-10-01T215617Z-multi-prime-assembly-performance\\data\\phase4-tool-smoke-scout.json"
+  },
+  "status": "completed",
+  "active_dimension": null,
+  "samples": [
+    {
+      "resolution": {
+        "level": 0,
+        "max_mode": 120,
+        "quadrature_order": 700,
+        "shift_order": 350
+      },
+      "status": "completed",
+      "wall_seconds": 0.1443223999813199,
+      "cpu_seconds": 0.15625,
+      "peak_memory_bytes": 99446784,
+      "pid": 19212,
+      "result": {
+        "role": "floating_reconnaissance_only",
+        "warning": "All arithmetic, residual, eigenvalue, conditioning, and tail-Gram quantities in this file are floating/truncated diagnostics only.",
+        "support": "11/20",
+        "support_T": 0.55,
+        "active_terms": [
+          {
+            "m": 2,
+            "prime": 2,
+            "exponent": 1,
+            "tau": 1.2602676010180822,
+            "coefficient": 0.49012907173427356,
+            "chain_vertices": 2,
+            "norm_bound": 1.0000000000000002,
+            "complement_contribution": 0.49012907173427367
+          },
+          {
+            "m": 3,
+            "prime": 3,
+            "exponent": 1,
+            "tau": 1.997476888487472,
+            "coefficient": 0.634284100597564,
+            "chain_vertices": 2,
+            "norm_bound": 1.0000000000000002,
+            "complement_contribution": 0.6342841005975641
+          }
+        ],
+        "arithmetic_complement_loss_scout": 1.1244131723318378,
+        "rho_R_scout": 2.3274903473943693,
+        "max_mode": 120,
+        "quadrature_order": 700,
+        "shift_order": 350,
+        "lowest_full_finite_ritz_values": [
+          3.3222901173011685e-08,
+          1.4286973894593693e-05,
+          0.0014186893608691942,
+          0.07550632351442378,
+          0.6846473038356454,
+          0.8311193275157809,
+          1.1047960061800985,
+          1.1070436042588208
+        ],
+        "schur_rows": [
+          {
+            "N": 8,
+            "mu_scout": -2.551302107424322,
+            "finite_block_min_eigenvalue": 3.494749245125187e-05,
+            "factor3_truncated_schur_min_eigenvalue": 9.374239418082769e-05,
+            "component_tail_gram_operator_norms": {
+              "GV": 0.5744260914299713,
+              "GP": 0.2257883582592071,
+              "GR": 3.2019712314436363e-09
+            },
+            "combined_prime_conditioning": {
+              "low_block_operator_norm": 0.4884823476293757,
+              "low_block_smallest_singular_value": 0.0871066098827296,
+              "low_block_condition_number": 5.6078677414608675,
+              "per_term_tail_operator_norms": {
+                "2": 0.4436181001979509,
+                "3": 0.1708577516862634
+              }
+            }
+          },
+          {
+            "N": 12,
+            "mu_scout": -2.165948572070787,
+            "finite_block_min_eigenvalue": 3.6287559511521537e-07,
+            "factor3_truncated_schur_min_eigenvalue": 6.597954619324956e-07,
+            "component_tail_gram_operator_norms": {
+              "GV": 0.6610675648985076,
+              "GP": 0.2444249877932656,
+              "GR": 5.727489418197886e-10
+            },
+            "combined_prime_conditioning": {
+              "low_block_operator_norm": 0.4899218674047397,
+              "low_block_smallest_singular_value": 0.009460474045815443,
+              "low_block_condition_number": 51.7861858752672,
+              "per_term_tail_operator_norms": {
+                "2": 0.44700924590722796,
+                "3": 0.2306382128456611
+              }
+            }
+          }
+        ]
+      },
+      "theorem_status": false
+    },
+    {
+      "resolution": {
+        "level": 1,
+        "max_mode": 160,
+        "quadrature_order": 860,
+        "shift_order": 430
+      },
+      "status": "completed",
+      "wall_seconds": 0.23410850000800565,
+      "cpu_seconds": 0.21875,
+      "peak_memory_bytes": 113008640,
+      "pid": 25332,
+      "result": {
+        "role": "floating_reconnaissance_only",
+        "warning": "All arithmetic, residual, eigenvalue, conditioning, and tail-Gram quantities in this file are floating/truncated diagnostics only.",
+        "support": "11/20",
+        "support_T": 0.55,
+        "active_terms": [
+          {
+            "m": 2,
+            "prime": 2,
+            "exponent": 1,
+            "tau": 1.2602676010180822,
+            "coefficient": 0.49012907173427356,
+            "chain_vertices": 2,
+            "norm_bound": 1.0000000000000002,
+            "complement_contribution": 0.49012907173427367
+          },
+          {
+            "m": 3,
+            "prime": 3,
+            "exponent": 1,
+            "tau": 1.997476888487472,
+            "coefficient": 0.634284100597564,
+            "chain_vertices": 2,
+            "norm_bound": 1.0000000000000002,
+            "complement_contribution": 0.6342841005975641
+          }
+        ],
+        "arithmetic_complement_loss_scout": 1.1244131723318378,
+        "rho_R_scout": 2.32749191321685,
+        "max_mode": 160,
+        "quadrature_order": 860,
+        "shift_order": 430,
+        "lowest_full_finite_ritz_values": [
+          3.990423530851851e-08,
+          1.4285673775467156e-05,
+          0.0014183800988508302,
+          0.07547371312598417,
+          0.6846186679069648,
+          0.8310964519481133,
+          1.1047959386888146,
+          1.1070356594482322
+        ],
+        "schur_rows": [
+          {
+            "N": 8,
+            "mu_scout": -2.5513036732468026,
+            "finite_block_min_eigenvalue": 3.495428460907201e-05,
+            "factor3_truncated_schur_min_eigenvalue": 9.375593540083134e-05,
+            "component_tail_gram_operator_norms": {
+              "GV": 0.5750100012983548,
+              "GP": 0.23187851088740086,
+              "GR": 3.2017686920666346e-09
+            },
+            "combined_prime_conditioning": {
+              "low_block_operator_norm": 0.4884823476293795,
+              "low_block_smallest_singular_value": 0.08710660988271642,
+              "low_block_condition_number": 5.607867741461759,
+              "per_term_tail_operator_norms": {
+                "2": 0.4481718337157229,
+                "3": 0.17272501725597553
+              }
+            }
+          },
+          {
+            "N": 12,
+            "mu_scout": -2.1659501378932675,
+            "finite_block_min_eigenvalue": 3.69571103981349e-07,
+            "factor3_truncated_schur_min_eigenvalue": 6.671864197455233e-07,
+            "component_tail_gram_operator_norms": {
+              "GV": 0.6622725416500854,
+              "GP": 0.25711629996324326,
+              "GR": 5.726634954150179e-10
+            },
+            "combined_prime_conditioning": {
+              "low_block_operator_norm": 0.48992186740474375,
+              "low_block_smallest_singular_value": 0.00946047404580975,
+              "low_block_condition_number": 51.7861858752988,
+              "per_term_tail_operator_norms": {
+                "2": 0.45634018546765587,
+                "3": 0.23360781881769363
+              }
+            }
+          }
+        ]
+      },
+      "theorem_status": false
+    }
+  ],
+  "completion_observation_order": [
+    0,
+    1
+  ],
+  "progress_publications": [
+    {
+      "wall_seconds": 0.0022908000100869685,
+      "cpu_seconds": 0.0,
+      "bytes": 2500,
+      "sha256": "945817c44242b82daedd7774ec3a20b55a05562838dec0df9437eb891f7fb96a"
+    },
+    {
+      "wall_seconds": 0.0028951999847777188,
+      "cpu_seconds": 0.0,
+      "bytes": 6173,
+      "sha256": "3d441cb712355aa71fb5142fe33b40db56df32d1be64a858af1b8f65c229d609"
+    },
+    {
+      "wall_seconds": 0.002617399994051084,
+      "cpu_seconds": 0.0,
+      "bytes": 9843,
+      "sha256": "9a7c335fe00004b2001875af86a2c7cec054a625c501d6001bd7abceabccda5f"
+    }
+  ],
+  "publication_scope": "JSON serialization/hash/fsync/atomic writes; final report publication excluded",
+  "worker_pids": [
+    25332,
+    19212
+  ],
+  "worker_cleanup": {
+    "verified": true,
+    "executors_shutdown": 1,
+    "worker_processes_reaped": 2,
+    "cleanup_escalations": 0,
+    "workers_joined_after_shutdown": 0,
+    "workers_terminated": 0,
+    "workers_killed": 0,
+    "active_children_after_cleanup": 0,
+    "stages": [
+      "manual-diagnostic-scout"
+    ]
+  },
+  "worker_shutdown_records": [
+    {
+      "stage": "manual-diagnostic-scout",
+      "worker_processes_observed": 2,
+      "worker_processes_reaped": 2,
+      "cleanup_escalation_required": false,
+      "joined_after_shutdown": 0,
+      "terminated": 0,
+      "killed": 0,
+      "active_children_after_cleanup": 0,
+      "worker_exit_codes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "worker_model": "spawn",
+  "wall_seconds_including_lifecycle": 1.4247696000093129,
+  "parent_cpu_seconds": 0.015625,
+  "parent_peak_memory_bytes": 71634944
+}

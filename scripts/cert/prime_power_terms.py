@@ -22,9 +22,9 @@ import math
 from dataclasses import dataclass
 from fractions import Fraction
 from itertools import count
-from typing import Iterable, Sequence
+from typing import Sequence
 
-from flint import arb, ctx
+from flint import arb, arb_poly, ctx, fmpq, fmpq_poly
 
 FractionPoly = list[Fraction]
 ArbPoly = list[arb]
@@ -264,12 +264,10 @@ def _arb_poly(poly: Sequence[Fraction]) -> ArbPoly:
 
 def _arb_poly_shift(poly: Sequence[Fraction], shift: arb) -> ArbPoly:
     """Return coefficients of ``poly(x + shift)`` with rigorous Arb entries."""
-    out = [arb(0) for _ in range(len(poly))]
-    for degree, coefficient in enumerate(poly):
-        c = _arb_fraction(coefficient)
-        for power in range(degree + 1):
-            out[power] += c * math.comb(degree, power) * shift ** (degree - power)
-    return out
+    coefficients = arb_poly(_arb_poly(poly))(arb_poly([shift, 1])).coeffs()
+    # Retain the coefficient shape even when Flint trims exact trailing zeros.
+    coefficients.extend(arb(0) for _ in range(len(poly) - len(coefficients)))
+    return coefficients
 
 
 def _arb_poly_add_in_place(target: ArbPoly, source: Sequence[arb], scale: arb) -> None:
@@ -279,53 +277,52 @@ def _arb_poly_add_in_place(target: ArbPoly, source: Sequence[arb], scale: arb) -
         target[index] += scale * value
 
 
-def _arb_poly_mul(a: Sequence[arb], b: Sequence[arb]) -> ArbPoly:
-    if not a or not b:
-        return [arb(0)]
-    out = [arb(0) for _ in range(len(a) + len(b) - 1)]
-    for i, ai in enumerate(a):
-        for j, bj in enumerate(b):
-            out[i + j] += ai * bj
-    return out
+def _integrated_product(left: arb_poly, right: arb_poly, interval: tuple[arb, arb]) -> arb:
+    """Integrate the full interval product using native Arb antiderivative evaluation."""
+    if not len(left) or not len(right):
+        return arb(0)
+    primitive = (left * right).integral()
+    lower, upper = interval
+    return primitive(upper) - primitive(lower)
 
 
-def _arb_poly_integral_between(poly: Iterable[arb], lower: arb, upper: arb) -> arb:
-    total = arb(0)
-    for degree, coefficient in enumerate(poly):
-        total += coefficient * (upper ** (degree + 1) - lower ** (degree + 1)) / (degree + 1)
-    return total
+def _exact_polynomials(polys: Sequence[Sequence[Fraction]]) -> list[fmpq_poly]:
+    return [
+        fmpq_poly([fmpq(value.numerator, value.denominator) for value in poly])
+        for poly in polys
+    ]
 
 
-def _exact_poly_mul(a: Sequence[Fraction], b: Sequence[Fraction]) -> FractionPoly:
-    out = [Fraction(0) for _ in range(len(a) + len(b) - 1)]
-    for i, ai in enumerate(a):
-        for j, bj in enumerate(b):
-            out[i + j] += ai * bj
-    return out
+def _exact_inner(a: fmpq_poly, b: fmpq_poly) -> fmpq:
+    primitive = (a * b).integral()
+    return primitive(1) - primitive(-1)
 
 
-def _exact_poly_integral(poly: Sequence[Fraction]) -> Fraction:
-    total = Fraction(0)
-    for degree, coefficient in enumerate(poly):
-        if degree % 2 == 0:
-            total += coefficient * Fraction(2, degree + 1)
-    return total
+def _polynomial_parities(polys: Sequence[Sequence[Fraction]]) -> tuple[int | None, ...]:
+    """Certify reflection parity from exact coefficients, not basis indices."""
+    parities: list[int | None] = []
+    for poly in polys:
+        occupied = {degree % 2 for degree, value in enumerate(poly) if value}
+        parities.append(next(iter(occupied)) if len(occupied) == 1 else None)
+    return tuple(parities)
 
 
-def _exact_poly_inner(a: Sequence[Fraction], b: Sequence[Fraction]) -> Fraction:
-    return _exact_poly_integral(_exact_poly_mul(a, b))
+def _opposite_parity(left: int | None, right: int | None) -> bool:
+    return left is not None and right is not None and left != right
 
 
 def _orthogonal_basis_norms(polys: Sequence[Sequence[Fraction]]) -> tuple[Fraction, ...]:
+    exact = _exact_polynomials(polys)
+    parities = _polynomial_parities(polys)
     norms: list[Fraction] = []
-    for i, poly in enumerate(polys):
-        norm = _exact_poly_inner(poly, poly)
+    for i, poly in enumerate(exact):
+        norm = _exact_inner(poly, poly)
         if norm <= 0:
             raise ValueError(f"basis polynomial {i} has nonpositive exact norm")
         for j in range(i):
-            if _exact_poly_inner(poly, polys[j]) != 0:
+            if not _opposite_parity(parities[i], parities[j]) and _exact_inner(poly, exact[j]) != 0:
                 raise ValueError("prime-power Gram assembly requires an exact orthogonal basis")
-        norms.append(norm)
+        norms.append(Fraction(int(norm.p), int(norm.q)))
     return tuple(norms)
 
 
@@ -426,30 +423,26 @@ def combined_piecewise_images(
                 minus = _arb_poly_shift(poly, -term.tau)
                 per_term.append((plus, minus))
             shifted.append(per_term)
+        partition = tuple(zip(breakpoints[:-1], breakpoints[1:], strict=True))
+        activities = []
+        for lower, upper in partition:
+            midpoint = (lower + upper) / 2
+            activities.append(tuple(
+                (
+                    _activity(midpoint, 1 - term.tau, before=True, term=term),
+                    _activity(midpoint, -1 + term.tau, before=False, term=term),
+                    -term.coefficient,
+                )
+                for term in terms
+            ))
 
         all_images: list[tuple[PiecewisePolynomial, ...]] = []
         for basis_index, poly in enumerate(polys):
             pieces: list[PiecewisePolynomial] = []
-            for lower, upper in zip(breakpoints[:-1], breakpoints[1:], strict=True):
-                midpoint = (lower + upper) / 2
+            for cell_index, (lower, upper) in enumerate(partition):
                 coefficients = [arb(0) for _ in poly]
-                for term_index, term in enumerate(terms):
-                    plus_end = 1 - term.tau
-                    minus_start = -1 + term.tau
-                    plus_active = _activity(
-                        midpoint,
-                        plus_end,
-                        before=True,
-                        term=term,
-                    )
-                    minus_active = _activity(
-                        midpoint,
-                        minus_start,
-                        before=False,
-                        term=term,
-                    )
+                for term_index, (plus_active, minus_active, scale) in enumerate(activities[cell_index]):
                     plus_poly, minus_poly = shifted[basis_index][term_index]
-                    scale = -term.coefficient
                     if plus_active:
                         _arb_poly_add_in_place(coefficients, plus_poly, scale)
                     if minus_active:
@@ -470,44 +463,40 @@ def _zero_matrix(n: int) -> ArbMatrix:
 
 
 def _low_matrix_from_images(
-    polys: Sequence[Sequence[Fraction]],
-    images: Sequence[Sequence[PiecewisePolynomial]],
+    basis: Sequence[arb_poly],
+    images: Sequence[Sequence[arb_poly]],
+    intervals: Sequence[tuple[arb, arb]],
+    parities: Sequence[int | None],
 ) -> ArbMatrix:
-    n = len(polys)
-    basis = [_arb_poly(poly) for poly in polys]
+    n = len(basis)
     out = _zero_matrix(n)
     for i in range(n):
         for j in range(i, n):
+            # Reflection commutes with every signed left+right translation.
+            if _opposite_parity(parities[i], parities[j]):
+                continue
             value = arb(0)
-            for piece in images[j]:
-                value += _arb_poly_integral_between(
-                    _arb_poly_mul(basis[i], piece.coefficients),
-                    piece.lower,
-                    piece.upper,
-                )
-            out[i][j] = value
-            out[j][i] = value
+            for image, interval in zip(images[j], intervals, strict=True):
+                value += _integrated_product(basis[i], image, interval)
+            out[i][j] = out[j][i] = value
     return out
 
 
 def _operator_square_matrix_from_images(
-    images: Sequence[Sequence[PiecewisePolynomial]],
+    images: Sequence[Sequence[arb_poly]],
+    intervals: Sequence[tuple[arb, arb]],
+    parities: Sequence[int | None],
 ) -> ArbMatrix:
     n = len(images)
     out = _zero_matrix(n)
     for i in range(n):
         for j in range(i, n):
-            if len(images[i]) != len(images[j]):
-                raise RuntimeError("piecewise images do not share one translation partition")
+            if _opposite_parity(parities[i], parities[j]):
+                continue
             value = arb(0)
-            for left, right in zip(images[i], images[j], strict=True):
-                value += _arb_poly_integral_between(
-                    _arb_poly_mul(left.coefficients, right.coefficients),
-                    left.lower,
-                    left.upper,
-                )
-            out[i][j] = value
-            out[j][i] = value
+            for left, right, interval in zip(images[i], images[j], intervals, strict=True):
+                value += _integrated_product(left, right, interval)
+            out[i][j] = out[j][i] = value
     return out
 
 
@@ -518,6 +507,7 @@ def _tail_gram(
 ) -> ArbMatrix:
     n = len(p_matrix)
     out = _zero_matrix(n)
+    inverse_norms = tuple(_arb_fraction(1 / norm) for norm in norms)
     for i in range(n):
         for j in range(i, n):
             low_composition = arb(0)
@@ -525,7 +515,7 @@ def _tail_gram(
                 low_composition += (
                     p_matrix[i][k]
                     * p_matrix[k][j]
-                    / _arb_fraction(norms[k])
+                    * inverse_norms[k]
                 )
             value = p_squared_matrix[i][j] - low_composition
             out[i][j] = value
@@ -549,8 +539,14 @@ def assemble_combined_prime_power_operator(
 
     with ctx.workprec(prec):
         breakpoints, images = combined_piecewise_images(polys, terms, prec)
-        p_matrix = _low_matrix_from_images(polys, images)
-        p_squared_matrix = _operator_square_matrix_from_images(images)
+        basis = tuple(arb_poly(_arb_poly(poly)) for poly in polys)
+        native_images = tuple(
+            tuple(arb_poly(list(piece.coefficients)) for piece in image) for image in images
+        )
+        intervals = tuple(zip(breakpoints[:-1], breakpoints[1:], strict=True))
+        parities = _polynomial_parities(polys)
+        p_matrix = _low_matrix_from_images(basis, native_images, intervals, parities)
+        p_squared_matrix = _operator_square_matrix_from_images(native_images, intervals, parities)
         g_p = _tail_gram(p_matrix, p_squared_matrix, norms)
         return PrimePowerOperatorAssembly(
             terms=tuple(terms),

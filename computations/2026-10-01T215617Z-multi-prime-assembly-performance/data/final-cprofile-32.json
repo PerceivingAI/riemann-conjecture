@@ -1,0 +1,607 @@
+{
+  "provenance": {
+    "utc": "2026-10-01T22:40:04.145415+00:00",
+    "head": "a26817d3e1bc22b6ed7aa3effefb96f172cb83fa",
+    "source_sha256": {
+      "scripts/profile_multi_prime_assembly.py": "dfc2f65570a86bdfac967904c9389f9fdfca21f4709e25bdbfe3f0ee364da2c1",
+      "scripts/cert/multi_prime_legendre_schur.py": "29bec865f8821cf5db5213e8b139b406155a9881067b5169c3b7650ccdb8bad4",
+      "scripts/cert/prime_power_terms.py": "20d68c881a1e8c4d328aaf7a57eb9efee364d9952cdf20901ec98e68399fb6b3",
+      "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+      "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    },
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+    "cpu_count": 6,
+    "versions": {
+      "python-flint": "0.9.0",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null
+    },
+    "cache_policy": "no continuation cache; sequential assemblies in one process",
+    "peak_memory_scope": "process lifetime high-water mark, not per-stage allocation"
+  },
+  "configuration": {
+    "support": "11/20",
+    "dimensions": [
+      32
+    ],
+    "precision_bits": 128,
+    "residual_order": 32,
+    "mode": "cprofile"
+  },
+  "status": "completed",
+  "active_dimension": null,
+  "samples": [
+    {
+      "dimension": 32,
+      "precision_bits": 128,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "cprofile",
+      "status": "completed",
+      "wall_seconds": 0.21230030001606792,
+      "cpu_seconds": 0.21875,
+      "peak_memory_bytes": 48128000,
+      "stages": {},
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[-1.21260944081829 +/- 1.71e-15]",
+      "mu_positive": false,
+      "schur_assembled": false,
+      "theorem_status": false,
+      "profile": [
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\multi_prime_legendre_schur.py",
+          "line": 235,
+          "function": "assemble_multi_prime_schur",
+          "primitive_calls": 1,
+          "calls": 1,
+          "exclusive_seconds": 0.0011154000000000001,
+          "cumulative_seconds": 0.21186670000000002
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\multi_prime_legendre_schur.py",
+          "line": 95,
+          "function": "_residual_truncation_operator",
+          "primitive_calls": 1,
+          "calls": 1,
+          "exclusive_seconds": 0.0025098,
+          "cumulative_seconds": 0.1066151
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method builtins.sum>",
+          "primitive_calls": 322,
+          "calls": 322,
+          "exclusive_seconds": 0.0068151,
+          "cumulative_seconds": 0.08727370000000001
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\multi_prime_legendre_schur.py",
+          "line": 119,
+          "function": "<genexpr>",
+          "primitive_calls": 1088,
+          "calls": 1088,
+          "exclusive_seconds": 0.0029891,
+          "cumulative_seconds": 0.0586117
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\multi_prime_legendre_schur.py",
+          "line": 78,
+          "function": "_abs_power_action",
+          "primitive_calls": 1056,
+          "calls": 1056,
+          "exclusive_seconds": 0.055480100000000004,
+          "cumulative_seconds": 0.0556226
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 562,
+          "function": "assemble_active_prime_power_operator",
+          "primitive_calls": 1,
+          "calls": 1,
+          "exclusive_seconds": 6.950000000000001e-05,
+          "cumulative_seconds": 0.050540600000000005
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 526,
+          "function": "assemble_combined_prime_power_operator",
+          "primitive_calls": 1,
+          "calls": 1,
+          "exclusive_seconds": 0.00013560000000000002,
+          "cumulative_seconds": 0.050336900000000004
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 296,
+          "function": "_exact_inner",
+          "primitive_calls": 816,
+          "calls": 816,
+          "exclusive_seconds": 0.038957700000000005,
+          "cumulative_seconds": 0.038957700000000005
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 280,
+          "function": "_integrated_product",
+          "primitive_calls": 2720,
+          "calls": 2720,
+          "exclusive_seconds": 0.029505000000000003,
+          "cumulative_seconds": 0.0300295
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\multi_prime_legendre_schur.py",
+          "line": 49,
+          "function": "_potential_matrices",
+          "primitive_calls": 1,
+          "calls": 1,
+          "exclusive_seconds": 0.0056451,
+          "cumulative_seconds": 0.028722800000000003
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\legendre_schur.py",
+          "line": 32,
+          "function": "harmonic",
+          "primitive_calls": 225,
+          "calls": 225,
+          "exclusive_seconds": 0.0002885,
+          "cumulative_seconds": 0.0233081
+        },
+        {
+          "file": "C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\fractions.py",
+          "line": 697,
+          "function": "forward",
+          "primitive_calls": 7785,
+          "calls": 7785,
+          "exclusive_seconds": 0.0034843,
+          "cumulative_seconds": 0.0172455
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 485,
+          "function": "_operator_square_matrix_from_images",
+          "primitive_calls": 1,
+          "calls": 1,
+          "exclusive_seconds": 0.0013880000000000001,
+          "cumulative_seconds": 0.017129000000000002
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 465,
+          "function": "_low_matrix_from_images",
+          "primitive_calls": 1,
+          "calls": 1,
+          "exclusive_seconds": 0.0013665,
+          "cumulative_seconds": 0.016241600000000002
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\legendre_schur.py",
+          "line": 174,
+          "function": "potential_square_moment",
+          "primitive_calls": 63,
+          "calls": 63,
+          "exclusive_seconds": 0.0002009,
+          "cumulative_seconds": 0.0142783
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\multi_prime_legendre_schur.py",
+          "line": 164,
+          "function": "_mat_mul_diag_inverse",
+          "primitive_calls": 2,
+          "calls": 2,
+          "exclusive_seconds": 0.012479500000000001,
+          "cumulative_seconds": 0.013708300000000001
+        },
+        {
+          "file": "C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\fractions.py",
+          "line": 794,
+          "function": "_add",
+          "primitive_calls": 6270,
+          "calls": 6270,
+          "exclusive_seconds": 0.0049254,
+          "cumulative_seconds": 0.010179800000000001
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\legendre_schur.py",
+          "line": 33,
+          "function": "<genexpr>",
+          "primitive_calls": 5505,
+          "calls": 5505,
+          "exclusive_seconds": 0.0025002,
+          "cumulative_seconds": 0.008884900000000001
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\legendre_schur.py",
+          "line": 69,
+          "function": "legendre_polynomials",
+          "primitive_calls": 1,
+          "calls": 1,
+          "exclusive_seconds": 0.0001696,
+          "cumulative_seconds": 0.0074521000000000006
+        },
+        {
+          "file": "C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\fractions.py",
+          "line": 206,
+          "function": "__new__",
+          "primitive_calls": 6350,
+          "calls": 6350,
+          "exclusive_seconds": 0.0057015,
+          "cumulative_seconds": 0.007314200000000001
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\legendre_schur.py",
+          "line": 164,
+          "function": "potential_moment",
+          "primitive_calls": 63,
+          "calls": 63,
+          "exclusive_seconds": 0.0001273,
+          "cumulative_seconds": 0.0072227
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 383,
+          "function": "combined_piecewise_images",
+          "primitive_calls": 1,
+          "calls": 1,
+          "exclusive_seconds": 0.0012332,
+          "cumulative_seconds": 0.0069395
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 503,
+          "function": "_tail_gram",
+          "primitive_calls": 1,
+          "calls": 1,
+          "exclusive_seconds": 0.0058037,
+          "cumulative_seconds": 0.0063013
+        },
+        {
+          "file": "C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\fractions.py",
+          "line": 361,
+          "function": "_from_coprime_ints",
+          "primitive_calls": 7881,
+          "calls": 7881,
+          "exclusive_seconds": 0.0038754,
+          "cumulative_seconds": 0.0050536
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 265,
+          "function": "_arb_poly_shift",
+          "primitive_calls": 128,
+          "calls": 128,
+          "exclusive_seconds": 0.0020669,
+          "cumulative_seconds": 0.0044443
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\legendre_schur.py",
+          "line": 53,
+          "function": "poly_scale",
+          "primitive_calls": 90,
+          "calls": 90,
+          "exclusive_seconds": 0.00040270000000000003,
+          "cumulative_seconds": 0.0040513
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\legendre_schur.py",
+          "line": 43,
+          "function": "poly_add",
+          "primitive_calls": 30,
+          "calls": 30,
+          "exclusive_seconds": 0.0005909,
+          "cumulative_seconds": 0.0030856000000000004
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 261,
+          "function": "_arb_poly",
+          "primitive_calls": 160,
+          "calls": 160,
+          "exclusive_seconds": 0.000554,
+          "cumulative_seconds": 0.0027998000000000003
+        },
+        {
+          "file": "C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\fractions.py",
+          "line": 826,
+          "function": "_mul",
+          "primitive_calls": 1515,
+          "calls": 1515,
+          "exclusive_seconds": 0.0011495000000000001,
+          "cumulative_seconds": 0.0026917
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method math.gcd>",
+          "primitive_calls": 18155,
+          "calls": 18155,
+          "exclusive_seconds": 0.0025258000000000004,
+          "cumulative_seconds": 0.0025258000000000004
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 314,
+          "function": "_orthogonal_basis_norms",
+          "primitive_calls": 1,
+          "calls": 1,
+          "exclusive_seconds": 0.0004623,
+          "cumulative_seconds": 0.0025074000000000003
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 257,
+          "function": "_arb_fraction",
+          "primitive_calls": 2672,
+          "calls": 2672,
+          "exclusive_seconds": 0.0018637,
+          "cumulative_seconds": 0.0022817000000000002
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method __new__ of type object at 0x00007FFB4F076D90>",
+          "primitive_calls": 14231,
+          "calls": 14231,
+          "exclusive_seconds": 0.0020964,
+          "cumulative_seconds": 0.0020964
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\multi_prime_legendre_schur.py",
+          "line": 145,
+          "function": "_zero_matrix",
+          "primitive_calls": 7,
+          "calls": 7,
+          "exclusive_seconds": 0.0020675000000000003,
+          "cumulative_seconds": 0.0020675000000000003
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 289,
+          "function": "_exact_polynomials",
+          "primitive_calls": 3,
+          "calls": 3,
+          "exclusive_seconds": 0.0014116,
+          "cumulative_seconds": 0.0016503000000000002
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\residual_kernel.py",
+          "line": 230,
+          "function": "_suzuki_residual_series_coefficients",
+          "primitive_calls": 1,
+          "calls": 1,
+          "exclusive_seconds": 0.00016370000000000002,
+          "cumulative_seconds": 0.0012709000000000002
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\residual_kernel.py",
+          "line": 216,
+          "function": "_bernoulli_at_three_quarters",
+          "primitive_calls": 33,
+          "calls": 33,
+          "exclusive_seconds": 5.0900000000000004e-05,
+          "cumulative_seconds": 0.0010857
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 301,
+          "function": "_polynomial_parities",
+          "primitive_calls": 4,
+          "calls": 4,
+          "exclusive_seconds": 0.0006066,
+          "cumulative_seconds": 0.0010691000000000001
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 273,
+          "function": "_arb_poly_add_in_place",
+          "primitive_calls": 192,
+          "calls": 192,
+          "exclusive_seconds": 0.0009934,
+          "cumulative_seconds": 0.0010312000000000001
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method builtins.isinstance>",
+          "primitive_calls": 7894,
+          "calls": 7894,
+          "exclusive_seconds": 0.0009441,
+          "cumulative_seconds": 0.0010127
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\residual_kernel.py",
+          "line": 220,
+          "function": "<genexpr>",
+          "primitive_calls": 627,
+          "calls": 627,
+          "exclusive_seconds": 0.0007454,
+          "cumulative_seconds": 0.0008225000000000001
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method builtins.len>",
+          "primitive_calls": 7250,
+          "calls": 7250,
+          "exclusive_seconds": 0.0008134,
+          "cumulative_seconds": 0.0008134
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 461,
+          "function": "_zero_matrix",
+          "primitive_calls": 3,
+          "calls": 3,
+          "exclusive_seconds": 0.0007141000000000001,
+          "cumulative_seconds": 0.0007141000000000001
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 542,
+          "function": "<genexpr>",
+          "primitive_calls": 33,
+          "calls": 33,
+          "exclusive_seconds": 5.13e-05,
+          "cumulative_seconds": 0.0005916000000000001
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\multi_prime_legendre_schur.py",
+          "line": 124,
+          "function": "<genexpr>",
+          "primitive_calls": 304,
+          "calls": 304,
+          "exclusive_seconds": 0.0005068000000000001,
+          "cumulative_seconds": 0.0005068000000000001
+        },
+        {
+          "file": "C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\fractions.py",
+          "line": 711,
+          "function": "reverse",
+          "primitive_calls": 96,
+          "calls": 96,
+          "exclusive_seconds": 0.0001027,
+          "cumulative_seconds": 0.00047030000000000005
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\multi_prime_legendre_schur.py",
+          "line": 168,
+          "function": "<genexpr>",
+          "primitive_calls": 66,
+          "calls": 66,
+          "exclusive_seconds": 5.1200000000000004e-05,
+          "cumulative_seconds": 0.00042730000000000003
+        },
+        {
+          "file": "C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\fractions.py",
+          "line": 1059,
+          "function": "__bool__",
+          "primitive_calls": 2112,
+          "calls": 2112,
+          "exclusive_seconds": 0.00039670000000000005,
+          "cumulative_seconds": 0.00039670000000000005
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 310,
+          "function": "_opposite_parity",
+          "primitive_calls": 2608,
+          "calls": 2608,
+          "exclusive_seconds": 0.00039370000000000003,
+          "cumulative_seconds": 0.00039370000000000003
+        },
+        {
+          "file": "C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\fractions.py",
+          "line": 441,
+          "function": "numerator",
+          "primitive_calls": 4652,
+          "calls": 4652,
+          "exclusive_seconds": 0.0003859,
+          "cumulative_seconds": 0.0003859
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\multi_prime_legendre_schur.py",
+          "line": 154,
+          "function": "_mat_sub",
+          "primitive_calls": 2,
+          "calls": 2,
+          "exclusive_seconds": 0.0003701,
+          "cumulative_seconds": 0.0003729
+        },
+        {
+          "file": "C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\fractions.py",
+          "line": 445,
+          "function": "denominator",
+          "primitive_calls": 4652,
+          "calls": 4652,
+          "exclusive_seconds": 0.0003544,
+          "cumulative_seconds": 0.0003544
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\legendre_schur.py",
+          "line": 101,
+          "function": "_arb_fraction",
+          "primitive_calls": 192,
+          "calls": 192,
+          "exclusive_seconds": 0.00028250000000000004,
+          "cumulative_seconds": 0.0003255
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\multi_prime_legendre_schur.py",
+          "line": 221,
+          "function": "_residual_rho",
+          "primitive_calls": 1,
+          "calls": 1,
+          "exclusive_seconds": 0.00012140000000000001,
+          "cumulative_seconds": 0.0002498
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\multi_prime_legendre_schur.py",
+          "line": 141,
+          "function": "_arb_fraction",
+          "primitive_calls": 195,
+          "calls": 195,
+          "exclusive_seconds": 0.0002111,
+          "cumulative_seconds": 0.0002481
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 510,
+          "function": "<genexpr>",
+          "primitive_calls": 33,
+          "calls": 33,
+          "exclusive_seconds": 2.9500000000000002e-05,
+          "cumulative_seconds": 0.00023140000000000001
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\multi_prime_legendre_schur.py",
+          "line": 105,
+          "function": "<genexpr>",
+          "primitive_calls": 594,
+          "calls": 594,
+          "exclusive_seconds": 0.00012780000000000002,
+          "cumulative_seconds": 0.0001964
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 543,
+          "function": "<genexpr>",
+          "primitive_calls": 33,
+          "calls": 33,
+          "exclusive_seconds": 4.0300000000000004e-05,
+          "cumulative_seconds": 0.0001956
+        },
+        {
+          "file": "C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\fractions.py",
+          "line": 842,
+          "function": "_div",
+          "primitive_calls": 96,
+          "calls": 96,
+          "exclusive_seconds": 9.1e-05,
+          "cumulative_seconds": 0.00017930000000000002
+        },
+        {
+          "file": "D:\\riemann-conjecture\\scripts\\cert\\prime_power_terms.py",
+          "line": 544,
+          "function": "<genexpr>",
+          "primitive_calls": 192,
+          "calls": 192,
+          "exclusive_seconds": 0.0001553,
+          "cumulative_seconds": 0.0001553
+        }
+      ]
+    }
+  ]
+}

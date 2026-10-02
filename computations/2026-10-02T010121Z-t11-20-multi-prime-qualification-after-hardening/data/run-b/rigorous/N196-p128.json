@@ -1,0 +1,18 @@
+{
+  "role": "rigorous_full_tail_screening_attempt",
+  "support": "11/20",
+  "dimension": 196,
+  "residual_order": 32,
+  "screening_status": "precision_limit_reached",
+  "selected_precision_bits": null,
+  "attempt": {
+    "precision_bits": 128,
+    "status": "assembly_failed",
+    "precision_status": "ASSEMBLY_FAILED",
+    "precision_reasons": [
+      "assembly_failed"
+    ],
+    "error_type": "OverflowError",
+    "error": "integer division result too large for a float"
+  }
+}

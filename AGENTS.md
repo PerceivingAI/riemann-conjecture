@@ -63,6 +63,8 @@ All eight pairs above support registered independently verified finite-support r
 
 **Multi-prime P8 adversarial gate — `2026-10-01T19:06:42Z`.** Before any real v2 continuation, preserve `tests/data/certificate-v2-cross-layer-v1.json` and `tests/data/multi-prime-admission-v2.json` as test-only acceptance corpora; production code must never load them. First-window v2 certificates must serialize exactly `[2,3]` with exact `b_m=1`. Python semantics and Rust must independently prove strict support using the serialized rational log enclosures and reject equality/overlap. Keep parity and threshold tests in semantic/Rust layers; raw JSON Schema cannot prove those cross-field arithmetic relations. The v2 admission grid currently has zero allowed pairs, so do not add an admitted pair as part of testing/tooling work. A valid negative theorem matrix must remain theorem failure, not contract failure.
 
+**Multi-prime P9 qualification outcome — `2026-10-01T21:04:17Z`.** The first real qualification at `T=11/20` did not reach `CANDIDATE_READY`. The scout found the stable-positive frontier at `N=192` and selected `192/196`, but neither first 128-bit rigorous assembly completed within a one-hour external execution window despite both workers remaining CPU-active. No rigorous cache entry was committed. This is a performance/tooling blocker, not a mathematical negative. Do not extend the P9 grid or admit a v2 pair. Before a new qualification, perform a separate performance-hardening slice on the generic rigorous multi-prime assembler and re-run the full P2/P3/P8 regression gates.
+
 ## 3. Repository map
 
 Use this map before searching broadly.

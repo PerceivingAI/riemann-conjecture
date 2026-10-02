@@ -1,0 +1,174 @@
+{
+  "provenance": {
+    "utc": "2026-10-01T22:27:11.065141+00:00",
+    "head": "a26817d3e1bc22b6ed7aa3effefb96f172cb83fa",
+    "source_sha256": {
+      "scripts/profile_multi_prime_assembly.py": "494b4e1f796ffdade31d2614d96d8bb94a40c06efa0a669ba2f06dde4a81b251",
+      "scripts/cert/multi_prime_legendre_schur.py": "02d3afdd833de8873838e2ce8ab6949cecaf47ea4faa147444a208075241a058",
+      "scripts/cert/prime_power_terms.py": "016ad830751898cd0aff656becf9b0afb0d66871053601aeac0976ca6b872acf",
+      "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+      "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    },
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+    "cpu_count": 6,
+    "versions": {
+      "python-flint": "0.9.0",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null
+    },
+    "cache_policy": "no continuation cache; sequential assemblies in one process",
+    "peak_memory_scope": "process lifetime high-water mark, not per-stage allocation"
+  },
+  "samples": [
+    {
+      "dimension": 32,
+      "precision_bits": 128,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "timing",
+      "status": "completed",
+      "wall_seconds": 0.4499505000130739,
+      "cpu_seconds": 0.390625,
+      "peak_memory_bytes": 47775744,
+      "stages": {},
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[-1.21260944081829 +/- 1.71e-15]",
+      "mu_positive": false,
+      "schur_assembled": false,
+      "theorem_status": false
+    },
+    {
+      "dimension": 64,
+      "precision_bits": 128,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "timing",
+      "status": "completed",
+      "wall_seconds": 2.26278189997538,
+      "cpu_seconds": 2.109375,
+      "peak_memory_bytes": 51748864,
+      "stages": {},
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[-0.527213732549039 +/- 3.70e-16]",
+      "mu_positive": false,
+      "schur_assembled": false,
+      "theorem_status": false
+    },
+    {
+      "dimension": 96,
+      "precision_bits": 128,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "timing",
+      "status": "completed",
+      "wall_seconds": 6.553360399993835,
+      "cpu_seconds": 6.515625,
+      "peak_memory_bytes": 58200064,
+      "stages": {},
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[-0.124341488699367 +/- 2.40e-16]",
+      "mu_positive": false,
+      "schur_assembled": false,
+      "theorem_status": false
+    },
+    {
+      "dimension": 128,
+      "precision_bits": 128,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "timing",
+      "status": "completed",
+      "wall_seconds": 14.515247500006808,
+      "cpu_seconds": 14.40625,
+      "peak_memory_bytes": 71593984,
+      "stages": {},
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[0.162042456334364 +/- 1.86e-17]",
+      "mu_positive": true,
+      "schur_assembled": true,
+      "theorem_status": false
+    },
+    {
+      "dimension": 160,
+      "precision_bits": 128,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "timing",
+      "status": "completed",
+      "wall_seconds": 27.863500499981456,
+      "cpu_seconds": 27.53125,
+      "peak_memory_bytes": 86323200,
+      "stages": {},
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[0.384406588684933 +/- 4.75e-16]",
+      "mu_positive": true,
+      "schur_assembled": true,
+      "theorem_status": false
+    },
+    {
+      "dimension": 192,
+      "precision_bits": 128,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "timing",
+      "status": "completed",
+      "wall_seconds": 48.30399580000085,
+      "cpu_seconds": 47.859375,
+      "peak_memory_bytes": 103153664,
+      "stages": {},
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[0.566208306785962 +/- 1.74e-16]",
+      "mu_positive": true,
+      "schur_assembled": true,
+      "theorem_status": false
+    },
+    {
+      "dimension": 196,
+      "precision_bits": 128,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "timing",
+      "status": "completed",
+      "wall_seconds": 51.43025520001538,
+      "cpu_seconds": 51.03125,
+      "peak_memory_bytes": 106094592,
+      "stages": {},
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[0.586774539056011 +/- 3.69e-16]",
+      "mu_positive": true,
+      "schur_assembled": true,
+      "theorem_status": false
+    }
+  ]
+}

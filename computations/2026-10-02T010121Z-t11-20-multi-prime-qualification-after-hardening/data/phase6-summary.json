@@ -1,0 +1,108 @@
+{
+  "completed_utc": "2026-10-02T01:25:32Z",
+  "scope": "Phase 6 independent audit, fresh reproduction, exact comparison and Windows cleanup; no source changes",
+  "run_a": "data/run-a",
+  "run_b": "data/run-b",
+  "cache_policy": "separate fresh caches; policy recorded in Run A prelaunch reproduction procedure",
+  "run_a_wall_seconds": 168.78,
+  "run_b_wall_seconds": 169.39,
+  "terminal_states": [
+    "PRECISION_LIMIT_REACHED",
+    "PRECISION_LIMIT_REACHED"
+  ],
+  "selected_scout_primary": 192,
+  "fallback_dimensions": [
+    196
+  ],
+  "selected_dimension": null,
+  "selected_candidate_dimension": null,
+  "audits": {
+    "run-a": {
+      "status": "PASS",
+      "artifacts": 18,
+      "report": "phase6-audit-run-a.json"
+    },
+    "run-b": {
+      "status": "PASS",
+      "artifacts": 18,
+      "report": "phase6-audit-run-b.json"
+    }
+  },
+  "canonical_comparison": {
+    "status": "PASS",
+    "retained_differences": 0,
+    "raw_identical_artifacts": 17,
+    "artifact_count": 18,
+    "report": "phase6-canonical-comparison.json"
+  },
+  "cleanup": {
+    "status": "PASS",
+    "qualification_related_survivors": 0,
+    "processes_terminated": 0,
+    "report": "phase6-process-cleanup.json"
+  },
+  "frozen_source_integrity": "PASS: seven frozen files and 19-file run source snapshot unchanged",
+  "qualification_gate": "FAILED; both CANDIDATE_READY states required, neither reached",
+  "unmet_criteria": [
+    "selected candidate",
+    "rigorous/exact candidate per-prime losses and exact complement",
+    "positive exact even/odd witness margins",
+    "selected matrix/witness resolution",
+    "fixed-input higher-precision candidate stability"
+  ],
+  "prior_gate_evidence_not_rerun": {
+    "focused_python": {
+      "passed": 121,
+      "seconds": 33.47,
+      "output": "phase4-focused-output.txt"
+    },
+    "full_python": {
+      "passed": 647,
+      "seconds": 422.02,
+      "workers": 2,
+      "output": "phase4-full-python-output.txt",
+      "excluded_tiers": [
+        "slow_acceptance",
+        "retained_proofs",
+        "parallel_acceptance"
+      ]
+    },
+    "rust_tests": {
+      "passed": 67,
+      "suites": 10,
+      "output": "phase4-rust-tests-workspace-format-output.txt"
+    },
+    "workspace_rustfmt": {
+      "status": "FAILED",
+      "command": "cargo fmt --all -- --check",
+      "exit_code": 1,
+      "unmodified_files": [
+        "crates/rh_engine/src/laguerre.rs",
+        "crates/rh_engine/src/lib.rs",
+        "crates/rh_engine/src/sieve.rs",
+        "crates/rh_engine/src/main.rs"
+      ],
+      "action": "Preserve unrelated source; do not substitute scoped formatting for the workspace gate."
+    },
+    "rh_cert_rustfmt": {
+      "status": "PASSED",
+      "command": "cargo fmt -p rh_cert -- --check"
+    },
+    "clippy": {
+      "status": "PASSED",
+      "command": "cargo clippy -p rh_cert --all-targets -- -D warnings"
+    },
+    "retained_replay": {
+      "passed": 8,
+      "total": 8,
+      "hash_and_independent_verification": true,
+      "output": "phase4-clippy-retained-output.txt",
+      "pipeline_wall_seconds": 375.24
+    },
+    "acceptance_status": "BLOCKED_BY_WORKSPACE_FORMAT"
+  },
+  "theorem_status": false,
+  "independently_verified": false,
+  "whitelisted": false,
+  "rh_status": "UNRESOLVED"
+}

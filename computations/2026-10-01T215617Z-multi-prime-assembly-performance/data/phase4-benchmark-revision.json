@@ -1,0 +1,8 @@
+{
+  "created_utc": "2026-10-01T23:39:52Z",
+  "reason": "Capture native matrix widths and mu enclosure after candidate timing, including failed witness cases, without altering numerical computation or timed totals.",
+  "benchmark_sha256": "9b3fb5e602b7ce7cf3c60e7208ce86e637fafaef61d22c4ddf40b0ff7444b8a3",
+  "original_benchmark_sha256": "98bcb1dc6785745d473dd825b2219a8b2070ac64eaad8627a8525f4e4bc0833f",
+  "measurement_cases": "Unchanged from phase4-predeclaration.json",
+  "tool_smoke_note": "Small tool validation can overlap acceptance; exclude those times from uncontended benchmark tables."
+}
