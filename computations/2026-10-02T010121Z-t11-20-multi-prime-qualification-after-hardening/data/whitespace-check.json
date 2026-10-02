@@ -1,0 +1,6 @@
+{
+  "command": "git diff --check",
+  "status": "PASSED",
+  "advisories": "Existing LF-to-CRLF warnings only; no whitespace errors.",
+  "phase6_audit_or_reproduction_performed": false
+}

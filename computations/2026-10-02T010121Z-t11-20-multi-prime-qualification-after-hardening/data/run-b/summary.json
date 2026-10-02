@@ -1,0 +1,3492 @@
+{
+  "role": "pre_theorem_multi_prime_continuation_driver",
+  "driver_version": "multi-prime-continuation-driver-p5-v1",
+  "cache_version": "multi-prime-continuation-driver-v1",
+  "state": "PRECISION_LIMIT_REACHED",
+  "status": "PRECISION_LIMIT_REACHED",
+  "workflow_state": "PRECISION_LIMIT_REACHED",
+  "workflow_trace": [
+    {
+      "sequence": 0,
+      "from": null,
+      "to": "VALIDATE_INPUT",
+      "reason": "driver_started",
+      "details": {}
+    },
+    {
+      "sequence": 1,
+      "from": "VALIDATE_INPUT",
+      "to": "FLOAT_SCOUT",
+      "reason": "validated_driver_inputs",
+      "details": {
+        "support": "11/20",
+        "dimension_count": 28,
+        "resolution_count": 8,
+        "scout_workers": 3
+      }
+    },
+    {
+      "sequence": 2,
+      "from": "FLOAT_SCOUT",
+      "to": "CHECK_SCOUT_STABILITY",
+      "reason": "floating_scout_complete",
+      "details": {
+        "completed_resolutions": 8,
+        "failed_resolutions": 0
+      }
+    },
+    {
+      "sequence": 3,
+      "from": "CHECK_SCOUT_STABILITY",
+      "to": "SELECT_DIMENSION",
+      "reason": "stable_positive_dimensions_found",
+      "details": {
+        "stable_dimensions": [
+          192,
+          196,
+          200,
+          204,
+          208,
+          212,
+          216,
+          220,
+          224,
+          228,
+          232,
+          236,
+          240,
+          244,
+          248,
+          252,
+          256
+        ]
+      }
+    },
+    {
+      "sequence": 4,
+      "from": "SELECT_DIMENSION",
+      "to": "RIGOROUS_PRECISION_SEARCH",
+      "reason": "selected_primary_and_fallback_dimensions",
+      "details": {
+        "primary_dimension": 192,
+        "fallback_dimensions": [
+          196
+        ],
+        "rigorous_workers": 2
+      }
+    },
+    {
+      "sequence": 5,
+      "from": "RIGOROUS_PRECISION_SEARCH",
+      "to": "CHECK_RIGOROUS_STABILITY",
+      "reason": "rigorous_precision_search_complete",
+      "details": {
+        "screened_dimensions": [
+          192,
+          196
+        ],
+        "surviving_dimensions": [],
+        "rigorous_failure_count": 0
+      }
+    },
+    {
+      "sequence": 6,
+      "from": "CHECK_RIGOROUS_STABILITY",
+      "to": "PRECISION_LIMIT_REACHED",
+      "reason": "precision_ladder_exhausted_without_stable_candidate",
+      "details": {
+        "survivors": []
+      }
+    }
+  ],
+  "theorem_status": false,
+  "independently_verified": false,
+  "whitelisted": false,
+  "automatic_promotion": false,
+  "promotion_requirements": [
+    "explicit_closed_contract_admission",
+    "retained_full_certificate_generation",
+    "fresh_independent_rust_verifier_pass"
+  ],
+  "forbidden_automatic_actions": [
+    "emit_theorem_certificate",
+    "edit_closed_contract_or_whitelist",
+    "invoke_independent_rust_verifier",
+    "grant_theorem_status"
+  ],
+  "support": "11/20",
+  "active_terms": [
+    2,
+    3
+  ],
+  "structural_window": "log(3)/2 < T < log(4)/2",
+  "dimensions": [
+    148,
+    152,
+    156,
+    160,
+    164,
+    168,
+    172,
+    176,
+    180,
+    184,
+    188,
+    192,
+    196,
+    200,
+    204,
+    208,
+    212,
+    216,
+    220,
+    224,
+    228,
+    232,
+    236,
+    240,
+    244,
+    248,
+    252,
+    256
+  ],
+  "scout_resolution_count": 8,
+  "scout_stability_window": 3,
+  "scout_resolution_plan": [
+    {
+      "level": 0,
+      "max_mode": 296,
+      "quadrature_order": 1404,
+      "shift_order": 702
+    },
+    {
+      "level": 1,
+      "max_mode": 336,
+      "quadrature_order": 1564,
+      "shift_order": 782
+    },
+    {
+      "level": 2,
+      "max_mode": 376,
+      "quadrature_order": 1724,
+      "shift_order": 862
+    },
+    {
+      "level": 3,
+      "max_mode": 416,
+      "quadrature_order": 1884,
+      "shift_order": 942
+    },
+    {
+      "level": 4,
+      "max_mode": 456,
+      "quadrature_order": 2044,
+      "shift_order": 1022
+    },
+    {
+      "level": 5,
+      "max_mode": 496,
+      "quadrature_order": 2204,
+      "shift_order": 1102
+    },
+    {
+      "level": 6,
+      "max_mode": 536,
+      "quadrature_order": 2364,
+      "shift_order": 1182
+    },
+    {
+      "level": 7,
+      "max_mode": 576,
+      "quadrature_order": 2524,
+      "shift_order": 1262
+    }
+  ],
+  "precision_ladder": [
+    128,
+    256,
+    384,
+    512
+  ],
+  "precision_start": 128,
+  "precision_max": 512,
+  "matrix_bits_start": 64,
+  "matrix_bits_max": 104,
+  "witness_bits_start": 32,
+  "witness_bits_max": 56,
+  "candidate_precision_step": 128,
+  "candidate_precision_extra_steps": 2,
+  "scout_workers": 3,
+  "rigorous_workers": 2,
+  "cache_dir": "computations\\2026-10-02T010121Z-t11-20-multi-prime-qualification-after-hardening\\data\\cache-b",
+  "residual_order": 32,
+  "matrix_bits_ladder": [
+    64,
+    80,
+    96,
+    104
+  ],
+  "witness_bits_ladder": [
+    32,
+    40,
+    48,
+    56
+  ],
+  "reconnaissance": [
+    {
+      "dimension": 148,
+      "classification": "negative",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 148,
+          "mu_scout": 0.30863977488659433,
+          "finite_block_min_eigenvalue": 4.813244492275458e-08,
+          "truncated_factor3_schur_min_eigenvalue": -4.75984233407125,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "negative"
+        },
+        {
+          "dimension": 148,
+          "mu_scout": 0.3086395507692812,
+          "finite_block_min_eigenvalue": 4.909201349598247e-08,
+          "truncated_factor3_schur_min_eigenvalue": -5.040610512757176,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "negative"
+        },
+        {
+          "dimension": 148,
+          "mu_scout": 0.308639386087207,
+          "finite_block_min_eigenvalue": 4.979624862551058e-08,
+          "truncated_factor3_schur_min_eigenvalue": -5.251361815344055,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "negative"
+        },
+        {
+          "dimension": 148,
+          "mu_scout": 0.308639261541634,
+          "finite_block_min_eigenvalue": 5.032925918376522e-08,
+          "truncated_factor3_schur_min_eigenvalue": -5.410115626302932,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "negative"
+        },
+        {
+          "dimension": 148,
+          "mu_scout": 0.3086391650753173,
+          "finite_block_min_eigenvalue": 5.0742731934891867e-08,
+          "truncated_factor3_schur_min_eigenvalue": -5.55495711921116,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "negative"
+        },
+        {
+          "dimension": 148,
+          "mu_scout": 0.3086390888406436,
+          "finite_block_min_eigenvalue": 5.106815866977322e-08,
+          "truncated_factor3_schur_min_eigenvalue": -5.670097651776352,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "negative"
+        },
+        {
+          "dimension": 148,
+          "mu_scout": 0.3086390275516324,
+          "finite_block_min_eigenvalue": 5.133099970377686e-08,
+          "truncated_factor3_schur_min_eigenvalue": -5.7920306295707835,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "negative"
+        },
+        {
+          "dimension": 148,
+          "mu_scout": 0.30863897754230774,
+          "finite_block_min_eigenvalue": 5.154507566205313e-08,
+          "truncated_factor3_schur_min_eigenvalue": -5.893214911641191,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 152,
+      "classification": "negative",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 152,
+          "mu_scout": 0.33521931487394685,
+          "finite_block_min_eigenvalue": 4.813071433551058e-08,
+          "truncated_factor3_schur_min_eigenvalue": -3.8267381276515176,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "negative"
+        },
+        {
+          "dimension": 152,
+          "mu_scout": 0.3352190907566337,
+          "finite_block_min_eigenvalue": 4.909028403426873e-08,
+          "truncated_factor3_schur_min_eigenvalue": -4.078955067690627,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "negative"
+        },
+        {
+          "dimension": 152,
+          "mu_scout": 0.3352189260745595,
+          "finite_block_min_eigenvalue": 4.9794518993296197e-08,
+          "truncated_factor3_schur_min_eigenvalue": -4.269122259324324,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "negative"
+        },
+        {
+          "dimension": 152,
+          "mu_scout": 0.33521880152898653,
+          "finite_block_min_eigenvalue": 5.0327529124944326e-08,
+          "truncated_factor3_schur_min_eigenvalue": -4.413114026224342,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "negative"
+        },
+        {
+          "dimension": 152,
+          "mu_scout": 0.3352187050626698,
+          "finite_block_min_eigenvalue": 5.074100235716294e-08,
+          "truncated_factor3_schur_min_eigenvalue": -4.545347194106244,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "negative"
+        },
+        {
+          "dimension": 152,
+          "mu_scout": 0.33521862882799613,
+          "finite_block_min_eigenvalue": 5.10664281032331e-08,
+          "truncated_factor3_schur_min_eigenvalue": -4.648008935031273,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "negative"
+        },
+        {
+          "dimension": 152,
+          "mu_scout": 0.33521856753898494,
+          "finite_block_min_eigenvalue": 5.132926839053631e-08,
+          "truncated_factor3_schur_min_eigenvalue": -4.759056207776178,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "negative"
+        },
+        {
+          "dimension": 152,
+          "mu_scout": 0.33521851752966025,
+          "finite_block_min_eigenvalue": 5.154334465934301e-08,
+          "truncated_factor3_schur_min_eigenvalue": -4.857105333717163,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 156,
+      "classification": "negative",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 156,
+          "mu_scout": 0.36111063839335333,
+          "finite_block_min_eigenvalue": 4.8129974032596614e-08,
+          "truncated_factor3_schur_min_eigenvalue": -3.0537742560620496,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "negative"
+        },
+        {
+          "dimension": 156,
+          "mu_scout": 0.3611104142760402,
+          "finite_block_min_eigenvalue": 4.9089542280796376e-08,
+          "truncated_factor3_schur_min_eigenvalue": -3.289041618182315,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "negative"
+        },
+        {
+          "dimension": 156,
+          "mu_scout": 0.361110249593966,
+          "finite_block_min_eigenvalue": 4.979377809781853e-08,
+          "truncated_factor3_schur_min_eigenvalue": -3.4708069058646647,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "negative"
+        },
+        {
+          "dimension": 156,
+          "mu_scout": 0.361110125048393,
+          "finite_block_min_eigenvalue": 5.032678735372358e-08,
+          "truncated_factor3_schur_min_eigenvalue": -3.6071001019406284,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "negative"
+        },
+        {
+          "dimension": 156,
+          "mu_scout": 0.3611100285820763,
+          "finite_block_min_eigenvalue": 5.0740259800602277e-08,
+          "truncated_factor3_schur_min_eigenvalue": -3.7308804966478295,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "negative"
+        },
+        {
+          "dimension": 156,
+          "mu_scout": 0.3611099523474026,
+          "finite_block_min_eigenvalue": 5.1065686670080434e-08,
+          "truncated_factor3_schur_min_eigenvalue": -3.8257833516368818,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "negative"
+        },
+        {
+          "dimension": 156,
+          "mu_scout": 0.3611098910583914,
+          "finite_block_min_eigenvalue": 5.132852599318885e-08,
+          "truncated_factor3_schur_min_eigenvalue": -3.925290326365549,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "negative"
+        },
+        {
+          "dimension": 156,
+          "mu_scout": 0.36110984104906674,
+          "finite_block_min_eigenvalue": 5.1542602144795305e-08,
+          "truncated_factor3_schur_min_eigenvalue": -4.017072162302644,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 160,
+      "classification": "negative",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 160,
+          "mu_scout": 0.3863484872450975,
+          "finite_block_min_eigenvalue": 4.81275927590025e-08,
+          "truncated_factor3_schur_min_eigenvalue": -2.3899680448758023,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "negative"
+        },
+        {
+          "dimension": 160,
+          "mu_scout": 0.38634826312778436,
+          "finite_block_min_eigenvalue": 4.908716120349358e-08,
+          "truncated_factor3_schur_min_eigenvalue": -2.6093151839561077,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "negative"
+        },
+        {
+          "dimension": 160,
+          "mu_scout": 0.38634809844571016,
+          "finite_block_min_eigenvalue": 4.979139620255245e-08,
+          "truncated_factor3_schur_min_eigenvalue": -2.7777691718529294,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "negative"
+        },
+        {
+          "dimension": 160,
+          "mu_scout": 0.3863479739001372,
+          "finite_block_min_eigenvalue": 5.032440652034109e-08,
+          "truncated_factor3_schur_min_eigenvalue": -2.9190333156057555,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "negative"
+        },
+        {
+          "dimension": 160,
+          "mu_scout": 0.3863478774338205,
+          "finite_block_min_eigenvalue": 5.073787791013464e-08,
+          "truncated_factor3_schur_min_eigenvalue": -3.0241634531850767,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "negative"
+        },
+        {
+          "dimension": 160,
+          "mu_scout": 0.3863478011991468,
+          "finite_block_min_eigenvalue": 5.106330341062008e-08,
+          "truncated_factor3_schur_min_eigenvalue": -3.1233870462311293,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "negative"
+        },
+        {
+          "dimension": 160,
+          "mu_scout": 0.3863477399101356,
+          "finite_block_min_eigenvalue": 5.132614357741261e-08,
+          "truncated_factor3_schur_min_eigenvalue": -3.208319777487487,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "negative"
+        },
+        {
+          "dimension": 160,
+          "mu_scout": 0.3863476899008109,
+          "finite_block_min_eigenvalue": 5.1540220103701034e-08,
+          "truncated_factor3_schur_min_eigenvalue": -3.2953800706048106,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 164,
+      "classification": "negative",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 164,
+          "mu_scout": 0.41096503717625676,
+          "finite_block_min_eigenvalue": 4.81263749790988e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.8104547265289987,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "negative"
+        },
+        {
+          "dimension": 164,
+          "mu_scout": 0.4109648130589436,
+          "finite_block_min_eigenvalue": 4.908594258136986e-08,
+          "truncated_factor3_schur_min_eigenvalue": -2.017792433811218,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "negative"
+        },
+        {
+          "dimension": 164,
+          "mu_scout": 0.4109646483768694,
+          "finite_block_min_eigenvalue": 4.9790177716021625e-08,
+          "truncated_factor3_schur_min_eigenvalue": -2.1858270271981173,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "negative"
+        },
+        {
+          "dimension": 164,
+          "mu_scout": 0.41096452383129645,
+          "finite_block_min_eigenvalue": 5.032318833179966e-08,
+          "truncated_factor3_schur_min_eigenvalue": -2.313967202546146,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "negative"
+        },
+        {
+          "dimension": 164,
+          "mu_scout": 0.41096442736497973,
+          "finite_block_min_eigenvalue": 5.073666005106436e-08,
+          "truncated_factor3_schur_min_eigenvalue": -2.4111514985338873,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "negative"
+        },
+        {
+          "dimension": 164,
+          "mu_scout": 0.41096435113030605,
+          "finite_block_min_eigenvalue": 5.106208548710652e-08,
+          "truncated_factor3_schur_min_eigenvalue": -2.5107440974598108,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "negative"
+        },
+        {
+          "dimension": 164,
+          "mu_scout": 0.41096428984129485,
+          "finite_block_min_eigenvalue": 5.132492571295511e-08,
+          "truncated_factor3_schur_min_eigenvalue": -2.587377877536972,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "negative"
+        },
+        {
+          "dimension": 164,
+          "mu_scout": 0.41096423983197017,
+          "finite_block_min_eigenvalue": 5.1539001926865676e-08,
+          "truncated_factor3_schur_min_eigenvalue": -2.667791264515479,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 168,
+      "classification": "negative",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 168,
+          "mu_scout": 0.434990144526882,
+          "finite_block_min_eigenvalue": 4.8126281655159613e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.3090268131420313,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "negative"
+        },
+        {
+          "dimension": 168,
+          "mu_scout": 0.43498992040956885,
+          "finite_block_min_eigenvalue": 4.908584970273789e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.5092126373315198,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "negative"
+        },
+        {
+          "dimension": 168,
+          "mu_scout": 0.43498975572749465,
+          "finite_block_min_eigenvalue": 4.979008498400651e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.667634213993428,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "negative"
+        },
+        {
+          "dimension": 168,
+          "mu_scout": 0.4349896311819217,
+          "finite_block_min_eigenvalue": 5.032309492039415e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.7904952412544919,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "negative"
+        },
+        {
+          "dimension": 168,
+          "mu_scout": 0.434989534715605,
+          "finite_block_min_eigenvalue": 5.073656663697414e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.8907475746828686,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "negative"
+        },
+        {
+          "dimension": 168,
+          "mu_scout": 0.4349894584809313,
+          "finite_block_min_eigenvalue": 5.1061992746891585e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.976273344543391,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "negative"
+        },
+        {
+          "dimension": 168,
+          "mu_scout": 0.4349893971919201,
+          "finite_block_min_eigenvalue": 5.1324832777881764e-08,
+          "truncated_factor3_schur_min_eigenvalue": -2.0541927041346,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "negative"
+        },
+        {
+          "dimension": 168,
+          "mu_scout": 0.4349893471825954,
+          "finite_block_min_eigenvalue": 5.153890903599533e-08,
+          "truncated_factor3_schur_min_eigenvalue": -2.1275307311109906,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 172,
+      "classification": "negative",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 172,
+          "mu_scout": 0.4584515639361184,
+          "finite_block_min_eigenvalue": 4.812451244443143e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.884397329462483,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "negative"
+        },
+        {
+          "dimension": 172,
+          "mu_scout": 0.45845133981880526,
+          "finite_block_min_eigenvalue": 4.9084080065555245e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.0670986758103336,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "negative"
+        },
+        {
+          "dimension": 172,
+          "mu_scout": 0.45845117513673106,
+          "finite_block_min_eigenvalue": 4.978831458098734e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.2179994783395607,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "negative"
+        },
+        {
+          "dimension": 172,
+          "mu_scout": 0.4584510505911581,
+          "finite_block_min_eigenvalue": 5.032132440898893e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.33410025846144,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "negative"
+        },
+        {
+          "dimension": 172,
+          "mu_scout": 0.4584509541248414,
+          "finite_block_min_eigenvalue": 5.073479633518668e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.4363506037937182,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "negative"
+        },
+        {
+          "dimension": 172,
+          "mu_scout": 0.4584508778901677,
+          "finite_block_min_eigenvalue": 5.106022250875512e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.510795853466706,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "negative"
+        },
+        {
+          "dimension": 172,
+          "mu_scout": 0.4584508166011565,
+          "finite_block_min_eigenvalue": 5.13230625694238e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.5903586929610851,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "negative"
+        },
+        {
+          "dimension": 172,
+          "mu_scout": 0.4584507665918318,
+          "finite_block_min_eigenvalue": 5.15371390107428e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.656289699945238,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 176,
+      "classification": "negative",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 176,
+          "mu_scout": 0.4813751410898126,
+          "finite_block_min_eigenvalue": 4.81230929791995e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.4989041214144434,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "negative"
+        },
+        {
+          "dimension": 176,
+          "mu_scout": 0.48137491697249946,
+          "finite_block_min_eigenvalue": 4.9082659505732374e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.673673081567463,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "negative"
+        },
+        {
+          "dimension": 176,
+          "mu_scout": 0.48137475229042526,
+          "finite_block_min_eigenvalue": 4.978689458263846e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.8166866645449113,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "negative"
+        },
+        {
+          "dimension": 176,
+          "mu_scout": 0.4813746277448523,
+          "finite_block_min_eigenvalue": 5.0319904119729476e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.9361000050028814,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "negative"
+        },
+        {
+          "dimension": 176,
+          "mu_scout": 0.4813745312785356,
+          "finite_block_min_eigenvalue": 5.0733376044917796e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.0257891470783838,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "negative"
+        },
+        {
+          "dimension": 176,
+          "mu_scout": 0.4813744550438619,
+          "finite_block_min_eigenvalue": 5.105880153309509e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.0994052830630965,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "negative"
+        },
+        {
+          "dimension": 176,
+          "mu_scout": 0.4813743937548507,
+          "finite_block_min_eigenvalue": 5.132164128222683e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.17248804611621,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "negative"
+        },
+        {
+          "dimension": 176,
+          "mu_scout": 0.481374343745526,
+          "finite_block_min_eigenvalue": 5.1535717594355235e-08,
+          "truncated_factor3_schur_min_eigenvalue": -1.236263572918511,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 180,
+      "classification": "negative",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 180,
+          "mu_scout": 0.5037849838663533,
+          "finite_block_min_eigenvalue": 4.8122616924198685e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.14600378206864673,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "negative"
+        },
+        {
+          "dimension": 180,
+          "mu_scout": 0.5037847597490401,
+          "finite_block_min_eigenvalue": 4.908218395592033e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.31515570196870785,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "negative"
+        },
+        {
+          "dimension": 180,
+          "mu_scout": 0.5037845950669659,
+          "finite_block_min_eigenvalue": 4.978641843520937e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.4541515801579586,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "negative"
+        },
+        {
+          "dimension": 180,
+          "mu_scout": 0.503784470521393,
+          "finite_block_min_eigenvalue": 5.0319427571172107e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.5658139339234989,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "negative"
+        },
+        {
+          "dimension": 180,
+          "mu_scout": 0.5037843740550763,
+          "finite_block_min_eigenvalue": 5.0732899504497455e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.6511672733848801,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "negative"
+        },
+        {
+          "dimension": 180,
+          "mu_scout": 0.5037842978204026,
+          "finite_block_min_eigenvalue": 5.1058325534463556e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.7309137557454148,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "negative"
+        },
+        {
+          "dimension": 180,
+          "mu_scout": 0.5037842365313914,
+          "finite_block_min_eigenvalue": 5.1321164519444126e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.7927382877536653,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "negative"
+        },
+        {
+          "dimension": 180,
+          "mu_scout": 0.5037841865220667,
+          "finite_block_min_eigenvalue": 5.1535240994830755e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.8569497556575296,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 184,
+      "classification": "negative",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 184,
+          "mu_scout": 0.5257036147223246,
+          "finite_block_min_eigenvalue": 4.8121212901645786e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.772467916271476e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 184,
+          "mu_scout": 0.5257033906050115,
+          "finite_block_min_eigenvalue": 4.9080780164357695e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.007978664870898699,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "negative"
+        },
+        {
+          "dimension": 184,
+          "mu_scout": 0.5257032259229373,
+          "finite_block_min_eigenvalue": 4.9785013540644494e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.1315186690775408,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "negative"
+        },
+        {
+          "dimension": 184,
+          "mu_scout": 0.5257031013773643,
+          "finite_block_min_eigenvalue": 5.031802331168262e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.23575558166705562,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "negative"
+        },
+        {
+          "dimension": 184,
+          "mu_scout": 0.5257030049110476,
+          "finite_block_min_eigenvalue": 5.0731495705495974e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.32370280723851047,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "negative"
+        },
+        {
+          "dimension": 184,
+          "mu_scout": 0.5257029286763739,
+          "finite_block_min_eigenvalue": 5.105692010137225e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.39068159468405295,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "negative"
+        },
+        {
+          "dimension": 184,
+          "mu_scout": 0.5257028673873627,
+          "finite_block_min_eigenvalue": 5.131976005810402e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.4524217853451898,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "negative"
+        },
+        {
+          "dimension": 184,
+          "mu_scout": 0.525702817378038,
+          "finite_block_min_eigenvalue": 5.1533836320059946e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.5075091813155764,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 188,
+      "classification": "negative",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 188,
+          "mu_scout": 0.5471521067328098,
+          "finite_block_min_eigenvalue": 4.8120392160658694e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.77789333540976e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 188,
+          "mu_scout": 0.5471518826154966,
+          "finite_block_min_eigenvalue": 4.907995923537746e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.8675458521426625e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 188,
+          "mu_scout": 0.5471517179334224,
+          "finite_block_min_eigenvalue": 4.978419453876468e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.932378064931339e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 188,
+          "mu_scout": 0.5471515933878495,
+          "finite_block_min_eigenvalue": 5.0317203078389354e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.980587949594156e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 188,
+          "mu_scout": 0.5471514969215328,
+          "finite_block_min_eigenvalue": 5.0730674836966697e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.04229284737181559,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "negative"
+        },
+        {
+          "dimension": 188,
+          "mu_scout": 0.5471514206868591,
+          "finite_block_min_eigenvalue": 5.105610015958892e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.10577693616679952,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "negative"
+        },
+        {
+          "dimension": 188,
+          "mu_scout": 0.5471513593978479,
+          "finite_block_min_eigenvalue": 5.1318939398928684e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.1700949059143454,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "negative"
+        },
+        {
+          "dimension": 188,
+          "mu_scout": 0.5471513093885232,
+          "finite_block_min_eigenvalue": 5.153301539605384e-08,
+          "truncated_factor3_schur_min_eigenvalue": -0.21887194292894582,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "negative"
+        }
+      ]
+    },
+    {
+      "dimension": 192,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 192,
+          "mu_scout": 0.568150205346126,
+          "finite_block_min_eigenvalue": 4.812029595984203e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.778874941923607e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 192,
+          "mu_scout": 0.5681499812288129,
+          "finite_block_min_eigenvalue": 4.907986245196208e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.8688538874578067e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 192,
+          "mu_scout": 0.5681498165467387,
+          "finite_block_min_eigenvalue": 4.978409665009026e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.9338153152037776e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 192,
+          "mu_scout": 0.5681496920011657,
+          "finite_block_min_eigenvalue": 5.031710627177992e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.9825579417338983e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 192,
+          "mu_scout": 0.568149595534849,
+          "finite_block_min_eigenvalue": 5.073057760558459e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.021034346818043e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 192,
+          "mu_scout": 0.5681495193001753,
+          "finite_block_min_eigenvalue": 5.1056004100306785e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0494164728215144e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 192,
+          "mu_scout": 0.5681494580111641,
+          "finite_block_min_eigenvalue": 5.131884275217522e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.073412137035621e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 192,
+          "mu_scout": 0.5681494080018394,
+          "finite_block_min_eigenvalue": 5.1532919485985716e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.089949854580437e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 196,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 196,
+          "mu_scout": 0.5887164376161742,
+          "finite_block_min_eigenvalue": 4.811912362075062e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.782338959153533e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 196,
+          "mu_scout": 0.588716213498861,
+          "finite_block_min_eigenvalue": 4.907869081844732e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.8723454597421415e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 196,
+          "mu_scout": 0.5887160488167869,
+          "finite_block_min_eigenvalue": 4.978292530173038e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.93752594177371e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 196,
+          "mu_scout": 0.5887159242712139,
+          "finite_block_min_eigenvalue": 5.0315934504403525e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.987201227051012e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 196,
+          "mu_scout": 0.5887158278048972,
+          "finite_block_min_eigenvalue": 5.0729406405084025e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.025588809365185e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 196,
+          "mu_scout": 0.5887157515702235,
+          "finite_block_min_eigenvalue": 5.105483205394977e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.05465410158953e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 196,
+          "mu_scout": 0.5887156902812123,
+          "finite_block_min_eigenvalue": 5.131767132600709e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.078964378451535e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 196,
+          "mu_scout": 0.5887156402718876,
+          "finite_block_min_eigenvalue": 5.1531747359226114e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.098089169632692e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 200,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 200,
+          "mu_scout": 0.6088682104267997,
+          "finite_block_min_eigenvalue": 4.811835692545941e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.7861641369649245e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 200,
+          "mu_scout": 0.6088679863094866,
+          "finite_block_min_eigenvalue": 4.907792282306308e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.876612101591226e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 200,
+          "mu_scout": 0.6088678216274124,
+          "finite_block_min_eigenvalue": 4.9782157243999324e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.94212367870497e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 200,
+          "mu_scout": 0.6088676970818394,
+          "finite_block_min_eigenvalue": 5.0315166207620174e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.9918533917940946e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 200,
+          "mu_scout": 0.6088676006155227,
+          "finite_block_min_eigenvalue": 5.072863857377642e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0300308621807687e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 200,
+          "mu_scout": 0.608867524380849,
+          "finite_block_min_eigenvalue": 5.10540638509273e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.06007365169808e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 200,
+          "mu_scout": 0.6088674630918378,
+          "finite_block_min_eigenvalue": 5.131690215631848e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0839369424341124e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 200,
+          "mu_scout": 0.6088674130825131,
+          "finite_block_min_eigenvalue": 5.153097975138974e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.10379215564343e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 204,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 204,
+          "mu_scout": 0.6286218990131118,
+          "finite_block_min_eigenvalue": 4.811830722312223e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.7873657812656256e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 204,
+          "mu_scout": 0.6286216748957987,
+          "finite_block_min_eigenvalue": 4.907787463314216e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.87810894912524e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 204,
+          "mu_scout": 0.6286215102137245,
+          "finite_block_min_eigenvalue": 4.978210843625088e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.9438739327390956e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 204,
+          "mu_scout": 0.6286213856681515,
+          "finite_block_min_eigenvalue": 5.031511794076093e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.993580721011486e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 204,
+          "mu_scout": 0.6286212892018348,
+          "finite_block_min_eigenvalue": 5.072858919578647e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.032179539213197e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 204,
+          "mu_scout": 0.6286212129671611,
+          "finite_block_min_eigenvalue": 5.105401539658517e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0622876762061384e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 204,
+          "mu_scout": 0.6286211516781499,
+          "finite_block_min_eigenvalue": 5.131685538584164e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.086306054466721e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 204,
+          "mu_scout": 0.6286211016688252,
+          "finite_block_min_eigenvalue": 5.153093031812574e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.106068066270236e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 208,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 208,
+          "mu_scout": 0.6479929269077269,
+          "finite_block_min_eigenvalue": 4.811737770789504e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.790118271208183e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 208,
+          "mu_scout": 0.6479927027904138,
+          "finite_block_min_eigenvalue": 4.9076944563929415e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.88089891300041e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 208,
+          "mu_scout": 0.6479925381083396,
+          "finite_block_min_eigenvalue": 4.9781178223772954e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.946730245797001e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 208,
+          "mu_scout": 0.6479924135627666,
+          "finite_block_min_eigenvalue": 5.0314187595734584e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.996693860566747e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 208,
+          "mu_scout": 0.6479923170964499,
+          "finite_block_min_eigenvalue": 5.0727659814915096e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.035547961505702e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 208,
+          "mu_scout": 0.6479922408617762,
+          "finite_block_min_eigenvalue": 5.105308505655663e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0654501244558253e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 208,
+          "mu_scout": 0.647992179572765,
+          "finite_block_min_eigenvalue": 5.1315924647495626e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.089848033807816e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 208,
+          "mu_scout": 0.6479921295634403,
+          "finite_block_min_eigenvalue": 5.153000047306752e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.109409347473196e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 212,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 212,
+          "mu_scout": 0.6669958382898136,
+          "finite_block_min_eigenvalue": 4.81166169688986e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.792832144007884e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 212,
+          "mu_scout": 0.6669956141725004,
+          "finite_block_min_eigenvalue": 4.907618289584348e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.883892067272333e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 212,
+          "mu_scout": 0.6669954494904262,
+          "finite_block_min_eigenvalue": 4.978041819663833e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.949857584063773e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 212,
+          "mu_scout": 0.6669953249448533,
+          "finite_block_min_eigenvalue": 5.0313427358836094e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.999931613712448e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 212,
+          "mu_scout": 0.6669952284785365,
+          "finite_block_min_eigenvalue": 5.072689903308303e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.038709502564362e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 212,
+          "mu_scout": 0.6669951522438629,
+          "finite_block_min_eigenvalue": 5.1052324879911435e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0687366357236265e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 212,
+          "mu_scout": 0.6669950909548517,
+          "finite_block_min_eigenvalue": 5.1315163859577885e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0932800290507505e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 212,
+          "mu_scout": 0.666995040945527,
+          "finite_block_min_eigenvalue": 5.152924047862615e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.1129185651801015e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 216,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 216,
+          "mu_scout": 0.6856443635871541,
+          "finite_block_min_eigenvalue": 4.811642653263018e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.793841901091702e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 216,
+          "mu_scout": 0.6856441394698409,
+          "finite_block_min_eigenvalue": 4.907599389074315e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.884953860761669e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 216,
+          "mu_scout": 0.6856439747877667,
+          "finite_block_min_eigenvalue": 4.978022823354811e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.951147408570657e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 216,
+          "mu_scout": 0.6856438502421938,
+          "finite_block_min_eigenvalue": 5.031323866230404e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0012405146454695e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 216,
+          "mu_scout": 0.685643753775877,
+          "finite_block_min_eigenvalue": 5.072670970182448e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.040052642383829e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 216,
+          "mu_scout": 0.6856436775412034,
+          "finite_block_min_eigenvalue": 5.105213615760495e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.070390637193958e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 216,
+          "mu_scout": 0.6856436162521922,
+          "finite_block_min_eigenvalue": 5.1314974629915875e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.094758516014645e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 216,
+          "mu_scout": 0.6856435662428675,
+          "finite_block_min_eigenvalue": 5.152905130198515e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.1146898948287426e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 220,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 220,
+          "mu_scout": 0.7039514790724493,
+          "finite_block_min_eigenvalue": 4.8115587504799955e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.795967439659338e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 220,
+          "mu_scout": 0.7039512549551361,
+          "finite_block_min_eigenvalue": 4.907515560070103e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.8871643971386084e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 220,
+          "mu_scout": 0.7039510902730619,
+          "finite_block_min_eigenvalue": 4.97793897390859e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.953276531804125e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 220,
+          "mu_scout": 0.7039509657274889,
+          "finite_block_min_eigenvalue": 5.03123996758225e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.003505968297384e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 220,
+          "mu_scout": 0.7039508692611722,
+          "finite_block_min_eigenvalue": 5.0725872022287296e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.042551678473614e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 220,
+          "mu_scout": 0.7039507930264985,
+          "finite_block_min_eigenvalue": 5.105129736691805e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0728349136466204e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 220,
+          "mu_scout": 0.7039507317374873,
+          "finite_block_min_eigenvalue": 5.131413691220139e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0972214625137443e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 220,
+          "mu_scout": 0.7039506817281627,
+          "finite_block_min_eigenvalue": 5.152821266077792e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.117224748512958e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 224,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 224,
+          "mu_scout": 0.7219294611018023,
+          "finite_block_min_eigenvalue": 4.811503777591038e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.7978245661823367e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 224,
+          "mu_scout": 0.7219292369844892,
+          "finite_block_min_eigenvalue": 4.907460565503041e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.889259975439781e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 224,
+          "mu_scout": 0.721929072302415,
+          "finite_block_min_eigenvalue": 4.977883917794112e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.955596623805541e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 224,
+          "mu_scout": 0.721928947756842,
+          "finite_block_min_eigenvalue": 5.0311849619140495e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.005874532020556e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 224,
+          "mu_scout": 0.7219288512905253,
+          "finite_block_min_eigenvalue": 5.0725321260843166e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.044913480925046e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 224,
+          "mu_scout": 0.7219287750558516,
+          "finite_block_min_eigenvalue": 5.105074746622192e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0751553942545636e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 224,
+          "mu_scout": 0.7219287137668404,
+          "finite_block_min_eigenvalue": 5.131358653509084e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0997908866748964e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 224,
+          "mu_scout": 0.7219286637575157,
+          "finite_block_min_eigenvalue": 5.1527662608857144e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.119656936032788e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 228,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 228,
+          "mu_scout": 0.7395899355632016,
+          "finite_block_min_eigenvalue": 4.811497044876588e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.798512789483056e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 228,
+          "mu_scout": 0.7395897114458885,
+          "finite_block_min_eigenvalue": 4.9074537626509854e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.890029987151036e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 228,
+          "mu_scout": 0.7395895467638143,
+          "finite_block_min_eigenvalue": 4.9778771104897826e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.956509805349515e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 228,
+          "mu_scout": 0.7395894222182413,
+          "finite_block_min_eigenvalue": 5.0311781378525446e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.006871720927214e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 228,
+          "mu_scout": 0.7395893257519246,
+          "finite_block_min_eigenvalue": 5.072525287371273e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0459209942655654e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 228,
+          "mu_scout": 0.7395892495172509,
+          "finite_block_min_eigenvalue": 5.105067937369821e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0763213965329e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 228,
+          "mu_scout": 0.7395891882282397,
+          "finite_block_min_eigenvalue": 5.1313517213227244e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.100984289027594e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 228,
+          "mu_scout": 0.739589138218915,
+          "finite_block_min_eigenvalue": 5.1527594682873045e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.120880610903057e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 232,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 232,
+          "mu_scout": 0.7569439230338233,
+          "finite_block_min_eigenvalue": 4.811422758744932e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.800148703687321e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 232,
+          "mu_scout": 0.7569436989165101,
+          "finite_block_min_eigenvalue": 4.907379495501917e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.8918360333164664e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 232,
+          "mu_scout": 0.7569435342344359,
+          "finite_block_min_eigenvalue": 4.977802968121631e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.958321953707334e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 232,
+          "mu_scout": 0.756943409688863,
+          "finite_block_min_eigenvalue": 5.0311038477038274e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.008749015175278e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 232,
+          "mu_scout": 0.7569433132225463,
+          "finite_block_min_eigenvalue": 5.0724510691066304e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0478993395327435e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 232,
+          "mu_scout": 0.7569432369878726,
+          "finite_block_min_eigenvalue": 5.104993687437993e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.078378853741016e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 232,
+          "mu_scout": 0.7569431756988614,
+          "finite_block_min_eigenvalue": 5.131277580203493e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.10298185598185e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 232,
+          "mu_scout": 0.7569431256895367,
+          "finite_block_min_eigenvalue": 5.152685225331994e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.1230046141311735e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 236,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 236,
+          "mu_scout": 0.7740018800854189,
+          "finite_block_min_eigenvalue": 4.811370884043693e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.80152218768354e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 236,
+          "mu_scout": 0.7740016559681058,
+          "finite_block_min_eigenvalue": 4.907327646569259e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.89329346376965e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 236,
+          "mu_scout": 0.7740014912860316,
+          "finite_block_min_eigenvalue": 4.977751110677163e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.959958462093664e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 236,
+          "mu_scout": 0.7740013667404586,
+          "finite_block_min_eigenvalue": 5.031052091768991e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.010430718919836e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 236,
+          "mu_scout": 0.7740012702741419,
+          "finite_block_min_eigenvalue": 5.072399226318775e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.049637359954824e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 236,
+          "mu_scout": 0.7740011940394682,
+          "finite_block_min_eigenvalue": 5.104941839851982e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0801113298674404e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 236,
+          "mu_scout": 0.774001132750457,
+          "finite_block_min_eigenvalue": 5.131225695485908e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.1047685987193994e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 236,
+          "mu_scout": 0.7740010827411323,
+          "finite_block_min_eigenvalue": 5.152633417446954e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.124858533071067e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 240,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 240,
+          "mu_scout": 0.7907737371254653,
+          "finite_block_min_eigenvalue": 4.8113695815057336e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.801767534040318e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 240,
+          "mu_scout": 0.7907735130081521,
+          "finite_block_min_eigenvalue": 4.9073263144084526e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.893651416823609e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 240,
+          "mu_scout": 0.7907733483260779,
+          "finite_block_min_eigenvalue": 4.9777497696722814e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.9603231670336854e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 240,
+          "mu_scout": 0.790773223780505,
+          "finite_block_min_eigenvalue": 5.031050621908953e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.010880129316993e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 240,
+          "mu_scout": 0.7907731273141883,
+          "finite_block_min_eigenvalue": 5.072397917584271e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0500987968107416e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 240,
+          "mu_scout": 0.7907730510795146,
+          "finite_block_min_eigenvalue": 5.1049404722448654e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0806273769844234e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 240,
+          "mu_scout": 0.7907729897905034,
+          "finite_block_min_eigenvalue": 5.1312244823850914e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.105395141876452e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 240,
+          "mu_scout": 0.7907729397811787,
+          "finite_block_min_eigenvalue": 5.152632056321973e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.1254366577370375e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 244,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 244,
+          "mu_scout": 0.8072689331169709,
+          "finite_block_min_eigenvalue": 4.811308605430466e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.802895653808626e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 244,
+          "mu_scout": 0.8072687089996577,
+          "finite_block_min_eigenvalue": 4.907265348938654e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.894827359645414e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 244,
+          "mu_scout": 0.8072685443175835,
+          "finite_block_min_eigenvalue": 4.9776887456512824e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.961596876808405e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 244,
+          "mu_scout": 0.8072684197720106,
+          "finite_block_min_eigenvalue": 5.030989736015296e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0121548185930944e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 244,
+          "mu_scout": 0.8072683233056939,
+          "finite_block_min_eigenvalue": 5.072336844224501e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0514354259253404e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 244,
+          "mu_scout": 0.8072682470710202,
+          "finite_block_min_eigenvalue": 5.1048795102900435e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.082035489993617e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 244,
+          "mu_scout": 0.807268185782009,
+          "finite_block_min_eigenvalue": 5.1311633649881994e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.1067749863052e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 244,
+          "mu_scout": 0.8072681357726843,
+          "finite_block_min_eigenvalue": 5.152571032524605e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.126842697131168e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 248,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 248,
+          "mu_scout": 0.8234964474809061,
+          "finite_block_min_eigenvalue": 4.811250338958617e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.804161126310356e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 248,
+          "mu_scout": 0.823496223363593,
+          "finite_block_min_eigenvalue": 4.907207051620527e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.896243626078158e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 248,
+          "mu_scout": 0.8234960586815188,
+          "finite_block_min_eigenvalue": 4.977630476160494e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.9631189791425506e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 248,
+          "mu_scout": 0.8234959341359458,
+          "finite_block_min_eigenvalue": 5.0309313929304656e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0137673601329786e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 248,
+          "mu_scout": 0.8234958376696291,
+          "finite_block_min_eigenvalue": 5.0722785713282836e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.0530924677689223e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 248,
+          "mu_scout": 0.8234957614349554,
+          "finite_block_min_eigenvalue": 5.104821193767791e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.083706460373072e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 248,
+          "mu_scout": 0.8234957001459442,
+          "finite_block_min_eigenvalue": 5.131105019341062e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.108458458886656e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 248,
+          "mu_scout": 0.8234956501366195,
+          "finite_block_min_eigenvalue": 5.152512596996729e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.128618261909165e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 252,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 252,
+          "mu_scout": 0.8394648294512086,
+          "finite_block_min_eigenvalue": 4.8112259363268086e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.804771246397428e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 252,
+          "mu_scout": 0.8394646053338954,
+          "finite_block_min_eigenvalue": 4.907182636523476e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.896994056023358e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 252,
+          "mu_scout": 0.8394644406518212,
+          "finite_block_min_eigenvalue": 4.9776060555110494e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.963957344014461e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 252,
+          "mu_scout": 0.8394643161062483,
+          "finite_block_min_eigenvalue": 5.0309070097055775e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.014679903745605e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 252,
+          "mu_scout": 0.8394642196399316,
+          "finite_block_min_eigenvalue": 5.072254166665602e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.05404235826596e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 252,
+          "mu_scout": 0.8394641434052579,
+          "finite_block_min_eigenvalue": 5.104796676413361e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.084695955033779e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 252,
+          "mu_scout": 0.8394640821162467,
+          "finite_block_min_eigenvalue": 5.1310804816488025e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.109512222689273e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 252,
+          "mu_scout": 0.839464032106922,
+          "finite_block_min_eigenvalue": 5.1524882074437304e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.1296786521967415e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    },
+    {
+      "dimension": 256,
+      "classification": "stable_positive",
+      "stability_max_modes": [
+        496,
+        536,
+        576
+      ],
+      "resolutions": [
+        {
+          "dimension": 256,
+          "mu_scout": 0.8551822251226353,
+          "finite_block_min_eigenvalue": 4.8111591393875674e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.805951094047949e-08,
+          "max_mode": 296,
+          "quadrature_order": 1404,
+          "shift_order": 702,
+          "status": "positive"
+        },
+        {
+          "dimension": 256,
+          "mu_scout": 0.8551820010053222,
+          "finite_block_min_eigenvalue": 4.9071157119232345e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.898257149270491e-08,
+          "max_mode": 336,
+          "quadrature_order": 1564,
+          "shift_order": 782,
+          "status": "positive"
+        },
+        {
+          "dimension": 256,
+          "mu_scout": 0.855181836323248,
+          "finite_block_min_eigenvalue": 4.977539260374494e-08,
+          "truncated_factor3_schur_min_eigenvalue": 4.9653219416668684e-08,
+          "max_mode": 376,
+          "quadrature_order": 1724,
+          "shift_order": 862,
+          "status": "positive"
+        },
+        {
+          "dimension": 256,
+          "mu_scout": 0.855181711777675,
+          "finite_block_min_eigenvalue": 5.030840116055806e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.01608290188502e-08,
+          "max_mode": 416,
+          "quadrature_order": 1884,
+          "shift_order": 942,
+          "status": "positive"
+        },
+        {
+          "dimension": 256,
+          "mu_scout": 0.8551816153113583,
+          "finite_block_min_eigenvalue": 5.072187210305923e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.055484050966742e-08,
+          "max_mode": 456,
+          "quadrature_order": 2044,
+          "shift_order": 1022,
+          "status": "positive"
+        },
+        {
+          "dimension": 256,
+          "mu_scout": 0.8551815390766846,
+          "finite_block_min_eigenvalue": 5.1047297736805684e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.086179003072148e-08,
+          "max_mode": 496,
+          "quadrature_order": 2204,
+          "shift_order": 1102,
+          "status": "positive"
+        },
+        {
+          "dimension": 256,
+          "mu_scout": 0.8551814777876734,
+          "finite_block_min_eigenvalue": 5.131013718481394e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.111023067858904e-08,
+          "max_mode": 536,
+          "quadrature_order": 2364,
+          "shift_order": 1182,
+          "status": "positive"
+        },
+        {
+          "dimension": 256,
+          "mu_scout": 0.8551814277783487,
+          "finite_block_min_eigenvalue": 5.1524212819464056e-08,
+          "truncated_factor3_schur_min_eigenvalue": 5.131187993631147e-08,
+          "max_mode": 576,
+          "quadrature_order": 2524,
+          "shift_order": 1262,
+          "status": "positive"
+        }
+      ]
+    }
+  ],
+  "scout_failures": [],
+  "rigorous_screening": [
+    {
+      "dimension": 192,
+      "status": "precision_limit_reached",
+      "precision_status": "INSUFFICIENT_PRECISION",
+      "selected_precision_bits": null,
+      "attempts": [
+        {
+          "precision_bits": 128,
+          "status": "assembly_failed",
+          "precision_status": "ASSEMBLY_FAILED",
+          "precision_reasons": [
+            "assembly_failed"
+          ],
+          "error_type": "OverflowError",
+          "error": "integer division result too large for a float"
+        },
+        {
+          "support": "11/20",
+          "support_decimal": 0.55,
+          "active_terms": [
+            2,
+            3
+          ],
+          "mu_lower": 0.5662083067859621,
+          "mu_midpoint": 0.5662083067859621,
+          "mu_upper": 0.5662083067859621,
+          "mu_certified_positive": true,
+          "finite_block_min_eigenvalue_midpoint": -1.0646770380853902e+124,
+          "schur_min_eigenvalue_midpoint": -3.3223921809207717e+233,
+          "component_schur_penalty_operator_norm_midpoint": {
+            "GV": 1.30609480684146e+117,
+            "GP": 2.3369506396485895e+233,
+            "GR": 7.823863938686513e-14
+          },
+          "rho_R_upper": 2.329435733367713,
+          "residual_remainder_upper": 9.828028288169228e-16,
+          "interval_widths": {
+            "A_max": 4.378699694597354e+143,
+            "GV_max": 5.70104863611973e+133,
+            "GP_max": 1.892493729371451e+289,
+            "GR_max": 5.526254712247981e-75,
+            "mu": 3.112720542445052e-75,
+            "rho_R": 2.658786116702709e-75,
+            "residual_remainder": 1.3771373029485782e-90
+          },
+          "matrix_interval_diagnostics": {
+            "A": {
+              "max_width": 4.378699694597354e+143,
+              "max_radius": 2.189349847298677e+143,
+              "row": 191,
+              "column": 191,
+              "midpoint_at_widest_entry": -5.3961240886137625e+121
+            },
+            "GV": {
+              "max_width": 5.70104863611973e+133,
+              "max_radius": 2.850524318059865e+133,
+              "row": 191,
+              "column": 191,
+              "midpoint_at_widest_entry": -5.2095592542475493e+129
+            },
+            "GP": {
+              "max_width": 1.892493729371451e+289,
+              "max_radius": 9.462468646857255e+288,
+              "row": 191,
+              "column": 191,
+              "midpoint_at_widest_entry": -5.749951259906856e+245
+            },
+            "GR": {
+              "max_width": 5.526254712247981e-75,
+              "max_radius": 2.7631273561239904e-75,
+              "row": 0,
+              "column": 0,
+              "midpoint_at_widest_entry": 3.863605601322182e-30
+            }
+          },
+          "precision_bits": 256,
+          "stable_change": false,
+          "precision_status": "INSUFFICIENT_PRECISION",
+          "precision_reasons": [
+            "no_prior_precision_for_stability_check",
+            "negative_result_not_precision_stable",
+            "contradicted_by_higher_precision"
+          ]
+        },
+        {
+          "support": "11/20",
+          "support_decimal": 0.55,
+          "active_terms": [
+            2,
+            3
+          ],
+          "mu_lower": 0.5662083067859621,
+          "mu_midpoint": 0.5662083067859621,
+          "mu_upper": 0.5662083067859621,
+          "mu_certified_positive": true,
+          "finite_block_min_eigenvalue_midpoint": -1.236806069083672e+85,
+          "schur_min_eigenvalue_midpoint": -1.593678817293239e+172,
+          "component_schur_penalty_operator_norm_midpoint": {
+            "GV": 1.7387081571886115e+40,
+            "GP": 1.59367881729324e+172,
+            "GR": 7.823863938686508e-14
+          },
+          "rho_R_upper": 2.329435733367713,
+          "residual_remainder_upper": 9.828028288169228e-16,
+          "interval_widths": {
+            "A_max": 3.462758634255452e+105,
+            "GV_max": 6.603830867379701e+56,
+            "GP_max": 1.1773775314997474e+213,
+            "GR_max": 1.624020298863137e-113,
+            "mu": 9.350498880316865e-114,
+            "rho_R": 7.813470150571905e-114,
+            "residual_remainder": 4.123808185059942e-129
+          },
+          "matrix_interval_diagnostics": {
+            "A": {
+              "max_width": 3.462758634255452e+105,
+              "max_radius": 1.731379317127726e+105,
+              "row": 190,
+              "column": 190,
+              "midpoint_at_widest_entry": -1.7398027486423823e+82
+            },
+            "GV": {
+              "max_width": 6.603830867379701e+56,
+              "max_radius": 3.3019154336898506e+56,
+              "row": 191,
+              "column": 191,
+              "midpoint_at_widest_entry": -3.1317819836104145e+52
+            },
+            "GP": {
+              "max_width": 1.1773775314997474e+213,
+              "max_radius": 5.886887657498737e+212,
+              "row": 190,
+              "column": 190,
+              "midpoint_at_widest_entry": 1.3499603149135943e+167
+            },
+            "GR": {
+              "max_width": 1.624020298863137e-113,
+              "max_radius": 8.120101494315684e-114,
+              "row": 0,
+              "column": 0,
+              "midpoint_at_widest_entry": 3.863605601322182e-30
+            }
+          },
+          "precision_bits": 384,
+          "stable_change": false,
+          "change_from_previous": {
+            "from_precision_bits": 256,
+            "to_precision_bits": 384,
+            "mu_lower_change": 0.0,
+            "mu_midpoint_change": 0.0,
+            "finite_block_midpoint_change": 1.0646770380853902e+124,
+            "schur_midpoint_change": 3.3223921809207717e+233,
+            "rho_R_upper_change": 0.0,
+            "residual_remainder_upper_change": 0.0,
+            "component_penalty_midpoint_changes": {
+              "GV": 1.30609480684146e+117,
+              "GP": 2.3369506396485895e+233,
+              "GR": 5.048709793414476e-29
+            },
+            "interval_width_changes": {
+              "A_max": -4.378699694597354e+143,
+              "GV_max": -5.70104863611973e+133,
+              "GP_max": -1.892493729371451e+289,
+              "GR_max": -5.526254712247981e-75,
+              "mu": -3.112720542445052e-75,
+              "rho_R": -2.658786116702709e-75,
+              "residual_remainder": -1.3771373029485782e-90
+            },
+            "widths_reduced": true,
+            "signs_stable": {
+              "mu_lower_positive": true,
+              "finite_block_positive": true,
+              "schur_positive": true
+            },
+            "all_key_signs_stable": true
+          },
+          "precision_status": "INSUFFICIENT_PRECISION",
+          "precision_reasons": [
+            "midpoint_not_stable",
+            "negative_result_not_precision_stable",
+            "contradicted_by_higher_precision"
+          ]
+        },
+        {
+          "support": "11/20",
+          "support_decimal": 0.55,
+          "active_terms": [
+            2,
+            3
+          ],
+          "mu_lower": 0.5662083067859621,
+          "mu_midpoint": 0.5662083067859621,
+          "mu_upper": 0.5662083067859621,
+          "mu_certified_positive": true,
+          "finite_block_min_eigenvalue_midpoint": -8.375190953876613e+45,
+          "schur_min_eigenvalue_midpoint": -1.1852490237516036e+132,
+          "component_schur_penalty_operator_norm_midpoint": {
+            "GV": 6.279110271449988,
+            "GP": 1.185249023751605e+132,
+            "GR": 7.823863938686509e-14
+          },
+          "rho_R_upper": 2.329435733367713,
+          "residual_remainder_upper": 9.828028288169228e-16,
+          "interval_widths": {
+            "A_max": 1.4326458821685918e+68,
+            "GV_max": 5.592440784551664e-11,
+            "GP_max": 3.553278510597645e+141,
+            "GR_max": 4.7726249856228135e-152,
+            "mu": 2.7583479512436453e-152,
+            "rho_R": 2.2961084118858674e-152,
+            "residual_remainder": 1.1893189871772083e-167
+          },
+          "matrix_interval_diagnostics": {
+            "A": {
+              "max_width": 1.4326458821685918e+68,
+              "max_radius": 7.163229410842959e+67,
+              "row": 191,
+              "column": 191,
+              "midpoint_at_widest_entry": 1.3672743469110434e+44
+            },
+            "GV": {
+              "max_width": 5.592440784551664e-11,
+              "max_radius": 2.796220392275832e-11,
+              "row": 191,
+              "column": 191,
+              "midpoint_at_widest_entry": 0.0021406341324570165
+            },
+            "GP": {
+              "max_width": 3.553278510597645e+141,
+              "max_radius": 1.7766392552988224e+141,
+              "row": 191,
+              "column": 191,
+              "midpoint_at_widest_entry": -2.233845913744068e+131
+            },
+            "GR": {
+              "max_width": 4.7726249856228135e-152,
+              "max_radius": 2.3863124928114068e-152,
+              "row": 0,
+              "column": 0,
+              "midpoint_at_widest_entry": 3.863605601322182e-30
+            }
+          },
+          "precision_bits": 512,
+          "stable_change": false,
+          "change_from_previous": {
+            "from_precision_bits": 384,
+            "to_precision_bits": 512,
+            "mu_lower_change": 0.0,
+            "mu_midpoint_change": 0.0,
+            "finite_block_midpoint_change": 1.236806069083672e+85,
+            "schur_midpoint_change": 1.593678817293239e+172,
+            "rho_R_upper_change": 0.0,
+            "residual_remainder_upper_change": 0.0,
+            "component_penalty_midpoint_changes": {
+              "GV": 1.7387081571886115e+40,
+              "GP": 1.59367881729324e+172,
+              "GR": 1.262177448353619e-29
+            },
+            "interval_width_changes": {
+              "A_max": -3.462758634255452e+105,
+              "GV_max": -6.603830867379701e+56,
+              "GP_max": -1.1773775314997474e+213,
+              "GR_max": -1.624020298863137e-113,
+              "mu": -9.350498880316865e-114,
+              "rho_R": -7.813470150571905e-114,
+              "residual_remainder": -4.123808185059942e-129
+            },
+            "widths_reduced": true,
+            "signs_stable": {
+              "mu_lower_positive": true,
+              "finite_block_positive": true,
+              "schur_positive": true
+            },
+            "all_key_signs_stable": true
+          },
+          "precision_status": "INSUFFICIENT_PRECISION",
+          "precision_reasons": [
+            "midpoint_not_stable",
+            "negative_result_not_precision_stable"
+          ]
+        }
+      ],
+      "precision_pair_diagnostics": [
+        {
+          "from_precision_bits": 256,
+          "to_precision_bits": 384,
+          "mu_lower_change": 0.0,
+          "mu_midpoint_change": 0.0,
+          "finite_block_midpoint_change": 1.0646770380853902e+124,
+          "schur_midpoint_change": 3.3223921809207717e+233,
+          "rho_R_upper_change": 0.0,
+          "residual_remainder_upper_change": 0.0,
+          "component_penalty_midpoint_changes": {
+            "GV": 1.30609480684146e+117,
+            "GP": 2.3369506396485895e+233,
+            "GR": 5.048709793414476e-29
+          },
+          "interval_width_changes": {
+            "A_max": -4.378699694597354e+143,
+            "GV_max": -5.70104863611973e+133,
+            "GP_max": -1.892493729371451e+289,
+            "GR_max": -5.526254712247981e-75,
+            "mu": -3.112720542445052e-75,
+            "rho_R": -2.658786116702709e-75,
+            "residual_remainder": -1.3771373029485782e-90
+          },
+          "widths_reduced": true,
+          "signs_stable": {
+            "mu_lower_positive": true,
+            "finite_block_positive": true,
+            "schur_positive": true
+          },
+          "all_key_signs_stable": true
+        },
+        {
+          "from_precision_bits": 384,
+          "to_precision_bits": 512,
+          "mu_lower_change": 0.0,
+          "mu_midpoint_change": 0.0,
+          "finite_block_midpoint_change": 1.236806069083672e+85,
+          "schur_midpoint_change": 1.593678817293239e+172,
+          "rho_R_upper_change": 0.0,
+          "residual_remainder_upper_change": 0.0,
+          "component_penalty_midpoint_changes": {
+            "GV": 1.7387081571886115e+40,
+            "GP": 1.59367881729324e+172,
+            "GR": 1.262177448353619e-29
+          },
+          "interval_width_changes": {
+            "A_max": -3.462758634255452e+105,
+            "GV_max": -6.603830867379701e+56,
+            "GP_max": -1.1773775314997474e+213,
+            "GR_max": -1.624020298863137e-113,
+            "mu": -9.350498880316865e-114,
+            "rho_R": -7.813470150571905e-114,
+            "residual_remainder": -4.123808185059942e-129
+          },
+          "widths_reduced": true,
+          "signs_stable": {
+            "mu_lower_positive": true,
+            "finite_block_positive": true,
+            "schur_positive": true
+          },
+          "all_key_signs_stable": true
+        }
+      ]
+    },
+    {
+      "dimension": 196,
+      "status": "precision_limit_reached",
+      "precision_status": "INSUFFICIENT_PRECISION",
+      "selected_precision_bits": null,
+      "attempts": [
+        {
+          "precision_bits": 128,
+          "status": "assembly_failed",
+          "precision_status": "ASSEMBLY_FAILED",
+          "precision_reasons": [
+            "assembly_failed"
+          ],
+          "error_type": "OverflowError",
+          "error": "integer division result too large for a float"
+        },
+        {
+          "support": "11/20",
+          "support_decimal": 0.55,
+          "active_terms": [
+            2,
+            3
+          ],
+          "mu_lower": 0.5867745390560106,
+          "mu_midpoint": 0.5867745390560106,
+          "mu_upper": 0.5867745390560106,
+          "mu_certified_positive": true,
+          "finite_block_min_eigenvalue_midpoint": -2.7967023696260374e+127,
+          "schur_min_eigenvalue_midpoint": -7.922977765545821e+240,
+          "component_schur_penalty_operator_norm_midpoint": {
+            "GV": 1.1903686130701092e+121,
+            "GP": 1.0241889612088117e+241,
+            "GR": 6.950464038832544e-14
+          },
+          "rho_R_upper": 2.329435733367713,
+          "residual_remainder_upper": 9.828028288169228e-16,
+          "interval_widths": {
+            "A_max": 2.8866757209404723e+148,
+            "GV_max": 6.823637679714386e+139,
+            "GP_max": 8.396781361808674e+298,
+            "GR_max": 5.526254712247981e-75,
+            "mu": 3.112720542445052e-75,
+            "rho_R": 2.658786116702709e-75,
+            "residual_remainder": 1.3771373029485782e-90
+          },
+          "matrix_interval_diagnostics": {
+            "A": {
+              "max_width": 2.8866757209404723e+148,
+              "max_radius": 1.4433378604702362e+148,
+              "row": 195,
+              "column": 195,
+              "midpoint_at_widest_entry": 2.2377964654474517e+125
+            },
+            "GV": {
+              "max_width": 6.823637679714386e+139,
+              "max_radius": 3.411818839857193e+139,
+              "row": 195,
+              "column": 195,
+              "midpoint_at_widest_entry": -2.3473838940198473e+133
+            },
+            "GP": {
+              "max_width": 8.396781361808674e+298,
+              "max_radius": 4.198390680904337e+298,
+              "row": 195,
+              "column": 195,
+              "midpoint_at_widest_entry": -1.9647887346747625e+253
+            },
+            "GR": {
+              "max_width": 5.526254712247981e-75,
+              "max_radius": 2.7631273561239904e-75,
+              "row": 0,
+              "column": 0,
+              "midpoint_at_widest_entry": 3.863605601322182e-30
+            }
+          },
+          "precision_bits": 256,
+          "stable_change": false,
+          "precision_status": "INSUFFICIENT_PRECISION",
+          "precision_reasons": [
+            "no_prior_precision_for_stability_check",
+            "negative_result_not_precision_stable",
+            "contradicted_by_higher_precision"
+          ]
+        },
+        {
+          "support": "11/20",
+          "support_decimal": 0.55,
+          "active_terms": [
+            2,
+            3
+          ],
+          "mu_lower": 0.5867745390560106,
+          "mu_midpoint": 0.5867745390560106,
+          "mu_upper": 0.5867745390560106,
+          "mu_certified_positive": true,
+          "finite_block_min_eigenvalue_midpoint": -7.678265592564151e+86,
+          "schur_min_eigenvalue_midpoint": -3.922883728261468e+172,
+          "component_schur_penalty_operator_norm_midpoint": {
+            "GV": 1.3977879407779884e+46,
+            "GP": 3.9228837066560986e+172,
+            "GR": 6.950464038832544e-14
+          },
+          "rho_R_upper": 2.329435733367713,
+          "residual_remainder_upper": 9.828028288169228e-16,
+          "interval_widths": {
+            "A_max": 8.54106016781866e+109,
+            "GV_max": 8.091289518969299e+62,
+            "GP_max": 7.350898307772678e+221,
+            "GR_max": 1.624020298863137e-113,
+            "mu": 9.350498880316865e-114,
+            "rho_R": 7.813470150571905e-114,
+            "residual_remainder": 4.123808185059942e-129
+          },
+          "matrix_interval_diagnostics": {
+            "A": {
+              "max_width": 8.54106016781866e+109,
+              "max_radius": 4.27053008390933e+109,
+              "row": 195,
+              "column": 195,
+              "midpoint_at_widest_entry": 2.9347440479381033e+87
+            },
+            "GV": {
+              "max_width": 8.091289518969299e+62,
+              "max_radius": 4.0456447594846496e+62,
+              "row": 195,
+              "column": 195,
+              "midpoint_at_widest_entry": -3.173389093999195e+58
+            },
+            "GP": {
+              "max_width": 7.350898307772678e+221,
+              "max_radius": 3.675449153886339e+221,
+              "row": 195,
+              "column": 195,
+              "midpoint_at_widest_entry": -1.7589503945710915e+177
+            },
+            "GR": {
+              "max_width": 1.624020298863137e-113,
+              "max_radius": 8.120101494315684e-114,
+              "row": 0,
+              "column": 0,
+              "midpoint_at_widest_entry": 3.863605601322182e-30
+            }
+          },
+          "precision_bits": 384,
+          "stable_change": false,
+          "change_from_previous": {
+            "from_precision_bits": 256,
+            "to_precision_bits": 384,
+            "mu_lower_change": 0.0,
+            "mu_midpoint_change": 0.0,
+            "finite_block_midpoint_change": 2.7967023696260374e+127,
+            "schur_midpoint_change": 7.922977765545821e+240,
+            "rho_R_upper_change": 0.0,
+            "residual_remainder_upper_change": 0.0,
+            "component_penalty_midpoint_changes": {
+              "GV": 1.1903686130701092e+121,
+              "GP": 1.0241889612088117e+241,
+              "GR": 0.0
+            },
+            "interval_width_changes": {
+              "A_max": -2.8866757209404723e+148,
+              "GV_max": -6.823637679714386e+139,
+              "GP_max": -8.396781361808674e+298,
+              "GR_max": -5.526254712247981e-75,
+              "mu": -3.112720542445052e-75,
+              "rho_R": -2.658786116702709e-75,
+              "residual_remainder": -1.3771373029485782e-90
+            },
+            "widths_reduced": true,
+            "signs_stable": {
+              "mu_lower_positive": true,
+              "finite_block_positive": true,
+              "schur_positive": true
+            },
+            "all_key_signs_stable": true
+          },
+          "precision_status": "INSUFFICIENT_PRECISION",
+          "precision_reasons": [
+            "midpoint_not_stable",
+            "negative_result_not_precision_stable",
+            "contradicted_by_higher_precision"
+          ]
+        },
+        {
+          "support": "11/20",
+          "support_decimal": 0.55,
+          "active_terms": [
+            2,
+            3
+          ],
+          "mu_lower": 0.5867745390560106,
+          "mu_midpoint": 0.5867745390560106,
+          "mu_upper": 0.5867745390560106,
+          "mu_certified_positive": true,
+          "finite_block_min_eigenvalue_midpoint": -1.1163176150723189e+51,
+          "schur_min_eigenvalue_midpoint": -9.991127393412198e+140,
+          "component_schur_penalty_operator_norm_midpoint": {
+            "GV": 6.075406136543845,
+            "GP": 9.991127393412203e+140,
+            "GR": 6.95046403883254e-14
+          },
+          "rho_R_upper": 2.329435733367713,
+          "residual_remainder_upper": 9.828028288169228e-16,
+          "interval_widths": {
+            "A_max": 6.853316402966999e+72,
+            "GV_max": 6.247391559632831e-08,
+            "GP_max": 1.048913732729125e+148,
+            "GR_max": 4.7726249856228135e-152,
+            "mu": 2.7583479512436453e-152,
+            "rho_R": 2.2961084118858674e-152,
+            "residual_remainder": 1.1893189871772083e-167
+          },
+          "matrix_interval_diagnostics": {
+            "A": {
+              "max_width": 6.853316402966999e+72,
+              "max_radius": 3.4266582014834995e+72,
+              "row": 195,
+              "column": 195,
+              "midpoint_at_widest_entry": -5.668253617911071e+48
+            },
+            "GV": {
+              "max_width": 6.247391559632831e-08,
+              "max_radius": 3.1236957798164156e-08,
+              "row": 195,
+              "column": 195,
+              "midpoint_at_widest_entry": 0.002096972267884773
+            },
+            "GP": {
+              "max_width": 1.048913732729125e+148,
+              "max_radius": 5.244568663645625e+147,
+              "row": 195,
+              "column": 195,
+              "midpoint_at_widest_entry": 9.988416846953538e+137
+            },
+            "GR": {
+              "max_width": 4.7726249856228135e-152,
+              "max_radius": 2.3863124928114068e-152,
+              "row": 0,
+              "column": 0,
+              "midpoint_at_widest_entry": 3.863605601322182e-30
+            }
+          },
+          "precision_bits": 512,
+          "stable_change": false,
+          "change_from_previous": {
+            "from_precision_bits": 384,
+            "to_precision_bits": 512,
+            "mu_lower_change": 0.0,
+            "mu_midpoint_change": 0.0,
+            "finite_block_midpoint_change": 7.678265592564151e+86,
+            "schur_midpoint_change": 3.922883728261468e+172,
+            "rho_R_upper_change": 0.0,
+            "residual_remainder_upper_change": 0.0,
+            "component_penalty_midpoint_changes": {
+              "GV": 1.3977879407779884e+46,
+              "GP": 3.9228837066560986e+172,
+              "GR": 3.7865323450608567e-29
+            },
+            "interval_width_changes": {
+              "A_max": -8.54106016781866e+109,
+              "GV_max": -8.091289518969299e+62,
+              "GP_max": -7.350898307772678e+221,
+              "GR_max": -1.624020298863137e-113,
+              "mu": -9.350498880316865e-114,
+              "rho_R": -7.813470150571905e-114,
+              "residual_remainder": -4.123808185059942e-129
+            },
+            "widths_reduced": true,
+            "signs_stable": {
+              "mu_lower_positive": true,
+              "finite_block_positive": true,
+              "schur_positive": true
+            },
+            "all_key_signs_stable": true
+          },
+          "precision_status": "INSUFFICIENT_PRECISION",
+          "precision_reasons": [
+            "midpoint_not_stable",
+            "negative_result_not_precision_stable"
+          ]
+        }
+      ],
+      "precision_pair_diagnostics": [
+        {
+          "from_precision_bits": 256,
+          "to_precision_bits": 384,
+          "mu_lower_change": 0.0,
+          "mu_midpoint_change": 0.0,
+          "finite_block_midpoint_change": 2.7967023696260374e+127,
+          "schur_midpoint_change": 7.922977765545821e+240,
+          "rho_R_upper_change": 0.0,
+          "residual_remainder_upper_change": 0.0,
+          "component_penalty_midpoint_changes": {
+            "GV": 1.1903686130701092e+121,
+            "GP": 1.0241889612088117e+241,
+            "GR": 0.0
+          },
+          "interval_width_changes": {
+            "A_max": -2.8866757209404723e+148,
+            "GV_max": -6.823637679714386e+139,
+            "GP_max": -8.396781361808674e+298,
+            "GR_max": -5.526254712247981e-75,
+            "mu": -3.112720542445052e-75,
+            "rho_R": -2.658786116702709e-75,
+            "residual_remainder": -1.3771373029485782e-90
+          },
+          "widths_reduced": true,
+          "signs_stable": {
+            "mu_lower_positive": true,
+            "finite_block_positive": true,
+            "schur_positive": true
+          },
+          "all_key_signs_stable": true
+        },
+        {
+          "from_precision_bits": 384,
+          "to_precision_bits": 512,
+          "mu_lower_change": 0.0,
+          "mu_midpoint_change": 0.0,
+          "finite_block_midpoint_change": 7.678265592564151e+86,
+          "schur_midpoint_change": 3.922883728261468e+172,
+          "rho_R_upper_change": 0.0,
+          "residual_remainder_upper_change": 0.0,
+          "component_penalty_midpoint_changes": {
+            "GV": 1.3977879407779884e+46,
+            "GP": 3.9228837066560986e+172,
+            "GR": 3.7865323450608567e-29
+          },
+          "interval_width_changes": {
+            "A_max": -8.54106016781866e+109,
+            "GV_max": -8.091289518969299e+62,
+            "GP_max": -7.350898307772678e+221,
+            "GR_max": -1.624020298863137e-113,
+            "mu": -9.350498880316865e-114,
+            "rho_R": -7.813470150571905e-114,
+            "residual_remainder": -4.123808185059942e-129
+          },
+          "widths_reduced": true,
+          "signs_stable": {
+            "mu_lower_positive": true,
+            "finite_block_positive": true,
+            "schur_positive": true
+          },
+          "all_key_signs_stable": true
+        }
+      ]
+    }
+  ],
+  "rigorous_failures": [],
+  "candidates": [],
+  "candidate_failures": [],
+  "scout_primary_dimension": 192,
+  "selected_dimension": null,
+  "selected_candidate_dimension": null,
+  "fallback_dimensions": [
+    196
+  ],
+  "warning": "Candidate is generator-side evidence only. No theorem status is granted until the pair is separately admitted to the closed verifier contract and independently replayed."
+}

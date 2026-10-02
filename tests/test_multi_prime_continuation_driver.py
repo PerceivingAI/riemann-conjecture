@@ -194,20 +194,73 @@ def test_p5_cache_recovers_from_corrupt_json_and_uses_atomic_publication(
     assert not list(tmp_path.glob("*.tmp"))
 
 
-def test_p5_cache_fingerprint_covers_multi_prime_semantics() -> None:
-    required = {
-        "scripts/weil_multi_prime_continuation_driver.py",
-        "scripts/weil_multi_prime_schur_scout.py",
-        "scripts/weil_multi_prime_support_continuation_scout.py",
-        "scripts/weil_multi_prime_support_candidate_check.py",
-        "scripts/cert/multi_prime_legendre_schur.py",
-        "scripts/cert/prime_power_terms.py",
-        "scripts/cert/exact_prime_schur_common.py",
-        "scripts/cert/residual_kernel.py",
-    }
-    assert required.issubset(set(driver.CACHE_SOURCE_PATHS))
-    assert "scripts/weil_continuation_driver.py" not in driver.CACHE_SOURCE_PATHS
-    assert "scripts/weil_support_candidate_check.py" not in driver.CACHE_SOURCE_PATHS
+@pytest.fixture
+def source_snapshot(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> Path:
+    root = Path(driver.__file__).resolve().parents[1]
+    snapshot = tmp_path / "source"
+    for relative in driver.CACHE_SOURCE_PATHS:
+        target = snapshot / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes((root / relative).read_bytes())
+    monkeypatch.setattr(driver, "__file__", str(snapshot / "scripts/weil_multi_prime_continuation_driver.py"))
+    return snapshot
+
+
+@pytest.mark.parametrize("relative", [
+    "scripts/cert/prime_power_terms.py",
+    "scripts/cert/multi_prime_legendre_schur.py",
+])
+def test_p5_source_change_invalidates_real_rigorous_screen_cache(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path, source_snapshot: Path, relative: str,
+) -> None:
+    calls = []
+
+    def observe(*args, **kwargs):
+        calls.append((args, kwargs))
+        return scout_support(*args, **kwargs)
+
+    monkeypatch.setattr(driver, "scout_support", observe)
+    cache = tmp_path / "cache"
+    first = driver._escalate_rigorous_screen(Fraction(11, 20), 8, [128], 16, cache)
+    assert first["attempts"][0]["active_terms"] == [2, 3]
+    assert driver._escalate_rigorous_screen(Fraction(11, 20), 8, [128], 16, cache) == first
+    assert len(calls) == 1
+    source = source_snapshot / relative
+    source.write_bytes(source.read_bytes() + b"\n# isolated fingerprint mutation\n")
+    refreshed = driver._escalate_rigorous_screen(Fraction(11, 20), 8, [128], 16, cache)
+    assert len(calls) == 2
+    assert refreshed == first
+    assert driver._escalate_rigorous_screen(Fraction(11, 20), 8, [128], 16, cache) == refreshed
+    assert len(calls) == 2
+
+
+def test_p5_real_screen_cache_isolates_support_and_precision(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path,
+) -> None:
+    calls = []
+
+    def observe(*args, **kwargs):
+        calls.append((args[0], kwargs["prec"]))
+        return scout_support(*args, **kwargs)
+
+    monkeypatch.setattr(driver, "scout_support", observe)
+    inputs = [(Fraction(11, 20), 128), (Fraction(11, 20), 256),
+              (Fraction(3, 5), 128), (Fraction(3, 5), 256)]
+    samples = []
+    for support, prec in inputs:
+        result = driver._escalate_rigorous_screen(support, 8, [prec], 16, tmp_path)
+        sample = result["attempts"][0]
+        assert sample["support"] == str(support)
+        assert sample["active_terms"] == [2, 3]
+        samples.append(result)
+    assert calls == inputs
+    assert samples[0]["attempts"][0]["mu_midpoint"] != samples[2]["attempts"][0]["mu_midpoint"]
+    for lower, higher in ((samples[0], samples[1]), (samples[2], samples[3])):
+        assert higher["attempts"][0]["interval_widths"]["GP_max"] < \
+            lower["attempts"][0]["interval_widths"]["GP_max"]
+    for (support, prec), expected in zip(inputs, samples, strict=True):
+        assert driver._escalate_rigorous_screen(support, 8, [prec], 16, tmp_path) == expected
+    assert calls == inputs
 
 
 def test_p5_candidate_confirmation_uses_higher_precision_with_gp(

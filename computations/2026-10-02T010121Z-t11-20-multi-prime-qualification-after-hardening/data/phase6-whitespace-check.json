@@ -1,0 +1,7 @@
+{
+  "command": "git diff --check",
+  "status": "PASSED",
+  "advisories": "Existing LF-to-CRLF warnings only; no whitespace errors.",
+  "source_changes": false,
+  "qualification_gate": "FAILED: neither run reached CANDIDATE_READY"
+}

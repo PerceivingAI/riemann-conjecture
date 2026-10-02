@@ -117,30 +117,6 @@ def test_two_prime_operator_square_contains_cross_terms() -> None:
             assert result["GP"][i][j].overlaps(result["GP"][j][i])
 
 
-def test_multi_prime_canonical_outputs_are_present() -> None:
-    result = assemble_multi_prime_schur(
-        n=3,
-        prec=128,
-        require_positive_mu=False,
-        support_num=3,
-        support_den=5,
-    )
-    for key in (
-        "active_terms",
-        "P",
-        "P_squared",
-        "A",
-        "GV",
-        "GP",
-        "GR",
-        "rho_R",
-        "mu",
-        "schur",
-    ):
-        assert key in result
-    assert isinstance(result["mu_positive"], bool)
-
-
 def test_multi_prime_norm_bound_generalizes_beyond_tau_two_above_one() -> None:
     with ctx.workprec(160):
         result = assemble_multi_prime_schur(
@@ -155,3 +131,15 @@ def test_multi_prime_norm_bound_generalizes_beyond_tau_two_above_one() -> None:
         assert bounds[2].overlaps(arb(2).sqrt())
         assert bounds[3] == 1
         assert bounds[4] == 1
+
+
+@pytest.mark.parametrize("tau", ["1", "1 +/- 0.01"])
+def test_norm_bound_fails_closed_at_unresolved_chain_length(tau) -> None:
+    from dataclasses import replace
+
+    from scripts.cert.multi_prime_legendre_schur import compressed_shift_norm_bound
+    from scripts.cert.prime_power_terms import prime_power_term
+
+    term = replace(prime_power_term(2, 7, 10, prec=128), tau=arb(tau))
+    with pytest.raises(ValueError, match="chain length"):
+        compressed_shift_norm_bound(term, 128)

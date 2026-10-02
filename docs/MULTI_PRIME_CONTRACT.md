@@ -1,7 +1,7 @@
 # Multi-prime mathematical contract
 
 - **Created:** `2026-10-01T10:14:40Z`
-- **Last updated:** `2026-10-01T19:06:42Z`
+- **Last updated:** `2026-10-01T21:04:17Z`
 - **Status:** Authoritative pre-implementation mathematical contract
 
 This document freezes the mathematics that future multi-prime tooling must implement. It does **not** admit a new theorem profile, change `rh-weil-certificate-v1`, or create a theorem claim beyond the already retained one-prime results `C-0050..C-0057`.
@@ -333,7 +333,31 @@ The frozen v1 support gate remains strict and rejects support beyond the `log(3)
 
 P8 acceptance: focused Python `41/41`; complete Rust `67/67`; strict clippy and rustfmt; complete Python `608/608` in `387.29 s`; retained v1 proof replay `8/8`. No v2 theorem pair is admitted.
 
-## 12. Certification boundary
+## 12. P9 non-theorem qualification outcome
+
+P9 attempted the first real end-to-end use of the post-v1 stack at the predeclared rational support
+
+[
+T=rac{11}{20}=0.55.
+]
+
+The original frozen grid `N=96,100,...,144` completed only the floating stage and sealed `NO_CANDIDATE`. A separately predeclared extension `N=148,152,...,256` found the first stable-positive floating dimension at `N=192`, with `N=196` selected as the fallback rigorous target.
+
+The proof-bearing qualification did not complete. Run C was interrupted by the external 1800-second execution boundary while both targets were still computing the first 128-bit rigorous assembly. Run E retried the exact same extension with a one-hour external allowance. Both workers remained continuously CPU-active, but neither 128-bit assembly returned before the one-hour hard limit. Run E therefore ended externally while the driver still reported `RIGOROUS_PRECISION_SEARCH`; it produced no completion manifest and no rigorous/candidate artifact.
+
+This outcome is classified:
+
+```text
+NOT QUALIFIED — rigorous-stage performance blocker
+```
+
+It is **not** a theorem failure and **not** evidence that the rigorous inequality is negative at `N=192` or `N=196`. No rigorous result was obtained. In particular P9 provides no completed proof-bearing evidence for `GP`, `mu_N`, precision contraction, exact witnesses, candidate stability, or `CANDIDATE_READY`.
+
+The interrupted runs committed no rigorous cache entry, so repeating the identical command would restart the first 128-bit assembly. P9 therefore stops here rather than extending dimensions or tuning parameters after observing results. A future qualification requires a separate, independently tested performance-hardening slice for the generic rigorous multi-prime assembler first.
+
+The production v2 theorem whitelist remains empty and no theorem certificate, retained proof, or theorem claim was created.
+
+## 13. Certification boundary
 
 The analytic factor `3` is explicitly closed by `C-0059` / `F-20261001-002`, and P7 now provides the separate independent Rust v2 exact-rational verification path. The theorem path nevertheless remains closed because the production v2 whitelist is empty and no v2 theorem-bearing exporter/admission, fresh proof run, retained proof, or theorem claim has been introduced.
 

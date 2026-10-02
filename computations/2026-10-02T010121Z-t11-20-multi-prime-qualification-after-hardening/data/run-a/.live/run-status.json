@@ -1,0 +1,13 @@
+{
+  "format": "riemann-live-run-v1",
+  "run_id": "20261002T010144Z-ad641330",
+  "command": "weil_multi_prime_continuation_driver",
+  "support": "11/20",
+  "pid": 18000,
+  "started_at_utc": "2026-10-02T01:01:44Z",
+  "last_heartbeat_utc": "2026-10-02T01:04:32Z",
+  "elapsed_seconds": 167.572,
+  "workflow_state": "PRECISION_LIMIT_REACHED",
+  "current_operation": null,
+  "terminal": true
+}

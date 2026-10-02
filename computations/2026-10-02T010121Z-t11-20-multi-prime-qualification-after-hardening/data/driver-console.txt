@@ -1,0 +1,83 @@
+[00:00:00] RUN T=11/20 dimensions=148..256 step=4
+[00:00:00] SCOUT resolutions=8 workers=3
+[00:00:02] SCOUT resolution 1/8 complete
+[00:00:02] SCOUT resolution 2/8 complete
+[00:00:03] SCOUT resolution 3/8 complete
+[00:00:05] SCOUT resolution 4/8 complete
+[00:00:06] SCOUT resolution 5/8 complete
+[00:00:08] SCOUT resolution 6/8 complete
+[00:00:10] SCOUT resolution 7/8 complete
+[00:00:12] SCOUT resolution 8/8 complete
+[00:00:12] SCOUT complete completed=8 failed=0
+[00:00:12] SCOUT stable-positive begins at N=192
+[00:00:12] RIGOROUS targets N=192,N=196 workers=2
+[00:00:12] RIGOROUS N=192 started
+[00:00:12] RIGOROUS N=196 started
+[00:00:13] N=192 precision=128 started
+[00:00:13] N=196 precision=128 started
+[00:00:41] N=192 precision=128 assembly-failed
+[00:00:41] N=192 precision=256 started
+[00:00:43] N=196 precision=128 assembly-failed
+[00:00:43] N=196 precision=256 started
+[00:01:20] N=192 precision=256 insufficient
+[00:01:20] N=192 precision=384 started
+[00:01:24] N=196 precision=256 insufficient
+[00:01:24] N=196 precision=384 started
+[00:01:57] N=192 precision=384 insufficient
+[00:01:57] N=192 precision=512 started
+[00:02:04] N=196 precision=384 insufficient
+[00:02:04] N=196 precision=512 started
+[00:02:38] N=192 precision=512 insufficient
+[00:02:38] RIGOROUS N=192 complete status=precision_limit_reached
+[00:02:47] N=196 precision=512 insufficient
+[00:02:47] RIGOROUS N=196 complete status=precision_limit_reached
+[00:02:47] RIGOROUS complete survivors=0 failures=0
+[00:02:47] BUNDLE write started
+[00:02:47] BUNDLE write complete
+[00:02:47] TERMINAL PRECISION_LIMIT_REACHED
+Multi-prime support continuation candidate search
+T = 11/20
+
+Dimensions tested:
+  N=148  negative
+  N=152  negative
+  N=156  negative
+  N=160  negative
+  N=164  negative
+  N=168  negative
+  N=172  negative
+  N=176  negative
+  N=180  negative
+  N=184  negative
+  N=188  negative
+  N=192  stable-positive
+  N=196  stable-positive
+  N=200  stable-positive
+  N=204  stable-positive
+  N=208  stable-positive
+  N=212  stable-positive
+  N=216  stable-positive
+  N=220  stable-positive
+  N=224  stable-positive
+  N=228  stable-positive
+  N=232  stable-positive
+  N=236  stable-positive
+  N=240  stable-positive
+  N=244  stable-positive
+  N=248  stable-positive
+  N=252  stable-positive
+  N=256  stable-positive
+
+Primary rigorous target: N=192
+
+Precision search (N=192):
+  128  assembly failed
+  256  insufficient precision - contradicted at higher precision
+  384  insufficient precision - contradicted at higher precision
+  512  insufficient precision - midpoint not stable
+
+RESULT: PRECISION_LIMIT_REACHED
+
+No mathematical rejection was established.
+The available precision ladder did not stabilize.
+This is not a theorem.

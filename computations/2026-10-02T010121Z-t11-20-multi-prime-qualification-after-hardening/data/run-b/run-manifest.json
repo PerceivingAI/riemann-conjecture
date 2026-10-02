@@ -1,0 +1,376 @@
+{
+  "format": "rh-continuation-candidate-bundle-v1",
+  "role": "pre_theorem_continuation_bundle_manifest",
+  "driver_version": "multi-prime-continuation-driver-p5-v1",
+  "cache_version": "multi-prime-continuation-driver-v1",
+  "run_started_at_utc": "2026-10-02T01:18:20Z",
+  "run_completed_at_utc": "2026-10-02T01:21:09Z",
+  "configuration": {
+    "support": "11/20",
+    "active_terms": [
+      2,
+      3
+    ],
+    "structural_window": "log(3)/2 < T < log(4)/2",
+    "dimensions": [
+      148,
+      152,
+      156,
+      160,
+      164,
+      168,
+      172,
+      176,
+      180,
+      184,
+      188,
+      192,
+      196,
+      200,
+      204,
+      208,
+      212,
+      216,
+      220,
+      224,
+      228,
+      232,
+      236,
+      240,
+      244,
+      248,
+      252,
+      256
+    ],
+    "scout_resolution_count": 8,
+    "scout_stability_window": 3,
+    "scout_resolution_plan": [
+      {
+        "level": 0,
+        "max_mode": 296,
+        "quadrature_order": 1404,
+        "shift_order": 702
+      },
+      {
+        "level": 1,
+        "max_mode": 336,
+        "quadrature_order": 1564,
+        "shift_order": 782
+      },
+      {
+        "level": 2,
+        "max_mode": 376,
+        "quadrature_order": 1724,
+        "shift_order": 862
+      },
+      {
+        "level": 3,
+        "max_mode": 416,
+        "quadrature_order": 1884,
+        "shift_order": 942
+      },
+      {
+        "level": 4,
+        "max_mode": 456,
+        "quadrature_order": 2044,
+        "shift_order": 1022
+      },
+      {
+        "level": 5,
+        "max_mode": 496,
+        "quadrature_order": 2204,
+        "shift_order": 1102
+      },
+      {
+        "level": 6,
+        "max_mode": 536,
+        "quadrature_order": 2364,
+        "shift_order": 1182
+      },
+      {
+        "level": 7,
+        "max_mode": 576,
+        "quadrature_order": 2524,
+        "shift_order": 1262
+      }
+    ],
+    "scout_workers": 3,
+    "rigorous_workers": 2,
+    "precision_start": 128,
+    "precision_max": 512,
+    "precision_ladder": [
+      128,
+      256,
+      384,
+      512
+    ],
+    "residual_order": 32,
+    "matrix_bits_start": 64,
+    "matrix_bits_max": 104,
+    "matrix_bits_ladder": [
+      64,
+      80,
+      96,
+      104
+    ],
+    "witness_bits_start": 32,
+    "witness_bits_max": 56,
+    "candidate_precision_step": 128,
+    "candidate_precision_extra_steps": 2,
+    "witness_bits_ladder": [
+      32,
+      40,
+      48,
+      56
+    ],
+    "cache_dir": "computations\\2026-10-02T010121Z-t11-20-multi-prime-qualification-after-hardening\\data\\cache-b"
+  },
+  "provenance": {
+    "git_commit": "a26817d3e1bc22b6ed7aa3effefb96f172cb83fa",
+    "git_dirty": true,
+    "python_version": "3.14.0",
+    "python_implementation": "CPython",
+    "python_flint_version": "0.9.0"
+  },
+  "process_lifecycle": {
+    "scope": "driver_managed_process_pool_workers",
+    "parent_pid": 10864,
+    "worker_model": "spawn",
+    "worker_cleanup_verified": true,
+    "active_children_after_cleanup": 0,
+    "executors_shutdown": 2,
+    "worker_processes_reaped": 5,
+    "cleanup_escalations": 0,
+    "workers_joined_after_shutdown": 0,
+    "workers_terminated": 0,
+    "workers_killed": 0
+  },
+  "final_state": "PRECISION_LIMIT_REACHED",
+  "workflow_state": "PRECISION_LIMIT_REACHED",
+  "workflow_trace": [
+    {
+      "sequence": 0,
+      "from": null,
+      "to": "VALIDATE_INPUT",
+      "reason": "driver_started",
+      "details": {}
+    },
+    {
+      "sequence": 1,
+      "from": "VALIDATE_INPUT",
+      "to": "FLOAT_SCOUT",
+      "reason": "validated_driver_inputs",
+      "details": {
+        "support": "11/20",
+        "dimension_count": 28,
+        "resolution_count": 8,
+        "scout_workers": 3
+      }
+    },
+    {
+      "sequence": 2,
+      "from": "FLOAT_SCOUT",
+      "to": "CHECK_SCOUT_STABILITY",
+      "reason": "floating_scout_complete",
+      "details": {
+        "completed_resolutions": 8,
+        "failed_resolutions": 0
+      }
+    },
+    {
+      "sequence": 3,
+      "from": "CHECK_SCOUT_STABILITY",
+      "to": "SELECT_DIMENSION",
+      "reason": "stable_positive_dimensions_found",
+      "details": {
+        "stable_dimensions": [
+          192,
+          196,
+          200,
+          204,
+          208,
+          212,
+          216,
+          220,
+          224,
+          228,
+          232,
+          236,
+          240,
+          244,
+          248,
+          252,
+          256
+        ]
+      }
+    },
+    {
+      "sequence": 4,
+      "from": "SELECT_DIMENSION",
+      "to": "RIGOROUS_PRECISION_SEARCH",
+      "reason": "selected_primary_and_fallback_dimensions",
+      "details": {
+        "primary_dimension": 192,
+        "fallback_dimensions": [
+          196
+        ],
+        "rigorous_workers": 2
+      }
+    },
+    {
+      "sequence": 5,
+      "from": "RIGOROUS_PRECISION_SEARCH",
+      "to": "CHECK_RIGOROUS_STABILITY",
+      "reason": "rigorous_precision_search_complete",
+      "details": {
+        "screened_dimensions": [
+          192,
+          196
+        ],
+        "surviving_dimensions": [],
+        "rigorous_failure_count": 0
+      }
+    },
+    {
+      "sequence": 6,
+      "from": "CHECK_RIGOROUS_STABILITY",
+      "to": "PRECISION_LIMIT_REACHED",
+      "reason": "precision_ladder_exhausted_without_stable_candidate",
+      "details": {
+        "survivors": []
+      }
+    }
+  ],
+  "theorem_status": false,
+  "independently_verified": false,
+  "whitelisted": false,
+  "finalization": {
+    "worker_cleanup": {
+      "verified": true,
+      "executors_shutdown": 2,
+      "worker_processes_reaped": 5,
+      "cleanup_escalations": 0,
+      "workers_joined_after_shutdown": 0,
+      "workers_terminated": 0,
+      "workers_killed": 0,
+      "active_children_after_cleanup": 0,
+      "stages": [
+        "FLOAT_SCOUT",
+        "RIGOROUS_PRECISION_SEARCH"
+      ]
+    },
+    "result_payload_sha256": "6c90b9d032a1be45537b9271f8492ff8cd074f4b73c81d499fb3d78db1f6e513",
+    "manifest_written_last": true
+  },
+  "artifacts": [
+    {
+      "path": "candidate/candidate.json",
+      "kind": "exact_candidate",
+      "sha256": "6a2cd82406970e85650285d235fc7d6b552d8929303b422d119b7b67de118bc0",
+      "bytes": 495
+    },
+    {
+      "path": "rigorous/N192-p128.json",
+      "kind": "rigorous_screening",
+      "sha256": "5b91d792422e36334270130f23d2e20d048dc32fe67143205dbb0e2fe8ee981e",
+      "bytes": 480
+    },
+    {
+      "path": "rigorous/N192-p256.json",
+      "kind": "rigorous_screening",
+      "sha256": "c5d42626c42805c5de60656a4495b18c71d51dcaf7fb9f792f1495bd9d01e24c",
+      "bytes": 2353
+    },
+    {
+      "path": "rigorous/N192-p384.json",
+      "kind": "rigorous_screening",
+      "sha256": "375537d4b7080dcc3c5a0d68730f390f1a759ee044ec9b1e3ac8bef33bdbad58",
+      "bytes": 3413
+    },
+    {
+      "path": "rigorous/N192-p512.json",
+      "kind": "rigorous_screening",
+      "sha256": "d257a50215f2335a5f0007ad23c086227ea443abdab0b7981c142eb5bcc1e5ac",
+      "bytes": 3368
+    },
+    {
+      "path": "rigorous/N196-p128.json",
+      "kind": "rigorous_screening",
+      "sha256": "411a9da0ac1876f22bea610c2a1f987b680245105f62242561860499c5b26bd4",
+      "bytes": 480
+    },
+    {
+      "path": "rigorous/N196-p256.json",
+      "kind": "rigorous_screening",
+      "sha256": "77feee113f64e4442cde2295b62ab27ca77cac8b1cff16b5e51811e30754b783",
+      "bytes": 2359
+    },
+    {
+      "path": "rigorous/N196-p384.json",
+      "kind": "rigorous_screening",
+      "sha256": "627c9714c1c4ff3f3c660bee0c80fbcd833b48ae4d590a260f71fa7ef29a3504",
+      "bytes": 3394
+    },
+    {
+      "path": "rigorous/N196-p512.json",
+      "kind": "rigorous_screening",
+      "sha256": "2fc333f77816e79ea920c36485eed8e6763dfa3ea4e18f22692265c2815a40d2",
+      "bytes": 3365
+    },
+    {
+      "path": "scout/resolution-01.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "18626228c414091e7875f8938d0008896ffe9a69a59b3c304bf3e1b0772e812a",
+      "bytes": 21987
+    },
+    {
+      "path": "scout/resolution-02.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "8951660ba4a5de65c8ab9cb1ac61c9a8831c1a6e8d84b8ba4d9583d4b7714264",
+      "bytes": 21993
+    },
+    {
+      "path": "scout/resolution-03.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "2aefaa6081345edc576a837302cb97d2a81cd9ac76a7d079d6807ce1852f5a19",
+      "bytes": 21988
+    },
+    {
+      "path": "scout/resolution-04.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "e96738d3f3906360765357631c121b52b00412f67a2470faed4d107cd6e7a8ff",
+      "bytes": 21982
+    },
+    {
+      "path": "scout/resolution-05.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "db74003463fceaf838ba526b20bded8400d77e4daa944fa694c23b96dda5b59f",
+      "bytes": 21999
+    },
+    {
+      "path": "scout/resolution-06.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "1df433fc0cf3704efb314905cb6cac349c9132ae0a4bdb80e0a53ebe06bf10b2",
+      "bytes": 21993
+    },
+    {
+      "path": "scout/resolution-07.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "5c8fdcea0221cfd25fee9fcce41d13313500863de1ea3a39e675098ad7950854",
+      "bytes": 21980
+    },
+    {
+      "path": "scout/resolution-08.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "b571f67fd83f7a776616508b4238463a0da9c56d759ae2ccdc00b46fd949a8e4",
+      "bytes": 21968
+    },
+    {
+      "path": "summary.json",
+      "kind": "summary",
+      "sha256": "318d9a782ac21f3e6bfc540de97ab6efc545df01edff30b8f8b9a6f13f8b7387",
+      "bytes": 115770
+    }
+  ],
+  "warning": "This bundle contains pre-theorem continuation evidence only. It contains no theorem certificate and records no independent verifier admission."
+}

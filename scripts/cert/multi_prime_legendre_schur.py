@@ -17,28 +17,125 @@ combined piecewise action.  Therefore mixed products such as
 
 from __future__ import annotations
 
+import math
 from fractions import Fraction
 from typing import Sequence
 
-from flint import acb, arb, ctx
+from flint import acb, arb, ctx, fmpq, fmpq_poly
 
 from scripts.cert.constants import c_T_enclosure
 from scripts.cert.legendre_schur import (
     harmonic,
     legendre_norm_sq,
     legendre_polynomials,
-    potential_matrices,
-    residual_truncation_operator,
+    potential_moment,
+    potential_square_moment,
 )
 from scripts.cert.prime_power_terms import (
     ArbMatrix,
     PrimePowerTerm,
+    _exact_inner,
+    _exact_polynomials,
+    _opposite_parity,
+    _polynomial_parities,
     assemble_active_prime_power_operator,
 )
 from scripts.cert.residual_kernel import (
     _suzuki_residual_series_coefficients,
     _suzuki_residual_tail_radius,
 )
+
+
+def _potential_matrices(
+    polys: Sequence[Sequence[Fraction]], prec: int,
+) -> tuple[ArbMatrix, ArbMatrix]:
+    """Same exact potential moments as v1, with native exact convolution."""
+    exact = _exact_polynomials(polys)
+    parities = _polynomial_parities(polys)
+    max_power = 2 * max(poly.degree() for poly in exact)
+    with ctx.workprec(prec):
+        log2, pi = arb.const_log2(), arb.pi()
+        moments = [potential_moment(k, log2) for k in range(max_power + 1)]
+        square_moments = [
+            potential_square_moment(k, log2, pi) for k in range(max_power + 1)
+        ]
+        v, v2 = _zero_matrix(len(polys)), _zero_matrix(len(polys))
+        for i, left in enumerate(exact):
+            for j in range(i, len(exact)):
+                if _opposite_parity(parities[i], parities[j]):
+                    continue
+                value, square = arb(0), arb(0)
+                for power, coefficient in enumerate((left * exact[j]).coeffs()):
+                    if coefficient:
+                        c = arb(coefficient)
+                        value += c * moments[power]
+                        square += c * square_moments[power]
+                v[i][j] = v[j][i] = value
+                v2[i][j] = v2[j][i] = square
+        return v, v2
+
+
+def _abs_power_action(
+    power: int, poly: fmpq_poly, binomials: Sequence[int],
+) -> fmpq_poly:
+    """Exact split integral of |x-y|^power, evaluated with native rationals."""
+    out = [fmpq(0) for _ in range(len(poly) + power + 2)]
+    for k, coefficient in enumerate(poly.coeffs()):
+        if not coefficient:
+            continue
+        for r, binomial in enumerate(binomials):
+            denominator = r + k + 1
+            left = fmpq(binomial * (-1) ** r, denominator)
+            right = fmpq(binomial * (-1) ** (power - r), denominator)
+            out[power + k + 1] += coefficient * (left - right)
+            out[power - r] += coefficient * (right - left * (-1) ** (r + k + 1))
+    return fmpq_poly(out)
+
+
+def _residual_truncation_operator(
+    polys: Sequence[Sequence[Fraction]], order: int, prec: int,
+    support_num: int, support_den: int,
+) -> tuple[list[fmpq_poly], ArbMatrix, ArbMatrix, arb]:
+    """Same residual polynomial and remainder as v1; no Fraction convolution."""
+    support = fmpq(support_num, support_den)
+    exact = _exact_polynomials(polys)
+    parities = _polynomial_parities(polys)
+    terms = [
+        (degree, -coefficient * support ** (degree + 1),
+         tuple(math.comb(degree, r) for r in range(degree + 1)))
+        for degree, coefficient in enumerate(_suzuki_residual_series_coefficients(order))
+        if coefficient
+    ]
+    basis_coefficients = [poly.coeffs() for poly in exact]
+    occupied_degrees = sorted({
+        k for coefficients in basis_coefficients for k, c in enumerate(coefficients) if c
+    })
+    # R_K is linear. Its action on x^k depends on support/order/k, not on
+    # the basis index, so compute that exact action once and combine natively.
+    monomial_images: dict[int, fmpq_poly] = {}
+    for k in occupied_degrees:
+        monomial = fmpq_poly([0] * k + [1])
+        monomial_images[k] = sum(
+            (_abs_power_action(degree, monomial, binomials) * scale
+             for degree, scale, binomials in terms),
+            fmpq_poly(),
+        )
+    images = [
+        sum((monomial_images[k] * c for k, c in enumerate(coefficients) if c), fmpq_poly())
+        for coefficients in basis_coefficients
+    ]
+    with ctx.workprec(prec):
+        low, square = _zero_matrix(len(polys)), _zero_matrix(len(polys))
+        for i, poly in enumerate(exact):
+            for j in range(i, len(exact)):
+                # The even |x-y| kernel preserves coefficient-certified parity.
+                if _opposite_parity(parities[i], parities[j]):
+                    continue
+                low[i][j] = low[j][i] = arb(_exact_inner(poly, images[j]))
+                square[i][j] = square[j][i] = arb(_exact_inner(images[i], images[j]))
+        two_t = arb(2 * support_num) / support_den
+        delta = two_t * _suzuki_residual_tail_radius(acb(two_t), order)
+        return images, low, square, delta
 
 
 def _arb_fraction(value: Fraction) -> arb:
@@ -68,11 +165,12 @@ def _mat_mul_diag_inverse(a: ArbMatrix, norms: Sequence[Fraction]) -> ArbMatrix:
     """Return ``A D^-1 A`` for symmetric ``A`` and exact diagonal ``D``."""
     n = len(a)
     out = _zero_matrix(n)
+    inverse_norms = tuple(_arb_fraction(1 / norm) for norm in norms)
     for i in range(n):
         for j in range(i, n):
             value = arb(0)
             for k in range(n):
-                value += a[i][k] * a[k][j] / _arb_fraction(norms[k])
+                value += a[i][k] * a[k][j] * inverse_norms[k]
             out[i][j] = value
             out[j][i] = value
     return out
@@ -167,7 +265,7 @@ def assemble_multi_prime_schur(
         polys = legendre_polynomials(n - 1)
         norms = [legendre_norm_sq(k) for k in range(n)]
 
-        V, V2 = potential_matrices(polys, prec)
+        V, V2 = _potential_matrices(polys, prec)
         arithmetic = assemble_active_prime_power_operator(
             polys,
             support_num=support_exact.numerator,
@@ -178,7 +276,7 @@ def assemble_multi_prime_schur(
         P_squared = arithmetic.p_squared_matrix
         GP = arithmetic.g_p
 
-        _, Rk, Rk2, delta_R = residual_truncation_operator(
+        _, Rk, Rk2, delta_R = _residual_truncation_operator(
             polys,
             residual_order,
             prec,

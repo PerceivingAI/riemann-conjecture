@@ -1,0 +1,60 @@
+{
+  "support": "11/20",
+  "support_decimal": 0.55,
+  "active_terms": [
+    2,
+    3
+  ],
+  "mu_lower": 0.5867745390560106,
+  "mu_midpoint": 0.5867745390560106,
+  "mu_upper": 0.5867745390560106,
+  "mu_certified_positive": true,
+  "finite_block_min_eigenvalue_midpoint": -2.7967023696260374e+127,
+  "schur_min_eigenvalue_midpoint": -7.922977765545821e+240,
+  "component_schur_penalty_operator_norm_midpoint": {
+    "GV": 1.1903686130701092e+121,
+    "GP": 1.0241889612088117e+241,
+    "GR": 6.950464038832544e-14
+  },
+  "rho_R_upper": 2.329435733367713,
+  "residual_remainder_upper": 9.828028288169228e-16,
+  "interval_widths": {
+    "A_max": 2.8866757209404723e+148,
+    "GV_max": 6.823637679714386e+139,
+    "GP_max": 8.396781361808674e+298,
+    "GR_max": 5.526254712247981e-75,
+    "mu": 3.112720542445052e-75,
+    "rho_R": 2.658786116702709e-75,
+    "residual_remainder": 1.3771373029485782e-90
+  },
+  "matrix_interval_diagnostics": {
+    "A": {
+      "max_width": 2.8866757209404723e+148,
+      "max_radius": 1.4433378604702362e+148,
+      "row": 195,
+      "column": 195,
+      "midpoint_at_widest_entry": 2.2377964654474517e+125
+    },
+    "GV": {
+      "max_width": 6.823637679714386e+139,
+      "max_radius": 3.411818839857193e+139,
+      "row": 195,
+      "column": 195,
+      "midpoint_at_widest_entry": -2.3473838940198473e+133
+    },
+    "GP": {
+      "max_width": 8.396781361808674e+298,
+      "max_radius": 4.198390680904337e+298,
+      "row": 195,
+      "column": 195,
+      "midpoint_at_widest_entry": -1.9647887346747625e+253
+    },
+    "GR": {
+      "max_width": 5.526254712247981e-75,
+      "max_radius": 2.7631273561239904e-75,
+      "row": 0,
+      "column": 0,
+      "midpoint_at_widest_entry": 3.863605601322182e-30
+    }
+  }
+}

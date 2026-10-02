@@ -1,0 +1,614 @@
+{
+  "status": "completed",
+  "resolution": {
+    "level": 7,
+    "max_mode": 576,
+    "quadrature_order": 2524,
+    "shift_order": 1262
+  },
+  "result": {
+    "role": "floating_reconnaissance_only",
+    "warning": "All arithmetic, residual, eigenvalue, conditioning, and tail-Gram quantities in this file are floating/truncated diagnostics only.",
+    "support": "11/20",
+    "support_T": 0.55,
+    "active_terms": [
+      {
+        "m": 2,
+        "prime": 2,
+        "exponent": 1,
+        "tau": 1.2602676010180822,
+        "coefficient": 0.49012907173427356,
+        "chain_vertices": 2,
+        "norm_bound": 1.0000000000000002,
+        "complement_contribution": 0.49012907173427367
+      },
+      {
+        "m": 3,
+        "prime": 3,
+        "exponent": 1,
+        "tau": 1.997476888487472,
+        "coefficient": 0.634284100597564,
+        "chain_vertices": 2,
+        "norm_bound": 1.0000000000000002,
+        "complement_contribution": 0.6342841005975641
+      }
+    ],
+    "arithmetic_complement_loss_scout": 1.1244131723318378,
+    "rho_R_scout": 2.327494632151836,
+    "max_mode": 576,
+    "quadrature_order": 2524,
+    "shift_order": 1262,
+    "lowest_full_finite_ritz_values": [
+      5.1512908766609204e-08,
+      1.4284051831361832e-05,
+      0.001417901518958251,
+      0.07542264400264997,
+      0.6845737049562587,
+      0.8310628627193134,
+      1.1047958800574529,
+      1.107024241303602
+    ],
+    "schur_rows": [
+      {
+        "N": 148,
+        "mu_scout": 0.30863897754230774,
+        "finite_block_min_eigenvalue": 5.154507566205313e-08,
+        "factor3_truncated_schur_min_eigenvalue": -5.893214911641191,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.129577087953047,
+          "GP": 0.2403437093327448,
+          "GR": 2.1096069784693805e-14
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.6789896528055888,
+          "low_block_smallest_singular_value": 3.544849729272362e-17,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.4901290717313864,
+            "3": 0.4564681028283384
+          }
+        }
+      },
+      {
+        "N": 152,
+        "mu_scout": 0.33521851752966025,
+        "finite_block_min_eigenvalue": 5.154334465934301e-08,
+        "factor3_truncated_schur_min_eigenvalue": -4.857105333717163,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.133175473886687,
+          "GP": 0.24036963261164412,
+          "GR": 1.8960601181744734e-14
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.6802152094844613,
+          "low_block_smallest_singular_value": 1.4008711945128544e-17,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173310727,
+            "3": 0.45331213223347144
+          }
+        }
+      },
+      {
+        "N": 156,
+        "mu_scout": 0.36110984104906674,
+        "finite_block_min_eigenvalue": 5.1542602144795305e-08,
+        "factor3_truncated_schur_min_eigenvalue": -4.017072162302644,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1366293904541998,
+          "GP": 0.24036647612926842,
+          "GR": 1.708904255850848e-14
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.6818918392887079,
+          "low_block_smallest_singular_value": 2.3720305702382334e-17,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.4901290717332782,
+            "3": 0.45322901063909093
+          }
+        }
+      },
+      {
+        "N": 160,
+        "mu_scout": 0.3863476899008109,
+        "finite_block_min_eigenvalue": 5.1540220103701034e-08,
+        "factor3_truncated_schur_min_eigenvalue": -3.2953800706048106,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.139945639017455,
+          "GP": 0.24029892982871226,
+          "GR": 1.544318530888414e-14
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.6831455656286769,
+          "low_block_smallest_singular_value": 5.9747051328029154e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.490129071733715,
+            "3": 0.45321643408282797
+          }
+        }
+      },
+      {
+        "N": 164,
+        "mu_scout": 0.41096423983197017,
+        "finite_block_min_eigenvalue": 5.1539001926865676e-08,
+        "factor3_truncated_schur_min_eigenvalue": -2.667791264515479,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1431304765455894,
+          "GP": 0.2402445654470749,
+          "GR": 1.3991123722635671e-14
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.6840513086468285,
+          "low_block_smallest_singular_value": 2.2878697780882823e-17,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.4901290717335403,
+            "3": 0.45301636535575823
+          }
+        }
+      },
+      {
+        "N": 168,
+        "mu_scout": 0.4349893471825954,
+        "finite_block_min_eigenvalue": 5.153890903599533e-08,
+        "factor3_truncated_schur_min_eigenvalue": -2.1275307311109906,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1461896684335455,
+          "GP": 0.24025368807078587,
+          "GR": 1.270609368339778e-14
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.686240017832592,
+          "low_block_smallest_singular_value": 7.6540318893672e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173399967,
+            "3": 0.45548238608569847
+          }
+        }
+      },
+      {
+        "N": 172,
+        "mu_scout": 0.4584507665918318,
+        "finite_block_min_eigenvalue": 5.15371390107428e-08,
+        "factor3_truncated_schur_min_eigenvalue": -1.656289699945238,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1491285349248699,
+          "GP": 0.24066880994559198,
+          "GR": 1.1565545405122467e-14
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.6884947998954402,
+          "low_block_smallest_singular_value": 7.651902978513112e-19,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173396864,
+            "3": 0.4628458355464076
+          }
+        }
+      },
+      {
+        "N": 176,
+        "mu_scout": 0.481374343745526,
+        "finite_block_min_eigenvalue": 5.1535717594355235e-08,
+        "factor3_truncated_schur_min_eigenvalue": -1.236263572918511,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1519519920331216,
+          "GP": 0.243787220693052,
+          "GR": 1.0550405284657483e-14
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.6890453966623261,
+          "low_block_smallest_singular_value": 1.4986967079074115e-17,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173411985,
+            "3": 0.47282474324515733
+          }
+        }
+      },
+      {
+        "N": 180,
+        "mu_scout": 0.5037841865220667,
+        "finite_block_min_eigenvalue": 5.1535240994830755e-08,
+        "factor3_truncated_schur_min_eigenvalue": -0.8569497556575296,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.154664587712852,
+          "GP": 0.2489582925027997,
+          "GR": 9.644471102939643e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.6908305085505841,
+          "low_block_smallest_singular_value": 2.0669497506983474e-17,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.4901290717340718,
+            "3": 0.4814275525308899
+          }
+        }
+      },
+      {
+        "N": 184,
+        "mu_scout": 0.525702817378038,
+        "finite_block_min_eigenvalue": 5.1533836320059946e-08,
+        "factor3_truncated_schur_min_eigenvalue": -0.5075091813155764,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1572705339129468,
+          "GP": 0.2520076666374499,
+          "GR": 8.83393529389367e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.6929075116309407,
+          "low_block_smallest_singular_value": 9.03592457479838e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.4901290717341772,
+            "3": 0.486283869609228
+          }
+        }
+      },
+      {
+        "N": 188,
+        "mu_scout": 0.5471513093885232,
+        "finite_block_min_eigenvalue": 5.153301539605384e-08,
+        "factor3_truncated_schur_min_eigenvalue": -0.21887194292894582,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.15977373505,
+          "GP": 0.25167588758552367,
+          "GR": 8.10698365505029e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.6940719881881624,
+          "low_block_smallest_singular_value": 4.513057123491834e-19,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173416737,
+            "3": 0.48687162621123636
+          }
+        }
+      },
+      {
+        "N": 192,
+        "mu_scout": 0.5681494080018394,
+        "finite_block_min_eigenvalue": 5.1532919485985716e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.089949854580437e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1621778133570497,
+          "GP": 0.2503019357581273,
+          "GR": 7.45347476193357e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.6958392500677182,
+          "low_block_smallest_singular_value": 2.008912427309886e-17,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.4901290717342079,
+            "3": 0.4848507704951359
+          }
+        }
+      },
+      {
+        "N": 196,
+        "mu_scout": 0.5887156402718876,
+        "finite_block_min_eigenvalue": 5.1531747359226114e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.098089169632692e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.164486131497917,
+          "GP": 0.24830049040973035,
+          "GR": 6.86467576571546e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.697273077029139,
+          "low_block_smallest_singular_value": 1.868190546613887e-17,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173421033,
+            "3": 0.48143096171017125
+          }
+        }
+      },
+      {
+        "N": 200,
+        "mu_scout": 0.6088674130825131,
+        "finite_block_min_eigenvalue": 5.153097975138974e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.10379215564343e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1667018127782864,
+          "GP": 0.2459350145253547,
+          "GR": 6.333039927900811e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.6975387652299482,
+          "low_block_smallest_singular_value": 1.734123998089377e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173424153,
+            "3": 0.48085302633713894
+          }
+        }
+      },
+      {
+        "N": 204,
+        "mu_scout": 0.6286211016688252,
+        "finite_block_min_eigenvalue": 5.153093031812574e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.106068066270236e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1688277592403264,
+          "GP": 0.24645548528945135,
+          "GR": 5.852030731303409e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.6991001596377137,
+          "low_block_smallest_singular_value": 9.580500032395532e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173423104,
+            "3": 0.48596971701364616
+          }
+        }
+      },
+      {
+        "N": 208,
+        "mu_scout": 0.6479921295634403,
+        "finite_block_min_eigenvalue": 5.153000047306752e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.109409347473196e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1708666678877584,
+          "GP": 0.2517973403348397,
+          "GR": 5.415965975199643e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.7006780973413904,
+          "low_block_smallest_singular_value": 4.960690586987018e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.4901290717342406,
+            "3": 0.4944561400703121
+          }
+        }
+      },
+      {
+        "N": 212,
+        "mu_scout": 0.666995040945527,
+        "finite_block_min_eigenvalue": 5.152924047862615e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.1129185651801015e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1728210452517909,
+          "GP": 0.25867780868090556,
+          "GR": 5.019893274915987e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.7008641835587969,
+          "low_block_smallest_singular_value": 1.4574992282644484e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.4901290717342449,
+            "3": 0.5028079798031504
+          }
+        }
+      },
+      {
+        "N": 216,
+        "mu_scout": 0.6856435662428675,
+        "finite_block_min_eigenvalue": 5.152905130198515e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.1146898948287426e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1746932204830876,
+          "GP": 0.26373420820830623,
+          "GR": 4.659487497951481e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.702440494004873,
+          "low_block_smallest_singular_value": 3.830400930887118e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173424547,
+            "3": 0.508577580705389
+          }
+        }
+      },
+      {
+        "N": 220,
+        "mu_scout": 0.7039506817281627,
+        "finite_block_min_eigenvalue": 5.152821266077792e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.117224748512958e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1764853571303988,
+          "GP": 0.26536741119456253,
+          "GR": 4.3309591224605375e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.7039805835562735,
+          "low_block_smallest_singular_value": 4.380028984955553e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173424347,
+            "3": 0.5106938065398053
+          }
+        }
+      },
+      {
+        "N": 224,
+        "mu_scout": 0.7219286637575157,
+        "finite_block_min_eigenvalue": 5.1527662608857144e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.119656936032788e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1781994637430682,
+          "GP": 0.2637170953391007,
+          "GR": 4.030979848386605e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.7050333965728766,
+          "low_block_smallest_singular_value": 5.610057020030214e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.4901290717342516,
+            "3": 0.50956711871573
+          }
+        }
+      },
+      {
+        "N": 228,
+        "mu_scout": 0.739589138218915,
+        "finite_block_min_eigenvalue": 5.1527594682873045e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.120880610903057e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1798374034176968,
+          "GP": 0.26032714642976734,
+          "GR": 3.756620031632376e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.7064691077384689,
+          "low_block_smallest_singular_value": 6.678156963614476e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.4901290717342553,
+            "3": 0.5057253004290184
+          }
+        }
+      },
+      {
+        "N": 232,
+        "mu_scout": 0.7569431256895367,
+        "finite_block_min_eigenvalue": 5.152685225331994e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.1230046141311735e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1814009023950744,
+          "GP": 0.2554858152931483,
+          "GR": 3.5052956846229142e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.7079230807152124,
+          "low_block_smallest_singular_value": 3.024452123937899e-19,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.4901290717342526,
+            "3": 0.5000095127651926
+          }
+        }
+      },
+      {
+        "N": 236,
+        "mu_scout": 0.7740010827411323,
+        "finite_block_min_eigenvalue": 5.152633417446954e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.124858533071067e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1828915577969294,
+          "GP": 0.24991872222095615,
+          "GR": 3.274721662348322e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.7080754727772137,
+          "low_block_smallest_singular_value": 1.7904725587649726e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173425596,
+            "3": 0.4944416141623243
+          }
+        }
+      },
+      {
+        "N": 240,
+        "mu_scout": 0.7907729397811787,
+        "finite_block_min_eigenvalue": 5.152632056321973e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.1254366577370375e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.184310844586959,
+          "GP": 0.24597670435949923,
+          "GR": 3.062872778805758e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.7096241033734323,
+          "low_block_smallest_singular_value": 3.371700341499511e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.490129071734252,
+            "3": 0.49171375703198483
+          }
+        }
+      },
+      {
+        "N": 244,
+        "mu_scout": 0.8072681357726843,
+        "finite_block_min_eigenvalue": 5.152571032524605e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.126842697131168e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1856601218252707,
+          "GP": 0.24572217694252033,
+          "GR": 2.867951765012633e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.7111621607462616,
+          "low_block_smallest_singular_value": 1.292646475449551e-17,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173425696,
+            "3": 0.4932513995733719
+          }
+        }
+      },
+      {
+        "N": 248,
+        "mu_scout": 0.8234956501366195,
+        "finite_block_min_eigenvalue": 5.152512596996729e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.128618261909165e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1869406382750192,
+          "GP": 0.24719704453861557,
+          "GR": 2.6883581644367037e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.7112469153862835,
+          "low_block_smallest_singular_value": 3.3335037360858184e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173425385,
+            "3": 0.4956766801067675
+          }
+        }
+      },
+      {
+        "N": 252,
+        "mu_scout": 0.839464032106922,
+        "finite_block_min_eigenvalue": 5.1524882074437304e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.1296786521967415e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1881535374173064,
+          "GP": 0.24795803994975843,
+          "GR": 2.5226664206420317e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.7127851874710619,
+          "low_block_smallest_singular_value": 5.708612168581402e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.49012907173425563,
+            "3": 0.49677433947253063
+          }
+        }
+      },
+      {
+        "N": 256,
+        "mu_scout": 0.8551814277783487,
+        "finite_block_min_eigenvalue": 5.1524212819464056e-08,
+        "factor3_truncated_schur_min_eigenvalue": 5.131187993631147e-08,
+        "component_tail_gram_operator_norms": {
+          "GV": 1.1892998619211888,
+          "GP": 0.24732982569848894,
+          "GR": 2.3696033348673872e-15
+        },
+        "combined_prime_conditioning": {
+          "low_block_operator_norm": 0.7142698412444626,
+          "low_block_smallest_singular_value": 1.319710247138945e-18,
+          "low_block_condition_number": null,
+          "per_term_tail_operator_norms": {
+            "2": 0.490129071734255,
+            "3": 0.49611109507648476
+          }
+        }
+      }
+    ]
+  }
+}

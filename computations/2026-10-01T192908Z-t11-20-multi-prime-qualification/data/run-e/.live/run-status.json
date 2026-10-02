@@ -1,0 +1,26 @@
+{
+  "format": "riemann-live-run-v1",
+  "run_id": "20261001T200235Z-2f0b0012",
+  "command": "weil_multi_prime_continuation_driver",
+  "support": "11/20",
+  "pid": 5908,
+  "started_at_utc": "2026-10-01T20:02:35Z",
+  "last_heartbeat_utc": "2026-10-01T21:02:26Z",
+  "elapsed_seconds": 3590.867,
+  "workflow_state": "RIGOROUS_PRECISION_SEARCH",
+  "current_operation": {
+    "stage": "RIGOROUS_PRECISION_SEARCH",
+    "active_dimensions": [
+      192,
+      196
+    ],
+    "precision_ladder": [
+      128,
+      256,
+      384,
+      512
+    ],
+    "worker_count": 2
+  },
+  "terminal": false
+}

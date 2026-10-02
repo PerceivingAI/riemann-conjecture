@@ -1,0 +1,302 @@
+{
+  "role": "manual_multi_prime_component_cost_benchmark",
+  "theorem_status": false,
+  "provenance": {
+    "utc": "2026-10-01T23:39:53.391392+00:00",
+    "head": "a26817d3e1bc22b6ed7aa3effefb96f172cb83fa",
+    "source_sha256": {
+      "scripts/profile_multi_prime_assembly.py": "dfc2f65570a86bdfac967904c9389f9fdfca21f4709e25bdbfe3f0ee364da2c1",
+      "scripts/cert/multi_prime_legendre_schur.py": "29bec865f8821cf5db5213e8b139b406155a9881067b5169c3b7650ccdb8bad4",
+      "scripts/cert/prime_power_terms.py": "20d68c881a1e8c4d328aaf7a57eb9efee364d9952cdf20901ec98e68399fb6b3",
+      "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+      "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a",
+      "scripts/profile_multi_prime_workflow.py": "9b3fb5e602b7ce7cf3c60e7208ce86e637fafaef61d22c4ddf40b0ff7444b8a3"
+    },
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+    "cpu_count": 6,
+    "versions": {
+      "python-flint": "0.9.0",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1"
+    },
+    "cache_policy": "no continuation cache; diagnostic components only",
+    "peak_memory_scope": "process lifetime high-water mark, not per-stage allocation",
+    "continuation_source_fingerprint": "558515583ef6c39456eccdc877fcf6fefc018dcdebe09bd564332cf3b2d530e6"
+  },
+  "configuration": {
+    "mode": "candidate",
+    "support": "2/5",
+    "dimensions": [
+      40
+    ],
+    "precision": 256,
+    "residual_order": 32,
+    "matrix_bits": 64,
+    "witness_bits": 32,
+    "workers": 1,
+    "scout_resolutions": 8,
+    "output_json": "computations\\2026-10-01T215617Z-multi-prime-assembly-performance\\data\\phase4-tool-smoke-candidate-conditioning.json"
+  },
+  "status": "completed",
+  "active_dimension": null,
+  "samples": [
+    {
+      "dimension": 40,
+      "precision_bits": 256,
+      "residual_order": 32,
+      "matrix_bits": 64,
+      "witness_bits": 32,
+      "support": "2/5",
+      "status": "completed",
+      "candidate_outcome": "CANDIDATE_READY",
+      "error": null,
+      "wall_seconds": 1.447781599999871,
+      "cpu_seconds": 1.390625,
+      "peak_memory_bytes": 77467648,
+      "stages": {
+        "assemble_multi_prime_schur": {
+          "calls": 1,
+          "wall_inclusive": 0.298765799991088,
+          "cpu_inclusive": 0.25
+        },
+        "dyadic_outward_interval": {
+          "calls": 3,
+          "wall_inclusive": 0.0002948000037577003,
+          "cpu_inclusive": 0.0
+        },
+        "_active_term_diagnostics": {
+          "calls": 1,
+          "wall_inclusive": 0.0005539999983739108,
+          "cpu_inclusive": 0.0
+        },
+        "coarsen_matrix": {
+          "calls": 4,
+          "wall_inclusive": 0.07443759997840971,
+          "cpu_inclusive": 0.078125
+        },
+        "_exact_multi_prime_schur": {
+          "calls": 1,
+          "wall_inclusive": 0.048118800012161955,
+          "cpu_inclusive": 0.046875
+        },
+        "make_witness": {
+          "calls": 2,
+          "wall_inclusive": 0.8832350000157021,
+          "cpu_inclusive": 0.875
+        }
+      },
+      "result": {
+        "role": "generator_side_exact_multi_prime_candidate_only",
+        "status": "CANDIDATE_READY",
+        "candidate_status": "CANDIDATE_READY",
+        "theorem_status": false,
+        "independently_verified": false,
+        "whitelisted": false,
+        "automatic_promotion": false,
+        "promotion_requirements": [
+          "explicit_closed_contract_admission",
+          "retained_full_certificate_generation",
+          "fresh_independent_rust_verifier_pass"
+        ],
+        "forbidden_automatic_actions": [
+          "emit_theorem_certificate",
+          "edit_closed_contract_or_whitelist",
+          "invoke_independent_rust_verifier",
+          "grant_theorem_status"
+        ],
+        "warning": "This exact candidate is pre-theorem generator evidence only. It is not a serialized theorem certificate and has not been independently verified.",
+        "support": "2/5",
+        "dimension": 40,
+        "precision_bits": 256,
+        "comparison_precision_bits": null,
+        "residual_order": 32,
+        "matrix_bits": 64,
+        "witness_bits": 32,
+        "active_terms": [
+          {
+            "m": 2,
+            "prime": 2,
+            "exponent": 1,
+            "tau": {
+              "lower": "13465554654077763629044124533925726163239967725038486376393902706778117888999144416233/7770675568902916283677847627294075626569627356208558085007249638955617140820833992704",
+              "upper": "13465554654077763629044124533925726163239967725038486376393902706778117888999745526807/7770675568902916283677847627294075626569627356208558085007249638955617140820833992704",
+              "width": "300555287/3885337784451458141838923813647037813284813678104279042503624819477808570410416996352"
+            },
+            "coefficient": {
+              "lower": "1904317001667292369762948796060912753623218785412872489335257088223016202046920448259/3885337784451458141838923813647037813284813678104279042503624819477808570410416996352",
+              "upper": "1904317001667292369762948796060912753623218785412872489335257088223016202047006451453/3885337784451458141838923813647037813284813678104279042503624819477808570410416996352",
+              "width": "43001597/1942668892225729070919461906823518906642406839052139521251812409738904285205208498176"
+            },
+            "compressed_shift_norm_bound": {
+              "lower": "1/1",
+              "upper": "1/1",
+              "width": "0/1"
+            },
+            "complement_contribution": {
+              "lower": "15234536013338338958103590368487302028985750283302979914682056705784129616375363586071/31082702275611665134711390509176302506278509424834232340028998555822468563283335970816",
+              "upper": "15234536013338338958103590368487302028985750283302979914682056705784129616376051611625/31082702275611665134711390509176302506278509424834232340028998555822468563283335970816",
+              "width": "344012777/15541351137805832567355695254588151253139254712417116170014499277911234281641667985408"
+            },
+            "rounded_complement_contribution": {
+              "lower": "1130160693670871895/2305843009213693952",
+              "upper": "9041285549366975161/18446744073709551616",
+              "width": "1/18446744073709551616"
+            }
+          }
+        ],
+        "working_precision_diagnostics": {
+          "matrix_widths": {
+            "A": {
+              "max_width": 5.032712512557426e-35,
+              "max_radius": 2.516356256278713e-35,
+              "row": 39,
+              "column": 39,
+              "midpoint_at_widest_entry": 0.08780790614733563
+            },
+            "GV": {
+              "max_width": 3.336357851576209e-49,
+              "max_radius": 1.6681789257881045e-49,
+              "row": 39,
+              "column": 39,
+              "midpoint_at_widest_entry": 0.010252755497764998
+            },
+            "GP": {
+              "max_width": 1.362876109307211e-21,
+              "max_radius": 6.814380546536055e-22,
+              "row": 39,
+              "column": 39,
+              "midpoint_at_widest_entry": 0.00200862477583277
+            },
+            "GR": {
+              "max_width": 5.369255852987635e-75,
+              "max_radius": 2.6846279264938173e-75,
+              "row": 0,
+              "column": 0,
+              "midpoint_at_widest_entry": 1.1569772157482374e-39
+            },
+            "P": {
+              "max_width": 5.032712458747565e-35,
+              "max_radius": 2.5163562293737823e-35,
+              "row": 39,
+              "column": 39,
+              "midpoint_at_widest_entry": 0.0005216789751553007
+            },
+            "P_squared": {
+              "max_width": 1.3628761061517674e-21,
+              "max_radius": 6.814380530758837e-22,
+              "row": 39,
+              "column": 39,
+              "midpoint_at_widest_entry": 0.0029382971383314456
+            }
+          },
+          "scalar_widths": {
+            "mu": "79546581/60708402882054033466233184588234965832575213720379360039119137804340758912662765568",
+            "rho_R": "241599521/242833611528216133864932738352939863330300854881517440156476551217363035650651062272",
+            "residual_remainder": "1020149829/35835915874844867368919076489095108449946327955754392558399825615420669938882575126094039892345713852416"
+          },
+          "combined_prime_conditioning": {
+            "active_term_count": 1,
+            "P_max_width": "561166191/11150372599265311570767859136324180752990208",
+            "P_squared_max_width": "863825357/633825300114114700748351602688",
+            "GP_max_width": "863825359/633825300114114700748351602688",
+            "GP_width_over_P_squared_width": "863825359/863825357",
+            "P_squared_width_over_P_width": "15196576390228069056512/561166191"
+          }
+        },
+        "exact_rounding_diagnostics": {
+          "matrix_widths": {
+            "A": {
+              "max_width": "1/18446744073709551616",
+              "max_radius": "1/36893488147419103232",
+              "row": 0,
+              "column": 0,
+              "midpoint_at_widest_entry": "7790928187677367179/36893488147419103232"
+            },
+            "GV": {
+              "max_width": "1/18446744073709551616",
+              "max_radius": "1/36893488147419103232",
+              "row": 0,
+              "column": 0,
+              "midpoint_at_widest_entry": "23634531229631101/36893488147419103232"
+            },
+            "GP": {
+              "max_width": "1/18446744073709551616",
+              "max_radius": "1/36893488147419103232",
+              "row": 0,
+              "column": 0,
+              "midpoint_at_widest_entry": "99273554104670627/36893488147419103232"
+            },
+            "GR": {
+              "max_width": "1/9223372036854775808",
+              "max_radius": "1/18446744073709551616",
+              "row": 0,
+              "column": 2,
+              "midpoint_at_widest_entry": "0/1"
+            }
+          },
+          "rounding_succeeded": true
+        },
+        "precision_contraction": {
+          "status": "not_requested",
+          "note": "Supply comparison_prec independently of matrix_bits/witness_bits to measure Arb interval contraction without changing exact rounding."
+        },
+        "mu_lower": "204763965063875439828830975315969/279999117022207171124858034585600",
+        "even_gershgorin_margin": "291013193551952724015463808175474710479116201209708658055341842812589/69677566692051887152838805601663693190838498122970533194691019605540864",
+        "odd_gershgorin_margin": "914206706526613461922999016911666467940948054650434456737272912499251/69677566692051887152838805601663693190838498122970533194691019605540864",
+        "all_margins_positive": true
+      },
+      "theorem_status": false,
+      "post_timing_native_max_widths": {
+        "A": "561166197/11150372599265311570767859136324180752990208",
+        "GV": "1047132883/3138550867693340381917894711603833208051177722232017256448",
+        "GP": "863825359/633825300114114700748351602688",
+        "GR": "651917895/121416805764108066932466369176469931665150427440758720078238275608681517825325531136",
+        "P": "561166191/11150372599265311570767859136324180752990208",
+        "P_squared": "863825357/633825300114114700748351602688",
+        "schur": "442955759/79228162514264337593543950336"
+      },
+      "post_timing_mu_enclosure": {
+        "lower": "88792374911944264745390101662423036801263073367934254558936745187456124045437843243/121416805764108066932466369176469931665150427440758720078238275608681517825325531136",
+        "upper": "88792374911944264745390101662423036801263073367934254558936745187456124045596936405/121416805764108066932466369176469931665150427440758720078238275608681517825325531136",
+        "width": "79546581/60708402882054033466233184588234965832575213720379360039119137804340758912662765568"
+      }
+    }
+  ],
+  "completion_observation_order": [
+    40
+  ],
+  "progress_publications": [
+    {
+      "wall_seconds": 0.0027513999957591295,
+      "cpu_seconds": 0.015625,
+      "bytes": 2510,
+      "sha256": "57bfdb5de301144acb68d265b21f6eaf0f6b043065225b09f0d714fab1fd3ab5"
+    },
+    {
+      "wall_seconds": 0.0026747999945655465,
+      "cpu_seconds": 0.0,
+      "bytes": 2703,
+      "sha256": "4db6469981707ddeb3e0ce99277b3c3083a76f3e9b5d74327564f0a4fafb79f1"
+    },
+    {
+      "wall_seconds": 0.005368599988287315,
+      "cpu_seconds": 0.0,
+      "bytes": 13103,
+      "sha256": "45b7f11ee7d0eddd117ad8b94e948144c336ce2adeb1bd0e58c88464a299f702"
+    }
+  ],
+  "publication_scope": "JSON serialization/hash/fsync/atomic writes; final report publication excluded",
+  "wall_seconds_including_lifecycle": 1.5437458000087645,
+  "parent_cpu_seconds": 1.453125,
+  "parent_peak_memory_bytes": 77488128
+}

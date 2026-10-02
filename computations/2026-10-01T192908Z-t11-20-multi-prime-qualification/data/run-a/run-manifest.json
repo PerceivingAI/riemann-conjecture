@@ -1,0 +1,258 @@
+{
+  "format": "rh-continuation-candidate-bundle-v1",
+  "role": "pre_theorem_continuation_bundle_manifest",
+  "driver_version": "multi-prime-continuation-driver-p5-v1",
+  "cache_version": "multi-prime-continuation-driver-v1",
+  "run_started_at_utc": "2026-10-01T19:29:35Z",
+  "run_completed_at_utc": "2026-10-01T19:29:41Z",
+  "configuration": {
+    "support": "11/20",
+    "active_terms": [
+      2,
+      3
+    ],
+    "structural_window": "log(3)/2 < T < log(4)/2",
+    "dimensions": [
+      96,
+      100,
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      144
+    ],
+    "scout_resolution_count": 8,
+    "scout_stability_window": 3,
+    "scout_resolution_plan": [
+      {
+        "level": 0,
+        "max_mode": 184,
+        "quadrature_order": 956,
+        "shift_order": 478
+      },
+      {
+        "level": 1,
+        "max_mode": 224,
+        "quadrature_order": 1116,
+        "shift_order": 558
+      },
+      {
+        "level": 2,
+        "max_mode": 264,
+        "quadrature_order": 1276,
+        "shift_order": 638
+      },
+      {
+        "level": 3,
+        "max_mode": 304,
+        "quadrature_order": 1436,
+        "shift_order": 718
+      },
+      {
+        "level": 4,
+        "max_mode": 344,
+        "quadrature_order": 1596,
+        "shift_order": 798
+      },
+      {
+        "level": 5,
+        "max_mode": 384,
+        "quadrature_order": 1756,
+        "shift_order": 878
+      },
+      {
+        "level": 6,
+        "max_mode": 424,
+        "quadrature_order": 1916,
+        "shift_order": 958
+      },
+      {
+        "level": 7,
+        "max_mode": 464,
+        "quadrature_order": 2076,
+        "shift_order": 1038
+      }
+    ],
+    "scout_workers": 3,
+    "rigorous_workers": 2,
+    "precision_start": 128,
+    "precision_max": 512,
+    "precision_ladder": [
+      128,
+      256,
+      384,
+      512
+    ],
+    "residual_order": 32,
+    "matrix_bits_start": 64,
+    "matrix_bits_max": 104,
+    "matrix_bits_ladder": [
+      64,
+      80,
+      96,
+      104
+    ],
+    "witness_bits_start": 32,
+    "witness_bits_max": 56,
+    "candidate_precision_step": 128,
+    "candidate_precision_extra_steps": 2,
+    "witness_bits_ladder": [
+      32,
+      40,
+      48,
+      56
+    ],
+    "cache_dir": ".cache\\p9-t11-20-qualification"
+  },
+  "provenance": {
+    "git_commit": "a26817d3e1bc22b6ed7aa3effefb96f172cb83fa",
+    "git_dirty": true,
+    "python_version": "3.14.0",
+    "python_implementation": "CPython",
+    "python_flint_version": "0.9.0"
+  },
+  "process_lifecycle": {
+    "scope": "driver_managed_process_pool_workers",
+    "parent_pid": 8608,
+    "worker_model": "spawn",
+    "worker_cleanup_verified": true,
+    "active_children_after_cleanup": 0,
+    "executors_shutdown": 1,
+    "worker_processes_reaped": 3,
+    "cleanup_escalations": 0,
+    "workers_joined_after_shutdown": 0,
+    "workers_terminated": 0,
+    "workers_killed": 0
+  },
+  "final_state": "NO_CANDIDATE",
+  "workflow_state": "NO_CANDIDATE",
+  "workflow_trace": [
+    {
+      "sequence": 0,
+      "from": null,
+      "to": "VALIDATE_INPUT",
+      "reason": "driver_started",
+      "details": {}
+    },
+    {
+      "sequence": 1,
+      "from": "VALIDATE_INPUT",
+      "to": "FLOAT_SCOUT",
+      "reason": "validated_driver_inputs",
+      "details": {
+        "support": "11/20",
+        "dimension_count": 13,
+        "resolution_count": 8,
+        "scout_workers": 3
+      }
+    },
+    {
+      "sequence": 2,
+      "from": "FLOAT_SCOUT",
+      "to": "CHECK_SCOUT_STABILITY",
+      "reason": "floating_scout_complete",
+      "details": {
+        "completed_resolutions": 8,
+        "failed_resolutions": 0
+      }
+    },
+    {
+      "sequence": 3,
+      "from": "CHECK_SCOUT_STABILITY",
+      "to": "NO_CANDIDATE",
+      "reason": "no_stable_positive_scout_dimension",
+      "details": {
+        "stable_dimensions": []
+      }
+    }
+  ],
+  "theorem_status": false,
+  "independently_verified": false,
+  "whitelisted": false,
+  "finalization": {
+    "worker_cleanup": {
+      "verified": true,
+      "executors_shutdown": 1,
+      "worker_processes_reaped": 3,
+      "cleanup_escalations": 0,
+      "workers_joined_after_shutdown": 0,
+      "workers_terminated": 0,
+      "workers_killed": 0,
+      "active_children_after_cleanup": 0,
+      "stages": [
+        "FLOAT_SCOUT"
+      ]
+    },
+    "result_payload_sha256": "66a607d95fcd1312c8c01af85283ee012b79505025409ce24474c11edb8dabe3",
+    "manifest_written_last": true
+  },
+  "artifacts": [
+    {
+      "path": "candidate/candidate.json",
+      "kind": "exact_candidate",
+      "sha256": "067273455db6c996ba1719dfaa651f914fcad720892256b4829c1e710190d0ce",
+      "bytes": 484
+    },
+    {
+      "path": "scout/resolution-01.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "8ed1abe1628db287215036c84419cf9d7b096bc800876a5f8255d6b388be62a9",
+      "bytes": 10979
+    },
+    {
+      "path": "scout/resolution-02.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "a4aa6ba2d58aef2bfd9843183d46781c886595a10f7c19bb2dddf111eb6a3e69",
+      "bytes": 10986
+    },
+    {
+      "path": "scout/resolution-03.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "fc849bdca9a9c4cd969ea59969b4b1038080482d1a8f87f818fa3b42090b0db2",
+      "bytes": 10986
+    },
+    {
+      "path": "scout/resolution-04.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "17fc3a5ae338be5375d3ad79faab63d62f9c6aa0662d468022999fd59f6ae3b1",
+      "bytes": 10984
+    },
+    {
+      "path": "scout/resolution-05.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "7fad8974cf0d53074008ee3b5bbf93a4e7fa4d6042ae16793d65d14c7ddcdcf2",
+      "bytes": 10982
+    },
+    {
+      "path": "scout/resolution-06.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "dab8691bc8ee0dee17fa20a30db2145a293bd3e737d3dcd8827eb24e7387c7ce",
+      "bytes": 10982
+    },
+    {
+      "path": "scout/resolution-07.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "5a0a0d4254dee41e19ea7a7f7144a5a142d1d4bbb648fe8e7b1d2889a7349cba",
+      "bytes": 10970
+    },
+    {
+      "path": "scout/resolution-08.json",
+      "kind": "floating_reconnaissance",
+      "sha256": "5f0a08e73bdb4ebabf245b0c0301068086ddd2d07f2324c5f7cde7a17e2c82a4",
+      "bytes": 10978
+    },
+    {
+      "path": "summary.json",
+      "kind": "summary",
+      "sha256": "ba74a32cfc42fdefdc3d7f6eecfcc3eea1d5b1062aa3e9e510c9f721b761425d",
+      "bytes": 43002
+    }
+  ],
+  "warning": "This bundle contains pre-theorem continuation evidence only. It contains no theorem certificate and records no independent verifier admission."
+}

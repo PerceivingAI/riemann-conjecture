@@ -1,0 +1,1154 @@
+diff --git a/AGENTS.md b/AGENTS.md
+index ae72a1a..39f1171 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -63,6 +63,8 @@ All eight pairs above support registered independently verified finite-support r
+ 
+ **Multi-prime P8 adversarial gate — `2026-10-01T19:06:42Z`.** Before any real v2 continuation, preserve `tests/data/certificate-v2-cross-layer-v1.json` and `tests/data/multi-prime-admission-v2.json` as test-only acceptance corpora; production code must never load them. First-window v2 certificates must serialize exactly `[2,3]` with exact `b_m=1`. Python semantics and Rust must independently prove strict support using the serialized rational log enclosures and reject equality/overlap. Keep parity and threshold tests in semantic/Rust layers; raw JSON Schema cannot prove those cross-field arithmetic relations. The v2 admission grid currently has zero allowed pairs, so do not add an admitted pair as part of testing/tooling work. A valid negative theorem matrix must remain theorem failure, not contract failure.
+ 
++**Multi-prime P9 qualification outcome — `2026-10-01T21:04:17Z`.** The first real qualification at `T=11/20` did not reach `CANDIDATE_READY`. The scout found the stable-positive frontier at `N=192` and selected `192/196`, but neither first 128-bit rigorous assembly completed within a one-hour external execution window despite both workers remaining CPU-active. No rigorous cache entry was committed. This is a performance/tooling blocker, not a mathematical negative. Do not extend the P9 grid or admit a v2 pair. Before a new qualification, perform a separate performance-hardening slice on the generic rigorous multi-prime assembler and re-run the full P2/P3/P8 regression gates.
++
+ ## 3. Repository map
+ 
+ Use this map before searching broadly.
+diff --git a/README.md b/README.md
+index ffae941..1133b2a 100644
+--- a/README.md
++++ b/README.md
+@@ -246,6 +246,8 @@ P7 adds a separate independent Rust v2 verifier in `crates/rh_cert/src/v2.rs` an
+ 
+ P8 adds the pre-continuation adversarial gate. The v2 schema structurally fixes the first window to canonical terms `[2,3]` with exact unit compressed-shift norm bounds; Python semantics and Rust independently prove the strict serialized window and reject threshold overlap, malformed arithmetic intervals, missing/malformed `GP`, wrong parity, wrong factor, and active-set substitution. A shared 10-case structural corpus is replayed independently by JSON Schema, Python semantics, and Rust, while a separate 16-case closed admission grid is independently rejected by schema admission metadata, Python, and Rust. The v2 production whitelist remains empty.
+ 
++P9 attempted the first non-theorem end-to-end qualification at `T=11/20`. The floating stack worked and found stable-positive behavior beginning at `N=192` with fallback `N=196`, but the generic rigorous assembler did not finish either first 128-bit assembly within a one-hour execution window despite both workers remaining CPU-active. No rigorous cache entry, exact candidate, or reproducibility bundle exists. P9 is therefore **NOT QUALIFIED — rigorous-stage performance blocker**, not a mathematical negative; the v2 theorem whitelist remains empty. A separate performance-hardening slice is required before another qualification.
++
+ Support-continuation tooling may produce generator-side exact candidates, but those candidates do **not** inherit theorem status from earlier results. Both continuation drivers stop at `CANDIDATE_READY`: `weil_continuation_driver.py` is the historical one-prime path, while `weil_multi_prime_continuation_driver.py` is the canonical implementation for future structural windows. A separate human/research decision must admit an exact support/dimension pair to a closed theorem contract before certificate generation and a fresh independent Rust replay can establish theorem status.
+ 
+ Before emitting `CANDIDATE_READY`, the current driver now performs candidate-level precision stability: with `T`, `N`, residual order, matrix rounding bits, and witness bits fixed, it reassembles at higher Arb precision and checks exact margins together with raw and rounded enclosure contraction. This is specifically meant to distinguish monomial-basis/working-precision instability from a stable mathematical sign. It remains pre-theorem diagnostics and does not weaken the independent admission/verifier boundary.
+diff --git a/attempts/2026-08-26T171400Z-one-prime-support-continuation.md b/attempts/2026-08-26T171400Z-one-prime-support-continuation.md
+index e51c667..9e735c8 100644
+--- a/attempts/2026-08-26T171400Z-one-prime-support-continuation.md
++++ b/attempts/2026-08-26T171400Z-one-prime-support-continuation.md
+@@ -2,7 +2,7 @@
+ 
+ - **Attempt ID:** `A-20260826-001`
+ - **Created:** `2026-08-26T17:14:00Z`
+-- **Last updated:** `2026-10-01T19:06:42Z`
++- **Last updated:** `2026-10-01T21:04:17Z`
+ - **Status:** `PROMISING`
+ - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
+ 
+@@ -596,10 +596,20 @@ The v2 tail rule is closed to `prime_powers_with_log_m_lt_2T`, complement `H_N-c
+ 
+ Production Rust theorem admission remains empty. CLI therefore rejects every currently structurally valid v2 pair as unauthorized contract failure (exit `2`). Internal verifier regression separately exercises the future admitted arithmetic path and proves that a contract-valid nonpositive Schur matrix returns `passed=false` rather than a contract error, preserving theorem-failure semantics. The trust boundary is explicit: Rust verifies zero-float exact rational interval proof arithmetic and consistency but does not independently establish the upstream transcendental Arb enclosures. Rust acceptance passes all `63/63` `rh_cert` tests, strict clippy, and rustfmt; focused Python v2/frozen-v1 regression passes `21/21`.
+ 
++**P7 verification closure — `2026-10-01T18:41:00Z`.** The complete default Python suite passes `602/602` in `515.09 s`. The retained proof gate replays `C-0050..C-0057` through the new format dispatcher with `HASH PASS / VERIFY PASS` for every artifact and closes `8/8`. The frozen v1 `cert.rs`, v1 schema, and v1 Python exporter remain unmodified; the v1 schema hash remains `0a58b6a36055b6b56720d275e96c19d0275948872542491099cd68c454bbed48`. P7 is closed with the production v2 theorem whitelist still empty.
++
+ ## Multi-prime upgrade P8 — adversarial/cross-layer pre-continuation gate
+ 
+ **P8 verification closure — `2026-10-01T19:06:42Z`.** Added shared test-only structural corpus `tests/data/certificate-v2-cross-layer-v1.json` and closed admission grid `tests/data/multi-prime-admission-v2.json`. The v2 schema now fixes first-window arithmetic terms to exactly `[2,3]` and unit norm bounds. Python semantics and Rust independently re-check active identities, arithmetic interval relationships, strict support-window separation, matrix symmetry/parity, `GP`, factor, and complement/witness prerequisites. Threshold equality/overlap and low-precision near-threshold cases fail closed; `m=4` is rejected in the first v2 window. The 10-case shared structural corpus gives identical expected outcomes under raw Python Schema, Python semantics, and Rust; threshold/parity cross-field attacks are separately checked in Python/Rust. The 16-case support/dimension admission grid has no allowed entry and is rejected independently by schema admission metadata, Python, and Rust. Production code does not load either corpus.
+ 
+ Focused Python acceptance passes `41/41`; complete Rust verifier acceptance passes `67/67`; strict clippy/rustfmt pass; complete Python passes `608/608` in `387.29 s`; retained proof chain remains `8/8`. Frozen v1 verifier/schema/exporter are unchanged and v2 theorem admission remains empty. P8 is closed without running a real continuation.
+ 
+-**P7 verification closure — `2026-10-01T18:41:00Z`.** The complete default Python suite passes `602/602` in `515.09 s`. The retained proof gate replays `C-0050..C-0057` through the new format dispatcher with `HASH PASS / VERIFY PASS` for every artifact and closes `8/8`. The frozen v1 `cert.rs`, v1 schema, and v1 Python exporter remain unmodified; the v1 schema hash remains `0a58b6a36055b6b56720d275e96c19d0275948872542491099cd68c454bbed48`. P7 is closed with the production v2 theorem whitelist still empty.
++## Multi-prime upgrade P9 — non-theorem qualification
++
++**P9 closure — `2026-10-01T21:04:17Z`.** The predeclared qualification at `T=11/20` is closed as **NOT QUALIFIED — rigorous-stage performance blocker**.
++
++Run A used the original frozen grid `96..144 step 4` and sealed `NO_CANDIDATE` after all eight floating resolutions; active set `[2,3]`, deterministic ordering, worker reaping, and `active_children_after_cleanup=0` were verified.
++
++A separately predeclared extension `148..256 step 4` found stable-positive floating behavior beginning at `N=192` and selected `N=192` plus fallback `N=196` for rigorous screening. Run C was externally terminated after `1789.426 s` with both workers still in their first 128-bit assemblies. Run E retried the identical frozen extension and remained healthy/CPU-active for the full hour, but at `3590.867 s` neither rigorous assembly had returned. The external one-hour session boundary terminated and reaped the full process tree; a final OS scan found no repository processes. No rigorous cache file was committed.
++
++Therefore P9 does not establish completed rigorous `GP`, complement `mu_N`, precision escalation, exact candidate construction, candidate stability, `CANDIDATE_READY`, or reproducibility. It also does not establish a mathematical negative at the selected dimensions. No theorem admission, certificate, retained proof, or claim was created. The next prerequisite is performance hardening of the generic rigorous multi-prime assembler before a newly predeclared qualification.
+diff --git a/docs/CONTRACTS.md b/docs/CONTRACTS.md
+index 4a94d6c..dd1ef84 100644
+--- a/docs/CONTRACTS.md
++++ b/docs/CONTRACTS.md
+@@ -1,7 +1,7 @@
+ # Repository Architecture & Proof Contracts
+ 
+ - **Created:** `2026-08-21T06:00:00Z`
+-- **Last updated:** `2026-10-01T19:06:42Z`
++- **Last updated:** `2026-10-01T21:04:17Z`
+ - **Status:** Authoritative
+ 
+ This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
+@@ -267,6 +267,8 @@ P7 acceptance: complete Rust verifier suite `63/63`; strict rustfmt and clippy w
+ 
+ **P8 v2 adversarial/cross-layer contract — `2026-10-01T19:06:42Z`.** For the current first v2 structural window, the root JSON Schema fixes `arithmetic_terms` to exactly `[(2,2,1),(3,3,1)]` in canonical order and requires each serialized `compressed_shift_norm_bound` to be exactly `1/1`. Python semantic validation and Rust independently re-check the active set, prime-power identities, coefficient/norm/complement interval consistency, exact symmetry/parity of `A/GV/GP/GR`, and strict support-window relations from the serialized exact-rational log enclosures. The strict contract is fail-closed: lower-window validity requires `T > upper(log_3)/2`; upper-window validity requires `T < lower(log_2)=lower(log_4/2)`; equality or interval overlap is rejection. The test-only cross-layer corpus `tests/data/certificate-v2-cross-layer-v1.json` has 10 shared structural cases whose expected validity is independently checked by raw Python JSON Schema, Python semantic validation, and Rust. Cross-field threshold/parity attacks are tested separately in Python and Rust because JSON Schema has no mechanism for those rational matrix/support relations. The separate closed-grid admission corpus `tests/data/multi-prime-admission-v2.json` contains 16 forbidden support/dimension pairs and no allowed pair; the schema admission sub-contract `$defs.theoremAdmission`, Python `V2_ALLOWED_CONFIGURATIONS`, and Rust `V2_ALLOWED_CONFIGURATIONS` independently reject every grid entry. Neither test corpus is loaded by production code. A valid negative Schur proof remains theorem failure rather than malformed-contract failure. The production v2 theorem whitelist is still empty.
+ 
++**P9 non-theorem qualification boundary — `2026-10-01T21:04:17Z`.** The first real qualification at `T=11/20` did not reach a proof-bearing terminal state. The original frozen grid `96..144 step 4` sealed `NO_CANDIDATE` at the floating stage. A separately predeclared extension `148..256 step 4` found the stable-positive scout frontier at `N=192` and selected rigorous targets `192,196`, but neither first 128-bit rigorous assembly completed before external execution limits of approximately 30 minutes and then one hour. Both workers remained CPU-active; no rigorous result or cache entry was committed. Therefore there is no completed P9 evidence for `GP`, `mu_N`, precision escalation, exact witnesses, candidate stability, `CANDIDATE_READY`, or reproducibility. This outcome is **NOT QUALIFIED — rigorous-stage performance blocker**, not a mathematical negative. P9 does not authorize grid extension, theorem admission, certificate generation, or any support/dimension claim. A separate performance-hardening slice is required before another qualification.
++
+ ---
+ 
+ ## 3. Computational Boundary & Division of Concerns
+diff --git a/docs/INDEX.md b/docs/INDEX.md
+index bc3f05c..9f0fba7 100644
+--- a/docs/INDEX.md
++++ b/docs/INDEX.md
+@@ -1,7 +1,7 @@
+ # Documentation Index
+ 
+ - **Created:** `2026-08-20T20:33:00Z`
+-- **Last updated:** `2026-10-01T10:14:40Z`
++- **Last updated:** `2026-10-02T00:29:37Z`
+ 
+ This is the compact index of the Riemann Conjecture research repository.
+ 
+@@ -140,6 +140,7 @@ This is the compact index of the Riemann Conjecture research repository.
+ - [`X-20260828-001`](../computations/2026-08-28T010811Z-t21-40-schur-certificate/record.md) — separately admitted fresh exact `T=21/40,N=96` theorem certificate, independent zero-float Rust PASS, adversarial replay, and retained-proof registration supporting `C-0056`.
+ - [`X-20260923-001`](../computations/2026-09-23T234641Z-t27-50-continuation/record.md) — clean canonical pre-theorem `T=27/50` continuation; rigorous full-tail screening rejects scout-primary `N=100`, selects exact cross-precision-stable `CANDIDATE_READY` at `N=104`, and stops before theorem admission. It remains historical pre-theorem evidence; the later separate proof-bearing theorem run is `X-20260924-001` / `C-0057`.
+ - [`X-20260924-001`](../computations/2026-09-24T183715Z-t27-50-schur-certificate/record.md) — proof-bearing fresh exact `(T,N)=(27/50,104)` certificate generated from clean committed provenance at 512-bit Arb precision, independent zero-float Rust PASS, real-certificate adversarial replay, retained `8/8` registration, and full Python/Rust/Lean repository closure supporting `F-20260924-001` / `C-0057`.
++- [`X-20261001-001`](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md): generic rigorous assembler phases 1–3 complete; phase 4 measurements/checks executed, readiness **BLOCKED**. Isolated 512-bit `N=192/196` assembly takes `34.893/37.460 s`; full Python `647/647`, Rust `67/67`, retained replay `8/8`. Target candidate conditioning remains unresolved through 768 bits; workspace formatting fails in untouched `rh_engine` files. Cost model predeclares an estimated 12-hour allowance. No P9 rerun or theorem promotion.
+ 
+ 
+ ## Templates
+diff --git a/docs/LOG.md b/docs/LOG.md
+index 230224c..9980470 100644
+--- a/docs/LOG.md
++++ b/docs/LOG.md
+@@ -1,11 +1,63 @@
+ # Research Log
+ 
+ - **Created:** `2026-08-20T20:33:00Z`
+-- **Last updated:** `2026-10-01T19:06:42Z`
++- **Last updated:** `2026-10-02T00:29:37Z`
+ - **Policy:** Append-only
+ 
+ This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+ 
++## 2026-10-02T00:29:37Z. Phase 4 target measurements; readiness gate blocked
++
++**Type:** Non-theorem performance measurement / acceptance / conditioning blocker
++
++[X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) retains uncached isolated `N=192/196` measurements through Arb 768, exact candidate component costs, bounded spawn throughput and the complete scout-component cost. Assembly takes `34.893/37.460 s` at 512 bits, versus `38.208 s` for the two-worker pair. Actual old/new measured 128-bit speedups at `N=32..128` are `61.03..136.43`; no isolated old target timing or fabricated target speedup is claimed.
++
++Candidate cases at 512/640/768 all fail midpoint LDL witnesses. At 768, native `GP` widths remain `2.819e64/4.574e70`; maximum frozen matrix/witness bits `104/56` also fail at base 512. This is unresolved conditioning, not a mathematical negative. A measured-cost/extrapolation model predeclares a 12-hour external allowance with explicit reserves for unmeasured full witness completion and sealing; it is not launch permission.
++
++Focused Python passes `121/121`, full default Python `647/647`, Rust `67/67`, strict Clippy, scoped `rh_cert` formatting and retained byte-integrity/independent replay `8/8`. Workspace rustfmt fails in four untouched `rh_engine` files, preserved as unrelated work. All seven frozen hashes match the original capture, all four production hashes match phase 3, and owned workers are reaped. Phase 4 measurements/checks are executed but its readiness gate is **BLOCKED**. No P9 qualification, reproduction or admission was run.
++
++---
++
++## 2026-10-01T23:14:26Z. Generic assembler phase 3 equivalence and regression guards
++
++**Type:** Non-theorem implementation verification / structural performance guards
++
++[X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) closes phase 3 with `121/121` focused tests in `34.49 s`. Independent references now evaluate both matrix triangles without parity skips and reconstruct activity per basis/cell/term. The support grid includes empty arithmetic, one-prime overlap, two distinct `{2,3}` supports, and `{2,3,4}` with `tau_2<1`. Checks cover exact norms and residual image coefficients, rational integral containment, tighter high-precision enclosures, symmetry, parity, strict threshold/topology failures, and bounded shifts/activity/integrations/moment work.
++
++Real screen-cache tests isolate precision/support and force recomputation after copied generic-source bytes change. Mocked diagnostic echo and presence-only checks were replaced with real candidate rounding, complement, factor-3 Schur, independent congruence/Gershgorin, and negative-witness tests. Both acceptance corpora remain test-only.
++
++A fresh real CLI overlap smoke at `T=2/5,N=40`, Arb `384` versus `128`, matrix/witness `72/40`, returns positive exact generator margins and nonincreasing widths without theorem status. Production source was unchanged in this phase; all seven frozen hashes match the phase 1 originals. The final process scan found no remaining verification workers after excluding the identified live Eval harness.
++
++Phase 4 full acceptance and target higher-precision/throughput measurements remain pending. P9 qualification/reproduction was not run and v2 admission remains empty.
++
++---
++
++## 2026-10-01T22:39:34Z — Generic rigorous assembler performance phases 1 and 2
++
++**Type:** Performance hardening / isolated rigorous assembly / non-theorem verification
++
++[X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) captures source/environment provenance, baseline source snapshots, frozen-file hashes, and isolated wall/CPU profiling. Baseline 128-bit `N=32,64,96,128` assemblies take `9.490,80.324,320.340,897.221 s`. Fraction convolution in residual inner products dominates; repeated potential moments and generic polynomial products are secondary costs. Measured scaling explains the historical P9 execution boundary without rerunning the failed one-hour qualification.
++
++The separate generic path now uses native exact rational and Arb polynomial arithmetic, residual monomial-action reuse, coefficient-certified parity, native shift/integration, and cached diagonal scaling. Final isolated wall times are `0.165,0.894,2.738,6.779 s` at the same baseline dimensions. Target `N=192/196` complete in `26.259/28.069 s`. Full timing/stage data and intermediate measurements are retained.
++
++Focused Python acceptance passes `65/65`, including frozen-v1 bridges, mixed-square regressions, exact residual-image equality, parity/mixed-basis references, candidate/driver/cache checks, and v2 adversarial boundaries. A real new-path one-prime overlap smoke at `T=2/5,N=40`, 256-bit Arb and 64/32-bit matrix/witness settings, returns a positive exact generator candidate with nonincreasing 128-to-256-bit widths. All seven frozen files are byte-identical to their starting state. OS scan excludes the active tool harness and finds no remaining benchmark/candidate/test workers.
++
++Only phases 1 and 2 are complete. Full acceptance, higher-precision target measurements, and P9 qualification/reproduction remain pending. No P9 run, theorem admission, certificate-contract change, independent-verifier change, or retained-proof promotion occurred.
++
++---
++
++## 2026-10-01T21:04:17Z — P9 closes NOT QUALIFIED on rigorous-stage performance
++
++**Type:** Non-theorem qualification / performance boundary / process cleanup
++
++The first real `{2,3}` qualification at `T=11/20` did not reach the proof-bearing candidate path. The original frozen grid `N=96..144 step 4` completed as a clean scout-only `NO_CANDIDATE` bundle. A separately predeclared extension `N=148..256 step 4` found stable-positive floating behavior beginning at `N=192` and selected rigorous targets `N=192,196`.
++
++Run C was terminated by the external ~30-minute execution limit before either first 128-bit rigorous assembly completed. Run E repeated the identical extension with a one-hour allowance; both workers remained continuously CPU-active, but neither 128-bit assembly returned before the hard one-hour limit. The process controller terminated and reaped the complete tree; final process scan is clean. No rigorous cache entry was committed.
++
++P9 is therefore closed as **NOT QUALIFIED — rigorous-stage performance blocker**. This is not a mathematical negative for `T=11/20`, `N=192`, or `N=196`. No completed rigorous `GP`, `mu_N`, precision escalation, exact candidate, stability result, reproduction bundle, theorem admission, retained proof, or theorem claim exists. A separate performance-hardening slice is required before another qualification.
++
++---
++
+ ## 2026-10-01T19:06:42Z — P8 closes adversarial and cross-layer gates before continuation
+ 
+ **Type:** Cross-layer contract hardening / adversarial acceptance / closed admission grid
+diff --git a/docs/MULTI_PRIME_CONTRACT.md b/docs/MULTI_PRIME_CONTRACT.md
+index fb8eb78..3991450 100644
+--- a/docs/MULTI_PRIME_CONTRACT.md
++++ b/docs/MULTI_PRIME_CONTRACT.md
+@@ -1,7 +1,7 @@
+ # Multi-prime mathematical contract
+ 
+ - **Created:** `2026-10-01T10:14:40Z`
+-- **Last updated:** `2026-10-01T19:06:42Z`
++- **Last updated:** `2026-10-01T21:04:17Z`
+ - **Status:** Authoritative pre-implementation mathematical contract
+ 
+ This document freezes the mathematics that future multi-prime tooling must implement. It does **not** admit a new theorem profile, change `rh-weil-certificate-v1`, or create a theorem claim beyond the already retained one-prime results `C-0050..C-0057`.
+@@ -333,7 +333,31 @@ The frozen v1 support gate remains strict and rejects support beyond the `log(3)
+ 
+ P8 acceptance: focused Python `41/41`; complete Rust `67/67`; strict clippy and rustfmt; complete Python `608/608` in `387.29 s`; retained v1 proof replay `8/8`. No v2 theorem pair is admitted.
+ 
+-## 12. Certification boundary
++## 12. P9 non-theorem qualification outcome
++
++P9 attempted the first real end-to-end use of the post-v1 stack at the predeclared rational support
++
++[
++T=rac{11}{20}=0.55.
++]
++
++The original frozen grid `N=96,100,...,144` completed only the floating stage and sealed `NO_CANDIDATE`. A separately predeclared extension `N=148,152,...,256` found the first stable-positive floating dimension at `N=192`, with `N=196` selected as the fallback rigorous target.
++
++The proof-bearing qualification did not complete. Run C was interrupted by the external 1800-second execution boundary while both targets were still computing the first 128-bit rigorous assembly. Run E retried the exact same extension with a one-hour external allowance. Both workers remained continuously CPU-active, but neither 128-bit assembly returned before the one-hour hard limit. Run E therefore ended externally while the driver still reported `RIGOROUS_PRECISION_SEARCH`; it produced no completion manifest and no rigorous/candidate artifact.
++
++This outcome is classified:
++
++```text
++NOT QUALIFIED — rigorous-stage performance blocker
++```
++
++It is **not** a theorem failure and **not** evidence that the rigorous inequality is negative at `N=192` or `N=196`. No rigorous result was obtained. In particular P9 provides no completed proof-bearing evidence for `GP`, `mu_N`, precision contraction, exact witnesses, candidate stability, or `CANDIDATE_READY`.
++
++The interrupted runs committed no rigorous cache entry, so repeating the identical command would restart the first 128-bit assembly. P9 therefore stops here rather than extending dimensions or tuning parameters after observing results. A future qualification requires a separate, independently tested performance-hardening slice for the generic rigorous multi-prime assembler first.
++
++The production v2 theorem whitelist remains empty and no theorem certificate, retained proof, or theorem claim was created.
++
++## 13. Certification boundary
+ 
+ The analytic factor `3` is explicitly closed by `C-0059` / `F-20261001-002`, and P7 now provides the separate independent Rust v2 exact-rational verification path. The theorem path nevertheless remains closed because the production v2 whitelist is empty and no v2 theorem-bearing exporter/admission, fresh proof run, retained proof, or theorem claim has been introduced.
+ 
+diff --git a/docs/STATUS.md b/docs/STATUS.md
+index 781d992..37f9c38 100644
+--- a/docs/STATUS.md
++++ b/docs/STATUS.md
+@@ -1,7 +1,7 @@
+ # Current Research Status
+ 
+ - **Created:** `2026-08-20T20:33:00Z`
+-- **Last updated:** `2026-10-01T19:06:42Z`
++- **Last updated:** `2026-10-02T00:29:37Z`
+ - **RH status in this repository:** `UNRESOLVED`
+ 
+ This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
+@@ -459,3 +459,11 @@ The next research slice should be chosen deliberately rather than extrapolated a
+ **Multi-prime tooling upgrade P7 — `2026-10-01T18:22:11Z`.** Added an independent zero-float Rust v2 path in `crates/rh_cert/src/v2.rs` plus format dispatch in `crates/rh_cert/src/dispatch.rs`; the historical v1 verifier implementation in `crates/rh_cert/src/cert.rs` is unchanged. V2 enforces canonical sorted unique arithmetic terms and, for the first structural window, requires exactly `[2,3]`; missing, duplicated, unsorted, substituted, and invalid prime-power identities fail as contract errors. Rust derives each prime loss from the serialized exact-rational `coefficient * compressed_shift_norm_bound` interval, derives `mu_N=H_N-c_T-sum(prime_loss_m)-rho_R`, requires `mu_N>0`, reconstructs `A-(3/mu_N)(GV+GP+GR)`, enforces exact parity block structure, and independently checks the exact lower-triangular congruence/Gershgorin witnesses. The production Rust v2 theorem whitelist remains empty, so implementation alone admits no theorem pair. Malformed or unauthorized v2 input remains contract failure (CLI exit `2`); the internal authorized arithmetic path preserves theorem-failure semantics as a normal `passed=false` result (future CLI exit `1` after explicit admission). Trust boundary: Rust independently verifies exact rational interval proof arithmetic and consistency, but does not independently establish the transcendental Arb enclosures. P7 acceptance is closed: the complete `rh_cert` suite passes `63/63`, strict clippy and rustfmt pass, focused Python v2/v1 regression passes `21/21`, the complete default Python suite passes `602/602` in `515.09 s`, and the retained theorem chain replays `8/8` through the new format dispatcher. No v2 theorem pair is admitted.
+ 
+ **Multi-prime tooling upgrade P8 — `2026-10-01T19:06:42Z`.** Added adversarial and cross-layer acceptance before any real v2 continuation. The v2 JSON Schema now closes the first structural certificate window to exactly two arithmetic terms with identities `[2,3]` and exact compressed-shift norm bounds `b_m=1`; Python semantic validation and Rust independently enforce the same active set and additionally prove the strict serialized support window from rational interval endpoints, requiring `T > upper(log(3))/2` and `T < lower(log(2)) = lower(log(4)/2)`. Equality, interval overlap, and low-precision near-threshold cases fail closed. Added test-only shared corpus `tests/data/certificate-v2-cross-layer-v1.json` covering valid structure plus missing/duplicate/substituted `m=3`, forbidden `m=4`, malformed coefficient/norm intervals, missing/malformed `GP`, and wrong factor; raw Python Schema, Python semantic validation, and Rust agree on all 10 cases. Parity and strict-threshold arithmetic are separately cross-checked in Python semantics and Rust because raw JSON Schema cannot express those cross-field arithmetic relations. Added closed 16-case v2 admission grid `tests/data/multi-prime-admission-v2.json` over four supports and four dimensions; schema-side `$defs.theoremAdmission`, Python production admission, and Rust production admission all reject every case because the v2 theorem whitelist remains empty. Existing regression also confirms a structurally valid negative certificate reaches theorem failure (`passed=false`) rather than contract failure. Focused P8/P6/v1 tests pass `41/41`; complete Rust verifier tests pass `67/67`; strict clippy/rustfmt pass; complete Python passes `608/608` in `387.29 s`; retained v1 proofs replay `8/8`. Frozen v1 verifier/schema/exporter remain unchanged. P8 is closed; no v2 theorem pair is admitted.
++
++**Multi-prime tooling upgrade P9 — `2026-10-01T21:04:17Z`.** The non-theorem end-to-end qualification at predeclared support `T=11/20` is closed as **NOT QUALIFIED — rigorous-stage performance blocker**. Run A used the original frozen grid `N=96,100,...,144`, correctly detected active terms `[2,3]`, completed all eight scout resolutions, reaped all scout workers, sealed a valid `NO_CANDIDATE` bundle, and reported `active_children_after_cleanup=0`; no rigorous stage was reached. A separately predeclared diagnostic extension `N=148,152,...,256` found the stable-positive floating frontier at `N=192` and deterministically selected rigorous targets `192,196`. Run C reached the first 128-bit rigorous assemblies but the external 1800-second execution boundary terminated the process tree before either returned. Run E retried the identical frozen extension with a one-hour allowance; both rigorous workers remained CPU-active for the full run, but after `3590.867 s` neither 128-bit assembly had completed. The one-hour session limit terminated and reaped the entire process tree; final OS scan is clean. No rigorous cache entry was committed, so there is no resumable proof-bearing checkpoint. Consequently P9 did not demonstrate completed `GP`, rigorous `mu_N`, precision escalation, exact candidate construction, stability confirmation, `CANDIDATE_READY`, or completed-run reproducibility. This is an operational performance failure, **not** a mathematical negative for `T=11/20` or `N=192/196`. No further grid extension or tuning is part of P9. The next prerequisite is a separate performance-hardening slice for the generic rigorous multi-prime assembler. V2 theorem admission remains empty.
++
++**Generic assembler performance hardening, phases 1 and 2, `2026-10-01T22:39:34Z`.** [X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) profiles and optimizes the new rigorous path without changing frozen v1 or the mathematical contract. Python Fraction convolution in the residual and repeated potential moments dominated the baseline. Native exact/Arb polynomial operations, assembly-local residual monomial reuse, coefficient-certified parity, and precomputed diagonal scaling reduce isolated 128-bit `N=128` assembly from `897.221 s` to `6.779 s`; `N=192/196` now complete in `26.259/28.069 s`. Focused acceptance passes `65/65`; a real new-path one-prime overlap candidate at `T=2/5,N=40` has positive exact margins and contracting widths. Seven frozen-file hashes are unchanged; no benchmark/candidate/test workers remain. Full acceptance and target higher-precision measurements remain pending. P9 itself was not rerun and remains **NOT QUALIFIED**. V2 theorem admission remains empty; RH remains unresolved.
++
++**Generic assembler phase 3 verification, `2026-10-01T23:14:26Z`.** [X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) now closes equivalence and structural/cache regression guards with `121/121` focused tests. Independent small references cover empty, one-prime, two-prime, and `{2,3,4}` arithmetic; 128-bit balls contain tighter 384-bit optimized/reference enclosures; exact residual coefficients and rational inner products, arbitrary orthogonal basis norms, parity, strict topology, bounded invariant work, and real source-fingerprint invalidation are guarded. Real candidate tests independently reconstruct outward dyadic bounds, factor-3 Schur blocks, and exact congruence margins. A fresh CLI overlap smoke at `T=2/5,N=40`, Arb `384` and matrix/witness `72/40`, has positive exact margins and nonincreasing widths but remains pre-theorem. Production code was not edited in phase 3; seven frozen hashes still match the original capture; no verification workers remain after excluding the live tool harness. Phase 4 target higher-precision/throughput measurements and full Python/Rust/retained-proof acceptance remain pending. P9 is still NOT QUALIFIED; no qualification, reproduction, or v2 admission occurred.
++
++**Generic assembler phase 4 — `2026-10-02T00:29:37Z`, readiness BLOCKED.** [X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) completes isolated precision/throughput measurements and all acceptance executions. `N=192/196` assembly takes `34.893/37.460 s` at Arb 512 and `39.205/41.951 s` at 768; the two-worker 512-bit pair takes `38.208 s`. Full Python passes `647/647`, focused Python `121/121`, Rust `67/67`, strict Clippy and retained byte-integrity/independent replay `8/8`; all seven frozen hashes remain unchanged. Workspace `cargo fmt --all -- --check` fails in four untouched `rh_engine` files; scoped `rh_cert` formatting passes but does not replace that gate. Actual target candidates fail midpoint LDL witnesses at 512/640/768; even 768-bit `GP` widths are about `2.819e64/4.574e70`. This is unresolved arithmetic conditioning, not a mathematical negative. The cost model predeclares a conservative estimated 12-hour external allowance, not launch permission or a runtime bound. Stop before P9; any stable polynomial-coordinate/basis evaluation redesign is separately scoped. No qualification/reproduction or admission occurred; v2 admission remains empty and RH unresolved.
+diff --git a/scripts/README.md b/scripts/README.md
+index d6de623..ab1eb17 100644
+--- a/scripts/README.md
++++ b/scripts/README.md
+@@ -1,7 +1,7 @@
+ # Research scripts
+ 
+ - **Created:** `2026-08-20T20:59:00Z`
+-- **Last updated:** `2026-10-01T19:06:42Z`
++- **Last updated:** `2026-10-01T21:04:17Z`
+ 
+ These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
+ 
+@@ -305,7 +305,7 @@ Additive multi-prime arithmetic operator core. Unlike the frozen one-prime edge-
+ 
+ ### `cert/multi_prime_legendre_schur.py`
+ 
+-Full rigorous post-v1 Legendre-Schur assembler. `assemble_multi_prime_schur()` reuses the established rigorous potential and Suzuki residual components but obtains the entire arithmetic block from `cert/prime_power_terms.py`. Outputs include the active terms, combined `P`, operator `P_squared`, `A`, `GV`, `GP`, `GR`, `rho_R`, `mu`, and `schur`. The complement bound derives each compressed-shift norm from the rigorous path-graph chain length rather than assuming the one-prime `tau>1` geometry.
++Full rigorous post-v1 Legendre-Schur assembler. `assemble_multi_prime_schur()` uses the established potential moment formulas and Suzuki residual coefficients/remainder, with native exact polynomial convolution and assembly-local residual monomial-action reuse on the new path. The arithmetic block comes from `cert/prime_power_terms.py`, which uses native Arb shifts, products, and antiderivative evaluation on the shared partition, with coefficient-certified parity. Outputs include the active terms, combined `P`, operator `P_squared`, `A`, `GV`, `GP`, `GR`, `rho_R`, `mu`, and `schur`. The complement derives each compressed-shift norm from the rigorous path-graph chain length rather than assuming the one-prime `tau>1` geometry. Frozen v1 implementation and mathematical estimates are unchanged.
+ 
+ The P3 bridge tests are deliberate: before the `{2,3}` case is accepted, the generic assembler is compared against the frozen v1 path at four historical supports and dimensions 16 through 32. All relevant matrix/scalar enclosures overlap. Only after that bridge passes does the direct `{2,3}` test verify that the combined operator square contains a strictly nonzero cross term and does not reduce to the sum of the two individual squares.
+ 
+@@ -343,6 +343,36 @@ P7 closure: Rust `63/63`, strict clippy/rustfmt, focused Python `21/21`, complet
+ 
+ P8 hardens the pre-continuation boundary. `certificate_v2_contract.py` now semantically enforces exact first-window terms `[2,3]`, exact `b_m=1`, coefficient/norm/complement relationships, matrix symmetry/parity, and fail-closed strict support from the serialized log intervals. The JSON Schema independently closes the serializable term shape to `[2,3]`. Cross-layer structural cases live in `tests/data/certificate-v2-cross-layer-v1.json`; closed theorem-admission cases live in `tests/data/multi-prime-admission-v2.json`. These are test-only oracles and are never production inputs. P8 closure is focused Python `41/41`, Rust `67/67`, full Python `608/608`, retained replay `8/8`, with strict clippy/rustfmt.
+ 
++### P9 qualification performance result
++
++The first real `T=11/20` qualification exposed a performance boundary in the generic rigorous path. The floating scout completed normally and selected `N=192` with fallback `N=196`, but two independent retries failed to finish even the first 128-bit rigorous assemblies within external execution allowances of roughly 30 minutes and one hour. The workers remained CPU-active; this was not a deadlock. No rigorous cache entry was committed before termination.
++
++Treat this as **NOT QUALIFIED**, not as a mathematical negative. Do not keep extending the dimension grid or retry the same command expecting cached progress. Before another end-to-end qualification, profile and optimize the generic multi-prime rigorous assembler while preserving P2/P3 equivalence and P8 cross-layer gates.
++
++### `profile_multi_prime_assembly.py`
++
++Manual sequential rigorous-assembly timing CLI. It uses no continuation cache or process pool, permits nonpositive diagnostic complement at small dimensions, records source/runtime provenance, and publishes each completed sample. `--mode timing` measures uninstrumented wall/CPU totals; `--mode stages` reports nested inclusive/exclusive stage timings; `--mode cprofile` retains the hottest cumulative call records. Peak memory is a process-lifetime high-water mark. Interrupted output remains marked running, not completed. Diagnostic strings and JSON conversion occur outside the assembly timer.
++
++```text
++uv run --locked python -m scripts.profile_multi_prime_assembly --support 11/20 --dimensions 32,64,96,128 --precision 128 --residual-order 32 --mode timing --output-json computations/.../data/assembly-timings.json
++```
++
++[Phase 1/2 performance record](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md): 128-bit isolated `N=128` falls from `897.221 s` to `6.779 s`; `N=192/196` complete in `26.259/28.069 s`. Focused tests pass `65/65`, including exact residual-image and unoptimized interval references. These timings do not establish target candidate positivity, higher-precision readiness, full acceptance, or P9 closure. The frozen P9 driver was not run.
++
++Phase 3 extends that record with `121/121` focused checks. `tests/test_multi_prime_assembly_performance.py` compares independent unskipped small references, exact residual coefficients/norms, and tighter high-precision enclosures, and couples bounded work counts to mathematical output comparisons. Driver tests exercise real support/precision cache isolation and generic-source fingerprint invalidation. Candidate tests independently reconstruct outward dyadic bounds, grouped factor-3 Schur blocks, and exact congruence/Gershgorin margins with separate Arb/matrix/witness controls. No runtime thresholds or new production caches were added. The timestamped phase 4 addendum retains higher-precision/throughput measurements and full acceptance executions; its readiness gate is blocked by target conditioning and unrelated workspace formatting failures.
++
++### `profile_multi_prime_workflow.py`
++
++Manual component-cost CLI, not qualification. `--mode throughput` measures uncached assembly in the driver's bounded verified spawn pool; `--mode candidate` times actual sequential candidate assembly, rounding, exact Schur and witness work, retaining expected stage failures and exact native conditioning widths outside the timer; `--mode scout` measures only the floating component over the requested dimension grid/resolutions. Every mode records provenance, lifetime peak memory and atomic JSON publication costs. Pool modes preserve completion observation, canonical result order and cleanup verification. No mode calls `run_driver()`, selects a candidate, uses continuation caches or seals qualification.
++
++```text
++uv run --locked python -m scripts.profile_multi_prime_workflow --mode throughput --support 11/20 --dimensions 192,196 --precision 512 --workers 2 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-throughput-512.json
++uv run --locked python -m scripts.profile_multi_prime_workflow --mode candidate --support 11/20 --dimensions 192,196 --precision 512 --matrix-bits 64 --witness-bits 32 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-candidates-512-64-32.json
++```
++
++Phase 4 observes `34.893/37.460 s` isolated 512-bit assembly and `38.208 s` two-worker throughput, but target candidates fail exact midpoint LDL witnesses through Arb 768. Native combined-prime widths remain enormous despite precision contraction; this is not a mathematical negative. Full Python `647/647`, Rust `67/67`, strict Clippy and retained replay `8/8` pass; workspace formatting fails in untouched `rh_engine` files. Stop before P9. The retained cost model estimates a conservative 12-hour external allowance, not a runtime guarantee or launch authorization.
++
++
+ ## Shared implementation
+ 
+ `rh_tools.py` contains the standard-library Laguerre recurrence, prime sieve, von Mangoldt prime-power enumeration, pole parameters, high-precision trace accumulation, Simpson integration, turning-scale helpers, numerical zeta-zero evaluation via pinned `mpmath`, the retained small-`u` phase approximation, and the exact uniform pre-turning stationary map derived in `A-20260820-005`.
+diff --git a/scripts/cert/multi_prime_legendre_schur.py b/scripts/cert/multi_prime_legendre_schur.py
+index 9eeec0c..0fa19c6 100644
+--- a/scripts/cert/multi_prime_legendre_schur.py
++++ b/scripts/cert/multi_prime_legendre_schur.py
+@@ -17,22 +17,27 @@ combined piecewise action.  Therefore mixed products such as
+ 
+ from __future__ import annotations
+ 
++import math
+ from fractions import Fraction
+ from typing import Sequence
+ 
+-from flint import acb, arb, ctx
++from flint import acb, arb, ctx, fmpq, fmpq_poly
+ 
+ from scripts.cert.constants import c_T_enclosure
+ from scripts.cert.legendre_schur import (
+     harmonic,
+     legendre_norm_sq,
+     legendre_polynomials,
+-    potential_matrices,
+-    residual_truncation_operator,
++    potential_moment,
++    potential_square_moment,
+ )
+ from scripts.cert.prime_power_terms import (
+     ArbMatrix,
+     PrimePowerTerm,
++    _exact_inner,
++    _exact_polynomials,
++    _opposite_parity,
++    _polynomial_parities,
+     assemble_active_prime_power_operator,
+ )
+ from scripts.cert.residual_kernel import (
+@@ -41,6 +46,98 @@ from scripts.cert.residual_kernel import (
+ )
+ 
+ 
++def _potential_matrices(
++    polys: Sequence[Sequence[Fraction]], prec: int,
++) -> tuple[ArbMatrix, ArbMatrix]:
++    """Same exact potential moments as v1, with native exact convolution."""
++    exact = _exact_polynomials(polys)
++    parities = _polynomial_parities(polys)
++    max_power = 2 * max(poly.degree() for poly in exact)
++    with ctx.workprec(prec):
++        log2, pi = arb.const_log2(), arb.pi()
++        moments = [potential_moment(k, log2) for k in range(max_power + 1)]
++        square_moments = [
++            potential_square_moment(k, log2, pi) for k in range(max_power + 1)
++        ]
++        v, v2 = _zero_matrix(len(polys)), _zero_matrix(len(polys))
++        for i, left in enumerate(exact):
++            for j in range(i, len(exact)):
++                if _opposite_parity(parities[i], parities[j]):
++                    continue
++                value, square = arb(0), arb(0)
++                for power, coefficient in enumerate((left * exact[j]).coeffs()):
++                    if coefficient:
++                        c = arb(coefficient)
++                        value += c * moments[power]
++                        square += c * square_moments[power]
++                v[i][j] = v[j][i] = value
++                v2[i][j] = v2[j][i] = square
++        return v, v2
++
++
++def _abs_power_action(
++    power: int, poly: fmpq_poly, binomials: Sequence[int],
++) -> fmpq_poly:
++    """Exact split integral of |x-y|^power, evaluated with native rationals."""
++    out = [fmpq(0) for _ in range(len(poly) + power + 2)]
++    for k, coefficient in enumerate(poly.coeffs()):
++        if not coefficient:
++            continue
++        for r, binomial in enumerate(binomials):
++            denominator = r + k + 1
++            left = fmpq(binomial * (-1) ** r, denominator)
++            right = fmpq(binomial * (-1) ** (power - r), denominator)
++            out[power + k + 1] += coefficient * (left - right)
++            out[power - r] += coefficient * (right - left * (-1) ** (r + k + 1))
++    return fmpq_poly(out)
++
++
++def _residual_truncation_operator(
++    polys: Sequence[Sequence[Fraction]], order: int, prec: int,
++    support_num: int, support_den: int,
++) -> tuple[list[fmpq_poly], ArbMatrix, ArbMatrix, arb]:
++    """Same residual polynomial and remainder as v1; no Fraction convolution."""
++    support = fmpq(support_num, support_den)
++    exact = _exact_polynomials(polys)
++    parities = _polynomial_parities(polys)
++    terms = [
++        (degree, -coefficient * support ** (degree + 1),
++         tuple(math.comb(degree, r) for r in range(degree + 1)))
++        for degree, coefficient in enumerate(_suzuki_residual_series_coefficients(order))
++        if coefficient
++    ]
++    basis_coefficients = [poly.coeffs() for poly in exact]
++    occupied_degrees = sorted({
++        k for coefficients in basis_coefficients for k, c in enumerate(coefficients) if c
++    })
++    # R_K is linear. Its action on x^k depends on support/order/k, not on
++    # the basis index, so compute that exact action once and combine natively.
++    monomial_images: dict[int, fmpq_poly] = {}
++    for k in occupied_degrees:
++        monomial = fmpq_poly([0] * k + [1])
++        monomial_images[k] = sum(
++            (_abs_power_action(degree, monomial, binomials) * scale
++             for degree, scale, binomials in terms),
++            fmpq_poly(),
++        )
++    images = [
++        sum((monomial_images[k] * c for k, c in enumerate(coefficients) if c), fmpq_poly())
++        for coefficients in basis_coefficients
++    ]
++    with ctx.workprec(prec):
++        low, square = _zero_matrix(len(polys)), _zero_matrix(len(polys))
++        for i, poly in enumerate(exact):
++            for j in range(i, len(exact)):
++                # The even |x-y| kernel preserves coefficient-certified parity.
++                if _opposite_parity(parities[i], parities[j]):
++                    continue
++                low[i][j] = low[j][i] = arb(_exact_inner(poly, images[j]))
++                square[i][j] = square[j][i] = arb(_exact_inner(images[i], images[j]))
++        two_t = arb(2 * support_num) / support_den
++        delta = two_t * _suzuki_residual_tail_radius(acb(two_t), order)
++        return images, low, square, delta
++
++
+ def _arb_fraction(value: Fraction) -> arb:
+     return arb(value.numerator) / value.denominator
+ 
+@@ -68,11 +165,12 @@ def _mat_mul_diag_inverse(a: ArbMatrix, norms: Sequence[Fraction]) -> ArbMatrix:
+     """Return ``A D^-1 A`` for symmetric ``A`` and exact diagonal ``D``."""
+     n = len(a)
+     out = _zero_matrix(n)
++    inverse_norms = tuple(_arb_fraction(1 / norm) for norm in norms)
+     for i in range(n):
+         for j in range(i, n):
+             value = arb(0)
+             for k in range(n):
+-                value += a[i][k] * a[k][j] / _arb_fraction(norms[k])
++                value += a[i][k] * a[k][j] * inverse_norms[k]
+             out[i][j] = value
+             out[j][i] = value
+     return out
+@@ -167,7 +265,7 @@ def assemble_multi_prime_schur(
+         polys = legendre_polynomials(n - 1)
+         norms = [legendre_norm_sq(k) for k in range(n)]
+ 
+-        V, V2 = potential_matrices(polys, prec)
++        V, V2 = _potential_matrices(polys, prec)
+         arithmetic = assemble_active_prime_power_operator(
+             polys,
+             support_num=support_exact.numerator,
+@@ -178,7 +276,7 @@ def assemble_multi_prime_schur(
+         P_squared = arithmetic.p_squared_matrix
+         GP = arithmetic.g_p
+ 
+-        _, Rk, Rk2, delta_R = residual_truncation_operator(
++        _, Rk, Rk2, delta_R = _residual_truncation_operator(
+             polys,
+             residual_order,
+             prec,
+diff --git a/scripts/cert/prime_power_terms.py b/scripts/cert/prime_power_terms.py
+index 784171c..2c16319 100644
+--- a/scripts/cert/prime_power_terms.py
++++ b/scripts/cert/prime_power_terms.py
+@@ -22,9 +22,9 @@ import math
+ from dataclasses import dataclass
+ from fractions import Fraction
+ from itertools import count
+-from typing import Iterable, Sequence
++from typing import Sequence
+ 
+-from flint import arb, ctx
++from flint import arb, arb_poly, ctx, fmpq, fmpq_poly
+ 
+ FractionPoly = list[Fraction]
+ ArbPoly = list[arb]
+@@ -264,12 +264,10 @@ def _arb_poly(poly: Sequence[Fraction]) -> ArbPoly:
+ 
+ def _arb_poly_shift(poly: Sequence[Fraction], shift: arb) -> ArbPoly:
+     """Return coefficients of ``poly(x + shift)`` with rigorous Arb entries."""
+-    out = [arb(0) for _ in range(len(poly))]
+-    for degree, coefficient in enumerate(poly):
+-        c = _arb_fraction(coefficient)
+-        for power in range(degree + 1):
+-            out[power] += c * math.comb(degree, power) * shift ** (degree - power)
+-    return out
++    coefficients = arb_poly(_arb_poly(poly))(arb_poly([shift, 1])).coeffs()
++    # Retain the coefficient shape even when Flint trims exact trailing zeros.
++    coefficients.extend(arb(0) for _ in range(len(poly) - len(coefficients)))
++    return coefficients
+ 
+ 
+ def _arb_poly_add_in_place(target: ArbPoly, source: Sequence[arb], scale: arb) -> None:
+@@ -279,53 +277,52 @@ def _arb_poly_add_in_place(target: ArbPoly, source: Sequence[arb], scale: arb) -
+         target[index] += scale * value
+ 
+ 
+-def _arb_poly_mul(a: Sequence[arb], b: Sequence[arb]) -> ArbPoly:
+-    if not a or not b:
+-        return [arb(0)]
+-    out = [arb(0) for _ in range(len(a) + len(b) - 1)]
+-    for i, ai in enumerate(a):
+-        for j, bj in enumerate(b):
+-            out[i + j] += ai * bj
+-    return out
++def _integrated_product(left: arb_poly, right: arb_poly, interval: tuple[arb, arb]) -> arb:
++    """Integrate the full interval product using native Arb antiderivative evaluation."""
++    if not len(left) or not len(right):
++        return arb(0)
++    primitive = (left * right).integral()
++    lower, upper = interval
++    return primitive(upper) - primitive(lower)
+ 
+ 
+-def _arb_poly_integral_between(poly: Iterable[arb], lower: arb, upper: arb) -> arb:
+-    total = arb(0)
+-    for degree, coefficient in enumerate(poly):
+-        total += coefficient * (upper ** (degree + 1) - lower ** (degree + 1)) / (degree + 1)
+-    return total
++def _exact_polynomials(polys: Sequence[Sequence[Fraction]]) -> list[fmpq_poly]:
++    return [
++        fmpq_poly([fmpq(value.numerator, value.denominator) for value in poly])
++        for poly in polys
++    ]
+ 
+ 
+-def _exact_poly_mul(a: Sequence[Fraction], b: Sequence[Fraction]) -> FractionPoly:
+-    out = [Fraction(0) for _ in range(len(a) + len(b) - 1)]
+-    for i, ai in enumerate(a):
+-        for j, bj in enumerate(b):
+-            out[i + j] += ai * bj
+-    return out
++def _exact_inner(a: fmpq_poly, b: fmpq_poly) -> fmpq:
++    primitive = (a * b).integral()
++    return primitive(1) - primitive(-1)
+ 
+ 
+-def _exact_poly_integral(poly: Sequence[Fraction]) -> Fraction:
+-    total = Fraction(0)
+-    for degree, coefficient in enumerate(poly):
+-        if degree % 2 == 0:
+-            total += coefficient * Fraction(2, degree + 1)
+-    return total
++def _polynomial_parities(polys: Sequence[Sequence[Fraction]]) -> tuple[int | None, ...]:
++    """Certify reflection parity from exact coefficients, not basis indices."""
++    parities: list[int | None] = []
++    for poly in polys:
++        occupied = {degree % 2 for degree, value in enumerate(poly) if value}
++        parities.append(next(iter(occupied)) if len(occupied) == 1 else None)
++    return tuple(parities)
+ 
+ 
+-def _exact_poly_inner(a: Sequence[Fraction], b: Sequence[Fraction]) -> Fraction:
+-    return _exact_poly_integral(_exact_poly_mul(a, b))
++def _opposite_parity(left: int | None, right: int | None) -> bool:
++    return left is not None and right is not None and left != right
+ 
+ 
+ def _orthogonal_basis_norms(polys: Sequence[Sequence[Fraction]]) -> tuple[Fraction, ...]:
++    exact = _exact_polynomials(polys)
++    parities = _polynomial_parities(polys)
+     norms: list[Fraction] = []
+-    for i, poly in enumerate(polys):
+-        norm = _exact_poly_inner(poly, poly)
++    for i, poly in enumerate(exact):
++        norm = _exact_inner(poly, poly)
+         if norm <= 0:
+             raise ValueError(f"basis polynomial {i} has nonpositive exact norm")
+         for j in range(i):
+-            if _exact_poly_inner(poly, polys[j]) != 0:
++            if not _opposite_parity(parities[i], parities[j]) and _exact_inner(poly, exact[j]) != 0:
+                 raise ValueError("prime-power Gram assembly requires an exact orthogonal basis")
+-        norms.append(norm)
++        norms.append(Fraction(int(norm.p), int(norm.q)))
+     return tuple(norms)
+ 
+ 
+@@ -426,30 +423,26 @@ def combined_piecewise_images(
+                 minus = _arb_poly_shift(poly, -term.tau)
+                 per_term.append((plus, minus))
+             shifted.append(per_term)
++        partition = tuple(zip(breakpoints[:-1], breakpoints[1:], strict=True))
++        activities = []
++        for lower, upper in partition:
++            midpoint = (lower + upper) / 2
++            activities.append(tuple(
++                (
++                    _activity(midpoint, 1 - term.tau, before=True, term=term),
++                    _activity(midpoint, -1 + term.tau, before=False, term=term),
++                    -term.coefficient,
++                )
++                for term in terms
++            ))
+ 
+         all_images: list[tuple[PiecewisePolynomial, ...]] = []
+         for basis_index, poly in enumerate(polys):
+             pieces: list[PiecewisePolynomial] = []
+-            for lower, upper in zip(breakpoints[:-1], breakpoints[1:], strict=True):
+-                midpoint = (lower + upper) / 2
++            for cell_index, (lower, upper) in enumerate(partition):
+                 coefficients = [arb(0) for _ in poly]
+-                for term_index, term in enumerate(terms):
+-                    plus_end = 1 - term.tau
+-                    minus_start = -1 + term.tau
+-                    plus_active = _activity(
+-                        midpoint,
+-                        plus_end,
+-                        before=True,
+-                        term=term,
+-                    )
+-                    minus_active = _activity(
+-                        midpoint,
+-                        minus_start,
+-                        before=False,
+-                        term=term,
+-                    )
++                for term_index, (plus_active, minus_active, scale) in enumerate(activities[cell_index]):
+                     plus_poly, minus_poly = shifted[basis_index][term_index]
+-                    scale = -term.coefficient
+                     if plus_active:
+                         _arb_poly_add_in_place(coefficients, plus_poly, scale)
+                     if minus_active:
+@@ -470,44 +463,40 @@ def _zero_matrix(n: int) -> ArbMatrix:
+ 
+ 
+ def _low_matrix_from_images(
+-    polys: Sequence[Sequence[Fraction]],
+-    images: Sequence[Sequence[PiecewisePolynomial]],
++    basis: Sequence[arb_poly],
++    images: Sequence[Sequence[arb_poly]],
++    intervals: Sequence[tuple[arb, arb]],
++    parities: Sequence[int | None],
+ ) -> ArbMatrix:
+-    n = len(polys)
+-    basis = [_arb_poly(poly) for poly in polys]
++    n = len(basis)
+     out = _zero_matrix(n)
+     for i in range(n):
+         for j in range(i, n):
++            # Reflection commutes with every signed left+right translation.
++            if _opposite_parity(parities[i], parities[j]):
++                continue
+             value = arb(0)
+-            for piece in images[j]:
+-                value += _arb_poly_integral_between(
+-                    _arb_poly_mul(basis[i], piece.coefficients),
+-                    piece.lower,
+-                    piece.upper,
+-                )
+-            out[i][j] = value
+-            out[j][i] = value
++            for image, interval in zip(images[j], intervals, strict=True):
++                value += _integrated_product(basis[i], image, interval)
++            out[i][j] = out[j][i] = value
+     return out
+ 
+ 
+ def _operator_square_matrix_from_images(
+-    images: Sequence[Sequence[PiecewisePolynomial]],
++    images: Sequence[Sequence[arb_poly]],
++    intervals: Sequence[tuple[arb, arb]],
++    parities: Sequence[int | None],
+ ) -> ArbMatrix:
+     n = len(images)
+     out = _zero_matrix(n)
+     for i in range(n):
+         for j in range(i, n):
+-            if len(images[i]) != len(images[j]):
+-                raise RuntimeError("piecewise images do not share one translation partition")
++            if _opposite_parity(parities[i], parities[j]):
++                continue
+             value = arb(0)
+-            for left, right in zip(images[i], images[j], strict=True):
+-                value += _arb_poly_integral_between(
+-                    _arb_poly_mul(left.coefficients, right.coefficients),
+-                    left.lower,
+-                    left.upper,
+-                )
+-            out[i][j] = value
+-            out[j][i] = value
++            for left, right, interval in zip(images[i], images[j], intervals, strict=True):
++                value += _integrated_product(left, right, interval)
++            out[i][j] = out[j][i] = value
+     return out
+ 
+ 
+@@ -518,6 +507,7 @@ def _tail_gram(
+ ) -> ArbMatrix:
+     n = len(p_matrix)
+     out = _zero_matrix(n)
++    inverse_norms = tuple(_arb_fraction(1 / norm) for norm in norms)
+     for i in range(n):
+         for j in range(i, n):
+             low_composition = arb(0)
+@@ -525,7 +515,7 @@ def _tail_gram(
+                 low_composition += (
+                     p_matrix[i][k]
+                     * p_matrix[k][j]
+-                    / _arb_fraction(norms[k])
++                    * inverse_norms[k]
+                 )
+             value = p_squared_matrix[i][j] - low_composition
+             out[i][j] = value
+@@ -549,8 +539,14 @@ def assemble_combined_prime_power_operator(
+ 
+     with ctx.workprec(prec):
+         breakpoints, images = combined_piecewise_images(polys, terms, prec)
+-        p_matrix = _low_matrix_from_images(polys, images)
+-        p_squared_matrix = _operator_square_matrix_from_images(images)
++        basis = tuple(arb_poly(_arb_poly(poly)) for poly in polys)
++        native_images = tuple(
++            tuple(arb_poly(list(piece.coefficients)) for piece in image) for image in images
++        )
++        intervals = tuple(zip(breakpoints[:-1], breakpoints[1:], strict=True))
++        parities = _polynomial_parities(polys)
++        p_matrix = _low_matrix_from_images(basis, native_images, intervals, parities)
++        p_squared_matrix = _operator_square_matrix_from_images(native_images, intervals, parities)
+         g_p = _tail_gram(p_matrix, p_squared_matrix, norms)
+         return PrimePowerOperatorAssembly(
+             terms=tuple(terms),
+diff --git a/tests/test_multi_prime_continuation_driver.py b/tests/test_multi_prime_continuation_driver.py
+index 1b083fa..1b01db0 100644
+--- a/tests/test_multi_prime_continuation_driver.py
++++ b/tests/test_multi_prime_continuation_driver.py
+@@ -194,20 +194,73 @@ def test_p5_cache_recovers_from_corrupt_json_and_uses_atomic_publication(
+     assert not list(tmp_path.glob("*.tmp"))
+ 
+ 
+-def test_p5_cache_fingerprint_covers_multi_prime_semantics() -> None:
+-    required = {
+-        "scripts/weil_multi_prime_continuation_driver.py",
+-        "scripts/weil_multi_prime_schur_scout.py",
+-        "scripts/weil_multi_prime_support_continuation_scout.py",
+-        "scripts/weil_multi_prime_support_candidate_check.py",
+-        "scripts/cert/multi_prime_legendre_schur.py",
+-        "scripts/cert/prime_power_terms.py",
+-        "scripts/cert/exact_prime_schur_common.py",
+-        "scripts/cert/residual_kernel.py",
+-    }
+-    assert required.issubset(set(driver.CACHE_SOURCE_PATHS))
+-    assert "scripts/weil_continuation_driver.py" not in driver.CACHE_SOURCE_PATHS
+-    assert "scripts/weil_support_candidate_check.py" not in driver.CACHE_SOURCE_PATHS
++@pytest.fixture
++def source_snapshot(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> Path:
++    root = Path(driver.__file__).resolve().parents[1]
++    snapshot = tmp_path / "source"
++    for relative in driver.CACHE_SOURCE_PATHS:
++        target = snapshot / relative
++        target.parent.mkdir(parents=True, exist_ok=True)
++        target.write_bytes((root / relative).read_bytes())
++    monkeypatch.setattr(driver, "__file__", str(snapshot / "scripts/weil_multi_prime_continuation_driver.py"))
++    return snapshot
++
++
++@pytest.mark.parametrize("relative", [
++    "scripts/cert/prime_power_terms.py",
++    "scripts/cert/multi_prime_legendre_schur.py",
++])
++def test_p5_source_change_invalidates_real_rigorous_screen_cache(
++    monkeypatch: pytest.MonkeyPatch, tmp_path: Path, source_snapshot: Path, relative: str,
++) -> None:
++    calls = []
++
++    def observe(*args, **kwargs):
++        calls.append((args, kwargs))
++        return scout_support(*args, **kwargs)
++
++    monkeypatch.setattr(driver, "scout_support", observe)
++    cache = tmp_path / "cache"
++    first = driver._escalate_rigorous_screen(Fraction(11, 20), 8, [128], 16, cache)
++    assert first["attempts"][0]["active_terms"] == [2, 3]
++    assert driver._escalate_rigorous_screen(Fraction(11, 20), 8, [128], 16, cache) == first
++    assert len(calls) == 1
++    source = source_snapshot / relative
++    source.write_bytes(source.read_bytes() + b"\n# isolated fingerprint mutation\n")
++    refreshed = driver._escalate_rigorous_screen(Fraction(11, 20), 8, [128], 16, cache)
++    assert len(calls) == 2
++    assert refreshed == first
++    assert driver._escalate_rigorous_screen(Fraction(11, 20), 8, [128], 16, cache) == refreshed
++    assert len(calls) == 2
++
++
++def test_p5_real_screen_cache_isolates_support_and_precision(
++    monkeypatch: pytest.MonkeyPatch, tmp_path: Path,
++) -> None:
++    calls = []
++
++    def observe(*args, **kwargs):
++        calls.append((args[0], kwargs["prec"]))
++        return scout_support(*args, **kwargs)
++
++    monkeypatch.setattr(driver, "scout_support", observe)
++    inputs = [(Fraction(11, 20), 128), (Fraction(11, 20), 256),
++              (Fraction(3, 5), 128), (Fraction(3, 5), 256)]
++    samples = []
++    for support, prec in inputs:
++        result = driver._escalate_rigorous_screen(support, 8, [prec], 16, tmp_path)
++        sample = result["attempts"][0]
++        assert sample["support"] == str(support)
++        assert sample["active_terms"] == [2, 3]
++        samples.append(result)
++    assert calls == inputs
++    assert samples[0]["attempts"][0]["mu_midpoint"] != samples[2]["attempts"][0]["mu_midpoint"]
++    for lower, higher in ((samples[0], samples[1]), (samples[2], samples[3])):
++        assert higher["attempts"][0]["interval_widths"]["GP_max"] < \
++            lower["attempts"][0]["interval_widths"]["GP_max"]
++    for (support, prec), expected in zip(inputs, samples, strict=True):
++        assert driver._escalate_rigorous_screen(support, 8, [prec], 16, tmp_path) == expected
++    assert calls == inputs
+ 
+ 
+ def test_p5_candidate_confirmation_uses_higher_precision_with_gp(
+diff --git a/tests/test_multi_prime_legendre_schur.py b/tests/test_multi_prime_legendre_schur.py
+index 17e6336..500a9bb 100644
+--- a/tests/test_multi_prime_legendre_schur.py
++++ b/tests/test_multi_prime_legendre_schur.py
+@@ -117,30 +117,6 @@ def test_two_prime_operator_square_contains_cross_terms() -> None:
+             assert result["GP"][i][j].overlaps(result["GP"][j][i])
+ 
+ 
+-def test_multi_prime_canonical_outputs_are_present() -> None:
+-    result = assemble_multi_prime_schur(
+-        n=3,
+-        prec=128,
+-        require_positive_mu=False,
+-        support_num=3,
+-        support_den=5,
+-    )
+-    for key in (
+-        "active_terms",
+-        "P",
+-        "P_squared",
+-        "A",
+-        "GV",
+-        "GP",
+-        "GR",
+-        "rho_R",
+-        "mu",
+-        "schur",
+-    ):
+-        assert key in result
+-    assert isinstance(result["mu_positive"], bool)
+-
+-
+ def test_multi_prime_norm_bound_generalizes_beyond_tau_two_above_one() -> None:
+     with ctx.workprec(160):
+         result = assemble_multi_prime_schur(
+@@ -155,3 +131,15 @@ def test_multi_prime_norm_bound_generalizes_beyond_tau_two_above_one() -> None:
+         assert bounds[2].overlaps(arb(2).sqrt())
+         assert bounds[3] == 1
+         assert bounds[4] == 1
++
++
++@pytest.mark.parametrize("tau", ["1", "1 +/- 0.01"])
++def test_norm_bound_fails_closed_at_unresolved_chain_length(tau) -> None:
++    from dataclasses import replace
++
++    from scripts.cert.multi_prime_legendre_schur import compressed_shift_norm_bound
++    from scripts.cert.prime_power_terms import prime_power_term
++
++    term = replace(prime_power_term(2, 7, 10, prec=128), tau=arb(tau))
++    with pytest.raises(ValueError, match="chain length"):
++        compressed_shift_norm_bound(term, 128)
+diff --git a/tests/test_multi_prime_p4_stages.py b/tests/test_multi_prime_p4_stages.py
+index 7915059..aae532d 100644
+--- a/tests/test_multi_prime_p4_stages.py
++++ b/tests/test_multi_prime_p4_stages.py
+@@ -1,52 +1,17 @@
+ from __future__ import annotations
+ 
++import builtins
+ from fractions import Fraction
+-from types import SimpleNamespace
++from pathlib import Path
++from unittest.mock import patch
+ 
+-from flint import arb
++import pytest
++from flint import ctx
+ 
+ from scripts import weil_multi_prime_schur_scout as scout_module
+ from scripts import weil_multi_prime_support_candidate_check as candidate_module
+-
+-
+-def _zero_matrix(n: int) -> list[list[arb]]:
+-    return [[arb(0) for _ in range(n)] for _ in range(n)]
+-
+-
+-def _fake_assembled(n: int) -> dict[str, object]:
+-    zero = _zero_matrix(n)
+-    a = _zero_matrix(n)
+-    for i in range(n):
+-        a[i][i] = arb(5)
+-    terms = (
+-        SimpleNamespace(
+-            m=2,
+-            prime=2,
+-            exponent=1,
+-            tau=arb("1.1"),
+-            coefficient=arb("0.01"),
+-        ),
+-        SimpleNamespace(
+-            m=3,
+-            prime=3,
+-            exponent=1,
+-            tau=arb("1.8"),
+-            coefficient=arb("0.01"),
+-        ),
+-    )
+-    return {
+-        "active_terms": terms,
+-        "arithmetic_norm_bounds": {2: arb(1), 3: arb(1)},
+-        "A": a,
+-        "GV": zero,
+-        "GP": zero,
+-        "GR": zero,
+-        "P": zero,
+-        "P_squared": zero,
+-        "mu": arb("0.5"),
+-        "rho_R": arb(0),
+-        "delta_R": arb(0),
+-    }
++from scripts.cert.constants import arb_to_rational_enclosure
++from scripts.cert.multi_prime_legendre_schur import assemble_multi_prime_schur
+ 
+ 
+ def test_multi_prime_scout_is_floating_and_reports_combined_prime_data() -> None:
+@@ -68,63 +33,140 @@ def test_multi_prime_scout_is_floating_and_reports_combined_prime_data() -> None
+     assert set(conditioning["per_term_tail_operator_norms"]) == {"2", "3"}
+ 
+ 
+-def test_multi_prime_candidate_reports_requested_diagnostics(monkeypatch) -> None:
+-    monkeypatch.setattr(
+-        candidate_module,
+-        "assemble_multi_prime_schur",
+-        lambda **kwargs: _fake_assembled(int(kwargs["n"])),
+-    )
+-    result = candidate_module.run_candidate(
+-        Fraction(3, 5),
+-        dimension=8,
+-        prec=128,
+-        comparison_prec=96,
+-        residual_order=16,
+-        matrix_bits=48,
+-        witness_bits=24,
+-    )
+-    assert result["role"] == "generator_side_exact_multi_prime_candidate_only"
+-    assert result["precision_bits"] == 128
+-    assert result["matrix_bits"] == 48
+-    assert result["witness_bits"] == 24
+-    assert [term["m"] for term in result["active_terms"]] == [2, 3]
+-    assert all("complement_contribution" in term for term in result["active_terms"])
+-    working = result["working_precision_diagnostics"]
+-    assert "GP" in working["matrix_widths"]
+-    conditioning = working["combined_prime_conditioning"]
+-    assert conditioning["active_term_count"] == 2
+-    assert "GP_max_width" in conditioning
+-    contraction = result["precision_contraction"]
+-    assert contraction["status"] == "compared"
+-    assert contraction["from_precision_bits"] == 96
+-    assert contraction["to_precision_bits"] == 128
+-    assert Fraction(result["mu_lower"]) > 0
+-    assert Fraction(result["even_gershgorin_margin"]) > 0
+-    assert Fraction(result["odd_gershgorin_margin"]) > 0
+-    assert result["all_margins_positive"] is True
+-
+-
+-def test_precision_comparison_is_optional_and_independent(monkeypatch) -> None:
+-    monkeypatch.setattr(
+-        candidate_module,
+-        "assemble_multi_prime_schur",
+-        lambda **kwargs: _fake_assembled(int(kwargs["n"])),
+-    )
+-    result = candidate_module.run_candidate(
+-        Fraction(3, 5),
+-        dimension=8,
+-        prec=160,
+-        residual_order=16,
+-        matrix_bits=64,
+-        witness_bits=32,
+-    )
+-    assert result["precision_bits"] == 160
+-    assert result["matrix_bits"] == 64
+-    assert result["witness_bits"] == 32
+-    assert result["comparison_precision_bits"] is None
+-    assert result["precision_contraction"]["status"] == "not_requested"
++@pytest.fixture(autouse=True)
++def forbid_test_only_acceptance_inputs(monkeypatch):
++    forbidden = {"certificate-v2-cross-layer-v1.json", "multi-prime-admission-v2.json"}
++    path_open, builtin_open = Path.open, builtins.open
++
++    def guarded_path_open(path, *args, **kwargs):
++        assert path.name not in forbidden, f"production read of test corpus: {path}"
++        return path_open(path, *args, **kwargs)
++
++    def guarded_builtin_open(path, *args, **kwargs):
++        if isinstance(path, (str, Path)):
++            assert Path(path).name not in forbidden, f"production read of test corpus: {path}"
++        return builtin_open(path, *args, **kwargs)
++
++    monkeypatch.setattr(Path, "open", guarded_path_open)
++    monkeypatch.setattr(builtins, "open", guarded_builtin_open)
++
++
++@pytest.mark.parametrize("support", [Fraction(1, 4), Fraction(11, 20), Fraction(3, 5), Fraction(7, 10)])
++def test_real_arithmetic_complement_diagnostics_enclose_each_term(support):
++    with ctx.workprec(192):
++        assembled = assemble_multi_prime_schur(
++            n=8, prec=192, residual_order=16, support_num=support.numerator,
++            support_den=support.denominator, require_positive_mu=False,
++        )
++        rows, contributions = candidate_module._active_term_diagnostics(assembled, 64)
++    assert [row["m"] for row in rows] == [term.m for term in assembled["active_terms"]]
++    for term, row, interval in zip(assembled["active_terms"], rows, contributions, strict=True):
++        coefficient = arb_to_rational_enclosure(term.coefficient)
++        bound = arb_to_rational_enclosure(assembled["arithmetic_norm_bounds"][term.m])
++        products = [c * b for c in coefficient for b in bound]
++        assert interval.lo <= min(products) <= max(products) <= interval.hi
++        raw = row["complement_contribution"]
++        assert interval.lo <= Fraction(raw["lower"]) <= Fraction(raw["upper"]) <= interval.hi
++        assert Fraction(row["rounded_complement_contribution"]["lower"]) == interval.lo
++        assert Fraction(row["rounded_complement_contribution"]["upper"]) == interval.hi
++        assert interval.hi - interval.lo <= Fraction(raw["width"]) + Fraction(2, 1 << 64)
++
++
++def _independent_dyadic_bounds(value, bits):
++    lo, hi = arb_to_rational_enclosure(value)
++    scale = 1 << bits
++    return Fraction(lo.numerator * scale // lo.denominator, scale), \
++        Fraction(-((-hi.numerator * scale) // hi.denominator), scale)
++
++
++def _linear_bounds(coefficients, intervals):
++    lower, upper = Fraction(0), Fraction(0)
++    for coefficient, (lo, hi) in zip(coefficients, intervals, strict=True):
++        products = (coefficient * lo, coefficient * hi)
++        lower += min(products)
++        upper += max(products)
++    return lower, upper
++
++
++def _independent_witness_margin(block, witness):
++    # Signed exact interval linear combinations, without production congruence.
++    n = len(block)
++    left = [
++        [_linear_bounds(row, [(block[k][j].lo, block[k][j].hi) for k in range(n)])
++         for j in range(n)] for row in witness
++    ]
++    congruence = [[_linear_bounds(row, left[i]) for row in witness] for i in range(n)]
++    return min(row[i][0] - sum(
++        (max(abs(lo), abs(hi)) for j, (lo, hi) in enumerate(row) if j != i), Fraction(0),
++    ) for i, row in enumerate(congruence))
++
++
++@pytest.mark.parametrize(("prec", "matrix_bits", "witness_bits"), [
++    (256, 64, 32), (256, 72, 40), (384, 64, 32),
++])
++def test_real_candidate_rounding_and_exact_witnesses_survive_independent_controls(
++    prec, matrix_bits, witness_bits,
++):
++    witnesses = []
++    make_witness = candidate_module.make_witness
++
++    def observe(block, bits):
++        witness, margin = make_witness(block, bits)
++        witnesses.append((block, witness, margin))
++        return witness, margin
++
++    with patch.object(candidate_module, "make_witness", observe):
++        result = candidate_module.run_candidate(
++            Fraction(2, 5), dimension=40, prec=prec, comparison_prec=128,
++            residual_order=32, matrix_bits=matrix_bits, witness_bits=witness_bits,
++        )
++    for (block, witness, margin), name in zip(
++        witnesses, ("even_gershgorin_margin", "odd_gershgorin_margin"), strict=True,
++    ):
++        assert _independent_witness_margin(block, witness) == Fraction(result[name]) == margin
++        assert margin > 0
++        assert all(value.denominator <= 1 << witness_bits for row in witness for value in row)
++    term = result["active_terms"][0]
++    contribution = term["rounded_complement_contribution"]
++    with ctx.workprec(prec):
++        c_t = _independent_dyadic_bounds(candidate_module.c_T_enclosure(prec, 2, 5), matrix_bits)
++        assembled = assemble_multi_prime_schur(n=40, prec=prec, residual_order=32, support_num=2, support_den=5)
++        rho = _independent_dyadic_bounds(assembled["rho_R"], matrix_bits)
++    expected_mu = candidate_module.harmonic(40) - c_t[1] - Fraction(contribution["upper"]) - rho[1]
++    assert Fraction(result["mu_lower"]) == expected_mu > 0
++    assert result["precision_contraction"]["all_reported_widths_nonincreasing"]
++    rounded = {}
++    for name in ("A", "GV", "GP", "GR"):
++        rounded[name] = [[_independent_dyadic_bounds(value, matrix_bits) for value in row]
++                         for row in assembled[name]]
++        rounded_width = max(hi - lo for row in rounded[name] for lo, hi in row)
++        assert rounded_width == Fraction(
++            result["exact_rounding_diagnostics"]["matrix_widths"][name]["max_width"],
++        )
++        arb_width = max(hi - lo for row in assembled[name]
++                        for lo, hi in (arb_to_rational_enclosure(value) for value in row))
++        assert arb_width <= rounded_width <= arb_width + Fraction(2, 1 << matrix_bits)
++    factor = Fraction(3) / expected_mu
++    for parity, (block, _, _) in enumerate(witnesses):
++        for i, original_i in enumerate(range(parity, 40, 2)):
++            for j, original_j in enumerate(range(parity, 40, 2)):
++                a_lo, a_hi = rounded["A"][original_i][original_j]
++                gram_lo = sum((rounded[name][original_i][original_j][0]
++                               for name in ("GV", "GP", "GR")), Fraction(0))
++                gram_hi = sum((rounded[name][original_i][original_j][1]
++                               for name in ("GV", "GP", "GR")), Fraction(0))
++                assert (block[i][j].lo, block[i][j].hi) == (
++                    a_lo - factor * gram_hi, a_hi - factor * gram_lo,
++                )
++    assert not result["theorem_status"]
++    assert not result["independently_verified"]
++    assert not result["automatic_promotion"]
+ 
+ 
+-def test_new_stages_do_not_reuse_frozen_one_prime_stage_implementations() -> None:
+-    assert "require_one_prime_support" not in scout_module.__dict__
+-    assert "assemble_exact_prime_schur" not in candidate_module.__dict__
++def test_real_nonpositive_candidate_fails_at_exact_witness_gate():
++    with pytest.raises(candidate_module.CandidateStageError) as error:
++        candidate_module.run_candidate(
++            Fraction(2, 5), dimension=24, prec=256, residual_order=32,
++            matrix_bits=64, witness_bits=32,
++        )
++    assert error.value.stage == "witness"
+diff --git a/tests/test_prime_power_terms.py b/tests/test_prime_power_terms.py
+index eaf61ab..156f7d3 100644
+--- a/tests/test_prime_power_terms.py
++++ b/tests/test_prime_power_terms.py
+@@ -147,3 +147,14 @@ def test_combined_operator_requires_exact_orthogonal_basis() -> None:
+             [term],
+             prec=96,
+         )
++
++
++@pytest.mark.parametrize("tau", ["1", "1 +/- 0.01", "2"])
++def test_piecewise_topology_fails_closed_at_unresolved_shift_boundaries(tau) -> None:
++    from dataclasses import replace
++
++    from scripts.cert.prime_power_terms import PiecewiseTopologyError
++
++    term = replace(prime_power_term(2, 7, 10, prec=128), tau=arb(tau))
++    with pytest.raises(PiecewiseTopologyError, match="certify|order"):
++        assemble_combined_prime_power_operator(legendre_polynomials(2), [term], prec=128)

@@ -1,0 +1,8 @@
+{
+  "command": "git diff --check",
+  "status": "PASSED",
+  "whitespace_errors": false,
+  "advisories": "Existing LF-to-CRLF warnings; no whitespace errors.",
+  "new_untracked_benchmark_source": "Separately checked: no trailing whitespace.",
+  "qualification_launched": false
+}

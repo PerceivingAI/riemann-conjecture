@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-01T19:06:42Z`
+- **Last updated:** `2026-10-01T21:04:17Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -305,7 +305,7 @@ Additive multi-prime arithmetic operator core. Unlike the frozen one-prime edge-
 
 ### `cert/multi_prime_legendre_schur.py`
 
-Full rigorous post-v1 Legendre-Schur assembler. `assemble_multi_prime_schur()` reuses the established rigorous potential and Suzuki residual components but obtains the entire arithmetic block from `cert/prime_power_terms.py`. Outputs include the active terms, combined `P`, operator `P_squared`, `A`, `GV`, `GP`, `GR`, `rho_R`, `mu`, and `schur`. The complement bound derives each compressed-shift norm from the rigorous path-graph chain length rather than assuming the one-prime `tau>1` geometry.
+Full rigorous post-v1 Legendre-Schur assembler. `assemble_multi_prime_schur()` uses the established potential moment formulas and Suzuki residual coefficients/remainder, with native exact polynomial convolution and assembly-local residual monomial-action reuse on the new path. The arithmetic block comes from `cert/prime_power_terms.py`, which uses native Arb shifts, products, and antiderivative evaluation on the shared partition, with coefficient-certified parity. Outputs include the active terms, combined `P`, operator `P_squared`, `A`, `GV`, `GP`, `GR`, `rho_R`, `mu`, and `schur`. The complement derives each compressed-shift norm from the rigorous path-graph chain length rather than assuming the one-prime `tau>1` geometry. Frozen v1 implementation and mathematical estimates are unchanged.
 
 The P3 bridge tests are deliberate: before the `{2,3}` case is accepted, the generic assembler is compared against the frozen v1 path at four historical supports and dimensions 16 through 32. All relevant matrix/scalar enclosures overlap. Only after that bridge passes does the direct `{2,3}` test verify that the combined operator square contains a strictly nonzero cross term and does not reduce to the sum of the two individual squares.
 
@@ -342,6 +342,40 @@ P7 adds the independent Rust consumer for this structure under `crates/rh_cert/s
 P7 closure: Rust `63/63`, strict clippy/rustfmt, focused Python `21/21`, complete default Python `602/602`, and retained theorem replay `8/8`.
 
 P8 hardens the pre-continuation boundary. `certificate_v2_contract.py` now semantically enforces exact first-window terms `[2,3]`, exact `b_m=1`, coefficient/norm/complement relationships, matrix symmetry/parity, and fail-closed strict support from the serialized log intervals. The JSON Schema independently closes the serializable term shape to `[2,3]`. Cross-layer structural cases live in `tests/data/certificate-v2-cross-layer-v1.json`; closed theorem-admission cases live in `tests/data/multi-prime-admission-v2.json`. These are test-only oracles and are never production inputs. P8 closure is focused Python `41/41`, Rust `67/67`, full Python `608/608`, retained replay `8/8`, with strict clippy/rustfmt.
+
+### P9 qualification performance result
+
+The first real `T=11/20` qualification exposed a performance boundary in the generic rigorous path. The floating scout completed normally and selected `N=192` with fallback `N=196`, but two independent retries failed to finish even the first 128-bit rigorous assemblies within external execution allowances of roughly 30 minutes and one hour. The workers remained CPU-active; this was not a deadlock. No rigorous cache entry was committed before termination.
+
+Treat this as **NOT QUALIFIED**, not as a mathematical negative. Do not keep extending the dimension grid or retry the same command expecting cached progress. Before another end-to-end qualification, profile and optimize the generic multi-prime rigorous assembler while preserving P2/P3 equivalence and P8 cross-layer gates.
+
+### `profile_multi_prime_assembly.py`
+
+Manual sequential rigorous-assembly timing CLI. It uses no continuation cache or process pool, permits nonpositive diagnostic complement at small dimensions, records source/runtime provenance, and publishes each completed sample. `--mode timing` measures uninstrumented wall/CPU totals; `--mode stages` reports nested inclusive/exclusive stage timings; `--mode cprofile` retains the hottest cumulative call records. Peak memory is a process-lifetime high-water mark. Interrupted output remains marked running, not completed. Diagnostic strings and JSON conversion occur outside the assembly timer.
+
+```text
+uv run --locked python -m scripts.profile_multi_prime_assembly --support 11/20 --dimensions 32,64,96,128 --precision 128 --residual-order 32 --mode timing --output-json computations/.../data/assembly-timings.json
+```
+
+[Phase 1/2 performance record](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md): 128-bit isolated `N=128` falls from `897.221 s` to `6.779 s`; `N=192/196` complete in `26.259/28.069 s`. Focused tests pass `65/65`, including exact residual-image and unoptimized interval references. These timings do not establish target candidate positivity, higher-precision readiness, full acceptance, or P9 closure. The frozen P9 driver was not run.
+
+Phase 3 extends that record with `121/121` focused checks. `tests/test_multi_prime_assembly_performance.py` compares independent unskipped small references, exact residual coefficients/norms, and tighter high-precision enclosures, and couples bounded work counts to mathematical output comparisons. Driver tests exercise real support/precision cache isolation and generic-source fingerprint invalidation. Candidate tests independently reconstruct outward dyadic bounds, grouped factor-3 Schur blocks, and exact congruence/Gershgorin margins with separate Arb/matrix/witness controls. No runtime thresholds or new production caches were added. The timestamped phase 4 addendum retains higher-precision/throughput measurements and full acceptance executions; its readiness gate is blocked by target conditioning and unrelated workspace formatting failures.
+
+### `profile_multi_prime_workflow.py`
+
+Manual component-cost CLI, not qualification. `--mode throughput` measures uncached assembly in the driver's bounded verified spawn pool; `--mode candidate` times actual sequential candidate assembly, rounding, exact Schur and witness work, retaining expected stage failures and exact native conditioning widths outside the timer; `--mode scout` measures only the floating component over the requested dimension grid/resolutions. Every mode records provenance, lifetime peak memory and atomic JSON publication costs. Pool modes preserve completion observation, canonical result order and cleanup verification. No mode calls `run_driver()`, selects a candidate, uses continuation caches or seals qualification.
+
+```text
+uv run --locked python -m scripts.profile_multi_prime_workflow --mode throughput --support 11/20 --dimensions 192,196 --precision 512 --workers 2 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-throughput-512.json
+uv run --locked python -m scripts.profile_multi_prime_workflow --mode candidate --support 11/20 --dimensions 192,196 --precision 512 --matrix-bits 64 --witness-bits 32 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-candidates-512-64-32.json
+```
+
+Phase 4 observes `34.893/37.460 s` isolated 512-bit assembly and `38.208 s` two-worker throughput, but target candidates fail exact midpoint LDL witnesses through Arb 768. Native combined-prime widths remain enormous despite precision contraction; this is not a mathematical negative. Full Python `647/647`, Rust `67/67`, strict Clippy and retained replay `8/8` pass; workspace formatting fails in untouched `rh_engine` files. Stop before P9. The retained cost model estimates a conservative 12-hour external allowance, not a runtime guarantee or launch authorization.
+
+The user subsequently authorized the unchanged phase 5 qualification despite those blockers. [X-20261002-001](../computations/2026-10-02T010121Z-t11-20-multi-prime-qualification-after-hardening/record.md) records natural completion in `168.78 s` at `PRECISION_LIMIT_REACHED`: scout selects `192/196`; 128-bit screens report float-conversion overflow, and 256/384/512 remain insufficient. No candidate construction or mathematical rejection occurred. Source snapshots and final driver artifacts are retained, but phase 6 byte audit/reproduction was not run. P9 remains NOT QUALIFIED; do not change frozen controls to hide the conditioning limit.
+
+Phase 6 independently audits both final manifests and every listed artifact, `18/18` per run, plus ordered result-payload digests. Fresh-cache Run B uses the same source snapshot and settings, naturally finishing in `169.39 s` at `PRECISION_LIMIT_REACHED`. Exact recursive canonical comparison passes with zero mathematical/diagnostic differences after predeclared metadata exclusions; `17/18` artifacts are byte-identical. A separate Windows process scan finds zero qualification survivors. These operational checks pass, but the qualification gate fails because both runs stop before candidate construction. P9 remains NOT QUALIFIED; no admission or further retry occurred.
+
 
 ## Shared implementation
 

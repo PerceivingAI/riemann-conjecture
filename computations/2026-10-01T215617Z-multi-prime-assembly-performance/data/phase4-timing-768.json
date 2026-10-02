@@ -1,0 +1,86 @@
+{
+  "provenance": {
+    "utc": "2026-10-01T23:56:46.442864+00:00",
+    "head": "a26817d3e1bc22b6ed7aa3effefb96f172cb83fa",
+    "source_sha256": {
+      "scripts/profile_multi_prime_assembly.py": "dfc2f65570a86bdfac967904c9389f9fdfca21f4709e25bdbfe3f0ee364da2c1",
+      "scripts/cert/multi_prime_legendre_schur.py": "29bec865f8821cf5db5213e8b139b406155a9881067b5169c3b7650ccdb8bad4",
+      "scripts/cert/prime_power_terms.py": "20d68c881a1e8c4d328aaf7a57eb9efee364d9952cdf20901ec98e68399fb6b3",
+      "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+      "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    },
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+    "cpu_count": 6,
+    "versions": {
+      "python-flint": "0.9.0",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null
+    },
+    "cache_policy": "no continuation cache; sequential assemblies in one process",
+    "peak_memory_scope": "process lifetime high-water mark, not per-stage allocation"
+  },
+  "configuration": {
+    "support": "11/20",
+    "dimensions": [
+      192,
+      196
+    ],
+    "precision_bits": 768,
+    "residual_order": 32,
+    "mode": "timing"
+  },
+  "status": "completed",
+  "active_dimension": null,
+  "samples": [
+    {
+      "dimension": 192,
+      "precision_bits": 768,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "timing",
+      "status": "completed",
+      "wall_seconds": 39.205340299988165,
+      "cpu_seconds": 38.90625,
+      "peak_memory_bytes": 126386176,
+      "stages": {},
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[0.566208306785962 +/- 1.74e-16]",
+      "mu_positive": true,
+      "schur_assembled": true,
+      "theorem_status": false
+    },
+    {
+      "dimension": 196,
+      "precision_bits": 768,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "timing",
+      "status": "completed",
+      "wall_seconds": 41.951421300007496,
+      "cpu_seconds": 41.8125,
+      "peak_memory_bytes": 134729728,
+      "stages": {},
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[0.586774539056011 +/- 3.69e-16]",
+      "mu_positive": true,
+      "schur_assembled": true,
+      "theorem_status": false
+    }
+  ]
+}

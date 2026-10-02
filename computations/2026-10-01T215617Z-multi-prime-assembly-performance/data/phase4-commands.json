@@ -1,0 +1,21 @@
+{
+  "isolated": [
+    "uv run --locked python -m scripts.profile_multi_prime_assembly --support 11/20 --dimensions 32,64,96,128,160,192,196 --precision 128 --residual-order 32 --mode timing --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-timing-128.json",
+    "uv run --locked python -m scripts.profile_multi_prime_assembly --support 11/20 --dimensions 192,196 --precision 256 --residual-order 32 --mode timing --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-timing-256.json",
+    "uv run --locked python -m scripts.profile_multi_prime_assembly --support 11/20 --dimensions 192,196 --precision 384 --residual-order 32 --mode timing --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-timing-384.json",
+    "uv run --locked python -m scripts.profile_multi_prime_assembly --support 11/20 --dimensions 192,196 --precision 512 --residual-order 32 --mode timing --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-timing-512.json",
+    "uv run --locked python -m scripts.profile_multi_prime_assembly --support 11/20 --dimensions 192,196 --precision 640 --residual-order 32 --mode timing --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-timing-640.json",
+    "uv run --locked python -m scripts.profile_multi_prime_assembly --support 11/20 --dimensions 192,196 --precision 768 --residual-order 32 --mode timing --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-timing-768.json",
+    "uv run --locked python -m scripts.profile_multi_prime_assembly --support 11/20 --dimensions 192,196 --precision 512 --residual-order 32 --mode stages --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-stages-512.json"
+  ],
+  "components": [
+    "uv run --locked python -m scripts.profile_multi_prime_workflow --mode throughput --support 11/20 --dimensions 192,196 --precision 128 --workers 2 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-throughput-128.json",
+    "uv run --locked python -m scripts.profile_multi_prime_workflow --mode throughput --support 11/20 --dimensions 192,196 --precision 512 --workers 2 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-throughput-512.json",
+    "uv run --locked python -m scripts.profile_multi_prime_workflow --mode throughput --support 11/20 --dimensions 192,196 --precision 768 --workers 2 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-throughput-768.json",
+    "uv run --locked python -m scripts.profile_multi_prime_workflow --mode candidate --support 11/20 --dimensions 192,196 --precision 512 --matrix-bits 64 --witness-bits 32 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-candidates-512-64-32.json",
+    "uv run --locked python -m scripts.profile_multi_prime_workflow --mode candidate --support 11/20 --dimensions 192,196 --precision 640 --matrix-bits 64 --witness-bits 32 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-candidates-640-64-32.json",
+    "uv run --locked python -m scripts.profile_multi_prime_workflow --mode candidate --support 11/20 --dimensions 192,196 --precision 768 --matrix-bits 64 --witness-bits 32 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-candidates-768-64-32.json",
+    "uv run --locked python -m scripts.profile_multi_prime_workflow --mode candidate --support 11/20 --dimensions 192 --precision 512 --matrix-bits 104 --witness-bits 56 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-candidate-512-104-56.json",
+    "uv run --locked python -m scripts.profile_multi_prime_workflow --mode scout --support 11/20 --dimensions 148,152,156,160,164,168,172,176,180,184,188,192,196,200,204,208,212,216,220,224,228,232,236,240,244,248,252,256 --workers 3 --scout-resolutions 8 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-scout-cost.json"
+  ]
+}
