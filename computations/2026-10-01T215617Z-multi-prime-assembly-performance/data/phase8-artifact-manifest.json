@@ -1,0 +1,174 @@
+{
+  "created_utc": "2026-10-02T04:32:17Z",
+  "role": "phase8_generator_side_conditioning_diagnosis_only",
+  "artifacts": [
+    {
+      "path": "phase8-commands.json",
+      "bytes": 2724,
+      "sha256": "e2d377cf75e565467f134b19dab70c9e3e54cc02614e462126aa3ae2b27813a2"
+    },
+    {
+      "path": "phase8-diagnostic-final-source.py",
+      "bytes": 21442,
+      "sha256": "def8bdec9f009777e37b7dd7135cad84453264e68e53c4d5f78d2a354d675a6b"
+    },
+    {
+      "path": "phase8-diagnostic-grouped-source.py",
+      "bytes": 21145,
+      "sha256": "b366f2c37eaf51be61fa606edc47fd101c43537514ae71fb96eda082220b3d8b"
+    },
+    {
+      "path": "phase8-diagnostic-replay-source.py",
+      "bytes": 24715,
+      "sha256": "1f4c8b2fc6303dd2e94a52024cd73fc70cb38371dac65170052bd166505e7ed4"
+    },
+    {
+      "path": "phase8-diagnostic-source.py",
+      "bytes": 17894,
+      "sha256": "311c2e456e8d3c517f46d3cdf1d05cbf2bcad4ec4c585a179377ec24ec2f6c61"
+    },
+    {
+      "path": "phase8-empty-arithmetic.json",
+      "bytes": 31752,
+      "sha256": "daa2b308531a42661dd45ca398ac3e5208aad90c3730652286aa8807399ba033"
+    },
+    {
+      "path": "phase8-frozen-max-candidates.json",
+      "bytes": 26216,
+      "sha256": "752d8b2ac16d83d764f927e4ac470194b5d2c3189a81b684facc195c9c5e6c92"
+    },
+    {
+      "path": "phase8-grouped-potential-small.json",
+      "bytes": 57270,
+      "sha256": "46363935546a2edbe4d6cb7306f008e36ab76bd16b720d7456b0b7f4860b860f"
+    },
+    {
+      "path": "phase8-grouped-potential-targets.json",
+      "bytes": 90193,
+      "sha256": "861678b55f5547c867acac091e20cabc21ffbb4ea7892043d29970b9104489af"
+    },
+    {
+      "path": "phase8-initial-probe.json",
+      "bytes": 1504,
+      "sha256": "638766863d961987578d234325c4329e766612f722b3208bd85dc3cbd234b716"
+    },
+    {
+      "path": "phase8-one-prime-overlap.json",
+      "bytes": 51147,
+      "sha256": "ffdd852cfd865caacf63a6c47f045d5ae10ab5ceeeda38e7311da3a0d18dea80"
+    },
+    {
+      "path": "phase8-prime-power-boundary.json",
+      "bytes": 51628,
+      "sha256": "2f73b7a6de8284fd8cde462c0cab73fa0a8ee012318e1f69983b1190d053c1eb"
+    },
+    {
+      "path": "phase8-process-cleanup.json",
+      "bytes": 769,
+      "sha256": "9f6eb8de281e2467474ee789be4509554bfaf483472ebab933da073a7f4c96d9"
+    },
+    {
+      "path": "phase8-production-preservation.json",
+      "bytes": 2801,
+      "sha256": "e2630490fabd98c8b9df2de226c67f907882edea0e03abc7987c4ff90ea22415"
+    },
+    {
+      "path": "phase8-rayleigh-N192.zip",
+      "bytes": 973327,
+      "sha256": "4f2b643cd1cc8bbf154befebf0a6aefa806a0fbf8d43cb90b91818d693ccf500"
+    },
+    {
+      "path": "phase8-rayleigh-N196.zip",
+      "bytes": 1019536,
+      "sha256": "a51667261912774ddbcd980f3291ade7d790e29d89ec9a27fbe4c721c8260fe3"
+    },
+    {
+      "path": "phase8-rayleigh-audit-command.json",
+      "bytes": 2095,
+      "sha256": "e594b3d6e0fcbcf8d3a80c6444239438bf564ce35552126370917db455888e9b"
+    },
+    {
+      "path": "phase8-rayleigh-audit.json",
+      "bytes": 1923,
+      "sha256": "36c3f6812037b08dea9e299a838ea994433e38abdfa366999b4159b1668c572b"
+    },
+    {
+      "path": "phase8-rayleigh-cli-N192-p384-cell-legendre.zip",
+      "bytes": 973758,
+      "sha256": "46c55a1e7167633ced81f07dc46cd1184d328aede95d3ecf5a84b21948bacb41"
+    },
+    {
+      "path": "phase8-rayleigh-cli-N196-p384-cell-legendre.zip",
+      "bytes": 1019968,
+      "sha256": "3fd18a7669bf5403c7ec7378fc1f2bb39307ac80c49e796fe37e31cab4516b77"
+    },
+    {
+      "path": "phase8-rayleigh-cli-audit-command.json",
+      "bytes": 2339,
+      "sha256": "b4a5e720d77383e5b851027cb1231462006d3882edc0bda8ea08037b1a0722dd"
+    },
+    {
+      "path": "phase8-rayleigh-cli-audit-source.py",
+      "bytes": 2046,
+      "sha256": "be0da738100fa5f4d5e81cc0200ba171ec802d4445008b38e61258a20490a391"
+    },
+    {
+      "path": "phase8-rayleigh-cli-audit.json",
+      "bytes": 1923,
+      "sha256": "e642bc22e2ce03ec4384dd7893f3c50e3cd91d8dab98e2c55957d92e420739ed"
+    },
+    {
+      "path": "phase8-rayleigh-cli.json",
+      "bytes": 29062,
+      "sha256": "31ec817f9bd4bc1aa47c6d21125f8f99d7e11733e776b0ba36d3db93e351038f"
+    },
+    {
+      "path": "phase8-rayleigh-command.json",
+      "bytes": 2821,
+      "sha256": "b817b6cef04327d4d40891b301268a5a76707f535864c55ee49a224a752bf2c3"
+    },
+    {
+      "path": "phase8-rayleigh-results.json",
+      "bytes": 1875,
+      "sha256": "afceed2e3f87966e76b64df6dee860e569cfd4eed6838f57fa8345b895070e1a"
+    },
+    {
+      "path": "phase8-small-comparison.json",
+      "bytes": 51084,
+      "sha256": "6a8ce1281de879ad1c9f8aca02820c33badd03195f78242052b440eb42bf1d3c"
+    },
+    {
+      "path": "phase8-source-provenance.json",
+      "bytes": 3134,
+      "sha256": "5d161b25815ee06ed2405eaf567865a0ec0030dd38b9734ff1cf395708f5e66f"
+    },
+    {
+      "path": "phase8-source-snapshot.zip",
+      "bytes": 181931,
+      "sha256": "068a63f58ba7f37ffd983feca77d9f193f3c7a81f806e5104ddd83216515e922"
+    },
+    {
+      "path": "phase8-target-comparison.json",
+      "bytes": 221739,
+      "sha256": "3d521a3f454952beb3258d0f90bd1857f1ab4189a2a42352983e3766a3be2df2"
+    },
+    {
+      "path": "phase8-width-comparison.json",
+      "bytes": 20128,
+      "sha256": "364ca82d4186c062c4f68f1bdc142d599f8fd0ef20c6f250a028d5a1ecd3809f"
+    }
+  ],
+  "changed_source_document_sha256": {
+    "scripts/profile_multi_prime_conditioning.py": "1f4c8b2fc6303dd2e94a52024cd73fc70cb38371dac65170052bd166505e7ed4",
+    "notes/ADD_PLAN.md": "bc2e77532268e7e934c1ab90ca6d2e3289b749dc39e20317dbff7510ef4f4097",
+    "computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md": "1b008af7ba86fe4f351b617478b32584e84411705ef5e6ccee3f5b46d54fed0a",
+    "docs/STATUS.md": "9668834abed0f36ca369d7235b7bc91230b20cfb9d7d83111f61b9532178d2b1",
+    "docs/LOG.md": "304f6649adade5aa39cd1d736e3c41917d8e5f08e320b45d8cadd63736b35e0e",
+    "docs/INDEX.md": "e1faae9faebf92dd8e07ec0e643ec9b22fd13ef64276e3bca8c5f8d99ed38636",
+    "scripts/README.md": "b4c8d49b63617912bc110d9308f2a2f7b3e45d547b13e7a1246d6e796d5b58d8"
+  },
+  "source_version_checks": "9/9 complete experiments match one of four retained diagnostic source versions",
+  "syntax_whitespace_markdown": "PASS",
+  "theorem_admission": false,
+  "phase9_started": false
+}

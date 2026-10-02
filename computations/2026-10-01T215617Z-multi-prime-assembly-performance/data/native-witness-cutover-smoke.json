@@ -1,0 +1,64 @@
+{
+  "utc": "2026-10-02T09:37:25Z",
+  "role": "one real candidate and retained positive kernel smoke, not qualification",
+  "status": "PASS",
+  "candidate": {
+    "dimension": 196,
+    "precision_bits": 512,
+    "matrix_bits": 104,
+    "witness_bits": 56,
+    "outcome": "WITNESS_FAILED",
+    "reason": "midpoint LDL pivot 97 is not positive",
+    "complete_rounded_inputs_identical": true,
+    "wall_seconds": 53.52517929999158,
+    "previous_same_input_wall_seconds": 541.9463179000013
+  },
+  "positive_kernel": {
+    "dimension": 97,
+    "proper_principal_block_only": true,
+    "exact_witness_and_margin_identical": true,
+    "independent_exact_margin_replay": "PASS",
+    "wall_seconds": 22.724631999997655,
+    "exact_margin": "6816921487018635061988880431774854199001115496730437381327893434512623545777978115800882246859028549970501148097097569848197957174649189984955515794797929882950406622569990275/4680326843675379262931586322761002995037726841303490329387534162229175519533648755712323550253356573543895184219389054459363941297154943000198385236641817755334469121820053209088"
+  },
+  "frozen_shared_byte_checks": {
+    "scripts/weil_continuation_driver.py": true,
+    "scripts/weil_legendre_schur_scout.py": true,
+    "scripts/weil_support_candidate_check.py": true,
+    "scripts/cert/legendre_schur.py": true,
+    "scripts/cert/export_certificate.py": true,
+    "docs/contracts/rh-weil-certificate-v1.json": true,
+    "crates/rh_cert/src/cert.rs": true,
+    "scripts/precision_diagnostics.py": true,
+    "scripts/cert/exact_prime_schur_common.py": true,
+    "scripts/cert/constants.py": true,
+    "scripts/cert/matrices.py": true,
+    "uv.lock": true
+  },
+  "source_sha256": {
+    "scripts/weil_multi_prime_continuation_driver.py": "940ce92f99f4e9711614c141833b5864eedb01e77e7a904be6b53a45c341c14c",
+    "scripts/weil_multi_prime_schur_scout.py": "2f40bd874bde180b730a9d8d666e2d68d3ccd557ec97b2c6a6190b90b2f2a2ba",
+    "scripts/weil_multi_prime_support_continuation_scout.py": "141e759e48df6a460b280fc10851e3a83f8a63d30fb40d3459d7aeaf42eb0446",
+    "scripts/weil_multi_prime_support_candidate_check.py": "c99be9c2f322d48fd5a87c88709a9597288d8cd9c428248be361cc8cc988ee38",
+    "scripts/precision_diagnostics.py": "03d9f0a17ec9c705c792ee932170b5ff978ccdaa1dabdf5acb378544394556e1",
+    "scripts/multi_prime_precision_diagnostics.py": "104941f560817b08c9effa16afa78c8cfd8f1118e9b629045224153f06c9002b",
+    "scripts/cert/exact_prime_schur_common.py": "7f11aad2ae3c77ff6b8ceda9f99d1bbaef73a5f6b1460496bfaca729cf65b486",
+    "scripts/cert/multi_prime_exact_witness.py": "5fa42cea3cbe2a2b05a2a7c71bb6e34dfe44d7d0d45a2d5313767bedda5616aa",
+    "scripts/cert/multi_prime_legendre_schur.py": "341c64284182e774886ff487d3d1107fabe29e86c1bcc3d1782e6d1111103246",
+    "scripts/cert/prime_power_terms.py": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+    "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+    "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+    "scripts/cert/matrices.py": "ff6c0eb1479f3a8e2d66a1e7da30872052e7fef872a995058bc1f3b28bfd968c",
+    "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+    "scripts/audit_multi_prime_candidate.py": "0a2ec4196c664c3ed0be951ec5205734aeccc15827586f9f617a3b0bfd809efc",
+    "scripts/continuation_bundle.py": "0036f9fd844ec13cc547fcf7e4aede7f90fa90e1015f99a66094478a3f828f68",
+    "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a",
+    "tests/test_multi_prime_exact_witness.py": "d0a6cbf5b9d870db7a65794f35aebfe886a5e19059cdc1f6de860887163c83e7"
+  },
+  "input_sha256": {
+    "phase11-candidate-inputs-N196-p512-m104-w56.zip": "0c46ffd8de2ca55b9942c4c45520c5b83ba756a02c57ccf554617ec87c189668",
+    "phase11-witness-kernel-N196-prefix97.zip": "cb23814e9970793bb11b39b865d42ad6628dbd455d8ecf31336e294f35a8c877"
+  },
+  "theorem_admission": false,
+  "qualification_run": false
+}

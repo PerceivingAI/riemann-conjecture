@@ -1,0 +1,78 @@
+{
+  "created_utc": "2026-10-02T06:29:14Z",
+  "role": "isolated rh_engine formatting acceptance, not arithmetic or qualification",
+  "artifacts": [
+    {
+      "path": "phase10-cli-smoke-check.json",
+      "bytes": 3929,
+      "sha256": "019cc2705b3dabc61e9b21626e582216592c131b0574f857a277dbe9c23527c6"
+    },
+    {
+      "path": "phase10-cli-smoke.json",
+      "bytes": 1967,
+      "sha256": "5fe1433accacac8372474d0b767d47c7b715b7023d11d0e8fc213f0989e65984"
+    },
+    {
+      "path": "phase10-engine-after-formatting.zip",
+      "bytes": 12240,
+      "sha256": "42ce0d44183e56d64f7e148fccbd5b17cdab4f39e41b896eac015b85b61a2fb8"
+    },
+    {
+      "path": "phase10-engine-before-formatting.zip",
+      "bytes": 12255,
+      "sha256": "f906ac48337a0af9d77bcb80bd0e3ee288ec9e836ccc4fde8004874803714af0"
+    },
+    {
+      "path": "phase10-formatting-only.patch",
+      "bytes": 35246,
+      "sha256": "f44aa5021d0f4e87c02c3134724ee72b89bf14b7a7d854dad36e22a2c8827bff"
+    },
+    {
+      "path": "phase10-formatting-scope.json",
+      "bytes": 3929,
+      "sha256": "5ff0c0a61d3ebc95c254d6dd6f9930e7c2992e43b101f6b0b6aa85ef4616fe5e"
+    },
+    {
+      "path": "phase10-preservation-checks.json",
+      "bytes": 4505,
+      "sha256": "f57ed50ba08e0ed689e495ad98bcac24425012cddcb68f5e88cf087c6cb0ea17"
+    },
+    {
+      "path": "phase10-process-cleanup.json",
+      "bytes": 851,
+      "sha256": "752e1905a67bc1fe416c9d101e8a9c2e2d7fb78aaa469cfcfdacf51f7be61a2e"
+    },
+    {
+      "path": "phase10-rust-checks.json",
+      "bytes": 2738,
+      "sha256": "6c84d7d34f5e5a02fa13d8064fca58b68f231e5938594dbe90394120dcd8d19f"
+    }
+  ],
+  "artifact_count": 9,
+  "source_scope": [
+    "crates/rh_engine/src/laguerre.rs",
+    "crates/rh_engine/src/lib.rs",
+    "crates/rh_engine/src/sieve.rs",
+    "crates/rh_engine/src/main.rs"
+  ],
+  "phase10_gate": "PASS",
+  "workspace_format_exit": 0,
+  "affected_rust_tests": 15,
+  "strict_workspace_clippy_exit": 0,
+  "independent_real_cli_rows": 8,
+  "matching_native_process_survivors": 0,
+  "maintained_document_sha256": {
+    "notes/ADD_PLAN.md": "4d2aa857a3c06b8f07d117b893e755f9002dfb6516216de2e056ac80045ede1a",
+    "docs/STATUS.md": "16d0c34b045fd141e706e41dcdfcbd3df2d17b840d98a88078ea4a509f427a67",
+    "docs/LOG.md": "32b093b48076db7d6884f70ee7ed4eca0dc8de16ba4eeba7c022cbce604dc300",
+    "docs/INDEX.md": "523e69ffc53482940c848d6d4ae8947de89d78eef55c4ec689e1a9feb14e09af",
+    "computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md": "6afaec388253f8862575ff54f75fc73148bbf8bacaa6d885468405d8b19a2909"
+  },
+  "phase9_source_test_inputs_unchanged": 30,
+  "phase9_raw_artifacts_unchanged": 30,
+  "positive_candidate_acceptance": "BLOCKED",
+  "qualification_run": false,
+  "phase11_executed": false,
+  "theorem_admission": false,
+  "rh_status": "UNRESOLVED"
+}

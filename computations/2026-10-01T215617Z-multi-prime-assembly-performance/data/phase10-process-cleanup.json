@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-02T06:28:44Z",
+  "scope": "Native engine/formatter/compiler commands matching rh_engine, phase10 or repository paths only; not OS-wide containment",
+  "matches": [],
+  "matching_processes": 0,
+  "excluded_eval_pid_parent": [
+    16868,
+    28896
+  ],
+  "argv": [
+    "powershell",
+    "-NoProfile",
+    "-Command",
+    "$exclude=@(16868,28896); $rows=@(Get-CimInstance Win32_Process | Where-Object { $_.ProcessId -notin $exclude -and $_.Name -match '^(cargo|rustc|rustfmt|clippy-driver|rh_engine)(\\.exe)?$' -and ($_.CommandLine -match 'rh_engine|phase10-|riemann-conjecture' -or $_.ExecutablePath -like 'D:\\riemann-conjecture\\target\\*') } | Select-Object ProcessId,ParentProcessId,Name,ExecutablePath,CommandLine); ConvertTo-Json -InputObject $rows -Depth 5 -Compress"
+  ],
+  "exit_code": 0,
+  "stderr": ""
+}

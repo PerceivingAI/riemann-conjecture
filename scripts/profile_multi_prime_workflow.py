@@ -119,6 +119,11 @@ def main():
     if not 1 <= args.workers <= (3 if args.mode == "scout" else 2):
         parser.error("workers must respect the driver's bounded 3/2 pools")
     provenance = _provenance()
+    root = Path(__file__).resolve().parents[1]
+    provenance["source_sha256"].update({
+        relative: hashlib.sha256((root / relative).read_bytes()).hexdigest()
+        for relative in driver.CACHE_SOURCE_PATHS
+    })
     relative = "scripts/profile_multi_prime_workflow.py"
     provenance["source_sha256"][relative] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     provenance["continuation_source_fingerprint"] = driver._cache_source_fingerprint()

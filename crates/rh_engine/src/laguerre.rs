@@ -64,7 +64,7 @@ mod tests {
         let t = 0.5;
         assert_eq!(laguerre_l1(0, t), 1.0);
         assert!((laguerre_l1(1, t) - 1.5).abs() < 1e-14); // 2 - 0.5 = 1.5
-        // L_2^(1)(t) = 3 - 3t + 0.5 t^2 = 3 - 1.5 + 0.125 = 1.625
+                                                          // L_2^(1)(t) = 3 - 3t + 0.5 t^2 = 3 - 1.5 + 0.125 = 1.625
         assert!((laguerre_l1(2, t) - 1.625).abs() < 1e-14);
     }
 

@@ -1,0 +1,18 @@
+{
+  "scan": {
+    "matching_survivors": [],
+    "count": 0,
+    "excluded_harness_pids": [
+      16868,
+      28896
+    ],
+    "scope": "Phase 8 diagnostic/audit commands only"
+  },
+  "argv": [
+    "powershell",
+    "-NoProfile",
+    "-Command",
+    "$exclude=@(16868,28896); $matches=@(Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(python|pythonw|uv)(\\.exe)?$' -and $_.CommandLine -match 'profile_multi_prime_conditioning|phase8-' -and $_.ProcessId -notin $exclude } | Select-Object ProcessId,ParentProcessId,Name,CommandLine); [pscustomobject]@{ matching_survivors=$matches; count=$matches.Count; excluded_harness_pids=$exclude; scope='Phase 8 diagnostic/audit commands only' } | ConvertTo-Json -Depth 5"
+  ],
+  "exit_code": 0
+}

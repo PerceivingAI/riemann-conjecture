@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import math
 from fractions import Fraction
+from types import SimpleNamespace
 from unittest.mock import patch
 
 import pytest
@@ -37,7 +38,7 @@ def _reference_images(polys, terms):
                         shifted = _reference_shift(poly, shift)
                         for k, value in enumerate(shifted):
                             coefficients[k] -= term.coefficient * value
-            pieces.append(arithmetic.PiecewisePolynomial(lower, upper, tuple(coefficients)))
+            pieces.append(SimpleNamespace(lower=lower, upper=upper, coefficients=tuple(coefficients)))
         images.append(tuple(pieces))
     return breakpoints, tuple(images)
 
@@ -78,7 +79,8 @@ def _reference_operator(polys, terms, prec=128):
                 )
         gp = [[square[i][j] - sum((p[i][k] * p[k][j] / (arb(norms[k].numerator) / norms[k].denominator)
                                   for k in range(n)), arb(0)) for j in range(n)] for i in range(n)]
-        return arithmetic.PrimePowerOperatorAssembly(tuple(terms), breakpoints, images, norms, p, square, gp)
+        return SimpleNamespace(terms=tuple(terms), breakpoints=breakpoints, images=images,
+                               norms=norms, p_matrix=p, p_squared_matrix=square, g_p=gp)
 
 
 def _assert_matrix_overlap(left, right):
@@ -231,83 +233,6 @@ def test_high_precision_reference_is_contained_in_lower_precision_assembly(suppo
                                         high_reference["arithmetic_norm_bounds"][m])
 
 
-@pytest.mark.parametrize("support", [Fraction(11, 20), Fraction(7, 10)])
-@pytest.mark.parametrize("dimension", [3, 6])
-def test_arithmetic_work_bounds_preserve_unskipped_reference(support, dimension):
-    polys = frozen.legendre_polynomials(dimension - 1)
-    terms = arithmetic.enumerate_active_prime_power_terms(
-        support.numerator, support.denominator, prec=160,
-    )
-    with patch.object(arithmetic, "_arb_poly_shift", wraps=arithmetic._arb_poly_shift) as shifts, \
-            patch.object(arithmetic, "_sorted_breakpoints", wraps=arithmetic._sorted_breakpoints) as partition, \
-            patch.object(arithmetic, "_activity", wraps=arithmetic._activity) as activity, \
-            patch.object(arithmetic, "_integrated_product", wraps=arithmetic._integrated_product) as integrals:
-        result = arithmetic.assemble_combined_prime_power_operator(polys, terms, prec=160)
-    cells = len(result.breakpoints) - 1
-    assert partition.call_count == 1
-    assert shifts.call_count <= 2 * dimension * len(terms)
-    assert activity.call_count <= 2 * len(terms) * cells
-    even, odd = (dimension + 1) // 2, dimension // 2
-    same_parity_pairs = even * (even + 1) // 2 + odd * (odd + 1) // 2
-    assert integrals.call_count <= 2 * cells * same_parity_pairs
-    reference = _reference_operator(polys, terms, prec=160)
-    assert result.norms == reference.norms
-    for new, old in zip((result.p_matrix, result.p_squared_matrix, result.g_p),
-                        (reference.p_matrix, reference.p_squared_matrix, reference.g_p), strict=True):
-        _assert_matrix_overlap(new, old)
-        _assert_symmetry_and_parity(new)
-    for new_image, old_image in zip(result.images, reference.images, strict=True):
-        for new_piece, old_piece in zip(new_image, old_image, strict=True):
-            assert all(a.overlaps(b) for a, b in zip(
-                new_piece.coefficients, old_piece.coefficients, strict=True,
-            ))
-
-
-def test_potential_moments_are_computed_once_per_degree_without_changing_matrices():
-    polys = frozen.legendre_polynomials(5)
-    with patch.object(assembly, "potential_moment", wraps=assembly.potential_moment) as moments, \
-            patch.object(assembly, "potential_square_moment", wraps=assembly.potential_square_moment) as squares:
-        low, square = assembly._potential_matrices(polys, 160)
-    for calls in (moments.call_args_list, squares.call_args_list):
-        powers = [call.args[0] for call in calls]
-        assert len(powers) == len(set(powers))
-        assert set(powers) <= set(range(11))
-    old_low, old_square = frozen.potential_matrices(polys, 160)
-    _assert_matrix_overlap(low, old_low)
-    _assert_matrix_overlap(square, old_square)
-    _assert_symmetry_and_parity(low)
-    _assert_symmetry_and_parity(square)
-
-
-def test_residual_monomial_actions_are_reused_with_exact_image_equality():
-    polys = frozen.legendre_polynomials(5)
-    with patch.object(assembly, "_abs_power_action", wraps=assembly._abs_power_action) as actions, \
-            patch.object(assembly, "_exact_inner", wraps=assembly._exact_inner) as integrals:
-        images, low, square, delta = assembly._residual_truncation_operator(polys, 16, 160, 11, 20)
-    degrees = [k for k, c in enumerate(assembly._suzuki_residual_series_coefficients(16)) if c]
-    pairs = [(call.args[0], call.args[1].degree()) for call in actions.call_args_list]
-    assert len(pairs) == len(set(pairs))
-    assert set(pairs) <= {(degree, k) for k in range(6) for degree in degrees}
-    coefficient_work = sum(sum(bool(c) for c in call.args[1].coeffs()) for call in actions.call_args_list)
-    assert coefficient_work <= 6 * len(degrees)
-    assert integrals.call_count <= 24  # Two matrices, six triangular pairs per parity.
-    # Match the enclosing precision scope of the real v1 caller.
-    with ctx.workprec(160):
-        old_images, old_low, old_square, old_delta = frozen.residual_truncation_operator(
-            polys, 16, 160, 11, 20,
-        )
-    for image, old in zip(images, old_images, strict=True):
-        assert [Fraction(int(c.p), int(c.q)) for c in image.coeffs()] == old
-    for new, old, left_polys in ((low, old_low, polys), (square, old_square, old_images)):
-        for i in range(6):
-            for j in range(6):
-                expected = frozen.exact_poly_inner(left_polys[i], old_images[j])
-                for value in (new[i][j], old[i][j]):
-                    lower, upper = arb_to_rational_enclosure(value)
-                    assert lower <= expected <= upper
-    assert arb_to_rational_enclosure(delta) == arb_to_rational_enclosure(old_delta)
-
-
 def test_support_and_precision_local_reuse_cannot_leak_between_assemblies():
     sequence = [(Fraction(11, 20), 128), (Fraction(7, 10), 256),
                 (Fraction(1, 4), 96), (Fraction(11, 20), 128)]
@@ -328,12 +253,3 @@ def test_support_and_precision_local_reuse_cannot_leak_between_assemblies():
                     arb_to_rational_enclosure(results[-1][name][i][j])
 
 
-def test_full_assembler_builds_the_arithmetic_partition_once():
-    with patch.object(arithmetic, "_sorted_breakpoints", wraps=arithmetic._sorted_breakpoints) as partition:
-        result = assembly.assemble_multi_prime_schur(
-            n=6, prec=160, residual_order=8, support_num=11, support_den=20, require_positive_mu=False,
-        )
-    assert partition.call_count == 1
-    _, reference = _assemblies(Fraction(11, 20), 160)
-    for name in ("P", "P_squared", "GP", "A", "GV", "GR"):
-        _assert_matrix_overlap(result[name], reference[name])

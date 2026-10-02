@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-02T09:42:55Z",
+  "role": "native witness cutover replaces obsolete legacy Fraction cost projection",
+  "supersedes": "phase11-complete-workflow-cost.json",
+  "obsolete_per_run_allowance_hours": 60,
+  "source": "native-witness-cutover-smoke.json",
+  "structural_contract": "phase11-cost-structure.json",
+  "same_input_smoke": {
+    "target_candidate_seconds": 53.52517929999158,
+    "previous_target_candidate_seconds": 541.9463179000013,
+    "complete_97_mode_witness_seconds": 22.724631999997655,
+    "previous_same_kernel_seconds": 1306.9282327999827,
+    "proof_outputs_identical": true
+  },
+  "expected_negative_branch": {
+    "measured_unchanged_scout_and_screen_component_seconds": 120.18586040000082,
+    "planning_estimate_per_fresh_run_seconds": 300,
+    "basis": "Screen/assembly arithmetic is byte-unchanged. Prior actual complete ladders both rejected. No new scout selection or integrated run has been forced or measured."
+  },
+  "conservative_operation_proxy": {
+    "candidate_calls_max": 36,
+    "screen_calls_max": 8,
+    "assembly_calls_max": 44,
+    "candidate_pre_witness_seconds": 32.3643159000203,
+    "single_parity_seconds": 22.724631999997655,
+    "formula": "unchanged scout/screen component sum + 36*(previous unchanged pre-witness cost + 2*new proper-principal-block witness cost)",
+    "proxy_minutes": 48.691245613342716,
+    "twofold_proxy_minutes": 97.38249122668543,
+    "limitations": "INFERENCE, not a measured full-positive target runtime upper bound. The 97-mode proper principal block is not either complete 98-mode target parity; branch maxima need not be jointly reachable; exact integer growth and integrated serialization/cache/publication remain unbounded by this sample."
+  },
+  "declared_external_allowance": {
+    "per_fresh_run_hours": 2,
+    "two_fresh_runs_hours": 4,
+    "basis": "Approximately 48.7-minute conservative all-branch proxy, doubled to approximately 97.4 minutes and rounded upward to two hours. The old 60-hour draft is withdrawn. No extra benchmark sweep or Phase12 launch is authorized. This is an external ceiling, not expected duration or a hard runtime bound."
+  },
+  "memory": "Existing Phase11 assembly/worker and legacy witness high-water marks are retained as observed historical measurements. Native smoke did not measure process memory; no new native/aggregate memory claim is made.",
+  "theorem_admission": false,
+  "qualification_run": false,
+  "support_or_precision_changed": false
+}

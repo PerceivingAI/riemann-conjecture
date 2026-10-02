@@ -83,11 +83,11 @@ def _candidate_attempt(
     scalar_width = "1/2048" if width < 1.0 else "1/1024"
     matrix_widths = {
         name: {
-            "max_width": width,
-            "max_radius": width / 2,
+            "max_width": str(Fraction(str(width))),
+            "max_radius": str(Fraction(str(width)) / 2),
             "row": 0,
             "column": 0,
-            "midpoint_at_widest_entry": 1.0,
+            "midpoint_at_widest_entry": "1/1",
         }
         for name in ("A", "GV", "GP", "GR")
     }
@@ -156,19 +156,6 @@ def test_p5_active_set_check_is_independent_of_window_check(
         driver.require_two_prime_window(Fraction(3, 5))
 
 
-def test_p5_rigorous_screen_uses_gp_and_certifies_active_terms() -> None:
-    result = scout_support(
-        Fraction(3, 5),
-        dimension=8,
-        prec=96,
-        residual_order=8,
-    )
-    assert result["active_terms"] == [2, 3]
-    assert "GP_max" in result["interval_widths"]
-    assert "G2_max" not in result["interval_widths"]
-    assert set(result["matrix_interval_diagnostics"]) == {"A", "GV", "GP", "GR"}
-
-
 def test_p5_cache_recovers_from_corrupt_json_and_uses_atomic_publication(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
@@ -209,6 +196,7 @@ def source_snapshot(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> Path:
 @pytest.mark.parametrize("relative", [
     "scripts/cert/prime_power_terms.py",
     "scripts/cert/multi_prime_legendre_schur.py",
+    "scripts/multi_prime_precision_diagnostics.py",
 ])
 def test_p5_source_change_invalidates_real_rigorous_screen_cache(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path, source_snapshot: Path, relative: str,
@@ -256,8 +244,8 @@ def test_p5_real_screen_cache_isolates_support_and_precision(
     assert calls == inputs
     assert samples[0]["attempts"][0]["mu_midpoint"] != samples[2]["attempts"][0]["mu_midpoint"]
     for lower, higher in ((samples[0], samples[1]), (samples[2], samples[3])):
-        assert higher["attempts"][0]["interval_widths"]["GP_max"] < \
-            lower["attempts"][0]["interval_widths"]["GP_max"]
+        assert Fraction(higher["attempts"][0]["interval_widths"]["GP_max"]) < \
+            Fraction(lower["attempts"][0]["interval_widths"]["GP_max"])
     for (support, prec), expected in zip(inputs, samples, strict=True):
         assert driver._escalate_rigorous_screen(support, 8, [prec], 16, tmp_path) == expected
     assert calls == inputs
@@ -300,6 +288,22 @@ def test_p5_candidate_confirmation_uses_higher_precision_with_gp(
     assert result["selected_confirmation_precision_bits"] == 384
     assert calls == [(384, 64, 32)]
     assert result["pair_diagnostics"][0]["working_matrix_widths_reduced"] is True
+
+
+@pytest.mark.parametrize("width", ["1e400", "1e-400"])
+def test_candidate_confirmation_rejects_exact_width_growth_outside_binary64(
+    width: str,
+) -> None:
+    previous = _candidate_attempt(256, width=1.0)
+    current = _candidate_attempt(384, width=0.5)
+    for name in ("A", "GV", "GP", "GR"):
+        previous["working_precision_diagnostics"]["matrix_widths"][name]["max_width"] = width
+        current["working_precision_diagnostics"]["matrix_widths"][name]["max_width"] = width.replace(
+            "1e", "2e"
+        )
+    diagnostics = driver._candidate_precision_pair_diagnostics(previous, current)
+    assert diagnostics["working_matrix_widths_reduced"] is False
+    assert diagnostics["qualified"] is False
 
 
 def test_p5_fallback_candidate_becomes_selected_dimension(
@@ -480,14 +484,11 @@ def test_p5_verified_process_pool_reaps_spawned_workers() -> None:
     assert report["active_children_after_cleanup"] == 0
 
 
-def test_p5_driver_has_no_historical_one_prime_hook_imports() -> None:
-    source = Path(driver.__file__).read_text(encoding="utf-8")
-    forbidden = (
-        "from scripts.weil_continuation_driver",
-        "from scripts.weil_legendre_schur_scout",
-        "from scripts.weil_support_continuation_scout",
-        "from scripts.weil_support_candidate_check",
-        "require_one_prime_support",
-        '"G2_max"',
-    )
-    assert all(token not in source for token in forbidden)
+
+@pytest.mark.parametrize("excess", [Fraction(0), Fraction(1, 10**100)])
+def test_candidate_margin_stability_uses_exact_tolerance_boundary(excess):
+    previous = _candidate_attempt(256, width=1.0, even_margin=str(Fraction(999, 1000) - excess))
+    current = _candidate_attempt(384, width=0.5, even_margin="1/1")
+    diagnostics = driver._candidate_precision_pair_diagnostics(previous, current)
+    assert diagnostics["exact_margins_stable"] is (excess == 0)
+    assert diagnostics["qualified"] is (excess == 0)

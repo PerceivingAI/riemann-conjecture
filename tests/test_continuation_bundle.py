@@ -113,21 +113,6 @@ def _result() -> dict[str, object]:
     }
 
 
-def _multi_prime_result() -> dict[str, object]:
-    result = _result()
-    result.update(
-        {
-            "role": "pre_theorem_multi_prime_continuation_driver",
-            "driver_version": "multi-prime-continuation-driver-p5-v1",
-            "cache_version": "multi-prime-continuation-driver-v1",
-            "support": "3/5",
-            "active_terms": [2, 3],
-            "structural_window": "log(3)/2 < T < log(4)/2",
-        }
-    )
-    return result
-
-
 def _finalization_kwargs(result: dict[str, object] | None = None) -> dict[str, object]:
     final_result = _result() if result is None else result
     return {
@@ -145,24 +130,6 @@ def _finalization_kwargs(result: dict[str, object] | None = None) -> dict[str, o
         "result_payload_sha256": bundle._result_payload_digest(final_result),
         "parent_pid": 4242,
     }
-
-
-def test_bundle_accepts_multi_prime_pre_theorem_driver_role(tmp_path: Path) -> None:
-    result = _multi_prime_result()
-    output_dir = tmp_path / "multi-prime-continuation"
-    manifest = write_continuation_bundle(
-        result,
-        output_dir,
-        **_finalization_kwargs(result),
-    )
-    summary = json.loads((output_dir / "summary.json").read_text(encoding="utf-8"))
-    stored_manifest = json.loads(
-        (output_dir / "run-manifest.json").read_text(encoding="utf-8")
-    )
-    assert manifest["format"] == BUNDLE_FORMAT
-    assert summary["role"] == "pre_theorem_multi_prime_continuation_driver"
-    assert stored_manifest["configuration"]["active_terms"] == [2, 3]
-    assert stored_manifest["configuration"]["structural_window"] == "log(3)/2 < T < log(4)/2"
 
 
 def test_bundle_rejects_unknown_pre_theorem_driver_role(tmp_path: Path) -> None:

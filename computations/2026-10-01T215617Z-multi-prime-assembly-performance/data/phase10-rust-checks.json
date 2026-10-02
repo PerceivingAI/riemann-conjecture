@@ -1,0 +1,47 @@
+{
+  "cwd": "D:\\riemann-conjecture",
+  "results": [
+    {
+      "argv": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.2635332999925595,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "-p",
+        "rh_engine"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 5.886445200012531,
+      "stdout": "\nrunning 11 tests\ntest laguerre::tests::test_laguerre_l1_small ... ok\ntest phase::tests::test_small_u_formula_inversion ... ok\ntest laguerre::tests::test_batch_matches_scalar ... ok\ntest laguerre::tests::test_contiguous_identity ... ok\ntest phase::tests::test_uniform_phase_matches_critical_cayley_phase ... ok\ntest phase::tests::test_uniform_formula_inversion ... ok\ntest sieve::tests::test_sieve_segment_matches_simple ... ok\ntest sieve::tests::test_simple_sieve ... ok\ntest phase::tests::test_uniform_t_and_u_relation ... ok\ntest sieve::tests::test_higher_prime_powers ... ok\ntest summation::tests::test_neumaier_precision ... ok\n\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 4 tests\ntest test_trace_degree_one_matches_prime_sum ... ok\ntest test_laguerre_contiguous_relations ... ok\ntest test_prime_count_invariants ... ok\ntest test_range_bins_partition_consistency ... ok\n\ntest result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr": "   Compiling rh_engine v0.1.0 (D:\\riemann-conjecture\\crates\\rh_engine)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.27s\n     Running unittests src\\lib.rs (target\\debug\\deps\\rh_engine-ecec3e3efd04c3c3.exe)\n     Running unittests src\\main.rs (target\\debug\\deps\\rh_engine-3f1bbe1b8ea19cfd.exe)\n     Running tests\\test_invariants.rs (target\\debug\\deps\\test_invariants-3f39a82d05481813.exe)\n   Doc-tests rh_engine\n"
+    },
+    {
+      "argv": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--workspace",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.840097499982221,
+      "stdout": "",
+      "stderr": "    Checking rh_engine v0.1.0 (D:\\riemann-conjecture\\crates\\rh_engine)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.59s\n"
+    }
+  ]
+}

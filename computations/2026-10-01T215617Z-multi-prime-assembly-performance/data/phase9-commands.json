@@ -1,0 +1,174 @@
+{
+  "role": "completed Phase 9 component/test commands; not integrated qualification",
+  "cwd": "D:\\riemann-conjecture",
+  "commands": [
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "--extra",
+        "test",
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_prime_power_terms.py",
+        "tests/test_prime_power_local_legendre.py",
+        "tests/test_multi_prime_legendre_schur.py",
+        "tests/test_multi_prime_potential_grouping.py",
+        "tests/test_multi_prime_assembly_performance.py",
+        "tests/test_multi_prime_candidate_audit.py",
+        "tests/test_multi_prime_p4_stages.py",
+        "tests/test_multi_prime_precision_diagnostics.py",
+        "tests/test_multi_prime_continuation_driver.py",
+        "tests/test_continuation_bundle.py",
+        "tests/test_one_prime_v1_freeze.py",
+        "tests/test_admission_consistency.py",
+        "tests/test_v2_adversarial_consistency.py",
+        "tests/test_pre_theorem_boundary.py"
+      ],
+      "observed_result": "159 passed in 26.36 s"
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "--extra",
+        "test",
+        "python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "observed_result": "696 passed in 372.58 s",
+      "retained_console": "phase9-full-python-console.txt"
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "scripts.profile_multi_prime_conditioning",
+        "--dimensions",
+        "12",
+        "--precisions",
+        "128,256",
+        "--group-potential",
+        "--output-json",
+        "computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-diagnostic-control-smoke.json"
+      ],
+      "observed_result": "six representation/precision controls completed"
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "scripts.profile_multi_prime_assembly",
+        "--support",
+        "11/20",
+        "--dimensions",
+        "12",
+        "--precision",
+        "128",
+        "--mode",
+        "stages",
+        "--output-json",
+        "computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-stage-profiler-smoke.json"
+      ],
+      "observed_result": "actual stage profiler completed"
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "scripts.weil_multi_prime_support_candidate_check",
+        "--support",
+        "2/5",
+        "--dimension",
+        "40",
+        "--prec",
+        "256",
+        "--matrix-bits",
+        "64",
+        "--witness-bits",
+        "32",
+        "--output-json",
+        "computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-base.json"
+      ],
+      "observed_result": "positive real overlap candidate"
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "scripts.profile_multi_prime_conditioning",
+        "--dimensions",
+        "192,196",
+        "--precisions",
+        "384,512",
+        "--representations",
+        "cell-legendre",
+        "--group-potential",
+        "--witness-precision",
+        "384",
+        "--rayleigh-check",
+        "--matrix-bits",
+        "104",
+        "--witness-bits",
+        "56",
+        "--output-json",
+        "computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-targets.json"
+      ],
+      "observed_result": "four real assemblies; two complete outward candidates fail even pivots 95/97; four strict negative directions"
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "scripts.audit_multi_prime_candidate",
+        "--input",
+        "computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-base-audit-inputs.json",
+        "--output-json",
+        "computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-base-audit.json"
+      ],
+      "observed_result": "PASS; complement and even/odd margins independently recomputed positive"
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "scripts.audit_multi_prime_candidate",
+        "--input",
+        "computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-confirmation-audit-inputs.json",
+        "--output-json",
+        "computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-confirmation-audit.json"
+      ],
+      "observed_result": "PASS; complement and even/odd margins independently recomputed positive"
+    },
+    {
+      "retained_actual_argv_and_stdout": "phase9-overlap-confirmation-command.json"
+    },
+    {
+      "retained_actual_argv_and_stdout": "phase9-negative-exact-audit-command.json"
+    }
+  ]
+}

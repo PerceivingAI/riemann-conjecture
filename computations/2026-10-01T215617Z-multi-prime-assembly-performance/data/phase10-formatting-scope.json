@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "formatter_version": "rustfmt 1.9.0-stable (8bab26f4f6 2026-07-14)",
+  "formatter_argv": [
+    "rustfmt",
+    "--edition",
+    "2021",
+    "--config",
+    "skip_children=true",
+    "crates/rh_engine/src/laguerre.rs",
+    "crates/rh_engine/src/lib.rs",
+    "crates/rh_engine/src/sieve.rs",
+    "crates/rh_engine/src/main.rs"
+  ],
+  "scope": [
+    {
+      "path": "crates/rh_engine/src/laguerre.rs",
+      "changed": true,
+      "before_sha256": "f88a605243d631b0dd7d7bc36d8720cded68fb427ef37601ec4a4ce62177c5f2",
+      "after_sha256": "b4f26f076f0d3a4919e571393ff20780d37fb7c465709b6391a720e14b43eb16",
+      "tokens_equal_ignoring_whitespace_and_optional_trailing_commas": true
+    },
+    {
+      "path": "crates/rh_engine/src/lib.rs",
+      "changed": true,
+      "before_sha256": "8091b50a7ce330ae3158143c738a4e3acb78fe066572edbacc29590dd21b8cfc",
+      "after_sha256": "5ddc5d3ea9d6fb8db294f89a5ce99abf7c770a3cf91ac5ce0f2b38d53b8da927",
+      "tokens_equal_ignoring_whitespace_and_optional_trailing_commas": true
+    },
+    {
+      "path": "crates/rh_engine/src/sieve.rs",
+      "changed": true,
+      "before_sha256": "9b6b944f77ca9c2b48b80196db29774549e8ab8d311eecb2e14de7b6a7c422ec",
+      "after_sha256": "2244da6d4e50c8c3bc66768e9c9cba5cf140f6df26592d837eeedbb03614e64c",
+      "tokens_equal_ignoring_whitespace_and_optional_trailing_commas": true
+    },
+    {
+      "path": "crates/rh_engine/src/main.rs",
+      "changed": true,
+      "before_sha256": "294f336f4c792106ecede4141c538d4b22f5b7aec2732e59e5839b9f7e4eea25",
+      "after_sha256": "f2331cadefd2f31e42e0eb14d9d1adab7af7660fa5b1fe1d79f7f46af55bbc2d",
+      "tokens_equal_ignoring_whitespace_and_optional_trailing_commas": true
+    },
+    {
+      "path": "crates/rh_engine/src/phase.rs",
+      "changed": false,
+      "before_sha256": "633a257e8275a6ad70392334da0dc8ad9e362a8a0db6ef62f89bfafdc5d583c7",
+      "after_sha256": "633a257e8275a6ad70392334da0dc8ad9e362a8a0db6ef62f89bfafdc5d583c7",
+      "tokens_equal_ignoring_whitespace_and_optional_trailing_commas": true
+    },
+    {
+      "path": "crates/rh_engine/src/bins.rs",
+      "changed": false,
+      "before_sha256": "c90bd269893ada043422a10d210ad5fe1a5e0b378822a0f7af16683cfbb7e4ec",
+      "after_sha256": "c90bd269893ada043422a10d210ad5fe1a5e0b378822a0f7af16683cfbb7e4ec",
+      "tokens_equal_ignoring_whitespace_and_optional_trailing_commas": true
+    },
+    {
+      "path": "crates/rh_engine/src/trace.rs",
+      "changed": false,
+      "before_sha256": "7111543893ba00aa8ef17c02f90837ffe16f61f3096b06d3c70e3d8866987e5a",
+      "after_sha256": "7111543893ba00aa8ef17c02f90837ffe16f61f3096b06d3c70e3d8866987e5a",
+      "tokens_equal_ignoring_whitespace_and_optional_trailing_commas": true
+    },
+    {
+      "path": "crates/rh_engine/src/summation.rs",
+      "changed": false,
+      "before_sha256": "d5e4464c60dce743b52513db91334304b003099f942e44826c13d5c80195fbe3",
+      "after_sha256": "d5e4464c60dce743b52513db91334304b003099f942e44826c13d5c80195fbe3",
+      "tokens_equal_ignoring_whitespace_and_optional_trailing_commas": true
+    },
+    {
+      "path": "crates/rh_engine/tests/test_invariants.rs",
+      "changed": false,
+      "before_sha256": "b716743aca751edb7585fa4064a6b4f94002a5dce89400db8f2b9fae9539857a",
+      "after_sha256": "b716743aca751edb7585fa4064a6b4f94002a5dce89400db8f2b9fae9539857a",
+      "tokens_equal_ignoring_whitespace_and_optional_trailing_commas": true
+    }
+  ],
+  "comparison": "Rust source tokens including literals/comments match after ignoring whitespace, comment CRLF line terminators and optional trailing commas before closing delimiters. Other engine files unchanged.",
+  "checker_correction": "Initial checker retained CR in line-comment tokens. Only comment line terminators were normalized; source/literal content was not changed by the checker."
+}

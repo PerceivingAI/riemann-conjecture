@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "cutoff": 16,
+      "degree": 1,
+      "expected_prime_trace": 0.8135548526664373,
+      "observed_prime_trace": 0.8135548526664375
+    },
+    {
+      "cutoff": 16,
+      "degree": 2,
+      "expected_prime_trace": -2.5090046076181136,
+      "observed_prime_trace": -2.509004607618114
+    },
+    {
+      "cutoff": 16,
+      "degree": 3,
+      "expected_prime_trace": 2.4607841892455222,
+      "observed_prime_trace": 2.4607841892455227
+    },
+    {
+      "cutoff": 16,
+      "degree": 4,
+      "expected_prime_trace": -1.3742959353664261,
+      "observed_prime_trace": -1.3742959353664275
+    },
+    {
+      "cutoff": 32,
+      "degree": 1,
+      "expected_prime_trace": 0.8220397059962993,
+      "observed_prime_trace": 0.8220397059962995
+    },
+    {
+      "cutoff": 32,
+      "degree": 2,
+      "expected_prime_trace": -2.6209209468104757,
+      "observed_prime_trace": -2.620920946810476
+    },
+    {
+      "cutoff": 32,
+      "degree": 3,
+      "expected_prime_trace": 3.083127949623321,
+      "observed_prime_trace": 3.0831279496233215
+    },
+    {
+      "cutoff": 32,
+      "degree": 4,
+      "expected_prime_trace": -3.207703486005322,
+      "observed_prime_trace": -3.207703486005323
+    }
+  ],
+  "reference": "Independent integer prime-power recognition and explicit degree-0..3 Laguerre polynomials, not engine sieving/recurrence routines. Prime trace, pole, discrepancy and roots checked at 1e-12 tolerance.",
+  "argv": [
+    "cargo",
+    "run",
+    "--locked",
+    "-p",
+    "rh_engine",
+    "--",
+    "prime-trace",
+    "--s0",
+    "3",
+    "--n-max",
+    "4",
+    "--cutoffs",
+    "16,32",
+    "--segment-size",
+    "32768",
+    "--output-json",
+    "computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase10-cli-smoke.json"
+  ],
+  "exit_code": 0,
+  "stdout": "================================================================================\nPRIME-LAGUERRE TRACE CALCULATOR (Native Rayon Engine)\n================================================================================\ns0=3.000000  A=5.000000  q=-1.500000  |q|=1.500000  max_n=4\nCutoffs: [16, 32]\n\n--- Cutoff X = 16 (0.000s) ---\n  n |        P_n(X)        |        Pole(1-q^n)   |        S_n(X)        | |S_n|^(1/n) | |P_n|^(1/n)\n----+----------------------+----------------------+----------------------+-------------+------------\n  1 |      8.1355485267e-1 |       2.5000000000e0 |      -1.6864451473e0 |    1.686445 |   0.813555\n  2 |      -2.5090046076e0 |      -1.2500000000e0 |      -1.2590046076e0 |    1.122054 |   1.583984\n  3 |       2.4607841892e0 |       4.3750000000e0 |      -1.9142158108e0 |    1.241644 |   1.350075\n  4 |      -1.3742959354e0 |      -4.0625000000e0 |       2.6882040646e0 |    1.280459 |   1.082730\n\n--- Cutoff X = 32 (0.000s) ---\n  n |        P_n(X)        |        Pole(1-q^n)   |        S_n(X)        | |S_n|^(1/n) | |P_n|^(1/n)\n----+----------------------+----------------------+----------------------+-------------+------------\n  1 |      8.2203970600e-1 |       2.5000000000e0 |      -1.6779602940e0 |    1.677960 |   0.822040\n  2 |      -2.6209209468e0 |      -1.2500000000e0 |      -1.3709209468e0 |    1.170863 |   1.618926\n  3 |       3.0831279496e0 |       4.3750000000e0 |      -1.2918720504e0 |    1.089114 |   1.455450\n  4 |      -3.2077034860e0 |      -4.0625000000e0 |      8.5479651399e-1 |    0.961536 |   1.338285\n\nSaved JSON output to: computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase10-cli-smoke.json\n",
+  "stderr": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.20s\n     Running `target\\debug\\rh_engine.exe prime-trace --s0 3 --n-max 4 --cutoffs 16,32 --segment-size 32768 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase10-cli-smoke.json`\n"
+}

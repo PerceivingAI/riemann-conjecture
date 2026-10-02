@@ -1,0 +1,1 @@
+CANDIDATE_STABLE: known one-prime overlap component smoke at fixed 64/32 bits, Arb 256 -> 384; no target readiness claim.

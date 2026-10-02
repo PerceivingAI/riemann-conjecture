@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-c",
+    "from fractions import Fraction\nfrom pathlib import Path\nimport json,zipfile,hashlib\noutput=Path(\"computations/2026-10-01T215617Z-multi-prime-assembly-performance/data\")\nresults=[]\nfor n in (192,196):\n    path=output/f\"phase8-rayleigh-cli-N{n}-p384-cell-legendre.zip\"\n    with zipfile.ZipFile(path) as archive: raw=json.loads(archive.read(\"rayleigh-inputs.json\"))\n    vector=[Fraction(value) for value in raw[\"vector\"]]\n    intervals=[[(Fraction(lo),Fraction(hi)) for lo,hi in row] for row in raw[\"schur_interval_block\"]]\n    dim=n//2\n    assert len(vector)==dim and len(intervals)==dim\n    assert vector[-1] == 1\n    assert all(value.denominator <= 1<<56 for value in vector)\n    assert all(len(row)==dim for row in intervals)\n    center=Fraction(0); uncertainty=Fraction(0)\n    for i in range(dim):\n        for j in range(i,dim):\n            lo,hi=intervals[i][j]\n            assert lo <= hi and intervals[j][i] == (lo,hi)\n            weight=vector[i]*vector[j]*(1 if i==j else 2)\n            center += weight*(lo+hi)/2\n            uncertainty += abs(weight)*(hi-lo)/2\n    lower,upper=center-uncertainty,center+uncertainty\n    assert lower==Fraction(raw[\"rayleigh_lower\"]) and upper==Fraction(raw[\"rayleigh_upper\"])\n    assert upper < 0\n    norm=sum((value*value*Fraction(2,4*i+1) for i,value in enumerate(vector)),Fraction(0))\n    assert norm==Fraction(raw[\"basis_norm_squared\"])\n    assert upper/norm==Fraction(raw[\"normalized_rayleigh_upper\"])\n    results.append({\"dimension\":n,\"status\":\"PASS\",\"archive_sha256\":hashlib.sha256(path.read_bytes()).hexdigest(),\"recomputed_lower\":str(lower),\"recomputed_upper\":str(upper),\"exact_vector_nonzero\":True})\n(output/\"phase8-rayleigh-cli-audit.json\").write_text(json.dumps({\"scope\":\"independent zero-float rational Rayleigh reconstruction only; upstream Arb enclosures not independently derived\",\"theorem_status\":False,\"results\":results},indent=2)+\"\\n\",encoding=\"utf-8\")\nprint(\"Independent zero-float Rayleigh audit: 2/2 PASS; both exact upper bounds strictly negative.\")\n"
+  ],
+  "exit_code": 0,
+  "stdout": "Independent zero-float Rayleigh audit: 2/2 PASS; both exact upper bounds strictly negative.\n",
+  "stderr": ""
+}

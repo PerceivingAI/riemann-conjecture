@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-02T01:25:32Z`
+- **Last updated:** `2026-10-02T09:49:35Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -140,7 +140,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`X-20260828-001`](../computations/2026-08-28T010811Z-t21-40-schur-certificate/record.md) — separately admitted fresh exact `T=21/40,N=96` theorem certificate, independent zero-float Rust PASS, adversarial replay, and retained-proof registration supporting `C-0056`.
 - [`X-20260923-001`](../computations/2026-09-23T234641Z-t27-50-continuation/record.md) — clean canonical pre-theorem `T=27/50` continuation; rigorous full-tail screening rejects scout-primary `N=100`, selects exact cross-precision-stable `CANDIDATE_READY` at `N=104`, and stops before theorem admission. It remains historical pre-theorem evidence; the later separate proof-bearing theorem run is `X-20260924-001` / `C-0057`.
 - [`X-20260924-001`](../computations/2026-09-24T183715Z-t27-50-schur-certificate/record.md) — proof-bearing fresh exact `(T,N)=(27/50,104)` certificate generated from clean committed provenance at 512-bit Arb precision, independent zero-float Rust PASS, real-certificate adversarial replay, retained `8/8` registration, and full Python/Rust/Lean repository closure supporting `F-20260924-001` / `C-0057`.
-- [`X-20261001-001`](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md): generic rigorous assembler phases 1–3 complete; phase 4 measurements/checks executed, readiness **BLOCKED**. Isolated 512-bit `N=192/196` assembly takes `34.893/37.460 s`; full Python `647/647`, Rust `67/67`, retained replay `8/8`. Target candidate conditioning remains unresolved through 768 bits; workspace formatting fails in untouched `rh_engine` files. Cost model predeclares an estimated 12-hour allowance. No P9 rerun or theorem promotion.
+- [`X-20261001-001`](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md): phases 1–3, 7/8, 10 and 11 complete. Stable generic arithmetic and replayable proofs remain unchanged; native multi-prime witnesses replace expensive Fraction elimination/inversion. One identical-input smoke reduces complete 97-mode witness time `1306.928 -> 22.725 s` and actual N196 candidate `541.946 -> 53.525 s`, preserving exact inputs/outputs and rejection. Current focused/full Python pass `77/77` and `715/715`; pre-cutover Rust `82/82`, workspace format/Clippy and retained replay `8/8` pass. Eight target rejection audits, four positive control audits, twelve frozen/shared byte controls and scoped cleanup pass. Mathematical positivity is not the engineering gate; Phase 12 has not launched and no theorem admission occurs.
 - [`X-20261002-001`](../computations/2026-10-02T010121Z-t11-20-multi-prime-qualification-after-hardening/record.md): frozen P9 phases 5/6 executed; fresh-cache runs naturally finish at `PRECISION_LIMIT_REACHED` in `168.78/169.39 s`, selecting scout targets `192/196` with no candidate. Both artifact audits pass `18/18`, exact canonical comparison has zero differences, and independent Windows cleanup finds no survivors. Sources/frozen controls unchanged; the qualification gate fails and P9 remains NOT QUALIFIED.
 
 

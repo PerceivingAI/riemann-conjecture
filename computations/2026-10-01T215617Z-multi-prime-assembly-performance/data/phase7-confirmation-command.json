@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-c",
+    "from fractions import Fraction\nfrom pathlib import Path\nimport json\nfrom scripts import weil_multi_prime_continuation_driver as driver\ndata=Path(\"computations/2026-10-01T215617Z-multi-prime-assembly-performance/data\")\nbase=json.loads((data/\"phase7-candidate-base.json\").read_text())\ncandidate={\"selected_matrix_bits\":64,\"selected_witness_bits\":32,\"attempts\":[base]}\nresult=driver._confirm_candidate_precision_stability(Fraction(2,5),40,candidate,32,precision_step=128,extra_steps=2,cache_dir=None)\n(data/\"phase7-candidate-confirmation.json\").write_text(json.dumps(result,indent=2,allow_nan=False)+\"\\n\",encoding=\"utf-8\")\nassert base[\"all_margins_positive\"] is True\nassert result[\"qualified\"] is True\nassert result[\"selected_confirmation_precision_bits\"] == 384\nassert all(Fraction(row[\"mu_lower\"]) > 0 and Fraction(row[\"even_gershgorin_margin\"]) > 0 and Fraction(row[\"odd_gershgorin_margin\"]) > 0 for row in result[\"attempts\"])\nprint(result[\"classification\"]+\": known one-prime overlap component smoke at fixed 64/32 bits, Arb 256 -> 384; no target readiness claim.\")\n"
+  ],
+  "exit_code": 0
+}

@@ -1,0 +1,410 @@
+{
+  "provenance": {
+    "utc": "2026-10-02T07:20:54.266964+00:00",
+    "head": "524b8c74eb19fb05ae9cd7ee3cc58b46af3f5e2f",
+    "source_sha256": {
+      "scripts/profile_multi_prime_assembly.py": "4a43893d54da36b1ac7a73a5b922f4d53fe3968abe926321bc937a44eda1d3a2",
+      "scripts/cert/multi_prime_legendre_schur.py": "341c64284182e774886ff487d3d1107fabe29e86c1bcc3d1782e6d1111103246",
+      "scripts/cert/prime_power_terms.py": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+      "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+      "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    },
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+    "cpu_count": 6,
+    "versions": {
+      "python-flint": "0.9.0",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null
+    },
+    "cache_policy": "no continuation cache; sequential assemblies in one process",
+    "peak_memory_scope": "process lifetime high-water mark, not per-stage allocation"
+  },
+  "configuration": {
+    "support": "11/20",
+    "dimensions": [
+      192,
+      196
+    ],
+    "precision_bits": 512,
+    "residual_order": 32,
+    "mode": "stages"
+  },
+  "status": "completed",
+  "active_dimension": null,
+  "samples": [
+    {
+      "dimension": 192,
+      "precision_bits": 512,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "stages",
+      "status": "completed",
+      "wall_seconds": 23.25027059999411,
+      "cpu_seconds": 22.84375,
+      "peak_memory_bytes": 117628928,
+      "stages": {
+        "scripts.cert.multi_prime_legendre_schur.legendre_polynomials": {
+          "calls": 1,
+          "wall_inclusive": 0.09961760000442155,
+          "cpu_inclusive": 0.09375,
+          "wall_exclusive": 0.09961760000442155,
+          "cpu_exclusive": 0.09375
+        },
+        "scripts.cert.multi_prime_legendre_schur._potential_matrices": {
+          "calls": 1,
+          "wall_inclusive": 7.236789699993096,
+          "cpu_inclusive": 7.03125,
+          "wall_exclusive": 7.236789699993096,
+          "cpu_exclusive": 7.03125
+        },
+        "scripts.cert.prime_power_terms.enumerate_active_prime_power_terms": {
+          "calls": 1,
+          "wall_inclusive": 0.00026050000451505184,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.00026050000451505184,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._exact_inner": {
+          "calls": 9312,
+          "wall_inclusive": 1.2166039990843274,
+          "cpu_inclusive": 1.203125,
+          "wall_exclusive": 1.2166039990843274,
+          "cpu_exclusive": 1.203125
+        },
+        "scripts.cert.prime_power_terms._orthogonal_basis_norms": {
+          "calls": 1,
+          "wall_inclusive": 1.2726938000123482,
+          "cpu_inclusive": 1.234375,
+          "wall_exclusive": 0.05608980092802085,
+          "cpu_exclusive": 0.03125
+        },
+        "scripts.cert.prime_power_terms._legendre_expansions": {
+          "calls": 1,
+          "wall_inclusive": 0.023442999983672053,
+          "cpu_inclusive": 0.015625,
+          "wall_exclusive": 0.023442999983672053,
+          "cpu_exclusive": 0.015625
+        },
+        "scripts.cert.prime_power_terms._sorted_breakpoints": {
+          "calls": 1,
+          "wall_inclusive": 3.4900003811344504e-05,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 3.4900003811344504e-05,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._translation_partition": {
+          "calls": 1,
+          "wall_inclusive": 8.259998867288232e-05,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 4.7699984861537814e-05,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._affine_legendre": {
+          "calls": 10,
+          "wall_inclusive": 0.7207942000241019,
+          "cpu_inclusive": 0.671875,
+          "wall_exclusive": 0.7207942000241019,
+          "cpu_exclusive": 0.671875
+        },
+        "scripts.cert.prime_power_terms._local_basis": {
+          "calls": 10,
+          "wall_inclusive": 0.006389699992723763,
+          "cpu_inclusive": 0.046875,
+          "wall_exclusive": 0.006389699992723763,
+          "cpu_exclusive": 0.046875
+        },
+        "scripts.cert.prime_power_terms._combined_local_images": {
+          "calls": 1,
+          "wall_inclusive": 0.5190322999842465,
+          "cpu_inclusive": 0.5,
+          "wall_exclusive": 0.08382939998409711,
+          "cpu_exclusive": 0.078125
+        },
+        "scripts.cert.prime_power_terms._legendre_inner": {
+          "calls": 74496,
+          "wall_inclusive": 3.7547631963097956,
+          "cpu_inclusive": 3.71875,
+          "wall_exclusive": 3.7547631963097956,
+          "cpu_exclusive": 3.71875
+        },
+        "scripts.cert.prime_power_terms._low_matrix_from_images": {
+          "calls": 1,
+          "wall_inclusive": 2.327146099996753,
+          "cpu_inclusive": 2.296875,
+          "wall_exclusive": 0.12471020224620588,
+          "cpu_exclusive": 0.109375
+        },
+        "scripts.cert.prime_power_terms._operator_square_matrix_from_images": {
+          "calls": 1,
+          "wall_inclusive": 1.956893000024138,
+          "cpu_inclusive": 1.953125,
+          "wall_exclusive": 0.11258470144821331,
+          "cpu_exclusive": 0.125
+        },
+        "scripts.cert.prime_power_terms._tail_gram": {
+          "calls": 1,
+          "wall_inclusive": 1.5313611000019591,
+          "cpu_inclusive": 1.515625,
+          "wall_exclusive": 1.5313611000019591,
+          "cpu_exclusive": 1.515625
+        },
+        "scripts.cert.multi_prime_legendre_schur._abs_power_action": {
+          "calls": 6336,
+          "wall_inclusive": 0.4705391007300932,
+          "cpu_inclusive": 0.46875,
+          "wall_exclusive": 0.4705391007300932,
+          "cpu_exclusive": 0.46875
+        },
+        "scripts.cert.multi_prime_legendre_schur._exact_inner": {
+          "calls": 18624,
+          "wall_inclusive": 4.731682601821376,
+          "cpu_inclusive": 4.609375,
+          "wall_exclusive": 4.731682601821376,
+          "cpu_exclusive": 4.609375
+        },
+        "scripts.cert.multi_prime_legendre_schur._residual_truncation_operator": {
+          "calls": 1,
+          "wall_inclusive": 5.472332100005588,
+          "cpu_inclusive": 5.421875,
+          "wall_exclusive": 0.27011039745411836,
+          "cpu_exclusive": 0.34375
+        },
+        "scripts.cert.multi_prime_legendre_schur._mat_mul_diag_inverse": {
+          "calls": 2,
+          "wall_inclusive": 2.670937999995658,
+          "cpu_inclusive": 2.609375,
+          "wall_exclusive": 2.670937999995658,
+          "cpu_exclusive": 2.609375
+        },
+        "scripts.cert.multi_prime_legendre_schur._mat_sub": {
+          "calls": 3,
+          "wall_inclusive": 0.028994599997531623,
+          "cpu_inclusive": 0.03125,
+          "wall_exclusive": 0.028994599997531623,
+          "cpu_exclusive": 0.03125
+        },
+        "scripts.cert.multi_prime_legendre_schur._mat_scale": {
+          "calls": 2,
+          "wall_inclusive": 0.010062399989692494,
+          "cpu_inclusive": 0.015625,
+          "wall_exclusive": 0.010062399989692494,
+          "cpu_exclusive": 0.015625
+        },
+        "scripts.cert.multi_prime_legendre_schur._residual_rho": {
+          "calls": 1,
+          "wall_inclusive": 0.00020929999300278723,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.00020929999300278723,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.multi_prime_legendre_schur._mat_add": {
+          "calls": 2,
+          "wall_inclusive": 0.016281799995340407,
+          "cpu_inclusive": 0.015625,
+          "wall_exclusive": 0.016281799995340407,
+          "cpu_exclusive": 0.015625
+        }
+      },
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[0.566208306785962 +/- 1.74e-16]",
+      "mu_positive": true,
+      "schur_assembled": true,
+      "theorem_status": false
+    },
+    {
+      "dimension": 196,
+      "precision_bits": 512,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "stages",
+      "status": "completed",
+      "wall_seconds": 25.288655000011204,
+      "cpu_seconds": 24.515625,
+      "peak_memory_bytes": 123867136,
+      "stages": {
+        "scripts.cert.multi_prime_legendre_schur.legendre_polynomials": {
+          "calls": 1,
+          "wall_inclusive": 0.09495810000225902,
+          "cpu_inclusive": 0.09375,
+          "wall_exclusive": 0.09495810000225902,
+          "cpu_exclusive": 0.09375
+        },
+        "scripts.cert.multi_prime_legendre_schur._potential_matrices": {
+          "calls": 1,
+          "wall_inclusive": 7.679044100019382,
+          "cpu_inclusive": 7.453125,
+          "wall_exclusive": 7.679044100019382,
+          "cpu_exclusive": 7.453125
+        },
+        "scripts.cert.prime_power_terms.enumerate_active_prime_power_terms": {
+          "calls": 1,
+          "wall_inclusive": 6.78999931551516e-05,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 6.78999931551516e-05,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._exact_inner": {
+          "calls": 9702,
+          "wall_inclusive": 1.435851398651721,
+          "cpu_inclusive": 1.3125,
+          "wall_exclusive": 1.435851398651721,
+          "cpu_exclusive": 1.3125
+        },
+        "scripts.cert.prime_power_terms._orthogonal_basis_norms": {
+          "calls": 1,
+          "wall_inclusive": 1.496758499997668,
+          "cpu_inclusive": 1.359375,
+          "wall_exclusive": 0.06090710134594701,
+          "cpu_exclusive": 0.046875
+        },
+        "scripts.cert.prime_power_terms._legendre_expansions": {
+          "calls": 1,
+          "wall_inclusive": 0.023963200015714392,
+          "cpu_inclusive": 0.03125,
+          "wall_exclusive": 0.023963200015714392,
+          "cpu_exclusive": 0.03125
+        },
+        "scripts.cert.prime_power_terms._sorted_breakpoints": {
+          "calls": 1,
+          "wall_inclusive": 2.649999805726111e-05,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 2.649999805726111e-05,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._translation_partition": {
+          "calls": 1,
+          "wall_inclusive": 5.520001286640763e-05,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 2.8700014809146523e-05,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._affine_legendre": {
+          "calls": 10,
+          "wall_inclusive": 0.7787570999644231,
+          "cpu_inclusive": 0.765625,
+          "wall_exclusive": 0.7787570999644231,
+          "cpu_exclusive": 0.765625
+        },
+        "scripts.cert.prime_power_terms._local_basis": {
+          "calls": 10,
+          "wall_inclusive": 0.006933400029083714,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.006933400029083714,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._combined_local_images": {
+          "calls": 1,
+          "wall_inclusive": 0.5637776000075974,
+          "cpu_inclusive": 0.546875,
+          "wall_exclusive": 0.094476800004486,
+          "cpu_exclusive": 0.078125
+        },
+        "scripts.cert.prime_power_terms._legendre_inner": {
+          "calls": 77616,
+          "wall_inclusive": 4.17617780258297,
+          "cpu_inclusive": 3.984375,
+          "wall_exclusive": 4.17617780258297,
+          "cpu_exclusive": 3.984375
+        },
+        "scripts.cert.prime_power_terms._low_matrix_from_images": {
+          "calls": 1,
+          "wall_inclusive": 2.535809099994367,
+          "cpu_inclusive": 2.4375,
+          "wall_exclusive": 0.14245650049997494,
+          "cpu_exclusive": 0.15625
+        },
+        "scripts.cert.prime_power_terms._operator_square_matrix_from_images": {
+          "calls": 1,
+          "wall_inclusive": 2.2360195000073873,
+          "cpu_inclusive": 2.109375,
+          "wall_exclusive": 0.13680459692841396,
+          "cpu_exclusive": 0.109375
+        },
+        "scripts.cert.prime_power_terms._tail_gram": {
+          "calls": 1,
+          "wall_inclusive": 1.7861774999764748,
+          "cpu_inclusive": 1.703125,
+          "wall_exclusive": 1.7861774999764748,
+          "cpu_exclusive": 1.703125
+        },
+        "scripts.cert.multi_prime_legendre_schur._abs_power_action": {
+          "calls": 6468,
+          "wall_inclusive": 0.48556229897076264,
+          "cpu_inclusive": 0.515625,
+          "wall_exclusive": 0.48556229897076264,
+          "cpu_exclusive": 0.515625
+        },
+        "scripts.cert.multi_prime_legendre_schur._exact_inner": {
+          "calls": 19404,
+          "wall_inclusive": 5.061354299861705,
+          "cpu_inclusive": 5.0,
+          "wall_exclusive": 5.061354299861705,
+          "cpu_exclusive": 5.0
+        },
+        "scripts.cert.multi_prime_legendre_schur._residual_truncation_operator": {
+          "calls": 1,
+          "wall_inclusive": 5.816887399996631,
+          "cpu_inclusive": 5.765625,
+          "wall_exclusive": 0.2699708011641633,
+          "cpu_exclusive": 0.25
+        },
+        "scripts.cert.multi_prime_legendre_schur._mat_mul_diag_inverse": {
+          "calls": 2,
+          "wall_inclusive": 2.9036268000199925,
+          "cpu_inclusive": 2.859375,
+          "wall_exclusive": 2.9036268000199925,
+          "cpu_exclusive": 2.859375
+        },
+        "scripts.cert.multi_prime_legendre_schur._mat_sub": {
+          "calls": 3,
+          "wall_inclusive": 0.03170640001189895,
+          "cpu_inclusive": 0.03125,
+          "wall_exclusive": 0.03170640001189895,
+          "cpu_exclusive": 0.03125
+        },
+        "scripts.cert.multi_prime_legendre_schur._mat_scale": {
+          "calls": 2,
+          "wall_inclusive": 0.011078999988967553,
+          "cpu_inclusive": 0.015625,
+          "wall_exclusive": 0.011078999988967553,
+          "cpu_exclusive": 0.015625
+        },
+        "scripts.cert.multi_prime_legendre_schur._residual_rho": {
+          "calls": 1,
+          "wall_inclusive": 0.0001928000128827989,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.0001928000128827989,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.multi_prime_legendre_schur._mat_add": {
+          "calls": 2,
+          "wall_inclusive": 0.017049300018697977,
+          "cpu_inclusive": 0.015625,
+          "wall_exclusive": 0.017049300018697977,
+          "cpu_exclusive": 0.015625
+        }
+      },
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[0.586774539056011 +/- 3.69e-16]",
+      "mu_positive": true,
+      "schur_assembled": true,
+      "theorem_status": false
+    }
+  ]
+}

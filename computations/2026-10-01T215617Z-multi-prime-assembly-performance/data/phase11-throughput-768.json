@@ -1,0 +1,157 @@
+{
+  "role": "manual_multi_prime_component_cost_benchmark",
+  "theorem_status": false,
+  "provenance": {
+    "utc": "2026-10-02T07:23:04.550199+00:00",
+    "head": "524b8c74eb19fb05ae9cd7ee3cc58b46af3f5e2f",
+    "source_sha256": {
+      "scripts/profile_multi_prime_assembly.py": "4a43893d54da36b1ac7a73a5b922f4d53fe3968abe926321bc937a44eda1d3a2",
+      "scripts/cert/multi_prime_legendre_schur.py": "341c64284182e774886ff487d3d1107fabe29e86c1bcc3d1782e6d1111103246",
+      "scripts/cert/prime_power_terms.py": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+      "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+      "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a",
+      "scripts/profile_multi_prime_workflow.py": "9b3fb5e602b7ce7cf3c60e7208ce86e637fafaef61d22c4ddf40b0ff7444b8a3"
+    },
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+    "cpu_count": 6,
+    "versions": {
+      "python-flint": "0.9.0",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1"
+    },
+    "cache_policy": "no continuation cache; diagnostic components only",
+    "peak_memory_scope": "process lifetime high-water mark, not per-stage allocation",
+    "continuation_source_fingerprint": "21bc15682d20aaaf47f2320e85c78fd65fe76574b01f438775dfe2b57cbb832d"
+  },
+  "configuration": {
+    "mode": "throughput",
+    "support": "11/20",
+    "dimensions": [
+      192,
+      196
+    ],
+    "precision": 768,
+    "residual_order": 32,
+    "matrix_bits": 64,
+    "witness_bits": 32,
+    "workers": 2,
+    "scout_resolutions": 8,
+    "output_json": "computations\\2026-10-01T215617Z-multi-prime-assembly-performance\\data\\phase11-throughput-768.json"
+  },
+  "status": "completed",
+  "active_dimension": null,
+  "samples": [
+    {
+      "dimension": 192,
+      "precision_bits": 768,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "timing",
+      "status": "completed",
+      "wall_seconds": 24.2950158000167,
+      "cpu_seconds": 23.65625,
+      "peak_memory_bytes": 150511616,
+      "stages": {},
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[0.566208306785962 +/- 1.74e-16]",
+      "mu_positive": true,
+      "schur_assembled": true,
+      "theorem_status": false
+    },
+    {
+      "dimension": 196,
+      "precision_bits": 768,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "timing",
+      "status": "completed",
+      "wall_seconds": 25.823543899983633,
+      "cpu_seconds": 25.078125,
+      "peak_memory_bytes": 153985024,
+      "stages": {},
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[0.586774539056011 +/- 3.69e-16]",
+      "mu_positive": true,
+      "schur_assembled": true,
+      "theorem_status": false
+    }
+  ],
+  "completion_observation_order": [
+    192,
+    196
+  ],
+  "progress_publications": [
+    {
+      "wall_seconds": 0.0023686999920755625,
+      "cpu_seconds": 0.0,
+      "bytes": 2507,
+      "sha256": "d50f9b2183eb503e4e310ed951dde533b5e5f0f9d56fde4372d7487f6d4c5bc2"
+    },
+    {
+      "wall_seconds": 0.012091200012946501,
+      "cpu_seconds": 0.0,
+      "bytes": 3202,
+      "sha256": "ea1c67579a4bb06414c5b03bb2264bf396a7446c4f473c159903da9dec3ad9b4"
+    },
+    {
+      "wall_seconds": 0.012612499995157123,
+      "cpu_seconds": 0.0,
+      "bytes": 3893,
+      "sha256": "74b6b008c32cf9bef4168af7b07996769f615b09be0f72b2fe9476ff99cf329d"
+    }
+  ],
+  "publication_scope": "JSON serialization/hash/fsync/atomic writes; final report publication excluded",
+  "worker_pids": [
+    15068,
+    17876
+  ],
+  "worker_cleanup": {
+    "verified": true,
+    "executors_shutdown": 1,
+    "worker_processes_reaped": 2,
+    "cleanup_escalations": 0,
+    "workers_joined_after_shutdown": 0,
+    "workers_terminated": 0,
+    "workers_killed": 0,
+    "active_children_after_cleanup": 0,
+    "stages": [
+      "manual-diagnostic-throughput"
+    ]
+  },
+  "worker_shutdown_records": [
+    {
+      "stage": "manual-diagnostic-throughput",
+      "worker_processes_observed": 2,
+      "worker_processes_reaped": 2,
+      "cleanup_escalation_required": false,
+      "joined_after_shutdown": 0,
+      "terminated": 0,
+      "killed": 0,
+      "active_children_after_cleanup": 0,
+      "worker_exit_codes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "worker_model": "spawn",
+  "wall_seconds_including_lifecycle": 26.759239699982572,
+  "parent_cpu_seconds": 0.015625,
+  "parent_peak_memory_bytes": 71700480
+}

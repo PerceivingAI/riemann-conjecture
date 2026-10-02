@@ -1,0 +1,220 @@
+{
+  "provenance": {
+    "utc": "2026-10-02T05:17:20.235759+00:00",
+    "head": "524b8c74eb19fb05ae9cd7ee3cc58b46af3f5e2f",
+    "source_sha256": {
+      "scripts/profile_multi_prime_assembly.py": "4a43893d54da36b1ac7a73a5b922f4d53fe3968abe926321bc937a44eda1d3a2",
+      "scripts/cert/multi_prime_legendre_schur.py": "bbc18a015a8cf0de511b99779b17c20f1a77f95d299765ab2cda2eaff013af7e",
+      "scripts/cert/prime_power_terms.py": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+      "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+      "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    },
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+    "cpu_count": 6,
+    "versions": {
+      "python-flint": "0.9.0",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null
+    },
+    "cache_policy": "no continuation cache; sequential assemblies in one process",
+    "peak_memory_scope": "process lifetime high-water mark, not per-stage allocation"
+  },
+  "configuration": {
+    "support": "11/20",
+    "dimensions": [
+      12
+    ],
+    "precision_bits": 128,
+    "residual_order": 32,
+    "mode": "stages"
+  },
+  "status": "completed",
+  "active_dimension": null,
+  "samples": [
+    {
+      "dimension": 12,
+      "precision_bits": 128,
+      "residual_order": 32,
+      "support": "11/20",
+      "mode": "stages",
+      "status": "completed",
+      "wall_seconds": 0.034933900024043396,
+      "cpu_seconds": 0.03125,
+      "peak_memory_bytes": 46432256,
+      "stages": {
+        "scripts.cert.multi_prime_legendre_schur.legendre_polynomials": {
+          "calls": 1,
+          "wall_inclusive": 0.00034840000444091856,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.00034840000444091856,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.multi_prime_legendre_schur._potential_matrices": {
+          "calls": 1,
+          "wall_inclusive": 0.0011075000220444053,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.0011075000220444053,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms.enumerate_active_prime_power_terms": {
+          "calls": 1,
+          "wall_inclusive": 0.00018499998259358108,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.00018499998259358108,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._exact_inner": {
+          "calls": 42,
+          "wall_inclusive": 9.87000239547342e-05,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 9.87000239547342e-05,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._orthogonal_basis_norms": {
+          "calls": 1,
+          "wall_inclusive": 0.000295600009849295,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.00019689998589456081,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._legendre_expansions": {
+          "calls": 1,
+          "wall_inclusive": 0.00039000000106170774,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.00039000000106170774,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._sorted_breakpoints": {
+          "calls": 1,
+          "wall_inclusive": 2.649999805726111e-05,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 2.649999805726111e-05,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._translation_partition": {
+          "calls": 1,
+          "wall_inclusive": 6.059999577701092e-05,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 3.409999771974981e-05,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._affine_legendre": {
+          "calls": 10,
+          "wall_inclusive": 0.0019514999585226178,
+          "cpu_inclusive": 0.015625,
+          "wall_exclusive": 0.0019514999585226178,
+          "cpu_exclusive": 0.015625
+        },
+        "scripts.cert.prime_power_terms._local_basis": {
+          "calls": 10,
+          "wall_inclusive": 0.00010979993385262787,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.00010979993385262787,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._combined_local_images": {
+          "calls": 1,
+          "wall_inclusive": 0.001637800014577806,
+          "cpu_inclusive": 0.015625,
+          "wall_exclusive": 0.0003792000643443316,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._legendre_inner": {
+          "calls": 336,
+          "wall_inclusive": 0.0010939997155219316,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.0010939997155219316,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._low_matrix_from_images": {
+          "calls": 1,
+          "wall_inclusive": 0.0017928000015672296,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.00044440003694035113,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._operator_square_matrix_from_images": {
+          "calls": 1,
+          "wall_inclusive": 0.0009700999944470823,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.0004218003014102578,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.prime_power_terms._tail_gram": {
+          "calls": 1,
+          "wall_inclusive": 0.0004982000100426376,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.0004982000100426376,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.multi_prime_legendre_schur._abs_power_action": {
+          "calls": 396,
+          "wall_inclusive": 0.017373699869494885,
+          "cpu_inclusive": 0.015625,
+          "wall_exclusive": 0.017373699869494885,
+          "cpu_exclusive": 0.015625
+        },
+        "scripts.cert.multi_prime_legendre_schur._exact_inner": {
+          "calls": 84,
+          "wall_inclusive": 0.0035327999794390053,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.0035327999794390053,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.multi_prime_legendre_schur._residual_truncation_operator": {
+          "calls": 1,
+          "wall_inclusive": 0.025986599997850135,
+          "cpu_inclusive": 0.015625,
+          "wall_exclusive": 0.0050801001489162445,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.multi_prime_legendre_schur._mat_mul_diag_inverse": {
+          "calls": 2,
+          "wall_inclusive": 0.000818000000435859,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.000818000000435859,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.multi_prime_legendre_schur._mat_sub": {
+          "calls": 2,
+          "wall_inclusive": 5.780000356025994e-05,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 5.780000356025994e-05,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.multi_prime_legendre_schur._mat_scale": {
+          "calls": 1,
+          "wall_inclusive": 1.920000067912042e-05,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 1.920000067912042e-05,
+          "cpu_exclusive": 0.0
+        },
+        "scripts.cert.multi_prime_legendre_schur._residual_rho": {
+          "calls": 1,
+          "wall_inclusive": 0.00015549999079667032,
+          "cpu_inclusive": 0.0,
+          "wall_exclusive": 0.00015549999079667032,
+          "cpu_exclusive": 0.0
+        }
+      },
+      "active_terms": [
+        2,
+        3
+      ],
+      "mu": "[-2.16789395804413 +/- 1.85e-16]",
+      "mu_positive": false,
+      "schur_assembled": false,
+      "theorem_status": false
+    }
+  ]
+}

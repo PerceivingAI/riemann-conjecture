@@ -1,0 +1,82 @@
+{
+  "role": "Phase 11 uncontended component benchmarks, not qualification",
+  "status": "completed",
+  "commands": [
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase11-candidate-cost-source.py",
+        "--precision",
+        "512",
+        "--matrix-bits",
+        "64",
+        "--witness-bits",
+        "32"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 736.8418595999829,
+      "stdout": "STAGE START N=192 assemble_multi_prime_schur\nSTAGE DONE N=192 assemble_multi_prime_schur cumulative=23.136s\nSTAGE START N=192 _active_term_diagnostics\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE DONE N=192 _active_term_diagnostics cumulative=0.000s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=0.437s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=0.881s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=1.335s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=1.664s\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=192 _exact_multi_prime_schur\nSTAGE DONE N=192 _exact_multi_prime_schur cumulative=1.209s\nSTAGE START N=192 make_witness\nSTAGE DONE N=192 make_witness cumulative=312.876s\nDONE N=192 p=512 candidate=witness_failed wall=341.403\nSTAGE START N=196 assemble_multi_prime_schur\nSTAGE DONE N=196 assemble_multi_prime_schur cumulative=24.462s\nSTAGE START N=196 _active_term_diagnostics\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE DONE N=196 _active_term_diagnostics cumulative=0.000s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=0.457s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=0.921s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=1.423s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=1.781s\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=196 _exact_multi_prime_schur\nSTAGE DONE N=196 _exact_multi_prime_schur cumulative=1.322s\nSTAGE START N=196 make_witness\nSTAGE DONE N=196 make_witness cumulative=358.758s\nDONE N=196 p=512 candidate=witness_failed wall=389.026\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase11-candidate-cost-source.py",
+        "--precision",
+        "640",
+        "--matrix-bits",
+        "64",
+        "--witness-bits",
+        "32"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 752.8399651999935,
+      "stdout": "STAGE START N=192 assemble_multi_prime_schur\nSTAGE DONE N=192 assemble_multi_prime_schur cumulative=23.088s\nSTAGE START N=192 _active_term_diagnostics\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE DONE N=192 _active_term_diagnostics cumulative=0.000s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=0.461s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=0.931s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=1.421s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=1.755s\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=192 _exact_multi_prime_schur\nSTAGE DONE N=192 _exact_multi_prime_schur cumulative=1.208s\nSTAGE START N=192 make_witness\nSTAGE DONE N=192 make_witness cumulative=325.461s\nDONE N=192 p=640 candidate=witness_failed wall=354.132\nSTAGE START N=196 assemble_multi_prime_schur\nSTAGE DONE N=196 assemble_multi_prime_schur cumulative=25.186s\nSTAGE START N=196 _active_term_diagnostics\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE DONE N=196 _active_term_diagnostics cumulative=0.000s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=0.468s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=0.932s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=1.441s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=1.789s\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=196 _exact_multi_prime_schur\nSTAGE DONE N=196 _exact_multi_prime_schur cumulative=1.292s\nSTAGE START N=196 make_witness\nSTAGE DONE N=196 make_witness cumulative=360.037s\nDONE N=196 p=640 candidate=witness_failed wall=391.043\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase11-candidate-cost-source.py",
+        "--precision",
+        "768",
+        "--matrix-bits",
+        "64",
+        "--witness-bits",
+        "32"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 749.7956998000154,
+      "stdout": "STAGE START N=192 assemble_multi_prime_schur\nSTAGE DONE N=192 assemble_multi_prime_schur cumulative=23.493s\nSTAGE START N=192 _active_term_diagnostics\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE DONE N=192 _active_term_diagnostics cumulative=0.000s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=0.503s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=0.995s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=1.541s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=1.889s\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=192 _exact_multi_prime_schur\nSTAGE DONE N=192 _exact_multi_prime_schur cumulative=1.240s\nSTAGE START N=192 make_witness\nSTAGE DONE N=192 make_witness cumulative=316.197s\nDONE N=192 p=768 candidate=witness_failed wall=345.673\nSTAGE START N=196 assemble_multi_prime_schur\nSTAGE DONE N=196 assemble_multi_prime_schur cumulative=25.693s\nSTAGE START N=196 _active_term_diagnostics\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE DONE N=196 _active_term_diagnostics cumulative=0.000s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=0.532s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=1.033s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=1.599s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=1.972s\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=196 _exact_multi_prime_schur\nSTAGE DONE N=196 _exact_multi_prime_schur cumulative=1.310s\nSTAGE START N=196 make_witness\nSTAGE DONE N=196 make_witness cumulative=364.799s\nDONE N=196 p=768 candidate=witness_failed wall=396.798\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase11-candidate-cost-source.py",
+        "--precision",
+        "512",
+        "--matrix-bits",
+        "104",
+        "--witness-bits",
+        "56"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1026.2617215999926,
+      "stdout": "STAGE START N=192 assemble_multi_prime_schur\nSTAGE DONE N=192 assemble_multi_prime_schur cumulative=23.509s\nSTAGE START N=192 _active_term_diagnostics\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE DONE N=192 _active_term_diagnostics cumulative=0.000s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=0.466s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=0.936s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=1.406s\nSTAGE START N=192 coarsen_matrix\nSTAGE DONE N=192 coarsen_matrix cumulative=1.732s\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=192 dyadic_outward_interval\nSTAGE DONE N=192 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=192 _exact_multi_prime_schur\nSTAGE DONE N=192 _exact_multi_prime_schur cumulative=1.259s\nSTAGE START N=192 make_witness\nSTAGE DONE N=192 make_witness cumulative=448.605s\nDONE N=192 p=512 candidate=witness_failed wall=477.665\nSTAGE START N=196 assemble_multi_prime_schur\nSTAGE DONE N=196 assemble_multi_prime_schur cumulative=26.299s\nSTAGE START N=196 _active_term_diagnostics\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE DONE N=196 _active_term_diagnostics cumulative=0.000s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=0.495s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=0.968s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=1.463s\nSTAGE START N=196 coarsen_matrix\nSTAGE DONE N=196 coarsen_matrix cumulative=1.782s\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=196 dyadic_outward_interval\nSTAGE DONE N=196 dyadic_outward_interval cumulative=0.000s\nSTAGE START N=196 _exact_multi_prime_schur\nSTAGE DONE N=196 _exact_multi_prime_schur cumulative=1.417s\nSTAGE START N=196 make_witness\nSTAGE DONE N=196 make_witness cumulative=509.582s\nDONE N=196 p=512 candidate=witness_failed wall=541.946\n",
+      "stderr": ""
+    }
+  ]
+}

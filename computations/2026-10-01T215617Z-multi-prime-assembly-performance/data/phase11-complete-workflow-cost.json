@@ -1,0 +1,75 @@
+{
+  "utc": "2026-10-02T09:18:00Z",
+  "role": "full frozen-workflow conditional cost model; component preflight is not Phase12",
+  "source_provenance": "phase11-source-provenance.json",
+  "structural_contract": "phase11-cost-structure.json",
+  "expected_current_branch": {
+    "basis": "actual 192/196 uncached screen ladders both classify MATHEMATICAL_NEGATIVE; integrated scout selection is not asserted",
+    "scout_wall_seconds": 10.58759700000519,
+    "rigorous_pair_wall_seconds": 109.59826339999563,
+    "measured_component_sum_seconds": 120.18586040000082,
+    "candidate_calls": 0,
+    "confirmation_calls": 0,
+    "assembly_calls": 8,
+    "bundle_json_artifacts": 19,
+    "whole_fresh_run_planning_estimate_seconds": 300,
+    "estimate_kind": "INFERENCE: rounded planning estimate with 179.814 s assigned to unmeasured startup/cache/live/freeze/bundle overhead, not a measured bound"
+  },
+  "conservative_all_branches": {
+    "assembly_calls_max": 44,
+    "screen_calls_max": 8,
+    "base_candidate_calls_max": 32,
+    "higher_candidate_calls_max": 4,
+    "sequential_candidate_calls_max": 36,
+    "witness_calls_max": 72,
+    "native_bundle_replays_max": 8,
+    "unique_positive_proof_files_max": 6,
+    "candidate_pre_witness_seconds_proxy": 32.3643159000203,
+    "single_parity_witness_seconds_proxy": 1306.9282327999827,
+    "proxy_block_dimensions": [
+      95,
+      97
+    ],
+    "full_target_parity_dimensions": [
+      96,
+      98
+    ],
+    "formula": "scout_pool + rigorous_pool + 36*(2*max(proper_principal_block_witness_cost)+max(target_candidate_pre_witness_cost))",
+    "proxy_hours": 26.49559277622208,
+    "twofold_proxy_hours": 52.99118555244416,
+    "estimate_kind": "INFERENCE: operation-envelope proxy, not a measured positive frozen workflow or runtime upper bound. Counts are conservative and not necessarily jointly reachable; exact integer growth and 96/98-mode full parities are not bounded by 95/97-mode samples."
+  },
+  "declared_external_allowance": {
+    "per_fresh_run_hours": 60,
+    "two_fresh_runs_hours": 120,
+    "policy": "Reassessed from approximately 26.496 h all-branch proxy, doubled to 52.992 h and rounded upward. This covers branch uncertainty conservatively rather than reusing the old 12 h estimate. It is an external ceiling, not expected elapsed time, not a runtime guarantee and not launch authorization. Stop and retain an honest externally censored outcome if exceeded; never alter mathematical settings. Independent artifact audits/comparison/cleanup are separate from each numerical run."
+  },
+  "memory": {
+    "isolated_assembly_high_water_MiB_range": [
+      95.5,
+      125.6
+    ],
+    "failed_full_target_candidate_high_water_MiB_range": [
+      240.3,
+      263.6
+    ],
+    "complete_single_parity_proxy_max_MiB": 276.37890625,
+    "rigorous_worker_high_water_MiB": [
+      140.4375,
+      143.30078125
+    ],
+    "preflight_parent_high_water_MiB": 114.453125,
+    "limitations": "Process-lifetime high-water marks, not incremental allocations or simultaneous aggregate memory. Integrated retention/copying of large failed-candidate payloads and full positive two-parity memory remain unmeasured."
+  },
+  "remaining_costs_and_limits": [
+    "Scouting, screening diagnostics, lifecycle and confirmation controls are measured on real paths; cache hashing/writes, live heartbeat traffic, CLI result freezing and manifest sealing are source-accounted but not separately timed in the integrated driver.",
+    "Current target candidates fail final even LDL pivots; their 341-542 s totals do not upper-bound successful two-parity witnesses.",
+    "Proper principal-block proxies exercise complete LDL/inverse/rounding/congruence/Gershgorin and independently replay positive margins, but are not full target candidates or grid changes.",
+    "Positive N40 helper controls independently replay 512->640 and 640->768 with fixed 64/32; their ~1.4 s calls do not estimate N192/196 successful costs.",
+    "Native exact one-parity audit proxies cost 0.366/0.390 s; full integrated bundle audits and duplicate base replays are not inferred as measured.",
+    "The complete integrated workflow is deliberately left to Phase12. Its natural selection and terminal state must not be forced."
+  ],
+  "qualification_run": false,
+  "theorem_admission": false,
+  "RH_status": "UNRESOLVED"
+}

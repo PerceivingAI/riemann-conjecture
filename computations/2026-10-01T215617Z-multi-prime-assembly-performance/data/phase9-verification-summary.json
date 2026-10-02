@@ -1,0 +1,56 @@
+{
+  "role": "phase9_production_implementation_verification_not_qualification",
+  "implementation_status": "COMPLETE",
+  "frozen_target_acceptance": "BLOCKED_STRICT_NEGATIVE_SUFFICIENT_SCHUR",
+  "focused_tests": {
+    "passed": 159,
+    "seconds": 26.36
+  },
+  "full_python_tests": {
+    "passed": 696,
+    "seconds": 372.58
+  },
+  "initial_fixture_issue": {
+    "passed": 156,
+    "failed": 2,
+    "cause": "Synthetic tau=3/4 and 5/4 created coincident partition breakpoints, correctly rejected by unchanged strict topology. Success fixture changed to 9/8; a separate coincidence-rejection regression added."
+  },
+  "positive_overlap_control": {
+    "support": "2/5",
+    "dimension": 40,
+    "base_precision": 256,
+    "confirmation_precision": 384,
+    "matrix_bits": 64,
+    "witness_bits": 32,
+    "independent_audits_passed": 2,
+    "not_frozen_target_qualification": true
+  },
+  "frozen_targets": {
+    "support": "11/20",
+    "dimensions": [
+      192,
+      196
+    ],
+    "residual_order": 32,
+    "candidate_precision": 384,
+    "diagnostic_precisions": [
+      384,
+      512
+    ],
+    "matrix_bits": 104,
+    "witness_bits": 56,
+    "failed_pivots": [
+      95,
+      97
+    ],
+    "arb_negative_directions_audited": 4,
+    "rounded_negative_schur_matrices_audited": 2,
+    "width_contraction_comparisons": 16
+  },
+  "driver_version": "multi-prime-continuation-driver-p9-phase9-v3",
+  "cache_version": "multi-prime-continuation-driver-v3",
+  "multi_prime_bundle_format": "rh-multi-prime-continuation-candidate-bundle-v2",
+  "theorem_admission": false,
+  "canonical_driver_run": false,
+  "rust_lean_retained_tiers_rerun": false
+}

@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-02T05:55:37Z",
+  "method": "independent Windows Win32_Process CIM command/name/executable-path scan",
+  "scope": "Phase 9 diagnostic/audit commands and repository-venv pytest/execnet workers only; not an OS-wide containment assertion",
+  "excluded_eval_pid_parent": [
+    16868,
+    28896
+  ],
+  "matches": [],
+  "matching_processes": 0,
+  "argv": [
+    "powershell",
+    "-NoProfile",
+    "-Command",
+    "$exclude=@(16868,28896); $rows=@(Get-CimInstance Win32_Process | Where-Object { $_.ProcessId -notin $exclude -and $_.Name -match '^(python|pythonw|uv|pytest)(\\.exe)?$' -and ($_.CommandLine -match 'phase9-|profile_multi_prime_conditioning|audit_multi_prime_candidate' -or ($_.ExecutablePath -like 'D:\\riemann-conjecture\\.venv\\*' -and $_.CommandLine -match 'pytest|execnet')) } | Select-Object ProcessId,ParentProcessId,Name,ExecutablePath,CommandLine); ConvertTo-Json -InputObject $rows -Depth 5 -Compress"
+  ],
+  "exit_code": 0,
+  "stderr": ""
+}

@@ -2,9 +2,9 @@
 
 - **Computation ID:** `X-20261001-001`
 - **Created:** `2026-10-01T21:56:17Z`
-- **Last updated:** `2026-10-02T00:29:37Z`
-- **Status:** phases 1 through 3 `COMPLETE`; phase 4 measurements/checks executed, readiness gate `BLOCKED`
-- **Role:** isolated performance measurement and implementation verification, not P9 qualification
+- **Last updated:** `2026-10-02T09:49:35Z`
+- **Status:** phases 1 through 3, 7, 8, 10 and 11 `COMPLETE`; native multi-prime exact-witness cutover verified; strict sufficient-Schur rejection preserved
+- **Role:** tool improvement and exact operational verification, not integrated P9 qualification or theorem admission
 
 ## Original phase 1 and 2 objective
 
@@ -235,3 +235,338 @@ Successful full two-parity witnesses have not been measured. A factor-4 reserve 
 Raw gate output, configuration/provenance, exact diagnostics, cost model and cleanup are retained under `data/phase4-*`. The new `scripts/profile_multi_prime_workflow.py` is manual benchmark instrumentation only and does not call `run_driver()`, use a continuation cache, or seal qualification.
 
 **Readiness gate: BLOCKED.** Wall-clock assembly performance is now practical, but target arithmetic conditioning and the workspace formatting gate remain blockers. Stop before phase 5. A stable polynomial-coordinate/basis evaluation redesign is a separate explicitly scoped task; do not increase the frozen precision cap or change acceptance to hide the failure. No P9 qualification/reproduction, theorem admission, or RH proof claim occurred.
+
+## 2026-10-02T02:58:34Z. Phase 7 exact-safe multi-prime diagnostics
+
+User authorized only Phase 7 of the prerequisite extension. This addendum preserves earlier phase measurements and failures. It does not retry P9 or implement the Phase 8 conditioning redesign.
+
+### Cause and implementation
+
+The recorded 128-bit screen failure was an unsafe Arb-to-binary64 conversion, not failed mathematical assembly. Candidate confirmation also compared working matrix widths as floats. New regressions demonstrate false nonincreasing-width decisions when two positive widths collapse to `0.0` or infinity.
+
+Added `scripts/multi_prime_precision_diagnostics.py` for exact rational widths, radii and widest-entry midpoints. Frozen `scripts/precision_diagnostics.py` remains unchanged. The screen retains exact endpoints and widths. It scales each normalized midpoint matrix by a rigorously derived power of two before binary64 conversion, runs numerical eigendiagnostics in bounded units, then restores units exactly as rational diagnostic values. This does not turn numerical eigenvalues into rigorous spectral bounds.
+
+A lost nonzero entry, unrepresentable basis norm or failed eigendiagnostic returns explicit unavailable status. The driver escalates precision, never treats that status as failed assembly or uses it to accept positivity or stable negativity, and does not bridge stability comparisons across an unavailable sample.
+
+Screen width/sign/change comparisons, candidate working-width comparisons and exact margin-change tolerance decisions now use rational arithmetic. Existing `1e-3` stability tolerances and the screening `1e-12` scale floor are unchanged. Candidate matrix/witness controls remain independent of Arb precision. No arithmetic assembler, support/grid rule, theorem contract or verifier was changed.
+
+The new workflow version is `multi-prime-continuation-driver-p9-phase7-v2`; cache contract is `multi-prime-continuation-driver-v2`. Source fingerprints include the new helper, so incompatible float-payload entries cannot be reused.
+
+### Actual component verification
+
+| Target | Wall seconds | Exact complement lower, decimal display | Maximum GP width, decimal display | Screen outcome |
+|---|---:|---:|---:|---|
+| `11/20,192` | 29.171 | 0.566208306786 | 2.14021119679e366 | `INSUFFICIENT_PRECISION` |
+| `11/20,196` | 31.254 | 0.586774539056 | 9.84794725959e375 | `INSUFFICIENT_PRECISION` |
+
+Both screens use Arb `128`, residual order `32`, no cache and the unchanged generic rigorous assembler. Both complete assembly, serialize valid exact rational diagnostics, confirm active terms `[2,3]`, and expose available scaled eigendiagnostics without conversion exceptions. Each single-rung component ladder correctly ends at `precision_limit_reached`, with no selected candidate and no established mathematical rejection. Timing includes assembly, diagnostic extraction and eigensolving; it is not an isolated assembly benchmark.
+
+The real candidate CLI at the known one-prime overlap `T=2/5,N=40`, Arb `256`, comparison `128`, residual order `32`, matrix/witness bits `64/32`, returns positive exact margins. The driver's real fixed-input confirmation reassembles at `384` and returns `CANDIDATE_STABLE`, using exact width and margin comparisons. This overlap component smoke does not establish readiness at the `{2,3}` targets.
+
+Focused P2/P3/P8, candidate/driver, assembly-equivalence, bundle, admission and frozen-v1 checks pass **144/144 in 36.74 s**. Numerical regressions cover widths and eigenvalue units outside binary64 range, nonzero-entry loss, unavailable diagnostics, no stability bridge across unavailable precision, exact width growth, and a margin change just beyond the existing tolerance that binary64 rounds onto its boundary.
+
+Seven frozen v1 SHA-256 values match the earlier capture. `scripts/precision_diagnostics.py` and `scripts/cert/exact_prime_schur_common.py` are byte-identical to the retained phase 5 snapshot. Full Python/Rust/Lean, workspace rustfmt and retained-proof replay were not rerun. The recorded unrelated formatting failure remains unresolved.
+
+### Reproduction and retained evidence
+
+Base HEAD: `524b8c74eb19fb05ae9cd7ee3cc58b46af3f5e2f`; local Phase 7 changes are retained in `data/phase7-source-snapshot.zip`. `data/phase7-source-provenance.json` records 23 source/test hashes and runtime: Python `3.14.0`, python-flint `0.9.0`, NumPy `2.5.2`, SciPy `1.18.0`, Windows build `26300`.
+
+`data/phase7-screen-command.json` contains the exact standalone `uv run --locked python -c` argv and working directory. It calls `_escalate_rigorous_screen()` sequentially for `192/196` with the settings above, writes `data/phase7-target-screens.json`, and asserts exact positive complements, exact widths and zero assembly failures. It does not call `run_driver()`, launch a scout or use caches.
+
+Candidate CLI:
+
+```text
+uv run --locked python -m scripts.weil_multi_prime_support_candidate_check --support 2/5 --dimension 40 --prec 256 --compare-prec 128 --residual-order 32 --matrix-bits 64 --witness-bits 32 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase7-candidate-base.json
+```
+
+`data/phase7-confirmation-command.json` retains the exact standalone argv, and `data/phase7-confirmation-console.txt` retains its output. Base candidate and confirmation results are in `data/phase7-candidate-base.json` and `data/phase7-candidate-confirmation.json`. `data/phase7-focused-test-command.json` and `data/phase7-focused-tests.txt` retain the affected acceptance command and output. Frozen/shared helper checks are in `data/phase7-frozen-hashes.json`.
+
+`data/phase7-process-cleanup.json` retains the independent Windows CIM scan after component verification. It finds zero matching verification/component survivors, excluding the identified live Eval harness. Whitespace and Markdown fence checks pass for the changed files.
+
+**Phase 7 gate: PASS.** Conditioning remains unresolved; enormous intervals were not narrowed or hidden. Phases 8 through 12 remain unexecuted. P9 is NOT QUALIFIED; no theorem admission, retained proof, new claim or RH result follows.
+
+## 2026-10-02T04:24:32Z. Phase 8 enclosure diagnosis and representation selection
+
+**Diagnosis/selection gate: PASS. Frozen-target positivity gate: FAIL.** This is a timestamped successor to the unresolved conditioning observations above, not a rewrite of them. Production has not been cut over to the selected representation. P9 is NOT QUALIFIED; P10 remains blocked.
+
+### Measurement scope and causal diagnosis
+
+`scripts/profile_multi_prime_conditioning.py` is a manual generator-side diagnostic. Process-local patches evaluate the same full rigorous assembler using production-global monomials, direct cell-local monomial recurrence, or cell-local Legendre recurrence. Optional exact grouping preserves the existing potential moments. No driver qualification, cache, pool, admission or verifier path is invoked.
+
+Profiles retain exact rational enclosure widths and maximum absolute coefficient bounds through exact basis conversion, translations, combined images, products, primitives, endpoints, integrals, `P`, `P_squared`, `PD^-1P`, `GP`, `A`, `GV`, `GR` and complete factor-3 Schur. Product/primitive/endpoint probes sample diagonal degrees `0,N//2,N-2,N-1`; coefficient and final matrix profiles are full. Basis-conversion profiles in local experiments are controls, not inputs to the local recurrences. Wall-clock output is not a conditioning or throughput acceptance measure.
+
+At `N=192`, Arb 512, exact basis conversion itself has zero width. Global translated coefficient bounds reach `3.5486e143`; sampled square products have width `5.7240e141`, with endpoint width `1.0301e141`. `P_squared` width `3.5513e141` already accounts for nearly all final `GP=3.5533e141`. At lower precision, the low-composition term can instead dominate. Tail subtraction is not a universal explanation.
+
+Local monomials reduce the arithmetic `GP` width to `1.6817e-46`, but translated coefficient bounds still reach `4.6327e35`. Local Legendre coefficients have maximum translated bound `1`, combined-image bound `1.1244`, and `GP` width `1.1764e-82`. No radius is clipped, and no midpoint replaces a rigorous integration value.
+
+Arithmetic stabilization alone leaves production potential cancellation: at `192/196`, Arb 512, `A` widths remain `7.5119e-12/8.2100e-9`, `GV` widths `5.5924e-11/6.2474e-8`, and full-Schur widths `3.0382e-10/3.2762e-7`. Exact rational grouping of the potential coefficients is therefore part of the selected full numerical representation, not an optional claim of readiness from `GP` alone.
+
+### Selected arithmetic: exact identity and enclosure argument
+
+For each existing strict partition cell `[l,r]`, set `a=(l+r)/2`, `b=(r-l)/2>0`, `x=a+bt`. Expand canonical `L_n(a+bt)=sum_k q_nk(a,b)L_k(t)` directly:
+
+$$
+q_0=(1),\quad q_1=(a,b),\qquad
+(n+1)L_{n+1}(a+bt)=(2n+1)(a+bt)L_n(a+bt)-nL_{n-1}(a+bt),
+$$
+
+using `t L_k=((k+1)L_(k+1)+k L_(k-1))/(2k+1)` (the second term is zero at `k=0`). For each basis image, sum every active signed translated term into `s_jk` before squaring. The existing partition and activity decisions are unchanged.
+
+Orthogonality `integral_-1^1 L_k L_h=2 delta_kh/(2k+1)` gives exactly
+
+$$
+P_{ij}=\sum_{\text{cells}}b\sum_k\frac{2q_{ik}s_{jk}}{2k+1},\qquad
+(P^2)_{ij}=\sum_{\text{cells}}b\sum_k\frac{2s_{ik}s_{jk}}{2k+1},\qquad
+G_P=P^2-PD^{-1}P.
+$$
+
+The diagonal contraction is in the local polynomial basis, **not** a separation into prime-specific squares. The combined `s_i s_j` retains `P_2P_3+P_3P_2` and all other mixed terms.
+
+Arb encloses the original shift/constants and every recurrence, sum, product, cell Jacobian and division by a positive exact integer. Induction gives coefficient enclosures for the exact affine polynomials; the exact norm identity then gives the same operator integrals. Repeated endpoint/shift dependencies may widen intervals but cannot narrow the true enclosure. Parity, self-adjoint symmetry and the original global basis norms remain exact. Complement losses, residual estimate and factor `3` are unchanged.
+
+The prototype deliberately requires the canonical Legendre basis. A generic exact input polynomial can first be expanded in the global Legendre basis over rationals, then transformed linearly by the same recurrence, retaining its original exact norm. That is the mathematical extension, **not implemented generic-basis support**; production integration and its regressions belong to Phase 9.
+
+### Required potential control: exact grouping
+
+For exact coefficients `c_(2r)` of `phi_i phi_j`, write `ell=log(2)`, `H_k=sum_(j=1)^k 1/j`, `H_k^(2)=sum_(j=1)^k 1/j^2`,
+
+$$
+\alpha_r=2H_{2r+2}-H_{r+1},\quad
+\beta_r=4H^{(2)}_{2r+2}-H^{(2)}_{r+1},
+$$
+
+$$
+U=\sum_r\frac{c_{2r}}{2r+1},\quad
+E=\sum_r\frac{c_{2r}\alpha_r}{2r+1},\quad
+F=\sum_r\frac{c_{2r}(\alpha_r^2+\beta_r)}{2r+1}.
+$$
+
+The existing finite moment sums rearrange exactly to
+
+$$
+V_{ij}=E-2\ell U,\qquad
+(V^2)_{ij}=2\ell^2U-2\ell E+\frac F2-\frac{\pi^2U}{6}.
+$$
+
+Compute `U,E,F` over exact rationals before converting to Arb or multiplying transcendental constants. Odd moments remain zero. For an orthogonal basis, `U=D_ii/2` on the diagonal and zero off-diagonal. This eliminates cancellation among independently rounded transcendental moments without changing any potential formula or proof bound.
+
+### Measured full-matrix conditioning
+
+Maximum absolute entry widths at Arb 512, `T=11/20`, residual order `32`:
+
+| N | Representation | P_squared | GP | A | GV | Complete Schur |
+|---|---|---:|---:|---:|---:|---:|
+| 192 | Production global | `3.5513e141` | `3.5533e141` | `1.4326e68` | `5.5924e-11` | `1.8827e142` |
+| 192 | Cell monomial, production potential | `1.5436e-46` | `1.6817e-46` | `7.5119e-12` | `5.5924e-11` | `3.0382e-10` |
+| 192 | Cell Legendre, production potential | `2.1794e-83` | `1.1764e-82` | `7.5119e-12` | `5.5924e-11` | `3.0382e-10` |
+| 192 | Cell Legendre, grouped potential | `2.1794e-83` | `1.1764e-82` | `3.9877e-83` | `1.6196e-152` | `6.5763e-82` |
+| 196 | Production global | `5.7563e147` | `1.0489e148` | `6.8533e72` | `6.2474e-8` | `5.3628e148` |
+| 196 | Cell monomial, production potential | `3.1696e-44` | `3.6386e-44` | `8.2100e-9` | `6.2474e-8` | `3.2762e-7` |
+| 196 | Cell Legendre, production potential | `7.2204e-82` | `3.9421e-81` | `8.2100e-9` | `6.2474e-8` | `3.2762e-7` |
+| 196 | Cell Legendre, grouped potential | `7.2204e-82` | `3.9421e-81` | `1.3195e-81` | `1.6494e-152` | `2.1290e-80` |
+
+All eight retained matrix stages contract at each `128 -> 256 -> 384 -> 512` step for both selected-representation targets: `48/48` exact comparisons. No arbitrary width threshold substitutes for exact candidate acceptance.
+
+Small experiments cover empty arithmetic (`T=1/4`), one prime (`2/5`), `{2,3}` (`11/20`), and `{2,3,4}` with `tau_2<1` (`7/10`). All full-entry reference overlaps pass; grouped `V/V_squared` overlaps the original moments. An independent exact affine reconstruction at degrees `0..9` and `100` rational inner-product pairs verifies the local identity.
+
+### Candidate evaluation, strict negative directions and stop
+
+Actual outward candidate construction reuses each genuinely assembled rigorous result and runs the existing exact Schur/witness algorithms. With both selected arithmetic and grouped potential at Arb 384, `64/32` and frozen-maximal `104/56` matrix/witness bits both fail the final even midpoint LDL pivot: `95` at `N=192`, `97` at `N=196`. These are retained stage failures, not claimed positive margins.
+
+A separate exact diagnostic solves the leading even-block midpoint system and rounds a last-coordinate direction to 56-bit dyadics. Every coordinate is then evaluated against the **rigorous full Schur interval**, not just its midpoint:
+
+| N | Exact interval Rayleigh upper, decimal display | Upper divided by original exact basis norm squared |
+|---|---:|---:|
+| 192 | `-0.139224102100` | `-1.50060485641e-5` |
+| 196 | `-0.0452493461716` | `-2.93867348887e-5` |
+
+The first column uses the retained nonzero, non-unit vectors. Raw endpoints and vectors remain exact rational strings. A fresh zero-float audit independently recomputes the upper-triangular midpoint-plus-radius enclosure, checks agreement with both exact interval endpoints, verifies the basis-norm normalization, and proves strict upper negativity: **`2/2 PASS`**. Initial standalone production and the final canonical diagnostic CLI both retain their inputs/audits.
+
+This rejects the **sufficient grouped factor-3 Schur test** at the two frozen targets for the unchanged residual order/bound and complement. It does **not** prove negativity of the localized Weil form, refute RH, admit a v2 pair, or independently establish upstream transcendental enclosure correctness. Rust theorem verification was not invoked.
+
+Direct residual-Gram evaluation is not selected. The identity `G_P=< (I-Pi)P phi_i, (I-Pi)P phi_j >` is unchanged, but upstream stabilization already resolves enclosure growth. A tighter evaluation of the same sufficient matrix cannot remove its strictly negative direction. Further precision or witness bits cannot establish its positive definiteness.
+
+**Stop:** preserve the result, keep P9 NOT QUALIFIED/P10 blocked, and obtain a separate research decision before changing support, grid or acceptance criteria. Phase 9 and qualification are not started.
+
+### Reproduction, source preservation and limits
+
+```text
+uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 192,196 --precisions 128,256,512 --witness-precision 512 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-target-comparison.json
+uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 192,196 --precisions 128,256,384,512 --representations cell-legendre --group-potential --witness-precision 384 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-grouped-potential-targets.json
+uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 192,196 --precisions 384 --representations cell-legendre --group-potential --witness-precision 384 --matrix-bits 104 --witness-bits 56 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-frozen-max-candidates.json
+uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 192,196 --precisions 384 --representations cell-legendre --group-potential --rayleigh-check --matrix-bits 104 --witness-bits 56 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-rayleigh-cli.json
+```
+
+`data/phase8-commands.json` records all nine CLI commands. Versioned diagnostic snapshots preserve the initial comparison, grouped-potential, maximal-candidate and final Rayleigh-replay sources separately; each experiment carries its diagnostic source hash. `data/phase8-source-provenance.json` binds the final 25-input snapshot, including the provenance helper and locked dependencies. `data/phase8-production-preservation.json` confirms all 23 Phase 7 source/test inputs remain byte-identical.
+
+`data/phase8-width-comparison.json` retains exact width ratios and contraction checks. `data/phase8-rayleigh-cli-N192-p384-cell-legendre.zip` and the corresponding `N196` ZIP retain complete even interval matrices and vectors, explicitly marked diagnostic/non-theorem. `data/phase8-rayleigh-cli-audit-source.py`, `data/phase8-rayleigh-cli-audit-command.json` and `data/phase8-rayleigh-cli-audit.json` retain the independently executed zero-float replay. Earlier standalone Rayleigh inputs and audit remain historical evidence.
+
+`data/phase8-artifact-manifest.json` seals raw artifact bytes. `data/phase8-process-cleanup.json` records a separate Windows CIM scan with zero matching diagnostic/audit survivors, excluding the identified Eval harness; this is not an OS-wide containment claim. No permanent test was added and no full Python, Rust, Lean, formatting or retained-theorem replay tier was rerun for this diagnostic-only phase.
+
+## 2026-10-02T05:44:54Z. Phase 9 production representation and replayable exact inputs
+
+The user authorized production implementation after the Phase 8 rejection. This does not authorize a new support, grid, residual bound, precision cap or acceptance criterion. **Implementation/equivalence verification is complete; the full Phase 9 positive-candidate readiness gate remains BLOCKED.** P9 is NOT QUALIFIED and P10 upgrade closure remains blocked.
+
+### Production cutover and generic-basis identity
+
+`scripts/cert/prime_power_terms.py` replaces global shifted monomial coefficients and primitive/endpoint integration with cell-local Legendre recurrence and exact diagonal local norms. `PiecewisePolynomial.legendre_coefficients` explicitly represents `t=(x-(lower+upper)/2)/((upper-lower)/2)`; an empty tuple is an inactive-cell zero image. The obsolete global-coordinate production helpers and `coefficients` field are removed, not aliased.
+
+Every exact input polynomial is decomposed as `phi_i=sum_k a_ik L_k` by finite native rational leading-coefficient elimination. The Phase 8 exact affine identity then applies linearly: local coefficients are `sum_k a_ik q_kj(a,b)`. No canonical-basis assumption remains in the production operator. The existing exact orthogonality/norm check retains each original `D_ii`; reflection parity is certified from input coefficients, not mode indices. Reordered, scaled, mixed-parity and sparse high-degree bases therefore use the same exact projection/tail-Gram identity.
+
+All active signed images are combined before squaring, so mixed terms remain present. `GP=P_squared-PD^-1P` is unchanged. Rigorous active enumeration, strict partition/activity, empty arithmetic, `tau_2<1`, `m=4`, complement losses, residual order/bound and grouped factor `3` remain unchanged.
+
+`scripts/cert/multi_prime_legendre_schur.py::_potential_matrices` now contracts the exact harmonic `U/E/F` moment coefficients before introducing Arb constants, using the identity retained in Phase 8. Odd moments and certified opposite-parity entries remain zero. Potential and residual quantities have not been omitted or sharpened.
+
+The diagnostic CLI now uses production for `cell-legendre` and grouped potential. Global/cell-monomial and ungrouped-moment implementations remain explicitly historical controls confined to that diagnostic, not production fallbacks. The stage profiler follows the new numerical helpers.
+
+### Replayable candidate and bundle contract
+
+`run_candidate()` retains full outward-rounded `A/GV/GP/GR`, rounded `c_T/rho_R` and prime complement losses, support/dimension/controls, basis convention, factor, both exact dyadic witnesses and exact margins in `audit_inputs`. Witness failures retain the completed exact rounded inputs with `status=WITNESS_FAILED`, without inventing successful witnesses.
+
+`scripts/audit_multi_prime_candidate.py` accepts only the pre-theorem `rh-multi-prime-candidate-audit-v1` format. It checks dimensions/coordinate coverage, symmetry/parity, dyadic resolutions, prime-power identities and scalar/loss relationships. It independently derives `mu_N` and `A-(3/mu_N)(GV+GP+GR)`, then evaluates congruence centers and radii with native exact rational matrices rather than generator interval/LDL/congruence helpers. Both strictly positive Gershgorin margins must equal the serialized claims.
+
+Positive multi-prime bundles publish separate manifest-listed base and qualified fixed-input higher-precision audit files. Missing, conflicting, corrupted or changed-control proof inputs prevent the completion seal. One-prime publication remains unchanged. Multi-prime format is now `rh-multi-prime-continuation-candidate-bundle-v2`; workflow/cache versions are `multi-prime-continuation-driver-p9-phase9-v3` / `multi-prime-continuation-driver-v3`. Source fingerprints include both the auditor and publisher; old cache entries are incompatible.
+
+These are rational proof-arithmetic audits, not v2 theorem certificates or admission. Upstream transcendental Arb enclosures and analytic operator bounds remain assumptions. No Rust whitelist bypass, permissive verifier mode, new claim or automatic promotion was added.
+
+### Exercised numerical acceptance
+
+- Focused Python acceptance: **`159/159` in `26.36 s`**. Independent exact small action/Gram references cover reordered/scaled and mixed-parity bases; tighter enclosures cover sparse degree-62/63 mixed bases, real narrow `p=3` cells and all structural windows. Existing one-prime bridge, mixed-square, `{2,3,4}`/`tau_2<1`, threshold, frozen-v1/admission and P8 consistency gates pass.
+- Full default Python, including ordinary integration: **`696/696` in `372.58 s`**.
+- The first focused run had `156` passes and two fixture failures. Synthetic `tau=3/4,5/4` generated coincident breakpoints, correctly rejected by unchanged strict topology. The intended success fixture now uses `9/8`; a separate coincidence-rejection regression preserves the rejection. Production topology was not relaxed.
+- Numerical/adversarial proof tests recompute real complement/Schur/congruence margins and reject corrupted witnesses, matrices, parity, scalar losses, resolutions, factor, reported margins, promotion flags and missing/changed confirmation inputs. Obsolete mechanism/call-count and role-copy tests were removed rather than pinned to the new implementation.
+- Actual diagnostic-control CLI at `N=12`, Arb `128/256`, completes all six representation comparisons. The production stage-profiler CLI also completes.
+
+The real one-prime overlap control `T=2/5,N=40` yields positive exact margins at fixed `64/32` bits and Arb 256. The existing confirmation helper genuinely reassembles at 384 and reports `CANDIDATE_STABLE`; both complete serialized audit inputs independently replay in fresh CLI processes, **`2/2 PASS`**. A throwaway publication smoke seals both actual audit payloads through the production publisher, then removes its temporary bundle. Its retained report explicitly says `component_packaging_smoke_not_qualification`; it is not an integrated driver run or frozen-target success.
+
+### Frozen targets: rounded sufficient-Schur rejection
+
+The production diagnostic executes `T=11/20,N=192/196`, residual order `32`, Arb `384/512`, with actual outward candidate construction at 384 and frozen-maximal `104/56` bits. Both candidates complete rounding but fail final even midpoint LDL pivots `95/97`. Higher-precision rows are full assembly/Rayleigh diagnostics, **not successful candidate confirmation**.
+
+| N | Complete Schur width at Arb 384 | Width at Arb 512 | Normalized strict negative Rayleigh upper, decimal display |
+|---|---:|---:|---:|
+| 192 | `1.9942e-43` | `6.5763e-82` | `-1.50060485641e-5` |
+| 196 | `6.4573e-42` | `2.1290e-80` | `-2.93867348887e-5` |
+
+All eight matrix-stage widths contract at `384 -> 512`, **`16/16` exact comparisons**. Complete failed-candidate rounded matrices/scalars are retained in ZIPs; all four rigorous even Schur interval matrices and 56-bit dyadic vectors are retained separately.
+
+A fresh independent zero-float audit checks exact vector/norm arithmetic and interval quadratic forms for all four Arb directions, **`4/4` strictly negative**. It also reconstructs `mu_N` and the complete rounded factor-3 Schur matrices from the failed-candidate inputs and proves the same retained directions have strict negative upper bounds, **`2/2`**. This establishes that neither enclosure width nor coarse outward rounding accounts for the witness failures.
+
+There is no positive frozen-target base candidate or successful confirmation to publish. The one-prime control is not substituted for that missing criterion. The sufficient-Schur rejection does not prove localized Weil-form negativity or an RH counterexample. **Stop before changing support, grid or acceptance.** P9 remains NOT QUALIFIED/P10 blocked.
+
+### Reproduction and retained bytes
+
+```text
+uv run --locked --extra test python -m pytest -q tests/test_prime_power_terms.py tests/test_prime_power_local_legendre.py tests/test_multi_prime_legendre_schur.py tests/test_multi_prime_potential_grouping.py tests/test_multi_prime_assembly_performance.py tests/test_multi_prime_candidate_audit.py tests/test_multi_prime_p4_stages.py tests/test_multi_prime_precision_diagnostics.py tests/test_multi_prime_continuation_driver.py tests/test_continuation_bundle.py tests/test_one_prime_v1_freeze.py tests/test_admission_consistency.py tests/test_v2_adversarial_consistency.py tests/test_pre_theorem_boundary.py
+uv run --locked --extra test python -m pytest -q
+uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 192,196 --precisions 384,512 --representations cell-legendre --group-potential --witness-precision 384 --rayleigh-check --matrix-bits 104 --witness-bits 56 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-targets.json
+uv run --locked python -m scripts.weil_multi_prime_support_candidate_check --support 2/5 --dimension 40 --prec 256 --matrix-bits 64 --witness-bits 32 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-base.json
+uv run --locked python -m scripts.audit_multi_prime_candidate --input computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-base-audit-inputs.json --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-base-audit.json
+uv run --locked python -m scripts.audit_multi_prime_candidate --input computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-confirmation-audit-inputs.json --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-confirmation-audit.json
+```
+
+`data/phase9-source-provenance.json` binds the dirty 30-input production/test snapshot and 12 frozen/shared byte-identical controls. All Phase 8 raw artifacts remain historical evidence. `data/phase9-verification-summary.json` records actual gates and the initial fixture correction; `data/phase9-precision-contraction.json` retains exact ratios.
+
+The measurement snapshot retains the exact tested numerical sources. `data/phase9-final-source-snapshot.zip` also retains the final source tree: the only later Python change corrects the assembler's module description of grouped potential arithmetic. `data/phase9-final-integrity-checks.json` proves unchanged executable AST, binds both source snapshots and maintained-document hashes, and checks syntax, whitespace and Markdown fences. All `31` Phase 8 raw artifacts remain byte-identical; no historical numerical evidence is rewritten.
+
+`data/phase9-overlap-confirmation-command.json` and its source retain the actual confirmation/publication argv. Both `phase9-overlap-*-audit-inputs.json` files retain successful proofs; both `phase9-overlap-*-audit.json` files retain independently recomputed positive margins. `data/phase9-packaging-smoke.json` records packaging only, not qualification.
+
+`data/phase9-targets-candidate-N192-p384-cell-legendre.zip` and its `N196` counterpart retain failed-candidate exact rounded inputs. `data/phase9-targets-N192-p384-cell-legendre.zip` and the three other dimension/precision ZIPs retain rigorous Rayleigh inputs. `data/phase9-negative-exact-audit-source.py`, command JSON and audit JSON retain the independent replay of both raw and rounded sufficient Schur matrices.
+
+`data/phase9-commands.json` records CLI invocations; `data/phase9-artifact-manifest.json` seals raw bytes. `data/phase9-process-cleanup.json` retains an independent scoped Windows process scan. No fresh Rust/Lean/retained-proof replay or workspace-formatting tier was run; no integrated qualification, cache reuse, precision-cap increase or theorem admission occurred.
+
+## 2026-10-02T06:23:49Z. Phase 10 closes workspace formatting separately
+
+The user authorized the four-file formatting cleanup independently of arithmetic and qualification. Rustfmt 1.9.0-stable changes only `crates/rh_engine/src/laguerre.rs`, `lib.rs`, `sieve.rs` and `main.rs`; edition is 2021 and `skip_children=true` prevents recursive edits. Before/after snapshots retain all nine engine source/test inputs, including five byte-unchanged controls.
+
+The separate patch contains line wrapping, whitespace/newline normalization and optional trailing commas only. A source-token comparison retains literal/comment text, identifiers and operators, ignoring whitespace, CRLF line-comment terminators and optional trailing commas before closing delimiters. The initial checker retained CR in comments and falsely flagged differences; only that checker normalization was corrected. Production code received no corrective behavioral edit.
+
+**Phase 10 COMPLETE. Gate PASS.**
+
+| Check | Observed result |
+|---|---|
+| `cargo fmt --all -- --check` | Exit `0`, complete workspace |
+| `cargo test --locked -p rh_engine` | `11` unit + `4` integration tests, `15/15`; empty binary/doc-test targets pass |
+| `cargo clippy --locked --workspace --all-targets -- -D warnings` | Exit `0`, strict complete-workspace Clippy |
+| Actual `rh_engine prime-trace` CLI | `8/8` rows match independent small finite references |
+
+The CLI smoke exercises the formatted binary, exported library, Laguerre batch and sieve/prime-power code at `s0=3`, degrees `1..4`, cutoffs `16,32`, segment size `32768`. Independent integer trial division recognizes prime powers. Explicit polynomials `1`, `2-t`, `3-3t+t^2/2`, `4-6t+2t^2-t^3/6` replace the engine recurrence in the reference. Prime sums, exact pole values, discrepancies and absolute-value roots match with `1e-12` relative/absolute tolerance. It is a behavior smoke, not a performance measurement or theorem claim.
+
+```text
+rustfmt --edition 2021 --config skip_children=true crates/rh_engine/src/laguerre.rs crates/rh_engine/src/lib.rs crates/rh_engine/src/sieve.rs crates/rh_engine/src/main.rs
+cargo fmt --all -- --check
+cargo test --locked -p rh_engine
+cargo clippy --locked --workspace --all-targets -- -D warnings
+cargo run --locked -p rh_engine -- prime-trace --s0 3 --n-max 4 --cutoffs 16,32 --segment-size 32768 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase10-cli-smoke.json
+```
+
+`data/phase10-engine-before-formatting.zip` and `data/phase10-engine-after-formatting.zip` retain exact inputs/outputs; `phase10-formatting-only.patch` isolates this phase from existing arithmetic work. `phase10-formatting-scope.json` binds source hashes and token comparison. `phase10-rust-checks.json` retains actual argv, exit codes, timings and full stdout/stderr. `phase10-cli-smoke.json` and `phase10-cli-smoke-check.json` retain actual output and independently checked values. `phase10-artifact-manifest.json` seals raw bytes and unchanged Phase 9 evidence; `phase10-process-cleanup.json` records an independent scoped process scan.
+
+All `30` Phase 9 source/test inputs and `30` raw artifacts remain byte-identical. The verifier and mathematical contract did not change, so no Python, `rh_cert` test, Lean or retained-proof tier was repeated. Strict workspace Clippy does include `rh_cert`, but does not substitute for its theorem replay.
+
+The historical workspace-formatting blocker is closed. The frozen sufficient-Schur rejection is unchanged; P9 remains NOT QUALIFIED and P10 upgrade closure remains blocked. No support, grid, precision cap, cache/workflow version, theorem admission or qualification changed. Phases 11 and 12 have not started.
+
+## 2026-10-02T09:49:35Z. Phase 11 acceptance and native exact-witness cutover
+
+The user clarified that this plan improves computational tools for later research. Mathematical positivity is not engineering acceptance. The support/grid, operator/complement bounds, grouped factor `3`, strict proof margins and admission remain frozen. Historical positive-candidate gates and their failures above are preserved rather than rewritten.
+
+### Acceptance and actual preflight
+
+Before the witness cutover, `phase11-acceptance.json` retains focused Python `170/170` in `22.23 s`, default Python `696/696` in `372.55 s`, workspace Rust `82/82`, complete workspace formatting, strict complete-workspace Clippy and retained raw-byte/independent theorem replay `8/8`. `phase11-source-provenance.json` and its ZIP bind 42 dirty-worktree source inputs and all unchanged frozen numerical settings.
+
+Isolated assembly measurements, seconds:
+
+| Arb bits | N=192 | N=196 |
+|---|---:|---:|
+| 128 | 20.659 | 21.547 |
+| 256 | 22.266 | 24.733 |
+| 384 | 24.520 | 25.705 |
+| 512 | 23.183 | 24.983 |
+| 640 | 23.085 | 24.961 |
+| 768 | 24.289 | 26.640 |
+
+Bounded two-worker pairs take `23.745/27.260/26.759 s` at Arb `128/512/768`, including lifecycle. The actual eight-resolution floating component over the frozen 28-dimension grid takes `10.588 s`. These are components, not integrated qualification.
+
+`phase11-preflight.json` retains the actual two-worker `192/196` screen ladders, all four ordered precision attempts per target, diagnostics and owned-worker cleanup. Both naturally classify `MATHEMATICAL_NEGATIVE`; the complete pool takes `109.598 s`. Eight separate actual candidate calls at Arb `512/640/768`, `64/32`, and Arb 512, `104/56`, retain their full rounded inputs. Independent Fraction arithmetic reconstructs their positive complements and factor-3 Schur matrices; all eight have strict negative interval quadratic-form upper bounds. This rejects the sufficient matrices, not localized Weil positivity or RH.
+
+Fresh overlap controls `T=2/5,N=40` genuinely confirm `512 -> 640` and `640 -> 768` with fixed `64/32` and no cache. Four fresh-process exact audits pass; independently rebuilt 640-bit base inputs equal the earlier 640-bit confirmation inputs exactly. These controls are not positive frozen targets or Phase 12 runs.
+
+### Performance implementation after the excessive measurements
+
+The initial strategy ran eight expensive candidates and two complete witness probes, consuming about 96 minutes. The user interrupted that strategy and required tool implementation rather than further benchmarking. No later benchmark sweep was run.
+
+The measured shared Fraction implementation spent `313..510 s` in failed even LDL and `715/785 s` in triangular inversion for complete 95/97-mode witnesses. The implementation cutover is confined to `scripts/cert/multi_prime_exact_witness.py` and multi-prime imports/fingerprints. Frozen `exact_prime_schur_common.py`, one-prime callers, certificate exporter and Rust PASS semantics remain unchanged.
+
+The new implementation scales the exact midpoint to an integer matrix and performs fraction-free symmetric Bareiss elimination. It accumulates elimination rows concurrently; each row divided by its positive diagonal is the inverse unit-lower LDL row. Positive leading determinants preserve the exact LDL pivot rejection order. Integer quotient/remainder rounding preserves nearest dyadic values with half ties away from zero. Native `fmpq_mat` products compute exact congruence centers and radii, `W C W^T` and `|W| R |W|^T`, with the same strict Gershgorin margin.
+
+No inverse heuristic, floating approximation, weakened interval bound or positivity assumption replaces verification. The candidate's full exact audit payload and independent audit implementation remain unchanged. The new backend is included in cache and candidate-profile fingerprints; source changes invalidate old keys without a serialized-contract/version change.
+
+### One real-path smoke and post-cutover verification
+
+`native-witness-cutover-smoke-source.py` executes one actual frozen candidate and one retained positive proper-principal-block witness. It does not search dimensions or run the driver.
+
+| Same retained input | Shared Fraction path | Native path | Observed ratio |
+|---|---:|---:|---:|
+| Actual N=196, Arb 512, matrix/witness 104/56 candidate | 541.946 s | 53.525 s | 10.125 |
+| Complete 97-mode proper principal witness | 1306.928 s | 22.725 s | 57.512 |
+
+The actual candidate retains identical complete rounded inputs and the same final even-pivot rejection. The proper principal witness and strict margin are exactly identical to the retained original and independently replay with native zero-float arithmetic. This proper block is not a positive full target, a support/grid change or a theorem.
+
+Post-cutover focused acceptance passes `77/77` in `13.07 s`; the full default Python suite passes `715/715` in `436.21 s`. New mathematical regressions compare exact witnesses/margins against the untouched Fraction reference, including mixed signs, unequal radii, large rationals outside binary64, dyadic ties, singular/negative pivots and interval-margin rejection. All twelve frozen/shared byte controls pass. Rust, Lean and theorem replay are not rerun after the Python-only backend cutover; their source/contract inputs remain unchanged.
+
+### Cost, memory and execution boundary
+
+`phase11-cost-structure.json` accounts for the entire frozen driver: eight screen assemblies, at most 32 base candidate attempts and four higher-precision candidates, 44 total assemblies, sequential candidate/confirmation work, native bundle audits, cache hashing/publication, live output, result freezing, manifest-last sealing and cleanup. Counts are a conservative operation envelope, not a jointly reachable execution or runtime bound.
+
+`native-witness-cutover-cost.json` withdraws the obsolete 60-hour legacy draft. The actual unchanged scout/screen component sum is `120.186 s`; a five-minute fresh-run estimate is a planning inference with unmeasured integrated overhead. Applying the single new complete-witness sample to the conservative operation envelope gives a `48.691 min` proxy. Twice that is `97.382 min`; the new external allowance is **two hours per fresh run, four hours for Run A/B**. This does not authorize launch or guarantee a full positive-target runtime. Neither complete 98-mode target parity nor integrated cache/live/bundle costs was newly measured.
+
+Observed isolated assembly high-water marks are `95.5..125.6 MiB`; failed legacy target candidates are `240.3..263.6 MiB`; complete legacy proper-block witnesses peak at `276.4 MiB`. Real screen workers peak at `140.4/143.3 MiB`, parent at `114.5 MiB`. These are process-lifetime observations, not simultaneous aggregate memory. Native smoke did not measure memory; no native memory improvement or positive integrated-workflow memory bound is claimed. Stage profiles attribute remaining assembly costs mainly to potential matrices, exact/local Legendre inner products and diagonal Gram composition.
+
+### Retention, cleanup and outcome
+
+`phase11-*` artifacts preserve all pre-cutover commands, timings, profiles, exact rejected inputs and positive controls. `native-witness-cutover-*` artifacts preserve the implemented source snapshot, same-input smoke, full Python output, replacement cost model, frozen hashes and raw-byte manifest. The independent scoped Windows CIM scan finds zero matching survivors. It does not claim OS-wide containment.
+
+The first historical-source preservation check used the Phase 9 measurement snapshot and found the already documented post-verification assembler module-description difference. The correct final Phase 9 snapshot resolves that difference; no source was changed to satisfy the check. Historical numerical data remains byte-preserved.
+
+**Phase 11 tooling acceptance COMPLETE.** Target rejection is valid tool output, not engineering failure. Phase 12 has not launched; historical P9 positive-candidate qualification remains NOT QUALIFIED. No new admitted v2 pair, certificate, theorem claim or RH proof exists.
+

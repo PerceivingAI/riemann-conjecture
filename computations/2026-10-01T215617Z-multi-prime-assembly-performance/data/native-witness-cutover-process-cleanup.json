@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-02T09:49:35Z",
+  "scope": "Repository native Python/Rust/uv processes and explicit Phase11/native-witness commands only; not OS-wide containment",
+  "matches": [],
+  "matching_processes": 0,
+  "excluded_eval_pid_parent": [
+    16868,
+    28896
+  ],
+  "argv": [
+    "powershell",
+    "-NoProfile",
+    "-Command",
+    "$exclude=@(16868,28896); $rows=@(Get-CimInstance Win32_Process | Where-Object { $_.ProcessId -notin $exclude -and $_.Name -match '^(python|pythonw|uv|pytest|cargo|rustc|rustfmt|clippy-driver|rh_cert)(\\.exe)?$' -and ($_.ExecutablePath -like 'D:\\riemann-conjecture\\.venv\\*' -or $_.ExecutablePath -like 'D:\\riemann-conjecture\\target\\*' -or $_.CommandLine -match 'phase11-|native-witness-cutover-|scripts\\.profile_multi_prime|scripts\\.cert\\.verify_retained_proofs') } | Select-Object ProcessId,ParentProcessId,Name,ExecutablePath,CommandLine); ConvertTo-Json -InputObject $rows -Depth 5 -Compress"
+  ],
+  "exit_code": 0,
+  "stderr": ""
+}
