@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-21T08:56:20Z`
+- **Last updated:** `2026-10-07T10:06:02Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -377,6 +377,17 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-08-21T08:52:52Z`
 - **Used for:** Original source of the simple Legendre-polynomial integral formulas later used in logarithmic-Laplacian spectral analysis.
 - **Verification notes:** Cambridge metadata confirms the 1964 article, pages, DOI, and that the paper derives and rigorously proves new Legendre-polynomial formulas.
+
+### R-0034 — OpenAI quasi-Riemann zero-free half-plane
+
+- **Authors:** OpenAI
+- **Title:** The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re(s)>7/8
+- **Publication:** OpenAI Math Release preprint
+- **Year:** 2026
+- **Stable identifier:** `https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026`; pinned repository commit `adc7f1241b42e322a6451854ab7e4b4c146bf78a`
+- **First verified/accessed:** `2026-10-07T10:06:02Z`
+- **Used for:** External provenance for `EXT-0001`, the OpenAI theorem that the Riemann zeta function has no zeros in `Re(s)>7/8`; later phases will evaluate consequences for this repository's prior RH routes.
+- **Verification notes:** OAI-0 records source provenance only. The exact Lean declaration is `OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re` in `lean/OAI/NumberTheory/DirichletL/Nonvanishing.lean`, with Comparator configuration `lean/ComparatorChallenges/QuasiRiemannHypothesis.json`. The pinned upstream uses Lean 4.34.1 and Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`; the Comparator permits only `propext`, `Quot.sound`, and `Classical.choice`. Independent replay by this repository is deferred to OAI-1. See `references/external-results/EXT-0001-openai-quasi-rh.md`.
 
 ## Entry format
 

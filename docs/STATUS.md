@@ -1,10 +1,12 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-02T09:49:35Z`
+- **Last updated:** `2026-10-07T10:06:02Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
+
+**OpenAI Math assimilation OAI-0 — `2026-10-07T10:06:02Z`.** External provenance is frozen for OpenAI's quasi-Riemann theorem as `EXT-0001`. The upstream source is pinned to `openai/math@adc7f1241b42e322a6451854ab7e4b4c146bf78a`; the exact Lean theorem, Comparator configuration, Lean 4.34.1 toolchain, Mathlib revision, Apache-2.0 license, manuscript citation metadata, and source blob identities are recorded in `references/external-results/EXT-0001-openai-quasi-rh.md`, with bibliography entry `R-0034`. OAI-0 is provenance only: no OpenAI source has been vendored, no repository `C-` claim has been assigned, no theorem/certificate admission changed, and independent replay remains pending OAI-1.
 
 ## Current state
 
