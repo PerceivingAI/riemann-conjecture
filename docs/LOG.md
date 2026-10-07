@@ -1,10 +1,18 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-02T09:49:35Z`
+- **Last updated:** `2026-10-07T10:06:02Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-07T10:06:02Z. OAI-0 freezes OpenAI quasi-RH provenance as EXT-0001
+
+**Type:** External theorem provenance / attribution boundary
+
+Pinned `openai/math` at commit `adc7f1241b42e322a6451854ab7e4b4c146bf78a` and registered OpenAI's zero-free half-plane theorem as external result `EXT-0001`, not as a repository-derived claim. The record captures the exact Lean theorem `OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re`, source and Comparator paths/blob identities, Lean 4.34.1, Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`, permitted Comparator axioms, Apache-2.0 licensing, and the manuscript's supplied citation metadata.
+
+No OpenAI source is copied or vendored. No v1/v2 certificate, theorem whitelist, retained proof, RH-status statement, or repository claim changes. Independent replay is explicitly not claimed at OAI-0 and is deferred to OAI-1.
 
 ## 2026-10-02T09:49:35Z. Native exact witnesses remove the remaining multi-prime Fraction bottleneck
 
