@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-02T09:49:35Z`
+- **Last updated:** `2026-10-08T03:00:21Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -21,6 +21,9 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`../findings/`](../findings/) — atomic findings, lemmas, obstructions, and negative results.
 - [`../computations/`](../computations/) — reproducible numerical or symbolic experiments.
 - [`../references/BIBLIOGRAPHY.md`](../references/BIBLIOGRAPHY.md) — literature and external sources used by the research.
+- [`EXT-0001 OpenAI/Mathlib overlap audit`](../references/external-results/EXT-0001-lean-overlap-audit.md) — pinned formal-theorem equivalences, dependency surface and reuse classification (OAI-3).
+- [`EXT-0001 mathematical route-impact audit`](../references/external-results/EXT-0001-route-impact-audit.md) — all eleven historical attempts plus frozen one-prime and generic multi-prime consequences, exact blockers and remaining gaps (OAI-4).
+- [`EXT-0001 reuse and licensing decision`](../references/external-results/EXT-0001-reuse-and-license-decision.md) — OAI-6 reference-only default; optional future code-import/license/build/attribution gates.
 - [`../scripts/`](../scripts/) — versioned Python research tooling and certificate generators (`scripts/cert/`).
 - [`../crates/rh_engine/`](../crates/rh_engine/) — high-throughput native multi-threaded calculation engine.
 - [`../crates/rh_cert/`](../crates/rh_cert/) — zero-float independent exact rational certificate verifier.
@@ -43,6 +46,9 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+
+- [`F-20261008-001`](../findings/2026-10-08T014258Z-openai-quasi-rh-cayley-consequence.md) — external OpenAI quasi-RH yields a strict zero strip and a quantitative Cayley coefficient bound; neither proves RH nor extends Weil theorem admission.
+- [`F-20261008-002`](../findings/2026-10-08T024431Z-openai-seven-eighths-prime-distribution.md) — `C-0061`/`C-0062`: seven-eighths prime-counting errors, compact smoothing and critical-half-weight discrepancy.
 
 - [`F-20260820-001`](../findings/2026-08-20T203700Z-critical-line-zero-orbit-contribution.md) — corrected critical-line zero-orbit contribution.
 - [`F-20260820-002`](../findings/2026-08-20T203700Z-subexponential-li-growth-suffices.md) — subexponential Li growth suffices for RH.

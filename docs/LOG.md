@@ -1,10 +1,58 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-07T10:06:02Z`
+- **Last updated:** `2026-10-08T03:03:46Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-08T03:03:46Z. Correction: OAI-6 omitted the existing dual license
+
+**Type:** Provenance/licensing correction (no change to source-reuse decision)
+
+A focused source check confirms that `LICENSE-MIT` and `LICENSE-APACHE` are tracked root files, and root `README.md` explicitly states **MIT OR Apache-2.0, at the recipient's option**. The earlier OAI-6 description was wrong because it checked only the conventional root filenames `LICENSE` and `NOTICE`. The maintained [`EXT-0001-reuse-and-license-decision.md`](../references/external-results/EXT-0001-reuse-and-license-decision.md) and status snapshot now state the actual repository licensing.
+
+The pre-existing original repository license remains unchanged. If third-party OpenAI Apache-2.0 source were copied in a later approved slice, its licensing and attribution conditions would apply to that material; our existing MIT option would not automatically cover OpenAI's source. **No copying or vendoring was performed**, and OAI-6's reference-only choice, external theorem attribution, trust boundaries, v1/v2 certificate admissions, and RH status remain unchanged. This correction is appended without rewriting the earlier historical log entry.
+
+## 2026-10-08T03:00:21Z. OAI-6 fixes reference-only reuse and Apache-2.0 source-import gates
+
+**Type:** External source attribution / licensing / formal dependency decision
+
+[`EXT-0001-reuse-and-license-decision.md`](../references/external-results/EXT-0001-reuse-and-license-decision.md) adopts pinned attribution without source copying for OpenAI's external theorem `EXT-0001` and separately derived `C-0060..C-0062`. The pinned upstream root is Apache-2.0 with no root NOTICE; our research repository has no root LICENSE/NOTICE, so neither our own overall license nor future redistribution terms are silently chosen by this audit. Apache-2.0 Section 4 attribution/license/changed-file requirements are documented as conditional on actual reuse and distribution, with per-component rights checks mandatory for any later import.
+
+No external Lean source, manuscript, fork, submodule, Lake dependency or toolchain upgrade is introduced. A future import requires a named formal consumer, actual source closure and rights inventory, compatibility build, independent verification, trust-boundary protection and a separately approved change. The upstream proof is not claimed as independently replayed here. No mathematical result, Rust/Arb/Lean verifier, v1/v2 theorem admission or RH status changed.
+
+## 2026-10-08T02:44:31Z. OAI-5 derives exact-exponent prime errors from OpenAI quasi-RH
+
+**Type:** External-theorem dependent mathematical derivation / classical explicit-formula closure
+
+`F-20261008-002` establishes `C-0061`: `psi(x)-x=O(x^(7/8)log²x)`, `theta(x)-x=O(x^(7/8)log²x)`, `pi(x)-Li_2(x)=O(x^(7/8)log x)`. `R-0035` supplies the truncated von Mangoldt formula and `N(T)=O(Tlog T)`; `EXT-0001` supplies `beta<=7/8`, and `T=x` gives the bound including jump points and boundary zeros. `C-0062` proves compact smoothing and a uniform critical-half-weight discrepancy bound `O_W((1+|tau|)X^(3/8)log²X)`.
+
+The previous OAI-4 *hypothetical exponent calculation* now has a mathematically justified pointwise source. The estimates are still not RH-strength cancellation and do not change the existing Schur, Weil or theorem-admission status. These are written mathematical deductions, not a Lean/Comparator replay. No code, toolchain, certificate, external sources or proof admission were modified.
+
+## 2026-10-08T02:38:25Z. OAI-4 closes the exact OpenAI theorem impact audit across research routes
+
+**Type:** External theorem dependency audit / arithmetic and Weil obstruction classification
+
+[`EXT-0001-route-impact-audit.md`](../references/external-results/EXT-0001-route-impact-audit.md) audits all eleven historical attempts plus the exact one-prime v1 and generic multi-prime v2 paths, using the `Re(s)>7/8` theorem `EXT-0001` and proven consequence `C-0060`. The exact fixed-center bound remains `B(s0)>1`, not the `C-0010` RH criterion. Conditional power accounting for `theta=7/8` leaves `X^(3/8+o(1))` in absolute critical-half-weight bounds; no `psi` pointwise theorem is imported without proof. The `Theta<=7/8` strip and pre-existing `C-0020` provide a `O(X^(11/4))` dyadic squared-discrepancy upper scale, not the RH-strength `O_eps(X^(2+eps))` target.
+
+The new theorem changes no Laguerre phase Hessian, Li Gram equivalence, first-prime/Weil operator, Suzuki residual, exact `{2,3}` grouped `C-0059` Schur contract, or the rigorously negative sufficient-Schur witnesses at the frozen v2 targets. Nothing is reinterpreted as negativity of the full Weil form. No previously blocked RH-strength route is automatically unlocked. No new claim, formal import, code edit, dependency upgrade, certificate modification, admission or proof replay occurred; the audit is sanitized and strictly documentation-only.
+
+## 2026-10-08T01:58:15Z. OAI-3 inventories pinned Mathlib and OpenAI formal overlap
+
+**Type:** Focused external-source comparison / dependency cost / reuse classification
+
+[`EXT-0001-lean-overlap-audit.md`](../references/external-results/EXT-0001-lean-overlap-audit.md) compares local interval/LDL/Gershgorin/endpoint Lean modules with the frozen OpenAI theorem chain and Mathlib revision. Mathlib already supplies the von Mangoldt/zeta logarithmic-derivative identity in `Re(s)>1`, zeta's standard analytic foundation, `Re(s)≥1` nonvanishing, discrete zeta zeros, and matrix algebra. OpenAI's genuine new direct input is strict `Re(s)>7/8` zero-freeness; its Dirichlet-`L` variant has an explicit principal-pole exclusion. The additional `23/24` theorem and qualitative prime-progression modules are not substitutes.
+
+The upstream formal package pins 42 dependencies; the target theorem imports the wide `Foundation` and `FinalAssemblyUnconditional` modules. No entire transitive closure, minimum import set, or compile time is claimed. Classification: A existing Mathlib, B useful OpenAI, C no current direct use, D prohibitively heavy without a named consumer. No source vendoring, Lean upgrade, new claim, change to `EXT-0001` verification status, v1/v2 alteration, or theorem admission occurred. Only sanitized repository-relative research documentation was added.
+
+## 2026-10-08T01:42:58Z. OAI-2 derives quantitative consequences of OpenAI quasi-RH
+
+**Type:** External-theorem dependent mathematical deduction / trust-boundary update
+
+The exact external nonvanishing theorem `EXT-0001`, combined with standard zeta zero symmetry, confines nontrivial zeros to `1/8<=Re(rho)<=7/8`. Derived claim `C-0060` and finding `F-20261008-001` prove a quantitative bound on the pole-subtracted Cayley/Laguerre coefficient root at every fixed `s0>1`: `limsup |S_n|^(1/n)<=(s0-1/8)/(s0-7/8)>1`. Thus the strict `C-0010` RH root criterion remains unproved. The same external result does not remove the off-line single-zero response or the square-root prime-cancellation barrier, and no new localized Weil theorem follows.
+
+The separate upstream checkout passed frozen source identity and cleanliness checks. Independent Comparator replay is now explicitly optional, not a prerequisite for analyzing external mathematical results. The upstream theorem has **not** been independently replayed here. No source is vendored, no v1/v2 certificate or theorem admission is changed, and no private execution-environment information is recorded.
 
 ## 2026-10-07T10:06:02Z. OAI-0 freezes OpenAI quasi-RH provenance as EXT-0001
 
