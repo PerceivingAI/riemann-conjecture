@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260820-006`
 - **Created:** `2026-08-20T22:44:00Z`
-- **Last updated:** `2026-08-20T22:44:00Z`
+- **Last updated:** `2026-10-08T03:40:31Z`
 - **Status:** `COMPLETE`
 - **Success target:** Reduce the phase-aware pre-turning prime side from `A-005` to explicit local Dirichlet/exponential sums, determine whether the below-first-prime endpoint is a genuine obstruction, and test whether standard unconditional large-sieve/Dirichlet-polynomial tools can reach the RH-equivalent exponential-root target without circular assumptions.
 
@@ -548,4 +548,6 @@ Create `A-20260820-007` for a **global bilinear/Vaughan decomposition of the non
 
 ## Timestamped addenda / corrections
 
-None yet.
+### 2026-10-08T03:40:31Z — Source-backed prime-error and chirp consequence
+
+**Later result, not a repair of the original August obstruction.** `EXT-0001` plus the classical explicit formula (`R-0035`) leads to [`C-0061`/`C-0062`](../findings/2026-10-08T024431Z-openai-seven-eighths-prime-distribution.md): for fixed compact smooth weights, the critically half-weighted discrepancy is bounded by `O_W((1+|tau|)X^(3/8)log²X)`, **after subtracting the smooth main term**. On `X=e^(cn)` this remains an exponentially permissive **upper** estimate and gives neither a lower bound nor the uniform signed full-chirp cancellation demanded by `C-0030/C-0034`. The OAI-8 [route evaluation](../research/openai-math/RESEARCH_DIRECTION.md) retains phase-aware work as secondary. All original endpoint and microlocal findings remain historically unchanged.

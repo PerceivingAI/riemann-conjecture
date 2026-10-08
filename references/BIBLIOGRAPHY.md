@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-08T02:44:31Z`
+- **Last updated:** `2026-10-08T03:38:44Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -386,8 +386,8 @@ This is the authoritative source registry for literature materially used in the 
 - **Year:** 2026
 - **Stable identifier:** `https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026`; pinned repository commit `adc7f1241b42e322a6451854ab7e4b4c146bf78a`
 - **First verified/accessed:** `2026-10-07T10:06:02Z`
-- **Used for:** External provenance for `EXT-0001`, the OpenAI theorem that the Riemann zeta function has no zeros in `Re(s)>7/8`; later phases will evaluate consequences for this repository's prior RH routes.
-- **Verification notes:** OAI-0 records source provenance only. The exact Lean declaration is `OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re` in `lean/OAI/NumberTheory/DirichletL/Nonvanishing.lean`, with Comparator configuration `lean/ComparatorChallenges/QuasiRiemannHypothesis.json`. The pinned upstream uses Lean 4.34.1 and Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`; the Comparator permits only `propext`, `Quot.sound`, and `Classical.choice`. Independent replay by this repository is deferred to OAI-1. See `references/external-results/EXT-0001-openai-quasi-rh.md`.
+- **Used for:** External provenance for `EXT-0001`, OpenAI's strict zero-free half-plane `Re(s)>7/8`; premise for this repository's distinct written deductions `C-0060`, `C-0061`, `C-0062` (the latter two also use classical source `R-0035`), and the OAI-8 research-direction evaluation.
+- **Verification notes:** OAI-0 records source provenance only. The exact Lean declaration is `OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re` in `lean/OAI/NumberTheory/DirichletL/Nonvanishing.lean`, with Comparator configuration `lean/ComparatorChallenges/QuasiRiemannHypothesis.json`. The pinned upstream uses Lean 4.34.1 and Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`; the Comparator permits only `propext`, `Quot.sound`, and `Classical.choice`. Frozen commit/tree/blob integrity was checked, but independent local Comparator/Lean replay was **NOT PERFORMED**; it remains optional for cited mathematical use and must not be presented as completed. The Comparator challenge template with `sorry` is distinct from the upstream solution declaration. See `references/external-results/EXT-0001-openai-quasi-rh.md` (OAI-9 maintained status) and `research/openai-math/RESEARCH_DIRECTION.md` (OAI-8 decision).
 
 ### R-0035 — Kedlaya on the truncated von Mangoldt explicit formula
 

@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-08T02:44:31Z`
+- **Last updated:** `2026-10-08T03:38:44Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -691,10 +691,10 @@ This ledger tracks mathematical statements important enough to be reused across 
 
 - **Statement:** For fixed `W∈C_c^1((0,infinity);C)` supported away from zero, as `X->infinity`: `sum Lambda(n)W(n/X)-X integral W(v)dv=O_W(X^(7/8)log²X)`. Uniformly for `tau∈R`: `sum Lambda(n)n^(-1/2+i tau)W(n/X)-integral u^(-1/2+i tau)W(u/X)du=O_W((1+|tau|)X^(3/8)log²X)`.
 - **Type:** `DERIVED_RESULT`
-- **Status:** `VERIFIED` (Stieltjes partial summation from `C-0061`)
+- **Status:** `VERIFIED` (written Stieltjes partial summation from `C-0061` under external premise `EXT-0001`; not locally Lean-kernel checked)
 - **First recorded:** `2026-10-08T02:44:31Z`
 - **Last verified:** `2026-10-08T02:44:31Z`
-- **Dependencies:** `C-0061`
+- **Dependencies:** `C-0061` (transitively `EXT-0001`, `C-0060`, `R-0035`; no independent replay of `EXT-0001`)
 - **Source:** `F-20261008-002` (`findings/2026-10-08T024431Z-openai-seven-eighths-prime-distribution.md`)
 - **Verification notes:** `E=psi-x`, compact weight derivatives have `L1` sizes `O_W(1)` and `O_W((1+|tau|)X^(-1/2))`. Main-term subtraction is mandatory. At `X=e^(cn)`, the available `X^(3/8)` bound is not `exp(o(n))`; no full-Laguerre kernel uniformity is claimed.
 

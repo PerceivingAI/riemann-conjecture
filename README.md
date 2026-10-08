@@ -10,6 +10,14 @@ Coding or research agents should read [`AGENTS.md`](AGENTS.md) before exploring 
 
 Agents should still treat [`docs/STATUS.md`](docs/STATUS.md), [`docs/PROTOCOL.md`](docs/PROTOCOL.md), and [`docs/CONTRACTS.md`](docs/CONTRACTS.md) as authoritative for current research state, record discipline, and proof-certificate semantics respectively.
 
+## Current research direction and external mathematics (OAI-9)
+
+**RH remains unresolved.** The independent retained certificate chain establishes exactly eight finite-support localized Weil positivity theorems `C-0050..C-0057`. Generic multi-prime tooling exists but has **no** admitted v2 theorem. At frozen `T=11/20,N=192/196`, the existing factor-3 **sufficient** Schur matrices have independently audited negative directions; this does *not* imply negativity of the full Weil operator.
+
+The [OAI-8 research-direction decision](research/openai-math/RESEARCH_DIRECTION.md) keeps exact Weil/Legendre–Schur as the **primary** research program, with the next work being a justified new multi-prime positivity criterion rather than repeating the old failed sufficient matrix. Laguerre/phase-aware prime arithmetic is **secondary**; a Weil/phase hybrid is **deferred** until an exact, noncircular bridge is proved.
+
+This repository uses OpenAI's formal zero-free result `Re(s)>7/8` as an **external, pinned, attributed mathematical input** [`EXT-0001`](references/external-results/EXT-0001-openai-quasi-rh.md) / bibliography `R-0034`. Source identities have been checked; **independent local Comparator replay has not been performed** and is optional for cited mathematical use. The new `C-0060..C-0062` are this project's written mathematical deductions (including `psi(x)-x=O(x^(7/8)log²x)`), **not** locally compiled Lean theorems or newly admitted Weil certificates. See the [external-results guide](references/external-results/README.md) and [trust contract](docs/CONTRACTS.md) §5. No OpenAI code was copied; future imports follow the [OAI-6 reuse decision](references/external-results/EXT-0001-reuse-and-license-decision.md). Our existing code remains dual-licensed **MIT OR Apache-2.0**.
+
 ## Research standard
 
 The governing rules are:
@@ -43,6 +51,8 @@ Start here depending on what you need:
 | Exact Rust certificate verifier | [`crates/rh_cert/`](crates/rh_cert/) |
 | Lean formalization of interval/LDL/endpoint/Gershgorin soundness | [`formal/`](formal/) |
 | Sources and literature | [`references/BIBLIOGRAPHY.md`](references/BIBLIOGRAPHY.md) |
+| Pinned external OpenAI theorem, exact trust/replay status | [`EXT-0001`](references/external-results/EXT-0001-openai-quasi-rh.md) and [external-results guide](references/external-results/README.md) |
+| Current Weil vs phase-aware vs hybrid decision | [`OAI-8 research direction`](research/openai-math/RESEARCH_DIRECTION.md) |
 | Naming, timestamps, status rules, update procedure | [`docs/PROTOCOL.md`](docs/PROTOCOL.md) |
 | Templates for new records | [`templates/`](templates/) |
 

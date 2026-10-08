@@ -63,7 +63,23 @@ All eight pairs above support registered independently verified finite-support r
 
 **Multi-prime P8 adversarial gate — `2026-10-01T19:06:42Z`.** Before any real v2 continuation, preserve `tests/data/certificate-v2-cross-layer-v1.json` and `tests/data/multi-prime-admission-v2.json` as test-only acceptance corpora; production code must never load them. First-window v2 certificates must serialize exactly `[2,3]` with exact `b_m=1`. Python semantics and Rust must independently prove strict support using the serialized rational log enclosures and reject equality/overlap. Keep parity and threshold tests in semantic/Rust layers; raw JSON Schema cannot prove those cross-field arithmetic relations. The v2 admission grid currently has zero allowed pairs, so do not add an admitted pair as part of testing/tooling work. A valid negative theorem matrix must remain theorem failure, not contract failure.
 
+**Current multi-prime qualification correction (OAI-9) — `2026-10-08T03:40:31Z`.** Read the original P9 entry below as *historical*. Later `X-20261001-001` fixed the prior assembly/exact-witness performance problem and produced independently audited **negative directions in the grouped factor-3 sufficient Schur matrices** at frozen `T=11/20,N=192/196`. More precision on that same matrix is not the next step. OAI-8 prioritizes a different, sound analytical positivity bound, with no v2 theorem admission yet. See [`RESEARCH_DIRECTION.md`](research/openai-math/RESEARCH_DIRECTION.md). The historical P9 timeout remains a true dated observation.
+
 **Multi-prime P9 qualification outcome — `2026-10-01T21:04:17Z`.** The first real qualification at `T=11/20` did not reach `CANDIDATE_READY`. The scout found the stable-positive frontier at `N=192` and selected `192/196`, but neither first 128-bit rigorous assembly completed within a one-hour external execution window despite both workers remaining CPU-active. No rigorous cache entry was committed. This is a performance/tooling blocker, not a mathematical negative. Do not extend the P9 grid or admit a v2 pair. Before a new qualification, perform a separate performance-hardening slice on the generic rigorous multi-prime assembler and re-run the full P2/P3/P8 regression gates.
+
+## OpenAI Math dependency and OAI-8 direction (OAI-9 onboarding)
+
+**Read in this order when an OpenAI-related question appears:**
+
+1. [`references/external-results/EXT-0001-openai-quasi-rh.md`](references/external-results/EXT-0001-openai-quasi-rh.md) — OpenAI authorship, pinned source commit/tree/blobs, exact Lean statement and maintained verification status; bibliography [`R-0034`](references/BIBLIOGRAPHY.md).
+2. [`references/external-results/README.md`](references/external-results/README.md) — source identity checks and the **optional**, not-yet-executed isolated Comparator replay procedure. **Do not** mistake the challenge template with `sorry` for the actual solution module, or treat checkout hashes as a proof.
+3. [`docs/CLAIMS.md`](docs/CLAIMS.md) `C-0060..C-0062`, [`F-20261008-001`](findings/2026-10-08T014258Z-openai-quasi-rh-cayley-consequence.md), [`F-20261008-002`](findings/2026-10-08T024431Z-openai-seven-eighths-prime-distribution.md) — our **written deductions**, conditional on the external theorem, with classical source `R-0035` for prime-error consequences.
+4. [`docs/CONTRACTS.md` §5](docs/CONTRACTS.md) and [`docs/PROTOCOL.md` §7.2](docs/PROTOCOL.md) — distinction between externally sourced, locally derived, Lean kernel checked, and Rust/Arb certificate-accepted evidence. No automatic promotion between categories.
+5. [`research/openai-math/RESEARCH_DIRECTION.md`](research/openai-math/RESEARCH_DIRECTION.md) — **primary:** exact localized Weil/Legendre–Schur with a new sound multi-prime positivity criterion to investigate; **secondary:** phase-aware Laguerre/prime discrepancy; **deferred:** hybrid pending a proved quantified bridge. The frozen `T=11/20,N=192/196` grouped-factor-3 **sufficient** Schur matrices have exact negative directions; do not retry that same inequality with more precision hoping for positivity.
+
+**Trust and tooling policy:** The external result says `Re(s)>7/8 => zeta(s)!=0`, not RH. The external source is reference-only (no vendoring); the OpenAI upstream formal environment is **Lean 4.34.1**, separate from our frozen formal toolchain. An external mathematical result can be cited without independent local Comparator replay, but **no local replay has occurred**, and no CLI in this repository verifies `EXT-0001`. `scripts.cert.verify_retained_proofs` instead checks only the **eight local finite-support Weil certificates**, not OpenAI's theorem. The generic v2 theorem whitelist remains empty. The repo is MIT OR Apache-2.0; imported OpenAI Apache-2.0 code would require independent rights review. Any optional future import follows [`EXT-0001-reuse-and-license-decision.md`](references/external-results/EXT-0001-reuse-and-license-decision.md).
+
+**History rule:** OAI-9 addenda on earlier August attempts are timestamped *later* context, not corrections of their original conclusions; use `docs/STATUS.md` for current truth. Do not alter their historical status based on OAI-8's route choice.
 
 ## 3. Repository map
 
@@ -92,6 +108,8 @@ Use this map before searching broadly.
 | `formal/` | Lean/Mathlib soundness layer for interval, LDL, endpoint, Gershgorin/congruence arguments |
 | `tests/` | Python unit, property, integration, certificate, and boundary regressions |
 | `references/` | Literature/source registry |
+| `references/external-results/` | Pinned external mathematical theorem provenance, optional replay state, source reuse policy |
+| `research/openai-math/RESEARCH_DIRECTION.md` | OAI-8 primary/secondary/deferred mathematical research decision and evidence comparison |
 | `templates/` | Templates for new attempts, findings, and computation records |
 
 ## 4. Canonical continuation workflow

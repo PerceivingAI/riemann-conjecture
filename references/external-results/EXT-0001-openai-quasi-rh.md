@@ -110,7 +110,7 @@ At OAI-0 this repository copies **no OpenAI source code**. It records identifier
 
 If a later phase vendors or modifies OpenAI source, Apache-2.0 redistribution requirements must be handled explicitly at that time. Citation or mathematical dependence alone does not require vendoring the source.
 
-## Current trust status
+## OAI-0 verification snapshot (2026-10-07; historical)
 
 OAI-0 establishes provenance only.
 
@@ -128,6 +128,32 @@ used to alter theorem admission:   NO
 ```
 
 Independent Comparator replay is **optional** additional assurance, not a prerequisite for using the properly attributed external theorem as a mathematical dependency. The upstream proof has **not** been independently replayed by this repository; do not describe it as independently verified here. The source identity was separately checked against a clean detached checkout at the pinned revision. Mathematical consequences derived here remain distinct from OpenAI's original theorem and must cite `EXT-0001`.
+
+## OAI-9 accepted status — `2026-10-08T03:38:44Z`
+
+This is the **maintained** status; the OAI-0 snapshot above describes only the initial provenance phase. Its dated statements are preserved rather than rewritten.
+
+```text
+external authored theorem:                 EXT-0001 (OpenAI)
+pinned upstream commit/tree/blobs:         VERIFIED against clean detached checkout
+upstream mathematical statement:           Re(s)>7/8 -> zeta(s) != 0
+upstream formal solution source:           IDENTIFIED (Nonvanishing.lean)
+Comparator challenge/solution mapping:     CHECKED
+independent local Comparator replay:       NOT PERFORMED (optional)
+Linux Comparator provisioning:             NOT COMPLETED / no validated secure runner
+local Lean kernel import/build of theorem: NOT PERFORMED
+vendored or imported upstream source:      NO
+locally derived written consequences:      C-0060, C-0061, C-0062
+new exact Weil theorem or RH claim:         NO
+```
+
+**Critical source distinction:** `lean/OAI/NumberTheory/DirichletL/Nonvanishing.lean` is OpenAI's supplied solution declaration. The separately mapped `lean/ComparatorChallenges/QuasiRiemannHypothesis.lean` is a *challenge template* containing `sorry`; it is **not** itself the completed proof. Neither the template nor this repository's source-hash checks constitute a local proof replay. The pinned Comparator JSON selects the solution module and permits `propext`, `Quot.sound`, and `Classical.choice`, with `enable_nanoda=false`.
+
+At OAI-1, frozen source integrity and version candidates were investigated; isolated Linux/Comparator/real Landrun/systemd replay was **not completed**. The project subsequently chose independent replay to be **optional** because OAI-2 through OAI-8 depend mathematically on an explicitly attributed external theorem, not on a claim that our Lean kernel has compiled it. No local tool setup or insecure fallback is authorized by this documentation.
+
+**Current downstream dependencies:** [`C-0060` / `F-20261008-001`](../../findings/2026-10-08T014258Z-openai-quasi-rh-cayley-consequence.md) confines nontrivial zeros to `1/8<=Re(rho)<=7/8` and gives a fixed-center Cayley root upper rate strictly above `1`; [`C-0061`/`C-0062` / `F-20261008-002`](../../findings/2026-10-08T024431Z-openai-seven-eighths-prime-distribution.md) derive classical explicit-formula prime errors and compactly smoothed half-weight error bounds using `R-0035`. These are **verified written mathematical deductions conditional on EXT-0001**, not local Lean proofs. The [OAI-8 route decision](../../research/openai-math/RESEARCH_DIRECTION.md) keeps localized Weil/Legendre–Schur primary, phase-aware arithmetic secondary and a hybrid deferred; neither RH nor a new v2 theorem is admitted.
+
+**Replay reference for a future *optional* independent check:** retain this exact commit/tree/selected blobs; use the frozen Comparator configuration and solution module, Lean `v4.34.1`, Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`, and record the actual isolated runner's supported security controls, all pinned extra dependency revisions, successful kernel/Comparator results and sanitizer-reviewed evidence. Comparator/Lean 4.34.0 candidates identified during OAI-1.3 are **not accepted as a verified 4.34.1 replay**. Do not report completion until the real isolated workflow passes. See [the external-results README](README.md) for the check order, [OAI-3 overlap](EXT-0001-lean-overlap-audit.md), [OAI-6 reuse decision](EXT-0001-reuse-and-license-decision.md), and [`docs/CONTRACTS.md` §5](../../docs/CONTRACTS.md) for the trust boundary.
 
 ## Relationship to existing work
 

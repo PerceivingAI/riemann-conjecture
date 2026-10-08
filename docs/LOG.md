@@ -1,10 +1,46 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-08T03:03:46Z`
+- **Last updated:** `2026-10-08T03:44:13Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-08T03:44:13Z. OAI-9 documentation acceptance verified
+
+**Type:** Read-only source/contract/doc validation
+
+The OAI-9 cross-reference audit passed **314/314** local Markdown links across 18 relevant documentation files; `C-0060..C-0062` each appear exactly once as a claim heading; all four historical attempt texts retain their original content aside from marked addenda/timestamps. The pinned OpenAI checkout remains detached, source identities match `EXT-0001`, and the absence of local Comparator replay is explicit. Focused current v1/v2 Python contract tests pass **15/15**, and manifest-only retained-proof validation confirms **eight registered artifacts**. Privacy scan and `git diff --check` passed; the change scope is documentation-only, with the pre-existing uncommitted OAI-7/OAI-8 files preserved. The [research acceptance map](../research/openai-math/README.md) records all executed and explicitly unperformed checks.
+
+The first OAI-0 status snapshot in `docs/STATUS.md` is clarified as historical, not a standing OAI-1 replay instruction. No full Lean/Comparator replay, retained 8/8 Rust recheck, new theorem, v2 whitelist change, hybrid bridge or RH claim was produced. Nothing was committed or pushed during OAI-9.
+
+## 2026-10-08T03:41:56Z. OAI-9 integrates external result, historical addenda, and agent onboarding
+
+**Type:** Maintained-documentation cutover / historical non-rewriting / external source trust boundary
+
+Source identities for pinned `openai/math@adc7f1241b42e322a6451854ab7e4b4c146bf78a` were checked against a clean detached upstream checkout, including the pinned Git tree and source/Comparator/LICENSE blobs; the solution module remains distinct from the Comparator challenge template with `sorry`. [`EXT-0001`](../references/external-results/EXT-0001-openai-quasi-rh.md) now separates its **original OAI-0 snapshot** from the **current OAI-9 state**: local independent Comparator/Lean proof replay remains `NOT PERFORMED`, optional for cited mathematical use. `R-0034` is updated from a stale OAI-1 deferral to the actual non-replay status; the [external-results README](../references/external-results/README.md) records the future optional source-integrity and secure replay checks without claiming they ran.
+
+[Claims `C-0060..C-0062`](CLAIMS.md) and [`CONTRACTS.md` §5](CONTRACTS.md) now expose the complete external-premise dependency graph with classical `R-0035` and explicitly document that written verification does **not** imply a local Lean proof or a new Rust/Arb certificate. Four historical attempts (`A-20260820-002`, `A-20260820-006`, `A-20260821-004`, `A-20260826-001`) gained timestamped **later addenda**, without overwriting original August findings or the original P9 observation. Agent entry points `AGENTS.md`, root `README.md`, and `scripts/README.md` now navigate to the new external-verification status, claimed results, and [OAI-8 primary/secondary/deferred decision](../research/openai-math/RESEARCH_DIRECTION.md). [`research/openai-math/README.md`](../research/openai-math/README.md) maps OAI-9.1–9.5 acceptance.
+
+The frozen v1 **8/8** results, zero v2 admission pairs, rigorously negative frozen-target **sufficient** factor-3 v2 Schur matrices, current absence of an all-support Weil theorem, and RH `UNRESOLVED` are unchanged. No code, toolchain, external source, certificate profiles, validators, Rust/Lean verifier or theorem whitelist was modified; no mathematical/admission upgrade follows from documentation.
+
+## 2026-10-08T03:16:56Z. OAI-8 selects the mathematically mature route without claiming OpenAI unlocks RH
+
+**Type:** Direction evaluation / existing evidence and next-theorem decision
+
+[`research/openai-math/RESEARCH_DIRECTION.md`](../research/openai-math/RESEARCH_DIRECTION.md) compares the localized Weil, Laguerre/phase-aware, and hybrid options against seven uniform criteria: obstruction, verification maturity, remaining proof work, formalization, measured computational scalability, external dependence, and incremental value. The eight independently retained one-prime `C-0050..C-0057` claims make Weil the primary route for further checkable intermediate theorems, **but** the `T=11/20`, `N=192/196` generic v2 sufficient factor-3 matrices are rigorously negative (`X-20261001-001` phases 8/9/11), so further precision of those same sufficient matrices is not a valid route to positivity. The report identifies the exact combined low-tail Gram as a possible new sufficient mathematical criterion, conditional on operator/normalization checks, **not** a positive theorem.
+
+The phase-aware/Laguerre route remains secondary: `C-0060..C-0062` establish actual bounded arithmetic improvements dependent on external `EXT-0001` but not RH-strength cancellation. The hybrid remains deferred: no proven theorem maps compact prime-discrepancy estimates to a stronger Weil operator lower bound with required uniformity. The outcome is a comparative choice, not a prediction of proof success. No numerical recomputation, extra claim, formal Lean verification, Python/Rust/schema changes, new v1/v2 admission, or RH claim occurred. Existing OAI-7 uncommitted changes were preserved.
+
+## 2026-10-08T03:07:13Z. OAI-7 establishes external-source and local-proof trust boundaries
+
+**Type:** Authoritative documentation contract / evidence classification
+
+[`docs/CONTRACTS.md`, Section 5](CONTRACTS.md) now distinguishes the six proof-evidence classes: attributed external `EXT-` theorem, locally derived `C-/F-` written mathematics, locally compiled Lean declarations, generator-side Arb enclosures, independent zero-float Rust certificate checks, and separately admitted retained full finite-support theorems. The complementary [`docs/PROTOCOL.md`, Section 7.2](PROTOCOL.md) gives registration and status rules; the external-results README links both policies.
+
+`EXT-0001` remains a pinned third-party theorem without an independent local Comparator replay. `C-0060`, `C-0061`, and `C-0062` are checked written consequences under attributed external premises, not new kernel-checked Lean proofs. No automatic promotion is permitted between these layers; candidates and positive test artifacts are not automatically theorem admissions. The frozen eight v1 admissions, empty v2 theorem set, original MIT OR Apache-2.0 licensing, external reference-only reuse decision, and RH `UNRESOLVED` all remain unchanged.
+
+This OAI-7 slice edits **documentation only**. It adds no schema, verifier profile, theorem admission, dependency or copied source, and makes no claim of new proof replay.
 
 ## 2026-10-08T03:03:46Z. Correction: OAI-6 omitted the existing dual license
 
