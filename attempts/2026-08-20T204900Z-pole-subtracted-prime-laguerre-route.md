@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260820-002`
 - **Created:** `2026-08-20T20:49:00Z`
-- **Last updated:** `2026-08-20T20:49:00Z`
+- **Last updated:** `2026-10-08T03:40:31Z`
 - **Status:** `COMPLETE`
 - **Success target:** Derive an exact finite-difference/pole-removal formulation of the generalized prime-Laguerre trace, determine the weakest exponential-rate bound sufficient for RH, and identify whether the filtered target removes a genuine analytic nuisance rather than silently assuming RH.
 
@@ -440,4 +440,6 @@ The next attempt should:
 
 ## Timestamped addenda / corrections
 
-None yet.
+### 2026-10-08T03:40:31Z — OpenAI zero-free half-plane: quantitative consequence only
+
+**Later external dependency, not part of the August 20 derivation.** OpenAI's pinned `EXT-0001` proves zeta nonvanishing for `Re(s)>7/8` (independent local Comparator replay **not performed**). The separately derived [`C-0060`](../docs/CLAIMS.md) / [`F-20261008-001`](../findings/2026-10-08T014258Z-openai-quasi-rh-cayley-consequence.md) bounds the fixed-center pole-subtracted coefficient root by `(s0-1/8)/(s0-7/8)>1`, not the `C-0010` RH target `<=1`. The OAI-8 [direction decision](../research/openai-math/RESEARCH_DIRECTION.md) keeps this analytical route secondary. This addendum changes no August proof, normalization, claim status or historical outcome.

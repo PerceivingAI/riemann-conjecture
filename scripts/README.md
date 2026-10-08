@@ -1,9 +1,20 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-02T09:49:35Z`
+- **Last updated:** `2026-10-08T03:40:31Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
+
+## OAI-9: External OpenAI theorem is not a local verification CLI
+
+The pinned `EXT-0001` theorem is a **cited external Lean result**, not a theorem exported or independently replayed by this repository. For source identity and optional independent Comparator replay **status/checklist**, use [`references/external-results/README.md`](../references/external-results/README.md) and [`EXT-0001`](../references/external-results/EXT-0001-openai-quasi-rh.md). Its upstream solution uses **Lean 4.34.1**, distinct from our local soundness layer. No `scripts/` command builds or verifies the upstream theorem, and source-hash checks do not prove it.
+
+**Do not confuse verification workflows:**
+- `uv run --locked python -m scripts.cert.verify_retained_proofs` checks the closed **eight local finite-support** `C-0050..C-0057` artifacts by byte hash and independent Rust exact replay. It does **not** replay `EXT-0001`.
+- `scripts/weil_continuation_driver.py` is the **frozen one-prime** continuation workflow; `scripts/weil_multi_prime_continuation_driver.py` is the **separate generic multi-prime** workflow with no admitted v2 theorems. `CANDIDATE_READY` is not an admission.
+- OAI-8 identifies rigorously negative factor-3 *sufficient* Schur matrices at `T=11/20,N=192/196`. Before another post-`p=3` qualification, the mathematical bound itself needs a separately justified improvement. Repeating the same negative matrix with more precision does not help.
+
+See [`research/openai-math/RESEARCH_DIRECTION.md`](../research/openai-math/RESEARCH_DIRECTION.md), [`docs/CONTRACTS.md` §5](../docs/CONTRACTS.md) and [`docs/PROTOCOL.md` §7.2](../docs/PROTOCOL.md). Mathematical external-dependent deductions `C-0060..C-0062` introduce no new CLI, code dependency, certificate format, or theorem admission.
 
 ## Scripts
 

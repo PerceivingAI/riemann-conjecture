@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260821-004`
 - **Created:** `2026-08-21T08:52:52Z`
-- **Last updated:** `2026-08-21T13:52:37Z`
+- **Last updated:** `2026-10-08T03:40:31Z`
 - **Status:** `COMPLETE`
 - **Success target:** Prove strict positivity of the full localized Weil quadratic form at `T=7/20` by retaining the exact `p=2` compressed translation, using Legendre harmonic-number coercivity on the infinite complement, and reducing the remaining problem to a finite rigorous Schur certificate.
 
@@ -477,3 +477,7 @@ Registered closure artifacts:
 - `X-20260821-005` — clean exact certificate and independent replay.
 
 **Final outcome:** the success target of `A-20260821-004` is achieved. Suzuki's localized Weil quadratic form is strictly positive at `T=7/20`. This is a finite-support theorem only; RH remains unresolved. The next research frontier is continuation in `T` through the one-prime window toward `(1/2)log 3`.
+
+## Timestamped addendum — 2026-10-08T03:40:31Z: OAI-8 route decision
+
+This later addendum does **not** change the August `C-0050` proof or its original terminal result. The one-prime continuation has separately retained eight rigorously verified finite-support results `C-0050..C-0057` through `(27/50,104)`. The post-`p=3` grouped factor-3 sufficient Schur matrices at `T=11/20`, `N=192/196` have rigorously negative directions (`X-20261001-001`); this **only rejects that sufficient inequality at those inputs**, not Suzuki's original form or RH. The [OAI-8 research decision](../research/openai-math/RESEARCH_DIRECTION.md) keeps localized Weil/Legendre–Schur primary **but changes the next mathematics to investigating a new sound positivity criterion**, not more precision on the old negative sufficient matrix. OpenAI's external `EXT-0001` has no verified new certificate or admission implications for this route.

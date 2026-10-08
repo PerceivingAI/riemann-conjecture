@@ -1,7 +1,7 @@
 # Research Documentation Protocol
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-08-27T14:30:20Z`
+- **Last updated:** `2026-10-08T03:07:13Z`
 - **Status:** Authoritative
 
 This document defines how all Riemann Hypothesis research in this repository must be recorded.
@@ -216,6 +216,19 @@ When external numerical or certified datasets are used (such as verified zeta-ze
 3. **Repository size threshold:**
    - Small tables ($\le 2\text{ MB}$) may reside under `references/data/`.
    - Large tables ($> 2\text{ MB}$) must remain gitignored and be generated or downloaded on demand via a deterministic versioned CLI under `scripts/` or `crates/`, with SHA-256 verification when external data is retrieved.
+### 7.2 External theorem provenance and derived-claim discipline (OAI-7)
+
+When a new mathematical result comes from an external author, register it as an `EXT-*` provenance record under `references/external-results/` and cite the associated `R-*` bibliography entry. The **full cross-layer trust definitions and non-promotion rules** are in [`docs/CONTRACTS.md`](CONTRACTS.md), Section 5.
+
+1. **External source:** Record the exact theorem statement with quantifiers/hypotheses, author, citation, immutable source revision and declaration identifiers when available, license and the extent of any local checking. Identify upstream formal verification separately from **independent replay by this repository**, which may remain `NOT PERFORMED`.
+2. **Independent deductions:** When the repository proves a new consequence, register it as a `C-*` `DERIVED_RESULT` linked to its own `F-*` or attempt, explicitly listing `EXT-*` and classical `R-*` premises. `VERIFIED` means only the **specified deduction** was checked under those premises; it does not imply local verification or authorship of the external theorem.
+3. **Formal verification:** Only report a result as **locally Lean-kernel verified** if the exact theorem was compiled/typechecked in the stated pinned local environment and the relevant assumptions were inspected. A pinned checkout, source hash or upstream proof statement is not sufficient.
+4. **Certificate verification:** Do not assign numerical proof PASS from a cited external theorem or a checked handwritten derivation. Only the applicable closed generator/independent verifier/admission protocol can support a finite-support certificate claim; the verifier's exact rational checks do not by themselves rederive Arb's transcendental enclosure inputs.
+5. **No promotion:** An `EXT-` record must never be assigned a `C-` ID merely to make it appear locally proved. A `C-` theorem/candidate cannot enter an existing certificate whitelist or RH status merely because a new external theorem was cited.
+6. **Licensing and privacy:** Original repository work is MIT OR Apache-2.0 under `LICENSE-MIT`/`LICENSE-APACHE`. Upstream Apache-2.0 source remains subject to its own rights if copied. Keep audit records limited to public source-relative identities and mathematics, excluding personal or local machine/environment information.
+
+**Current example:** `EXT-0001` is an attributed external Lean theorem with **no independent local Comparator replay**. `C-0060`, `C-0061`, and `C-0062` are written mathematical deductions from it (plus identified classical inputs), **not** locally Lean-proved consequences. The eight `C-0050..C-0057` certificates have a separate established trust chain; generic v2 admits no theorem pairs. Independent replay of an external theorem is optional when used as a cited mathematical premise, but required to claim an **independent replay** was performed.
+
 ## 8. Circularity test
 
 Every serious attempt must explicitly answer:

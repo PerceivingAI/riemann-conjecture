@@ -1,7 +1,7 @@
 # Repository Architecture & Proof Contracts
 
 - **Created:** `2026-08-21T06:00:00Z`
-- **Last updated:** `2026-10-01T21:04:17Z`
+- **Last updated:** `2026-10-08T03:41:56Z`
 - **Status:** Authoritative
 
 This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
@@ -297,3 +297,80 @@ To preserve long-term auditability, reproducibility, and minimal trusted computi
    - Any proposed dependency must address a capability genuinely impossible with the existing stack.
    - Must not duplicate existing `python-flint`, `mpmath`, or `num-rational` capabilities.
    - Requires explicit justification in `notes/IMPROVEMENTS_LIST.md` or a dedicated architecture RFC.
+
+---
+
+## 5. External theorem / local-proof / certificate trust boundary (OAI-7)
+
+**Recorded:** `2026-10-08T03:07:13Z`. This section is an interpretive and documentation contract, **not** a new certificate claim profile, a software admission mechanism, or proof that a referenced external result has been locally replayed. The three-tier numerical certificate pipeline in Section 1 remains in force unchanged.
+
+### 5.1 Distinct claim and evidence namespaces
+
+| Evidence class | Registry / artifact | What it establishes | What it does **not** establish |
+| --- | --- | --- | --- |
+| External mathematical theorem | `EXT-*` record in `references/external-results/`, linked to bibliography `R-*` | Precise external statement, attribution, immutable source identity where available, known external formal-verification status, and **our** independent-replay status | Repository authorship, local Lean kernel acceptance, Rust certificate PASS, or RH merely through citation |
+| Repository written derivation | `C-*` `DERIVED_RESULT` backed by `F-*`/attempt and explicitly named `EXT-*`/`R-*`/`C-*` dependencies | A checked deduction **conditional on the stated external premises**; `VERIFIED` must name its scope (e.g., written mathematical derivation) | Independent replay of its external premises, executable Lean certification, or a new finite-support certificate |
+| Local Lean formal theorem | Explicit declaration, local source and pinned Lean/Mathlib toolchain, successful applicable `lake build`/kernel check and recorded proof assumptions | The statement actually accepted by the specified **local** Lean environment, with its stated axioms/imports | Independent Comparator replay unless separately performed; arbitrary analytical or numerical certificate claims not expressed by the declaration |
+| Rigorous interval generation | `scripts/cert/`, outward Arb interval enclosures, source assumptions, versioned computation bundle | Constructed bound candidates and analytic enclosure evidence **under the documented mathematical input theorems** | Acceptance by the Rust verifier merely because Python emitted data; source-independent proof of all analytical enclosure assumptions |
+| Independent exact certificate check | `crates/rh_cert`, schema/semantic checks, interval rational arithmetic, exact congruence/Gershgorin checks | Deterministic acceptance of the **specified closed certificate predicate** and rational evidence, subject to its analytic interpretation and input-enclosure validity | Local Lean certification, independent reproduction of Arb transcendental bounds, validity of an arbitrary third-party theorem, or authorization to admit a new support |
+| Retained finite-support theorem | `C-0050..C-0057`, closed v1 profile, separately approved admission, fresh independent replay, `computations/retained-proofs.json` | The **specific** full localized operator positivity at each of the eight registered `(T,N)` supports (through analytic complement/Schur semantics) | All-support Weil positivity, a ninth pair, multi-prime v2 theorem, or RH |
+
+The source of a dependency does not change when another source cites it. In particular, `EXT-0001` never becomes a local `C-` result by being included in a bibliography or referenced by three derived claims. The labels `VERIFIED` and `PASS` must always be interpreted **within the named verification class**, not as a universal status.
+
+### 5.2 Required provenance fields and status language
+
+An `EXT-` entry used as a mathematical premise must record:
+
+1. author/owner; exact mathematical statement and hypotheses (including strict inequalities, pole exclusions, boundary cases);
+2. stable citation and, when formal source exists, immutable repository commit/tree and source-file identity, theorem/module name and toolchain/dependency versions;
+3. license and attribution provenance, including an explicit indication whether any source files were copied;
+4. separately named **upstream verification evidence** versus **local replay/build evidence**, never treating source hashing, a public proof claim, or `git status` as a theorem replay;
+5. current downstream `C-` / `F-` consumers and known limitations.
+
+For a repository `C-` result using `EXT-`, list that exact `EXT-` ID under **Dependencies** (directly or by clearly traced chain), cite the written deduction, and qualify `VERIFIED` as a checked deduction *from* that premise. A formal or independent verification claim requires a separately recorded successful command, version/pin, proof scope and declared assumptions; it is **not** inferred from the upstream source's existence.
+
+### 5.3 Non-promotion invariants
+
+- **External theorem → local mathematical use:** Permitted without vendoring and without independent Comparator replay when authorship, exact premise, source verification status and limitations are accurately reported. This is the reference-only default for `EXT-0001`.
+- **External theorem → local Lean theorem:** **Not automatic.** Requires a named local theorem and successful pinned local typechecking/kernel verification. A source checkout or upstream Comparator challenge alone is insufficient to claim a local Lean proof. Any code import follows the rights, dependency and review gates in `EXT-0001-reuse-and-license-decision.md`.
+- **Written derivation → numerical certificate:** **Not automatic.** The proof's mathematical statement must match an existing closed certificate profile, and the generator-side analytical enclosure assumptions and independent exact verification must each be documented.
+- **Generator candidate / `CANDIDATE_READY` → admitted theorem:** **Forbidden automatically.** A separate admission decision and fresh exact independent certificate replay are mandatory. The retained registry cannot be inferred by scanning results.
+- **v1 → v2 or multi-prime:** **Forbidden implicitly.** Frozen one-prime v1 has exactly eight support/dimension pairs, while generic v2 has **no** theorem admissions. A structurally valid v2 result or negative sufficient-Schur witness is not a theorem or a counterexample to RH.
+- **Finite-support theorem → RH:** **Forbidden.** Neither finite-support positivity nor the OpenAI `Re(s)>7/8` zero-free theorem resolves RH. Every assertion must stay within its proven domain.
+
+### 5.4 Concrete dependency example: EXT-0001
+
+```text
+OpenAI formal theorem at pinned source (external):
+    EXT-0001: zeta(s) != 0 for Re(s)>7/8.
+    Upstream formal source identified; independent local Comparator replay: NO.
+                              |
+                              v
+Our checked written deductions (not kernel-certified here):
+    C-0060: zeros confined to 1/8<=Re(rho)<=7/8;
+            fixed-center Laguerre root rate <= B(s0)>1.
+    C-0061: psi(x)-x = O(x^(7/8)log²x), with classical R-0035.
+    C-0062: compact smoothed and weighted prime-error bounds.
+                              |
+                [no automatic admission edge]
+                              X
+Frozen v1 C-0050..C-0057 or empty v2 theorem set.
+```
+
+`C-0061` and `C-0062` have mathematical source/derivation verification only. Their status does **not** imply OpenAI's proof was locally compiled/replayed, and their prime-error bounds do not supply the required RH-strength Laguerre cancellation. The existing eight v1 theorems instead rely on their own independent analytic-and-certificate chain, without needing `EXT-0001`.
+
+### 5.4a OAI-9 dependency acceptance (documentation-only)
+
+The current registered dependency graph is `EXT-0001 -> C-0060 -> C-0061 -> C-0062`, with **additional** classical input `R-0035` for `C-0061`; `C-0062` also lists its full transitive dependency chain in `docs/CLAIMS.md`. These edges denote written mathematical derivations, **not** compiled Lean dependencies or new certificate/claim profiles. Each `C-` identifier occurs once as a result of this project; `EXT-0001` remains an externally authored theorem with no separate `C-` alias.
+
+For a newcomer, the current implementation truth remains: frozen eight-pair `exact_prime_legendre_schur` v1, separately implemented generic v2 with **empty** admitted theorem set, `C-0058/C-0059` grouped-factor-3 mathematics, and independently witnessed failure of that **sufficient** v2 criterion at `T=11/20,N=192/196`. OAI-8 ranks localized Weil/Legendre–Schur first for further intermediate research but **changes no production gate** and does not justify running the old negative criterion at higher precision. The proposed exact combined low-to-tail Gram is an **unproved positivity candidate**; implementing it would require a new mathematical/verification slice, not a silent modification to v2.
+
+Source-of-truth chain: [`EXT-0001`](../references/external-results/EXT-0001-openai-quasi-rh.md) → [`F-20261008-001`](../findings/2026-10-08T014258Z-openai-quasi-rh-cayley-consequence.md) → [`F-20261008-002`](../findings/2026-10-08T024431Z-openai-seven-eighths-prime-distribution.md); [OAI-8 direction](../research/openai-math/RESEARCH_DIRECTION.md) is a **decision artifact**, not a theorem. Independent Comparator replay is optional and **not performed**. This section is explanatory only; do not change whitelist, schema, verifier, or `VERIFIED` semantics based on it.
+
+### 5.5 Rights and privacy boundary
+
+Our existing root `README.md` declares original repository work dual-licensed **MIT OR Apache-2.0**, with `LICENSE-MIT` and `LICENSE-APACHE` retained. OpenAI's frozen source is **Apache-2.0**; citing a theorem is not copying proof code, and our license does **not** make any future imported Apache-only source MIT-licensed. No external source is vendored by OAI-7.
+
+For all retained trust evidence, use source-relative paths, public pinned commit/blob identities, public version identifiers and minimal reproducible checks. Omit user identifiers, private absolute paths, local host/network details, credentials, and unsanitized terminal logs. Keep external verification distinct from any eventual local proof replay.
+
+**Normative interfaces:** Research record lifecycle and claim-label discipline are defined in `docs/PROTOCOL.md`; `references/external-results/README.md` defines external-record metadata; `docs/CONTRACTS.md` remains authoritative for certificate PASS and admission semantics. This section introduces no machine-readable schema changes.

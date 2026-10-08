@@ -2,7 +2,7 @@
 
 - **Attempt ID:** `A-20260826-001`
 - **Created:** `2026-08-26T17:14:00Z`
-- **Last updated:** `2026-10-01T21:04:17Z`
+- **Last updated:** `2026-10-08T03:40:31Z`
 - **Status:** `PROMISING`
 - **Success target:** Extend the independently verified localized Weil positivity basepoint `T=7/20` to larger support values inside the one-prime window, while preserving the exact-prime Legendre-Schur trust chain and identifying the first genuine obstruction.
 
@@ -613,3 +613,7 @@ Run A used the original frozen grid `96..144 step 4` and sealed `NO_CANDIDATE` a
 A separately predeclared extension `148..256 step 4` found stable-positive floating behavior beginning at `N=192` and selected `N=192` plus fallback `N=196` for rigorous screening. Run C was externally terminated after `1789.426 s` with both workers still in their first 128-bit assemblies. Run E retried the identical frozen extension and remained healthy/CPU-active for the full hour, but at `3590.867 s` neither rigorous assembly had returned. The external one-hour session boundary terminated and reaped the full process tree; a final OS scan found no repository processes. No rigorous cache file was committed.
 
 Therefore P9 does not establish completed rigorous `GP`, complement `mu_N`, precision escalation, exact candidate construction, candidate stability, `CANDIDATE_READY`, or reproducibility. It also does not establish a mathematical negative at the selected dimensions. No theorem admission, certificate, retained proof, or claim was created. The next prerequisite is performance hardening of the generic rigorous multi-prime assembler before a newly predeclared qualification.
+
+## Timestamped addendum — 2026-10-08T03:40:31Z: subsequent tooling closure and OAI-8 decision
+
+This is a **later research-status note**, not a rewrite of the historical P9 one-hour performance blocker above. The separate [`X-20261001-001`](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) subsequently improved generic assembly/exact-witness throughput, and its Phase 11 frozen-target preflight found rigorously negative directions in the **factor-3 sufficient Schur matrices** at `T=11/20`, `N=192/196`. This is **not** an assertion of full Weil-form negativity and provides no v2 admission. The [OAI-8 decision](../research/openai-math/RESEARCH_DIRECTION.md) consequently keeps the eight certified one-prime supports frozen, maintains localized Weil as primary, and places a new mathematically justified positivity inequality **ahead of** any fresh parameter grid or precision escalation. The original historical P9 timeout is still accurate as a report of what occurred then; the later negative sufficient-criterion evidence supersedes it **only as the active blocker**. `EXT-0001` is not part of the retained v1/v2 certificate chain.

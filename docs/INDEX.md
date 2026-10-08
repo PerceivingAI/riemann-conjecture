@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-08T03:00:21Z`
+- **Last updated:** `2026-10-08T03:41:56Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -9,8 +9,9 @@ This is the compact index of the Riemann Conjecture research repository.
 
 - [`PROTOCOL.md`](PROTOCOL.md) — authoritative documentation and research-record rules.
 - [`CONTRACTS.md`](CONTRACTS.md) — formal proof-certificate contracts, trust architecture, and dependency policy.
+- **External theorem trust (OAI-7):** [`CONTRACTS.md §5`](CONTRACTS.md) — `EXT-` vs `C-/F-` vs Lean vs Arb/Rust certificate evidence, non-promotion and admission invariants; [`PROTOCOL.md §7.2`](PROTOCOL.md) — record/status procedures.
 - [`contracts/rh-weil-certificate-v1.json`](contracts/rh-weil-certificate-v1.json) — JSON Schema for exact rational certificates.
-- [`../computations/retained-proofs.json`](../computations/retained-proofs.json) — closed registry binding `C-0050` through `C-0056` to their exact retained certificate paths, SHA-256 values, and theorem identities for first-class integrity/replay acceptance.
+- [`../computations/retained-proofs.json`](../computations/retained-proofs.json) — closed registry binding `C-0050` through `C-0057` (eight retained theorems) to their exact retained certificate paths, SHA-256 values, and theorem identities for first-class integrity/replay acceptance.
 - [`STATUS.md`](STATUS.md) — maintained snapshot of the current research frontier.
 - [`LOG.md`](LOG.md) — append-only chronological research log.
 - [`CLAIMS.md`](CLAIMS.md) — registry of important claims, their status, and dependencies.
@@ -21,6 +22,10 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`../findings/`](../findings/) — atomic findings, lemmas, obstructions, and negative results.
 - [`../computations/`](../computations/) — reproducible numerical or symbolic experiments.
 - [`../references/BIBLIOGRAPHY.md`](../references/BIBLIOGRAPHY.md) — literature and external sources used by the research.
+- [`OAI-8 — OpenAI mathematics research-direction decision`](../research/openai-math/RESEARCH_DIRECTION.md) — evidence-led Weil/phase-aware/hybrid comparison, remaining proof tasks, costs and primary/secondary/deferred decision.
+- [`OpenAI research map and OAI-9 acceptance`](../research/openai-math/README.md) — source/derivation/route navigation, verified documentation controls and current non-promotion boundaries.
+- [`External result EXT-0001 (maintained verification state)`](../references/external-results/EXT-0001-openai-quasi-rh.md) — immutable OpenAI theorem/source, true solution vs Comparator challenge, local replay **NOT PERFORMED**.
+- [`External results / optional Comparator replay checklist`](../references/external-results/README.md) — evidence categories, pinned source checks, conditional secure replay path.
 - [`EXT-0001 OpenAI/Mathlib overlap audit`](../references/external-results/EXT-0001-lean-overlap-audit.md) — pinned formal-theorem equivalences, dependency surface and reuse classification (OAI-3).
 - [`EXT-0001 mathematical route-impact audit`](../references/external-results/EXT-0001-route-impact-audit.md) — all eleven historical attempts plus frozen one-prime and generic multi-prime consequences, exact blockers and remaining gaps (OAI-4).
 - [`EXT-0001 reuse and licensing decision`](../references/external-results/EXT-0001-reuse-and-license-decision.md) — OAI-6 reference-only default; optional future code-import/license/build/attribution gates.
