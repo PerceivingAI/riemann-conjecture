@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-01T10:14:40Z`
+- **Last updated:** `2026-10-08T02:44:31Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -664,6 +664,39 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0048`, `C-0058`
 - **Source:** `F-20261001-002`, `docs/MULTI_PRIME_CONTRACT.md`
 - **Verification notes:** The original three-component Cauchy-Schwarz/completing-the-square proof depends only on the decomposition into three grouped cross blocks. Summing all arithmetic terms into one self-adjoint `P` leaves that argument unchanged. The tail-Gram identity follows from `Q_N=I-Pi_N`; nonorthonormal low-basis composition inserts `D^{-1}`. No positivity or commutativity of individual prime-power operators is assumed.
+
+### C-0060 — OpenAI quasi-RH zero strip and Cayley root upper bound
+
+- **Statement:** Assuming the external OpenAI theorem `EXT-0001` that `zeta(s)!=0` for `Re(s)>7/8`, every nontrivial zero `rho` has `1/8<=Re(rho)<=7/8`. For each fixed `s0>1`, the pole-subtracted Laguerre sequence of `C-0010` satisfies `limsup_(n->infinity) |S_n(s0)|^(1/n) <= (s0-1/8)/(s0-7/8)`. This rate is strictly larger than `1`, so it does not imply the RH-equivalent criterion.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (algebraic derivation from the external theorem; not an independent upstream proof replay)
+- **First recorded:** `2026-10-08T01:42:58Z`
+- **Last verified:** `2026-10-08T01:42:58Z`
+- **Dependencies:** `EXT-0001` (external theorem), `C-0010`, `C-0019`; standard zeta zero symmetry
+- **Source:** `F-20261008-001` (`findings/2026-10-08T014258Z-openai-quasi-rh-cayley-consequence.md`)
+- **Verification notes:** For `s(z)=1/2+(s0-1/2)(1+z)/(1-z)`, `|z|<(s0-7/8)/(s0-1/8)` implies `Re s(z)>7/8`. The pole-regularized zeta logarithmic derivative is analytic in that disk. Cauchy-Hadamard gives the stated coefficient rate. The boundary and fixed-center limitations are explicit.
+
+### C-0061 — Seven-eighths prime-distribution bounds from OpenAI quasi-RH
+
+- **Statement:** Assuming `EXT-0001`, the classical truncated von Mangoldt explicit formula and zero count imply uniformly for real `x>=2`: `psi(x)=x+O(x^(7/8)log²x)`, `theta(x)=x+O(x^(7/8)log²x)` and `pi(x)=Li_2(x)+O(x^(7/8)log x)`, with `Li_2(x)=integral_[2,x]dt/log t`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (written mathematics; upstream proof not independently replayed)
+- **First recorded:** `2026-10-08T02:44:31Z`
+- **Last verified:** `2026-10-08T02:44:31Z`
+- **Dependencies:** `EXT-0001`, `C-0060`, `R-0035`
+- **Source:** `F-20261008-002` (`findings/2026-10-08T024431Z-openai-seven-eighths-prime-distribution.md`)
+- **Verification notes:** `N(T)=O(Tlog T)` implies `sum 1/|rho|=O(log²T)`; with `beta<=7/8`, choose `T=x` in the truncated explicit formula. Prime-power jumps cost `<=log(x)/2`; derive `theta` by prime-power removal and `pi` by partial summation. No boundary-zero exclusion or epsilon in the exponent.
+
+### C-0062 — Compact weighted prime discrepancy under seven-eighths bound
+
+- **Statement:** For fixed `W∈C_c^1((0,infinity);C)` supported away from zero, as `X->infinity`: `sum Lambda(n)W(n/X)-X integral W(v)dv=O_W(X^(7/8)log²X)`. Uniformly for `tau∈R`: `sum Lambda(n)n^(-1/2+i tau)W(n/X)-integral u^(-1/2+i tau)W(u/X)du=O_W((1+|tau|)X^(3/8)log²X)`.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (Stieltjes partial summation from `C-0061`)
+- **First recorded:** `2026-10-08T02:44:31Z`
+- **Last verified:** `2026-10-08T02:44:31Z`
+- **Dependencies:** `C-0061`
+- **Source:** `F-20261008-002` (`findings/2026-10-08T024431Z-openai-seven-eighths-prime-distribution.md`)
+- **Verification notes:** `E=psi-x`, compact weight derivatives have `L1` sizes `O_W(1)` and `O_W((1+|tau|)X^(-1/2))`. Main-term subtraction is mandatory. At `X=e^(cn)`, the available `X^(3/8)` bound is not `exp(o(n))`; no full-Laguerre kernel uniformity is claimed.
 
 ## Entry format
 

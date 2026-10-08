@@ -127,7 +127,7 @@ repository C-claim assigned:       NO
 used to alter theorem admission:   NO
 ```
 
-Independent replay is the responsibility of OAI-1. Until that is completed, this record must not be described as independently verified by this repository.
+Independent Comparator replay is **optional** additional assurance, not a prerequisite for using the properly attributed external theorem as a mathematical dependency. The upstream proof has **not** been independently replayed by this repository; do not describe it as independently verified here. The source identity was separately checked against a clean detached checkout at the pinned revision. Mathematical consequences derived here remain distinct from OpenAI's original theorem and must cite `EXT-0001`.
 
 ## Relationship to existing work
 

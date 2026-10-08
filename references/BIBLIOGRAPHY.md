@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-07T10:06:02Z`
+- **Last updated:** `2026-10-08T02:44:31Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -388,6 +388,16 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-10-07T10:06:02Z`
 - **Used for:** External provenance for `EXT-0001`, the OpenAI theorem that the Riemann zeta function has no zeros in `Re(s)>7/8`; later phases will evaluate consequences for this repository's prior RH routes.
 - **Verification notes:** OAI-0 records source provenance only. The exact Lean declaration is `OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re` in `lean/OAI/NumberTheory/DirichletL/Nonvanishing.lean`, with Comparator configuration `lean/ComparatorChallenges/QuasiRiemannHypothesis.json`. The pinned upstream uses Lean 4.34.1 and Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`; the Comparator permits only `propext`, `Quot.sound`, and `Classical.choice`. Independent replay by this repository is deferred to OAI-1. See `references/external-results/EXT-0001-openai-quasi-rh.md`.
+
+### R-0035 — Kedlaya on the truncated von Mangoldt explicit formula
+
+- **Author:** Kiran S. Kedlaya
+- **Title:** *An Introduction to Analytic Number Theory*, Chapter 7, *Error bounds in the prime number theorem*, sections 7.1–7.3
+- **Publication:** Author-maintained analytic number theory course text (online)
+- **Stable identifier:** https://kskedlaya.org/ant/part-2-4.html
+- **First verified/accessed:** `2026-10-08T02:44:31Z`
+- **Used for:** Truncated von Mangoldt explicit formula (Theorem 7.2), half-weighted prime-power jump convention, `N(T)=O(Tlog T)` (Theorem 7.6), `sum 1/|rho|=O(log²T)`, and section 7.3's fixed-zero-strip `psi(x)-x=O(x^(1-c)log²x)`. Classical prime-power comparison and partial summation transfer to `theta`/`pi`.
+- **Verification notes:** Inspected Chapter 7 directly. `c=1/8` follows **only from** the OpenAI `EXT-0001` zero strip. Our finding `F-20261008-002` restores ordinary `psi` at jumps at cost `O(log x)`; no zero-free assertion is attributed to the classical text.
 
 ## Entry format
 
