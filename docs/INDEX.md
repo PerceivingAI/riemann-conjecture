@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-17T13:02:28Z`
+- **Last updated:** `2026-10-17T15:37:41Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -52,6 +52,13 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [`F-20261017-013`](../findings/2026-10-17T153741Z-bounded-combined-schur-experiment-closure.md) — closed classification for the executed (T=11/20,N=192) combined low-to-tail Schur test: independently exact rational positive-definiteness witness, source-audited research candidate; **pre-theorem only**, no v2 admission or RH claim.
+- [`F-20261017-012`](../findings/2026-10-17T153222Z-independent-analytic-audit-positive-combined-schur.md) — independent Suzuki/source and high-degree cross-term audit of the first positive combined-Schur candidate; strict exact rational witness survives, but no closed all-entry analytic verifier/theorem admission.
+- [`F-20261017-011`](../findings/2026-10-17T151010Z-positive-combined-schur-pretheorem-candidate.md) — **positive pre-theorem candidate** for combined (V+P+R) Schur at T=11/20,N=192: rigorous full mixed Gram, rational conservative lower matrix and independently exact positive congruence; no new admission.
+- [`F-20261017-010`](../findings/2026-10-17T144247Z-independent-mixed-gram-verification-and-tooling-closure.md) — final independent research implementation review and tooling closure: all mixed/Loewner/residual identities verified, two fail-closed guards added, 40/40 focused tests, no new matrix-sign theorem.
+- [`F-20261017-009`](../findings/2026-10-17T142253Z-combined-mixed-gram-implementation-and-validation.md) — rigorous research-only combined mixed-Gram and full-residual matrix-order upper enclosure; independent controls and N=192/196 measured Arb conditioning, without positivity or certificate claims.
+- [`F-20261017-008`](../findings/2026-10-17T140216Z-mixed-gram-primitives-source-audit.md) — analytic/Arb mixed-Gram primitive audit: VR_K and PR_K reuse existing polynomial methods; VP needs certified subinterval logarithmic moments; full residual and matrix-order enclosures remain conditional.
+- [`F-20261017-007`](../findings/2026-10-17T134402Z-combined-gram-computational-necessity-assessment.md) — source-grounded computational necessity assessment: cancellation-sensitive combined Gram upper information is missing for a positive test; a new full-Gram evaluator is not yet justified.
 - [`F-20261017-006`](../findings/2026-10-17T130040Z-sys2-combined-criterion-mathematical-conclusion.md) — SYS-2.6 closure: valid conditional combined low-to-tail criterion; independently verified exact mathematics; rigorous projected tests inconclusive; no new support positivity or theorem admission.
 - [`F-20261017-005`](../findings/2026-10-17T124537Z-projected-mixed-schur-obstruction.md) — `C-0066`: exact finite-tail projected obstruction bound; rigorous N=192/196 test inconclusive, with evidence X-20261017-001.
 - [`F-20261017-004`](../findings/2026-10-17T122838Z-independent-sys2-analytic-validity-audit.md) — SYS-2.4: independent mathematical audit of Suzuki normalization, form domains, all cross blocks, full residual remainders, and complement lower bounds; precise canonical-operator-domain qualification.
