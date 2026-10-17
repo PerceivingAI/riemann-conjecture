@@ -1,10 +1,78 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-17T13:02:28Z`
+- **Last updated:** `2026-10-17T15:37:41Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-17T15:37:41Z — Close one bounded combined-Schur computation with a positive pre-theorem classification
+
+**Type:** Research classification/closure only; no new matrix assembly or theorem promotion
+
+[`F-20261017-013`](../findings/2026-10-17T153741Z-bounded-combined-schur-experiment-closure.md) consolidates the executed and independently checked evidence [`X-20261017-003`](../computations/2026-10-17T150153Z-combined-schur-bounded-test/record.md), [`X-20261017-004`](../computations/2026-10-17T153222Z-analytic-source-review/record.md), [`F-20261017-011`](../findings/2026-10-17T151010Z-positive-combined-schur-pretheorem-candidate.md) and [`F-20261017-012`](../findings/2026-10-17T153222Z-independent-analytic-audit-positive-combined-schur.md). **Final classification `POSITIVE_CANDIDATE`, PRE-THEOREM:** exact outward rational combined-Gram/low-form bounds at \(T=11/20,N=192\), full residual and a rigorously positive complement yielded an exact rational *lower* Schur matrix proven strictly positive definite by a separately reconstructed exact rational congruence and positive Gershgorin margin. No negative combined-criterion witness was found; the old negative factor-3 bounds refer to a weaker different sufficient matrix. The source audit independently rederived formulas and sampled analytic inputs but did **not** supply a closed independent verifier for every transcendental Arb matrix entry. The bounded stop at \(N=192\) was honored; no \(N=196\) experiment followed, no claim ledger theorem/whitelist/Rust/Lean admission was made, and no RH result is asserted. Full reproducible artifacts remain attached to the timestamped computations. The final record marks the experimental gate **CLOSED** while the theorem-admission gate remains **NOT SATISFIED**.
+
+---
+
+## 2026-10-17T15:34:11Z — Independent analytical and source audit confirms the pre-theorem combined-Schur candidate within stated trust limits
+
+**Type:** Source-level mathematical review, independently generated low/cell/tail controls, exact rational replay and narrowly hardened research input checks; **no theorem admission**
+
+[`F-20261017-012`](../findings/2026-10-17T153222Z-independent-analytic-audit-positive-combined-schur.md) and [`X-20261017-004`](../computations/2026-10-17T153222Z-analytic-source-review/record.md) independently compared the positive \(T=11/20,N=192\) candidate with Suzuki arXiv:2606.09096v3 equation (4.5), the finite-column \(V/P/R\) image algebra, the logarithmic subinterval primitives, correct \(D_N\)-weighted projection and full-residual bounds, and the strictly positive complement. The original immutable \(N=192\) rational input and exact positive congruence witness were **not recomputed with the same generator**. Instead: six independent low \(A\) overlaps, an exact harmonic-shifted complement overlap, degree-96 direct high-precision numerical \(VP\)/cell-integral controls (nonproof), and an exact rational cross-check against the prior \(M=224\) projected-tail lower bound all passed. A narrowly hardened independent exact checker rejected malformed dyadic and \(\mu,\delta\) intervals, then reconfirmed strict exact Gershgorin positivity of the original unchanged matrix/witness.
+
+The result remains a **rigorous research-side `POSITIVE_CANDIDATE`, PRE-THEOREM**, conditional on the documented generator-side analytic and Arb enclosure premises. This audit does **not** independently regenerate every high-dimensional transcendental matrix entry in a separate closed proof engine, establish full canonical operator-domain equality, or create a new Rust/Lean certificate/theorem admission. The prior old factor-3 negatives and frozen eight v1 claims remain intact; v2 still admits no theorem and RH is unresolved. No new dimension/support experiment or speculative tooling was undertaken.
+
+---
+
+## 2026-10-17T15:12:44Z — Rigorous exact-positive combined low-to-tail pre-theorem research candidate at T=11/20, N=192
+
+**Type:** One executed bounded mathematical experiment, complete independently rechecked exact rational matrix proof packet; **no theorem admission, certificate extension, or RH claim**
+
+[`X-20261017-003`](../computations/2026-10-17T150153Z-combined-schur-bounded-test/record.md) / [`F-20261017-011`](../findings/2026-10-17T151010Z-positive-combined-schur-pretheorem-candidate.md) document the rigorously enclosed *combined*, cross-term-aware low-to-tail Schur criterion \(S=A_N-\mu_N^{-1}B^*B\), \(B=Q_N(V+P+R)\Pi_N\). At executed exact `T=11/20,N=192`, Arb 1024, residual order 32, Young \(\eta=2^{-24}\), all prime powers `[2,3]`, complement \(\underline\mu_N>0\), and full residual error, the rational lower matrix \(\underline S\preceq S\) is positive definite. **Separate exact-rational reconstruction** from the complete outward dyadic input packet and the proposed 48-bit dyadic triangular congruence matrix independently recomputed every Gershgorin row, finding strict positive rational margin (decimal display `0.9999999993343024`). No float eigen estimate participates in the exact proof. Source/data SHA-256, full rational intervals and the witness/independent checker outputs are retained.
+
+The frozen one-prime control and 44/44 focused tests passed; full mixed-Gram assembly completed in 114.83 seconds and met the exact matrix-width threshold. An expensive fraction-free witness construction was bounded and terminated with fully verified process-tree cleanup; a cheaper rounded-Cholesky **proposal** was certified by exact rational congruence, satisfying the result. **N=196 was NOT RUN**, under the predefined decisive-positive stop rule. The exact checker proves the **rational consequence of supplied Arb intervals**, not independently the entire new transcendental/analytic source. Classification is **POSITIVE_CANDIDATE, PRE-THEOREM** only; old grouped-factor-3 negative results remain mathematically compatible, and the frozen eight v1 theorems/empty v2 admission are unchanged. No closed new certificate, Rust/Lean change, or RH theorem is claimed.
+
+---
+
+## 2026-10-17T14:44:16Z — Independent validation and closure of research-side combined mixed-Gram capability
+
+**Type:** Public research-only trust review, two fail-closed input guards, focused independent tests, evidence qualification and tooling completion; **no new mathematical positivity or theorem claim**
+
+[`F-20261017-010`](../findings/2026-10-17T144247Z-independent-mixed-gram-verification-and-tooling-closure.md) rechecked the signed, correctly oriented `VP/VR_K/PR_K` image products and mixed prime powers; the \(KD_N^{-1}K\) low subtraction; log-cell endpoint domains; certified residual \(\delta_K\) error with \(D_N\) in ordinary Legendre coordinates; and the exact rational Loewner row-radius majorant. Two potential **invalid-caller-input** defects were corrected in *research-only* `scripts/cert/mixed_gram_research.py`: positive `eta` must be a genuine `Fraction` (prevent float arithmetic), and `_rational_order_bounds` must reject nonsquare/contradictory asymmetric matrices rather than blindly accepting their upper triangles. No legitimate old run was shown wrong; the explicit guards make the stated exact-matrix contract fail closed.
+
+The focused suite `tests/test_mixed_gram_research.py`, `test_prime_power_terms.py`, `test_multi_prime_legendre_schur.py` and `test_multi_prime_potential_grouping.py` passed **40/40** after correction; the independent checks include projected-tail directional bounds, ordered cross-term controls, endpoint references and the two newly rejected caller classes. A fresh source-revision `N=64,384-bit` width run reproduced \(5.773213736205091\cdot10^{-44}\) (4.705 s). The previous larger dimension/precision observations remain historically **as-run only**, with source fingerprints reconciled by a dated [X-20261017-002 addendum](../computations/2026-10-17T142253Z-mixed-gram-implementation/record.md), rather than retrospectively claiming full 192/196 re-execution of changed code. **Research-side tooling completion gate met**, but **no positivity/negativity decision** for the complete new combined Schur matrix, closed independent certificate/verifier, theorem admission or RH. No speculative machinery or change to frozen v1/v2 was introduced.
+
+---
+
+## 2026-10-17T14:25:14Z — Cancellation-sensitive rigorous mixed-Gram research capability implemented and measured
+
+**Type:** Scoped Python/Arb research implementation, independent analytical controls, and measured interval conditioning; **no theorem or certificate admission**
+
+[`F-20261017-009`](../findings/2026-10-17T142253Z-combined-mixed-gram-implementation-and-validation.md) records the new separate `scripts/cert/mixed_gram_research.py`: all signed \(V/P/R_K\) *ordered* image-image pairings, explicit cell-restricted logarithmic moments with removable \(\pm1\) limits, independent whole-interval rational \(VR_K\) contractions, arithmetic/residual polynomial \(PR_K\) image products, full low projection \(KD_N^{-1}K\), symmetry/parity guards, and exact-rational row-radius Loewner bounds. The original full Suzuki residual is handled by the established \(\delta_K\) Young inequality with \((1+\eta^{-1})\delta_K^2D_N\), not misidentified with its Taylor polynomial. A separate conservative **Schur lower** builder rejects nonpositive/unverified \(\mu_N\), but does **not** assume or claim its own positive definiteness. Only research-only source/profile/test files were added; canonical v1/v2, Rust/Lean, verifier, and admission contracts were not modified.
+
+[`X-20261017-002`](../computations/2026-10-17T142253Z-mixed-gram-implementation/record.md) records **37/37 focused tests passing** and the reproducible width/time profile. The new high-degree monomial representation suffers catastrophic Arb enclosure growth at \(N=128,384\) bits (\(G_K\) maximum entry width about \(1.86\times10^{30}\)), but the *same implementation/input* at 768 bits gives width about \(4.61\times10^{-86}\). Full \(N=192\) and \(196\) matrices at 1024 bits produce rigorous entry widths about \(1.52\times10^{-88}\) and \(7.49\times10^{-84}\), with full residual upper majorants constructed. The precision response is **actual measured evidence** against an immediate new representation rewrite; widths alone **do not prove positivity** of the combined Schur. The previous old-factor-3 negative results remain unaffected and the four historical new finite-tail negative-direction tests remain inconclusive. No numerical sign result or theorem claim has been introduced.
+
+---
+
+## 2026-10-17T14:04:10Z — Existing rigorous primitives assessed for complete mixed low-to-tail Gram calculations
+
+**Type:** Public analytical/source capability audit with one small interval-overlap smoke check; **no new combined-Gram implementation or positivity experiment**
+
+[`F-20261017-008`](../findings/2026-10-17T140216Z-mixed-gram-primitives-source-audit.md) audits the rigorous primitive requirements identified in `F-20261017-007` against the current Python/Arb source. It distinguishes three **truncated-residual** mixed terms: `VR_K` can reuse exact polynomial residual images and grouped full-interval logarithmic moments; `PR_K` can reuse rigorously enclosed arithmetic piecewise local-Legendre images and exact cell polynomial products, provided ordered cross matrices are not incorrectly assumed symmetric; `VP` requires cell-restricted logarithmic polynomial moments absent from the current whole-interval potential-moment interface. An elementary antiderivative with carefully handled \(x=\pm1\) limits proves analytical representability of those moments. The installed locked `python-flint 0.9.0` has Arb logs and `acb.integral`, but numerical integration across logarithmic branch/singular endpoints cannot be trusted without analyticity and endpoint controls. A small Arb enclosure of a constant-polynomial log moment split at \(x=1/3\) overlapped the independent existing whole-interval moment; this is **not** a high-degree proof/benchmark.
+
+The full Suzuki residual can be bounded by the already proved \(B^*B\preceq(1+\eta)B_K^*B_K+(1+\eta^{-1})\delta_K^2I\); unnormalized Legendre coordinates require \(D_N\). Existing exact-rational interval tools also permit a mathematically valid Loewner upper enclosure by symmetric center plus diagonal row-sum radii, although its quality is **not** measured. A *complete* high-dimensional mixed-Gram upper enclosure and its conditioning at `N=192/196` remain **UNVERIFIED**; all four earlier projected negative-direction tests remain **INCONCLUSIVE**. No production code, certification/admission contract, mathematical claim ID, support sweep, or frozen historical result was changed. Any method selection and further work require separate justification.
+
+---
+
+## 2026-10-17T13:46:00Z — Computational necessity of combined low-to-tail Gram information assessed
+
+**Type:** Public source-grounded mathematical/computational capability assessment; no experiment or implementation
+
+[`F-20261017-007`](../findings/2026-10-17T134402Z-combined-gram-computational-necessity-assessment.md) identifies the precise question left open by the valid conditional combined-Schur research (`C-0063..C-0066`): can the exact \(A_N-\mu_N^{-1}B^*B\) criterion be rigorously classified at \(T=11/20,N=192/196\)? The existing strictly positive full-tail complement is not the obstacle. A **positive** conclusion needs a sufficiently sharp rigorous **upper** bound on the *combined* Gram or an equivalent direct positive lower Schur bound; full exact matrix evaluation is just one possible approach and is **not proven necessary**. Existing finite-tail projections already give **lower** Gram / **upper** Schur Rayleigh enclosures for testing a **negative** direction, but their four historical outcomes are inconclusive. The old factor-3 componentwise upper bound is sound yet has exact negative sufficient-matrix witnesses, so it cannot simply be relabeled as a successful new combined criterion.
+
+The inspected rigorous assembler supplies \(V,V^2\), combined \(P,P^2\), polynomial \(R_K\), residual error, and separate \(GV,GP,GR\), but no complete enclosed \(VP/VR/PR\) mixed image-image Gram or equivalent demonstrated cancellation-aware **upper** bound. Whether the currently available Arb primitives can furnish such a bound without new software is **not yet determined**. The factual necessity is for additional mathematical **information** to certify positivity, **not yet proof of a tooling upgrade requirement**. No code, certificate, theorem, testing, or private planning changes occurred.
+
+---
 
 ## 2026-10-17T13:02:28Z — SYS-2.6 public mathematical conclusion verified; SYS-2 phase closed
 

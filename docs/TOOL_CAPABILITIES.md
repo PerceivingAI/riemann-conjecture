@@ -11,6 +11,12 @@ This audit describes the source tree at the pinned revision. An implemented func
 
 The audit did **not** edit or regenerate any historical attempt, finding, computation, or retained certificate. It did **not** run a new mathematical qualification sweep.
 
+## Post-audit research capability addendum — 2026-10-17T14:44:16Z
+
+**This is a separate, later source-evidence addendum** to the pinned SYS-1 audit above, not a claim that its original \`20a6911...\` revision already contained this capability. Research-only \`scripts/cert/mixed_gram_research.py\` now assembles rigorous ordered \(V/P/R_K\) low-image cross terms and a combined truncated low-to-tail Gram, converts entrywise Arb intervals into exact rational Loewner upper bounds, and includes the *full* Suzuki residual through a rigorous \(\delta_K^2D_N\) Young allowance. A separate conditional lower-Schur matrix routine requires certified \(\mu_N>0\); it neither verifies positive definiteness nor exports a certificate.
+
+**Evidence:** [\`F-20261017-009\`](../findings/2026-10-17T142253Z-combined-mixed-gram-implementation-and-validation.md) / [\`X-20261017-002\`](../computations/2026-10-17T142253Z-mixed-gram-implementation/record.md) document earlier source-level implementation, independent reference checks and actual precision/conditioning measurements at \`N=128/192/196\`. Later independent review [\`F-20261017-010\`](../findings/2026-10-17T144247Z-independent-mixed-gram-verification-and-tooling-closure.md) hardened non-rational Young parameters and malformed/asymmetric input-matrix rejection, with **40/40** focused new/overlap tests and a matching post-correction \`N=64\` precision check. All large-dimension widths remain honest **as-run evidence** from the earlier source snapshot, not false replays of the amended hash. **Labels:** \`SOURCE-VERIFIED\`, \`TESTED-CURRENT\` for focused controls, \`GENERATOR-SIDE\`. **NOT ESTABLISHED:** full combined-Schur sign at any support, independent Rust/Lean checking of this new analytical input, theorem/certificate admission or RH. Frozen v1/v2 interfaces and their admitted outcomes remain unchanged.
+
 ## 1. How to read this inventory
 
 | Label | Meaning |

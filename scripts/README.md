@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-17T12:48:27Z`
+- **Last updated:** `2026-10-17T15:34:11Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -15,6 +15,20 @@ The pinned `EXT-0001` theorem is a **cited external Lean result**, not a theorem
 - OAI-8 identifies rigorously negative factor-3 *sufficient* Schur matrices at `T=11/20,N=192/196`. Before another post-`p=3` qualification, the mathematical bound itself needs a separately justified improvement. Repeating the same negative matrix with more precision does not help.
 
 See [`research/openai-math/RESEARCH_DIRECTION.md`](../research/openai-math/RESEARCH_DIRECTION.md), [`docs/CONTRACTS.md` §5](../docs/CONTRACTS.md) and [`docs/PROTOCOL.md` §7.2](../docs/PROTOCOL.md). Mathematical external-dependent deductions `C-0060..C-0062` introduce no new CLI, code dependency, certificate format, or theorem admission.
+
+## Research-only combined mixed-Gram diagnostic
+
+`scripts/cert/mixed_gram_research.py` constructs a rigorously enclosed **truncated** combined low-to-tail Gram from all ordered `V/P/R_K` image cross terms and the correct Legendre `D_N^-1` projection. Its separate `rigorous_full_gram_upper` applies the rigorous Suzuki residual norm bound as a **matrix-order** exact rational upper enclosure; `rigorous_combined_schur_lower` constructs a lower form matrix **only** with a certified positive complement. Neither claims positive definiteness or issues a certificate. The narrowly scoped `scripts/profile_mixed_gram_research.py` measures actual Arb enclosure widths/timing. Reproduction, precision requirements and explicit inconclusive mathematical status are documented in [`X-20261017-002`](../computations/2026-10-17T142253Z-mixed-gram-implementation/record.md) and [`F-20261017-009`](../findings/2026-10-17T142253Z-combined-mixed-gram-implementation-and-validation.md). Existing one-prime and generic multi-prime continuation drivers remain canonical for their respective frozen research/certificate paths.
+
+**Independent validation / trust update (2026-10-17):** [\`F-20261017-010\`](../findings/2026-10-17T144247Z-independent-mixed-gram-verification-and-tooling-closure.md) independently checked the mixed analytical formulas, matrix-order and residual normalization, and fail-closed input contracts; **40/40** focused current tests pass. The full-residual Young parameter must be an exact positive \`Fraction\`; malformed nonsquare/contradictory asymmetric Gram intervals are rejected. Previously reported \`N=192/196\` Arb-1024 interval widths are retained *as-run* measurements; the modified source was not re-executed at those dimensions merely for documentation closure. The generated matrices remain **research evidence, not independently admitted theorems**.
+
+## Bounded combined-Schur research experiment — pre-theorem
+
+\`scripts/run_combined_schur_experiment.py\` evaluates one fixed combined \(V+P+R\) low-to-tail Gram configuration rigorously with Arb, writes a **complete** compressed 352-bit outward-dyadic rational low-form/Gram input packet, and rejects failed active-term/complement/interval-width gates. The independent-exact-research layer is separated from the analytical generator: \`scripts/inspect_combined_schur_packet.py\` makes explicitly nonproof float diagnostics and checks exact candidate Rayleigh directions; \`scripts/prove_combined_schur_fast.py\` uses a float Cholesky factor **only to propose** an invertible dyadic congruence matrix, then checks strict positive exact rational Gershgorin margins; \`scripts/verify_combined_schur_research.py\` independently reconstructs the rational Schur lower matrix and congruence from **the saved input packet and witness** without trusting any generator sign flag. Neither this path nor its exact checker is a v1/v2 certificate/verifier or theorem admission.
+
+The **executed** \`T=11/20,N=192\`, Arb-1024 positive **pre-theorem candidate** with full rational evidence, source and artifact hashes, bounded termination record, and precise analytical-trust boundary is [\`X-20261017-003\`](../computations/2026-10-17T150153Z-combined-schur-bounded-test/record.md) / [\`F-20261017-011\`](../findings/2026-10-17T151010Z-positive-combined-schur-pretheorem-candidate.md). Follow that evidence rather than repeating full-size support/dimension experiments automatically. **N=196 was not executed** because the exact rational lower bound at N=192 was positively confirmed. Existing canonical frozen one-prime and multi-prime v2 paths remain separate.
+
+**Independent analytical research audit (2026-10-17):** \`scripts/audit_combined_schur_analytic_inputs.py\` audits the existing \(T=11/20,N=192\) rational packet against the independent older low \(A\)/complement assembler, high-degree direct \`mpmath\` quadrature for the new \(VP\) cell (diagnostic, **not a proof**) and an exact rational comparison with the previous finite-tail Gram lower bound. See [\`X-20261017-004\`](../computations/2026-10-17T153222Z-analytic-source-review/record.md) / [\`F-20261017-012\`](../findings/2026-10-17T153222Z-independent-analytic-audit-positive-combined-schur.md). The separate research exact-rational checker now fails closed for noncanonical dyadic precision and reversed/invalid complement/residual intervals, and correctly reverified the **original unchanged** matrix and witness. These are source-level and mathematical controls, **not** a new proof profile, theorem admission or second all-entry Arb reconstruction.
 
 ## SYS-2.5: finite-tail projected research diagnostic (non-production)
 
