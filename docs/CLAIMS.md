@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-08T03:38:44Z`
+- **Last updated:** `2026-10-17T13:02:28Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -697,6 +697,58 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0061` (transitively `EXT-0001`, `C-0060`, `R-0035`; no independent replay of `EXT-0001`)
 - **Source:** `F-20261008-002` (`findings/2026-10-08T024431Z-openai-seven-eighths-prime-distribution.md`)
 - **Verification notes:** `E=psi-x`, compact weight derivatives have `L1` sizes `O_W(1)` and `O_W((1+|tau|)X^(-1/2))`. Main-term subtraction is mandatory. At `X=e^(cn)`, the available `X^(3/8)` bound is not `exp(o(n))`; no full-Laguerre kernel uniformity is claimed.
+
+### C-0063 — Closed-form domain and finite Legendre low–tail maps for localized Weil operator
+
+- **Statement:** For $0<T<\pi/2$, assuming Suzuki's scaled localized Weil form, the quadratic form $\mathfrak l_T=\mathfrak j+\mathfrak v+\langle\cdot,(P_T+R_T-c_TI)\cdot\rangle$ on $\mathcal F_T=D(J^{1/2})\cap D(V^{1/2})\subset L^2(-1,1)$ is densely defined, closed and lower semibounded, with associated self-adjoint form operator. Here $J$ is the Legendre harmonic-number diagonal operator, $V(x)=-\frac12\log(1-x^2)$ is a nonnegative unbounded multiplication operator, $P_T=-\sum_{\log m<2T}(\Lambda(m)/\sqrt m)S_{\log m/T}$ is a finite bounded self-adjoint compressed-shift sum, and the complete Suzuki residual $R_T$ is a bounded self-adjoint integral operator with $\|R_T\|\le 2T\sup_{0\le u\le2T}|r''_{\mathrm{even}}(u)|$. Every finite low Legendre polynomial lies in the operator domains of $J,V$ and the form operator, so $B_{X,N}=Q_NX|_{E_N}:E_N\to E_N^\perp$ is bounded for $X=V,P_T,R_T$; $J$ and $-c_TI$ create no low/tail cross term. $\Pi_N,Q_N$ preserve the form domain. This does not establish positivity of any new finite sufficient matrix.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (paper-level Hilbert-space derivation with explicitly stated source/form assumptions; not Lean-kernel checked)
+- **First recorded:** `2026-10-17T12:00:25Z`
+- **Last verified:** `2026-10-17T12:31:23Z`
+- **Dependencies:** `C-0044`, `C-0045`, `C-0058`, `C-0059`; external Suzuki form `R-0028` and classical Legendre identity `R-0032/0033`
+- **Source:** `F-20261017-001` (`findings/2026-10-17T115900Z-scaled-weil-operator-domain-and-low-tail-maps.md`)
+- **Verification notes:** The proof distinguishes the form-sum self-adjoint realization from the naive unbounded operator sum, shows polynomial low modes lie in the logarithmic multiplication-operator domain, uses the complete (not truncated) residual kernel and its bounded Taylor/Bernoulli remainder for $2T<\pi$, and interprets $Q_NL_TQ_N$ on the restricted tail form domain rather than all of $Q_NH$. It distinguishes exact operator matrices from conservative Arb low-block/Gram enclosures. No new theorem admission, numerical positivity, Suzuki formula rederivation, or claim that the original test-function domain equals the full closed-form domain is made.
+
+- **Independent analytical validation:** `F-20261017-004` (`2026-10-17T12:31:23Z`) independently checked normalization, closed-form domains, and the finite-column low/tail maps against Suzuki v3. Equality of the constructed form operator's entire domain with Suzuki's canonical Friedrichs-extension operator domain remains **NOT ESTABLISHED**; the source admissible test-class agreement is sufficient for the conditional application.
+
+### C-0064 — Exact combined-cross-block Gram ordering and form-Schur sufficiency
+
+- **Statement:** Under the closed Suzuki-scaled form setting of `C-0063` on \(\mathcal H=L^2(-1,1)\), let \(E_N\) be the finite Legendre low subspace with orthogonal projection \(\Pi_N\), \(Q_N=I-\Pi_N\), and define the bounded low-to-tail maps \(B_X=Q_NX\Pi_N\) for \(X\in\{V,P_T,R_T\}\), where \(V\) is applied only after the finite-rank projection. Let \(B=\sum_XB_X\) and let \(A_N\) be the exact low-form operator. Then \(3\sum_X B_X^*B_X-B^*B=\sum_{X<Y}(B_X-B_Y)^*(B_X-B_Y)\succeq0\). If the **full** tail form obeys \(\mathfrak c_N[q]\ge\mu_N\|q\|^2\) for all \(q\in Q_N\mathcal F_T\) with \(\mu_N>0\), and if the finite-dimensional exact \(S_{\rm comb}=A_N-\mu_N^{-1}B^*B\) is strictly positive definite, then the entire closed localized form is uniformly positive. Quantitatively, if \(S_{\rm comb}\succeq\lambda_N I_{E_N}\) with \(\lambda_N>0\), the full form satisfies \(\mathfrak l_T[w]\ge[\min(\lambda_N,\mu_N)/(1+\|B\|/\mu_N)^2]\|w\|^2\). The claim is a **conditional sufficient criterion**, not a statement that \(S_{\rm comb}\) is positive at any support.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (paper-level quadratic-form proof under the explicit SYS-2.1 domain and positive-tail hypotheses; not locally Lean-kernel checked)
+- **First recorded:** `2026-10-17T12:13:09Z`
+- **Last verified:** `2026-10-17T12:31:23Z`
+- **Dependencies:** `C-0063` (including `C-0044`, `C-0045`, `C-0058`, `C-0059`); Suzuki normalization `R-0028`
+- **Source:** `F-20261017-002` (`findings/2026-10-17T121100Z-combined-cross-block-form-schur-criterion.md`)
+- **Verification notes:** Proof explicitly orients \(B_X\) low-to-tail (adjoint of the historical tail-to-low notation), derives the exact three-component squared-differences identity, expands the full **quadratic form** without applying \(V\) to arbitrary tail inputs, completes the square solely in \(L^2\), and obtains an explicit coercivity constant by an invertible bounded triangular transform. The comparison to the old factor-3 matrix is valid for **exact mathematical** low and Gram operators, not an identification with current conservative v2 Arb enclosures. No mixed-Gram computation, new support positivity, certificate/verifier update, or theorem admission.
+
+- **Independent analytical validation:** `F-20261017-004` (`2026-10-17T12:31:23Z`) independently checked the squared-differences ordering, domain-safe complete-square proof, and strictly conditional `mu_N>0` premise. No new support positivity follows.
+
+### C-0065 — Exact combined mixed Legendre low-tail Gram matrix and residual-remainder identities
+
+- **Statement:** Under the SYS-2.1 domains and SYS-2.2 low-to-tail block setup, let \(\ell_i=P_i\) denote ordinary (unnormalized) Legendre polynomials, \(D_N=\mathrm{diag}(\|\ell_i\|_2^2)\), \(W=V+P_T+R_T\) on the finite low Legendre space, and \(B=Q_NW|_{E_N}\). Defining \(K_X{}_{ij}=\langle\ell_i,X\ell_j\rangle\) and \(M_{XY}{}_{ij}=\langle X\ell_i,Y\ell_j\rangle\) for \(X,Y\in\{V,P_T,R_T\}\), the exact low-space Gram is \(G_{\rm all}=[\langle Q_NW\ell_i,Q_NW\ell_j\rangle]_{ij}=M-KD_N^{-1}K\) with \(K=\sum_XK_X\) and \(M=\sum_{X,Y}M_{XY}\). It equals \(G_V+G_P+G_R+\mathcal C_{VP}+\mathcal C_{VR}+\mathcal C_{PR}\), where \(\mathcal C_{XY}=M_{XY}+M_{YX}-K_XD_N^{-1}K_Y-K_YD_N^{-1}K_X\). The already combined arithmetic \(P_T=\sum_mP_m\) retains all mixed \(m,n\) image terms and low-subtraction cross products (in the first \(\{2,3\}\) window, the \(2/3\) pair). If \(R_T=R_K+E_K\) with \(\|E_K\|\le\delta_K\), then with \(B_K=Q_N(V+P_T+R_K)|_{E_N}\), \(\|\Delta B\|\le\delta_K\), \(\Delta B=Q_NE_K|_{E_N}\), one has \(G_{\rm all}=B_K^*B_K+B_K^*\Delta B+\Delta B^*B_K+\Delta B^*\Delta B\) and \(\|G_{\rm all}-B_K^*B_K\|\le2\|B_K\|\delta_K+\delta_K^2\). For every \(\eta>0\), \(G_{\rm all}\preceq(1+\eta)B_K^*B_K+(1+\eta^{-1})\delta_K^2I\). All identities are derived from \(L^2\) *operator images*, without requiring low vectors in \(D(W^2)\). No numerical positivity of the combined Schur matrix is asserted.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (paper-level Hilbert-space and exact unnormalized matrix algebra; not locally Lean-kernel checked or numerically evaluated for the full mixed Gram)
+- **First recorded:** `2026-10-17T12:20:14Z`
+- **Last verified:** `2026-10-17T12:31:23Z`
+- **Dependencies:** `C-0063`, `C-0064`, `C-0058`, `C-0059`; source normalization `R-0028`
+- **Source:** `F-20261017-003` (`findings/2026-10-17T121809Z-exact-mixed-low-tail-gram-identities.md`)
+- **Verification notes:** The proof explicitly expands all nine ordered \(V/P/R\) image products and low-subtraction terms, includes the signed combined \(P_2/P_3\) cross contribution, justifies image integrability and parity zeros, and separates the full \(R_T\) from the truncated \(R_K\) through operator-norm and unnormalized coordinate \(D_N\)-weighted remainder inequalities. An exact-rational small Hilbert-space example cross-checks direct and expanded Gram algebra; it is not a rigorous Suzuki-kernel computation. Existing v2 `GV/GP/GR` values are separate conservative bounds and do not constitute the new mixed-Gram matrix. No new support, certificate, verifier, or admission.
+
+- **Independent analytical validation:** `F-20261017-004` (`2026-10-17T12:31:23Z`) independently rederived all nine image-pair terms, the unnormalized `D_N^{-1}` projection, mixed-prime terms, Suzuki residual coefficient/remainder formulas, and Gram error inequalities. No numerical matrix enclosure or positivity proof is implied.
+
+### C-0066 — Finite-tail projected obstruction bound for the exact combined Schur criterion
+
+- **Statement:** In the setting of `C-0063..C-0065`, suppose \(E_N\) is the finite low Legendre space, \(W=V+P_T+R_T\) on \(E_N\), \(B=Q_NW|_{E_N}\), and \(\mu_N>0\) is a verified lower bound on the **full** complementary quadratic form. For any \(M>N\), nonzero \(u\in E_N\), and bounded Suzuki residual truncation \(R_{T,K}\) with \(\|R_T-R_{T,K}\|\le\delta_K\), define \(W_K=V+P_T+R_{T,K}\), \(g_{N,M,K}(u)=\sum_{k=N}^{M-1}|\langle P_k,W_Ku\rangle|^2/d_k\), \(d_k=2/(2k+1)\). Then \(\|Bu\|^2\ge[\max(0,\sqrt{g_{N,M,K}(u)}-\delta_K\|u\|)]^2\). If \(a_K(u)\) is the exact low quadratic form using \(R_{T,K}\), then \(\langle u,(A_N-\mu_N^{-1}B^*B)u\rangle\le a_K(u)+\delta_K\|u\|^2-\mu_N^{-1}[\max(0,\sqrt{g_{N,M,K}(u)}-\delta_K\|u\|)]^2\). A strictly **negative rigorous upper bound** for the right-hand side disproves strict positivity of that *finite sufficient matrix* at the chosen support/dimension; a positive upper bound is **INCONCLUSIVE**, not evidence of positivity. Existing enlarged Legendre low-matrix off-diagonal entries provide each projection pairing, with no need to compute the full image-image mixed Gram.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (paper-level projection/triangle/Schur inequality; not a numerical positivity/negativity theorem)
+- **First recorded:** `2026-10-17T12:48:27Z`
+- **Last verified:** `2026-10-17T12:48:27Z`
+- **Dependencies:** `C-0063`, `C-0064`, `C-0065`, complement estimate `C-0058`
+- **Source:** `F-20261017-005` (`findings/2026-10-17T124537Z-projected-mixed-schur-obstruction.md`)
+- **Verification notes:** Rigorous finite-tail projection uses exactly `Q_{N,M}=Pi_M-Pi_N`, accounts for full residual error, and uses the correct unnormalized \(d_k^{-1}\) projection. Existing assembled `A` contains the \(-\delta_K D_M\) correction; its rigorous **full low upper** is thus reconstructed by adding \(2\delta_K\|u\|^2\). In `X-20261017-001`, historical exact even-parity low directions for \(T=11/20,N=192/196\) with \(M=204/224\) yielded four rigorously **positive upper bounds**, all `INCONCLUSIVE` for the sign of the new criterion. No current full mixed Gram enclosure, new theorem admission, or RH assertion follows.
+
+- **SYS-2 closure interpretation:** [`F-20261017-006`](../findings/2026-10-17T130040Z-sys2-combined-criterion-mathematical-conclusion.md) (`2026-10-17T13:02:28Z`) consolidates `C-0063..C-0066` with `X-20261017-001`. **VALID BUT NOT NUMERICALLY RESOLVED** refers to the mathematically valid *conditional* combined criterion; all four rigorous tests of the new matrix are **INCONCLUSIVE**, and no full combined Gram or new theorem has been verified. This synthesis adds no new claim.
 
 ## Entry format
 

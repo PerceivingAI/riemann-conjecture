@@ -1,7 +1,7 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-08T03:40:31Z`
+- **Last updated:** `2026-10-17T12:48:27Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
@@ -15,6 +15,10 @@ The pinned `EXT-0001` theorem is a **cited external Lean result**, not a theorem
 - OAI-8 identifies rigorously negative factor-3 *sufficient* Schur matrices at `T=11/20,N=192/196`. Before another post-`p=3` qualification, the mathematical bound itself needs a separately justified improvement. Repeating the same negative matrix with more precision does not help.
 
 See [`research/openai-math/RESEARCH_DIRECTION.md`](../research/openai-math/RESEARCH_DIRECTION.md), [`docs/CONTRACTS.md` §5](../docs/CONTRACTS.md) and [`docs/PROTOCOL.md` §7.2](../docs/PROTOCOL.md). Mathematical external-dependent deductions `C-0060..C-0062` introduce no new CLI, code dependency, certificate format, or theorem admission.
+
+## SYS-2.5: finite-tail projected research diagnostic (non-production)
+
+`scripts/weil_projected_mixed_schur_check.py` is a scoped, reproducible mathematical diagnostic. It reuses the existing rigorous assembler and immutable exact vectors solely to test whether finite additional Legendre tail modes **disprove** the new combined Schur sufficient condition. Its output is pre-theorem research evidence, not a combined-Gram certificate or theorem admission. The exact two runs, source fingerprint, and inconclusive evidence are in [`X-20261017-001`](../computations/2026-10-17T124000Z-sys2-projected-obstruction/record.md). It is not a replacement for the canonical v1/v2 drivers.
 
 ## Scripts
 

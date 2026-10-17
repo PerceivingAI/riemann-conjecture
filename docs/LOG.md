@@ -1,11 +1,78 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-08T03:44:13Z`
+- **Last updated:** `2026-10-17T13:02:28Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
 
+## 2026-10-17T13:02:28Z — SYS-2.6 public mathematical conclusion verified; SYS-2 phase closed
+
+**Type:** Consolidated mathematical research conclusion and bounded verification; **no new mathematical theorem or numerical qualification**
+
+[`F-20261017-006`](../findings/2026-10-17T130040Z-sys2-combined-criterion-mathematical-conclusion.md) consolidates `F-20261017-001..005`, `C-0063..C-0066`, and `X-20261017-001` without altering their original dated evidence. The explicit completion classification is **VALID BUT NOT NUMERICALLY RESOLVED**. The mathematically defined closed localized Suzuki form has well-defined finite Legendre low-to-tail columns even though the logarithmic potential is unbounded. The exact identity \(3\sum_XB_X^*B_X-B^*B=\sum_{X<Y}(B_X-B_Y)^*(B_X-B_Y)\succeq0\) holds with \(B=\sum_XQ_NX\Pi_N\), \(X\in\{V,P,R\}\). If the full complementary form has \(\mu_N>0\) and the **exact** finite \(A_N-\mu_N^{-1}B^*B\succ0\), then the full closed form is uniformly positive. The image-based formula \(G_{\mathrm{all}}=M-KD_N^{-1}K\) includes all mixed operator, prime-power and full-residual corrections. The independent source/domain audit found no invalidating scoped calculation; equality of full operator domains with Suzuki's canonical source realization is **not** claimed.
+
+The rigorous focused test of the new criterion returned four **positive *upper* Rayleigh bounds**, all **INCONCLUSIVE**; therefore neither a new negative witness nor positivity is established at \(T=11/20,N=192/196\). The old factor-3 negative matrices remain separate unchanged evidence. Full mixed image-image Gram matrices were not numerically enclosed by the existing assembler. No new theorem admission, certificate, production implementation, prospective tool plan, or RH claim follows. The public phase is closed because its precise conditional theorem, hypotheses, mathematical verification, and honestly bounded test outcome have been recorded.
+
+---
+
+## 2026-10-17T12:48:27Z — SYS-2.5 projected-tail obstruction test executed; new combined Schur sign remains unresolved
+
+**Type:** Public mathematical finding and focused rigorous pre-theorem computation
+
+[`F-20261017-005`](../findings/2026-10-17T124537Z-projected-mixed-schur-obstruction.md) / `C-0066` establishes a domain-safe projected-tail lower Gram bound and resulting rigorous **upper Rayleigh** obstruction test for the new combined sufficient criterion. The existing enlarged Legendre low matrix yields all projected cross entries without constructing the unimplemented full (V/P/R) image-image mixed Gram. The bound uses the **full Suzuki residual** error and the positive (mu_N) of the *original* low dimension, with correctly oriented `D_N` normalization and correction for the assembler's already-subtracted (-delta_RD).
+
+[`X-20261017-001`](../computations/2026-10-17T124000Z-sys2-projected-obstruction/record.md) executed the reproducible focused Arb-384 test at (T=11/20), residual order 32, exact old-factor-3 negative vectors used **only as trial vectors**, (N=192/196), and finite tail extensions (M=204), (M=224). Both complementary lower bounds are rigorously positive. All four certified new-Schur **upper** Rayleigh bounds remain **positive**, approximately (4.85845,0.78526,4.55300,0.72796), respectively. Each result is **INCONCLUSIVE**; the values **do not** prove positivity of the new criterion and are not new rigorous negative witnesses. No further sweep was performed.
+
+SYS-2.5.3 assessed current full mixed-Gram evaluability: existing Python rigorously assembles low (V/P/R_K), combined (P^2), and separate component Grams, but **does not calculate** the required full mixed image-image matrices. Thus no complete new Gram enclosure or qualified new Schur sign was computed. SYS-2.5 is complete **with inconclusive research outcome**. Only a dedicated scoped research diagnostic and its timestamped output were added; production certificates, Rust/Lean, theorem admission, old negative witnesses and historical records remain unchanged. No future tooling or research priorities are specified in this public record.
+
+---
+
+## 2026-10-17T12:31:23Z — SYS-2.4 independently audits the localized Weil operator and mixed-Gram mathematics
+
+**Type:** Public independent mathematical source/domain/form-inequality review
+
+[`F-20261017-004`](../findings/2026-10-17T122838Z-independent-sys2-analytic-validity-audit.md) independently rederives and checks `C-0063..C-0065` against the currently available primary source, Suzuki's [arXiv:2606.09096v3](https://arxiv.org/html/2606.09096v3), §§2.2–2.4 and 4.2, and the existing source implementation. The signs of both prime translation directions and the **full** residual, the scalar `-c_T`, unbounded logarithmic potential, exact Legendre jump normalization, full closed-form domain, all nine ordered `V/P/R` mixed products, combined cross-prime products, and the nonorthonormal `D_N^{-1}` projection subtraction were reviewed and found mathematically consistent. An independent analytic derivation of the residual Taylor/Bernoulli remainder and its finite-`T` operator-norm consequences also confirms the claimed inequality for `2T<π`; sampled high-precision closed-form/series diagnostics were auxiliary only.
+
+The **tail lower bound** `mu_N=H_N-c_T-sum(c_m b_m)-rho_R` is verified as a quadratic-form inequality, not assumed to be positive at any untested support. SYS-2.2's exact combined Schur implication is valid **only conditional on** `mu_N>0` and positive `S_comb`. No new support positivity or numerical test was claimed. The only explicitly **NOT ESTABLISHED** identification is equality of the constructed form-sum self-adjoint operator's *entire domain* with Suzuki's canonical Friedrichs-extension operator domain; agreement on the original admissible test class suffices for the conditional positivity implication. No failed identity was discovered in the six scoped analytical checks; this is **not** a claim that all possible original-source domain identifications are proved.
+
+No historical research or retained negative witnesses were edited; no production Python/Rust/Lean/schema/verifier code, theorem admission, tool strategy, or certificate was changed.
+
+---
+
+## 2026-10-17T12:21:05Z — SYS-2.3 derives the full mixed Legendre low-to-tail Gram identities
+
+**Type:** Public paper-level mathematical finding / source mapping / algebra and focused regression verification
+
+[`F-20261017-003`](../findings/2026-10-17T121809Z-exact-mixed-low-tail-gram-identities.md) / `C-0065` proves the exact domain-safe unnormalized Legendre matrix representation \(G_{\rm all}=M-KD_N^{-1}K\), where \(K\) consists of low inner products of \(V+P+R\) and \(M\) of \(L^2\) pairings of its **full operator images** on low polynomials. All nine ordered \(V/P/R\) products are expanded, with three explicit Hermitian mixed matrices \(\mathcal C_{VP},\mathcal C_{VR},\mathcal C_{PR}\); the combined arithmetic \(P=\sum_mP_m\) contains the already mandatory mixed \(P_2/P_3\) contributions. The projection subtraction uses the exact Legendre \(D_N^{-1}\), not ordinary low-matrix squaring. Reflection parity gives justified zero opposite-parity entries, not omitted same-parity interactions.
+
+The derivation treats the **full** Suzuki residual \(R\), and separately proves the truncated \(R_K\) identity with \(R-R_K=E_K\), \(\|E_K\|\le\delta_K\): \(G_{\rm all}=B_K^*B_K+B_K^*\Delta B+\Delta B^*B_K+\Delta B^*\Delta B\) with \(\|\Delta B\|\le\delta_K\). Consequently \(\|G_{\rm all}-B_K^*B_K\|\le2\|B_K\|\delta_K+\delta_K^2\), plus a norm-free Young inequality upper bound and \(D_N\)-weighted coordinate remainder bounds. These are analytic identities and bounds, **not** a newly computed mixed matrix or rigorous numerical positivity. The old v2 `GV/GP/GR` enclosures remain semantically distinct and unchanged.
+
+An independent ephemeral exact-`Fraction` algebra check verified direct low-tail Gram equals \(M-KD_N^{-1}K\) with nonzero \(V/P/R\) and \(2/3\) cross pieces in a 2-low/2-tail toy Hilbert space. Focused current-code tests `uv run --locked --extra test python -m pytest -q -n 2 tests/test_prime_power_terms.py tests/test_multi_prime_legendre_schur.py` passed **20/20**. These checks do not evaluate the actual new kernel integrals. No source code, previous findings, v1/v2 profiles, retained certificates, or theorem admissions were modified.
+
+---
+
+## 2026-10-17T12:13:09Z — SYS-2.2 proves combined-cross-block form-Schur sufficiency
+
+**Type:** Public mathematical finding / exact Hilbert-space quadratic-form derivation
+
+[`F-20261017-002`](../findings/2026-10-17T121100Z-combined-cross-block-form-schur-criterion.md) / `C-0064` establishes, under the existing SYS-2.1 domain result `C-0063`, the precise bounded low-to-tail maps \(B_X=Q_NX\Pi_N\) for \(X\in\{V,P,R\}\), with \(B=\sum_XB_X\). The squared-differences identity proves the **exact** operator ordering \(B^*B\preceq3\sum_XB_X^*B_X\). On the full closed form domain, assuming a rigorously established tail lower form bound \(\mathfrak c_N[q]\ge\mu_N\|q\|^2\) with \(\mu_N>0\), completing the square shows \(A_N-\mu_N^{-1}B^*B\succ0\) is a **sufficient** condition for strict positivity of the full form; the proof also supplies a positive \(L^2\)-coercivity constant.
+
+The proof is explicitly valid for the unbounded endpoint multiplier: the cross block acts on finite Legendre low modes lying in \(D(V)\), while the squared norm does not assert that \(Bu\) lies in the tail *form domain*. The comparison to the old factor-3 criterion concerns **exact** operators and is not an equation between new exact Gram operators and old conservative serialized `A/GV/GP/GR` enclosures. The paper-level result is conditional on positive \(\mu_N\) and positive combined Schur; neither is proved at any new support. No mixed \(V/P/R\) Gram calculation, numerical qualification, new Rust/Lean proof, implementation, theorem admission, or historical alteration occurred.
+
+---
+
+## 2026-10-17T12:01:35Z — SYS-2.1 establishes the scaled Weil form domain and exact low–tail maps
+
+**Type:** Public paper-level mathematical derivation / current-source consistency and focused operator tests
+
+[`F-20261017-001`](../findings/2026-10-17T115900Z-scaled-weil-operator-domain-and-low-tail-maps.md) / `C-0063` establishes the scaled `L²(-1,1)` Hilbert-space setting, unnormalized/orthonormal Legendre projections, and the closed semibounded quadratic-form interpretation of `J-c_T I+V+P_T+R_T` at `0<T<π/2`, under the established Suzuki source normalization (`R-0028`). The finite Legendre low modes lie in the unbounded logarithmic multiplier's operator domain; the arithmetic compressed-shift sum and the **full** residual-kernel operator are bounded self-adjoint on `L²`. Consequently each `B_{X,N}=Q_N X|_{E_N}` for `X=V,P_T,R_T` is a bounded low-to-tail map. The jump and scalar portions have zero cross form, and both low/tail projections preserve the closed-form domain.
+
+The argument distinguishes the self-adjoint *form-sum realization* from an unproved naive unbounded operator sum, and exact mathematical low blocks from the generator's conservative `-delta_R` low-block and `GR` enclosures. It is not a new Gram positivity result, independent rederivation of Suzuki's formula, Lean kernel theorem, numerical support qualification, theorem admission, or RH claim. The frozen one-prime v1 and generic multi-prime v2 implementations and historical artifacts are unchanged.
+
+Focused current-HEAD operator regression: `uv run --locked --extra test python -m pytest -q -n 2 tests/test_prime_power_terms.py tests/test_multi_prime_legendre_schur.py tests/test_multi_prime_potential_grouping.py` — **PASS, 25/25**. No expensive mathematical sweep was executed.
+
+---
 ## 2026-10-08T03:44:13Z. OAI-9 documentation acceptance verified
 
 **Type:** Read-only source/contract/doc validation

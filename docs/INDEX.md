@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-17T11:41:03Z`
+- **Last updated:** `2026-10-17T13:02:28Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -52,6 +52,12 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [`F-20261017-006`](../findings/2026-10-17T130040Z-sys2-combined-criterion-mathematical-conclusion.md) — SYS-2.6 closure: valid conditional combined low-to-tail criterion; independently verified exact mathematics; rigorous projected tests inconclusive; no new support positivity or theorem admission.
+- [`F-20261017-005`](../findings/2026-10-17T124537Z-projected-mixed-schur-obstruction.md) — `C-0066`: exact finite-tail projected obstruction bound; rigorous N=192/196 test inconclusive, with evidence X-20261017-001.
+- [`F-20261017-004`](../findings/2026-10-17T122838Z-independent-sys2-analytic-validity-audit.md) — SYS-2.4: independent mathematical audit of Suzuki normalization, form domains, all cross blocks, full residual remainders, and complement lower bounds; precise canonical-operator-domain qualification.
+- [`F-20261017-003`](../findings/2026-10-17T121809Z-exact-mixed-low-tail-gram-identities.md) — `C-0065`: exact unnormalized-Legendre combined Gram identities with all V/P/R and cross-prime terms; full versus truncated Suzuki residual and rigorous remainder relations.
+- [`F-20261017-002`](../findings/2026-10-17T121100Z-combined-cross-block-form-schur-criterion.md) — `C-0064`: exact low-to-tail squared-difference Gram inequality and conditional, coercive form-Schur criterion under the full positive tail hypothesis.
+- [`F-20261017-001`](../findings/2026-10-17T115900Z-scaled-weil-operator-domain-and-low-tail-maps.md) — `C-0063`: rigorous scaled Weil quadratic-form domain, closed realization, and well-defined Legendre low/tail maps for all three `V,P,R` components.
 
 - [`F-20261008-001`](../findings/2026-10-08T014258Z-openai-quasi-rh-cayley-consequence.md) — external OpenAI quasi-RH yields a strict zero strip and a quantitative Cayley coefficient bound; neither proves RH nor extends Weil theorem admission.
 - [`F-20261008-002`](../findings/2026-10-08T024431Z-openai-seven-eighths-prime-distribution.md) — `C-0061`/`C-0062`: seven-eighths prime-counting errors, compact smoothing and critical-half-weight discrepancy.
