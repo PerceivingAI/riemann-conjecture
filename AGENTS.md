@@ -20,6 +20,7 @@ Before changing anything:
 5. Read [`docs/CLAIMS.md`](docs/CLAIMS.md) before relying on an important mathematical statement.
 6. Read [`docs/CONTRACTS.md`](docs/CONTRACTS.md) before touching proof certificates, theorem admission, or verifier semantics.
 7. Read [`scripts/README.md`](scripts/README.md) before running or modifying research scripts.
+   For the audited implementation capabilities and exact trust/verification boundaries, consult [`docs/TOOL_CAPABILITIES.md`](docs/TOOL_CAPABILITIES.md).
 8. If creating or modifying a historical research record, read [`docs/PROTOCOL.md`](docs/PROTOCOL.md) first.
 
 Do not commit automatically. Leave changes available for review unless the task explicitly asks for a commit.
