@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-08T03:41:56Z`
+- **Last updated:** `2026-10-17T11:41:03Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -9,6 +9,7 @@ This is the compact index of the Riemann Conjecture research repository.
 
 - [`PROTOCOL.md`](PROTOCOL.md) — authoritative documentation and research-record rules.
 - [`CONTRACTS.md`](CONTRACTS.md) — formal proof-certificate contracts, trust architecture, and dependency policy.
+- [`TOOL_CAPABILITIES.md`](TOOL_CAPABILITIES.md) — source-grounded current Python/Arb, Rust, Lean, orchestration, and research-evidence capability inventory and verification boundaries.
 - **External theorem trust (OAI-7):** [`CONTRACTS.md §5`](CONTRACTS.md) — `EXT-` vs `C-/F-` vs Lean vs Arb/Rust certificate evidence, non-promotion and admission invariants; [`PROTOCOL.md §7.2`](PROTOCOL.md) — record/status procedures.
 - [`contracts/rh-weil-certificate-v1.json`](contracts/rh-weil-certificate-v1.json) — JSON Schema for exact rational certificates.
 - [`../computations/retained-proofs.json`](../computations/retained-proofs.json) — closed registry binding `C-0050` through `C-0057` (eight retained theorems) to their exact retained certificate paths, SHA-256 values, and theorem identities for first-class integrity/replay acceptance.
