@@ -29,6 +29,14 @@ Do not commit automatically. Leave changes available for review unless the task 
 
 RH is **UNRESOLVED** in this repository. Never describe a numerical result, candidate, finite-support theorem, or equivalent criterion as a proof of RH.
 
+**Later v3 byte-binding hardening (2026-10-18):** [X-20261018-001](computations/2026-10-18T004000Z-v3-gate-hardening-replay/record.md) makes analytic and Rust verification consume one exact v3 candidate byte snapshot and tightens honest clean/research source provenance. All 37,056 intervals and the original exact positive congruence pass again. The production v3 admission list is still empty; the clean-source proof-bearing run remains pending because these changes are uncommitted. Never treat a research-only two-gate PASS as an admitted result.
+
+**New v3 pre-admission research proof (2026-10-17):** [F-20261017-016](findings/2026-10-17T224310Z-v3-combined-schur-proof-system-implementation.md) adds rh-weil-certificate-v3 combined-Schur research. Full 37,056-input Arb acceptance and zero-float exact Rust congruence passed at T=11/20,N=192, but NO fresh clean committed proof-bearing candidate was generated. Normal Rust theorem verify REJECTS v3; only verify-candidate-v3 gives a non-theorem result. Never auto-admit based on this evidence. Frozen v1/v2 and RH status unchanged.
+
+**Current independently checked mathematical input closure (2026-10-17):** [\`F-20261017-015\`](findings/2026-10-17T220105Z-complete-independent-analytic-enclosure-closure.md) and [\`X-20261017-006\`](computations/2026-10-17T215700Z-sys5-full-analytic-acceptance/record.md) add a separate 2048-bit Arb verifier for the existing combined-Schur positive candidate at \`T=11/20,N=192\`. It independently reconstructs and strictly contains all **37,056** stored low/Gram analytical intervals plus the full \(\mu,\delta\) scalar bounds; the original exact rational positive congruence separately passes. This closes the **mathematical source-enclosure verification gate at one support** within the explicit Arb/Suzuki trust model. **It does NOT admit a theorem:** the separate proof-bearing Rust/Lean verifier profile, admission decision and retained-proof registration have not occurred. Frozen one-prime v1 and unrelated generic v2 admission semantics are unchanged; RH remains unresolved. Do not rerun a new full dimension or silently add a theorem when reading this research-only result.
+
+
+
 The current main route is the exact-prime localized Weil / Legendre-Schur continuation route. The maintained frontier and strongest results are in `docs/STATUS.md`; do not treat this summary as a replacement for that file.
 
 The closed `exact_prime_legendre_schur` theorem contract currently admits exactly:

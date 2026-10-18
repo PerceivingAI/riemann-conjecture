@@ -1,10 +1,46 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-17T15:37:41Z`
+- **Last updated:** `2026-10-18T00:42:00Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-18T00:42:00Z — v3 byte-snapshot/source-provenance hardening and independently repeated research acceptance
+
+**Type:** Fix v3 research verification trust boundary, replay all source intervals and exact rational arithmetic; no theorem admission
+
+[`X-20261018-001`](../computations/2026-10-18T004000Z-v3-gate-hardening-replay/record.md) documents fixing the analytical/Rust file reopening gap through **one captured candidate snapshot**, script/status/dirty-source identity consistency, exact input and Rust binary SHA checking, and fail-closed cross-layer result assertions. A separate executed Arb-2048 calculation strictly contained **all 18,528 low A plus 18,528 combined Gram intervals and both scalar bounds**; the exact Rust integer/parity replay reproduced the **original exact rational minimum positive margin**. Focused Python **37/37** PASS, full Rust **73/73** PASS, and a separate **synthetic structurally valid 192-dimensional negative** returned mathematical failure exit 1 without admitting a theorem. The clean provenance pipeline remains guarded but **not executed from committed clean source**, and v3 production admission remains EMPTY. No old frozen v1/v2 theorem, retained manifest, RH result or prior immutable evidence changed.
+
+---
+
+## 2026-10-17T22:45:00Z — Separate v3 exact research proof system and two-gate replay
+
+**Type:** Actual research proof evaluation, versioned contract implementation, no theorem admission
+
+[F-20261017-016](../findings/2026-10-17T224310Z-v3-combined-schur-proof-system-implementation.md) / [X-20261017-007](../computations/2026-10-17T222400Z-v3-research-bundle/record.md) document a new full combined-Gram Schur profile, strict JSON schema, Python provenance-guarded export, independent full Arb-2048 input-containment replay and exact integer-rational Rust congruence. The 37,056 matrix inputs and the complementary/residual scalars all passed; the Rust exact positive rational margin matches the original research witness exactly. The v3 proof is separately versioned, leaving v1's eight retained theorems and v2's old grouped-factor-3 unadmitted rule untouched. Python 34/34, Rust 73/73, strict Clippy and Lean lake build Cert passed. Normal Rust theorem verification rejects v3; clean-source production is guarded and was NOT executed on this dirty working tree. Mathematical research verified, CLEAN proof-bearing acceptance and theorem admission NOT performed. RH remains unresolved.
+
+---
+
+## 2026-10-17T22:02:54Z — Independent complete 37,056-entry analytic input containment and exact positivity replay
+
+**Type:** Mathematical proof-chain closure at one fixed support; **no Rust/Lean theorem admission or RH claim**
+
+[`F-20261017-015`](../findings/2026-10-17T220105Z-complete-independent-analytic-enclosure-closure.md) and [`X-20261017-006`](../computations/2026-10-17T215700Z-sys5-full-analytic-acceptance/record.md) close the analytical containment gap documented in the prior F-20261017-014 audit. At the original exact `T=11/20,N=192,K=32`, a **separately implemented** 2048-bit rigorous Arb calculation independently rebuilt the finite whole-potential/residual, translated prime-power and complete mixed-image Gram expressions. It verified that each fresh interval is **wholly contained** in the archived original rational interval for all **18,528 low-form** and **18,528 combined-Gram** upper-triangle entries, plus the full complementary and Suzuki residual scalar intervals. **Zero failures.** The original 1024-bit input and exact rational positive congruence witness were unchanged; the independent exact rational checker again proved strict positive definiteness. Frozen v1 and mixed tests **44/44 PASS**, and new fail-closed/source control tests **5/5 PASS**.
+
+This establishes the missing one-support **mathematical analytical enclosure gate** within the stated trust in correctly rounded Arb primitives and Suzuki's source form. It is more than a numeric spot check and does not merely compare generator sign flags. The finite-support Weil-test-class positivity statement is now mathematically supported; no theorem/certificate admission, Rust/Lean proof profile or support continuation has been undertaken. v1/v2 admission identities and RH status remain unchanged, **RH UNRESOLVED**. The pre-existing status F-20261017-014 records what was outstanding *before* this separate reconstruction, not a current blocker.
+
+---
+
+## 2026-10-17T21:44:08Z — Source-grounded finite-support theorem proof audit and exact polynomial references
+
+**Type:** Rigorous analytical dependency review with bounded independent algebraic checks; **no new theorem admission**
+
+[`F-20261017-014`](../findings/2026-10-17T214129Z-finite-support-theorem-analytic-proof-obligations.md) makes the precise source-class implication explicit: at exact \(T=11/20\), the potential strict Weil quadratic-form bound is for \(C_c^\infty(-T,T)\), with source formula agreement via Suzuki's \(H_0^1\) expression; equality of entire canonical operator domains is neither asserted nor needed. All the mathematical source formulas for \(\int x^{2r}V\), \(\int x^{2r}V^2\), logarithmic translated cells, rational Suzuki residual polynomials, full \(\delta_K\) error, signed mixed \(2/3\) shifts and exact rational Loewner form-Schur inequality were re-examined. A new scoped independent source check [`X-20261017-005`](../computations/2026-10-17T214044Z-sys5-analytic-proof-audit/record.md) found **81/81 exact rational split-kernel polynomial identities** and **8/8** nonproof high-precision \(V,V^2\) integral reference agreements; the original \(N=192\) packet still contains exactly 37,056 intervals and remains immutable.
+
+**Disposition:** The general finite-entry integral formulas are mathematically established, but the **archived 192-dimensional transcendental interval inputs have not undergone an independently closed all-entry analytical-containment check**. The separately verified exact rational positive-definiteness consequence is therefore conditional on those source enclosures. The theorem-level mathematical acceptance gate remains **OPEN** and `POSITIVE_CANDIDATE` remains **PRE-THEOREM**. No unexecuted research strategy is placed in this public log; no new certificate, Rust/Lean theorem or RH claim is made.
+
+---
 
 ## 2026-10-17T15:37:41Z — Close one bounded combined-Schur computation with a positive pre-theorem classification
 

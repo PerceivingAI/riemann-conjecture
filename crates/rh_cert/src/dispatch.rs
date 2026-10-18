@@ -7,11 +7,13 @@ use serde_json::Value;
 
 use crate::cert::{CertificateError, CertificateJson, VerificationOutcome, EXPECTED_FORMAT_V1};
 use crate::v2::{CertificateV2, EXPECTED_FORMAT_V2};
+use crate::v3::{CertificateV3, EXPECTED_FORMAT_V3};
 
 #[derive(Debug, Clone)]
 pub enum DispatchedCertificate {
     V1(Box<CertificateJson>),
     V2(Box<CertificateV2>),
+    V3(Box<CertificateV3>),
 }
 
 impl DispatchedCertificate {
@@ -37,10 +39,13 @@ impl DispatchedCertificate {
             EXPECTED_FORMAT_V2 => CertificateV2::from_json_str(json_str)
                 .map(Box::new)
                 .map(Self::V2),
+            EXPECTED_FORMAT_V3 => CertificateV3::from_json_str(json_str)
+                .map(Box::new)
+                .map(Self::V3),
             other => Err(CertificateError::Validation {
                 field: "$.format".to_string(),
                 message: format!(
-                    "unsupported certificate format '{other}'; expected {EXPECTED_FORMAT_V1} or {EXPECTED_FORMAT_V2}"
+                    "unsupported certificate format '{other}'; expected {EXPECTED_FORMAT_V1}, {EXPECTED_FORMAT_V2}, or {EXPECTED_FORMAT_V3}"
                 ),
             }),
         }
@@ -50,6 +55,7 @@ impl DispatchedCertificate {
         match self {
             Self::V1(certificate) => certificate.verify(),
             Self::V2(certificate) => certificate.verify(),
+            Self::V3(certificate) => certificate.verify(),
         }
     }
 }
