@@ -1,0 +1,19 @@
+{
+  "exact_residual_polynomial_pairs_verified": 81,
+  "full_high_dim_transcendental_recomputation": false,
+  "matrix_packet_sha256": "655d481d638f8b6fba0f95d01a4bab45079d905fbc6cb4f3e822571729d4d7c1",
+  "packet_low_and_gram_entry_count": 37056,
+  "potential_and_square_numeric_reference_errors_nonproof": {
+    "V2_0": "0.0",
+    "V2_190": "4.14536090644533342e-76",
+    "V2_2": "6.9089348440755557e-77",
+    "V2_20": "4.14536090644533342e-76",
+    "V_0": "0.0",
+    "V_190": "4.31808427754722231e-78",
+    "V_2": "0.0",
+    "V_20": "0.0"
+  },
+  "scope": "research-only independent analytic identity and reference controls",
+  "status": "PASS_SCOPED_ANALYTIC_CONTROLS_NOT_AN_ALL_ENTRY_CERTIFICATE",
+  "theorem_admission": false
+}

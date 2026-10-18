@@ -1,0 +1,50 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://github.com/PerceivingAI/riemann-conjecture/docs/contracts/rh-weil-certificate-v3.json",
+  "title":"Research combined-Schur proof artifact v3 (separate from admission)",
+  "description":"Closed fixed-support combined V+P+R_K profile. Schema/structural validity NEVER equals an admitted theorem. Independent complete analytic containment and exact-rational congruence gates plus explicit admission are separately required.",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["format","claim","claim_profile","support_T","basis","parity_sector","dimension","residual_order","active_terms","eta","dyadic_bits","low_A_triangular","truncated_gram_triangular","mu_dyadic","delta_dyadic","witness_bits","witness_numerators","provenance","generator_metadata"],
+  "properties":{
+    "format":{"const":"rh-weil-certificate-v3"},
+    "claim":{"const":"research-combined-schur-T11-20-N192"},
+    "claim_profile":{"const":"combined_multi_prime_legendre_schur"},
+    "support_T":{"type":"object","additionalProperties":false,"required":["num","den","frac"],"properties":{"num":{"const":"11"},"den":{"const":"20"},"frac":{"const":"11/20"}}},
+    "basis":{"type":"object","additionalProperties":false,"required":["type","domain","normalization","norm_sq","dimension"],"properties":{"type":{"const":"legendre"},"domain":{"const":"[-1, 1]"},"normalization":{"const":"P_n(1)=1"},"norm_sq":{"const":"2/(2n+1)"},"dimension":{"const":192}}},
+    "parity_sector":{"const":"both"},
+    "dimension":{"const":192},
+    "residual_order":{"const":32},
+    "active_terms":{"const":[2,3]},
+    "eta":{"type":"object","additionalProperties":false,"required":["num","den"],"properties":{"num":{"const":"1"},"den":{"const":"16777216"}}},
+    "dyadic_bits":{"const":352},
+    "low_A_triangular":{"$ref":"#/$defs/triangle"},
+    "truncated_gram_triangular":{"$ref":"#/$defs/triangle"},
+    "mu_dyadic":{"$ref":"#/$defs/dyadic"},
+    "delta_dyadic":{"$ref":"#/$defs/dyadic"},
+    "witness_bits":{"const":48},
+    "witness_numerators":{"type":"array","minItems":192,"maxItems":192,"items":{"type":"array","minItems":192,"maxItems":192,"items":{"$ref":"#/$defs/integer"}}},
+    "provenance":{"type":"object","additionalProperties":false,"required":["status","original_packet_sha256","original_witness_sha256","independent_input_audit_sha256","independent_auditor_sha256"],"properties":{
+      "status":{"enum":["research_uncommitted_not_proof_bearing","clean_candidate_pending_admission"]},
+      "original_packet_sha256":{"$ref":"#/$defs/sha256"},
+      "original_witness_sha256":{"$ref":"#/$defs/sha256"},
+      "independent_input_audit_sha256":{"$ref":"#/$defs/sha256"},
+      "independent_auditor_sha256":{"$ref":"#/$defs/sha256"}
+    }},
+    "generator_metadata":{"type":"object","additionalProperties":false,"required":["script","git_commit","git_dirty","timestamp_utc","precision_bits","independent_precision_bits","versions"],"properties":{
+      "script":{"enum":["scripts/cert/export_combined_schur_v3.py","scripts/cert/export_combined_schur_v3_clean.py"]},
+      "git_commit":{"type":"string","pattern":"^[0-9a-f]{40}$"},
+      "git_dirty":{"type":"boolean"},
+      "timestamp_utc":{"type":"string","format":"date-time"},
+      "precision_bits":{"const":1024},
+      "independent_precision_bits":{"const":2048},
+      "versions":{"type":"object","additionalProperties":false,"required":["python","flint"],"properties":{"python":{"type":"string","minLength":1},"flint":{"type":"string","minLength":1}}}
+    }}
+  },
+  "$defs":{
+    "integer":{"type":"string","pattern":"^(0|-?[1-9][0-9]*)$"},
+    "sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "dyadic":{"type":"array","minItems":2,"maxItems":2,"items":{"$ref":"#/$defs/integer"}},
+    "triangle":{"type":"array","minItems":192,"maxItems":192,"items":{"type":"array","minItems":1,"maxItems":192,"items":{"$ref":"#/$defs/dyadic"}}}
+  }
+}

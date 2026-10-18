@@ -1,0 +1,12 @@
+{
+  "delta_contained": true,
+  "dimension": 192,
+  "elapsed_seconds": 53.972,
+  "first_failures": [],
+  "gram_entries_checked": 18528,
+  "low_entries_checked": 18528,
+  "mu_contained": true,
+  "passes_all_stored_intervals": true,
+  "reference_precision": 2048,
+  "source_independent_analytic_reconstruction": true
+}

@@ -4,7 +4,7 @@ use std::path::PathBuf;
 use std::process::ExitCode;
 
 use clap::{Parser, Subcommand};
-use rh_cert::DispatchedCertificate;
+use rh_cert::{CertificateV3, DispatchedCertificate};
 
 #[derive(Parser, Debug)]
 #[command(name = "rh_cert")]
@@ -27,12 +27,48 @@ enum Commands {
         #[arg(long)]
         json: bool,
     },
+    /// Research-only v3 exact arithmetic; NEVER admits a theorem or proves source enclosures
+    VerifyCandidateV3 {
+        #[arg(short, long, value_name = "FILE")]
+        cert: PathBuf,
+        #[arg(long)]
+        json: bool,
+    },
 }
 
 fn main() -> ExitCode {
     let cli = Cli::parse();
 
     match cli.command {
+        Commands::VerifyCandidateV3 { cert, json } => {
+            match CertificateV3::from_file(&cert).and_then(|c| c.verify_research_arithmetic()) {
+                Ok(report) => {
+                    if json {
+                        println!(
+                            "{}",
+                            serde_json::to_string_pretty(&report)
+                                .unwrap_or_else(|_| "{}".to_string())
+                        );
+                    } else {
+                        println!(
+                            "V3 RESEARCH-ONLY rational Schur: {}",
+                            report.mathematical_status
+                        );
+                        println!("Exact margin: {}", report.exact_margin);
+                        println!("UNADMITTED; SOURCE ANALYTIC ENCLOSURES NOT CHECKED BY RUST");
+                    }
+                    if report.exact_margin_positive {
+                        ExitCode::SUCCESS
+                    } else {
+                        ExitCode::from(1)
+                    }
+                }
+                Err(err) => {
+                    eprintln!("v3 research rational verification error: {err}");
+                    ExitCode::from(2)
+                }
+            }
+        }
         Commands::Verify { cert, json } => match DispatchedCertificate::from_file(&cert) {
             Ok(cert_obj) => match cert_obj.verify() {
                 Ok(outcome) => {
