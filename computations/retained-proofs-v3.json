@@ -1,0 +1,17 @@
+{
+  "format": "rh-retained-proofs-v3",
+  "proofs": [
+    {
+      "claim": "C-0067",
+      "computation_id": "X-20261018-002",
+      "certificate_path": "computations/2026-10-18T010000Z-v3-clean-proof-candidate/data/certificate-v3-clean.json",
+      "certificate_sha256": "f9948f22010d258d1c01c988fd0f18a3110c3c13453473c8c48953560a7fffcb",
+      "source_commit": "f0350f89ec5189648cfc271c4ddd3a97355a2343",
+      "independent_analytic_source_sha256": "15961f4b337e1d26cc63aa41bcb3976fa975636d0b5e006b0f51bd3d625576e4",
+      "support_T": "11/20",
+      "dimension": 192,
+      "claim_profile": "combined_multi_prime_legendre_schur",
+      "verified_scope": "localized_weil_smooth_test_positivity_T_11_20"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-17T13:02:28Z`
+- **Last updated:** `2026-10-18T07:18:03Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -749,6 +749,17 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Verification notes:** Rigorous finite-tail projection uses exactly `Q_{N,M}=Pi_M-Pi_N`, accounts for full residual error, and uses the correct unnormalized \(d_k^{-1}\) projection. Existing assembled `A` contains the \(-\delta_K D_M\) correction; its rigorous **full low upper** is thus reconstructed by adding \(2\delta_K\|u\|^2\). In `X-20261017-001`, historical exact even-parity low directions for \(T=11/20,N=192/196\) with \(M=204/224\) yielded four rigorously **positive upper bounds**, all `INCONCLUSIVE` for the sign of the new criterion. No current full mixed Gram enclosure, new theorem admission, or RH assertion follows.
 
 - **SYS-2 closure interpretation:** [`F-20261017-006`](../findings/2026-10-17T130040Z-sys2-combined-criterion-mathematical-conclusion.md) (`2026-10-17T13:02:28Z`) consolidates `C-0063..C-0066` with `X-20261017-001`. **VALID BUT NOT NUMERICALLY RESOLVED** refers to the mathematically valid *conditional* combined criterion; all four rigorous tests of the new matrix are **INCONCLUSIVE**, and no full combined Gram or new theorem has been verified. This synthesis adds no new claim.
+
+### C-0067 — Strict localized Weil test-function positivity at fixed T=11/20
+
+- **Statement:** In Suzuki's scaled localized Weil quadratic-form normalization, at exactly \(T=11/20\), there exists \(\varepsilon_T>0\) such that \(Q_W(f)\ge\varepsilon_T\|f\|_{L^2(-T,T)}^2\) for every \(f\in C_c^\infty(-T,T)\). The claim is **only at this support and for this smooth-test class**. It does not assert all-support positivity, canonical Friedrichs-extension operator-domain identity, or RH.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (independently reconstructed Arb-2048 analytic input enclosures and strict zero-float exact Rust rational theorem replay under documented Suzuki/Arb trust assumptions; not a Lean-kernel proof of the whole theorem)
+- **First recorded:** `2026-10-18T07:18:03Z`
+- **Last verified:** `2026-10-18T07:18:03Z`
+- **Dependencies:** `C-0063`, `C-0064`, `C-0065`; external Suzuki source `R-0028`; previously proved complement/source identities `C-0044`, `C-0045`, `C-0058`, `C-0059`.
+- **Source:** `F-20261018-002` and `X-20261018-003`, with clean original mathematical-source reproduction `X-20261018-002`.
+- **Verification notes:** Explicit v3 admission is **one exact** source-fingerprinted, SHA-pinned proof at `T=11/20,N=192,K=32,eta=2^-24` in separate `computations/retained-proofs-v3.json`. Independent full 37,056 interval and `mu,delta` acceptance, plus exact two-parity rational Schur positive congruence, passed. The authoritative replay script `scripts.cert.verify_retained_v3` checks both source/analytical and Rust proof layers and exact approved bytes; production Rust `verify` accepts only those bytes. Full transcendental source correctness remains in the stated external Suzuki/Arb trust base. The eight frozen v1 claims `C-0050..C-0057` and empty v2 admission are unchanged. This yields no RH proof.
 
 ## Entry format
 

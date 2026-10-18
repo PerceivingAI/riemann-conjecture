@@ -12,7 +12,7 @@ Agents should still treat [`docs/STATUS.md`](docs/STATUS.md), [`docs/PROTOCOL.md
 
 ## Current research direction and external mathematics (OAI-9)
 
-**RH remains unresolved.** The independent retained certificate chain establishes exactly eight finite-support localized Weil positivity theorems `C-0050..C-0057`. Generic multi-prime tooling exists but has **no** admitted v2 theorem. At frozen `T=11/20,N=192/196`, the existing factor-3 **sufficient** Schur matrices have independently audited negative directions; this does *not* imply negativity of the full Weil operator.
+**RH remains unresolved.** The separate retained proof chains now establish exactly **nine** fixed-support localized Weil positivity theorems: eight frozen one-prime v1 `C-0050..C-0057`, and the single independently accepted v3 combined mixed-Gram test-class theorem `C-0067` at `T=11/20,N=192` ([admission record](findings/2026-10-18T071803Z-v3-fixed-support-theorem-admission.md)). Generic multi-prime v2 continues to have **no** admitted theorem. These finite-support statements do **not** imply RH. At frozen `T=11/20,N=192/196`, the existing factor-3 **sufficient** Schur matrices have independently audited negative directions; this does *not* imply negativity of the full Weil operator.
 
 The [OAI-8 research-direction decision](research/openai-math/RESEARCH_DIRECTION.md) keeps exact Weil/Legendre–Schur as the **primary** research program, with the next work being a justified new multi-prime positivity criterion rather than repeating the old failed sufficient matrix. Laguerre/phase-aware prime arithmetic is **secondary**; a Weil/phase hybrid is **deferred** until an exact, noncircular bridge is proved.
 
