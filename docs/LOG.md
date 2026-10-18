@@ -1,10 +1,24 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-18T00:58:36Z`
+- **Last updated:** `2026-10-18T07:28:19Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-18T07:28:19Z — SYS-5.4 final independent regression and compatibility check
+
+The new C-0067 admitted v3 theorem and complete mathematical receipt remain unchanged. New v3 admission regressions **7/7**, full Rust **74/74**, strict Clippy and formatting checks PASS. The independent original one-prime retained-proof chain was fully rerun and passed **8/8**, C-0050..C-0057, with the original manifest unaltered. [X-20261018-003](../computations/2026-10-18T071550Z-v3-retained-admission/record.md) records the final check details. No Lean mathematical theorem newly claimed and RH unresolved; local changes remain uncommitted.
+
+---
+
+## 2026-10-18T07:18:03Z — Explicit exact-byte v3 retained theorem admission at one fixed support
+
+**Type:** SYS-5.4 independently accepted finite-support mathematical theorem; separate source/Arb and production Rust exact replay
+
+[`F-20261018-002`](../findings/2026-10-18T071803Z-v3-fixed-support-theorem-admission.md) / [`X-20261018-003`](../computations/2026-10-18T071550Z-v3-retained-admission/record.md) record **C-0067** as a separately admitted derived theorem: strict Suzuki-normalized Weil-form positivity for all `C_c^∞(-11/20,11/20)` test functions. Admission binds exactly the clean v3 proof bytes (`f9948f22010d258d1c01c988fd0f18a3110c3c13453473c8c48953560a7fffcb`) at `T=11/20,N=192` to a new separate retained-v3 manifest and production Rust whitelist. Fresh independent Arb-2048 strict containment passed **37,056** matrix intervals and both complementary/residual scalar enclosures; the production zero-float Rust `verify` independently proved strict rational parity Schur positivity with the original exact positive margin. Malformed manifest, byte-altered certificate and synthetic valid-negative controls remain separated. The theorem requires Suzuki's test-class source identity and rigorous Arb primitives; Lean supplies only supporting elementary lemmas, not the whole analytic proof. The original eight v1 retained theorems and zero v2 admissions are untouched. No all-support claim or RH result. Admission work remains uncommitted pending explicit Git action.
+
+---
 
 ## 2026-10-18T00:58:36Z — Clean v3 proof-bearing regeneration and independently accepted fixed-support evidence
 

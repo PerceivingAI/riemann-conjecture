@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-18T00:58:36Z`
+- **Last updated:** `2026-10-18T07:18:03Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -13,6 +13,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - **External theorem trust (OAI-7):** [`CONTRACTS.md §5`](CONTRACTS.md) — `EXT-` vs `C-/F-` vs Lean vs Arb/Rust certificate evidence, non-promotion and admission invariants; [`PROTOCOL.md §7.2`](PROTOCOL.md) — record/status procedures.
 - [`contracts/rh-weil-certificate-v1.json`](contracts/rh-weil-certificate-v1.json) — JSON Schema for exact rational certificates.
 - [`../computations/retained-proofs.json`](../computations/retained-proofs.json) — closed registry binding `C-0050` through `C-0057` (eight retained theorems) to their exact retained certificate paths, SHA-256 values, and theorem identities for first-class integrity/replay acceptance.
+- [`../computations/retained-proofs-v3.json`](../computations/retained-proofs-v3.json) — separately closed single-v3 admission registry for `C-0067` at `T=11/20,N=192`, with exact approved proof-byte hash and source binding; replay with `scripts.cert.verify_retained_v3`.
 - [`STATUS.md`](STATUS.md) — maintained snapshot of the current research frontier.
 - [`LOG.md`](LOG.md) — append-only chronological research log.
 - [`CLAIMS.md`](CLAIMS.md) — registry of important claims, their status, and dependencies.
@@ -52,6 +53,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [`F-20261018-002`](../findings/2026-10-18T071803Z-v3-fixed-support-theorem-admission.md) / [`X-20261018-003`](../computations/2026-10-18T071550Z-v3-retained-admission/record.md) — explicit C-0067 one-support v3 admission, full independent Arb input and production Rust exact positive replay, no RH.
 - [`F-20261018-001`](../findings/2026-10-18T005836Z-clean-combined-schur-proof-bearing-closure.md) — genuinely clean, committed-source v3 certificate and complete independent Arb/Rust proof replay at T=11/20,N=192; SYS-5.3 complete, **not theorem admitted**.
 - [`X-20261018-001`](../computations/2026-10-18T004000Z-v3-gate-hardening-replay/record.md) — harden immutable v3 candidate/clean provenance, independently replay 37,056 intervals and exact positive Schur margin, verify full-profile synthetic negative and no admission.
 - [`F-20261017-016`](../findings/2026-10-17T224310Z-v3-combined-schur-proof-system-implementation.md) — separately versioned full mixed-Gram v3 research certificate; independent 37,056-entry analytic containment and exact Rust replay pass; no clean proof-bearing theorem admission.

@@ -1,7 +1,7 @@
-//! v3 full mixed-Gram Schur research verifier: exact rational, zero floats.
-//! The analytical source inputs MUST be independently verified by a separate
-//! evaluator; this module never treats source fingerprints as mathematical proof.
-//! The production admission list stays empty.
+//! v3 full mixed-Gram Schur exact-rational verifier, with a single explicit
+//! retained fixed-support admission. The analytical source inputs MUST be
+//! independently reconstructed by the external Arb-2048 verifier; this module
+//! never treats fingerprints as mathematical proof.
 
 use std::fs;
 use std::path::Path;
@@ -16,7 +16,16 @@ use crate::interval::RationalInterval;
 
 pub const EXPECTED_FORMAT_V3: &str = "rh-weil-certificate-v3";
 pub const EXPECTED_PROFILE_V3: &str = "combined_multi_prime_legendre_schur";
-pub const V3_ALLOWED_CONFIGURATIONS: &[(i64, i64, usize)] = &[];
+pub const V3_ALLOWED_CONFIGURATIONS: &[(i64, i64, usize)] = &[(11, 20, 192)];
+
+// Explicit SYS-5.4 theorem admission: only the exact clean-source artifact
+// already independently checked by Arb-2048 and zero-float Rust may enter
+// production. No untrusted JSON content can select a new theorem.
+const ADMITTED_CERTIFICATE_BYTES: &[u8] = include_bytes!(
+    "../../../computations/2026-10-18T010000Z-v3-clean-proof-candidate/data/certificate-v3-clean.json"
+);
+const ADMITTED_SOURCE_COMMIT: &str = "f0350f89ec5189648cfc271c4ddd3a97355a2343";
+const ADMITTED_CLAIM: &str = "C-0067";
 
 const N: usize = 192;
 const BITS: u32 = 352;
@@ -133,6 +142,7 @@ struct Doc {
 #[derive(Debug, Clone)]
 pub struct CertificateV3 {
     document: Doc,
+    exact_admitted_artifact: bool,
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -169,7 +179,10 @@ impl CertificateV3 {
     pub fn from_json_str(text: &str) -> Result<Self, CertificateError> {
         let doc: Doc = serde_json::from_str(text)?;
         Self::validate(&doc)?;
-        Ok(Self { document: doc })
+        Ok(Self {
+            document: doc,
+            exact_admitted_artifact: text.as_bytes() == ADMITTED_CERTIFICATE_BYTES,
+        })
     }
 
     fn validate(doc: &Doc) -> Result<(), CertificateError> {
@@ -311,13 +324,61 @@ impl CertificateV3 {
     }
 
     pub fn verify(&self) -> Result<crate::cert::VerificationOutcome, CertificateError> {
-        // Deliberately no admitted configurations. An exact rational result is
-        // conditional on independent analytic enclosure acceptance AND an
-        // explicit admission decision; neither can be inferred from this JSON.
-        Err(invalid(
-            "$.support_T",
-            "v3 theorem admission is empty; research arithmetic is not an admitted theorem",
-        ))
+        use crate::cert::{SchurVerificationReport, VerificationOutcome};
+        use crate::gershgorin::GershgorinBlockReport;
+        if V3_ALLOWED_CONFIGURATIONS != [(11, 20, N)]
+            || !self.exact_admitted_artifact
+            || self.document.provenance.status != "clean_candidate_pending_admission"
+            || self.document.generator_metadata.git_dirty
+            || self.document.generator_metadata.git_commit != ADMITTED_SOURCE_COMMIT
+        {
+            return Err(invalid(
+                "$.admission",
+                "not the exact admitted clean-source v3 certificate",
+            ));
+        }
+        let check = self.verify_research_arithmetic()?;
+        let positive = check.exact_margin_positive;
+        // Both parity blocks were checked exactly by the research arithmetic
+        // routine. The global minimum is a valid conservative margin for each.
+        let block = GershgorinBlockReport {
+            dimension: N / 2,
+            witness_lower_triangular: true,
+            witness_invertible: true,
+            min_margin: check.exact_margin.clone(),
+            is_positive_definite: positive,
+        };
+        let mu = BigRational::new(
+            decimal_integer(&self.document.mu_dyadic[0], "$.mu_dyadic")?,
+            BigInt::one() << BITS,
+        );
+        Ok(VerificationOutcome {
+            passed: positive,
+            claim: ADMITTED_CLAIM.to_owned(),
+            format: EXPECTED_FORMAT_V3.to_owned(),
+            claim_profile: EXPECTED_PROFILE_V3.to_owned(),
+            verified_scope: "localized_weil_smooth_test_positivity_T_11_20".to_owned(),
+            basis_type: "legendre".to_owned(),
+            parity_sector: "both".to_owned(),
+            dimension: N,
+            support_t: "11/20".to_owned(),
+            tail_rule: "full_combined_mixed_gram_young_schur_v3".to_owned(),
+            tail_lower_bound: mu.to_string(),
+            ldl_report: None,
+            schur_report: Some(SchurVerificationReport {
+                is_positive_definite: positive,
+                complement_lower_bound: mu.to_string(),
+                schur_factor: "combined_eta_1/16777216".to_owned(),
+                even: block.clone(),
+                odd: block,
+            }),
+            notes: vec![
+                "Exact immutable approved clean v3 artifact; Rust verifies rational Schur arithmetic and strict Gershgorin only".to_owned(),
+                "Both displayed parity margins are conservative global minima, not individual exact block minima".to_owned(),
+                "Analytic source enclosures require separate independent Arb-2048 replay; SHA binding alone is not their proof".to_owned(),
+                "Only fixed-support Suzuki smooth test functions: no operator-domain equality, support continuation or RH claim".to_owned(),
+            ],
+        })
     }
 
     /// Verify strict rational Schur positivity using a single exact integer
@@ -471,8 +532,24 @@ impl CertificateV3 {
 mod tests {
     use super::*;
     #[test]
-    fn v3_production_whitelist_stays_empty() {
-        assert!(V3_ALLOWED_CONFIGURATIONS.is_empty());
+    fn v3_admission_is_exactly_one_fixed_support() {
+        assert_eq!(V3_ALLOWED_CONFIGURATIONS, [(11, 20, 192)]);
+        assert_eq!(ADMITTED_CLAIM, "C-0067");
+    }
+    #[test]
+    fn admitted_v3_rejects_even_a_semantically_equivalent_byte_change() {
+        let source = std::str::from_utf8(ADMITTED_CERTIFICATE_BYTES).expect("approved UTF-8 JSON");
+        let accepted = CertificateV3::from_json_str(source).expect("approved structure");
+        assert!(accepted.exact_admitted_artifact);
+        // The identical JSON with harmless trailing space remains structurally
+        // valid but must never become an admitted theorem artifact.
+        let altered = format!("{source} ");
+        let other = CertificateV3::from_json_str(&altered).expect("structurally valid JSON");
+        assert!(!other.exact_admitted_artifact);
+        let failure = other
+            .verify()
+            .expect_err("unauthorized v3 must be rejected before proof");
+        assert!(failure.to_string().contains("not the exact admitted"));
     }
     #[test]
     fn reject_noncanonical_integer() {

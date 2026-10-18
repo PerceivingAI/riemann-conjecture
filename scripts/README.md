@@ -1,9 +1,20 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-18T00:58:36Z`
+- **Last updated:** `2026-10-18T07:18:03Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
+
+## SYS-5.4 — One admitted v3 finite-support theorem: canonical replay
+
+`rh-weil-certificate-v3` now has exactly **one** separately admitted theorem, `C-0067` at `T=11/20,N=192`, from a previously clean-source regenerated certificate, and **no further inferred support**. Its canonical complete retained-proof replay (source/analytical Arb-2048 plus exact Rust production verification) is:
+
+```text
+cargo build -p rh_cert --locked
+uv run --locked --extra test python -m scripts.cert.verify_retained_v3 --output computations/2026-10-18T071550Z-v3-retained-admission/data/replay.json --rust-binary target/debug/rh_cert.exe
+```
+
+The implementation `scripts/cert/verify_retained_v3.py` binds an exact approved byte-hash certificate and separately pinned committed source, rejects altered or expanded `computations/retained-proofs-v3.json`, independently rigorously reconstructs all **37,056** source intervals plus `mu,delta`, then invokes zero-float Rust `verify` on a private immutable byte snapshot; output is published atomically only after all checks pass. The fully executed reference replay and detailed trust boundary are [`X-20261018-003`](../computations/2026-10-18T071550Z-v3-retained-admission/record.md). For cheap manifest/adversarial controls run `uv run --locked --extra test python -m pytest -n 0 tests/test_retained_v3_admission.py`. The **separate historical v1 replay** remains `uv run --locked python -m scripts.cert.verify_retained_proofs` (eight claims only). The v3 `verify-candidate-v3` research command **still never admits a theorem**, even for a positive rational matrix. The full v3 theorem depends on the distinct independently checked Suzuki/Arb analytical source trust layer; Rust/Lean do not independently prove that source identity or all-support RH.
 
 ## OAI-9: External OpenAI theorem is not a local verification CLI
 
