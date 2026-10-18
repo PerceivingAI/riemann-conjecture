@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-18T07:18:03Z`
+- **Last updated:** `2026-10-18T09:24:56Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -26,6 +26,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`../references/BIBLIOGRAPHY.md`](../references/BIBLIOGRAPHY.md) — literature and external sources used by the research.
 - [`OAI-8 — OpenAI mathematics research-direction decision`](../research/openai-math/RESEARCH_DIRECTION.md) — evidence-led Weil/phase-aware/hybrid comparison, remaining proof tasks, costs and primary/secondary/deferred decision.
 - [`OpenAI research map and OAI-9 acceptance`](../research/openai-math/README.md) — source/derivation/route navigation, verified documentation controls and current non-promotion boundaries.
+- [`External result EXT-0002`](../references/external-results/EXT-0002-suzuki-localized-eigenvalue-continuity.md) — Suzuki v3 smooth-core lowest-eigenvalue identification and continuity (Corollary 1.2 / Theorem 1.3); external, no local independent replay.
 - [`External result EXT-0001 (maintained verification state)`](../references/external-results/EXT-0001-openai-quasi-rh.md) — immutable OpenAI theorem/source, true solution vs Comparator challenge, local replay **NOT PERFORMED**.
 - [`External results / optional Comparator replay checklist`](../references/external-results/README.md) — evidence categories, pinned source checks, conditional secure replay path.
 - [`EXT-0001 OpenAI/Mathlib overlap audit`](../references/external-results/EXT-0001-lean-overlap-audit.md) — pinned formal-theorem equivalences, dependency surface and reuse classification (OAI-3).
@@ -53,6 +54,11 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [`F-20261018-007`](../findings/2026-10-18T092456Z-sys6-support-continuation-final-decision.md) — SYS-6.5 final mathematical evidence classification and scoped no-go on automatic finite-certificate proliferation; SYS-6 completed as assessment, no RH or new theorem.
+- [`F-20261018-006`](../findings/2026-10-18T091152Z-sys6-selective-support-decision.md) / [`X-20261018-005`](../computations/2026-10-18T090311Z-sys6-selective-support/record.md) — SYS-6.4 one-support T=0.60 N=192 exact rational odd-parity **negative sufficient-Schur upper**, no theorem admission or Weil negativity.
+- [`F-20261018-005`](../findings/2026-10-18T084633Z-sys6-global-support-obligation.md) — SYS-6.3 exact RH-equivalent Weil quantifiers and conditional combined-Schur global proof obligations (`C-0069/0070`), and pointwise positivity of the conservative high-tail scalar within the local range (`C-0071`); current residual Taylor proof valid only for 2T<π; no global proof.
+- [`F-20261018-004`](../findings/2026-10-18T081419Z-sys6-support-scaling-analysis.md) / [`X-20261018-004`](../computations/2026-10-18T080600Z-sys6-support-scaling/record.md) — verified conservative tail-complement cutoff escalation and research-only mixed-Gram precision/cross-term support diagnostics; no new theorem.
+- [`F-20261018-003`](../findings/2026-10-18T075359Z-sys6-support-baseline.md) — SYS-6.1 mathematical mechanism and support-dependency baseline, downward inheritance and source-dependent existential right-continuation `C-0068`; no new retained v3 support.
 - [`F-20261018-002`](../findings/2026-10-18T071803Z-v3-fixed-support-theorem-admission.md) / [`X-20261018-003`](../computations/2026-10-18T071550Z-v3-retained-admission/record.md) — explicit C-0067 one-support v3 admission, full independent Arb input and production Rust exact positive replay, no RH.
 - [`F-20261018-001`](../findings/2026-10-18T005836Z-clean-combined-schur-proof-bearing-closure.md) — genuinely clean, committed-source v3 certificate and complete independent Arb/Rust proof replay at T=11/20,N=192; SYS-5.3 complete, **not theorem admitted**.
 - [`X-20261018-001`](../computations/2026-10-18T004000Z-v3-gate-hardening-replay/record.md) — harden immutable v3 candidate/clean provenance, independently replay 37,056 intervals and exact positive Schur margin, verify full-profile synthetic negative and no admission.

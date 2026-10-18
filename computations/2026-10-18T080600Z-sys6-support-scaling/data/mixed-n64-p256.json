@@ -1,0 +1,125 @@
+{
+  "format": "sys6-scaling-combined-research-v1",
+  "results": [
+    {
+      "support": "11/20",
+      "n": 64,
+      "prec_bits": 256,
+      "order": 32,
+      "active_terms": [
+        2,
+        3
+      ],
+      "assembly_seconds_display": 4.7695963000296615,
+      "gram_max_width_exact": "689573801/35184372088832",
+      "gram_max_width_display": 1.9598866202841236e-05,
+      "delta_R_display": 9.828028288169228e-16,
+      "normalized_truncated_combined_gram_trace_display": 7.383800444592209,
+      "normalized_truncated_separate_gram_trace_display": 7.271992063152779,
+      "normalized_mixed_cross_trace_display": 0.1118083814394301,
+      "combined_to_separated_trace_ratio_display": 1.0153752593323588,
+      "selected_diagonals": {
+        "0": {
+          "combined_gram_diagonal_display": 0.003085262955070736,
+          "mixed_cross_diagonal_display": 0.0001565915417602313
+        },
+        "1": {
+          "combined_gram_diagonal_display": 0.0026071858420063606,
+          "mixed_cross_diagonal_display": -0.00020221127214847454
+        },
+        "8": {
+          "combined_gram_diagonal_display": 0.003107984398451528,
+          "mixed_cross_diagonal_display": 0.00017575216501972962
+        },
+        "16": {
+          "combined_gram_diagonal_display": 0.003124710884058974,
+          "mixed_cross_diagonal_display": 0.00024434142242344076
+        }
+      },
+      "rigorous_complement_positive_at_n": false,
+      "rigorous_min_complement_n": 109,
+      "role": "research_only_arb_truncated_image_gram_diagnostics",
+      "warning": "Full Suzuki residual remains separately bounded by delta_R. No sign test of the full infinite-tail Schur form; no new theorem; decimal values are displays, not certificates."
+    },
+    {
+      "support": "3/5",
+      "n": 64,
+      "prec_bits": 256,
+      "order": 32,
+      "active_terms": [
+        2,
+        3
+      ],
+      "assembly_seconds_display": 4.390613699972164,
+      "gram_max_width_exact": "446231885/2251799813685248",
+      "gram_max_width_display": 1.98166765219554e-07,
+      "delta_R_display": 1.9910787727346318e-14,
+      "normalized_truncated_combined_gram_trace_display": 10.871399182904257,
+      "normalized_truncated_separate_gram_trace_display": 10.943519144470297,
+      "normalized_mixed_cross_trace_display": -0.07211996156603914,
+      "combined_to_separated_trace_ratio_display": 0.9934098022058606,
+      "selected_diagonals": {
+        "0": {
+          "combined_gram_diagonal_display": 0.004786853856437889,
+          "mixed_cross_diagonal_display": -6.233248242700327e-05
+        },
+        "1": {
+          "combined_gram_diagonal_display": 0.004736049060396573,
+          "mixed_cross_diagonal_display": 3.351595051995914e-05
+        },
+        "8": {
+          "combined_gram_diagonal_display": 0.004733438172507727,
+          "mixed_cross_diagonal_display": -5.757769770090778e-05
+        },
+        "16": {
+          "combined_gram_diagonal_display": 0.004815722816103757,
+          "mixed_cross_diagonal_display": -3.59322107383791e-05
+        }
+      },
+      "rigorous_complement_positive_at_n": false,
+      "rigorous_min_complement_n": 160,
+      "role": "research_only_arb_truncated_image_gram_diagnostics",
+      "warning": "Full Suzuki residual remains separately bounded by delta_R. No sign test of the full infinite-tail Schur form; no new theorem; decimal values are displays, not certificates."
+    },
+    {
+      "support": "13/20",
+      "n": 64,
+      "prec_bits": 256,
+      "order": 32,
+      "active_terms": [
+        2,
+        3
+      ],
+      "assembly_seconds_display": 4.588700699969195,
+      "gram_max_width_exact": "580159793/72057594037927936",
+      "gram_max_width_display": 8.051334501879559e-09,
+      "delta_R_display": 3.19127772870461e-13,
+      "normalized_truncated_combined_gram_trace_display": 12.269892307171261,
+      "normalized_truncated_separate_gram_trace_display": 12.409639761236422,
+      "normalized_mixed_cross_trace_display": -0.13974745406516006,
+      "combined_to_separated_trace_ratio_display": 0.9887387984861828,
+      "selected_diagonals": {
+        "0": {
+          "combined_gram_diagonal_display": 0.00580801053821471,
+          "mixed_cross_diagonal_display": -0.00011367033929264053
+        },
+        "1": {
+          "combined_gram_diagonal_display": 0.0051904121982534485,
+          "mixed_cross_diagonal_display": 1.1370489974063016e-05
+        },
+        "8": {
+          "combined_gram_diagonal_display": 0.005785142396886084,
+          "mixed_cross_diagonal_display": -8.184632567595551e-05
+        },
+        "16": {
+          "combined_gram_diagonal_display": 0.005257392388911472,
+          "mixed_cross_diagonal_display": 6.634299023584097e-05
+        }
+      },
+      "rigorous_complement_positive_at_n": false,
+      "rigorous_min_complement_n": 238,
+      "role": "research_only_arb_truncated_image_gram_diagnostics",
+      "warning": "Full Suzuki residual remains separately bounded by delta_R. No sign test of the full infinite-tail Schur form; no new theorem; decimal values are displays, not certificates."
+    }
+  ]
+}

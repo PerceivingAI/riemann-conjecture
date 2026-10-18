@@ -1,0 +1,13 @@
+{
+  "dimension": 192,
+  "gram_lower_positive": true,
+  "input_sha256": "44aced61e482fb7876070bc25245e0df512f4af5cbee3f36d9c7bb23b606f15b",
+  "mathematical_scope": "Failure of one conservative combined Schur sufficient criterion at T=3/5,N=192, not a negative Weil quadratic form or RH result",
+  "mu_positive": true,
+  "negative_rayleigh_upper": true,
+  "negative_upper_decimal_display": -3.1233404218545826,
+  "original_arb_source_reconstruction": "NOT_INDEPENDENTLY_CHECKED",
+  "status": "PASS_EXACT_RATIONAL_ARITHMETIC_ONLY",
+  "support": "3/5",
+  "trial_parity": "odd"
+}

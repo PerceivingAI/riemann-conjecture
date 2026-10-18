@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-08T03:38:44Z`
+- **Last updated:** `2026-10-18T07:53:59Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -322,6 +322,8 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-08-21T04:06:54Z`
 - **Used for:** Authoritative finite-support normalization in `A-20260821-003`, including the self-adjoint localized operator, the prime-power finite symbol, the separate finite-support residual kernel, the scaled Rayleigh-quotient form, and `c_T=log(2*pi*T)+EulerGamma` normalization.
 - **Verification notes:** Current arXiv text was checked directly. The paper explicitly emphasizes that its results do not assume RH and places Bombieri, Yoshida, and Connes-Consani in a unified finite-support framework.
+
+**SYS-6.1 v3 source update (2026-10-18):** Separately inspected the immutable [arXiv 2606.09096v3](https://arxiv.org/html/2606.09096v3), revised September 23, 2026: §1.1 Weil smooth-test criterion, eq. (1.7), Corollary 1.2 smooth-core characterization of the lowest Rayleigh infimum, Theorem 1.3 continuity of the bottom eigenvalue in support, and (4.5) signed/scaled form. Registered these *external* results in `EXT-0002` for `C-0068`. The earlier v2 normalization provenance above remains historically attributed; no independent replay of Suzuki's full proof, Lean formalization or new certificate is claimed.
 
 ### R-0029 — Connes and Consani on prime-threshold numerical compensation
 
