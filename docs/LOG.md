@@ -1,10 +1,18 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-18T00:42:00Z`
+- **Last updated:** `2026-10-18T00:58:36Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-18T00:58:36Z — Clean v3 proof-bearing regeneration and independently accepted fixed-support evidence
+
+**Type:** SYS-5.3 final clean-source mathematical proof-bearing verification; separate theorem admission NOT performed
+
+[`F-20261018-001`](../findings/2026-10-18T005836Z-clean-combined-schur-proof-bearing-closure.md) / [`X-20261018-002`](../computations/2026-10-18T010000Z-v3-clean-proof-candidate/record.md) document a genuinely **clean source** v3 proof-bearing candidate from pushed exact commit `f0350f89ec5189648cfc271c4ddd3a97355a2343`. The Arb-1024 matrix and exact dyadic witness were fully regenerated and matched their original immutable bytes/hashes. Fresh independent Arb-2048 analytical reconstruction confirmed **37,056** rigorous intervals and both full complementary/residual scalar enclosures. A newly generated clean v3 certificate (SHA-256 `f9948f22010d258d1c01c988fd0f18a3110c3c13453473c8c48953560a7fffcb`) then passed both complete source and zero-float exact Rust rational gates against its own captured bytes. The minimum exact positive Gershgorin margin matched the original witness. **SYS-5.3 CLEAN PROOF-BEARING GATE CLOSED.** The normal theorem-admission command was separately verified to **reject** this clean candidate because v3's production admission list is empty. No v1/v2 theorem promotion, retained proof registration, new support theorem acceptance or RH assertion occurred.
+
+---
 
 ## 2026-10-18T00:42:00Z — v3 byte-snapshot/source-provenance hardening and independently repeated research acceptance
 

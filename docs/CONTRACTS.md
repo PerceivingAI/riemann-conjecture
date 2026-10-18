@@ -1,7 +1,7 @@
 # Repository Architecture & Proof Contracts
 
 - **Created:** `2026-08-21T06:00:00Z`
-- **Last updated:** `2026-10-18T00:42:00Z`
+- **Last updated:** `2026-10-18T00:58:36Z`
 - **Status:** Authoritative
 
 This document defines the formal software architecture, proof-certificate contracts, and dependency policies governing research and computation in this repository.
@@ -272,6 +272,9 @@ P7 acceptance: complete Rust verifier suite `63/63`; strict rustfmt and clippy w
 ---
 
 
+
+
+**2026-10-18 clean-proof execution addendum.** The separately defined \`rh-weil-certificate-v3\` contract has now been executed from a clean, pushed committed source at exact \`T=11/20,N=192\`. Fresh Arb-1024 matrix and rational witness hashes matched historical files exactly; independent Arb-2048 full input containment plus independent exact Rust congruence verification both passed on the newly generated **clean** v3 candidate. [\`X-20261018-002\`](../computations/2026-10-18T010000Z-v3-clean-proof-candidate/record.md) records the full source revision, certificate hash, reproduction commands and final receipt. **No theorem admission is implied**: Rust production \`verify\` still rejects v3 due to its empty production whitelist; no retained-proof registration or v1/v2 semantic change occurred.
 **2026-10-18 v3 trust-boundary correction.** [X-20261018-001](../computations/2026-10-18T004000Z-v3-gate-hardening-replay/record.md) now ties independent mathematical input containment and exact Rust congruence to a captured immutable certificate byte image, rather than reopening a mutable path. It checks clean-source producer identity, same recorded Git commit/source state, source-auditor SHA, candidate input digest, Rust executable fingerprint and matching exact claim/trust flags. The corrected v3 research replay was positive with the same exact margin. This is an additional source-verification safeguard; **no change to the original v1/v2 contracts or the still-empty v3 production-admission set**. A fresh clean-source certificate and explicit theorem admission remain separate unperformed gates.
 ## 2026-10-17T22:45:00Z — Distinct v3 combined-Gram pre-admission research contract
 
