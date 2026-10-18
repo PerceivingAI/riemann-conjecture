@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-18T07:18:03Z`
+- **Last updated:** `2026-10-18T08:51:38Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -760,6 +760,50 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0063`, `C-0064`, `C-0065`; external Suzuki source `R-0028`; previously proved complement/source identities `C-0044`, `C-0045`, `C-0058`, `C-0059`.
 - **Source:** `F-20261018-002` and `X-20261018-003`, with clean original mathematical-source reproduction `X-20261018-002`.
 - **Verification notes:** Explicit v3 admission is **one exact** source-fingerprinted, SHA-pinned proof at `T=11/20,N=192,K=32,eta=2^-24` in separate `computations/retained-proofs-v3.json`. Independent full 37,056 interval and `mu,delta` acceptance, plus exact two-parity rational Schur positive congruence, passed. The authoritative replay script `scripts.cert.verify_retained_v3` checks both source/analytical and Rust proof layers and exact approved bytes; production Rust `verify` accepts only those bytes. Full transcendental source correctness remains in the stated external Suzuki/Arb trust base. The eight frozen v1 claims `C-0050..C-0057` and empty v2 admission are unchanged. This yields no RH proof.
+
+### C-0068 — Inherited and existential rightward localized Weil positivity
+
+- **Statement:** Assume the admitted fixed-support `C-0067` in Suzuki's unscaled globally consistent Weil test-class normalization. Then there is \(\varepsilon_0>0\) such that \(Q_W(f)\ge\varepsilon_0\|f\|_2^2\) for every \(f\in C_c^\infty(-t,t)\) and every \(0<t\le11/20\). Moreover, by **external** Suzuki v3 Corollary 1.2 (lowest Rayleigh quotient equals the smooth-core infimum) and Theorem 1.3 (lowest localized eigenvalue continuous in support), **there exists an unspecified \(\delta>0\)** such that the same test-class Weil form is strictly positive for every \(0<t<11/20+\delta\). The proof does **not** provide a quantitative \(\delta\) or certify any *chosen* larger rational support.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (elementary inclusion/continuity deduction **conditional on the attributed external source result**; not a new Arb/Rust retained theorem or Lean proof)
+- **First recorded:** `2026-10-18T07:53:59Z`
+- **Last verified:** `2026-10-18T07:53:59Z`
+- **Dependencies:** `C-0067`; **external** `EXT-0002` / bibliography `R-0028`, Suzuki 2606.09096v3 Corollary 1.2 and Theorem 1.3.
+- **Source:** `F-20261018-003` (`findings/2026-10-18T075359Z-sys6-support-baseline.md`).
+- **Verification notes:** With \(\lambda(t)=\inf_{0\ne f\in C_c^\infty(-t,t)}Q_W(f)/\|f\|_2^2\), test-space nesting gives \(\lambda(t)\ge\lambda(11/20)>0\) for \(t\le11/20\), and the cited external continuity theorem gives a strictly positive unspecified right neighborhood. This uses the **same** unscaled Weil form across nested supports; it does **not** assert operator-norm continuity of compressed shifts or positivity of the v3 Schur **sufficient matrix** at neighboring \(t\). No change to the exact closed one-pair v3 admission or the eight frozen v1/v2 contracts; no RH conclusion.
+
+### C-0069 — Unbounded smooth-support covering is equivalent to unrestricted Weil positivity
+
+- **Statement:** For the **same globally defined unscaled** Weil quadratic form \(Q_W(f)=W(f*\widetilde f)\), the externally established Weil criterion implies the following equivalences: RH; \(Q_W(f)\ge0\) for every \(f\in C_c^\infty(\mathbb R)\); nonnegativity for all \(f\in C_c^\infty(-T,T)\) at **every** finite \(T>0\); nonnegativity at **every integer** support \(T=n\ge1\); or the **existence of an unbounded sequence** \(T_j\) on each of which all such test functions are nonnegative. These are logical equivalences **only when the universal assertions about the entire unbounded family are proved**. A finite family of admitted certificates, even together with Suzuki's nonquantitative local continuity of the lowest eigenvalue, does not discharge any all-support quantifier. No support-independent strictly positive coercivity constant is required by Weil's nonnegative criterion.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (elementary compact-support inclusion/quantifier proof **conditional on external Weil equivalence**, not Lean-kernel rederived and not a certificate-admitted theorem)
+- **First recorded:** `2026-10-18T08:46:33Z`
+- **Last verified:** `2026-10-18T08:46:33Z`
+- **Dependencies:** External Suzuki `R-0028` / `EXT-0002`, §1.1 Weil test criterion; elementary compact-support nesting; `C-0067`, `C-0068` only to contrast finite and local consequences.
+- **Source:** `F-20261018-005` (`findings/2026-10-18T084633Z-sys6-global-support-obligation.md`).
+- **Verification notes:** The countable-support reduction is because any compact subset of \(\mathbb R\) lies in \((-n,n)\) for some integer n. This does **not** give a method to establish the nonnegativity assertions. Suzuki v3 separately describes the strict localized bottom-eigenvalue/nondegeneracy variant under its *additional* spectral results; the present claim does not depend on deriving that stronger variant. All admissions remain exactly eight frozen v1 plus one v3 C-0067; RH unresolved.
+
+### C-0070 — Unrestricted combined-Schur proof obligation is open
+
+- **Statement:** The conditional combined-Schur theorem `C-0064` would imply full Weil positivity if it could be applied with mathematically valid global source/form identities and rigorous complete-tail, mixed-Gram, and positive low-Schur bounds to an **unbounded covering family** of supports (for example, every integer \(T=n\ge1\)). Such a universal assertion would itself imply RH by `C-0069`. The repository has **not** proved its hypotheses for every support and has not shown that RH implies the existence of this particular conservative Schur witness family. In particular, `C-0063` and the current Bernoulli/Taylor residual enclosure are validated only for \(2T<\pi\); they cannot be used beyond that range without a separately justified global residual treatment. This identifies an open sufficient route, **not** an established equivalent formulation, all-support theorem, mathematical no-go, or future theorem admission.
+- **Type:** `OPEN_REQUIREMENT`
+- **Status:** `PROVISIONAL` (open, source-reviewed and precisely scoped; **not a mathematical proof of this universal condition**)
+- **First recorded:** `2026-10-18T08:46:33Z`
+- **Last verified:** `2026-10-18T08:46:33Z`
+- **Dependencies:** `C-0063`–`C-0065`, `C-0058`, `C-0069`, `F-20261018-004`, externally sourced Suzuki `R-0028`.
+- **Source:** `F-20261018-005` and unchanged `scripts/cert/residual_kernel.py`; executed expected failure of `_residual_rho(arb(2),32)` with `ValueError`.
+- **Verification notes:** The local residual cutoff is an **applicability limitation of the current Taylor bound**, not of Suzuki's globally defined quadratic form or Weil's criterion. Enlarging N until \(\mu_N>0\) does not establish the complete Schur sign; no all-support \(N(T)\), residual enclosure, or exact positive matrix witness is known. Frozen v1/v2/v3 contract and admission files unchanged; RH unresolved.
+
+### C-0071 — Positive conservative high-tail complement exists pointwise throughout local range
+
+- **Statement:** Under the established local Suzuki-scaled form and residual majorant hypotheses of `C-0058` and `C-0063`, for **every fixed** \(0<T<\pi/2\), there exists a finite Legendre cutoff \(N=N(T)\) for which the current conservative high-tail bound \(\mu_N(T)=H_N-\log(2\pi T)-\gamma-\sum_{\log m<2T}(\Lambda(m)/\sqrt m)b_m(T)-\rho_R(T)\) is **strictly positive**. **This does not assert positivity of the complete combined-Schur sufficient matrix** at that support, a uniform N, a quantitative global dimension law, or any result at \(T\ge\pi/2\).
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (elementary finiteness and harmonic divergence under the explicitly stated local mathematical trust assumptions; not a fresh retained theorem or Lean proof)
+- **First recorded:** `2026-10-18T08:51:38Z`
+- **Last verified:** `2026-10-18T08:51:38Z`
+- **Dependencies:** `C-0058`, `C-0063`, `C-0040`; finite prime-power enumeration and locally justified Suzuki Taylor remainder.
+- **Source:** `F-20261018-005` §4, `findings/2026-10-18T084633Z-sys6-global-support-obligation.md`.
+- **Verification notes:** For each fixed local T the active arithmetic sum is finite, the exact compressed-shift norms are bounded, the \(2T<\pi\) Taylor remainder \(\rho_R(T)\) is finite, and \(H_N\to\infty\). Thus the scalar complement eventually becomes positive for some N. No claim that the *low combined Gram Schur bound* becomes positive with increasing N follows. `C-0069` global Weil equivalence and open `C-0070` remain unchanged; RH unresolved.
 
 ## Entry format
 

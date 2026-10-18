@@ -1,9 +1,26 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-18T07:18:03Z`
+- **Last updated:** `2026-10-18T09:11:52Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
+
+## SYS-6.4 — One selective larger-support Schur-sign research check (NO ADMISSION)
+
+The **research-only** `scripts/weil_selective_support_probe.py` evaluates the unchanged complete \(V/P/R_K\) low block and mixed-image Gram at exactly \(T=3/5,N=192,K=32\) with Arb-1024, maintaining \(\eta=2^{-24}\), a strictly positive conservative full-tail \(\underline\mu\), and the complete Suzuki residual norm correction. A floating eigenvector is merely a direction **selector**. The script rounds it to a dyadic **odd-parity** vector and uses outward Arb intervals plus exact rational arithmetic to obtain an **upper** Rayleigh bound for the chosen Schur sufficient matrix. At the tested support, this upper is strictly **negative**, so **this sufficient matrix** cannot be positive. It says nothing negative about the actual Weil quadratic form or a changed N/stronger complement.
+
+`scripts/verify_selective_support_probe.py` rechecks the strict rational sign and original source SHA-256 fingerprints without trusting the research sign label; it **does not independently rederive** the full transcendental Arb source entries or admit any theorem. [`X-20261018-005`](../computations/2026-10-18T090311Z-sys6-selective-support/record.md) retains the scoped original inputs and exact arithmetic replay; [`F-20261018-006`](../findings/2026-10-18T091152Z-sys6-selective-support-decision.md) records the **no-admission** outcome. Focused checks: `uv run --locked --extra test python -m pytest -q tests/test_selective_support_probe.py tests/test_support_scaling_scout.py tests/test_mixed_gram_research.py` (**31/31 PASS**). The closed proof-bearing v1/v3 systems and independent full source theorem verification remain separate and unchanged.
+
+**SYS-6.3 verified applicability limit (2026-10-18):** The current `_suzuki_residual_tail_radius` and its `_residual_rho` wrapper explicitly require the full scaled kernel arguments \(|T(x-y)|<\pi\) throughout \([-1,1]^2\), i.e. \(2T<\pi\). Directly using them for \(T=2\) correctly fails closed. **This is not a limitation of Suzuki's globally defined Weil quadratic form.** Separately, the conservative scalar \(\mu_N(T)>0\) eventually holds at **each fixed T** within that local range as N increases (C-0071), but that does **not** establish the complete Schur matrix sign or any global positivity. [F-20261018-005](../findings/2026-10-18T084633Z-sys6-global-support-obligation.md) records the exact source and quantifier checks, with no changes to source or theorem admissions.
+
+## SYS-6.2 — Support-scaling research tools (NOT theorem admission)
+
+Two additive small-scope CLI tools complement the existing **unaltered** mathematical mixed-Gram source:
+
+- `scripts/weil_support_scaling_scout.py`: for a list of exact rational supports, compute certified Arb outward intervals for the existing conservative tail-complement scalar \(H_N-c_T-\sum c_mb_m-\rho_R\), exact prime-power activation, and the first \(N\) where the *bound* is rigorously positive. It does **not** compute or certify the full combined Schur matrix.
+- `scripts/weil_combined_scaling_profile.py`: rerun `assemble_truncated_mixed_gram` at a small requested \(N\) with rigorous Arb source inputs, report widths, signed mixed trace displays, elapsed time and truncation residual bound. Traces/ratios are **floating displays** of source balls, **not** eigenvalue lower bounds, full-residual Schur signs or theorem claims. The original proof-bearing source modules remain unchanged.
+
+The completed reproducible support/\(N\)/precision comparison and commands are [`X-20261018-004`](../computations/2026-10-18T080600Z-sys6-support-scaling/record.md); classification [`F-20261018-004`](../findings/2026-10-18T081419Z-sys6-support-scaling-analysis.md). Focused checks: `uv run --locked --extra test python -m pytest -q tests/test_support_scaling_scout.py` (**6/6 PASS**). The tool output must **never** be interpreted as a separate admission under `rh-weil-certificate-v3`; there is still exactly one v3 retained support pair \(T=11/20,N=192\).
 
 ## SYS-5.4 — One admitted v3 finite-support theorem: canonical replay
 

@@ -10,6 +10,8 @@ An `EXT-` record is a provenance object, not a claim of authorship by this proje
 
 Independent replay or adoption into the repository trust chain is a separate step. A record that has not yet been independently replayed must say so explicitly.
 
+For `EXT-0002`, see [`EXT-0002-suzuki-localized-eigenvalue-continuity.md`](EXT-0002-suzuki-localized-eigenvalue-continuity.md): Suzuki arXiv 2606.09096v3 Corollary 1.2 and Theorem 1.3 are cited as **external** smooth-core and lowest-eigenvalue continuity inputs to `C-0068`; no independent proof replay or v3 certificate admission is claimed.
+
 For `EXT-0001`, see `EXT-0001-openai-quasi-rh.md` for source provenance and
 [`EXT-0001-lean-overlap-audit.md`](EXT-0001-lean-overlap-audit.md) for the
 OAI-3 pinned Mathlib / OpenAI theorem-and-dependency classification.

@@ -1,0 +1,317 @@
+{
+  "format": "sys6-support-scaling-scalar-v1",
+  "results": [
+    {
+      "support": "11/20",
+      "active_terms": [
+        2,
+        3
+      ],
+      "prec_bits": 256,
+      "residual_order": 32,
+      "terms": [
+        {
+          "m": 2,
+          "coefficient_decimal_display": 0.4901290717342736,
+          "shift_norm_upper_display": 1.0,
+          "loss_upper_display": 0.4901290717342736
+        },
+        {
+          "m": 3,
+          "coefficient_decimal_display": 0.634284100597564,
+          "shift_norm_upper_display": 1.0,
+          "loss_upper_display": 0.634284100597564
+        }
+      ],
+      "c_T_upper_display": 1.817255730555258,
+      "rho_R_upper_display": 2.329435733367713,
+      "scalar_cost_lower": "640000687782439575457649671428213533909584236918374915811496619363660899394502038171/121416805764108066932466369176469931665150427440758720078238275608681517825325531136",
+      "scalar_cost_upper": "640000687782439575457649671428213533909584236918374915811496619363660899394846420325/121416805764108066932466369176469931665150427440758720078238275608681517825325531136",
+      "scalar_cost_upper_display": 5.271104636254808,
+      "minimal_N_for_positive_conservative_mu": 109,
+      "sampled_dimensions": [
+        {
+          "N": 96,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -0.12434148869936676,
+          "mu_upper_decimal_display": -0.12434148869936676
+        },
+        {
+          "N": 128,
+          "mu_certified_positive": true,
+          "mu_certified_negative": false,
+          "mu_lower_decimal_display": 0.16204245633436398,
+          "mu_upper_decimal_display": 0.16204245633436398
+        },
+        {
+          "N": 192,
+          "mu_certified_positive": true,
+          "mu_certified_negative": false,
+          "mu_lower_decimal_display": 0.5662083067859621,
+          "mu_upper_decimal_display": 0.5662083067859621
+        },
+        {
+          "N": 256,
+          "mu_certified_positive": true,
+          "mu_certified_negative": false,
+          "mu_lower_decimal_display": 0.853240326562472,
+          "mu_upper_decimal_display": 0.853240326562472
+        }
+      ],
+      "role": "rigorous_arb_scalar_complement_only_no_schur_no_theorem",
+      "warning": "Decimal displays are approximate; binary decisions come from Arb rational enclosures."
+    },
+    {
+      "support": "3/5",
+      "active_terms": [
+        2,
+        3
+      ],
+      "prec_bits": 256,
+      "residual_order": 32,
+      "terms": [
+        {
+          "m": 2,
+          "coefficient_decimal_display": 0.4901290717342736,
+          "shift_norm_upper_display": 1.0,
+          "loss_upper_display": 0.4901290717342736
+        },
+        {
+          "m": 3,
+          "coefficient_decimal_display": 0.634284100597564,
+          "shift_norm_upper_display": 1.0,
+          "loss_upper_display": 0.634284100597564
+        }
+      ],
+      "c_T_upper_display": 1.9042671075448876,
+      "rho_R_upper_display": 2.623712677576802,
+      "scalar_cost_lower": "2745181991270189012444870605162687254261236991658747183096240248525072046010019454101/485667223056432267729865476705879726660601709763034880312953102434726071301302124544",
+      "scalar_cost_upper": "2745181991270189012444870605162687254261236991658747183096240248525072046011570611051/485667223056432267729865476705879726660601709763034880312953102434726071301302124544",
+      "scalar_cost_upper_display": 5.652392957453527,
+      "minimal_N_for_positive_conservative_mu": 160,
+      "sampled_dimensions": [
+        {
+          "N": 96,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -0.5056298098980855,
+          "mu_upper_decimal_display": -0.5056298098980855
+        },
+        {
+          "N": 128,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -0.21924586486435474,
+          "mu_upper_decimal_display": -0.21924586486435474
+        },
+        {
+          "N": 192,
+          "mu_certified_positive": true,
+          "mu_certified_negative": false,
+          "mu_lower_decimal_display": 0.18491998558724346,
+          "mu_upper_decimal_display": 0.18491998558724346
+        },
+        {
+          "N": 256,
+          "mu_certified_positive": true,
+          "mu_certified_negative": false,
+          "mu_lower_decimal_display": 0.47195200536375326,
+          "mu_upper_decimal_display": 0.47195200536375326
+        }
+      ],
+      "role": "rigorous_arb_scalar_complement_only_no_schur_no_theorem",
+      "warning": "Decimal displays are approximate; binary decisions come from Arb rational enclosures."
+    },
+    {
+      "support": "13/20",
+      "active_terms": [
+        2,
+        3
+      ],
+      "prec_bits": 256,
+      "residual_order": 32,
+      "terms": [
+        {
+          "m": 2,
+          "coefficient_decimal_display": 0.4901290717342736,
+          "shift_norm_upper_display": 1.0,
+          "loss_upper_display": 0.4901290717342736
+        },
+        {
+          "m": 3,
+          "coefficient_decimal_display": 0.634284100597564,
+          "shift_norm_upper_display": 1.0,
+          "loss_upper_display": 0.634284100597564
+        }
+      ],
+      "c_T_upper_display": 1.984309815218424,
+      "rho_R_upper_display": 2.93995885640426,
+      "scalar_cost_lower": "2937646514305252560122492991234188570302851988386771843696311000653262586614249564283/485667223056432267729865476705879726660601709763034880312953102434726071301302124544",
+      "scalar_cost_upper": "2937646514305252560122492991234188570302851988386771843696311000653262586615853602693/485667223056432267729865476705879726660601709763034880312953102434726071301302124544",
+      "scalar_cost_upper_display": 6.048681843954522,
+      "minimal_N_for_positive_conservative_mu": 238,
+      "sampled_dimensions": [
+        {
+          "N": 96,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -0.9019186963990797,
+          "mu_upper_decimal_display": -0.9019186963990797
+        },
+        {
+          "N": 128,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -0.615534751365349,
+          "mu_upper_decimal_display": -0.615534751365349
+        },
+        {
+          "N": 192,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -0.2113689009137508,
+          "mu_upper_decimal_display": -0.2113689009137508
+        },
+        {
+          "N": 256,
+          "mu_certified_positive": true,
+          "mu_certified_negative": false,
+          "mu_lower_decimal_display": 0.075663118862759,
+          "mu_upper_decimal_display": 0.075663118862759
+        }
+      ],
+      "role": "rigorous_arb_scalar_complement_only_no_schur_no_theorem",
+      "warning": "Decimal displays are approximate; binary decisions come from Arb rational enclosures."
+    },
+    {
+      "support": "69/100",
+      "active_terms": [
+        2,
+        3
+      ],
+      "prec_bits": 256,
+      "residual_order": 32,
+      "terms": [
+        {
+          "m": 2,
+          "coefficient_decimal_display": 0.4901290717342736,
+          "shift_norm_upper_display": 1.0,
+          "loss_upper_display": 0.4901290717342736
+        },
+        {
+          "m": 3,
+          "coefficient_decimal_display": 0.634284100597564,
+          "shift_norm_upper_display": 1.0,
+          "loss_upper_display": 0.634284100597564
+        }
+      ],
+      "c_T_upper_display": 2.0440290499200464,
+      "rho_R_upper_display": 3.2102345186512156,
+      "scalar_cost_lower": "387239277441132742275371327577626745394693082345406305117766239807340791514973477633/60708402882054033466233184588234965832575213720379360039119137804340758912662765568",
+      "scalar_cost_upper": "387239277441132742275371327577626745394693082345406305117766239807340791515180819711/60708402882054033466233184588234965832575213720379360039119137804340758912662765568",
+      "scalar_cost_upper_display": 6.378676740903099,
+      "minimal_N_for_positive_conservative_mu": 331,
+      "sampled_dimensions": [
+        {
+          "N": 96,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -1.2319135933476577,
+          "mu_upper_decimal_display": -1.2319135933476577
+        },
+        {
+          "N": 128,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -0.9455296483139269,
+          "mu_upper_decimal_display": -0.9455296483139269
+        },
+        {
+          "N": 192,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -0.5413637978623287,
+          "mu_upper_decimal_display": -0.5413637978623287
+        },
+        {
+          "N": 256,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -0.2543317780858189,
+          "mu_upper_decimal_display": -0.2543317780858189
+        }
+      ],
+      "role": "rigorous_arb_scalar_complement_only_no_schur_no_theorem",
+      "warning": "Decimal displays are approximate; binary decisions come from Arb rational enclosures."
+    },
+    {
+      "support": "7/10",
+      "active_terms": [
+        2,
+        3,
+        4
+      ],
+      "prec_bits": 256,
+      "residual_order": 32,
+      "terms": [
+        {
+          "m": 2,
+          "coefficient_decimal_display": 0.4901290717342736,
+          "shift_norm_upper_display": 1.4142135623730951,
+          "loss_upper_display": 0.6931471805599453
+        },
+        {
+          "m": 3,
+          "coefficient_decimal_display": 0.634284100597564,
+          "shift_norm_upper_display": 1.0,
+          "loss_upper_display": 0.634284100597564
+        },
+        {
+          "m": 4,
+          "coefficient_decimal_display": 0.34657359027997264,
+          "shift_norm_upper_display": 1.0,
+          "loss_upper_display": 0.34657359027997264
+        }
+      ],
+      "c_T_upper_display": 2.058417787372146,
+      "rho_R_upper_display": 3.2803559809487233,
+      "scalar_cost_lower": "1702938363940451358484081322108893464524515604414952206135414026311469926925764344353/242833611528216133864932738352939863330300854881517440156476551217363035650651062272",
+      "scalar_cost_upper": "1702938363940451358484081322108893464524515604414952206135414026311469926926693483999/242833611528216133864932738352939863330300854881517440156476551217363035650651062272",
+      "scalar_cost_upper_display": 7.012778639758351,
+      "minimal_N_for_positive_conservative_mu": 624,
+      "sampled_dimensions": [
+        {
+          "N": 96,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -1.8660154922029093,
+          "mu_upper_decimal_display": -1.8660154922029093
+        },
+        {
+          "N": 128,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -1.5796315471691786,
+          "mu_upper_decimal_display": -1.5796315471691786
+        },
+        {
+          "N": 192,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -1.1754656967175805,
+          "mu_upper_decimal_display": -1.1754656967175805
+        },
+        {
+          "N": 256,
+          "mu_certified_positive": false,
+          "mu_certified_negative": true,
+          "mu_lower_decimal_display": -0.8884336769410707,
+          "mu_upper_decimal_display": -0.8884336769410707
+        }
+      ],
+      "role": "rigorous_arb_scalar_complement_only_no_schur_no_theorem",
+      "warning": "Decimal displays are approximate; binary decisions come from Arb rational enclosures."
+    }
+  ]
+}

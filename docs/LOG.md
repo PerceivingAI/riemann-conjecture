@@ -1,10 +1,46 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-18T07:28:19Z`
+- **Last updated:** `2026-10-18T09:24:56Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-18T09:24:56Z — SYS-6.5 final support-continuation assessment and no-go decision
+
+[`F-20261018-007`](../findings/2026-10-18T092456Z-sys6-support-continuation-final-decision.md) closes the **SYS-6 research assessment** (6.1–6.5) with distinct evidence classes. Admitted `C-0067` proves fixed T=0.55 positivity under its documented Suzuki/Arb trust base; smaller supports inherit this, and Suzuki's external continuity gives only an unspecified right neighborhood (C-0068), not a separately accepted larger certificate. SYS-6.2 rigorous sufficient-tail cutoffs increase sharply with T, and its small-N source interval/trace profiles are **diagnostics, not Schur signs**. SYS-6.3 identifies the unrestricted \(\forall T\) Weil test-class requirement, pointwise achievable conservative high-tail \(\mu_N>0\) within local \(2T<\pi\), yet no globally valid residual/full low-Schur inequality. SYS-6.4's odd-sector exact rational upper at T=0.60,N=192 is strictly negative **for the chosen sufficient Schur matrix**, with independent arithmetic (not full Arb all-entry) replay; **not** a negative Weil-form theorem. **Decision: NO-GO for routine proliferation of isolated finite-support certificates as a substitute for a universal mathematical argument**; **NOT** a structural no-go for other bound/decomposition choices. Exactly eight v1 and one v3 theorem remain admitted, v2 zero; no new SYS-6 admission, no RH proof, no private roadmap publication. **SYS-6.5 and SYS-6 COMPLETED as a scoped research decision**, not unrestricted positivity.
+
+---
+
+## 2026-10-18T09:11:52Z — SYS-6.4 selective larger-support negative sufficient criterion, no admission
+
+[`F-20261018-006`](../findings/2026-10-18T091152Z-sys6-selective-support-decision.md) / [`X-20261018-005`](../computations/2026-10-18T090311Z-sys6-selective-support/record.md) record exactly one bounded **T=3/5,N=192** complete mixed-\(V/P/R_K\) research probe (Arb-1024, K=32, \(\eta=2^{-24}\), active \(\{2,3\}\)). The conservative full-tail \(\mu_N\) is positive, yet a dyadic **odd-parity** direction has a **strictly negative exact rational upper** \(-3.12334042185\ldots\) for the selected bound-specific full combined-Schur sufficient matrix, with the *full* residual controlled. An independent checker re-evaluated the exact rational sign and source fingerprint but **not independently all Arb mathematical inputs**. This is generator-source-qualified negative **sufficient-criterion** evidence, NOT Weil-form negativity, no new RH evidence or all-dimension no-go. Compared with the admitted T=0.55 theorem, fixed N=192 and the conservative complement do not survive to 0.60; a stronger complement or changed N was neither proved nor refuted. **SYS-6.4 concluded: NO additional theorem admission**, no uninformative certificate proliferation. 31 focused checks PASS, all frozen contracts untouched; RH unresolved.
+
+---
+
+## 2026-10-18T08:51:38Z — SYS-6.3 local complement-existence refinement
+
+[`C-0071`](CLAIMS.md) is an elementary consequence of the existing C-0058/C-0063 local range: for each fixed \(0<T<\pi/2\), the active prime-power set, coefficient/norm loss and Suzuki Taylor residual majorant are finite, while harmonic \(H_N\to\infty\). Therefore **some N** always makes the *conservative scalar complement* positive. This identifies that gate as a finite-T computational/dimensional cost rather than an absolute logical obstruction **inside that range**. It does **not** make the full combined low Schur positive and does **not** extend the Taylor source past \(2T<\pi\). [F-20261018-005 §4](../findings/2026-10-18T084633Z-sys6-global-support-obligation.md) records the proof. No new theorem admission or RH implication.
+
+---
+
+## 2026-10-18T08:46:33Z — SYS-6.3 unrestricted Weil proof-obligation audit
+
+[`F-20261018-005`](../findings/2026-10-18T084633Z-sys6-global-support-obligation.md) and derived `C-0069` establish the exact all-test-class quantifier logic under the **externally checked** Weil criterion: RH is equivalent to positivity on every compact smooth test function, equivalently for every integer support, equivalently on an unbounded family when all members are **mathematically proved**. A support-independent positive lower constant is unnecessary. The proposed universally quantified combined-Schur proof conditions would *imply* RH but are merely sufficient; their converse is not established and no unbounded support family has been proved. The current verified Suzuki residual/Taylor enclosure explicitly requires \(2T<\pi\): a fail-closed local source check rejects T=2 while accepting T=1/2. Separate from this applicability boundary, no universal positive full mixed-Gram Schur inequality has been proved, and positive conservative complements alone do not imply one. `C-0070` records this open proof obligation, not an admitted result. No matrix requalification, code changes, private roadmap disclosure, altered retained theorem or RH claim. SYS-6.3 **mathematical obligation characterization complete**; global positivity remains open.
+
+---
+
+## 2026-10-18T08:14:19Z — SYS-6.2 rigorous complement scaling and combined-Gram diagnostics
+
+[`F-20261018-004`](../findings/2026-10-18T081419Z-sys6-support-scaling-analysis.md) / [`X-20261018-004`](../computations/2026-10-18T080600Z-sys6-support-scaling/record.md) record selected-source scaling runs, not a theorem-extension campaign. Rigorous Arb-256 scalar bounds gave first \(N\) passing the present conservative \(\mu_N>0\) test: `109,160,238,331,624` at respectively \(T=0.55,0.60,0.65,0.69,0.70\), the last beyond the \(m=4\) entry. The existing Suzuki residual absolute norm dominates the smooth within-window bound increase; the arithmetic shift-norm step contributes a further jump at the new prime-power wall. Research-only Arb mixed-Gram \(N=64/128\) profiles across selected supports reproduce tight source enclosures at sufficient precision, variable signed cross traces, and significant precision sensitivity. They **do not** establish full combined-Schur sign at a new support; negative conservative \(\mu_N\) is not negativity of the Weil form. New additive diagnostics and **6/6** focused tests, no v1/v2/v3 contract/source admission changes. Decision: scaling obstacles documented; larger-support positive theorem remains unestablished; RH unresolved. SYS-6.2 COMPLETED.
+
+---
+
+## 2026-10-18T07:53:59Z — SYS-6.1 source-audited support baseline
+
+[`F-20261018-003`](../findings/2026-10-18T075359Z-sys6-support-baseline.md), `C-0068` and separately attributed external [`EXT-0002`](../references/external-results/EXT-0002-suzuki-localized-eigenvalue-continuity.md) distinguish three separate results. **First**, existing `C-0067` automatically covers every smaller compact smooth test support by test-space inclusion, with the same existential \(L^2\) coercivity constant. **Second**, Suzuki's published v3 Theorem 1.3 plus Corollary 1.2 yields an *unquantified* positive right neighborhood of \(T=11/20\) without a new finite certificate; no numerical radius, chosen support or v3 admission follows. **Third**, the existing complete combined-Schur mechanism, all support- and \(N\)-dependent inputs, 37,056-entry \(N=192\) proof cost, and prime-power activation/shift-norm walls are mapped without any new computation or proof claim. No full Suzuki operator-domain equality, uniform all-support control, or RH proof is asserted. All original exact v1/v2/v3 theorem admission files remain untouched. SYS-6.1 CLOSED.
+
+---
 
 ## 2026-10-18T07:28:19Z — SYS-5.4 final independent regression and compatibility check
 
