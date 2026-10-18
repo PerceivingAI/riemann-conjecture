@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-18T00:42:00Z`
+- **Last updated:** `2026-10-18T00:58:36Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -52,6 +52,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [`F-20261018-001`](../findings/2026-10-18T005836Z-clean-combined-schur-proof-bearing-closure.md) — genuinely clean, committed-source v3 certificate and complete independent Arb/Rust proof replay at T=11/20,N=192; SYS-5.3 complete, **not theorem admitted**.
 - [`X-20261018-001`](../computations/2026-10-18T004000Z-v3-gate-hardening-replay/record.md) — harden immutable v3 candidate/clean provenance, independently replay 37,056 intervals and exact positive Schur margin, verify full-profile synthetic negative and no admission.
 - [`F-20261017-016`](../findings/2026-10-17T224310Z-v3-combined-schur-proof-system-implementation.md) — separately versioned full mixed-Gram v3 research certificate; independent 37,056-entry analytic containment and exact Rust replay pass; no clean proof-bearing theorem admission.
 - [`F-20261017-015`](../findings/2026-10-17T220105Z-complete-independent-analytic-enclosure-closure.md) — independently rigorous full 37,056-entry low/combined-Gram interval containment and positive Schur replay at T=11/20,N=192; source-mathematics gate closed, **theorem not yet admitted**.

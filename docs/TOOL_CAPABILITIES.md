@@ -31,6 +31,10 @@ This additive post-SYS-1 capability implements a distinct full combined-Gram Sch
 
 [X-20261018-001](../computations/2026-10-18T004000Z-v3-gate-hardening-replay/record.md) fixes the input TOCTOU gap in v3: both analytic and Rust exact verification are now tied to one captured candidate byte snapshot, including digest checking of Rust input/executable. Generator provenance distinguishes clean proof-bearing from historical research, and forbids forged clean labels unless both script and source commit/tree verify. A fresh full reference and exact replay again pass every one of 37,056 input intervals, μ/δ, and the exact same minimum positive margin; a complete 192-dimensional negative mathematical control returns exit 1 without admission. Scoped tests: Python 37/37, Rust 73/73, synthetic negative 1/1. The distinct production v3 admission list is still empty; clean-source proof-bearing replay remains unperformed. These are later additive results, not part of the original pinned SYS-1 inventory.
 
+## 2026-10-18 — Clean v3 proof-bearing run completed
+
+**Later additive status, not part of the pinned original SYS-1 audit.** The full `T=11/20,N=192` combined-Schur Arb-1024 input and exact 48-bit dyadic witness were *freshly regenerated* from clean pushed commit `f0350f89ec5189648cfc271c4ddd3a97355a2343`, matching the historical original hashes exactly. The newly generated `clean_candidate_pending_admission` v3 certificate passed two real independent checks bound to the same immutable input bytes: all 37,056 low/Gram intervals plus full residual and complement were rigorously re-contained by Arb-2048, and exact zero-float Rust congruence matched the original minimum positive rational margin. This **closes the SYS-5.3 clean proof-bearing gate**, not the explicit new theorem acceptance gate. **Production v3 admission is still EMPTY**, v1/v2 untouched and RH unresolved. See [`X-20261018-002`](../computations/2026-10-18T010000Z-v3-clean-proof-candidate/record.md) / [`F-20261018-001`](../findings/2026-10-18T005836Z-clean-combined-schur-proof-bearing-closure.md).
+
 ## 1. How to read this inventory
 
 | Label | Meaning |
