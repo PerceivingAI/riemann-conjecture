@@ -1,0 +1,12 @@
+{
+  "changed_source_cli_exit": 2,
+  "existing_output_bytes_preserved": true,
+  "existing_output_cli_exit": 2,
+  "independent_exact_result_matched": true,
+  "pytest_elapsed_seconds": 0.51,
+  "source_reassembly_performed": false,
+  "strict_upper_below_minus_six_fifths": true,
+  "test_command": "uv run --locked --extra test python -m pytest -n 0 -q tests/test_directional_exact_screen.py",
+  "test_command_wall_seconds": 1.36,
+  "tests_passed": 12
+}

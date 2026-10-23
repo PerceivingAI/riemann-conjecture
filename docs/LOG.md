@@ -1,10 +1,34 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-18T09:24:56Z`
+- **Last updated:** `2026-10-23T10:55:26Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-23T10:55:26Z — Directional cutoff and inverse-reference losses separated
+
+[F-20261023-001](../findings/2026-10-23T105526Z-directional-cutoff-and-reference-loss-separation.md) / C-0074 prove the distinct nonnegative cutoff and inverse-reference gains and the limits of the retained scalar inequalities. [X-20261023-001](../computations/2026-10-23T105408Z-directional-loss-review/record.md) audits the same accepted data by exact rational arithmetic: known inverse-prefix cost near 4.7448, positive but inconclusive prefix-only reference upper near 1.6623, omitted-mass lower near 0.7988. Abstract completions with the same prefix/scalars can give either diagonal-reference sign; no alternate Weil source is claimed. Source reassembly, new moments, alternative cutoffs and precision changes were not performed. The small versioned audit exited 0 in 0.3355 seconds and its exact quantities matched separate Fraction accumulation; a read-only mathematical review agreed. Existing finite-majorant result and historical procedures unchanged; no admission or RH conclusion.
+
+---
+
+## 2026-10-22T19:07:30Z — Fixed harmonic-tail finite-majorant screen rejected
+
+[X-20261022-002](../computations/2026-10-22T190532Z-directional-exact-screen/record.md) and [F-20261022-002](../findings/2026-10-22T190730Z-fixed-harmonic-majorant-negative-direction.md) / C-0073 record a strict exact-rational upper below -6/5 for the original odd direction of finite A-U_211 at T=3/5,N=192,M=211,K=32. New standard-library-only consumer `weil_directional_exact_screen` reuses the pinned accepted moments, audits full residual/metric/interval prerequisites, and returns NEGATIVE_SUFFICIENT_CRITERION. A separate direct-harmonic/endpoint-square replay matches the full rational result. Twelve tests and actual CLI rejection/no-overwrite checks passed. Screen/replay process wall times were 0.414162/0.137486 seconds, exit confirmed, no source regeneration or retry. The result rejects this finite majorant only, not the larger exact inverse reference, true Schur complement or Weil form. Original A/G analytical trust is unchanged; no further parameters, theorem admission or RH conclusion.
+
+---
+
+## 2026-10-22T18:52:27Z — Fixed high-mode source intervals independently accepted
+
+[X-20261022-001](../computations/2026-10-22T185054Z-directional-source-validation/record.md) records `SOURCE_INPUTS_ACCEPTED` for nine normalized high-mode V/P2/P3/R32 interactions of the original T=3/5,N=192 odd trial. The new research-only reproducibility consumer composes unchanged sparse source operations at 1024 bits and separate analytical reconstruction at 2048 bits. All 45 component/signed-sum checks passed outward 352-bit containment with full residual accounting; exact trial/residual images agree. Wall time 5.675 seconds, one process, no retry or timeout, exit confirmed. Focused new/existing checks passed 18/18; actual CLI rejection and output-preservation paths passed. Exact artifacts and additive source/test snapshots are retained. No Schur sign, full original A/G rederivation, certificate, new admission or RH conclusion. Historical implementations and outputs remain unchanged.
+
+---
+
+## 2026-10-22T18:30:11Z — Domain-safe harmonic-tail inverse majorant reviewed
+
+[`F-20261022-001`](../findings/2026-10-22T183011Z-harmonic-tail-inverse-majorant-review.md) / `C-0072` derive the conditional positive-form inverse ordering and a finite spectral majorant that pays the whole infinite tail. The correct form-domain inclusion is `D(c) subset D(c0)`. A negative direction of the finite sufficient matrix `A-U_M` does **not** refute the exact diagonal-inverse reference, exact Schur complement or Weil form. The original SYS-6.4 packet's identity, all five embedded source hashes, exact odd mass norm and independent scalar prerequisites were checked. A small sparse-basis source composition passed separate V/shift/residual controls; no new target moments, matrix sign or target-scale benchmark was computed. The residual image-degree guard prevents dropping high pairings merely because its kernel is polynomially truncated. Analytical source, historical artifacts and admissions remain unchanged: eight v1, zero v2, one v3; RH unresolved. The finding includes a runnable lightweight verification block and its trust limits.
+
+---
 
 ## 2026-10-18T09:24:56Z — SYS-6.5 final support-continuation assessment and no-go decision
 

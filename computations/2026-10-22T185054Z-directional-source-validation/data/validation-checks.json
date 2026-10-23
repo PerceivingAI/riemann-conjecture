@@ -1,0 +1,33 @@
+{
+  "cli_changed_input_exit": 2,
+  "cli_existing_output_exit": 2,
+  "cli_failure_and_preservation_checks": "PASS",
+  "pytest_elapsed_seconds": 1.43,
+  "read_only_source_review": "No blocking defect found; no test or computation performed by reviewer",
+  "schur_sign_evaluated": false,
+  "source_interval_widths_observational": {
+    "P2": {
+      "max_generator_width": "3.0667E-230",
+      "max_reference_width": "5.8349E-412"
+    },
+    "P3": {
+      "max_generator_width": "6.7754E-230",
+      "max_reference_width": "8.8039E-391"
+    },
+    "R32": {
+      "max_generator_width": "3.2672E-315",
+      "max_reference_width": "1.8175E-623"
+    },
+    "V": {
+      "max_generator_width": "2.8559E-308",
+      "max_reference_width": "1.4061E-465"
+    },
+    "sum_truncated": {
+      "max_generator_width": "9.8420E-230",
+      "max_reference_width": "8.8039E-391"
+    }
+  },
+  "test_command": "uv run --locked --extra test python -m pytest -n 0 -q tests/test_directional_source_validation.py tests/test_prime_power_local_legendre.py tests/test_combined_analytic_entries.py",
+  "test_command_wall_seconds": 2.75,
+  "tests_passed": 18
+}

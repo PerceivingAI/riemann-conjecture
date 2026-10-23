@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-18T08:51:38Z`
+- **Last updated:** `2026-10-23T10:55:26Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -804,6 +804,39 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0058`, `C-0063`, `C-0040`; finite prime-power enumeration and locally justified Suzuki Taylor remainder.
 - **Source:** `F-20261018-005` §4, `findings/2026-10-18T084633Z-sys6-global-support-obligation.md`.
 - **Verification notes:** For each fixed local T the active arithmetic sum is finite, the exact compressed-shift norms are bounded, the \(2T<\pi\) Taylor remainder \(\rho_R(T)\) is finite, and \(H_N\to\infty\). Thus the scalar complement eventually becomes positive for some N. No claim that the *low combined Gram Schur bound* becomes positive with increasing N follows. `C-0069` global Weil equivalence and open `C-0070` remain unchanged; RH unresolved.
+
+### C-0072 — Harmonic-tail inverse ordering and finite whole-tail majorant
+
+- **Statement:** Under the local closed-form and bounded low-to-tail setup of C-0063–C-0065, suppose the restricted tail form satisfies the stronger bound `c[q]>=j[q]-(H_N-mu)||q||^2` with `mu>0`, as obtained by retaining the jump form in the C-0058 bounded-perturbation estimate. Define the diagonal positive tail reference `C0 e_k=(mu+H_k-H_N)e_k`, `w_k=(mu+H_k-H_N)^-1`, `T_k u=<e_k,Bu>`, `G=B*B`, and `U_M=w_M G+sum_{N<=k<M}(w_k-w_M)T_k* T_k`. Then `C^-1<=C0^-1<=mu^-1 I` and `A-mu^-1 G<=A-U_M<=A-B* C0^-1 B<=A-B* C^-1 B` in form/matrix order. The term `w_M G` pays the entire omitted infinite tail. A strictly negative directional upper for `A-U_M` refutes only that finite sufficient matrix, not the exact inverse-reference matrix or the Weil form.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (separately reviewed written positive-form/spectral derivation conditional on stated source hypotheses; not Lean-kernel checked or a certificate-admitted positivity theorem)
+- **First recorded:** `2026-10-22T18:30:11Z`
+- **Last verified:** `2026-10-22T18:30:11Z`
+- **Dependencies:** `C-0058`, `C-0063`, `C-0064`, `C-0065`; existing external Suzuki normalization `R-0028`.
+- **Source:** [`F-20261022-001`](../findings/2026-10-22T183011Z-harmonic-tail-inverse-majorant-review.md).
+- **Verification notes:** The variational proof uses `D(c) subset D(c0)`, not equal domains or a bounded global V. Spectral expansion proves the full-tail majorant and its monotone refinement. The exact one-sided interval predicate includes normalized high modes, the ordinary-Legendre mass norm and full residual error. Executed input/scalar checks and a small sparse-source smoke do not independently reconstruct original A/G inputs, evaluate new target moments, prove positivity at any support, or establish a global support family. All theorem admissions and RH status are unchanged.
+
+### C-0073 — Negative direction for the finite harmonic-tail majorant at T=3/5
+
+- **Statement:** Under C-0072's local source/majorant hypotheses and the original SYS-6.4 one-sided A/G enclosures, at exactly `T=3/5,N=192,M=211,K=32`, active terms `[2,3]`, the preserved exact odd trial satisfies `<u,(A-U_211)u> <= u_exact < -6/5 < 0`. The exact upper uses all nine independently accepted normalized source intervals, their full residual enlargement and the whole-tail `w_211 G` allowance. Therefore this finite sufficient matrix is not positive. This says nothing about the sign of the larger exact diagonal-inverse reference, true Schur complement or Weil form.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (exact rational consequence and separate exact replay conditional on the stated source enclosures; original A/G remains generator-source-qualified, not a new admitted theorem or Lean proof)
+- **First recorded:** `2026-10-22T19:07:30Z`
+- **Last verified:** `2026-10-22T19:07:30Z`
+- **Dependencies:** `C-0072`, `C-0063`–`C-0065`, original `X-20261018-005`, new source acceptance `X-20261022-001`, existing Suzuki/Arb trust.
+- **Source:** [F-20261022-002](../findings/2026-10-22T190730Z-fixed-harmonic-majorant-negative-direction.md) and [X-20261022-002](../computations/2026-10-22T190532Z-directional-exact-screen/record.md).
+- **Verification notes:** Pinned original/accepted input bytes, exact physical norm and all residual/containment prerequisites were checked before evaluating the strict predicate. A separately coded harmonic-sum/endpoint-square replay reproduced the exact rational upper. Twelve behavioral tests passed. No source reassembly, parameter/precision chase, theorem admission, global no-go inference or new positivity result. RH unresolved and all admission inventories unchanged.
+
+### C-0074 — Separation of finite-cutoff and inverse-reference losses
+
+- **Statement:** In C-0072's fixed-direction setting with prefix ending before 211, let scalar `P=sum_{k<211}w_k|t_k|^2`, `Q=sum_{k<211}|t_k|^2`, `R=sum_{k>=211}|t_k|^2` and `J=sum_{k>=211}w_k|t_k|^2`, restricted to the tail k>=192. Then `s_U=a-P-w_211 R`, `s_0=a-P-J`, cutoff loss `s_0-s_U=w_211 R-J>=0`, and the separate true-reference gain is `<Bu,(C0^-1-C^-1)Bu>>=0`. Accepted interval bounds imply `s_0<=a_up-P_lower` and `R>=max(0,g_low-Q_upper)`. The retained scalar inequalities alone admit abstract completions of either exact-reference sign and give no finite numerical upper on cutoff loss; those completions are not asserted to be actual Weil sources.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (separately reviewed written spectral/information-limit proof and exact retained-data audit under stated analytical premises; no new source evaluation, admitted theorem or Lean proof)
+- **First recorded:** `2026-10-23T10:55:26Z`
+- **Last verified:** `2026-10-23T10:55:26Z`
+- **Dependencies:** `C-0072`, `C-0073`, original `X-20261018-005` and accepted moments `X-20261022-001`; their existing Suzuki/Arb and generator-source A/G assumptions.
+- **Source:** [F-20261023-001](../findings/2026-10-23T105526Z-directional-cutoff-and-reference-loss-separation.md) / [X-20261023-001](../computations/2026-10-23T105408Z-directional-loss-review/record.md).
+- **Verification notes:** At the fixed original trial, inverse-prefix cost lies near 4.744783306914 while `a_up-P_lower` is a positive upper near 1.662333474446; omitted-mass lower is near 0.798779172607. These are not a positive reference certificate. Prefix interval width is exactly below 10^-12. The proof distinguishes physical tail mass from algebraic `g_low-Q_lower`. For the unchanged prefix/mu and worst-weight relaxation, the cheap two-sided bracket still straddles zero even with best admissible opposite low-form/Gram endpoints; a distribution-sensitive tail bound or different inequality is needed to resolve it. No alternative cutoff, parameter, source moment, full matrix, new admission or actual exact-reference sign was established.
 
 ## Entry format
 

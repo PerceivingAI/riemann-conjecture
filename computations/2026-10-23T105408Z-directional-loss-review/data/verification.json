@@ -1,0 +1,11 @@
+{
+  "alternative_cutoffs_evaluated": 0,
+  "independent_fraction_accumulation": "PASS exact equality of known mass and inverse-prefix endpoints against separately coded inline evaluation",
+  "new_analytical_evaluations": 0,
+  "omitted_mass_lower_above_3_over_4": true,
+  "optimistic_prefix_upper_above_3_over_2": true,
+  "prefix_width_below_1e_minus_12": true,
+  "python": "3.14.0",
+  "reviewer_math_check": "PASS loss identities, interval orientations, scalar-information limit and two-sided bracket; read-only, no numerical/source run",
+  "test_suite_run": false
+}

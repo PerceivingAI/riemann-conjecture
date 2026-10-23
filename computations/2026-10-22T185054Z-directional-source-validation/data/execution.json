@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-10-22T18:50:54Z",
+  "cumulative_substantial_run_seconds": 5.6750155000481755,
+  "descendants_spawned_by_consumer": false,
+  "exit_code": 0,
+  "invocation": [
+    ".venv/Scripts/python.exe",
+    "-m",
+    "scripts.weil_directional_source_validation",
+    "--precision",
+    "1024",
+    "--output",
+    "computations/2026-10-22T185054Z-directional-source-validation/data/source-validation-1024.json"
+  ],
+  "numerical_threads_per_worker": 1,
+  "output": "computations/2026-10-22T185054Z-directional-source-validation/data/source-validation-1024.json",
+  "owned_child_exit_confirmed": true,
+  "owned_pid": 12940,
+  "retry_used": false,
+  "stderr": "",
+  "stdout": "INPUT_IDENTITY_ACCEPTED\nGENERATOR_COMPLETE 1.589\nSOURCE_VALIDATION SOURCE_INPUTS_ACCEPTED SECONDS 5.405\n",
+  "timed_out": false,
+  "timeout_seconds": 600,
+  "wall_seconds": 5.6750155000481755,
+  "worker_count": 1
+}

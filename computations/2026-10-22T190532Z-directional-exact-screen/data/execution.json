@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-10-22T19:05:32Z",
+  "cycle_charged_seconds_including_exact_screen": 6.089177300105803,
+  "exit_code": 0,
+  "invocation": [
+    ".venv/Scripts/python.exe",
+    "-m",
+    "scripts.weil_directional_exact_screen",
+    "--output",
+    "computations/2026-10-22T190532Z-directional-exact-screen/data/exact-screen.json"
+  ],
+  "owned_child_exit_confirmed": true,
+  "owned_pid": 30404,
+  "previous_cycle_substantial_seconds": 5.6750155000481755,
+  "retry_used": false,
+  "source_reassembly_performed": false,
+  "stderr": "",
+  "stdout": "EXACT_SCREEN NEGATIVE_SUFFICIENT_CRITERION UPPER -1.2001752984084315\n",
+  "timed_out": false,
+  "timeout_seconds": 60,
+  "wall_seconds": 0.41416180005762726,
+  "worker_count": 1
+}

@@ -1,9 +1,52 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-18T09:11:52Z`
+- **Last updated:** `2026-10-23T11:16:40Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
+
+## Byte identity on checkout
+
+The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep their pinned sources/configuration in LF, the original SYS-6.4 probe in its recorded CRLF checkout format, and the three new retained bundles verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+
+## Existing-data directional loss audit
+
+`scripts/weil_directional_loss_audit.py` performs exact rational bookkeeping on the same pinned original/accepted packets, reusing the existing rational input validator. It reports known mass and inverse-cost intervals, the physical omitted-mass lower and the prefix-only exact-reference upper. It does not call the decisive screen, regenerate sources, evaluate another cutoff or implement an analytical upgrade.
+
+```text
+uv run --locked python -m scripts.weil_directional_loss_audit --output computations/<new-bundle>/data/loss-audit.json
+```
+
+[X-20261023-001](../computations/2026-10-23T105408Z-directional-loss-review/record.md) records the executed audit; [F-20261023-001](../findings/2026-10-23T105526Z-directional-cutoff-and-reference-loss-separation.md) / C-0074 separates finite-cutoff loss from inverse-reference loss. The actual exact-reference sign remains undetermined. Existing outputs are preserved; this is a small reproducibility procedure, not a certificate or source evaluator.
+
+## Fixed exact directional screen
+
+`scripts/weil_directional_exact_screen.py` consumes the approved original trial and accepted directional-source packet by exact raw-byte SHA-256 identity. It audits physical norm, coordinate/configuration, all accepted component intervals and full residual enlargement, then evaluates the fixed C-0072 rational predicate for T=3/5,N=192,M=211,K=32. It imports no analytical module and does not regenerate moments.
+
+```text
+uv run --locked python -m scripts.weil_directional_exact_screen --output computations/<new-bundle>/data/exact-screen.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_directional_exact_screen.py
+```
+
+A completed screen exits 0 with `NEGATIVE_SUFFICIENT_CRITERION` or `INCONCLUSIVE`; rejected input exits 2 with `SOURCE_PROOF_GAP`. Existing outputs are preserved. A negative result concerns only finite A-U_211, not the exact inverse reference or Weil form. There is no positive-theorem outcome.
+
+Executed [X-20261022-002](../computations/2026-10-22T190532Z-directional-exact-screen/record.md) obtained an exact upper below -6/5, independently replayed the rational consequence, and passed 12 behavioral tests. [F-20261022-002](../findings/2026-10-22T190730Z-fixed-harmonic-majorant-negative-direction.md) / C-0073 state the source-qualified scope. No new support or theorem was admitted.
+
+## Fixed directional source validation
+
+`scripts/weil_directional_source_validation.py` is a research-only consumer of the existing sparse polynomial assemblers. It validates normalized high-mode V/P2/P3/R32 moments for the pinned SYS-6.4 odd trial at T=3/5, N=192, K=32 and k=193,195,...,209. Independent monomial/cell/split-residual reconstruction must be contained in outward 352-bit component and signed-sum intervals. Full residual uncertainty is restored separately. Sparse-subspace Gram outputs are never used as the original Q_192 Gram.
+
+```text
+uv run --locked python -m scripts.weil_directional_source_validation --precision 1024 --output computations/<new-bundle>/data/source-validation.json
+```
+
+The input byte hash and original source fingerprints are mandatory. The CLI preserves existing outputs and has no automatic retry. Exit 0 means `SOURCE_INPUTS_ACCEPTED`; a rejected or unresolved source packet returns exit 2. This is not a certificate, a Schur sign test or theorem admission. Original A/G enclosures retain their earlier generator-source trust.
+
+Executed evidence: [X-20261022-001](../computations/2026-10-22T185054Z-directional-source-validation/record.md), 45/45 new component/sum enclosures accepted at 1024/2048 bits, whole-process wall time 5.675 seconds, no sign evaluated. Focused checks:
+
+```text
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_directional_source_validation.py tests/test_prime_power_local_legendre.py tests/test_combined_analytic_entries.py
+```
 
 ## SYS-6.4 — One selective larger-support Schur-sign research check (NO ADMISSION)
 

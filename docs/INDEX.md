@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-18T09:24:56Z`
+- **Last updated:** `2026-10-23T10:55:26Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -54,6 +54,10 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [F-20261023-001](../findings/2026-10-23T105526Z-directional-cutoff-and-reference-loss-separation.md) / [X-20261023-001](../computations/2026-10-23T105408Z-directional-loss-review/record.md) — C-0074 distinguishes finite-cutoff and inverse-reference losses; exact retained-data audit and scalar-information limits, no new source/cutoff evaluation or reference sign.
+- [F-20261022-002](../findings/2026-10-22T190730Z-fixed-harmonic-majorant-negative-direction.md) / [X-20261022-002](../computations/2026-10-22T190532Z-directional-exact-screen/record.md) — C-0073 strict rational upper below -6/5 for finite A-U_211 at T=3/5,N=192; exact replay, no sign conclusion for the exact inverse reference or Weil form.
+- [X-20261022-001](../computations/2026-10-22T185054Z-directional-source-validation/record.md) — research-only fixed high-mode V/P2/P3/R32 source validation; 45 independent component/sum containments, measured 5.675-second wall time, no Schur sign or theorem admission.
+- [`F-20261022-001`](../findings/2026-10-22T183011Z-harmonic-tail-inverse-majorant-review.md) — conditional harmonic-tail inverse ordering and whole-tail finite majorant C-0072; precise scope of sufficient-matrix rejection, input/scalar checks and small sparse-source smoke; no new support positivity or admission.
 - [`F-20261018-007`](../findings/2026-10-18T092456Z-sys6-support-continuation-final-decision.md) — SYS-6.5 final mathematical evidence classification and scoped no-go on automatic finite-certificate proliferation; SYS-6 completed as assessment, no RH or new theorem.
 - [`F-20261018-006`](../findings/2026-10-18T091152Z-sys6-selective-support-decision.md) / [`X-20261018-005`](../computations/2026-10-18T090311Z-sys6-selective-support/record.md) — SYS-6.4 one-support T=0.60 N=192 exact rational odd-parity **negative sufficient-Schur upper**, no theorem admission or Weil negativity.
 - [`F-20261018-005`](../findings/2026-10-18T084633Z-sys6-global-support-obligation.md) — SYS-6.3 exact RH-equivalent Weil quantifiers and conditional combined-Schur global proof obligations (`C-0069/0070`), and pointwise positivity of the conservative high-tail scalar within the local range (`C-0071`); current residual Taylor proof valid only for 2T<π; no global proof.
