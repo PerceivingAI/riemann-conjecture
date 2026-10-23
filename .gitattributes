@@ -1,0 +1,26 @@
+# Preserve the byte formats used by the directional research evidence.
+# Keep these rules scoped: other historical artifacts retain their existing policy.
+/pyproject.toml text eol=lf
+/uv.lock text eol=lf
+/scripts/cert/constants.py text eol=lf
+/scripts/cert/legendre_schur.py text eol=lf
+/scripts/cert/mixed_gram_research.py text eol=lf
+/scripts/cert/multi_prime_legendre_schur.py text eol=lf
+/scripts/cert/prime_power_terms.py text eol=lf
+/scripts/cert/residual_kernel.py text eol=lf
+/scripts/verify_combined_schur_analytic_entries.py text eol=lf
+/scripts/weil_selective_support_probe.py text eol=lf
+/scripts/weil_directional_source_validation.py text eol=lf
+/scripts/weil_directional_exact_screen.py text eol=lf
+/scripts/weil_directional_loss_audit.py text eol=lf
+/tests/test_directional_source_validation.py text eol=lf
+/tests/test_directional_exact_screen.py text eol=lf
+
+# This original input was fingerprinted from CRLF bytes; preserve that checkout.
+/computations/2026-10-18T090311Z-sys6-selective-support/data/T-3-5-N192-probe.json text eol=crlf
+
+# Retain mixed LF/CRLF artifact bytes; recognize CRLF as an actual line ending.
+# Keep normal trailing-blank, blank-at-EOF and space-before-tab checks enabled.
+/computations/2026-10-22T185054Z-directional-source-validation/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-22T190532Z-directional-exact-screen/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-23T105408Z-directional-loss-review/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

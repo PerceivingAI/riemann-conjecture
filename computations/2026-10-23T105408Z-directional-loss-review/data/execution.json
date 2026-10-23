@@ -1,0 +1,22 @@
+{
+  "alternative_cutoffs_evaluated": 0,
+  "created_utc": "2026-10-23T10:54:08Z",
+  "cycle_charge_including_review_seconds": 6.562186800059862,
+  "exit_code": 0,
+  "invocation": [
+    ".venv/Scripts/python.exe",
+    "-m",
+    "scripts.weil_directional_loss_audit",
+    "--output",
+    "computations/2026-10-23T105408Z-directional-loss-review/data/loss-audit.json"
+  ],
+  "new_source_moments": 0,
+  "owned_child_exit_confirmed": true,
+  "owned_pid": 13048,
+  "previous_cycle_charge_seconds": 6.226663300069049,
+  "stderr": "",
+  "stdout": "LOSS_AUDIT exact reference UNDETERMINED; prefix upper 1.6623334744459064\n",
+  "timed_out": false,
+  "timeout_seconds": 60,
+  "wall_seconds": 0.33552349999081343
+}

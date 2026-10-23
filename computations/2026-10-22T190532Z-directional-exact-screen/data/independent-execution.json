@@ -1,0 +1,9 @@
+{
+  "cycle_charged_seconds_including_screen_and_replay": 6.226663300069049,
+  "exit_code": 0,
+  "method": "Separate direct harmonic sums and endpoint squares; no import of screen consumer or analytical source modules",
+  "owned_child_exit_confirmed": true,
+  "stderr": "",
+  "timeout_seconds": 30,
+  "wall_seconds": 0.13748599996324629
+}
