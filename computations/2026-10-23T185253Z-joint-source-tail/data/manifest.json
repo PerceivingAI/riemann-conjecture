@@ -1,0 +1,45 @@
+{
+  "format": "joint-source-tail-bundle-manifest-v1",
+  "created_utc": "2026-10-23T19:02:50Z",
+  "computation_id": "X-20261023-003",
+  "finding_id": "F-20261023-005",
+  "claim_id": "C-0079",
+  "source_git_baseline": "acc63ac6d41138280236850c3fbc586e20998cc4",
+  "source_git_clean": false,
+  "manifest_written_last": true,
+  "manifest_self_excluded": true,
+  "files": {
+    "data/consequence-result.json": {
+      "bytes": 17151,
+      "sha256": "70ffb0fe9301a339acbdf7e2ebb4370b42480a8c37eeb54bb1aeab85cf47a35b"
+    },
+    "data/contract.json": {
+      "bytes": 1519,
+      "sha256": "9ca57439a97f79a40f4b99df15c758ad79e0dfd8f76176db4a0cb01f74cbe61b"
+    },
+    "data/execution.json": {
+      "bytes": 2656,
+      "sha256": "dce12e336ff37e4cafd1d7cf2de9a06b833f076a0b31cb389b9fea8689dfe94a"
+    },
+    "data/result.json": {
+      "bytes": 1520156,
+      "sha256": "67eba074fdc79e48934fbb2ae80212fa920f62bddc6a324e500bf8c4a296c2c8"
+    },
+    "data/source/consequence-check.py": {
+      "bytes": 3439,
+      "sha256": "a791ed28ccd7583d234e10de04f212a02ae3c7372b7ec8221e28b33100172a30"
+    },
+    "data/source/weil_joint_source_tail.py": {
+      "bytes": 15457,
+      "sha256": "04ccd864c4a350767291d1751d499a39325a40ffdd843f827fbac59d56d40dde"
+    },
+    "data/stderr.txt": {
+      "bytes": 82,
+      "sha256": "225374f558b156d3b01f5ddcd91941db9ff5e5e525730dcb0cc64464ecd7ef9a"
+    },
+    "record.md": {
+      "bytes": 8637,
+      "sha256": "17be98eca37bb7986938e440ce100ad1c3f392fa7cffff6a235c35b39cf58ef8"
+    }
+  }
+}

@@ -3,6 +3,7 @@
 - **Audit:** SYS-1 current-state technical inventory
 - **Audited repository revision:** `20a691105ec808e623faef2fc5bbaf4806a0d352` (`main`, 2026-10-08 commit)
 - **Audit date:** 2026-10-17
+- **Last updated:** `2026-10-24T20:37:47Z` (later factual addenda; original audit identity unchanged)
 - **Scope:** Implemented Python/Arb mathematics, Rust, Lean, execution/orchestration, retained evidence and agent navigation
 - **Disposition:** Public technical record of *existing* behavior only; not a research strategy, roadmap, or tooling-upgrade register
 - **Method:** Read current source, tests, schemas, contracts, and retained verification records; independently execute the checks listed in §8
@@ -10,6 +11,52 @@
 This audit describes the source tree at the pinned revision. An implemented function, a prior passing test, a freshly passing test, an external mathematical premise, and an admitted theorem are different forms of evidence. They are not interchangeable.
 
 The audit did **not** edit or regenerate any historical attempt, finding, computation, or retained certificate. It did **not** run a new mathematical qualification sweep.
+
+## 2026-10-24T20:37:47Z: controlled weighted support continuation
+
+Additive research consumers `scripts.weil_weighted_extension_diagnostics`, `scripts.weil_weighted_dimension_cost`, `scripts.weil_weighted_support_extension` and `scripts.verify_weighted_support_extension_inputs` reuse existing source kernels without modifying the fixed historical tools. They implement exact loss diagnosis, pre-sign geometric selection, conditional norm-cost analysis, parameter-bearing full source generation, independent fresh low/head reconstruction and exact weighted consequences/replay. These are not production certificate or admission paths.
+
+[X-20261024-004](../computations/2026-10-24T191616Z-weighted-support-extension/record.md) accepts all758475 inputs afresh at selected T=1353/2048,N=312,K=38,m=1018. Low/head precisions1792/4608 and native3584/9216 retain physical masses, signed mixed terms, full residual and both parity blocks. The separately accepted uniform cross-norm bound gives a complete residual charge; old RK/R32 slot naming does not fix the new source's K. Both exact witnesses and replay pass, with C-0087's source-conditional full smooth-test implication. [F-20261024-006](../findings/2026-10-24T202855Z-controlled-weighted-support-positivity.md) states the limits.
+
+The numerical producer/auditor/consumer version2 is preserved exactly. An initial filename failure and a prospective partial-selection guard defect are recorded, not erased. The actual immutable selection passed full external contract comparison. The later live version3 compares complete typed budget/provenance metadata and serialization digests, rejects a changed current-source budget before numerical work and passes4 focused source/residual/guard controls. Actual changed-witness/source-byte rejection and isolated archived-version replay pass. These recorded operational checks add no Rust/Lean/clean-source admission and do not validate every future consumer input.
+
+## 2026-10-24T15:40:06Z: unchanged weighted operation certifies both parity blocks
+
+[X-20261024-003](../computations/2026-10-24T153012Z-weighted-reference-continuation/record.md) completes the m626 source/audit/assessment/replay without changing the mathematical implementations. Source3072-bit heads and6144-bit independent reconstruction accept249984 fresh head entries plus37056 inherited independently accepted low/Gram entries and2 scalars. The pinned-low route rechecks source identity, payload and copied containments; it is not a fresh low reconstruction.
+
+Both96-dimensional lower blocks have exact positive congruence witnesses. Separate replay, exact physical-mass gap derivation and actual altered-odd-margin rejection pass. [F-20261024-003](../findings/2026-10-24T154006Z-positive-whole-harmonic-reference.md) / C-0084 states whole-reference positivity and the source-conditional smooth-test implication, with no clean production/Rust/Lean admission. Six owned launches exited normally. Supervisor CPU/RSS samples concern its owned handle, possibly an interpreter launcher, not descendant-inclusive scientific resource peaks. No scientific code or permanent test changed; previous test results were not rerun or relabeled fresh.
+
+## 2026-10-24T14:16:19Z: complete weighted low-space research operation
+
+Three additive research procedures now generate complete raw A_K/G_K and rectangular signed heads, independently audit analytical inputs, and reconstruct the weighted matrix bound with exact dyadic/native integer arithmetic: `scripts.weil_weighted_low_space`, `scripts.verify_weighted_low_space_inputs`, and `scripts.verify_weighted_low_space`. Both 96-dimensional parity blocks, physical masses, all signed cross terms and full tail/residual errors are covered. They are not production certificate/admission paths.
+
+[X-20261024-002](../computations/2026-10-24T124142Z-weighted-low-space/record.md) retains full input acceptance at224/316, seven behavioral controls, separate exact replay, real rejected attacks, source versions and failures. An initial reference defect lost individual residual-degree zeros; the correction preserves nonzero edges and does not increase precision. Native integer center/radius contractions pay all cross/weight uncertainty. Optional accepted-low reuse pins both ancestor artifacts and all unchanged low definitions, rechecks copied enclosures and freshly reconstructs heads; its actual224 smoke passed with explicit provenance.
+
+At316, all108,482 input slots pass separate reconstruction and the even lower has an exact positive congruence, giving C-0083's normalized gap display1.577381523629527e-9. The odd lower is not positive, but no negative actual-reference direction is established. The626 source run timed out before publication; no626 matrix or acceptance is claimed. [F-20261024-002](../findings/2026-10-24T140543Z-weighted-even-reference-block.md) states the partial result and trust limits. All earlier procedures/proof artifacts and admissions remain unchanged; no Rust/Lean or whole-Weil claim.
+
+## 2026-10-24T02:20:54Z: selected rectangular source operations and uniform matrix algebra
+
+[X-20261024-001](../computations/2026-10-24T021044Z-uniform-matrix-contract/record.md) retains a fixed operation-level source smoke, not a new canonical evaluator. Existing source helpers accept nonconsecutive ordinary Legendre degrees: four low columns and eight low/high rows at T=3/5,K=32 passed all 96 V/P/R component containments and one delta containment against separate 2048-bit reconstruction, using 1024-bit generation and outward 352-bit publication. Four exact residual polynomials agree; both parities, off-diagonal pairings, physical degree-indexed masses and the degree-223 residual boundary were exercised.
+
+Exact non-diagonal finite-matrix controls passed for the complete weighted upper, uniform tail trace and full residual cross allowance. A separate standard-library endpoint replay checked all 97 containments and rejected a changed nonzero interval. Independent read-only mathematical review accepted C-0082 in [F-20261024-001](../findings/2026-10-24T021044Z-uniform-harmonic-reference-matrix-bound.md), with explicit domain, interval-width and feasibility qualifications. No complete target Gram/head/matrix was assembled; a weighted whole-space consumer, target-scale runtime and matrix sign are not demonstrated. Existing scripts, tests, frozen proofs and admissions are unchanged.
+
+## 2026-10-23T19:45:46Z: fixed weighted source-tail direction
+
+Additive research consumer `scripts.weil_weighted_source_tail` keeps the original T=3/5,N=192,K=32 trial/reference and chooses its evaluation boundary from a fixed omitted-tail error rule before source evaluation. B=874 and 4096/8192-bit source paths passed all 1330 scalar/head containments, with 352-bit publication and 512-bit outward reference receipts. Existing source operations reconstruct one physical a scalar and signed directional source modes; the complete inverse-weighted remainder and full residual are retained. No N-by-N matrix or actual inverse is assembled.
+
+[X-20261023-004](../computations/2026-10-23T192821Z-weighted-source-tail/record.md) preserves an initial exact-rational serialization failure, its minimal reproduction, two failing-before/passing-after behavioral regressions, corrected outward dyadic accumulation and successful actual CLI. No Python guard, source parameter or precision was changed to obtain acceptance. Separate standard-library replay and altered-input rejection passed. [F-20261023-006](../findings/2026-10-23T192821Z-weighted-source-tail-reference.md) records C-0080/C-0081: the scalar rule is too weak, but the full weighted bracket proves this reference direction positive. Inverse ordering transfers its lower to the true Schur direction, without direct true-inverse evaluation. Shared Arb/source dependencies remain; whole-matrix/Weil positivity, a support theorem and admission are not established.
+
+## 2026-10-23T19:02:50Z: fixed complete joint-source scalar tail
+
+Additive research consumer `scripts.weil_joint_source_tail` evaluates only the original T=3/5,N=192,K=32,L=224 complete joint tail. Existing source primitives supply whole signed image norms and 112 odd normalized head projections; no full matrix/inverse or new source primitive is introduced. Fixed generator/reconstruction precisions are 1536/3072 bits, with complete reference containment in outward 352-bit publication. All 15 scalar and 336 head containments and 18 older-prefix checks passed. Separate exact consequence replay and changed-input rejection were exercised.
+
+[X-20261023-003](../computations/2026-10-23T185253Z-joint-source-tail/record.md) retains executed sources, all endpoint receipts and bounded execution records; [F-20261023-005](../findings/2026-10-23T185253Z-joint-source-tail-enclosure.md) gives C-0079. The evaluated full-source upper improves the earlier separate control, but the reference upper remains positive and inconclusive. Shared Arb/source identities and projection algebra limit reconstruction independence. Original A/G is not reconstructed. No actual reference/Schur/Weil sign, generalized evaluator, theorem admission, Rust/Lean change or global support result is claimed.
+
+## 2026-10-23T18:10:37Z: fixed jump-refinement research replay
+
+Additive `scripts/weil_jump_refinement_check.py` replays one retained-input arithmetic step-model/control comparison, with fixed original T=3/5,N=192,K=32,L=224 and 512-bit intervals. Actual CLI execution reproduced the exact model-v2 fields; altered input bytes were rejected at exit 2 before calculations. It computes model head coefficients and full step tail from whole norm minus head, an arithmetic mixed-tail upper, and a separate global-norm source control.
+
+Evidence: [X-20261023-002](../computations/2026-10-23T174341Z-jump-refinement-controls/record.md), reviewed C-0077/C-0078 in [F-20261023-004](../findings/2026-10-23T174341Z-jump-resolved-tail-correlation.md). These are later executed research contributions, not part of the pinned audit above. No original source images/full-source moments, full joint-correlation source bound, matrix/inverse, actual reference/Weil sign or admission is computed. Original analytical modules and their source fingerprints are unchanged.
 
 ## 2026-10-22T19:07:30Z: fixed exact finite-majorant screen
 

@@ -1,0 +1,13 @@
+{
+  "label": "selection-positive-control-v3",
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-c",
+    "from pathlib import Path; import hashlib,json; from scripts.weil_weighted_support_extension import validate_selection,_selection_sha256; p=Path('D:\\\\2_Add_Projects\\\\riemann-conjecture\\\\computations\\\\2026-10-24T191616Z-weighted-support-extension\\\\data\\\\selection-v3.json'); raw=p.read_bytes(); value=json.loads(raw); trusted=validate_selection(value); assert hashlib.sha256(raw).hexdigest()==_selection_sha256(value); print(json.dumps({'status':'COMPLETE_CURRENT_SELECTION_ACCEPTED','support':trusted['support'],'dimension':trusted['dimension'],'residual_order':trusted['residual_order'],'boundary':trusted['boundary']}))"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.4528798999963328,
+  "stdout": "{\"status\": \"COMPLETE_CURRENT_SELECTION_ACCEPTED\", \"support\": [1353, 2048], \"dimension\": 312, \"residual_order\": 38, \"boundary\": 1018}\n",
+  "stderr": "",
+  "created": "2026-10-24T20:28:15Z"
+}

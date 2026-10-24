@@ -1,0 +1,1 @@
+{"status": "COMPLETE_CURRENT_SELECTION_ACCEPTED", "support": [1353, 2048], "dimension": 312, "residual_order": 38, "boundary": 1018}

@@ -1,0 +1,9 @@
+{
+  "cause": "Direct retained file execution puts its bundle directory, not repository root, on sys.path. First run failed before numerical work.",
+  "correction": {
+    "PYTHONPATH": "D:\\2_Add_Projects\\riemann-conjecture"
+  },
+  "source_unchanged": true,
+  "precision_and_inputs_unchanged": true,
+  "timeout_seconds": 4
+}

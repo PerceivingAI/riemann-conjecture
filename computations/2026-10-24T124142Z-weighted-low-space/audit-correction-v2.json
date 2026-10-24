@@ -1,0 +1,16 @@
+{
+  "cause": "Independent monomial contraction lost per-column exact residual orthogonality zeros. The original source uses exact rational pairings and is unchanged.",
+  "fix": "If k>degree(R32 P_j), require reconstructed ball contains0 then impose the proved exact0; retain nonzero degree-edge entries.",
+  "inputs_unchanged": true,
+  "precision_unchanged": [
+    2048,
+    3072
+  ],
+  "source_packet_sha256": "0693f7725c721be180afe79af6354facbc20371d786ea138ae8d1467096ff29c",
+  "timeout_seconds": 180,
+  "charged_before_seconds": 299.4253050000407,
+  "cumulative_ceiling_seconds": 600,
+  "failed_before_regression_exit": 1,
+  "corrected_regressions_passed": 4,
+  "independent_static_review": "Per-column Legendre orthogonality accepted; no source relabeling or precision escalation."
+}

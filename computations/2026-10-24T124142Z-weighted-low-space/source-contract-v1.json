@@ -1,0 +1,16 @@
+{
+  "question": "Generate complete raw A_K and Q192 mixed G_K plus all signed V/P/R32 head pairings through degree223 at fixed T=3/5,N=192,K=32; no matrix sign or admission is granted by generation.",
+  "boundary": 224,
+  "matrix_precision_bits": 1024,
+  "head_precision_bits": 1536,
+  "publication_bits": 352,
+  "required_interval_slots": 55490,
+  "acceptance": "Complete shaped packet, mathematical parity/symmetry consistency, frozen original exact mu and source identities; all analytical values remain pending separate full independent input reconstruction.",
+  "owned_heavy_processes": 1,
+  "timeout_seconds": 180,
+  "cumulative_ceiling_seconds": 600,
+  "charged_before_seconds": 97.41939420008566,
+  "retries": 0,
+  "working_array_estimate": "Below 1 GiB for this fixed192/224 degree operation, based on dense192-square Arb blocks and one cell-local affine table at a time; estimate, not a measured memory guarantee.",
+  "retention": "Exact executed producer/dependency snapshots, complete stdout/stderr, immutable source packet and process exit/timeout/elapsed receipt. No unrelated process is terminated."
+}

@@ -1,0 +1,96 @@
+{
+  "format": "jump-refinement-execution-record-v1",
+  "created_utc": "2026-10-23T18:10:37Z",
+  "source_git_baseline": "acc63ac6d41138280236850c3fbc586e20998cc4",
+  "source_git_clean": false,
+  "source_description": "existing pinned analytical sources plus new uncommitted research replay consumer; no clean-source theorem claim",
+  "consumer_sha256": "73262f1dcf5ffcf88698f6e879e44aae27aa922c67af3049d7ac42163c2543a7",
+  "python_version": "3.14.0",
+  "python_flint_version": "0.9.0",
+  "platform": "Windows",
+  "text_capture": "stdout/stderr captured in text mode, retained as UTF-8 LF; not claimed to be raw OS pipe bytes",
+  "run_timeout_seconds": 60,
+  "prior_analytical_charge_seconds": 2.181619500159286,
+  "new_charge_seconds": 2.438724899897352,
+  "cumulative_charge_seconds": 4.620344400056638,
+  "ceiling_seconds": 180,
+  "no_retry": true,
+  "no_full_source_images": true,
+  "no_new_full_source_moments": true,
+  "full_joint_correlation_bound_evaluated": false,
+  "runs": [
+    {
+      "name": "toy-control",
+      "checked_utc": "2026-10-23T17:52:06Z",
+      "argv": [
+        "project-python",
+        "-c",
+        "<data/source/toy-control.py>"
+      ],
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 1.5848987998906523,
+      "stdout": "data/toy-result.json",
+      "stderr": ""
+    },
+    {
+      "name": "model-v1",
+      "checked_utc": "2026-10-23T17:53:38Z",
+      "argv": [
+        "project-python",
+        "-c",
+        "<data/source/model-v1.py>"
+      ],
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 0.1868417999939993,
+      "stdout": "data/model-result-v1.json",
+      "stderr": ""
+    },
+    {
+      "name": "model-v2",
+      "checked_utc": "2026-10-23T17:59:43Z",
+      "argv": [
+        "project-python",
+        "-c",
+        "<data/source/model-v2.py>"
+      ],
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 0.19456880004145205,
+      "stdout": "data/model-result-v2.json",
+      "stderr": ""
+    },
+    {
+      "name": "canonical-replay",
+      "checked_utc": "2026-10-23T18:09:57Z",
+      "argv": [
+        "project-python",
+        "-m",
+        "scripts.weil_jump_refinement_check"
+      ],
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 0.2690588999539614,
+      "stdout": "data/canonical-result.json",
+      "stderr": ""
+    },
+    {
+      "name": "altered-input-smoke",
+      "checked_utc": "2026-10-23T18:09:57Z",
+      "argv": [
+        "project-python",
+        "-m",
+        "scripts.weil_jump_refinement_check"
+      ],
+      "cwd_role": "disposable directory with changed first input; repository package import path supplied",
+      "changed_first_input_utf8": "{}\n",
+      "changed_first_input_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "exit_code": 2,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 0.20335660001728684,
+      "stdout": "",
+      "stderr": "jump refinement control rejected: input identity: computations/2026-10-18T090311Z-sys6-selective-support/data/T-3-5-N192-probe.json\n"
+    }
+  ]
+}

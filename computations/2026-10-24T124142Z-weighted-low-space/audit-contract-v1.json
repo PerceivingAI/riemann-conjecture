@@ -1,0 +1,16 @@
+{
+  "question": "Independently reconstruct every raw low, mixed Gram and rectangular head input of source-m224-v1.json.gz at the same fixed support and validate the original exact reference mu.",
+  "source_packet_sha256": "0693f7725c721be180afe79af6354facbc20371d786ea138ae8d1467096ff29c",
+  "matrix_precision_bits": 2048,
+  "head_precision_bits": 3072,
+  "publication_reference_bits": 512,
+  "required_interval_slots": 55490,
+  "acceptance": "Every independent exact endpoint interval and its outward512bit receipt is contained in the source352bit interval; all192 exact residual image signatures, reflection parity and strict geometry agree; original chosen mu is positive and no larger than the independently reconstructed exact complement lower.",
+  "owned_heavy_processes": 1,
+  "timeout_seconds": 180,
+  "charged_before_seconds": 230.09074460004922,
+  "cumulative_ceiling_seconds": 600,
+  "working_array_estimate": "Below1GiB at fixed192/224 degrees using native rectangular moment contractions; estimate, not measured.",
+  "retries": 0,
+  "exclusions": ["No target matrix sign is granted by input acceptance", "No generator analytical assemblers in independent reconstruction", "No theorem admission"]
+}

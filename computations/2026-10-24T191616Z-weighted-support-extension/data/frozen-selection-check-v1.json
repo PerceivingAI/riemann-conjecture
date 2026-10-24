@@ -1,0 +1,7 @@
+{
+  "status": "COMPLETE_FROZEN_SELECTION_MATCH",
+  "selection_sha256": "e120acab4919b9ab28e6fd6c7044053bb14514f300d810952a2d52e5dae6d7a3",
+  "selector_sha256": "31de5cad9e3bfaf3f23e09cf145949d12df94c1d512fdac1d1f73966ccff6489",
+  "method": "Full deterministic selection object equality after identifying the exact archived selector version; no fields omitted",
+  "created": "2026-10-24T19:41:12Z"
+}

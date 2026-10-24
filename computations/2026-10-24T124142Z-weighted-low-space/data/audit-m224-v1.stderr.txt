@@ -1,0 +1,3 @@
+Reconstructing all low and complete Gram entries at 2048 bits
+Reconstructing every rectangular head at 3072 bits
+{"error": "R32[192,0]: independent interval is not contained in the source", "status": "REJECTED"}

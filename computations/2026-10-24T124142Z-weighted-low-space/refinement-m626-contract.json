@@ -1,0 +1,21 @@
+{
+  "question": "Continue the unresolved odd whole-reference test at the next uniform-error-selected boundary while retaining both parity blocks and all errors.",
+  "previous_boundary": 316,
+  "selected_boundary": 626,
+  "selection": "Smallest evenm>316 withw_m<=w_316/2, alreadycomputedbeforeanynewsourcevalue.",
+  "source_precision_bits": 1024,
+  "head_precision_bits": 3072,
+  "head_reference_precision_bits": 6144,
+  "source_cap_seconds": 30,
+  "head_audit_cap_seconds": 60,
+  "assessment_cap_seconds": 10,
+  "exact_replay_cap_seconds": 10,
+  "changed_input_smoke_cap_seconds": 3,
+  "total_reserved_seconds": 113,
+  "remaining_before_seconds": 119.29018030012958,
+  "cumulative_ceiling_seconds": 600,
+  "low_reuse": "Only SHA-pinned independently acceptedm224source+audit; all low definitions/arrays/scalars/signatures equal and copiedreference endpoints rechecked. All heads independently rebuilt. Ancestor and currentauditor identities retained separately.",
+  "working_array_estimate": "Below2GiB for434x626 and626x192 nativeheadcontractions at6144bits; estimate,notameasuredguarantee.",
+  "scope": "No changeT,N,K,mu; no unknowntaildrop; no fullsigngrantedifanyphasefails. The resource capremainsm<=1024.",
+  "arithmetic": "Nativefmpz center/radius weightedouterproducts with fullentryradiuserror; reviewed mass/denominator proof and7passingbehavioralcontrols. Last-bitwidth maydifferfromoldmethod; olderprocedures retained."
+}

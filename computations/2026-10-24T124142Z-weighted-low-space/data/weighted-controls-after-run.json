@@ -1,0 +1,18 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-n",
+    "0",
+    "-q",
+    "tests/test_weighted_low_space.py"
+  ],
+  "timeout_seconds": 20,
+  "timed_out": false,
+  "exit_code": 0,
+  "owned_exit_confirmed": true,
+  "elapsed_seconds": 1.2589956000447273,
+  "charged_before_seconds": 298.16630939999595,
+  "charged_after_seconds": 299.4253050000407
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_weighted_extension_diagnostics",
+    "baseline",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\baseline-losses-v2.json"
+  ],
+  "stage": "baseline-v2",
+  "exit_code": 0,
+  "elapsed_seconds": 4.693936499999836,
+  "owned_exit_confirmed": true,
+  "finished_utc": "2026-10-24T19:20:47Z",
+  "supervisor_sha256": "c58165325f6c45eb1164bee9ea62fa44bd84aafed66a653a97a51586796fc408"
+}

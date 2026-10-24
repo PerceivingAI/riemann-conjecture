@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\2_Add_Projects\riemann-conjecture\scripts\weil_weighted_support_extension.py", line 325, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "D:\2_Add_Projects\riemann-conjecture\scripts\weil_weighted_support_extension.py", line 312, in main
+    packet, sha, audit_sha = load_accepted(args.packet, args.audit)
+                             ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\2_Add_Projects\riemann-conjecture\scripts\weil_weighted_support_extension.py", line 198, in load_accepted
+    old_inputs.require(audit['format'] == AUDIT_FORMAT and audit['status'] == 'ALL_FRESH_SOURCE_INPUTS_ACCEPTED'
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       and audit['packet_sha256'] == sha and audit['bits'] == 512,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       'independent receipt identity mismatch')
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\2_Add_Projects\riemann-conjecture\scripts\verify_weighted_low_space_inputs.py", line 52, in require
+    raise InputRejected(message)
+scripts.verify_weighted_low_space_inputs.InputRejected: independent receipt identity mismatch

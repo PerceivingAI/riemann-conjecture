@@ -1,0 +1,23 @@
+{
+  "label": "scalar-baseline-v1",
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_support_scaling_scout",
+    "--supports",
+    "3/5",
+    "--dimensions",
+    "192,312",
+    "--precision",
+    "512",
+    "--order",
+    "32",
+    "--output-json",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\scalar-baseline-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.24736050004139543,
+  "stdout": "",
+  "stderr": "",
+  "created": "2026-10-24T20:00:36Z"
+}

@@ -1,0 +1,215 @@
+{
+  "prior_elapsed_seconds": 530.2940911997575,
+  "new_elapsed_seconds": 238.58843629993498,
+  "historical_total_seconds": 768.8825274996925,
+  "elapsed_is_not_billing_or_hard_authorization_limit": true,
+  "runs": [
+    {
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_low_space",
+        "--boundary",
+        "626",
+        "--base",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m316-v1.json.gz",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\source-m626-v1.json.gz"
+      ],
+      "finished_utc": "2026-10-24T15:32:29Z",
+      "stage": "source",
+      "safety_deadline_seconds": 1800,
+      "timed_out": false,
+      "elapsed_seconds": 47.45588919997681,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "samples": [
+        {
+          "elapsed_seconds": 15.026824999949895,
+          "cpu_seconds": 0.0,
+          "working_set_bytes": 4321280,
+          "peak_working_set_bytes": 4321280
+        },
+        {
+          "elapsed_seconds": 30.034292900003493,
+          "cpu_seconds": 0.0,
+          "working_set_bytes": 4304896,
+          "peak_working_set_bytes": 4321280
+        },
+        {
+          "elapsed_seconds": 45.04189150000457,
+          "cpu_seconds": 0.0,
+          "working_set_bytes": 4304896,
+          "peak_working_set_bytes": 4321280
+        }
+      ],
+      "supervisor_sha256": "683e74364a2cda428d1488c85f68d0832a77c68e42944688b61a4c1d3133f17a"
+    },
+    {
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space_inputs",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\source-m626-v1.json.gz",
+        "--reuse-accepted-low",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\audit-m626-v1.json.gz"
+      ],
+      "finished_utc": "2026-10-24T15:36:48Z",
+      "stage": "audit",
+      "safety_deadline_seconds": 1800,
+      "timed_out": false,
+      "elapsed_seconds": 167.13406349997967,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "samples": [
+        {
+          "elapsed_seconds": 15.01943849993404,
+          "cpu_seconds": 0.015625,
+          "working_set_bytes": 4317184,
+          "peak_working_set_bytes": 4317184
+        },
+        {
+          "elapsed_seconds": 30.022076199995354,
+          "cpu_seconds": 0.015625,
+          "working_set_bytes": 4304896,
+          "peak_working_set_bytes": 4317184
+        },
+        {
+          "elapsed_seconds": 45.029511900036596,
+          "cpu_seconds": 0.015625,
+          "working_set_bytes": 4304896,
+          "peak_working_set_bytes": 4317184
+        },
+        {
+          "elapsed_seconds": 60.03308600001037,
+          "cpu_seconds": 0.015625,
+          "working_set_bytes": 4304896,
+          "peak_working_set_bytes": 4317184
+        },
+        {
+          "elapsed_seconds": 75.04147549998015,
+          "cpu_seconds": 0.015625,
+          "working_set_bytes": 4304896,
+          "peak_working_set_bytes": 4317184
+        },
+        {
+          "elapsed_seconds": 90.05349329998717,
+          "cpu_seconds": 0.015625,
+          "working_set_bytes": 4304896,
+          "peak_working_set_bytes": 4317184
+        },
+        {
+          "elapsed_seconds": 105.06586139998399,
+          "cpu_seconds": 0.015625,
+          "working_set_bytes": 4304896,
+          "peak_working_set_bytes": 4317184
+        },
+        {
+          "elapsed_seconds": 120.07481649995316,
+          "cpu_seconds": 0.015625,
+          "working_set_bytes": 4304896,
+          "peak_working_set_bytes": 4317184
+        },
+        {
+          "elapsed_seconds": 135.07487200002652,
+          "cpu_seconds": 0.015625,
+          "working_set_bytes": 4304896,
+          "peak_working_set_bytes": 4317184
+        },
+        {
+          "elapsed_seconds": 150.0775228999555,
+          "cpu_seconds": 0.015625,
+          "working_set_bytes": 4304896,
+          "peak_working_set_bytes": 4317184
+        },
+        {
+          "elapsed_seconds": 165.09170300001279,
+          "cpu_seconds": 0.015625,
+          "working_set_bytes": 4304896,
+          "peak_working_set_bytes": 4317184
+        }
+      ],
+      "supervisor_sha256": "683e74364a2cda428d1488c85f68d0832a77c68e42944688b61a4c1d3133f17a"
+    },
+    {
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\source-m626-v1.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\audit-m626-v1.json.gz",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\assessment-m626-v1.json"
+      ],
+      "finished_utc": "2026-10-24T15:37:18Z",
+      "stage": "assessment",
+      "safety_deadline_seconds": 1800,
+      "timed_out": false,
+      "elapsed_seconds": 5.494040900026448,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "samples": [],
+      "supervisor_sha256": "683e74364a2cda428d1488c85f68d0832a77c68e42944688b61a4c1d3133f17a"
+    },
+    {
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\source-m626-v1.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\audit-m626-v1.json.gz",
+        "--result",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\assessment-m626-v1.json",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\replay-m626-v1.json"
+      ],
+      "finished_utc": "2026-10-24T15:37:40Z",
+      "stage": "replay",
+      "safety_deadline_seconds": 1800,
+      "timed_out": false,
+      "elapsed_seconds": 5.2292241000104696,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "samples": [],
+      "supervisor_sha256": "683e74364a2cda428d1488c85f68d0832a77c68e42944688b61a4c1d3133f17a"
+    },
+    {
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\analyze-v1.py"
+      ],
+      "PYTHONPATH": "D:\\2_Add_Projects\\riemann-conjecture",
+      "elapsed_seconds": 8.770643999916501,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "recipe_sha256": "296ebde5b53871aa9f066650fd8a858737a71900a4dbc98e277c2bffa0e14725"
+    },
+    {
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\source-m626-v1.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\audit-m626-v1.json.gz",
+        "--result",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\altered-odd-margin.json",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\forbidden-attack-success.json"
+      ],
+      "elapsed_seconds": 4.50457460002508,
+      "exit_code": 2,
+      "owned_exit_confirmed": true,
+      "success_output_exists": false
+    }
+  ],
+  "all_owned_launches_exited": true,
+  "monitoring_limit": "Win32 CPU/RSS samples describe the Popen-owned process handle. They are not descendant-inclusive scientific CPU/RAM peaks; an interpreter launcher can report zero CPU. Successful CLI completion/output and exit are separate observations."
+}

@@ -1,0 +1,2 @@
+Reconstructing all low and complete Gram entries at 2048 bits
+Reconstructing every rectangular head at 3584 bits

@@ -1,0 +1,80 @@
+{
+  "source-m224-v1": [
+    "source-v1/scripts/weil_weighted_low_space.py"
+  ],
+  "audit-m224-v1": [
+    "source-v1/scripts/verify_weighted_low_space_inputs.py"
+  ],
+  "residual-zero-before": [
+    "source-v1/tests/test_weighted_low_space.py",
+    "source-v1/scripts/verify_weighted_low_space_inputs.py"
+  ],
+  "weighted-controls-after": [
+    "source-v2/tests/test_weighted_low_space.py",
+    "source-v2/scripts/verify_weighted_low_space_inputs.py",
+    "source-v2/scripts/verify_weighted_low_space.py"
+  ],
+  "audit-m224-v2": [
+    "source-v2/scripts/verify_weighted_low_space_inputs.py"
+  ],
+  "assessment-m224": [
+    "source-v3/scripts/verify_weighted_low_space.py"
+  ],
+  "source-m316-v1": [
+    "source-v1/scripts/weil_weighted_low_space.py"
+  ],
+  "audit-m316-v2": [
+    "source-v2/scripts/verify_weighted_low_space_inputs.py"
+  ],
+  "assessment-m316": [
+    "source-v3/scripts/verify_weighted_low_space.py"
+  ],
+  "weighted-controls-reuse": [
+    "source-v4/scripts/verify_weighted_low_space.py",
+    "source-v4/scripts/verify_weighted_low_space_inputs.py"
+  ],
+  "replay-m316": [
+    "source-v4/scripts/verify_weighted_low_space.py",
+    "source-v4/scripts/verify_weighted_low_space_inputs.py"
+  ],
+  "weighted-controls-native": [
+    "source-v5/scripts/verify_weighted_low_space.py",
+    "source-v5/scripts/verify_weighted_low_space_inputs.py",
+    "source-v5/tests/test_weighted_low_space.py"
+  ],
+  "assessment-m316-native": [
+    "source-v5/scripts/verify_weighted_low_space.py",
+    "source-v5/scripts/verify_weighted_low_space_inputs.py"
+  ],
+  "source-m626-v1": [
+    "source-v1/scripts/weil_weighted_low_space.py"
+  ],
+  "audit-m224-reused-low": [
+    "source-v5/scripts/verify_weighted_low_space.py",
+    "source-v5/scripts/verify_weighted_low_space_inputs.py"
+  ],
+  "replay-m316-native": [
+    "source-v5/scripts/verify_weighted_low_space.py",
+    "source-v5/scripts/verify_weighted_low_space_inputs.py"
+  ],
+  "attack-margin": [
+    "source-v5/scripts/verify_weighted_low_space.py",
+    "source-v5/scripts/verify_weighted_low_space_inputs.py"
+  ],
+  "attack-reference": [
+    "source-v5/scripts/verify_weighted_low_space.py",
+    "source-v5/scripts/verify_weighted_low_space_inputs.py"
+  ],
+  "fixed-comparison": [
+    "compare-fixed-v1.py",
+    "source-v5/scripts/verify_weighted_low_space.py"
+  ],
+  "fixed-comparison-v2": [
+    "compare-fixed-v1.py",
+    "source-v5/scripts/verify_weighted_low_space.py"
+  ],
+  "even-gap": [
+    "even-gap-v1.py",
+    "source-v5/scripts/verify_weighted_low_space.py"
+  ]
+}

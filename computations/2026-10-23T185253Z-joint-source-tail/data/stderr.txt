@@ -1,0 +1,2 @@
+evaluating fixed 1536-bit joint scalar
+reconstructing fixed 3072-bit joint scalar

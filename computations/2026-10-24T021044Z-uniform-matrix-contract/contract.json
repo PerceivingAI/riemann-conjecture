@@ -1,0 +1,10 @@
+{
+  "created_utc": "2026-10-24T02:10:44Z",
+  "question": "Do existing source operations support rectangular same-source low/high pairings, both parities and correct degree-indexed masses, and do exact mixed-direction controls satisfy the proposed uniform matrix/residual inequalities?",
+  "fixed_inputs": {"support": "3/5", "ambient_N": 192, "residual_order": 32, "low_degrees": [0,1,190,191], "row_degrees": [0,1,190,191,192,193,224,225], "generator_precision": 1024, "reference_precision": 2048, "publication_bits": 352},
+  "source_acceptance": "All 96 V/P/R unnormalized pairings and the residual norm bound contain separately reconstructed intervals within their outward dyadic publication. Certify mathematical parity zeros before imposing them. Residual rows beyond degree 223 vanish exactly. Exact independently reconstructed residual polynomials agree.",
+  "algebra_acceptance": "Exact non-diagonal two-dimensional, three-tail-mode fixture: finite weighted Loewner upper, complete tail-error matrix, non-Euclidean mass metric and signed residual cross error; all relevant PSD differences certified by exact principal minors. Demonstrate that an indefinite lower enclosure need not mean the actual matrix is negative.",
+  "limits": {"owned_children": 1, "direct_child_timeout_seconds": 30, "default_per_check_ceiling_seconds": 60, "aggregate_ceiling_seconds": 180, "previously_charged_seconds": 91.74805250007194, "retries": 0},
+  "scope_exclusions": ["No complete target A or G", "No target weighted whole-space matrix", "No tail cutoff selection from sparse rows", "No runtime extrapolation to all 192 columns", "No production certificate or admission", "No existing source modification"],
+  "retention": "Retain executed source, input identities, exact interval receipts, stdout/stderr, exit/timeout/cleanup and charged elapsed time. Any changed procedure receives a separate source/run identity."
+}

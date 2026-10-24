@@ -1,0 +1,14 @@
+{
+  "checked_utc": "2026-10-24T14:53:13Z",
+  "protected_public_antecedents_unchanged": 843,
+  "intentionally_updated_maintained_script_document": "scripts/README.md",
+  "public_local_links_checked": 466,
+  "missing_public_links": [],
+  "final_executed_source_snapshots_match": true,
+  "verbatim_bundle_attributes": true,
+  "authored_trailing_whitespace": false,
+  "source626_packet_absent": true,
+  "owned_numerical_children_exited": 21,
+  "charged_seconds": 530.2940911997575,
+  "scope": "Source/evidence integrity, not additional numerical or theorem verification"
+}

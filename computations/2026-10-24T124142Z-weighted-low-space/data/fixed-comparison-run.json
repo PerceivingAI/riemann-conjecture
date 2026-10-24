@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\compare-fixed-v1.py"
+  ],
+  "timeout_seconds": 4,
+  "timed_out": false,
+  "exit_code": 1,
+  "owned_exit_confirmed": true,
+  "elapsed_seconds": 0.22436800005380064,
+  "charged_before_seconds": 528.2542153997347,
+  "charged_after_seconds": 528.4785833997885
+}

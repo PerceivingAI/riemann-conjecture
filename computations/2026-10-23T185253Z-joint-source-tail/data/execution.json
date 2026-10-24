@@ -1,0 +1,70 @@
+{
+  "format": "joint-source-tail-execution-v1",
+  "created_utc": "2026-10-23T19:02:50Z",
+  "source_git_baseline": "acc63ac6d41138280236850c3fbc586e20998cc4",
+  "source_git_clean": false,
+  "consumer_sha256": "04ccd864c4a350767291d1751d499a39325a40ffdd843f827fbac59d56d40dde",
+  "python_version": "3.14.0",
+  "python_flint_version": "0.9.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "text_capture": "stdout/stderr captured in text mode, retained as UTF-8 LF; not raw OS pipe bytes",
+  "prior_analytical_charge_seconds": 4.620344400056638,
+  "new_charge_seconds": 12.480469300062396,
+  "cumulative_charge_seconds": 17.100813700119033,
+  "per_child_limit_seconds": 60,
+  "aggregate_ceiling_seconds": 180,
+  "no_retry": true,
+  "full_matrix_or_inverse": false,
+  "full_joint_correlation_bound_evaluated": true,
+  "parent_display_note": "A post-capture summary initially lacked the Fraction alias. Only the display was corrected; the successful numerical child was not rerun.",
+  "runs": [
+    {
+      "name": "canonical-joint-evaluation",
+      "argv": [
+        "project-python",
+        "-m",
+        "scripts.weil_joint_source_tail"
+      ],
+      "checked_utc": "2026-10-23T18:58:58Z",
+      "exit_code": 0,
+      "timeout": false,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 11.994052800000645,
+      "stdout": "data/result.json",
+      "stderr": "data/stderr.txt",
+      "consumer_sha256": "04ccd864c4a350767291d1751d499a39325a40ffdd843f827fbac59d56d40dde"
+    },
+    {
+      "name": "exact-consequence-replay",
+      "argv": [
+        "project-python",
+        "computations/2026-10-23T185253Z-joint-source-tail/data/source/consequence-check.py",
+        "computations/2026-10-23T185253Z-joint-source-tail/data/result.json"
+      ],
+      "checked_utc": "2026-10-23T19:01:19Z",
+      "exit_code": 0,
+      "timeout": false,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 0.23110089998226613,
+      "stdout": "data/consequence-result.json",
+      "stderr": ""
+    },
+    {
+      "name": "altered-input-smoke",
+      "argv": [
+        "project-python",
+        "-m",
+        "scripts.weil_joint_source_tail"
+      ],
+      "checked_utc": "2026-10-23T19:01:40Z",
+      "cwd_role": "removed disposable directory with changed first input; repository import path supplied",
+      "changed_first_input_utf8": "{}\n",
+      "exit_code": 2,
+      "timeout": false,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 0.2553156000794843,
+      "stdout": "",
+      "stderr": "joint source-tail calculation rejected: input identity: computations/2026-10-18T090311Z-sys6-selective-support/data/T-3-5-N192-probe.json\n"
+    }
+  ]
+}

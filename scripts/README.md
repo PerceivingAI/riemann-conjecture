@@ -1,13 +1,97 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-23T11:16:40Z`
+- **Last updated:** `2026-10-24T20:37:47Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
 ## Byte identity on checkout
 
-The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep their pinned sources/configuration in LF, the original SYS-6.4 probe in its recorded CRLF checkout format, and the three new retained bundles verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep their pinned sources/configuration in LF, the original SYS-6.4 probe in its recorded CRLF checkout format, and retained bundles verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+
+## Controlled weighted support extension
+
+`scripts.weil_weighted_extension_diagnostics` decomposes exact retained316/626 directional losses and selects a new support by nearly doubling the prime3 translation overlap. The source selection preserves the original exact positive reference mu, an accepted full residual budget and an omitted inverse-weight cap before new matrix signs. Matching this cap does not match omitted mass or prove positivity.
+
+`scripts.weil_weighted_support_extension` generates a new parameter-bearing research packet with fresh complete A_K/G_K and signed V/P/RK heads. `scripts.verify_weighted_support_extension_inputs` reconstructs all low/Gram entries, every head component, the complement, full residual and uniform cross-norm bound using separately organized global moments and Taylor transforms. It has no inherited-low option. Physical Legendre masses, both parity blocks, full mixed terms and infinite residual/tail errors are retained.
+
+```text
+uv run --locked python -m scripts.weil_weighted_extension_diagnostics select --output computations/<new-bundle>/data/selection.json
+uv run --locked python -m scripts.weil_weighted_support_extension generate --selection computations/<new-bundle>/data/selection.json --output computations/<new-bundle>/data/source.json.gz
+uv run --locked python -m scripts.verify_weighted_support_extension_inputs --packet computations/<new-bundle>/data/source.json.gz --output computations/<new-bundle>/data/audit.json.gz
+uv run --locked python -m scripts.weil_weighted_support_extension assess --packet computations/<new-bundle>/data/source.json.gz --audit computations/<new-bundle>/data/audit.json.gz --output computations/<new-bundle>/data/result.json
+uv run --locked python -m scripts.weil_weighted_support_extension replay --packet computations/<new-bundle>/data/source.json.gz --audit computations/<new-bundle>/data/audit.json.gz --result computations/<new-bundle>/data/result.json --output computations/<new-bundle>/data/replay.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_weighted_support_extension.py
+```
+
+Selection creates its parent directory; later outputs refuse overwrite. Use a fresh selection from the source version being executed, not edited budget/parameter metadata. Historical replay restores captured source versions in an isolated repository copy, retaining the original inputs and hashes rather than relabeling old output as current.
+
+[X-20261024-004](../computations/2026-10-24T191616Z-weighted-support-extension/record.md) retains the actual selected T=1353/2048,N=312,K=38,m=1018 operation, source versions, status, controls and corrections. [C-0085's finding](../findings/2026-10-24T193421Z-cross-cut-norm-controlled-continuation.md) proves the uniform cross-cut potential norm and complete dimension-independent residual allowance. `scripts.weil_weighted_dimension_cost` implements [C-0086's conditional completeness/cost calculation](../findings/2026-10-24T194945Z-conditional-schur-completeness-cost.md) from an already known gap, not a new-support positivity premise.
+
+The selected operation completed with all758475 inputs freshly accepted and both156-dimensional parity lowers positive. Separate exact replay, real altered-witness/source-byte rejection and an isolated replay from archived numerical version2 pass. [C-0087's finding](../findings/2026-10-24T202855Z-controlled-weighted-support-positivity.md) gives the precise source-conditional implication and reference bounds. Current version3 additionally enforces complete typed selection/budget/provenance and input serialization;4 focused controls and actual pre-generation rejection pass. Historical numerical arrays are not relabeled as outputs of that later correction.
+
+These are research consumers, not new certificate profiles or admission tools. The existing fixed3/5 procedures below remain unchanged. A failed lower is inconclusive unless a separate negative actual-reference upper is verified; no finite successful operation proves RH.
+
+## Fixed weighted low-space research
+
+`scripts.weil_weighted_low_space` generates raw A_K, the complete Q192 mixed-image Gram and signed rectangular V/P/R32 pairings at T=3/5,N=192,K=32, keeping the original exact reference mu. It uses ordinary Legendre coordinates and records source fingerprints. The boundary must be even in [224,1024]; its degree-based head precision is separate from the 1024-bit low/Gram construction. `--base` reuses unchanged low/Gram source bytes, not a previously accepted matrix sign.
+
+`scripts.verify_weighted_low_space_inputs` independently reconstructs every low/Gram entry at 2048 bits and every head component at twice its generator precision. It requires strict containment, exact residual polynomial agreement, source identity, certified geometry and validity of the original chosen mu. Per-column residual-degree orthogonality is enforced only after the computed interval contains the proved zero. A global degree cutoff alone is insufficient. Optional `--reuse-accepted-low` reuses only the exact retained224 source/audit pinned in the implementation, requiring unchanged low definitions, payload and source fingerprints. It rechecks every inherited reference enclosure and freshly rebuilds all residual polynomials and requested heads; provenance distinguishes reuse from fresh reconstruction.
+
+`scripts.verify_weighted_low_space` checks all serialized reference containments and constructs the complete weighted matrix lower, uniform tail trace and full residual cross allowance with directed dyadic/native integer center-radius contractions. These retain signed off-diagonal terms and pay coefficient/weight uncertainty before Loewner conversion. Floating candidates are accepted only through exact rational congruence on both blocks or a verified negative directional upper for the actual reference. A failed lower is inconclusive, not reference or Weil negativity.
+
+```text
+uv run --locked python -m scripts.weil_weighted_low_space --boundary 224 --output computations/<new-bundle>/data/source.json.gz
+uv run --locked python -m scripts.verify_weighted_low_space_inputs --packet computations/<new-bundle>/data/source.json.gz --output computations/<new-bundle>/data/audit.json.gz
+uv run --locked python -m scripts.verify_weighted_low_space --packet computations/<new-bundle>/data/source.json.gz --audit computations/<new-bundle>/data/audit.json.gz --output computations/<new-bundle>/data/result.json
+uv run --locked python -m scripts.verify_weighted_low_space --packet computations/<new-bundle>/data/source.json.gz --audit computations/<new-bundle>/data/audit.json.gz --result computations/<new-bundle>/data/result.json --output computations/<new-bundle>/data/replay.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_weighted_low_space.py
+```
+
+Create the output directory before analytical auditing. All outputs refuse overwrite. These are research procedures, not certificate profiles, theorem admission or evaluation of the true inverse. [C-0082's finding](../findings/2026-10-24T021044Z-uniform-harmonic-reference-matrix-bound.md) gives the conditional source, mass, domain and complete-error implications. Existing directional consumers and historical methods remain unchanged.
+
+[X-20261024-002](../computations/2026-10-24T124142Z-weighted-low-space/record.md) retains the actual implementation, seven controls, full source audits, exact replay, rejected attacks and failed/corrected versions. At316, the even reference lower is rigorously positive; the odd sign remains unresolved. Source generation at the next accuracy-selected626 boundary timed out before publication. [F-20261024-002](../findings/2026-10-24T140543Z-weighted-even-reference-block.md) gives C-0083, its exact mass-normalized gap and explicit partial scope. No whole-reference or Weil positivity is claimed.
+
+The separate [m626 continuation, X-20261024-003](../computations/2026-10-24T153012Z-weighted-reference-continuation/record.md), completes with `POSITIVE_REFERENCE_LOWER` on both parity blocks and `EXACT_REPLAY_PASS`, without changing the scientific implementations. All287042 analytical slots are accepted with37056 low/Gram entries and2 scalars inherited from pinned independent evidence,249984 heads reconstructed afresh. Exact mass-gap calculation and an altered odd-witness rejection also pass. [C-0084's finding](../findings/2026-10-24T154006Z-positive-whole-harmonic-reference.md) gives the whole-reference and source-conditional smooth-test implication. This supersedes the earlier unresolved run's current-state limitation, not its historical record. No clean-source production theorem, Rust/Lean acceptance or admission is added.
+
+## Fixed weighted source-tail direction
+
+`scripts.weil_weighted_source_tail` evaluates the original T=3/5,N=192,K=32 trial with the unchanged exact mu. Its one accuracy-selected boundary B=874 pays the complete inverse-weighted omitted tail; it does not construct a new finite sufficient matrix or search cutoffs. Fixed generator/reference precisions are 4096/8192 bits. Signed source components, the residual polynomial through degree 223, the full residual norm and a newly enclosed physical low-form scalar supply both directional endpoints.
+
+```text
+uv run --locked python -m scripts.weil_weighted_source_tail
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_weighted_source_tail.py
+```
+
+The exercised result is `POSITIVE_DIAGONAL_REFERENCE_DIRECTION`, with a strict bracket inside (3/5,9/10). This is one trial, not a positive reference/Schur matrix or a support theorem. C-0072 separately transfers its lower to the true Schur direction; the true inverse is not evaluated. The producer's undetermined true-Schur/Weil field refers to the overall form/operator sign.
+
+All 1330 source containments, independent exact consequence replay, 2/2 regressions and changed-input rejection passed. V2 outward dyadic accumulation fixes a preserved v1 exact-rational serialization failure without relaxing Python's integer guard. The CLI has no numerical options, prints JSON to stdout, rejects changed/missing/rejected inputs at exit 2 and does not overwrite retained outputs. Capture replays separately.
+
+[F-20261023-006](../findings/2026-10-23T192821Z-weighted-source-tail-reference.md) / C-0080/C-0081 state the mathematics and limitations. [X-20261023-004](../computations/2026-10-23T192821Z-weighted-source-tail/record.md) retains both implementation versions, failure/regression evidence, corrected source enclosures and bounded execution history. Existing source modules, older consumers and theorem admissions are unchanged.
+
+## Fixed complete joint-source tail
+
+`scripts.weil_joint_source_tail` encloses the complete source tail at the original T=3/5,N=192,K=32,L=224, retaining signed jump/remainder correlations and restoring the full residual collectively. It uses whole image norms minus 112 odd head projections, not a truncated high-tail sum. The fixed 1536-bit generator and separately organized 3072-bit reconstruction publish outward 352-bit intervals; there are no parameter or precision options.
+
+```text
+uv run --locked python -m scripts.weil_joint_source_tail
+```
+
+The actual run passed all 351 scalar/head containments and accepted-prefix/model compatibility checks. The resulting directional upper is `INCONCLUSIVE`, not reference positivity. Changed/missing/rejected inputs return exit 2; an altered-byte smoke rejected before numerical construction. The command prints to stdout and never overwrites a retained output itself. Replays should be captured separately.
+
+[F-20261023-005](../findings/2026-10-23T185253Z-joint-source-tail-enclosure.md) / C-0079 state the signed formulas, complete residual, fixed-index limitation and trust boundary. [X-20261023-003](../computations/2026-10-23T185253Z-joint-source-tail/record.md) retains the exact executed source, raw reconstruction endpoints, output, separate rational replay and receipts. Existing mathematical primitives and older consumers are unchanged. This is a fixed research calculation, not a generalized evaluator, certificate path or theorem admission.
+
+## Fixed jump-refinement model/control replay
+
+`scripts/weil_jump_refinement_check.py` replays the original T=3/5,N=192,K=32 arithmetic jump model at L=224 using accepted constants and fixed 512-bit interval arithmetic. It verifies immutable inputs/source identities, retains mixed step products, reports an arithmetic mixed-tail upper and a separate retained-norm full-source control. It has no support, dimension or precision options.
+
+```text
+uv run --locked python -m scripts.weil_jump_refinement_check
+```
+
+`SIGNED_CANCELLATION_CERTIFIED` refers only to the arithmetic mixed-tail comparison, not Weil/reference positivity or negativity. The command does not assemble source images, new full-source moments, matrices or the full joint-correlation bound. Exit 2 rejects changed/missing/malformed inputs; altered-byte rejection and the actual canonical replay were exercised.
+
+[F-20261023-004](../findings/2026-10-23T174341Z-jump-resolved-tail-correlation.md) gives the reviewed mathematics and limitations. [X-20261023-002](../computations/2026-10-23T174341Z-jump-refinement-controls/record.md) retains exact outputs, historical control versions and the canonical source snapshot. This is a research reproducibility consumer, not a certificate/export/admission path.
 
 ## Existing-data directional loss audit
 

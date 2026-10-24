@@ -1,0 +1,416 @@
+{
+  "created_utc": "2026-10-24T14:05:43Z",
+  "carried_before_seconds": 97.41939420008566,
+  "new_charge_seconds": 432.87469699967187,
+  "charged_total_seconds": 530.2940911997575,
+  "ceiling_seconds": 600,
+  "remaining_seconds": 69.70590880024247,
+  "entries": [
+    {
+      "label": "source-m224-v1",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_low_space",
+        "--boundary",
+        "224",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m224-v1.json.gz"
+      ],
+      "timeout_seconds": 180,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 132.67135039996356,
+      "producer_sha256": "8e3a8b7707b1b415f59793b0641b4d47e911cb5ff517dfe629d57ecf9f37c2d2"
+    },
+    {
+      "label": "audit-m224-v1",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space_inputs",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m224-v1.json.gz",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\audit-m224-v1.json.gz"
+      ],
+      "timeout_seconds": 180,
+      "timed_out": false,
+      "exit_code": 2,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 66.13400329998694,
+      "auditor_sha256": "f02efc2e70d980afb9fdfe19fe421b56d4871ce93bdb6bece78175433a84249e"
+    },
+    {
+      "label": "residual-zero-before",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-n",
+        "0",
+        "-q",
+        "tests/test_weighted_low_space.py",
+        "-k",
+        "individual_residual_degree"
+      ],
+      "timeout_seconds": 20,
+      "timed_out": false,
+      "exit_code": 1,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 1.9415614999597892,
+      "charged_before_seconds": 296.22474790003616,
+      "charged_after_seconds": 298.16630939999595
+    },
+    {
+      "label": "weighted-controls-after",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-n",
+        "0",
+        "-q",
+        "tests/test_weighted_low_space.py"
+      ],
+      "timeout_seconds": 20,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 1.2589956000447273,
+      "charged_before_seconds": 298.16630939999595,
+      "charged_after_seconds": 299.4253050000407
+    },
+    {
+      "label": "audit-m224-v2",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space_inputs",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m224-v1.json.gz",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\audit-m224-v2.json.gz"
+      ],
+      "timeout_seconds": 180,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 67.96245869994164,
+      "auditor_sha256": "c52d0b6e962ea25b881a2f0cd05ad9b19b73f350415ea37e0e211259725115c8"
+    },
+    {
+      "label": "assessment-m224",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m224-v1.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\audit-m224-v2.json.gz",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\assessment-m224.json"
+      ],
+      "timeout_seconds": 30,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 2.8101726999739185,
+      "charged_before_seconds": 367.3877636999823,
+      "charged_after_seconds": 370.19793639995623
+    },
+    {
+      "label": "source-m316-v1",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_low_space",
+        "--boundary",
+        "316",
+        "--base",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m224-v1.json.gz",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m316-v1.json.gz"
+      ],
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 13.145035999943502,
+      "charged_before_seconds": 370.19793639995623,
+      "charged_after_seconds": 383.34297239989974
+    },
+    {
+      "label": "audit-m316-v2",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space_inputs",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m316-v1.json.gz",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\audit-m316-v2.json.gz"
+      ],
+      "timeout_seconds": 120,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 79.55789519997779,
+      "auditor_sha256": "c52d0b6e962ea25b881a2f0cd05ad9b19b73f350415ea37e0e211259725115c8"
+    },
+    {
+      "label": "assessment-m316",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m316-v1.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\audit-m316-v2.json.gz",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\assessment-m316.json"
+      ],
+      "timeout_seconds": 15,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 7.138204000075348,
+      "charged_before_seconds": 462.90086759987753,
+      "charged_after_seconds": 470.0390715999529
+    },
+    {
+      "label": "weighted-controls-reuse",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-n",
+        "0",
+        "-q",
+        "tests/test_weighted_low_space.py"
+      ],
+      "timeout_seconds": 5,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 1.5789073999039829,
+      "charged_before_seconds": 470.0390715999529,
+      "charged_after_seconds": 471.61797899985686
+    },
+    {
+      "label": "replay-m316",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m316-v1.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\audit-m316-v2.json.gz",
+        "--result",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\assessment-m316.json",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\replay-m316.json"
+      ],
+      "timeout_seconds": 8,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 4.766169099952094,
+      "charged_before_seconds": 471.61797899985686,
+      "charged_after_seconds": 476.38414809980895
+    },
+    {
+      "label": "weighted-controls-native",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-n",
+        "0",
+        "-q",
+        "tests/test_weighted_low_space.py"
+      ],
+      "timeout_seconds": 5,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 1.8626041000243276,
+      "charged_before_seconds": 476.38414809980895,
+      "charged_after_seconds": 478.2467521998333
+    },
+    {
+      "label": "assessment-m316-native",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m316-v1.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\audit-m316-v2.json.gz",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\assessment-m316-native.json"
+      ],
+      "timeout_seconds": 5,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 2.463067500037141,
+      "charged_before_seconds": 478.2467521998333,
+      "charged_after_seconds": 480.7098196998704
+    },
+    {
+      "label": "source-m626-v1",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_low_space",
+        "--boundary",
+        "626",
+        "--base",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m316-v1.json.gz",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m626-v1.json.gz"
+      ],
+      "timeout_seconds": 30,
+      "timed_out": true,
+      "exit_code": 1,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 30.01051249995362,
+      "charged_before_seconds": 480.7098196998704,
+      "charged_after_seconds": 510.72033219982404
+    },
+    {
+      "label": "audit-m224-reused-low",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space_inputs",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m224-v1.json.gz",
+        "--reuse-accepted-low",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\audit-m224-reused-low.json.gz"
+      ],
+      "timeout_seconds": 30,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 13.742733299965039,
+      "charged_before_seconds": 510.72033219982404,
+      "charged_after_seconds": 524.4630654997891
+    },
+    {
+      "label": "replay-m316-native",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m316-v1.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\audit-m316-v2.json.gz",
+        "--result",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\assessment-m316-native.json",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\replay-m316-native.json"
+      ],
+      "timeout_seconds": 10,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 1.9742560000158846,
+      "charged_before_seconds": 524.4630654997891,
+      "charged_after_seconds": 526.437321499805
+    },
+    {
+      "label": "attack-margin",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m316-v1.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\audit-m316-v2.json.gz",
+        "--result",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\attack-margin.json",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\attack-margin-output.json"
+      ],
+      "timeout_seconds": 3,
+      "timed_out": false,
+      "exit_code": 2,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 1.542770899948664,
+      "charged_before_seconds": 526.437321499805,
+      "charged_after_seconds": 527.9800923997536
+    },
+    {
+      "label": "attack-reference",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_low_space_inputs",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\attack-reference.json.gz",
+        "--reuse-accepted-low",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\attack-reference-output.json.gz"
+      ],
+      "timeout_seconds": 3,
+      "timed_out": false,
+      "exit_code": 2,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 0.2741229999810457,
+      "charged_before_seconds": 527.9800923997536,
+      "charged_after_seconds": 528.2542153997347
+    },
+    {
+      "label": "fixed-comparison",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\compare-fixed-v1.py"
+      ],
+      "timeout_seconds": 4,
+      "timed_out": false,
+      "exit_code": 1,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 0.22436800005380064,
+      "charged_before_seconds": 528.2542153997347,
+      "charged_after_seconds": 528.4785833997885
+    },
+    {
+      "label": "fixed-comparison-v2",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\compare-fixed-v1.py"
+      ],
+      "timeout_seconds": 4,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 0.8942779999924824,
+      "charged_before_seconds": 528.4785833997885,
+      "charged_after_seconds": 529.372861399781
+    },
+    {
+      "label": "even-gap",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\even-gap-v1.py"
+      ],
+      "timeout_seconds": 4,
+      "timed_out": false,
+      "exit_code": 0,
+      "owned_exit_confirmed": true,
+      "elapsed_seconds": 0.9212297999765724,
+      "charged_before_seconds": 529.372861399781,
+      "charged_after_seconds": 530.2940911997575
+    }
+  ]
+}

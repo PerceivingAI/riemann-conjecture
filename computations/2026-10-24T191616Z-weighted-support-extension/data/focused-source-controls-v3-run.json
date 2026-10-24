@@ -1,0 +1,17 @@
+{
+  "label": "focused-source-controls-v3",
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-n",
+    "0",
+    "-q",
+    "tests/test_weighted_support_extension.py"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 2.1334163999417797,
+  "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0\nrootdir: D:\\2_Add_Projects\\riemann-conjecture\nconfigfile: pyproject.toml\nplugins: hypothesis-6.165.10, xdist-3.8.0\ncollected 4 items\n\ntests\\test_weighted_support_extension.py ....                            [100%]\n\n============================== 4 passed in 1.37s ==============================\n",
+  "stderr": "",
+  "created": "2026-10-24T20:28:17Z"
+}

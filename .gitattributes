@@ -13,8 +13,12 @@
 /scripts/weil_directional_source_validation.py text eol=lf
 /scripts/weil_directional_exact_screen.py text eol=lf
 /scripts/weil_directional_loss_audit.py text eol=lf
+/scripts/weil_jump_refinement_check.py text eol=lf
+/scripts/weil_joint_source_tail.py text eol=lf
+/scripts/weil_weighted_source_tail.py text eol=lf
 /tests/test_directional_source_validation.py text eol=lf
 /tests/test_directional_exact_screen.py text eol=lf
+/tests/test_weighted_source_tail.py text eol=lf
 
 # This original input was fingerprinted from CRLF bytes; preserve that checkout.
 /computations/2026-10-18T090311Z-sys6-selective-support/data/T-3-5-N192-probe.json text eol=crlf
@@ -24,3 +28,19 @@
 /computations/2026-10-22T185054Z-directional-source-validation/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /computations/2026-10-22T190532Z-directional-exact-screen/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /computations/2026-10-23T105408Z-directional-loss-review/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-23T174341Z-jump-refinement-controls/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-23T185253Z-joint-source-tail/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-23T192821Z-weighted-source-tail/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-24T021044Z-uniform-matrix-contract/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_weighted_low_space.py text eol=lf
+/scripts/verify_weighted_low_space_inputs.py text eol=lf
+/scripts/verify_weighted_low_space.py text eol=lf
+/tests/test_weighted_low_space.py text eol=lf
+/computations/2026-10-24T124142Z-weighted-low-space/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-24T153012Z-weighted-reference-continuation/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_weighted_extension_diagnostics.py text eol=lf
+/scripts/weil_weighted_dimension_cost.py text eol=lf
+/scripts/weil_weighted_support_extension.py text eol=lf
+/scripts/verify_weighted_support_extension_inputs.py text eol=lf
+/tests/test_weighted_support_extension.py text eol=lf
+/computations/2026-10-24T191616Z-weighted-support-extension/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
