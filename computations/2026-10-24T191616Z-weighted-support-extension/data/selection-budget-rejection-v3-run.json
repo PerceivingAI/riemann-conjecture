@@ -1,0 +1,18 @@
+{
+  "label": "selection-budget-rejection-v3",
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_weighted_support_extension",
+    "generate",
+    "--selection",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\altered-selection-budget-v3.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\unexpected-new-guard-output.json.gz"
+  ],
+  "exit_code": 2,
+  "elapsed_seconds": 0.5294635000173002,
+  "stdout": "",
+  "stderr": "complete geometric selection contract mismatch\n",
+  "created": "2026-10-24T20:28:14Z"
+}

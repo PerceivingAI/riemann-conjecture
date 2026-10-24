@@ -1,0 +1,2 @@
+evaluating fixed 4096-bit weighted source band
+reconstructing fixed 8192-bit weighted source band

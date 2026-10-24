@@ -1,0 +1,20 @@
+{
+  "question": "Halve the validated uniform omitted-tail allowance at unchangedT3/5,N192,K32 and originalmu, retaining the complete correlated matrix.",
+  "previous_boundary": 224,
+  "selected_boundary": 316,
+  "selection": "Smallest evenm>224 withw_m<=w_224/2; no sign or precision search.",
+  "prior_assessment_sha256": "13e9fb529141595ee5a61b1bbd5722737fd8d3504c53edf1abe03bc6f33e8349",
+  "base_packet_sha256": "0693f7725c721be180afe79af6354facbc20371d786ea138ae8d1467096ff29c",
+  "source_precision_bits": 1024,
+  "head_precision_bits": 1792,
+  "independent_head_precision_bits": 3584,
+  "source_timeout_seconds": 60,
+  "audit_timeout_seconds": 120,
+  "assessment_timeout_seconds": 15,
+  "final_replay_timeout_seconds": 15,
+  "smoke_allowance_seconds": 10,
+  "total_reserved_seconds": 220,
+  "remaining_before_seconds": 229.80206360004377,
+  "working_array_estimate": "Below1GiB for rectangular124x192 heads, one316-degree affine table/cell at a time; estimate notmeasurement.",
+  "acceptance": "Freshcomplete head containment and exact block/directional predicates. Existing completeA/Gbytes reusedunchanged, independently rechecked; no outside tail dropped."
+}

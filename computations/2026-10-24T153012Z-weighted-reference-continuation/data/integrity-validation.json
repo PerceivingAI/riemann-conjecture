@@ -1,0 +1,14 @@
+{
+  "verified_utc": "2026-10-24T15:50:21Z",
+  "protected_public_antecedents_unchanged": 996,
+  "scientific_source_snapshot_files_matching": 13,
+  "public_local_links_checked": 474,
+  "missing_public_links": [],
+  "bundle_bytes_preserved_by_attributes": true,
+  "authored_trailing_whitespace": false,
+  "new_owned_numerical_executions": 6,
+  "all_owned_launches_exited": true,
+  "new_elapsed_seconds": 238.58843629993498,
+  "altered_witness_success_output_absent": true,
+  "scope": "Metadata and historical integrity checks, not an additional mathematical replay or proof of source identities"
+}

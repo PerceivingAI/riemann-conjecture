@@ -1,0 +1,24 @@
+{
+  "status": "ARCHIVED_SOURCE_REPLAY_PASS",
+  "exit_code": 0,
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_weighted_support_extension",
+    "replay",
+    "--packet",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-source-v1.json.gz",
+    "--audit",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-audit-v1.json.gz",
+    "--result",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-assessment-v1.json",
+    "--output",
+    "C:\\Users\\carlo\\AppData\\Local\\Temp\\weighted-v2-replay-xvlr91th\\replay.json"
+  ],
+  "elapsed_seconds": 14.236604399979115,
+  "created": "2026-10-24T20:33:13Z",
+  "isolated_source_version": "source-v2",
+  "restored_generator_sha256": "621feca54d90578c61e31078114662acbe706faa2a11f1fdf482bf1a8cb7fd7a",
+  "live_generator_sha256": "94d6360ca93b6125e8fd3c7675b340236960d593b40df433528a9f313da91bea",
+  "scope": "Exact retained input/witness replay after live-source cutover; no regenerated analytical audit"
+}

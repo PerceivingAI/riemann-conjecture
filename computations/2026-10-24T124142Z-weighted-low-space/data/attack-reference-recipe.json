@@ -1,0 +1,12 @@
+{
+  "base": "source-m224-v1.json.gz",
+  "change": {
+    "mu_reference_exact": "1/2"
+  },
+  "json_separators": [
+    ",",
+    ":"
+  ],
+  "gzip_mtime": 0,
+  "sha256": "df0a2e31e714eee855c978be912f0b564ab70acc959863f2b53bca13c75eead7"
+}

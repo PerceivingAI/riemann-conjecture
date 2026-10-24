@@ -1,0 +1,15 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T021044Z-uniform-matrix-contract\\probe-v1.py"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "elapsed_seconds": 5.553956900024787,
+  "timeout_seconds": 30,
+  "timed_out": false,
+  "exit_code": 0,
+  "owned_exit_confirmed": true,
+  "source_sha256": "15be8c30b70abc583227ccaed9242f8e46d565cd2a996ff0882556bff4d3471a",
+  "charged_before_seconds": 91.74805250007194,
+  "charged_after_seconds": 97.30200940009672
+}

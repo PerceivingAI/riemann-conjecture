@@ -1,0 +1,52 @@
+{
+  "format": "sys6-support-scaling-scalar-v1",
+  "results": [
+    {
+      "support": "3/5",
+      "active_terms": [
+        2,
+        3
+      ],
+      "prec_bits": 512,
+      "residual_order": 32,
+      "terms": [
+        {
+          "m": 2,
+          "coefficient_decimal_display": 0.4901290717342736,
+          "shift_norm_upper_display": 1.0,
+          "loss_upper_display": 0.4901290717342736
+        },
+        {
+          "m": 3,
+          "coefficient_decimal_display": 0.634284100597564,
+          "shift_norm_upper_display": 1.0,
+          "loss_upper_display": 0.634284100597564
+        }
+      ],
+      "c_T_upper_display": 1.9042671075448876,
+      "rho_R_upper_display": 2.623712677576802,
+      "scalar_cost_lower": "317870358105831095089382478141131330627201788178871421672204994809601514572065941005772128379492723060645865085324905642754629004300803565627753684632983540200645/56236422431789954785131731346074773235871213978773957913759444657647969758393598378988008576298635714374011382919011189040103325693678746112606439760814548189184",
+      "scalar_cost_upper": "317870358105831095089382478141131330627201788178871421672204994809601514572065941005772128379492723060645865085324905642754629004300803565627753684632985169431355/56236422431789954785131731346074773235871213978773957913759444657647969758393598378988008576298635714374011382919011189040103325693678746112606439760814548189184",
+      "scalar_cost_upper_display": 5.652392957453527,
+      "minimal_N_for_positive_conservative_mu": 160,
+      "sampled_dimensions": [
+        {
+          "N": 192,
+          "mu_certified_positive": true,
+          "mu_certified_negative": false,
+          "mu_lower_decimal_display": 0.18491998558724346,
+          "mu_upper_decimal_display": 0.18491998558724346
+        },
+        {
+          "N": 312,
+          "mu_certified_positive": true,
+          "mu_certified_negative": false,
+          "mu_lower_decimal_display": 0.669427603290364,
+          "mu_upper_decimal_display": 0.669427603290364
+        }
+      ],
+      "role": "rigorous_arb_scalar_complement_only_no_schur_no_theorem",
+      "warning": "Decimal displays are approximate; binary decisions come from Arb rational enclosures."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\2_Add_Projects\riemann-conjecture
+configfile: pyproject.toml
+plugins: hypothesis-6.165.10, xdist-3.8.0
+collected 3 items
+
+tests\test_weighted_support_extension.py ...                             [100%]
+
+============================== 3 passed in 0.80s ==============================

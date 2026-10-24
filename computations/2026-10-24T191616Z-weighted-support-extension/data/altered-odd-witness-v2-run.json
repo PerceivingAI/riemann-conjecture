@@ -1,0 +1,22 @@
+{
+  "label": "altered-odd-witness-v2",
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_weighted_support_extension",
+    "replay",
+    "--packet",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-source-v1.json.gz",
+    "--audit",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-audit-v1.json.gz",
+    "--result",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\altered-odd-margin-v2.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\unexpected-odd-attack-output.json"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 10.55903479992412,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\weil_weighted_support_extension.py\", line 325, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\weil_weighted_support_extension.py\", line 314, in main\n    value = assess(packet, sha, audit_sha, previous)\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\weil_weighted_support_extension.py\", line 262, in assess\n    old_inputs.require(exact._verify_congruence(lower, proof) == Q(proof['exact_margin']),\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                       'altered exact congruence margin')\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\verify_weighted_low_space_inputs.py\", line 52, in require\n    raise InputRejected(message)\nscripts.verify_weighted_low_space_inputs.InputRejected: altered exact congruence margin\n",
+  "created": "2026-10-24T20:25:59Z"
+}

@@ -1,0 +1,15 @@
+{
+  "label": "conditional-dimension-cost-v1",
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_weighted_dimension_cost",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\conditional-dimension-cost-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.5413098999997601,
+  "stdout": "CONDITIONAL_DIMENSION_COST_COMPLETE\n",
+  "stderr": "",
+  "created": "2026-10-24T19:49:45Z"
+}

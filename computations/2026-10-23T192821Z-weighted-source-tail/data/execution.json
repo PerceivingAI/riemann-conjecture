@@ -1,0 +1,153 @@
+{
+  "format": "weighted-source-tail-execution-v1",
+  "created_utc": "2026-10-23T19:45:46Z",
+  "source_git_baseline": "acc63ac6d41138280236850c3fbc586e20998cc4",
+  "source_git_clean": false,
+  "python_version": "3.14.0",
+  "python_flint_version": "0.9.0",
+  "pytest_version": "9.1.1",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "source_v1_sha256": "05c744958e5e433afec9b572f02602f2a66922ace70aeb69a9fe4a1d7d71539c",
+  "source_v2_sha256": "7dddb9ce9b75c2bf30ccf8af4b3002828ea080cae3443aed624c1b4493f0c2c6",
+  "result_v2_sha256": "92cf2dbc31326167c34f795f72dff394efb57430c24f14d23706d73da63df667",
+  "per_child_limit_seconds": 60,
+  "aggregate_ceiling_seconds": 180,
+  "prior_analytical_charge_seconds": 17.100813700119033,
+  "new_charge_seconds": 74.6472387999529,
+  "cumulative_charge_seconds": 91.74805250007194,
+  "no_parameter_or_precision_search": true,
+  "correction_rerun": "one explicit implementation-corrected v2 run; not an automatic numerical retry; same B and precisions",
+  "text_capture": "text-mode stdout/stderr preserved UTF-8 LF, not claimed raw OS pipe bytes",
+  "runs": [
+    {
+      "name": "accuracy-selection",
+      "exit_code": 0,
+      "timeout": false,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 0.1346206000307575,
+      "stdout": "data/accuracy.json",
+      "stderr": ""
+    },
+    {
+      "name": "canonical-weighted-source-evaluation",
+      "argv": [
+        "project-python",
+        "-m",
+        "scripts.weil_weighted_source_tail"
+      ],
+      "checked_utc": "2026-10-23T19:34:10Z",
+      "exit_code": 2,
+      "timeout": false,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 36.63808289996814,
+      "stdout": "data/result.json",
+      "stderr": "data/stderr.txt",
+      "consumer_sha256": "05c744958e5e433afec9b572f02602f2a66922ace70aeb69a9fe4a1d7d71539c",
+      "consumer_version": "v1 exact accumulation, preserved failed implementation"
+    },
+    {
+      "name": "minimal-rational-failure",
+      "argv": [
+        "project-python",
+        "-c",
+        "<data/source/rational-repro.py>"
+      ],
+      "exit_code": 2,
+      "timeout": false,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 0.38045990001410246,
+      "stdout": "",
+      "stderr": "data/rational-repro-stderr.txt",
+      "consumer_version": "v1 exact accumulation, preserved failed implementation"
+    },
+    {
+      "name": "regression-before-rounding-fix",
+      "argv": [
+        "project-python",
+        "-m",
+        "pytest",
+        "-n",
+        "0",
+        "-q",
+        "--tb=short",
+        "tests/test_weighted_source_tail.py"
+      ],
+      "exit_code": 1,
+      "timeout": false,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 2.0677490999223664,
+      "stdout": "data/regression-before.txt",
+      "stderr": "",
+      "consumer_version": "v1 exact accumulation, preserved failed implementation"
+    },
+    {
+      "name": "regression-after-rounding-fix",
+      "argv": [
+        "project-python",
+        "-m",
+        "pytest",
+        "-n",
+        "0",
+        "-q",
+        "--tb=short",
+        "tests/test_weighted_source_tail.py"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 1.3022569000022486,
+      "stdout": "data/regression-after.txt",
+      "stderr": "",
+      "consumer_version": "v2 outward dyadic accumulation"
+    },
+    {
+      "name": "canonical-weighted-source-v2",
+      "argv": [
+        "project-python",
+        "-m",
+        "scripts.weil_weighted_source_tail"
+      ],
+      "checked_utc": "2026-10-23T19:40:54Z",
+      "exit_code": 0,
+      "timeout": false,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 33.53869980003219,
+      "stdout": "data/result-v2.json",
+      "stderr": "data/stderr-v2.txt",
+      "consumer_sha256": "7dddb9ce9b75c2bf30ccf8af4b3002828ea080cae3443aed624c1b4493f0c2c6",
+      "consumer_version": "v2 outward dyadic accumulation"
+    },
+    {
+      "name": "independent-exact-weighted-replay",
+      "argv": [
+        "project-python",
+        "computations/2026-10-23T192821Z-weighted-source-tail/data/source/replay-weighted.py",
+        "computations/2026-10-23T192821Z-weighted-source-tail/data/result-v2.json"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 0.2587158000096679,
+      "stdout": "data/replay-result.json",
+      "stderr": "",
+      "consumer_version": "v2 outward dyadic accumulation"
+    },
+    {
+      "name": "altered-input-smoke",
+      "argv": [
+        "project-python",
+        "-m",
+        "scripts.weil_weighted_source_tail"
+      ],
+      "exit_code": 2,
+      "timeout": false,
+      "owned_exit_confirmed": true,
+      "wall_seconds": 0.32665379997342825,
+      "stdout": "",
+      "stderr": "weighted source-tail calculation rejected: input identity: computations/2026-10-18T090311Z-sys6-selective-support/data/T-3-5-N192-probe.json\n",
+      "cwd_role": "removed disposable directory with changed first input and repository PYTHONPATH",
+      "changed_first_input_hex": "7b7d0a",
+      "consumer_version": "v2 outward dyadic accumulation"
+    }
+  ]
+}

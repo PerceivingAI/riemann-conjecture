@@ -1,10 +1,64 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-23T10:55:26Z`
+- **Last updated:** `2026-10-24T20:37:47Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-24T20:37:47Z — Controlled weighted continuation survives nearly doubled prime3 overlap
+
+[F-20261024-004](../findings/2026-10-24T193421Z-cross-cut-norm-controlled-continuation.md), [F-20261024-005](../findings/2026-10-24T194945Z-conditional-schur-completeness-cost.md), [F-20261024-006](../findings/2026-10-24T202855Z-controlled-weighted-support-positivity.md) and [X-20261024-004](../computations/2026-10-24T191616Z-weighted-support-extension/record.md) record C-0085's uniform cross-cut/residual argument, C-0086's conditional completeness/cost consequence and C-0087's positive weighted reference at T=1353/2048,N=312,K=38,m=1018. All758475 source inputs are independently reconstructed afresh. Both156-dimensional exact parity witnesses and separate replay pass, with reference lower displays1.4153700144e-11 and8.3767811922e-9. The original mu, residual budget and inverse-weight cap were controlled before signs; matching the cap did not presume matching tail mass. Source/audit/assessment/replay wall time is2727.277751999907 s. Historical numerical version2, failures and raw identities are preserved; isolated version2 replay after the live guard cutover passes. Actual altered odd margin and stale-byte receipt reject. A prospective partial-selection guard defect is reproduced, then corrected in version3 with complete budget/provenance/serialization binding, actual CLI rejection and4 passing focused controls. No old mathematical source, research artifact, theorem admission, Rust/Lean layer or RH status changed.
+
+---
+
+## 2026-10-24T15:40:06Z — Both parity blocks certify the whole harmonic reference at T=3/5
+
+[F-20261024-003](../findings/2026-10-24T154006Z-positive-whole-harmonic-reference.md) / C-0084 and [X-20261024-003](../computations/2026-10-24T153012Z-weighted-reference-continuation/record.md) complete the unchanged-source m626 continuation. Analytical acceptance covers287042 slots with explicit inherited-low/fresh-head provenance. Both exact parity witnesses, separate replay and physical-mass gap calculation pass; altered odd witness margin rejects with exit2 and no success output. S0 is strictly positive over all192 low directions, with source-conditional true-Schur/full smooth-test implication under C-0063/C-0072/C-0082. New elapsed numerical execution238.58843629993498 s across six exited launches, no timeout or scientific-code change. The original short-window failure remains unchanged. This is dirty-source research evidence, not clean production admission, new Rust/Lean verification, literature priority or RH. Admissions remain8/0/1.
+
+---
+
+## 2026-10-24T14:16:19Z — Weighted implementation certifies the even reference block; odd remains resource-limited
+
+[F-20261024-002](../findings/2026-10-24T140543Z-weighted-even-reference-block.md) / C-0083 and [X-20261024-002](../computations/2026-10-24T124142Z-weighted-low-space/record.md) implement and exercise complete source generation, separate analytical acceptance and exact weighted matrix consequences at unchanged T=3/5,N=192,K=32,mu. The 316-boundary packet passes all 108,482 source containments; exact congruence and separate replay certify the even block, with exact normalized gap having display 1.577381523629527e-9. The odd lower has a negative exact direction, but the actual-reference upper is positive and inconclusive. The source-degree split224 was refined to316 and then626 by the uniform error rule; the last producer timed out in its reserved30-second window without publishing a packet. The initial analytical-audit exact-zero failure, failing-before/passing-after regression, corrected per-column degree treatment, native interval contractions, pinned accepted-low reuse, attacks and comparison environment failure/correction are retained separately. Seven controls pass. All21 owned numerical runs exited/reaped; new432.87469699967187 s plus carried97.41939420008566 s gives530.2940911997575/600 s, not an exhausted or reset ceiling. No whole-reference/Weil result, admission or RH claim; earlier historical records remain unchanged.
+
+---
+
+## 2026-10-24T02:20:54Z — Uniform weighted matrix bound and bounded source-interface checks
+
+[F-20261024-001](../findings/2026-10-24T021044Z-uniform-harmonic-reference-matrix-bound.md) / C-0082 proves the complete weighted Gram majorant, uniform tail trace allowance and full residual perturbation, including cross effects and physical low-space mass. Independent mathematical review qualified the domain, two parity blocks, outward square-root calculation, factor-two interval accounting, nonvanishing residual floor and conditional accuracy refinement. [X-20261024-001](../computations/2026-10-24T021044Z-uniform-matrix-contract/record.md) retains an actual sparse source smoke at T=3/5,K=32 with low degrees 0,1,190,191: all 96 component plus one delta enclosures contain independently reconstructed intervals; four residual polynomials agree exactly. Exact mixed-direction controls and separate endpoint replay/altered-interval rejection passed. Two owned children exited normally, no retry/timeout, 5.671341700013727 s new charge and 97.41939420008566/180 s carried total. This is a reviewed implication and selected-interface check, not a complete A/G reconstruction, weighted matrix sign, new theorem or RH proof. All earlier source versions and research records are preserved.
+
+---
+
+## 2026-10-23T19:45:46Z — Weighted source iteration proves the original reference direction positive
+
+[F-20261023-006](../findings/2026-10-23T192821Z-weighted-source-tail-reference.md), C-0080/C-0081, and [X-20261023-004](../computations/2026-10-23T192821Z-weighted-source-tail/record.md) qualify the harmonic moment, establish the scalar-Cauchy rule's limitation, and continue with a complete inverse-weighted band and rigorous remainder on the same trial. Accuracy selection fixed B=874 and 4096/8192-bit source paths before new source evaluation. All 2 scalar and 1328 head containments passed; newly reconstructed physical a and complete J give a strict positive reference bracket inside (3/5,9/10). C-0072 transfers the lower to the true Schur direction, not all low directions or the Weil class. A v1 rational serialization failure was isolated, regression-tested and corrected using outward dyadic accumulation; both versions and all failures are retained. Separate exact replay, 2/2 regressions, mathematical/static review and input rejection passed. Eight direct executions exited, new charge 74.6472387999529 seconds including failed work, cumulative 91.74805250007194/180 seconds. No full matrix/inverse, source parameter search, theorem admission, full-suite/Rust/Lean replay or external compute.
+
+---
+
+## 2026-10-23T19:02:50Z — Complete signed joint-source tail evaluated on the preserved trial
+
+[F-20261023-005](../findings/2026-10-23T185253Z-joint-source-tail-enclosure.md) / C-0079 and [X-20261023-003](../computations/2026-10-23T185253Z-joint-source-tail/record.md) record fixed T=3/5,N=192,K=32,L=224 complete tails by whole norms minus finite heads. Full signed correlation and collective residual improve the source-tail upper to about 0.705042; the concentration correction is nonzero, but the directional upper remains positive near 1.381880. Fixed 1536/3072-bit separately organized source paths passed 351 containments and accepted-prefix/model compatibility. Exact rational replay proves only that the same fixed-index formula remains too weak even at exact tail, not actual reference positivity or method failure. Mathematical/static review and changed-input rejection passed. Three direct children exited, new charge 12.480469300062396 seconds, cumulative 17.100813700119033/180 seconds. No parameter/precision search, matrix/inverse, original A/G reconstruction, theorem admission or RH conclusion; historical sources and evidence preserved.
+
+---
+
+## 2026-10-23T18:10:37Z — Signed jump resolution preserves the cancellation discarded by variation bounds
+
+[F-20261023-004](../findings/2026-10-23T174341Z-jump-resolved-tail-correlation.md) / C-0077 records exact signed steps, continuous H1 remainder, complete-tail correlation accounting and full residual control. Independent mathematical review and fixed exact/Arb controls passed. [X-20261023-002](../computations/2026-10-23T174341Z-jump-refinement-controls/record.md) retains initial/extended commands and outputs separately, plus a canonical fixed research replay and changed-input rejection. C-0078 certifies arithmetic mixed-tail cancellation on the unchanged original trial and a separate improved global-norm control; neither is an evaluated original full joint-tail bound or actual reference sign. Five managed children exited, no timeout/precision retry; new charge 2.438724899897352 seconds, cumulative analytical checks 4.620344400056638 seconds. Original records, source formulas, admissions and RH status remain unchanged.
+
+---
+
+## 2026-10-23T17:10:27Z — Reviewed source-tail bound is too weak for the fixed directional question
+
+[F-20261023-003](../findings/2026-10-23T170343Z-source-tail-envelope-jump-obstruction.md) records independent argument review accepting C-0075 and new C-0076's uniform fixed-data obstruction. The original trial's exact endpoint trace and distinct arithmetic jumps force the variation-based envelope to be too large on 224<=L<=259; for all L>=260, its concentration correction cannot exceed the retained positive headroom. Every reported upper remains positive, without deciding the actual reference/Weil sign. The failed potential-only predicate and narrower successful coarse predicate are retained separately from the successful actual-jump proof. Two exact retained-data checks exited 0, combined wall 0.4214450001018122 seconds; cumulative analytical-check charge 2.181619500159286 seconds. No new source moment, matrix, variation evaluator, actual reference sign or admission. The earlier qualification finding and all historical evidence remain unchanged.
+
+---
+
+## 2026-10-23T13:25:32Z — Source-sensitive tail concentration analytically qualified
+
+[F-20261023-002](../findings/2026-10-23T131836Z-source-tail-concentration-qualification.md) / provisional C-0075 derives a quantitative source-tail envelope using exact logarithmic Legendre pairings, jump-aware weighted variation of the combined arithmetic image, and the full residual norm. A retained omitted-mass lower then supplies a distribution-sensitive lower on J, without new source moments. Fixed controls passed: 78 log-product identities, 23 jump-aware identities, six finite partial-tail controls, twelve concentration controls and the retained residual-floor comparison. One direct process exited 0, no retry, wall 1.7601745000574738 seconds. No target constant, auxiliary proof index or actual reference sign was evaluated; independent mathematical review has not occurred. Original A/G source qualification, historical evidence, admissions and RH status remain unchanged.
+
+---
 
 ## 2026-10-23T10:55:26Z — Directional cutoff and inverse-reference losses separated
 

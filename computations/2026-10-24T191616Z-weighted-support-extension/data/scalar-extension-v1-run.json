@@ -1,0 +1,23 @@
+{
+  "label": "scalar-extension-v1",
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_support_scaling_scout",
+    "--supports",
+    "1353/2048",
+    "--dimensions",
+    "192,312",
+    "--precision",
+    "512",
+    "--order",
+    "38",
+    "--output-json",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\scalar-extension-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.279713400057517,
+  "stdout": "",
+  "stderr": "",
+  "created": "2026-10-24T20:00:37Z"
+}

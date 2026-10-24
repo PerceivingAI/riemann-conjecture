@@ -1,0 +1,17 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_weighted_low_space_inputs",
+    "--packet",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m316-v1.json.gz",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\audit-m316-v2.json.gz"
+  ],
+  "timeout_seconds": 120,
+  "timed_out": false,
+  "exit_code": 0,
+  "owned_exit_confirmed": true,
+  "elapsed_seconds": 79.55789519997779,
+  "auditor_sha256": "c52d0b6e962ea25b881a2f0cd05ad9b19b73f350415ea37e0e211259725115c8"
+}

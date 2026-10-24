@@ -1,0 +1,14 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T021044Z-uniform-matrix-contract\\replay-v1.py"
+  ],
+  "elapsed_seconds": 0.11738479998894036,
+  "timeout_seconds": 5,
+  "timed_out": false,
+  "exit_code": 0,
+  "owned_exit_confirmed": true,
+  "source_sha256": "302184b8be29ab4840fce28bad12826c605dfc75f5afd0475974c9e345128e90",
+  "charged_before_seconds": 97.30200940009672,
+  "charged_after_seconds": 97.41939420008566
+}

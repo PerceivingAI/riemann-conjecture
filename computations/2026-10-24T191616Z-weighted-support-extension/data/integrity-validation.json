@@ -1,0 +1,12 @@
+{
+  "format": "research-integrity-validation-v1",
+  "created": "2026-10-24T21:01:20Z",
+  "protected_existing_mathematical_files_unchanged": 300,
+  "old_public_document_content_preserved": true,
+  "introduced_local_links_resolve": true,
+  "new_public_text_has_no_inaccessible_or_unimplemented_profile_references": true,
+  "numerical_version2_fingerprints_match": true,
+  "archived_source_replay_pass": true,
+  "live_corrected_source_sha256": "94d6360ca93b6125e8fd3c7675b340236960d593b40df433528a9f313da91bea",
+  "scope": "Byte/link/source preservation, not new analytical reconstruction or unexecuted test suites"
+}

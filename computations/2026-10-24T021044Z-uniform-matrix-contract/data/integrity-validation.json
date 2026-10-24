@@ -1,0 +1,15 @@
+{
+  "checked_utc": "2026-10-24T02:33:37Z",
+  "protected_public_research_source_files": 819,
+  "protected_public_files_unchanged": true,
+  "source_snapshots_match_executed_dependencies": 9,
+  "local_public_document_links_checked": 412,
+  "missing_public_links": [],
+  "bundle_text_conversion_disabled": true,
+  "authored_trailing_whitespace": false,
+  "owned_children_exited": true,
+  "numerical_runs": 2,
+  "new_charged_seconds": 5.671341700013727,
+  "carried_total_seconds": 97.41939420008566,
+  "scope": "integrity and existing-source preservation; no target-scale matrix or theorem admission"
+}

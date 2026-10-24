@@ -1,0 +1,10 @@
+{
+  "format": "research-byte-attack-recipe-v1",
+  "source": "data/extension-source-v1.json.gz",
+  "source_sha256": "c9790a7b129aae0d410670830e8a472d639105d01884a041165fc119e627671e",
+  "operation": "Set gzip header bytes4..7 to little-endian uint32 value1; leave every other byte unchanged",
+  "output": "data/reencoded-source-v2.json.gz",
+  "output_sha256": "89db34e17ae216b669307e0c3a1e08cfa174b2651991cb8e36e08a58a2690973",
+  "decompressed_payload_unchanged": true,
+  "scope": "Exact deterministic recreation of the retained large byte-binding attack, no numerical recomputation"
+}

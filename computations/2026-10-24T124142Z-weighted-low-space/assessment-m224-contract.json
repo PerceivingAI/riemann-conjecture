@@ -1,0 +1,12 @@
+{
+  "question": "Assess the full even and odd96-dimensional harmonic-reference lower blocks and verify actual negative reference uppers only, with the complete uniform tail/full residual bound.",
+  "boundary": 224,
+  "packet_sha256": "0693f7725c721be180afe79af6354facbc20371d786ea138ae8d1467096ff29c",
+  "audit_status": "SOURCE_INPUTS_ACCEPTED",
+  "acceptance": "Both exact positive lower congruences, or a separately rigorous negative directional upper for the actual reference; failed lower alone remains inconclusive. Compare preserved original trial separately.",
+  "method": "Integer dyadic interval products, physical masses, row-radius Loewner bounds, exact rational congruence, full inverse-weighted residual; floating eig/Cholesky only proposes.",
+  "timeout_seconds": 30,
+  "charged_before_seconds": 367.3877636999823,
+  "cumulative_ceiling_seconds": 600,
+  "owned_heavy_processes": 1
+}

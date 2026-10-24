@@ -1,0 +1,127 @@
+{
+  "format": "research-computation-bundle-integrity-v1",
+  "computation_id": "X-20261024-001",
+  "sealed_utc": "2026-10-24T02:35:53Z",
+  "member_count": 23,
+  "total_member_bytes": 443493,
+  "members": [
+    {
+      "path": "contract.json",
+      "bytes": 1910,
+      "sha256": "824f1dc917567293aaf1f4501b3639852a84c0cd99092837dfc37eb2a03bae8d"
+    },
+    {
+      "path": "data/environment-inputs.json",
+      "bytes": 1321,
+      "sha256": "f12abe4400d5602a856edc390f4feac79b49250c715b5aa7e32741cc5f7195a4"
+    },
+    {
+      "path": "data/integrity-validation.json",
+      "bytes": 598,
+      "sha256": "267191844b1b3a2e3ff904710eec8e195a1499b344a350a4d5d8bbb234d63e8a"
+    },
+    {
+      "path": "data/probe-v1-run.json",
+      "bytes": 581,
+      "sha256": "e9f435b1372aeb4373c0b09f0ab07cad3d7f0f6e31e7642bdc321ef7b6c7288c"
+    },
+    {
+      "path": "data/probe-v1.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/probe-v1.stdout.json",
+      "bytes": 98505,
+      "sha256": "6b3417ad6fc8f972c417d8701ab49e0dbb6b23f226e58dd18650801e3fe58851"
+    },
+    {
+      "path": "data/replay-v1-run.json",
+      "bytes": 532,
+      "sha256": "4b971a5e19261f166135177f1311d66b1926e11ce6433ec8f034f54746338e4e"
+    },
+    {
+      "path": "data/replay-v1.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/replay-v1.stdout.json",
+      "bytes": 150,
+      "sha256": "45806e9b0c5ffd165c53f8ad74b027dd14e3729e22cfb82451d9aca26cf45b44"
+    },
+    {
+      "path": "independent-bound-review.md",
+      "bytes": 10340,
+      "sha256": "d422e9c2c128b0022a1ee6922116db32fa94564343d78d1ca6c0ceea1d4ccd17"
+    },
+    {
+      "path": "independent-review.md",
+      "bytes": 1557,
+      "sha256": "d9fadc39438664e17cbcc1f2bce9e57b94807c10caa91edcf3d3be4e623303bc"
+    },
+    {
+      "path": "probe-v1.py",
+      "bytes": 7589,
+      "sha256": "15be8c30b70abc583227ccaed9242f8e46d565cd2a996ff0882556bff4d3471a"
+    },
+    {
+      "path": "record.md",
+      "bytes": 9205,
+      "sha256": "776c34acd09c4a22172510a56d08d2ae2bbf5fb6c11b2f5baeea3e75fb9a9c98"
+    },
+    {
+      "path": "replay-v1.py",
+      "bytes": 1873,
+      "sha256": "302184b8be29ab4840fce28bad12826c605dfc75f5afd0475974c9e345128e90"
+    },
+    {
+      "path": "source/pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "source/scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "source/scripts/cert/legendre_schur.py",
+      "bytes": 14453,
+      "sha256": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956"
+    },
+    {
+      "path": "source/scripts/cert/mixed_gram_research.py",
+      "bytes": 13979,
+      "sha256": "61c830e808d281e9a0d61ad040f7ffaeaf42821ebf753f977887567a4fdf01f3"
+    },
+    {
+      "path": "source/scripts/cert/multi_prime_legendre_schur.py",
+      "bytes": 13682,
+      "sha256": "341c64284182e774886ff487d3d1107fabe29e86c1bcc3d1782e6d1111103246"
+    },
+    {
+      "path": "source/scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "source/scripts/cert/residual_kernel.py",
+      "bytes": 12441,
+      "sha256": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1"
+    },
+    {
+      "path": "source/scripts/verify_combined_schur_analytic_entries.py",
+      "bytes": 16003,
+      "sha256": "15961f4b337e1d26cc63aa41bcb3976fa975636d0b5e006b0f51bd3d625576e4"
+    },
+    {
+      "path": "source/uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    }
+  ],
+  "excludes": [
+    "manifest.json"
+  ]
+}

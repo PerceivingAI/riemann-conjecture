@@ -1,0 +1,57 @@
+{
+  "format": "jump-refinement-artifact-manifest-v1",
+  "created_utc": "2026-10-23T18:10:37Z",
+  "classification": "PUBLIC executed mathematical/control evidence; no theorem admission",
+  "path_base": "bundle directory",
+  "files": {
+    "data/canonical-result.json": {
+      "sha256": "77ec109a1718ab2efa1e6c94fe015e94a9dcb1da3252550f9d15b76b54459887",
+      "bytes": 11566
+    },
+    "data/execution.json": {
+      "sha256": "b8df6541448559fe69cd173a765d19e79fe2775f7a57c98ee0385413e7217ed2",
+      "bytes": 3137
+    },
+    "data/model-result-v1.json": {
+      "sha256": "fd3a6b06a319d9e5cf73b43d4aa70b3d735d011691963b94cb63461d6acf85f8",
+      "bytes": 3912
+    },
+    "data/model-result-v2.json": {
+      "sha256": "70d04c53b5233928f47ecc06d233a73e06ff5afe29c312df9a9d2785b2e7d39b",
+      "bytes": 11566
+    },
+    "data/source/model-v1.py": {
+      "sha256": "a7e273c7ceea58091d2565fb996a1f8fbb560603afd0f2a66b7103daabe4943d",
+      "bytes": 3672
+    },
+    "data/source/model-v2.py": {
+      "sha256": "945ded8bf8fabd68b868ab38fdc0bc68f3e92fc819216aec824e0936014f6e03",
+      "bytes": 4601
+    },
+    "data/source/toy-control.py": {
+      "sha256": "9ab5432ec5ba8cabe4bfecc9145830e2a92aa947228bf0596be4557bebf0a026",
+      "bytes": 4741
+    },
+    "data/source/weil_jump_refinement_check.py": {
+      "sha256": "73262f1dcf5ffcf88698f6e879e44aae27aa922c67af3049d7ac42163c2543a7",
+      "bytes": 8465
+    },
+    "data/toy-result.json": {
+      "sha256": "06811be656cef2ae372e5b5c31ef86a5d0fa9acbf3e9baff2881f0dbdc2cf7c5",
+      "bytes": 1959
+    },
+    "record.md": {
+      "sha256": "d73943f43f277cec1f5b4218c7c5c4304d97f0f5207c635be88aed33a62ea7eb",
+      "bytes": 7370
+    }
+  },
+  "consumer_repo_path": "scripts/weil_jump_refinement_check.py",
+  "consumer_sha256": "73262f1dcf5ffcf88698f6e879e44aae27aa922c67af3049d7ac42163c2543a7",
+  "historical_versions_preserved": [
+    "toy-control",
+    "model-v1",
+    "model-v2",
+    "canonical-replay"
+  ],
+  "full_joint_correlation_bound_evaluated": false
+}

@@ -1,0 +1,34 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\2_Add_Projects\riemann-conjecture
+configfile: pyproject.toml
+plugins: hypothesis-6.165.10, xdist-3.8.0
+collected 2 items
+
+tests\test_weighted_source_tail.py FF                                    [100%]
+
+================================== FAILURES ===================================
+___ test_many_distinct_inverse_weights_enclose_known_finite_energy[delta0] ____
+tests\test_weighted_source_tail.py:23: in test_many_distinct_inverse_weights_enclose_known_finite_energy
+    result = _consequences(original, source, audit, joint,
+scripts\weil_weighted_source_tail.py:200: in _consequences
+    "exact": {k: str(v) for k, v in exact.items()},
+                 ^^^^^^
+C:\Users\carlo\AppData\Local\Programs\Python\Python314\Lib\fractions.py:459: in __str__
+    return '%s/%s' % (self._numerator, self._denominator)
+                      ^^^^^^^^^^^^^^^
+E   ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+___ test_many_distinct_inverse_weights_enclose_known_finite_energy[delta1] ____
+tests\test_weighted_source_tail.py:23: in test_many_distinct_inverse_weights_enclose_known_finite_energy
+    result = _consequences(original, source, audit, joint,
+scripts\weil_weighted_source_tail.py:200: in _consequences
+    "exact": {k: str(v) for k, v in exact.items()},
+                 ^^^^^^
+C:\Users\carlo\AppData\Local\Programs\Python\Python314\Lib\fractions.py:459: in __str__
+    return '%s/%s' % (self._numerator, self._denominator)
+                      ^^^^^^^^^^^^^^^
+E   ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+=========================== short test summary info ===========================
+FAILED tests/test_weighted_source_tail.py::test_many_distinct_inverse_weights_enclose_known_finite_energy[delta0]
+FAILED tests/test_weighted_source_tail.py::test_many_distinct_inverse_weights_enclose_known_finite_energy[delta1]
+============================== 2 failed in 0.93s ==============================

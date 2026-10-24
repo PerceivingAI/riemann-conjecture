@@ -1,0 +1,19 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_weighted_low_space",
+    "--packet",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\source-m626-v1.json.gz",
+    "--audit",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\audit-m626-v1.json.gz",
+    "--result",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\altered-odd-margin.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\forbidden-attack-success.json"
+  ],
+  "elapsed_seconds": 4.50457460002508,
+  "exit_code": 2,
+  "owned_exit_confirmed": true,
+  "success_output_exists": false
+}

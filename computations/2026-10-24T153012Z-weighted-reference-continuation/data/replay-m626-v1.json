@@ -1,0 +1,6 @@
+{
+  "mathematical_status": "POSITIVE_REFERENCE_LOWER",
+  "packet_sha256": "0d63fe8f879138ddfa60cbf6dab2f00190dea624dc91c77c3a5556394d8f1fda",
+  "result_sha256": "5f0836bf8b67d6e84c0973fc7de127aa5b728771617c9b02ea244d05f2dfc3c2",
+  "status": "EXACT_REPLAY_PASS"
+}

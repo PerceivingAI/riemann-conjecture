@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\2_Add_Projects\riemann-conjecture\scripts\weil_weighted_extension_diagnostics.py", line 236, in <module>
+    main()
+    ~~~~^^
+  File "D:\2_Add_Projects\riemann-conjecture\scripts\weil_weighted_extension_diagnostics.py", line 227, in main
+    value = baseline_diagnostics() if args.operation == 'baseline' else select_parameters()
+            ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\2_Add_Projects\riemann-conjecture\scripts\weil_weighted_extension_diagnostics.py", line 198, in baseline_diagnostics
+    p626, _, sha626, audit626 = exact._load(BASE/'source-m626-v1.json.gz', BASE/'audit-m626-v2.json.gz')
+                                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\2_Add_Projects\riemann-conjecture\scripts\verify_weighted_low_space.py", line 230, in _load
+    raw,raw_audit = packet_path.read_bytes(),audit_path.read_bytes()
+                                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\carlo\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 782, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\carlo\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 776, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\audit-m626-v2.json.gz'

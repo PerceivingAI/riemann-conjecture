@@ -1,0 +1,419 @@
+{
+  "format": "research-execution-ledger-v1",
+  "closed_utc": "2026-10-24T20:37:47Z",
+  "core_total_seconds": 2727.277751999907,
+  "runs": [
+    {
+      "receipt": "data/altered-odd-witness-v2-run.json",
+      "label": "altered-odd-witness-v2",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_support_extension",
+        "replay",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-source-v1.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-audit-v1.json.gz",
+        "--result",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\altered-odd-margin-v2.json",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\unexpected-odd-attack-output.json"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 10.55903479992412,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\weil_weighted_support_extension.py\", line 325, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\weil_weighted_support_extension.py\", line 314, in main\n    value = assess(packet, sha, audit_sha, previous)\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\weil_weighted_support_extension.py\", line 262, in assess\n    old_inputs.require(exact._verify_congruence(lower, proof) == Q(proof['exact_margin']),\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                       'altered exact congruence margin')\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\verify_weighted_low_space_inputs.py\", line 52, in require\n    raise InputRejected(message)\nscripts.verify_weighted_low_space_inputs.InputRejected: altered exact congruence margin\n",
+      "created": "2026-10-24T20:25:59Z"
+    },
+    {
+      "receipt": "data/altered-source-bytes-v2-run.json",
+      "label": "altered-source-bytes-v2",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_support_extension",
+        "replay",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\reencoded-source-v2.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-audit-v1.json.gz",
+        "--result",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-assessment-v1.json",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\unexpected-byte-attack-output.json"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 2.7094515999779105,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\weil_weighted_support_extension.py\", line 325, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\weil_weighted_support_extension.py\", line 312, in main\n    packet, sha, audit_sha = load_accepted(args.packet, args.audit)\n                             ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\weil_weighted_support_extension.py\", line 198, in load_accepted\n    old_inputs.require(audit['format'] == AUDIT_FORMAT and audit['status'] == 'ALL_FRESH_SOURCE_INPUTS_ACCEPTED'\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                       and audit['packet_sha256'] == sha and audit['bits'] == 512,\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                       'independent receipt identity mismatch')\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\verify_weighted_low_space_inputs.py\", line 52, in require\n    raise InputRejected(message)\nscripts.verify_weighted_low_space_inputs.InputRejected: independent receipt identity mismatch\n",
+      "created": "2026-10-24T20:26:04Z"
+    },
+    {
+      "receipt": "data/archived-replay-v2-run.json",
+      "status": "ARCHIVED_SOURCE_REPLAY_PASS",
+      "exit_code": 0,
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_support_extension",
+        "replay",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-source-v1.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-audit-v1.json.gz",
+        "--result",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-assessment-v1.json",
+        "--output",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\weighted-v2-replay-xvlr91th\\replay.json"
+      ],
+      "elapsed_seconds": 14.236604399979115,
+      "created": "2026-10-24T20:33:13Z",
+      "isolated_source_version": "source-v2",
+      "restored_generator_sha256": "621feca54d90578c61e31078114662acbe706faa2a11f1fdf482bf1a8cb7fd7a",
+      "live_generator_sha256": "94d6360ca93b6125e8fd3c7675b340236960d593b40df433528a9f313da91bea",
+      "scope": "Exact retained input/witness replay after live-source cutover; no regenerated analytical audit"
+    },
+    {
+      "receipt": "data/assessment-run.json",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_support_extension",
+        "assess",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-source-v1.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-audit-v1.json.gz",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-assessment-v1.json"
+      ],
+      "stage": "assessment",
+      "exit_code": 0,
+      "elapsed_seconds": 14.974558799993247,
+      "owned_exit_confirmed": true,
+      "finished_utc": "2026-10-24T20:22:17Z",
+      "supervisor_sha256": "c58165325f6c45eb1164bee9ea62fa44bd84aafed66a653a97a51586796fc408"
+    },
+    {
+      "receipt": "data/audit-run.json",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.verify_weighted_support_extension_inputs",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-source-v1.json.gz",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-audit-v1.json.gz"
+      ],
+      "stage": "audit",
+      "exit_code": 0,
+      "elapsed_seconds": 1903.3478026000084,
+      "owned_exit_confirmed": true,
+      "finished_utc": "2026-10-24T20:19:42Z",
+      "supervisor_sha256": "c58165325f6c45eb1164bee9ea62fa44bd84aafed66a653a97a51586796fc408"
+    },
+    {
+      "receipt": "data/baseline-losses-v1-run.json",
+      "label": "baseline-losses-v1",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_extension_diagnostics",
+        "baseline",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\baseline-losses-v1.json"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 0.3249247999629006,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\weil_weighted_extension_diagnostics.py\", line 236, in <module>\n    main()\n    ~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\weil_weighted_extension_diagnostics.py\", line 227, in main\n    value = baseline_diagnostics() if args.operation == 'baseline' else select_parameters()\n            ~~~~~~~~~~~~~~~~~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\weil_weighted_extension_diagnostics.py\", line 198, in baseline_diagnostics\n    p626, _, sha626, audit626 = exact._load(BASE/'source-m626-v1.json.gz', BASE/'audit-m626-v2.json.gz')\n                                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\verify_weighted_low_space.py\", line 230, in _load\n    raw,raw_audit = packet_path.read_bytes(),audit_path.read_bytes()\n                                             ~~~~~~~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\pathlib\\__init__.py\", line 782, in read_bytes\n    with self.open(mode='rb', buffering=0) as f:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\pathlib\\__init__.py\", line 776, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'D:\\\\2_Add_Projects\\\\riemann-conjecture\\\\computations\\\\2026-10-24T153012Z-weighted-reference-continuation\\\\data\\\\audit-m626-v2.json.gz'\n",
+      "created": "2026-10-24T19:19:40Z"
+    },
+    {
+      "receipt": "data/baseline-v2-run.json",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_extension_diagnostics",
+        "baseline",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\baseline-losses-v2.json"
+      ],
+      "stage": "baseline-v2",
+      "exit_code": 0,
+      "elapsed_seconds": 4.693936499999836,
+      "owned_exit_confirmed": true,
+      "finished_utc": "2026-10-24T19:20:47Z",
+      "supervisor_sha256": "c58165325f6c45eb1164bee9ea62fa44bd84aafed66a653a97a51586796fc408"
+    },
+    {
+      "receipt": "data/conditional-dimension-cost-v1-run.json",
+      "label": "conditional-dimension-cost-v1",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_dimension_cost",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\conditional-dimension-cost-v1.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.5413098999997601,
+      "stdout": "CONDITIONAL_DIMENSION_COST_COMPLETE\n",
+      "stderr": "",
+      "created": "2026-10-24T19:49:45Z"
+    },
+    {
+      "receipt": "data/focused-source-controls-v1-run.json",
+      "label": "focused-source-controls-v1",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-n",
+        "0",
+        "-q",
+        "tests/test_weighted_support_extension.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.9179038000293076,
+      "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0\nrootdir: D:\\2_Add_Projects\\riemann-conjecture\nconfigfile: pyproject.toml\nplugins: hypothesis-6.165.10, xdist-3.8.0\ncollected 3 items\n\ntests\\test_weighted_support_extension.py ...                             [100%]\n\n============================== 3 passed in 0.80s ==============================\n",
+      "stderr": "",
+      "created": "2026-10-24T19:30:12Z"
+    },
+    {
+      "receipt": "data/focused-source-controls-v3-run.json",
+      "label": "focused-source-controls-v3",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-n",
+        "0",
+        "-q",
+        "tests/test_weighted_support_extension.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.1334163999417797,
+      "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0\nrootdir: D:\\2_Add_Projects\\riemann-conjecture\nconfigfile: pyproject.toml\nplugins: hypothesis-6.165.10, xdist-3.8.0\ncollected 4 items\n\ntests\\test_weighted_support_extension.py ....                            [100%]\n\n============================== 4 passed in 1.37s ==============================\n",
+      "stderr": "",
+      "created": "2026-10-24T20:28:17Z"
+    },
+    {
+      "receipt": "data/replay-run.json",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_support_extension",
+        "replay",
+        "--packet",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-source-v1.json.gz",
+        "--audit",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-audit-v1.json.gz",
+        "--result",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-assessment-v1.json",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-replay-v1.json"
+      ],
+      "stage": "replay",
+      "exit_code": 0,
+      "elapsed_seconds": 13.707486999919638,
+      "owned_exit_confirmed": true,
+      "finished_utc": "2026-10-24T20:22:56Z",
+      "supervisor_sha256": "c58165325f6c45eb1164bee9ea62fa44bd84aafed66a653a97a51586796fc408"
+    },
+    {
+      "receipt": "data/scalar-baseline-v1-run.json",
+      "label": "scalar-baseline-v1",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_support_scaling_scout",
+        "--supports",
+        "3/5",
+        "--dimensions",
+        "192,312",
+        "--precision",
+        "512",
+        "--order",
+        "32",
+        "--output-json",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\scalar-baseline-v1.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.24736050004139543,
+      "stdout": "",
+      "stderr": "",
+      "created": "2026-10-24T20:00:36Z"
+    },
+    {
+      "receipt": "data/scalar-extension-v1-run.json",
+      "label": "scalar-extension-v1",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_support_scaling_scout",
+        "--supports",
+        "1353/2048",
+        "--dimensions",
+        "192,312",
+        "--precision",
+        "512",
+        "--order",
+        "38",
+        "--output-json",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\scalar-extension-v1.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.279713400057517,
+      "stdout": "",
+      "stderr": "",
+      "created": "2026-10-24T20:00:37Z"
+    },
+    {
+      "receipt": "data/selection-binding-after-v3-run.json",
+      "label": "selection-binding-after-v3",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\probe-selection-binding-v1.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.008104500011541,
+      "stdout": "{\"status\": \"REGRESSION_PASS\", \"altered_budget_rejected\": true, \"reason\": \"complete geometric selection contract mismatch\", \"source_packet_sha256\": \"c9790a7b129aae0d410670830e8a472d639105d01884a041165fc119e627671e\", \"original_budget\": \"6313215734336482089665407649528142618191413599552327154431470587629806367041900284751796132239/9173994463960286046443283581208347763186259956673124494950355357547691504353939232280074212440502746218496\", \"altered_budget\": \"6313215734336482089665407649528142618191413599552327154431470587629806367041900284751796132239/4586997231980143023221641790604173881593129978336562247475177678773845752176969616140037106220251373109248\", \"validator_sha256\": \"94d6360ca93b6125e8fd3c7675b340236960d593b40df433528a9f313da91bea\", \"scope\": \"Metadata validation only; no analytical reconstruction or matrix sign evaluated\"}\n",
+      "stderr": "",
+      "created": "2026-10-24T20:28:55Z"
+    },
+    {
+      "receipt": "data/selection-binding-before-v1-run.json",
+      "label": "selection-binding-before-v1",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\probe-selection-binding-v1.py"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 1.9148975000716746,
+      "stdout": "{\"status\": \"REGRESSION_FAIL\", \"altered_budget_rejected\": false, \"reason\": null, \"source_packet_sha256\": \"c9790a7b129aae0d410670830e8a472d639105d01884a041165fc119e627671e\", \"original_budget\": \"6313215734336482089665407649528142618191413599552327154431470587629806367041900284751796132239/9173994463960286046443283581208347763186259956673124494950355357547691504353939232280074212440502746218496\", \"altered_budget\": \"6313215734336482089665407649528142618191413599552327154431470587629806367041900284751796132239/4586997231980143023221641790604173881593129978336562247475177678773845752176969616140037106220251373109248\", \"validator_sha256\": \"621feca54d90578c61e31078114662acbe706faa2a11f1fdf482bf1a8cb7fd7a\", \"scope\": \"Metadata validation only; no analytical reconstruction or matrix sign evaluated\"}\n",
+      "stderr": "",
+      "created": "2026-10-24T19:54:47Z"
+    },
+    {
+      "receipt": "data/selection-budget-rejection-v3-run.json",
+      "label": "selection-budget-rejection-v3",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_support_extension",
+        "generate",
+        "--selection",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\altered-selection-budget-v3.json",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\unexpected-new-guard-output.json.gz"
+      ],
+      "exit_code": 2,
+      "elapsed_seconds": 0.5294635000173002,
+      "stdout": "",
+      "stderr": "complete geometric selection contract mismatch\n",
+      "created": "2026-10-24T20:28:14Z"
+    },
+    {
+      "receipt": "data/selection-positive-control-v3-run.json",
+      "label": "selection-positive-control-v3",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-c",
+        "from pathlib import Path; import hashlib,json; from scripts.weil_weighted_support_extension import validate_selection,_selection_sha256; p=Path('D:\\\\2_Add_Projects\\\\riemann-conjecture\\\\computations\\\\2026-10-24T191616Z-weighted-support-extension\\\\data\\\\selection-v3.json'); raw=p.read_bytes(); value=json.loads(raw); trusted=validate_selection(value); assert hashlib.sha256(raw).hexdigest()==_selection_sha256(value); print(json.dumps({'status':'COMPLETE_CURRENT_SELECTION_ACCEPTED','support':trusted['support'],'dimension':trusted['dimension'],'residual_order':trusted['residual_order'],'boundary':trusted['boundary']}))"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.4528798999963328,
+      "stdout": "{\"status\": \"COMPLETE_CURRENT_SELECTION_ACCEPTED\", \"support\": [1353, 2048], \"dimension\": 312, \"residual_order\": 38, \"boundary\": 1018}\n",
+      "stderr": "",
+      "created": "2026-10-24T20:28:15Z"
+    },
+    {
+      "receipt": "data/selection-serialization-rejection-v3-run.json",
+      "label": "selection-serialization-rejection-v3",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_support_extension",
+        "generate",
+        "--selection",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\reformatted-current-selection-v3.json",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\unexpected-serialization-output.json.gz"
+      ],
+      "exit_code": 2,
+      "elapsed_seconds": 0.7805837999330834,
+      "stdout": "",
+      "stderr": "selection bytes are not the recorded selector serialization\n",
+      "created": "2026-10-24T20:45:28Z"
+    },
+    {
+      "receipt": "data/selection-v1-run.json",
+      "label": "selection-v1",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_extension_diagnostics",
+        "select",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\selection-v1.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.805228800047189,
+      "stdout": "{\"status\": \"COMPLETE\", \"operation\": \"select\", \"output\": \"D:\\\\2_Add_Projects\\\\riemann-conjecture\\\\computations\\\\2026-10-24T191616Z-weighted-support-extension\\\\data\\\\selection-v1.json\"}\n",
+      "stderr": "",
+      "created": "2026-10-24T19:19:05Z"
+    },
+    {
+      "receipt": "data/selection-v3-run.json",
+      "label": "selection-v3",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_extension_diagnostics",
+        "select",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\selection-v3.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.4854219000553712,
+      "stdout": "{\"status\": \"COMPLETE\", \"operation\": \"select\", \"output\": \"D:\\\\2_Add_Projects\\\\riemann-conjecture\\\\computations\\\\2026-10-24T191616Z-weighted-support-extension\\\\data\\\\selection-v3.json\"}\n",
+      "stderr": "",
+      "created": "2026-10-24T20:28:14Z"
+    },
+    {
+      "receipt": "data/source-full-contract-v1-run.json",
+      "label": "source-full-contract-v1",
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\check-selection-v1.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.320307399961166,
+      "stdout": "{\"status\": \"FULL_FROZEN_CONTRACT_PASS\", \"packet_sha256\": \"c9790a7b129aae0d410670830e8a472d639105d01884a041165fc119e627671e\", \"selection_sha256\": \"e120acab4919b9ab28e6fd6c7044053bb14514f300d810952a2d52e5dae6d7a3\", \"selector_sha256\": \"31de5cad9e3bfaf3f23e09cf145949d12df94c1d512fdac1d1f73966ccff6489\", \"checker_sha256\": \"2f8c46adf85cfd3448cd43f0fe6c44ebbd118d35b5438e9ee062f5e3106ae20f\"}\n",
+      "stderr": "",
+      "created": "2026-10-24T19:47:52Z"
+    },
+    {
+      "receipt": "data/source-run.json",
+      "command": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-m",
+        "scripts.weil_weighted_support_extension",
+        "generate",
+        "--selection",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\selection-v1.json",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-source-v1.json.gz"
+      ],
+      "stage": "source",
+      "exit_code": 0,
+      "elapsed_seconds": 795.2479035999859,
+      "owned_exit_confirmed": true,
+      "finished_utc": "2026-10-24T19:43:33Z",
+      "supervisor_sha256": "c58165325f6c45eb1164bee9ea62fa44bd84aafed66a653a97a51586796fc408"
+    }
+  ],
+  "scope": "Includes preserved lookup failure, expected attacks and failing-before regression; exit codes are not uniformly success criteria"
+}

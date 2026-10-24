@@ -1,0 +1,47 @@
+{
+  "created_utc": "2026-10-24T15:30:12Z",
+  "computation_id": "X-20261024-003",
+  "parameters": {
+    "support": [
+      3,
+      5
+    ],
+    "dimension": 192,
+    "residual_order": 32,
+    "active_terms": [
+      2,
+      3
+    ],
+    "boundary": 626,
+    "source_low_precision": 1024,
+    "source_head_precision": 3072,
+    "independent_head_precision": 6144,
+    "published_bits": 352,
+    "reference_bits": 512,
+    "mu": "unchanged exact original"
+  },
+  "input_base": "computations/2026-10-24T124142Z-weighted-low-space/data/source-m316-v1.json.gz",
+  "base_sha256": "6e47790be55809d55b08df478f6dbb11a3975b30da2688d0c80229ae1e866ad9",
+  "source_sha256": {
+    "scripts/weil_weighted_low_space.py": "8e3a8b7707b1b415f59793b0641b4d47e911cb5ff517dfe629d57ecf9f37c2d2",
+    "scripts/verify_weighted_low_space_inputs.py": "ad63fbb5b24a0c4d3f45a98d0731b2b6a64bb1e3d480deac43a02cd972447d64",
+    "scripts/verify_weighted_low_space.py": "91f5afcaabff90378de9ece3222115f1262ec4883929d9fa2a79b059e66c2cb1",
+    "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+    "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+    "scripts/cert/mixed_gram_research.py": "61c830e808d281e9a0d61ad040f7ffaeaf42821ebf753f977887567a4fdf01f3",
+    "scripts/cert/multi_prime_legendre_schur.py": "341c64284182e774886ff487d3d1107fabe29e86c1bcc3d1782e6d1111103246",
+    "scripts/cert/prime_power_terms.py": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+    "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+    "scripts/verify_combined_schur_analytic_entries.py": "15961f4b337e1d26cc63aa41bcb3976fa975636d0b5e006b0f51bd3d625576e4",
+    "tests/test_weighted_low_space.py": "1d9a853932a0e42e3896e11b2ccd7dc26c5192822e21b6656f8159a57ef358c8",
+    "pyproject.toml": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf",
+    "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+  },
+  "validation": "pinned accepted-low plus fresh all-head reconstruction, exact both-block assessment, separate replay and altered result rejection",
+  "one_heavy_owned_child": true,
+  "elapsed_seconds_prior": 530.2940911997575,
+  "reference_timing_not_cumulative_authorization_limit": true,
+  "safety_deadline_seconds": 1800,
+  "deadline_role": "stall-safety backstop; an exceeded duration requires resource/progress diagnosis, not mathematical rejection",
+  "admission": "unchanged v1=8 v2=0 v3=1; research only"
+}

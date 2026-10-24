@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<string>", line 11, in <module>
+    p=_consequences(original,source,audit,joint,{"a_truncated":["10","10"]},heads)
+  File "D:\2_Add_Projects\riemann-conjecture\scripts\weil_weighted_source_tail.py", line 200, in _consequences
+    "exact": {k: str(v) for k, v in exact.items()},
+                 ~~~^^^
+  File "C:\Users\carlo\AppData\Local\Programs\Python\Python314\Lib\fractions.py", line 459, in __str__
+    return '%s/%s' % (self._numerator, self._denominator)
+                      ^^^^^^^^^^^^^^^
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit

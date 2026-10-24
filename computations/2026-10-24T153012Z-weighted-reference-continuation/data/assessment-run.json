@@ -1,0 +1,22 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_weighted_low_space",
+    "--packet",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\source-m626-v1.json.gz",
+    "--audit",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\audit-m626-v1.json.gz",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\data\\assessment-m626-v1.json"
+  ],
+  "finished_utc": "2026-10-24T15:37:18Z",
+  "stage": "assessment",
+  "safety_deadline_seconds": 1800,
+  "timed_out": false,
+  "elapsed_seconds": 5.494040900026448,
+  "exit_code": 0,
+  "owned_exit_confirmed": true,
+  "samples": [],
+  "supervisor_sha256": "683e74364a2cda428d1488c85f68d0832a77c68e42944688b61a4c1d3133f17a"
+}

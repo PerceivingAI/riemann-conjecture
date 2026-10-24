@@ -1,0 +1,39 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\2_Add_Projects\riemann-conjecture
+configfile: pyproject.toml
+plugins: hypothesis-6.165.10, xdist-3.8.0
+collected 4 items / 3 deselected / 1 selected
+
+tests\test_weighted_low_space.py F                                       [100%]
+
+================================== FAILURES ===================================
+__ test_individual_residual_degree_zeros_survive_independent_reconstruction ___
+
+    def test_individual_residual_degree_zeros_survive_independent_reconstruction():
+        basis = native.poly_basis(36)
+        residual = native.residual_polys(basis[:4],32,fmpq(3,5),native.exact_residual_coefficients(32))
+        heads = reconstruct_heads(4,36,512,residual)
+        assert residual[0].degree() == 32
+        # Same parity, above R32(P0)'s degree, but below the global degree35.
+>       assert reference_pair(heads['R32'][34-4,0],[0,0],352,'R32[34,0]') == [0,0]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_weighted_low_space.py:97: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\verify_weighted_low_space_inputs.py:302: in reference_pair
+    require(Fraction(published[0], denominator) <= lo <= hi
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False
+message = 'R32[34,0]: independent interval is not contained in the source'
+
+    def require(condition: bool, message: str) -> None:
+        if not condition:
+>           raise InputRejected(message)
+E           scripts.verify_weighted_low_space_inputs.InputRejected: R32[34,0]: independent interval is not contained in the source
+
+scripts\verify_weighted_low_space_inputs.py:52: InputRejected
+=========================== short test summary info ===========================
+FAILED tests/test_weighted_low_space.py::test_individual_residual_degree_zeros_survive_independent_reconstruction
+======================= 1 failed, 3 deselected in 0.72s =======================

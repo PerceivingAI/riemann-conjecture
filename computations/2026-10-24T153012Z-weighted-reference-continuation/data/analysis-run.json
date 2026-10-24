@@ -1,0 +1,11 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T153012Z-weighted-reference-continuation\\analyze-v1.py"
+  ],
+  "PYTHONPATH": "D:\\2_Add_Projects\\riemann-conjecture",
+  "elapsed_seconds": 8.770643999916501,
+  "exit_code": 0,
+  "owned_exit_confirmed": true,
+  "recipe_sha256": "296ebde5b53871aa9f066650fd8a858737a71900a4dbc98e277c2bffa0e14725"
+}

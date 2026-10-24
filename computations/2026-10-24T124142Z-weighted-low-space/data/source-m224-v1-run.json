@@ -1,0 +1,17 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_weighted_low_space",
+    "--boundary",
+    "224",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\source-m224-v1.json.gz"
+  ],
+  "timeout_seconds": 180,
+  "timed_out": false,
+  "exit_code": 0,
+  "owned_exit_confirmed": true,
+  "elapsed_seconds": 132.67135039996356,
+  "producer_sha256": "8e3a8b7707b1b415f59793b0641b4d47e911cb5ff517dfe629d57ecf9f37c2d2"
+}

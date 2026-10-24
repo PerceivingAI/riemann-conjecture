@@ -1,0 +1,16 @@
+{
+  "label": "selection-v3",
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_weighted_extension_diagnostics",
+    "select",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\selection-v3.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.4854219000553712,
+  "stdout": "{\"status\": \"COMPLETE\", \"operation\": \"select\", \"output\": \"D:\\\\2_Add_Projects\\\\riemann-conjecture\\\\computations\\\\2026-10-24T191616Z-weighted-support-extension\\\\data\\\\selection-v3.json\"}\n",
+  "stderr": "",
+  "created": "2026-10-24T20:28:14Z"
+}

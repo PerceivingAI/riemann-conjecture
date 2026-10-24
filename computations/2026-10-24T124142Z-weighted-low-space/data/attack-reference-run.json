@@ -1,0 +1,19 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_weighted_low_space_inputs",
+    "--packet",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\attack-reference.json.gz",
+    "--reuse-accepted-low",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T124142Z-weighted-low-space\\data\\attack-reference-output.json.gz"
+  ],
+  "timeout_seconds": 3,
+  "timed_out": false,
+  "exit_code": 2,
+  "owned_exit_confirmed": true,
+  "elapsed_seconds": 0.2741229999810457,
+  "charged_before_seconds": 527.9800923997536,
+  "charged_after_seconds": 528.2542153997347
+}

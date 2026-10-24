@@ -1,0 +1,18 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_weighted_support_extension",
+    "generate",
+    "--selection",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\selection-v1.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T191616Z-weighted-support-extension\\data\\extension-source-v1.json.gz"
+  ],
+  "stage": "source",
+  "exit_code": 0,
+  "elapsed_seconds": 795.2479035999859,
+  "owned_exit_confirmed": true,
+  "finished_utc": "2026-10-24T19:43:33Z",
+  "supervisor_sha256": "c58165325f6c45eb1164bee9ea62fa44bd84aafed66a653a97a51586796fc408"
+}

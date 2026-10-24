@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-23T10:55:26Z`
+- **Last updated:** `2026-10-24T20:37:47Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -837,6 +837,151 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** `C-0072`, `C-0073`, original `X-20261018-005` and accepted moments `X-20261022-001`; their existing Suzuki/Arb and generator-source A/G assumptions.
 - **Source:** [F-20261023-001](../findings/2026-10-23T105526Z-directional-cutoff-and-reference-loss-separation.md) / [X-20261023-001](../computations/2026-10-23T105408Z-directional-loss-review/record.md).
 - **Verification notes:** At the fixed original trial, inverse-prefix cost lies near 4.744783306914 while `a_up-P_lower` is a positive upper near 1.662333474446; omitted-mass lower is near 0.798779172607. These are not a positive reference certificate. Prefix interval width is exactly below 10^-12. The proof distinguishes physical tail mass from algebraic `g_low-Q_lower`. For the unchanged prefix/mu and worst-weight relaxation, the cheap two-sided bracket still straddles zero even with best admissible opposite low-form/Gram endpoints; a distribution-sensitive tail bound or different inequality is needed to resolve it. No alternative cutoff, parameter, source moment, full matrix, new admission or actual exact-reference sign was established.
+
+### C-0075 — Source-sensitive far-tail envelope and directional concentration bound
+
+- **Statement:** In C-0072/C-0074's setting, write u=sum_{j<=d}z_j P_j, f=(V+mathcal P_T+R_T)u and q=mathcal P_T u. Suppose deg(R_K u)<=r and ||R_T-R_K||<=delta. Let D(q) be the arcsine-weighted variation of the combined piecewise-polynomial arithmetic image, including interior jumps, A_z=sum|z_j| and eta_L=1-d(d+1)/(L(L+1)). For integer L>max(d,r,2), the envelope is ||Q_L f||^2<=E_L=(sqrt(2)A_z/(eta_L L)+D(q)sqrt(pi/(2(L-2)))+delta||u||)^2. Thus a valid omitted-mass lower R_- at M0=211 gives J>=w_{L-1}max(0,R_--E_L), and s0<=a_up-P_--w_{L-1}max(0,R_--E_L). No actual D(q), individual E_L or reference sign has been evaluated; C-0076 separately establishes this family's fixed-data informativeness limit.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (independently reviewed paper-level derivation under the stated source premises; not target source acceptance, an admitted positivity theorem or Lean proof)
+- **First recorded:** `2026-10-23T13:18:36Z`
+- **Last verified:** `2026-10-23T17:10:27Z`
+- **Dependencies:** C-0063–C-0065, C-0072, C-0074; existing Suzuki/Arb source and original generator-source-qualified A/G premises.
+- **Source:** Initial [F-20261023-002](../findings/2026-10-23T131836Z-source-tail-concentration-qualification.md), preserved unchanged; later review and informativeness assessment in [F-20261023-003](../findings/2026-10-23T170343Z-source-tail-envelope-jump-obstruction.md).
+- **Verification notes:** The initial 2026-10-23T13:25:32Z qualification performed 78 exact log-product identities, 23 jump-aware identities, six partial-tail controls, twelve concentration controls and the retained residual-floor comparison in 1.7601745000574738 seconds. A later independent review checked equations (1)-(11), endpoint/domain assumptions, constants, jumps, infinite-tail sum, collective residual and concentration directions; no correction was required. General validity rests on the reviewed analytical argument, not finite fixtures. The separate C-0076 obstruction shows the same envelope cannot certify a negative reference direction with the fixed retained inputs, even using exact variation. No new source moments, matrix, admission or actual reference/Weil sign.
+
+### C-0076 — Actual translation jumps obstruct the fixed-data variation-envelope certificate
+
+- **Statement:** For C-0075 on the original T=3/5,N=192,K=32 odd trial and the same retained mu,R_-,h=a_up-P_-, define K_L=w_(L-1)max(0,R_--E_L). Exact odd endpoint trace U_e=32818347/524288 and four distinct interior arithmetic jumps imply actual D(q)>2U_e. For every 224<=L<=259, E_L>12U_e^2/514>R_-, so K_L=0. For L>=260, K_L<=w_259 R_-<h. Consequently every reported directional upper h-K_L is at least epsilon=h-w_259 R_->0, display 0.01052999821852064. This excludes negative-direction certification by this entire envelope family with these retained inputs, including any valid upper replacing exact D(q), not the actual reference or Weil form.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (independently reviewed fixed-split/jump argument and exact SHA-pinned retained-data comparisons under inherited source premises; not source reconstruction, positivity theorem or Lean proof)
+- **First recorded:** `2026-10-23T17:03:43Z`
+- **Last verified:** `2026-10-23T17:10:27Z`
+- **Dependencies:** C-0063–C-0065, C-0072, C-0074, reviewed C-0075; original generator-source-qualified A/G and accepted arithmetic/scalar packets.
+- **Source:** [F-20261023-003](../findings/2026-10-23T170343Z-source-tail-envelope-jump-obstruction.md).
+- **Verification notes:** Preserved a failed potential-only sufficient predicate and a successful but narrower coarse-variation predicate. The separate actual-jump check establishes exact odd trace, strict tau ordering, coefficient sum lower above one, the near-envelope floor and far-weight ceiling at one fixed proof split, not an L scan. Two small direct children exited 0, total new wall 0.4214450001018122 seconds; cumulative analytical-check use 2.181619500159286 seconds. Independent mathematical reviews checked both the original bound and actual-jump obstruction. No D(q) evaluation, individual E_L, new source moment, matrix, trial, precision ladder, actual reference sign or admission. A positive reported upper is not proof of actual positivity.
+
+
+
+### C-0077 — Jump-resolved correlated complete-tail bound
+
+- **Statement:** For the same real polynomial source trial, write q=mathcal P_T u=s+r with s=sum_b Delta_b chi_b, chi_b=1_(x>b)-(1-b)/2, and signed jumps Delta_b=q(b+)-q(b-). Then r is continuous piecewise polynomial in H1; normalized step coefficients and their full Gram give complete model tails. With g=Vu+s, G_L=||Q_Lg||^2, C_L=Re<Q_Lg,Q_Lr>, regular tail R_L=||Q_Lr||^2 and D_r=int(1-x^2)|r'|^2, valid upper enclosures give M_L=G^++2C^++min(R^+,D^+/(L(L+1)))>=||Q_L(Vu+q)||^2. For L>=224 in the original degree setting, the full source tail is at most (sqrt(M_L)+delta||u||)^2. C_L must remain signed; an inconsistent negative upper M_L is not clipped to zero.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (independently reviewed paper-level identities/domain/error bounds and small exact/Arb controls; original-trial full joint inputs unevaluated, not positivity/admission or Lean proof)
+- **First recorded:** `2026-10-23T17:43:41Z`
+- **Last verified:** `2026-10-23T18:10:37Z`
+- **Dependencies:** C-0063–C-0065, C-0072, C-0074; the same source, residual degree/error and coordinate premises as C-0075/C-0076.
+- **Source:** [F-20261023-004](../findings/2026-10-23T174341Z-jump-resolved-tail-correlation.md), [X-20261023-002](../computations/2026-10-23T174341Z-jump-refinement-controls/record.md).
+- **Verification notes:** Exact step/Gram/regularity and complete projection controls, full log-potential mixed controls and collective residual checks passed. The differential eigenvalues k(k+1) are only an auxiliary H1 remainder bound, not replacement of the source harmonic weights. Whole signed integrals minus finite heads retain cancellation but are not automatically sharper. Original-trial G_L,C_L and regular-tail enclosures have not been calculated; model-only C_sr cannot replace full C_L. Source trust and admissions unchanged.
+
+### C-0078 — Original-trial mixed-tail cancellation and improved separate control
+
+- **Statement:** On the unchanged T=3/5,N=192,K=32 odd trial, at L=224 and using the accepted arithmetic constants, the complete step tail S_L and norm-one translation budget b_+ satisfy S_lower>b_+^2. Thus actual arithmetic mixed tail C_sr,L<=b_+sqrt(S_lower)-S_lower<0, with certified upper below -2.56. Any separated-norm treatment pays at least (2sqrt(S_lower)-b_+)^2>b_+^2. Separately, the existing potential-tail plus global arithmetic norm and collective residual give a full-source control upper below 6.665, strictly less than the old variation envelope's lower above 105.898. This control remains too large for the retained negative-upper test; it is not the new joint-correlation bound or an actual reference sign.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` (reviewed implications and fixed 512-bit retained-input Arb enclosures/exact predicates; not independent full source reconstruction, admitted theorem or Lean proof)
+- **First recorded:** `2026-10-23T17:43:41Z`
+- **Last verified:** `2026-10-23T18:10:37Z`
+- **Dependencies:** C-0077, C-0075/C-0076 and original source geometry/norm, exact trial, accepted arithmetic/scalar packets; inherited Suzuki/Arb and original A/G premises.
+- **Source:** [F-20261023-004](../findings/2026-10-23T174341Z-jump-resolved-tail-correlation.md) / [X-20261023-002](../computations/2026-10-23T174341Z-jump-refinement-controls/record.md), fixed research consumer `scripts/weil_jump_refinement_check.py`.
+- **Verification notes:** No new full-source moments or source images; model tail uses full step Gram minus 112 odd head coefficients. Canonical replay matched the extended v2 exact fields; changed input was rejected at exit 2 before calculations. The source-control improvement comes from the global arithmetic norm cap, not an evaluated jump-resolved full bound. C_sr omits the potential/remainder mixed term. Versions and original records are retained separately; no matrix, source-domain extension, actual Weil/reference sign or admission.
+
+### C-0079 — Evaluated complete joint-source tail and fixed-index concentration limit
+
+- **Statement:** On the unchanged T=3/5,N=192,K=32 odd trial at L=224, whole signed source norms minus 112 odd head projections enclose G near 5.29815903969, C near -5.03576491190 and the regular tail near 5.47841275771, giving a complete truncated joint tail near 0.7050419736007247. Collective full-residual restoration yields an upper below 0.706, strictly improving C-0078's separate control. The retained concentration lower on J is near 0.280453008962, leaving a positive, inconclusive reference upper near 1.381880465484. Reverse triangle also gives a full-tail lower above 7/10. Therefore this same fixed-L concentration formula with retained h,R_minus,w_223 reports an upper above 69/50 even with an exact tail cap. This is not a lower bound on the actual reference or a failure of other indices/stronger weight-sensitive estimates.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` under reviewed source formulas, independently organized Arb reconstruction and exact rational consequences; not an admitted theorem or Lean proof
+- **First recorded:** `2026-10-23T18:52:53Z`
+- **Last verified:** `2026-10-23T19:02:50Z`
+- **Dependencies:** C-0063 through C-0065, C-0072, C-0074, C-0077/C-0078; original generator-source-qualified A/G, accepted norm/residual and existing Suzuki/Arb premises.
+- **Source:** [F-20261023-005](../findings/2026-10-23T185253Z-joint-source-tail-enclosure.md) / [X-20261023-003](../computations/2026-10-23T185253Z-joint-source-tail/record.md), research consumer `scripts.weil_joint_source_tail`.
+- **Verification notes:** Fixed 1536-bit generation and separately organized 3072-bit reconstruction passed all 15 scalar and 336 head containments at outward 352-bit publication; 18 accepted-prefix compatibility checks and earlier step-model containment passed. Separate standard-library replay checked all 351 interval containments, residual upper and exact consequences. Independent mathematical/static review passed; it did not rerun numerical results. Changed input was rejected before source work. Three direct children exited, new charge 12.480469300062396 s, cumulative 17.100813700119033/180 s. No matrix/inverse, trial or precision search, original A/G reconstruction, actual reference/Schur/Weil sign or admission.
+
+### C-0080 — Harmonic-energy qualification and complete weighted-tail brackets
+
+- **Statement:** For the original truncated source b=Q224(V+mathcal P_T)u, its harmonic energy D=sum lambda_k|b_k|^2 is finite by the reviewed logarithmic/jump coefficient bounds, and J_b>=M^2/D. A finite-band lower D_- gives an upper ceiling M_+^2/D_- on this scalar expression, not on J_b. On the retained trial that ceiling and a valid near-energy upper leave the scalar negative-certification rule's reported upper above 0.8071. A complete weighted band S through B-1 instead gives S<=J_K<=S+w_B*T_B, with all omitted mass T_B paid and the full residual restored in the bounded inverse-weighted norm. The accuracy rule smallest even B with w_B*M_+<=h/4 selects B=874 before source evaluation; no sign or precision search.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` by independent mathematical/static review, source interval reconstruction and exact rational replay; not an admitted theorem or Lean proof
+- **First recorded:** `2026-10-23T19:28:21Z`
+- **Last verified:** `2026-10-23T19:45:46Z`
+- **Dependencies:** C-0063 through C-0065, C-0072, C-0074, C-0075, C-0077/C-0079; inherited local source and Arb premises.
+- **Source:** [F-20261023-006](../findings/2026-10-23T192821Z-weighted-source-tail-reference.md) / [X-20261023-004](../computations/2026-10-23T192821Z-weighted-source-tail/record.md).
+- **Verification notes:** D's convergence is proved without H1 assumptions on jumps/logarithms or harmonic-energy control of the omitted residual. No target D or D_+ is evaluated. Fixed 4096/8192-bit source paths accepted 2 scalar and 1328 head intervals with outward 352/512-bit publication. Full residual, signed sums, minimal boundary and interval directions were reviewed and separately replayed with exact integer/rational predicates. A preserved v1 rational-serialization failure was corrected with outward dyadic accumulation, not by disabling a guard; two regressions failed before and passed after.
+
+### C-0081 — Positive diagonal-reference and true-Schur direction on the preserved trial
+
+- **Statement:** Under the inherited local source and C-0072 tail-form premises, at unchanged T=3/5,N=192,K=32 and original exact odd u and mu, complete weighted source enclosures give s0=<u,(A-B*C0^-1 B)u> in an exact rational interval contained in (3/5,9/10), with endpoint displays 0.6257295744306691 and 0.8504608367268481. The physical low-form scalar a and full omitted inverse energy J are independently enclosed, with complete residual error and accepted opposite prefix endpoints. C-0072 inverse ordering therefore gives <u,(A-B*C^-1 B)u>>=s0>3/5 on this same trial. This is not positivity over all low directions or the full Weil test class.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` under stated Suzuki/Arb and local tail-form hypotheses, independently organized scalar reconstruction and exact replay; no new theorem admission or Lean proof
+- **First recorded:** `2026-10-23T19:28:21Z`
+- **Last verified:** `2026-10-23T19:45:46Z`
+- **Dependencies:** C-0080, C-0072, C-0074, C-0079; accepted source/prefix, full residual and original chosen mu.
+- **Source:** [F-20261023-006](../findings/2026-10-23T192821Z-weighted-source-tail-reference.md), [X-20261023-004](../computations/2026-10-23T192821Z-weighted-source-tail/record.md), `scripts.weil_weighted_source_tail`.
+- **Verification notes:** The new physical directional a scalar, not the full A/G matrices, is reconstructed. Signed high source components and full residual yield J in approximately [0.8118726377190583,1.036603900014265]. Separate standard-library replay validates all 1330 serialized containments and the strict positive bracket via squared rational norm predicates. Mathematical review checked the true-Schur directional order transfer without direct inverse evaluation. Old source/failure records and tests remain preserved; 2/2 new regressions pass and altered inputs reject. Eight executions, including failures, used 74.6472387999529 s; cumulative 91.74805250007194/180 s. Whole reference/Schur positivity, direct true-inverse value, full Weil positivity, support extension and RH remain unestablished; admissions unchanged.
+
+### C-0082 — Uniform harmonic-reference matrix majorant with full residual
+
+- **Statement:** For fixed finite Legendre low space with physical mass D, full signed truncated source W_K, positive chosen mu and the C-0072 harmonic tail reference, U_m=w_m G_K+sum_(N<=k<m)(w_k-w_m)t_k* t_k satisfies 0<=U_m-H_K<=w_m G_tail,m<=w_m Gamma_m D, where Gamma_m bounds trace(D^-1 G_tail,m). For exact Loewner enclosures Aminus<=A_K and Uplus>=U_m, h=trace(D^-1 Uplus) and an outward r>=delta+2 delta sqrt(h/mu)+delta^2/mu give S0>=Aminus-Uplus-rD. This controls the full residual and cross effects uniformly, without a harmonic-energy assumption on the L2 error.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` conditional mathematical implication by independent review and bounded source/algebra controls; no target-matrix sign, implemented whole-space evaluator or theorem admission
+- **First recorded:** `2026-10-24T02:10:44Z`
+- **Last verified:** `2026-10-24T02:20:54Z`
+- **Dependencies:** C-0063 through C-0065, C-0072, C-0077/C-0079 and C-0080; inherited local Suzuki/Arb and tail-form hypotheses.
+- **Source:** [F-20261024-001](../findings/2026-10-24T021044Z-uniform-harmonic-reference-matrix-bound.md), [X-20261024-001](../computations/2026-10-24T021044Z-uniform-matrix-contract/record.md).
+- **Verification notes:** Independent review checked domains, ordinary-coordinate metric, both parity blocks, full mixed Gram, bounded inverse-weighted residual, outward square roots and factor-two row-radius accounting. A conditional uniform tail-loss halving rule follows from PSD tail nesting, not assumed positivity. Existing 1024-bit sparse source operations and 2048-bit separate reconstruction passed 96 component plus one delta containment at 352-bit publication, with four exact residual images agreeing. Exact mixed-direction controls and separate rational replay/altered-interval rejection passed. No complete target A/G, cutoff or practical target-scale cost is established. Two exited children used 5.671341700013727 s; carried charge is 97.41939420008566/180 s. Historical evidence and all admissions remain unchanged.
+
+### C-0083 — Exact positive even harmonic-reference block at T=3/5
+
+- **Statement:** Under the inherited source/tail-form and C-0082 hypotheses, at unchanged T=3/5,N=192,K=32 and original exact mu, the m=316 whole-space construction has an exact positive even lower L_E. A nonsingular rational congruence W has strictly positive exact Gershgorin margin eta; with D_E=diag(2/(4j+1)), j=0..95, g=eta/trace(W D_E Wtranspose)>0 gives S0_E>=L_E>=g D_E. The exact rational g is retained; its decimal display is 1.577381523629527e-9. C-0072 transfers this lower to the true-Schur even block. The odd and full reference signs remain unresolved.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` conditional even-block implication by complete independent analytical input acceptance, exact rational proof/replay and mathematical review; no whole-space Weil result or theorem admission
+- **First recorded:** `2026-10-24T14:05:43Z`
+- **Last verified:** `2026-10-24T14:16:19Z`
+- **Dependencies:** C-0063 through C-0065, C-0072, C-0082 and retained exact/analytical evidence; C-0081 is a comparison case, not the even proof.
+- **Source:** [F-20261024-002](../findings/2026-10-24T140543Z-weighted-even-reference-block.md), [X-20261024-002](../computations/2026-10-24T124142Z-weighted-low-space/record.md).
+- **Verification notes:** All 108,482 analytical interval slots at m=316 contain independently reconstructed intervals. Seven behavioral controls, real CLI input/witness rejection and separate exact replay pass. A preserved initial reference-audit failure was corrected by individual polynomial-degree orthogonality, not higher precision. Native integer matrix contractions retain cross/radius/weight errors; pinned reuse distinguishes inherited low evidence from fresh heads. An exact odd lower direction is negative, display -0.1574622208, but its upper for actual S0 is positive, display 0.4499134642, so no actual odd sign follows. Accuracy selected 224,316,626; the 626 producer hit its reserved 30-second cap and produced no packet. All 21 exits, failures and timeout are retained; cumulative charge 530.2940911997575/600 s. Earlier source/results/admissions unchanged; RH unresolved.
+
+### C-0084 — Exact positive whole harmonic reference at T=3/5
+
+- **Statement:** At unchanged T=3/5,N=192,K=32, active[2,3] and original exact mu, the m=626 C-0082 lower is strictly positive on both96-dimensional parity blocks. Exact nonsingular rational congruences give S0_even>=g_even D_even and S0_odd>=g_odd D_odd, with positive exact rational gap displays1.5816571091127121e-9 and5.661070100194487e-7. Thus S0>=min(g_even,g_odd)D>0 on the whole192-dimensional low space. Under C-0072 the true Schur is positive; positive full tail, domain-safe square completion and C-0063's source identity yield the source-conditional smooth-test positivity implication at this support. The reference gaps are not full-form gaps.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` source-conditional research result by accepted analytical inputs, exact rational witnesses, separate replay and mathematical review; not clean production theorem admission
+- **First recorded:** `2026-10-24T15:40:06Z`
+- **Last verified:** `2026-10-24T15:40:06Z`
+- **Dependencies:** C-0063 through C-0065, C-0072, C-0082 and exact retained analytical/matrix evidence. C-0081/C-0083 are earlier comparisons.
+- **Source:** [F-20261024-003](../findings/2026-10-24T154006Z-positive-whole-harmonic-reference.md), [X-20261024-003](../computations/2026-10-24T153012Z-weighted-reference-continuation/record.md).
+- **Verification notes:** All287042 slots accepted:37056 inherited independently accepted low/Gram entries,2 inherited accepted scalars,249984 freshly reconstructed heads. Exact ancestor hashes, unchanged source/low definitions and copied reference containments are rechecked; all192 residual images are fresh. Source/head reference3072/6144 at m626; low1024/2048; publication/reference352/512 bits. Both exact positive witnesses, separate replay, normalized-gap diagnostic and real altered-odd-margin rejection pass. Six owned launches exited without timeout, new elapsed238.58843629993498 s. Scientific code/tests and all prior artifacts are unchanged. No direct true inverse, clean production certificate, Rust/Lean acceptance, new admission, unbounded support family, literature-priority or RH claim.
+
+### C-0085 — Uniform potential cross-cut norm and dimension-independent residual allowance
+
+- **Statement:** For the scaled logarithmic potential V=-log(1-x^2)/2 and Legendre projection P_N, ||Q_N V P_N||<=pi/2 uniformly in N. This bounds only the cross cut, not the full unbounded multiplication operator. If b=pi/2+sum c_m b_m+rho_R(T,K) bounds ||B_K||, C0>=mu I>0, ||B-B_K||<=delta and the low-form error is bounded by delta D, then the complete C-0082 weighted construction gives S0>=Aminus-Uplus-[delta(1+2b/mu)+delta^2/mu]D. The allowance has no source-dimension factor but need not improve the earlier trace bound.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` written derivation by independent mathematical review; not a new support-positivity assertion or production theorem admission
+- **First recorded:** `2026-10-24T19:34:21Z`
+- **Last verified:** `2026-10-24T19:34:21Z`
+- **Dependencies:** Exact Legendre potential pairings, self-contained Hilbert-kernel weighted Schur argument, C-0040, C-0063 through C-0065, C-0072, C-0082 and rigorous local residual bounds.
+- **Source:** [F-20261024-004](../findings/2026-10-24T193421Z-cross-cut-norm-controlled-continuation.md), [X-20261024-004](../computations/2026-10-24T191616Z-weighted-support-extension/record.md).
+- **Verification notes:** The parity blocks are bounded individually by half a Hilbert matrix and combine by a maximum, not a sum. The full signed residual cross term and ordinary Legendre mass remain mandatory. The first-window arithmetic norms are1. This supports a scalar-controlled continuation experiment, not equal omitted mass, guaranteed Schur positivity, a global family, mathematical novelty or RH.
+
+### C-0086 — Conditional fixed-support Schur completeness and norm-only dimension cost
+
+- **Statement:** At a fixed local support with a known full closed scaled-form gap ell>0, C-0085's uniform cross norm b and mu_N=H_N-cost(T) imply A_N-mu_N^-1 B_N*B_N >=(ell-b^2/mu_N)D_N, so the exact scalar and harmonic-reference Schur criteria eventually succeed as N grows. The exact grouped full-source factor3 criterion also eventually succeeds using loss3[(pi/2)^2+p(T)^2+rho_R(T)^2]/mu_N. From an already established S0>=gD, tail>=mu and full cross norm<=b, domain-safe square completion gives ell=min(g/[1+2(b/mu)^2],mu/2). This does not assume a gap at an unproved support.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` independently reviewed conditional derivation and exact baseline consequence, not a new support proof or production admission
+- **First recorded:** `2026-10-24T19:49:45Z`
+- **Last verified:** `2026-10-24T19:49:45Z`
+- **Dependencies:** C-0063 through C-0065, C-0071, C-0072, C-0084, C-0085 and the established full residual/operator norm premises.
+- **Source:** [F-20261024-005](../findings/2026-10-24T194945Z-conditional-schur-completeness-cost.md), [X-20261024-004](../computations/2026-10-24T191616Z-weighted-support-extension/record.md), `scripts.weil_weighted_dimension_cost`.
+- **Verification notes:** At the accepted T=3/5 baseline, exact arithmetic gives a conservative full scaled-form lower displaying9.5530133375e-13. Norm-only sufficient log(N+1) thresholds display2.9614669343e13 for the flat criterion and3.3336834950e13 for grouped factor3. These are sufficient-threshold costs, not necessary lower bounds on useful matrix dimensions. No huge dimension was executed. Known coercivity is a premise; fixed-K/precision exporter termination, all-support positivity, optimality, novelty and RH do not follow.
+
+### C-0087 — Controlled weighted support continuation is positive at T=1353/2048
+
+- **Statement:** At T=1353/2048,N=312,K=38,m=1018, active[2,3] and the original exact C-0084 reference mu, both156-dimensional parity lowers for S0=A-B*C0^-1B are strictly positive. Exact rational witnesses give mass-normalized reference lower displays1.4153700144298843e-11 even and8.376781192230801e-9 odd. Under the harmonic tail domination, closed-form/domain and complete-source premises, the true Schur and constructed full closed form are positive, giving strict positivity for every nonzero admissible complex Suzuki smooth test at this support. These reference bounds are not full spectral minima.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` source-conditional research result by all-fresh independent analytical acceptance, exact parity witnesses and replay; not production theorem admission
+- **First recorded:** `2026-10-24T20:28:55Z`
+- **Last verified:** `2026-10-24T20:37:47Z`
+- **Dependencies:** C-0063 through C-0065, C-0072, C-0082, C-0085 and retained complete analytical/matrix evidence.
+- **Source:** [F-20261024-006](../findings/2026-10-24T202855Z-controlled-weighted-support-positivity.md), [X-20261024-004](../computations/2026-10-24T191616Z-weighted-support-extension/record.md).
+- **Verification notes:** All758475 input slots are fresh:97656 low/Gram entries,660816 head entries and3 scalar bounds. Construction1792/4608 bits and independent3584/9216 reconstruction agree; exact residual signatures and physical masses are checked. Both exact congruences, separate replay, actual altered-witness/source-byte rejection and an isolated replay from preserved numerical version2 pass. The later version3 full-selection guard correction has4 passing controls and actual CLI rejection; it is not relabeled as the producer of older arrays. No Rust/Lean/clean admission, optimality, novelty, all-support law or RH conclusion. Frozen theorem inventory remains8v1/0v2/1v3.
 
 ## Entry format
 
