@@ -1,0 +1,12 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_residual_tail_bound",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T224948Z-tail-restricted-residual\\data\\scalars-v1.json"
+  ],
+  "started_utc": "2026-10-24T22:57:47.460458+00:00",
+  "elapsed_seconds": 0.303252000012435,
+  "exit_code": 0
+}

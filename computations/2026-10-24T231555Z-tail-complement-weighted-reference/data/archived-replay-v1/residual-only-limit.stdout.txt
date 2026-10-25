@@ -1,0 +1,1 @@
+{"status": "NEGATIVE_BOTH_OPTIMISTIC_REFERENCE_DIRECTIONS", "optimistic_mu_display": 0.2557624475748877, "directional_upper_displays": [-1.5399886712471615, -0.7537741893339622]}

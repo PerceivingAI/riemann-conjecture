@@ -1,0 +1,19 @@
+{
+  "started_utc": "2026-10-24T23:15:55Z",
+  "completed_numerics_utc": "2026-10-24T23:28:30Z",
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python_flint": "0.9.0",
+  "numpy": "2.5.2",
+  "pytest": "9.1.1",
+  "baseline_commit": "62f33b6f66f7e446a99a68f1a41bfa137f51592c",
+  "preexisting_public_work": "C-0088 additive code, documentation and sealed computation were already uncommitted; preserved",
+  "source_precision": 768,
+  "head_precision": 768,
+  "independent_low_precision": 1536,
+  "independent_head_precision": 1536,
+  "source_dyadic_bits": 352,
+  "receipt_dyadic_bits": 512,
+  "one_owned_scientific_process_at_a_time": true,
+  "clean_production_provenance": false
+}

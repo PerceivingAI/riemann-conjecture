@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-24T20:37:47Z`
+- **Last updated:** `2026-10-24T23:28:30Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -982,6 +982,28 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** C-0063 through C-0065, C-0072, C-0082, C-0085 and retained complete analytical/matrix evidence.
 - **Source:** [F-20261024-006](../findings/2026-10-24T202855Z-controlled-weighted-support-positivity.md), [X-20261024-004](../computations/2026-10-24T191616Z-weighted-support-extension/record.md).
 - **Verification notes:** All758475 input slots are fresh:97656 low/Gram entries,660816 head entries and3 scalar bounds. Construction1792/4608 bits and independent3584/9216 reconstruction agree; exact residual signatures and physical masses are checked. Both exact congruences, separate replay, actual altered-witness/source-byte rejection and an isolated replay from preserved numerical version2 pass. The later version3 full-selection guard correction has4 passing controls and actual CLI rejection; it is not relabeled as the producer of older arrays. No Rust/Lean/clean admission, optimality, novelty, all-support law or RH conclusion. Frozen theorem inventory remains8v1/0v2/1v3.
+
+### C-0088 — Infinite tail residual compression from Legendre regularity
+
+- **Statement:** For N>=1 and the local residual expansion R_K with kernel sum_(d=0)^K c_d|x-y|^d, c_d=-a_d T^(d+1), retain only odd d or even d>=2N. Set M_N=6|c1|+sum_(d>=2 retained)2^(d-1)(d+4)|c_d|. Under the established complete remainder ||R_T-R_K||<=delta, ||Q_N R_T Q_N||<=delta+M_N/[N(N+1)]. This yields the research tail-form lower J_tail-[c_T+p(T)+rho_tail]I on the inherited form domain, without identifying that form domain with the harmonic reference domain.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` independently reviewed conditional derivation and independently reconstructed scalar consequence, not a smaller low-block positivity proof or production admission
+- **First recorded:** `2026-10-24T22:49:48Z`
+- **Last verified:** `2026-10-24T23:00:41Z`
+- **Dependencies:** C-0063, C-0072, the exact Suzuki residual normalization and complete local remainder premise; C-0087 supplies only the fixed evaluation support and pinned reserve.
+- **Source:** [F-20261024-007](../findings/2026-10-24T224948Z-tail-restricted-residual-bound.md), [X-20261024-005](../computations/2026-10-24T224948Z-tail-restricted-residual/record.md).
+- **Verification notes:** The proof includes the degree-one distributional cusp, both endpoint boundary terms, spectral Legendre domain and the strict even-polynomial d<2N cutoff. At T=1353/2048,K=38,N=312, rho_tail displays5.93923468717e-7 instead of the global3.010326025956. First sufficient positive scalar dimensions change259/260 even to13/14 even; first dimensions preserving the original exact reserve change312/312 even to15/16 even. Source512/native1024-bit reconstruction checks39 exact coefficients, four strict scalar containments and dimensions1..312. Four exact regressions, finite cusp/rank/signed-image controls, three actual rejected alterations and byte-identical isolated source replay pass. No new low Schur matrix, low-to-tail residual norm, support positivity, production rule, admission, priority or RH result follows.
+
+### C-0089 — N16 harmonic reference fails, including every residual-only scalar improvement
+
+- **Statement:** At fixed T=1353/2048,N16,K38 and the exact C-0088 reference mu displaying0.25554921158237676, the full S0=A-B*C0^-1B, C0 e_k=(mu+H_k-H16)e_k, has negative directions in both parity sectors. Exact full-reference uppers for the retained nearly unit-mass trials lie below-3/2 even and-3/4 odd. The same holds at a rigorous optimistic mu upper displaying0.2557624475748877, above H16-cT-p. Inverse monotonicity therefore excludes positivity for every positive scalar reference mu<=H16-cT-p obtained solely by reducing a nonnegative residual norm charge, with source,N,cT,p fixed.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` source-conditional negative reference directions with all-fresh independent analytical acceptance, exact replay and separately reviewed residual-only obstruction; not Weil negativity
+- **First recorded:** `2026-10-24T23:15:55Z`
+- **Last verified:** `2026-10-24T23:28:30Z`
+- **Dependencies:** C-0063, C-0072, C-0082, C-0085, C-0088 and the retained complete source intervals. C-0087 supplies the existing support and contrasting positive N312 result, not a premise needed for the negative directions.
+- **Source:** [F-20261024-008](../findings/2026-10-24T231555Z-tail-complement-weighted-reference.md), [X-20261024-006](../computations/2026-10-24T231555Z-tail-complement-weighted-reference/record.md).
+- **Verification notes:** All2099 inputs are fresh at source768/native1536 bits, m54, physical masses and both8-dimensional parity blocks. Full R_T error is paid in the low upper and reverse-triangle inverse-energy lower. Actual reference uppers display-1.54268971276305/-0.75511662564937; even an optimistic zero residual-norm charge leaves-1.53998867124716/-0.75377418933396. The hypothetical reference is not claimed to dominate or be dominated by the actual tail. Four regressions, exact replay, three actual rejected controls and isolated captured-source regeneration/replay pass. A negative sufficient lower alone was not used to infer negativity. No longer head, greater precision or residual-only bound can rescue this same reference; no claim of true-Schur/Weil negativity, optimal larger dimension, method-wide failure, new support, production admission, priority or RH follows.
 
 ## Entry format
 

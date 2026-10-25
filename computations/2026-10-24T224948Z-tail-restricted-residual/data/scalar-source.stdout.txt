@@ -1,0 +1,13 @@
+{
+  "output": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T224948Z-tail-restricted-residual\\data\\scalars-v1.json",
+  "cutoffs": {
+    "tail_positive": 13,
+    "tail_positive_even": 14,
+    "tail_reserve": 15,
+    "tail_reserve_even": 16,
+    "global_positive": 259,
+    "global_positive_even": 260,
+    "global_reserve": 312,
+    "global_reserve_even": 312
+  }
+}

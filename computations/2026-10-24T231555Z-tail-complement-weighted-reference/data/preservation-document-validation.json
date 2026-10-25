@@ -1,0 +1,22 @@
+{
+  "local_links_checked": 592,
+  "markdown_tables_checked": 18,
+  "missing_links": [],
+  "public_existing_text_preserved_except_timestamp": {
+    "docs/CLAIMS.md": true,
+    "docs/STATUS.md": true,
+    "docs/LOG.md": true,
+    "docs/INDEX.md": true,
+    "docs/TOOL_CAPABILITIES.md": true,
+    "scripts/README.md": true
+  },
+  "protected_entry_files_unchanged": 18,
+  "previous_sealed_members_unchanged": 174,
+  "previous_manifest_hashes": {
+    "computations/2026-10-24T191616Z-weighted-support-extension": "28eff565a893a54b5ae111e6b70dd92f46d9440b736aa8ac5469bdf3b487da92",
+    "computations/2026-10-24T224948Z-tail-restricted-residual": "5be84184c903232cea5bb1905a6c9a489864014f3e1c8de1b2ecd5a75007461b"
+  },
+  "current_source_capture_matches": 22,
+  "public_files_scanned_including_decompressed_gzip": 98,
+  "private_disclosures": []
+}

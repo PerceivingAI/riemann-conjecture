@@ -1,0 +1,11 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T224948Z-tail-restricted-residual\\replay-archived-v1.py",
+    "--output-dir",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T224948Z-tail-restricted-residual\\data\\archived-replay-v1"
+  ],
+  "started_utc": "2026-10-24T23:00:40.788282+00:00",
+  "elapsed_seconds": 0.9253400999587029,
+  "exit_code": 0
+}

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "captured_files": 13,
+  "live_script_imports": false,
+  "byte_identical": {
+    "scalars-v1.json": "65cc22df9e5edfbaebd9b183edbc29b179c7d3474731e24170cc9abc543a0b9a",
+    "audit-v1.json": "bfa5c1d9774282453b4a5a1022987dceb9db462870e4ffb665d98996106bc83a"
+  }
+}

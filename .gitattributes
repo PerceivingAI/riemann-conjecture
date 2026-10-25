@@ -44,3 +44,11 @@
 /scripts/verify_weighted_support_extension_inputs.py text eol=lf
 /tests/test_weighted_support_extension.py text eol=lf
 /computations/2026-10-24T191616Z-weighted-support-extension/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_residual_tail_bound.py text eol=lf
+/scripts/verify_residual_tail_bound.py text eol=lf
+/tests/test_residual_tail_bound.py text eol=lf
+/computations/2026-10-24T224948Z-tail-restricted-residual/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_tail_complement_assessment.py text eol=lf
+/scripts/verify_tail_complement_inputs.py text eol=lf
+/tests/test_tail_complement_assessment.py text eol=lf
+/computations/2026-10-24T231555Z-tail-complement-weighted-reference/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

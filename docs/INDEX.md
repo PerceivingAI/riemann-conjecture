@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-24T20:37:47Z`
+- **Last updated:** `2026-10-24T23:28:30Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -54,6 +54,8 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [F-20261024-008](../findings/2026-10-24T231555Z-tail-complement-weighted-reference.md) / [X-20261024-006](../computations/2026-10-24T231555Z-tail-complement-weighted-reference/record.md) — C-0089 genuine negative N16 harmonic-reference directions in both parities at unchanged support; all2099 inputs fresh and reviewed residual-only scalar obstruction. No Weil negativity, new support or admission.
+- [F-20261024-007](../findings/2026-10-24T224948Z-tail-restricted-residual-bound.md) / [X-20261024-005](../computations/2026-10-24T224948Z-tail-restricted-residual/record.md) — C-0088 independently reviewed infinite-tail residual compression; fixed-support scalar reserve cutoff312 to16 even, independent scalar reconstruction and byte-identical isolated source replay. No smaller low-block positivity certificate or new admission.
 - [F-20261024-006](../findings/2026-10-24T202855Z-controlled-weighted-support-positivity.md) / [X-20261024-004](../computations/2026-10-24T191616Z-weighted-support-extension/record.md) — C-0087 source-conditional whole reference positivity at geometry-selected T=1353/2048,N=312,K=38,m=1018; all758475 inputs fresh, both exact parity witnesses/replay, changed-proof/byte rejection and preserved-version isolated replay. No production admission or RH claim.
 - [F-20261024-005](../findings/2026-10-24T194945Z-conditional-schur-completeness-cost.md) — C-0086 conditional eventual scalar/factor3 Schur success with a known full fixed-support gap; baseline norm-only sufficient log-dimension thresholds are computationally useless, not necessary dimension bounds.
 - [F-20261024-004](../findings/2026-10-24T193421Z-cross-cut-norm-controlled-continuation.md) — C-0085 uniform Legendre cross-cut potential norm, complete dimension-independent residual charge, exact baseline loss diagnosis and pre-sign geometric continuation rule.

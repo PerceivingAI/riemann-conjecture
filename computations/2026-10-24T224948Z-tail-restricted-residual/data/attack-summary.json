@@ -1,0 +1,17 @@
+[
+  {
+    "attack": "omitted-remainder",
+    "exit_code": 1,
+    "success_output_exists": false
+  },
+  {
+    "attack": "false-cutoff",
+    "exit_code": 1,
+    "success_output_exists": false
+  },
+  {
+    "attack": "false-mu",
+    "exit_code": 1,
+    "success_output_exists": false
+  }
+]

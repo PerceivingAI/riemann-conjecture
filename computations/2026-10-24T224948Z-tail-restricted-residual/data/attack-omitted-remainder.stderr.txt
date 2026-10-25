@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\2_Add_Projects\riemann-conjecture\scripts\verify_residual_tail_bound.py", line 183, in <module>
+    main()
+    ~~~~^^
+  File "D:\2_Add_Projects\riemann-conjecture\scripts\verify_residual_tail_bound.py", line 175, in main
+    result = audit(args.input)
+  File "D:\2_Add_Projects\riemann-conjecture\scripts\verify_residual_tail_bound.py", line 133, in audit
+    raise ValueError(f"fresh scalar is not strictly contained: {name}")
+ValueError: fresh scalar is not strictly contained: delta

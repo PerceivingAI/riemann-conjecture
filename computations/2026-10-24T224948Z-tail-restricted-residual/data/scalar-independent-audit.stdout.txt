@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "dimensions_checked": 312,
+  "cutoffs": {
+    "tail_positive": 13,
+    "tail_positive_even": 14,
+    "tail_reserve": 15,
+    "tail_reserve_even": 16,
+    "global_positive": 259,
+    "global_positive_even": 260,
+    "global_reserve": 312,
+    "global_reserve_even": 312
+  }
+}

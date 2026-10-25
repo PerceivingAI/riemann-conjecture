@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_tail_complement_assessment",
+    "select",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T231555Z-tail-complement-weighted-reference\\data\\selection-m0-v1.json"
+  ],
+  "started_utc": "2026-10-24T23:20:24.604259+00:00",
+  "elapsed_seconds": 0.3316197000676766,
+  "exit_code": 0
+}

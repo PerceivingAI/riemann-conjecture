@@ -1,0 +1,18 @@
+{
+  "local_links_checked": 578,
+  "markdown_tables_checked": 18,
+  "missing_local_links": [],
+  "existing_public_text_preserved_except_timestamp": {
+    "docs/CLAIMS.md": true,
+    "docs/STATUS.md": true,
+    "docs/LOG.md": true,
+    "docs/INDEX.md": true,
+    "docs/TOOL_CAPABILITIES.md": true,
+    "scripts/README.md": true
+  },
+  "protected_entry_source_and_private_hashes_unchanged": true,
+  "prior_bundle_members_unchanged": 119,
+  "prior_bundle_manifest_sha256": "28eff565a893a54b5ae111e6b70dd92f46d9440b736aa8ac5469bdf3b487da92",
+  "public_files_disclosure_scanned": 64,
+  "private_path_disclosures": []
+}

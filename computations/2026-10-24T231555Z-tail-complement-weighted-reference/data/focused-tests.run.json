@@ -1,0 +1,19 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "--extra",
+    "test",
+    "python",
+    "-m",
+    "pytest",
+    "-n",
+    "0",
+    "-q",
+    "tests/test_tail_complement_assessment.py"
+  ],
+  "started_utc": "2026-10-24T23:19:56.748723+00:00",
+  "elapsed_seconds": 2.061163500067778,
+  "exit_code": 0
+}
