@@ -1,0 +1,15 @@
+{
+  "pyproject.toml": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf",
+  "scripts/cert/__init__.py": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092",
+  "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+  "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+  "scripts/cert/multi_prime_legendre_schur.py": "341c64284182e774886ff487d3d1107fabe29e86c1bcc3d1782e6d1111103246",
+  "scripts/cert/prime_power_terms.py": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+  "scripts/cert/quadrature.py": "c8bc5bc04655722f394dba6c46655494cd90e5e68117e3361a835ac10e719663",
+  "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+  "scripts/verify_combined_schur_analytic_entries.py": "15961f4b337e1d26cc63aa41bcb3976fa975636d0b5e006b0f51bd3d625576e4",
+  "scripts/verify_residual_tail_bound.py": "6b6b29c6f50ee41ece3a32470bf335967fb8ec97a62aca9505a0cbff56280f96",
+  "scripts/weil_residual_tail_bound.py": "f2dfbac1d3797e581f471ac4283507f58b8b795ae30e0b4a327944069642bd67",
+  "tests/test_residual_tail_bound.py": "b33b4e3733b5d4a7b7b7884dc9e7ad3dfdd2bc3d1269552ce6d008584bbc158e",
+  "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+}

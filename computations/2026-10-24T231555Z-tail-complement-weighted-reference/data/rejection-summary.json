@@ -1,0 +1,17 @@
+[
+  {
+    "control": "altered-reference-upper",
+    "exit_code": 2,
+    "success_output_exists": false
+  },
+  {
+    "control": "changed-source-stale-audit",
+    "exit_code": 2,
+    "success_output_exists": false
+  },
+  {
+    "control": "refine-conclusive-negative",
+    "exit_code": 2,
+    "success_output_exists": false
+  }
+]

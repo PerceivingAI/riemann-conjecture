@@ -1,0 +1,20 @@
+{
+  "observed_timings_seconds": {
+    "source-m54": 0.6399912000633776,
+    "audit-m54": 0.6675638000015169,
+    "assess-m54": 0.5015918000135571,
+    "exact-replay-m54": 0.333647400024347,
+    "residual-only-limit": 0.3660812999587506,
+    "isolated-regeneration-replay": 2.4789703999413177
+  },
+  "bound_displays": {
+    "residual_allowance": 1.4171807672134253e-13,
+    "A_one_sided_error": 1.3516467716121874e-104,
+    "U_one_sided_error": 2.4656653204732e-103,
+    "gamma_upper": 0.8677415347746462,
+    "tail_loss_upper": 0.5983390232944212
+  },
+  "exact_even_upper_below": "-3/2",
+  "exact_odd_upper_below": "-3/4",
+  "thresholds_hold_for_both_original_and_optimistic_references": true
+}

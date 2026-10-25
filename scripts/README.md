@@ -1,13 +1,45 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-24T20:37:47Z`
+- **Last updated:** `2026-10-24T23:28:30Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
 ## Byte identity on checkout
 
 The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep their pinned sources/configuration in LF, the original SYS-6.4 probe in its recorded CRLF checkout format, and retained bundles verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+
+## Complete reference with the tail-restricted complement
+
+`scripts.weil_tail_complement_assessment` and `scripts.verify_tail_complement_inputs` are a separate research pair at T=1353/2048,N16,K38. They apply C-0088's sharper tail-to-tail norm, preserve the full cross-block residual allowance and independently reconstruct every low/Gram/head entry. They do not modify historical source formats or production admission.
+
+With a fresh, existing output directory:
+
+```text
+uv run --locked python -m scripts.weil_tail_complement_assessment generate --boundary 54 --output computations/<fresh-bundle>/data/source.json.gz
+uv run --locked python -m scripts.verify_tail_complement_inputs computations/<fresh-bundle>/data/source.json.gz --output computations/<fresh-bundle>/data/audit.json.gz
+uv run --locked python -m scripts.weil_tail_complement_assessment assess --packet computations/<fresh-bundle>/data/source.json.gz --audit computations/<fresh-bundle>/data/audit.json.gz --output computations/<fresh-bundle>/data/result.json
+uv run --locked python -m scripts.weil_tail_complement_assessment replay --packet computations/<fresh-bundle>/data/source.json.gz --audit computations/<fresh-bundle>/data/audit.json.gz --result computations/<fresh-bundle>/data/result.json --output computations/<fresh-bundle>/data/replay.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_tail_complement_assessment.py
+```
+
+`select` records the initial inverse-weight-cap choice. `refine` is allowed only after replaying an `INCONCLUSIVE_LOWER` result and doubles retained tail-row count; it does not promise a halved error. All outputs refuse overwrite. A genuine negative reference upper stops that fixed-reference refinement.
+
+[X-20261024-006](../computations/2026-10-24T231555Z-tail-complement-weighted-reference/record.md) retains the actual m54 operation, all2099 accepted inputs, exact negative directions in both parity sectors,4 regressions, rejected altered inputs and isolated source regeneration/replay. Its separate `residual-only-limit-v1.py` diagnostic evaluates an optimistic reference while keeping the full source and error; even zero residual norm charge cannot rescue this fixed N16 scalar-reference family. This is not a positivity certificate, Weil negativity or production theorem admission.
+
+## Residual-tail scalar bound at the controlled support
+
+`scripts.weil_residual_tail_bound` evaluates [C-0088](../findings/2026-10-24T224948Z-tail-restricted-residual-bound.md) at the pinned T=1353/2048,K=38 baseline. It removes only even polynomial degrees below2N from the double-compressed residual, bounds the remaining operator by delta+M_N/[N(N+1)], and compares exact scalar positivity/reserve cutoffs. The full residual remainder is retained.
+
+```text
+uv run --locked python -m scripts.weil_residual_tail_bound --output computations/<fresh-bundle>/data/scalars.json
+uv run --locked python -m scripts.verify_residual_tail_bound computations/<fresh-bundle>/data/scalars.json --output computations/<fresh-bundle>/data/audit.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_residual_tail_bound.py
+```
+
+The first command creates its parent directory; both refuse to overwrite output files. The independent auditor uses separate coefficient/remainder formulas and higher precision, verifies source fingerprints and every reported cutoff/row, and executes exact cusp, polynomial-boundary and signed-image controls. [X-20261024-005](../computations/2026-10-24T224948Z-tail-restricted-residual/record.md) retains the successful commands,4 regressions, actual rejected alterations and an isolated byte-identical replay launcher.
+
+These are separate research scalar consumers. N=16 preserves the old scalar reserve; it is not a new low Schur certificate. The bound does not control Q_N R_T P_N, does not replace the full cross-block residual allowance and is not accepted as an alternative complement by existing production contracts or historical matrix tools.
 
 ## Controlled weighted support extension
 

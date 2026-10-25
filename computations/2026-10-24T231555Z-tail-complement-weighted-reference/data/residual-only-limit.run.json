@@ -1,0 +1,17 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T231555Z-tail-complement-weighted-reference\\residual-only-limit-v1.py",
+    "--packet",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T231555Z-tail-complement-weighted-reference\\data\\source-m54-v1.json.gz",
+    "--audit",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T231555Z-tail-complement-weighted-reference\\data\\audit-m54-v1.json.gz",
+    "--result",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T231555Z-tail-complement-weighted-reference\\data\\result-m54-v1.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T231555Z-tail-complement-weighted-reference\\data\\residual-only-limit-v1.json"
+  ],
+  "started_utc": "2026-10-24T23:25:39.773363+00:00",
+  "elapsed_seconds": 0.3660812999587506,
+  "exit_code": 0
+}

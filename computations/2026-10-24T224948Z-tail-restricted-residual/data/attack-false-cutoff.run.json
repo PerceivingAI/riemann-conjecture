@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_residual_tail_bound",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T224948Z-tail-restricted-residual\\data\\attack-false-cutoff.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T224948Z-tail-restricted-residual\\data\\attack-false-cutoff-success.json"
+  ],
+  "started_utc": "2026-10-24T22:59:33.543548+00:00",
+  "elapsed_seconds": 0.3239107000408694,
+  "exit_code": 1
+}

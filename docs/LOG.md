@@ -1,10 +1,22 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-24T20:37:47Z`
+- **Last updated:** `2026-10-24T23:28:30Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-24T23:28:30Z — Full N16 reference fails despite the stronger tail complement
+
+[F-20261024-008](../findings/2026-10-24T231555Z-tail-complement-weighted-reference.md) / C-0089 and [X-20261024-006](../computations/2026-10-24T231555Z-tail-complement-weighted-reference/record.md) assess both parity blocks at unchanged T=1353/2048,N16,K38,mu about0.255549. Source768/native1536-bit reconstruction accepts all2099 inputs afresh at accuracy-selected m54. Exact full-reference uppers are below-3/2 even and-3/4 odd, not merely failed sufficient lowers. A separately reviewed monotonicity diagnostic retains the full source and residual error while removing only the hypothetical residual norm charge; its more optimistic reference remains negative. Thus neither additional head rows, precision nor a residual-only scalar improvement fixes this N16 reference. Four regressions, exact replay, altered-proof/source-byte rejection, conclusive-stop rejection and isolated source regeneration/replay pass. No extra head stage or dimension was run. Historical artifacts, C-0087's positive N312 result and8v1/0v2/1v3 admissions remain unchanged. No Weil-negativity, method-wide-failure or RH conclusion.
+
+---
+
+## 2026-10-24T23:00:41Z — A rigorous residual-tail compression removes a large scalar overcharge
+
+[F-20261024-007](../findings/2026-10-24T224948Z-tail-restricted-residual-bound.md) / C-0088 and [X-20261024-005](../computations/2026-10-24T224948Z-tail-restricted-residual/record.md) derive and independently review the complete infinite-tail bound delta+M_N/[N(N+1)]. The proof retains the cusp multiplication, endpoint/spectral-domain argument, strict even-polynomial removal and full remainder. At current T=1353/2048,K=38,N=312, the allowance falls from3.010326025956 to5.93923468717e-7. The first even sufficient scalar reserve cutoff drops312 to16; no N16 low reference was evaluated. Actual source/audit,39 coefficient checks, four strict scalar containments, dimensions1..312,4 focused regressions, cusp/rank/signed-image controls, three rejected alterations and isolated captured-source replay pass. The latter reproduces both JSON files byte-identically. Original derivation and executed sources are retained; historical sources/results, cross-block estimates, all production rules and8v1/0v2/1v3 admissions are unchanged. RH remains unresolved.
+
+---
 
 ## 2026-10-24T20:37:47Z — Controlled weighted continuation survives nearly doubled prime3 overlap
 

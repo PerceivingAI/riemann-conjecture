@@ -1,0 +1,15 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_tail_complement_assessment",
+    "generate",
+    "--boundary",
+    "54",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T231555Z-tail-complement-weighted-reference\\data\\source-m54-v1.json.gz"
+  ],
+  "started_utc": "2026-10-24T23:20:24.945872+00:00",
+  "elapsed_seconds": 0.6399912000633776,
+  "exit_code": 0
+}

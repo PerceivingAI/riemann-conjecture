@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_tail_complement_inputs",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T231555Z-tail-complement-weighted-reference\\data\\source-m54-v1.json.gz",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T231555Z-tail-complement-weighted-reference\\data\\audit-m54-v1.json.gz"
+  ],
+  "started_utc": "2026-10-24T23:20:25.587898+00:00",
+  "elapsed_seconds": 0.6675638000015169,
+  "exit_code": 0
+}

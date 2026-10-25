@@ -1,0 +1,19 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "--extra",
+    "test",
+    "python",
+    "-m",
+    "pytest",
+    "-n",
+    "0",
+    "-q",
+    "tests/test_residual_tail_bound.py"
+  ],
+  "started_utc": "2026-10-24T22:57:54.246044+00:00",
+  "elapsed_seconds": 2.785260699922219,
+  "exit_code": 0
+}

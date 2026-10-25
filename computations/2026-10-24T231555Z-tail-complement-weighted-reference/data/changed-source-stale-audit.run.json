@@ -1,0 +1,19 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_tail_complement_assessment",
+    "assess",
+    "--packet",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T231555Z-tail-complement-weighted-reference\\data\\altered-source-v1.json.gz",
+    "--audit",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T231555Z-tail-complement-weighted-reference\\data\\audit-m54-v1.json.gz",
+    "--result",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T231555Z-tail-complement-weighted-reference\\data\\result-m54-v1.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-24T231555Z-tail-complement-weighted-reference\\data\\changed-source-stale-audit-success.json"
+  ],
+  "started_utc": "2026-10-24T23:27:19.666320+00:00",
+  "elapsed_seconds": 0.30607290007174015,
+  "exit_code": 2
+}

@@ -3,7 +3,7 @@
 - **Audit:** SYS-1 current-state technical inventory
 - **Audited repository revision:** `20a691105ec808e623faef2fc5bbaf4806a0d352` (`main`, 2026-10-08 commit)
 - **Audit date:** 2026-10-17
-- **Last updated:** `2026-10-24T20:37:47Z` (later factual addenda; original audit identity unchanged)
+- **Last updated:** `2026-10-24T23:28:30Z` (later factual addenda; original audit identity unchanged)
 - **Scope:** Implemented Python/Arb mathematics, Rust, Lean, execution/orchestration, retained evidence and agent navigation
 - **Disposition:** Public technical record of *existing* behavior only; not a research strategy, roadmap, or tooling-upgrade register
 - **Method:** Read current source, tests, schemas, contracts, and retained verification records; independently execute the checks listed in §8
@@ -11,6 +11,18 @@
 This audit describes the source tree at the pinned revision. An implemented function, a prior passing test, a freshly passing test, an external mathematical premise, and an admitted theorem are different forms of evidence. They are not interchangeable.
 
 The audit did **not** edit or regenerate any historical attempt, finding, computation, or retained certificate. It did **not** run a new mathematical qualification sweep.
+
+## 2026-10-24T23:28:30Z: complete tail-complement reference assessment
+
+Separate `scripts.weil_tail_complement_assessment` and `scripts.verify_tail_complement_inputs` implement the C-0088 complement inside a fixed-support N16 research source/audit pair. They reuse unchanged full signed matrix/head reconstruction and exact weighted consumers, retain the full cross-block residual norm, bind source/auditor/helper identities and independently accept all2099 inputs at m54. Source768/native1536-bit precision covers physical masses and both8-dimensional parity blocks.
+
+[X-20261024-006](../computations/2026-10-24T231555Z-tail-complement-weighted-reference/record.md) gives genuine negative upper directions for the full reference, exact replay and a reviewed residual-only obstruction. Four regressions and actual changed-proof, stale-audit and conclusive-refinement rejections pass. Isolated regeneration from22 captured files reproduces all source/audit fields except elapsed time and replays the original result; the optimistic-control JSON is byte-identical. No historical consumer, source artifact or production contract is changed. The new negative result is about this reference, not the true Schur or Weil form.
+
+## 2026-10-24T23:00:41Z: separate residual-tail scalar assessment
+
+`scripts.weil_residual_tail_bound` evaluates C-0088's reviewed tail-to-tail residual bound and compares exact sufficient scalar cutoffs at the pinned C-0087 support and reserve. `scripts.verify_residual_tail_bound` reconstructs all39 coefficients using the separately organized native Bernoulli formula, strictly contains all four source scalar enclosures at1024 versus512 bits and independently recomputes dimensions1..312. Neither changes the frozen assembler, historical source packets, low-to-tail residual bound or a production verifier/admission rule.
+
+[X-20261024-005](../computations/2026-10-24T224948Z-tail-restricted-residual/record.md) records actual CLI success,4 passing exact-operator regressions, cusp/rank/signed-complete-image controls, three rejected altered packets and byte-identical isolated replay from captured sources. At fixed T=1353/2048,K=38 the first even sufficient scalar-reserve cutoff is16 rather than312. The operation evaluates no low Schur matrix, new full-positivity dimension or new support and supplies no Rust/Lean admission or literature-priority result.
 
 ## 2026-10-24T20:37:47Z: controlled weighted support continuation
 
