@@ -1,0 +1,17 @@
+{
+  "source_v2": {
+    "exit_code": 0,
+    "tool_wall_seconds": 25.12
+  },
+  "proof_v2": {
+    "exit_code": 0,
+    "tool_wall_seconds": 3.01
+  },
+  "focused_tests": {
+    "command": "uv run --locked --extra test python -m pytest -n 0 -q tests/test_fourier_minorant_matrix.py",
+    "exit_code": 0,
+    "passed": 4,
+    "pytest_seconds": 0.61,
+    "tool_wall_seconds": 1.74
+  }
+}

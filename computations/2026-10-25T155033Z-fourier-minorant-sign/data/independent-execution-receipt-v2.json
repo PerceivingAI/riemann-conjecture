@@ -1,0 +1,6 @@
+{
+  "command": "uv run --locked python -m scripts.verify_fourier_minorant_matrix computations/2026-10-25T155033Z-fourier-minorant-sign/data/proof-v2.json.gz --source computations/2026-10-25T155033Z-fourier-minorant-sign/data/source-v2.json.gz --output computations/2026-10-25T155033Z-fourier-minorant-sign/data/independent-audit-v2.json",
+  "exit_code": 0,
+  "tool_wall_seconds": 73.3,
+  "matrix_entries_checked": 292968
+}

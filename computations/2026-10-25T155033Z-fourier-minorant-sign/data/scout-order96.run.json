@@ -1,0 +1,19 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-m",
+    "scripts.weil_fourier_minorant_scout",
+    "--order",
+    "96",
+    "--output",
+    "computations\\2026-10-25T155033Z-fourier-minorant-sign\\data\\scout-order96-v1.json"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 6.52807080000639,
+  "stdout": "{\"scope\": \"floating proposals only, never a proof\", \"blocks\": [{\"parity\": 0, \"minimum_eigenvalue_display\": 1.4058830388165058e-11, \"retained_trial_rayleigh_display\": 5.1158552177498665e-05}, {\"parity\": 1, \"minimum_eigenvalue_display\": 8.243370814706713e-09, \"retained_trial_rayleigh_display\": 9.752610999777018e-08}]}\n",
+  "stderr": "",
+  "command_path_policy": "repository-relative workspace paths; pre-publication metadata correction, numerical output unchanged"
+}

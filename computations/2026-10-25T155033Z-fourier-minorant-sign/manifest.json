@@ -1,0 +1,335 @@
+{
+  "format": "research-computation-bundle-integrity-v1",
+  "computation_id": "X-20261025-006",
+  "sealed_utc": "2026-10-25T18:41:51Z",
+  "member_count": 65,
+  "total_member_bytes": 33805652,
+  "members": [
+    {
+      "path": "data/attack-changed-band-input.json.gz",
+      "bytes": 3213046,
+      "sha256": "f230b237018ab94495fe3b7ae7f6672ebaae4a22da8247580f4144e1e6445867"
+    },
+    {
+      "path": "data/attack-changed-band-input.run.json",
+      "bytes": 1409,
+      "sha256": "d288ef6e31713b125c306eedc2f6cb3fe3d6b6eaae3dcc74823895eb353a902b"
+    },
+    {
+      "path": "data/attack-forged-margin.json.gz",
+      "bytes": 3212883,
+      "sha256": "186b4b86905447a0b63129b90d32af3939068325e401a9371df979b7427731db"
+    },
+    {
+      "path": "data/attack-forged-margin.run.json",
+      "bytes": 1718,
+      "sha256": "4cadd66dd123f765636302925756b6d5e25ad26564e24237fbd457c10771935e"
+    },
+    {
+      "path": "data/attack-forged-mass-gap.json.gz",
+      "bytes": 3212663,
+      "sha256": "c5a84798b0b01c657b20e6db8bd6dc00cfad581be88fa2c2f16ba17cd0e3c44a"
+    },
+    {
+      "path": "data/attack-forged-mass-gap.run.json",
+      "bytes": 1688,
+      "sha256": "415d8cf427f39c32db9a5b10d6fbe244cf4c07b077a78cfa4ca9cfdad9563ab2"
+    },
+    {
+      "path": "data/attack-singular-transform.json.gz",
+      "bytes": 3213036,
+      "sha256": "b6ef799f7646269683fcc82b3d068b8047543ab4238b9f334c01fa5f7a5f3124"
+    },
+    {
+      "path": "data/attack-singular-transform.run.json",
+      "bytes": 1734,
+      "sha256": "55825d4fc270d7073b0ba839a1b83ed91ba32c51e7a4d5cfea05ef8a594ac85e"
+    },
+    {
+      "path": "data/attack-unpaid-complement.json.gz",
+      "bytes": 3213036,
+      "sha256": "3276a036d94fa33c919785d6bcc525c3ee3de6dc61148a10856fa0301f54540a"
+    },
+    {
+      "path": "data/attack-unpaid-complement.run.json",
+      "bytes": 1407,
+      "sha256": "25d9dde454b6c05573625e11964d9425c951ed3e7d40df5b62b7edd1a02949a0"
+    },
+    {
+      "path": "data/coefficient-regression-after-v2.json",
+      "bytes": 569,
+      "sha256": "d256a19d798b05bd9ea2f78deb590138452963cf8edb6fa3e904135f0516cfc6"
+    },
+    {
+      "path": "data/coefficient-regression-before-v1.json",
+      "bytes": 636,
+      "sha256": "f52d8e198b7f102bc0cf8735ba0c9392ee209d477ac3d8f4afc64009558274d7"
+    },
+    {
+      "path": "data/corrected-execution-receipts-v2.json",
+      "bytes": 395,
+      "sha256": "92aeabd7af1c096a71139848cac7c8e53bc6afafaad9a303b026c5f1d2884615"
+    },
+    {
+      "path": "data/environment.json",
+      "bytes": 273,
+      "sha256": "f456232a22153ab459ee96924c804c815ae08eb451012f958a3eaf2935e7b210"
+    },
+    {
+      "path": "data/exact-replay-v2.json",
+      "bytes": 5495,
+      "sha256": "f27fdb1f4bb7d421c2c7471df0d43cb428c05c3a789052b8cfa4b64b23da9899"
+    },
+    {
+      "path": "data/exact-replay-v2.run.json",
+      "bytes": 2804,
+      "sha256": "cce3ac84c63ffb4448cbf65a39d52499b4921eecc31f6d5ee5b7f5a120b346ac"
+    },
+    {
+      "path": "data/final-validation-v2.json",
+      "bytes": 566,
+      "sha256": "b5b39beebd65682c799c5e62d63993d9814cc3c01b927de92a013ed5eaa0df2a"
+    },
+    {
+      "path": "data/independent-audit-v2.json",
+      "bytes": 6101,
+      "sha256": "ef927d5dbafebf77ef3166b4a18bb98cc6127a32c8ee23233cd9f7ffa0cda5b3"
+    },
+    {
+      "path": "data/independent-execution-receipt-v2.json",
+      "bytes": 429,
+      "sha256": "7d6df9487262e1cc4753b10284f25fc109e2b7cd1801b9569fdb376bc01115c6"
+    },
+    {
+      "path": "data/initial-execution-receipts-v1.json",
+      "bytes": 512,
+      "sha256": "e2f7f1887b65066ad3f4347943bfb5ced33b5f06ca2e8b09e33db9f7518b6ceb"
+    },
+    {
+      "path": "data/isolated-exact-replay-v2.json",
+      "bytes": 5495,
+      "sha256": "f27fdb1f4bb7d421c2c7471df0d43cb428c05c3a789052b8cfa4b64b23da9899"
+    },
+    {
+      "path": "data/isolated-exact-replay-v2.run.json",
+      "bytes": 2984,
+      "sha256": "5fcb2c8b7f0474fa4bbc4832379be4720f791105e9b27703c525cf514df81597"
+    },
+    {
+      "path": "data/isolated-proof-v2.json.gz",
+      "bytes": 3557084,
+      "sha256": "02ee0e095a23c6c09949fe51b0833d541cb76a3298402d84609950619b07612d"
+    },
+    {
+      "path": "data/isolated-proof-v2.run.json",
+      "bytes": 2246,
+      "sha256": "189035dd9ec6e7bbc3d0d1f6d5914f29da924825ffb13e903ecdd7f403e1ec7a"
+    },
+    {
+      "path": "data/isolated-replay-summary.json",
+      "bytes": 322,
+      "sha256": "153f269ffb5d5f6cd5eb25a4495370b0ae003b7fb65da2107964d73cb324ccb3"
+    },
+    {
+      "path": "data/isolated-source-v2.json.gz",
+      "bytes": 3331807,
+      "sha256": "6f8994ee0d8813ddd0bbb3ba88e35b2070905199693788f9660906474edbeb66"
+    },
+    {
+      "path": "data/preservation-validation.json",
+      "bytes": 664,
+      "sha256": "7b46110d27a717e62b5ec081a695825255e9549c0d694ae725a80588d74b9b48"
+    },
+    {
+      "path": "data/preserved-v1-failure-replay.run.json",
+      "bytes": 1865,
+      "sha256": "8ce7d23c3d3a671c5b7641fccfde96f959f710eaeb9d74965f87909374fb94f5"
+    },
+    {
+      "path": "data/preserved-v1-regression-test.run.json",
+      "bytes": 2426,
+      "sha256": "427f25a9bff0ecf3495a3074cdff66f2ff4ebea78deb162503c6dbc90e4210b5"
+    },
+    {
+      "path": "data/proof-v2.json.gz",
+      "bytes": 3557084,
+      "sha256": "02ee0e095a23c6c09949fe51b0833d541cb76a3298402d84609950619b07612d"
+    },
+    {
+      "path": "data/rejection-summary-v2.json",
+      "bytes": 1031,
+      "sha256": "8cadda5498d8aa9e9aa4f0f3b1e2c1160fbfce9385d200133a0781514d54d781"
+    },
+    {
+      "path": "data/scout-order64-v1.json",
+      "bytes": 15308,
+      "sha256": "ae41c03c7db72195fedf17d43d44f25ecf410cc18e480bfe5c541939a13b6e37"
+    },
+    {
+      "path": "data/scout-order64.run.json",
+      "bytes": 814,
+      "sha256": "63d12ecb3b8f6166f2973c737ec72ce04c6cf57c809cf082bd70e97612cfc65a"
+    },
+    {
+      "path": "data/scout-order96-v1.json",
+      "bytes": 15308,
+      "sha256": "0acf9315fc5f697f2473711e9dcb5cff5ef2b96947abbd1ba7b7dd1a2295a6d7"
+    },
+    {
+      "path": "data/scout-order96.run.json",
+      "bytes": 814,
+      "sha256": "061071cb8dcc27c26faafd3c7d0b7682a47b8d434a314d5e75bfb6ff4c9a6eb1"
+    },
+    {
+      "path": "data/source-v1.json.gz",
+      "bytes": 3304856,
+      "sha256": "5cf09865feeab54924510ac8802540cdf4d9d02d3c2e3eafab797c13796d4012"
+    },
+    {
+      "path": "data/source-v2.json.gz",
+      "bytes": 3331807,
+      "sha256": "6f8994ee0d8813ddd0bbb3ba88e35b2070905199693788f9660906474edbeb66"
+    },
+    {
+      "path": "development/independent-auditor-initial.py",
+      "bytes": 17809,
+      "sha256": "4dd7309f19420aac686d4e0296e7855a64adc3e4104babee890317e94bba5ee8"
+    },
+    {
+      "path": "development/producer-initial.py",
+      "bytes": 9577,
+      "sha256": "2bba4df33090d43d4f41f7d78bb32a7b8aa484be09f9cbb9ace06ca6ef556e18"
+    },
+    {
+      "path": "independent-direction-qualification.md",
+      "bytes": 21009,
+      "sha256": "448477ccc7b12b2b0142ae6f5b522c69527618c928ad28521784f4838768d350"
+    },
+    {
+      "path": "matrix-enclosure-derivation-v1.md",
+      "bytes": 6766,
+      "sha256": "7ebd7ac0c737596c619843330629f06ce9dabe25ab273a7a992c3c28051db051"
+    },
+    {
+      "path": "record.md",
+      "bytes": 10651,
+      "sha256": "be0243270af0eeb885f9f646d1e554414991e4b08671be2af5c6f57d3000b2ec"
+    },
+    {
+      "path": "source-v1/computations/2026-10-25T142424Z-reference-route-selection/data/scalar-controls-v1.json",
+      "bytes": 40287,
+      "sha256": "7d3975bb76c621f15182c6377503ac9fd63a83c786b66898e271294fbf09f3fc"
+    },
+    {
+      "path": "source-v1/manifest.json",
+      "bytes": 1529,
+      "sha256": "587fa5fe8e54244bdb025410aa308e458fe60347f9778206b4f33e5224a93a60"
+    },
+    {
+      "path": "source-v1/scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "source-v1/scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "source-v1/scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "source-v1/scripts/verify_combined_schur_analytic_entries.py",
+      "bytes": 16003,
+      "sha256": "15961f4b337e1d26cc63aa41bcb3976fa975636d0b5e006b0f51bd3d625576e4"
+    },
+    {
+      "path": "source-v1/scripts/verify_weighted_low_space.py",
+      "bytes": 18721,
+      "sha256": "91f5afcaabff90378de9ece3222115f1262ec4883929d9fa2a79b059e66c2cb1"
+    },
+    {
+      "path": "source-v1/scripts/verify_weighted_low_space_inputs.py",
+      "bytes": 25346,
+      "sha256": "ad63fbb5b24a0c4d3f45a98d0731b2b6a64bb1e3d480deac43a02cd972447d64"
+    },
+    {
+      "path": "source-v1/scripts/weil_fourier_minorant_matrix.py",
+      "bytes": 9577,
+      "sha256": "2bba4df33090d43d4f41f7d78bb32a7b8aa484be09f9cbb9ace06ca6ef556e18"
+    },
+    {
+      "path": "source-v2/computations/2026-10-25T142424Z-reference-route-selection/data/scalar-controls-v1.json",
+      "bytes": 40287,
+      "sha256": "7d3975bb76c621f15182c6377503ac9fd63a83c786b66898e271294fbf09f3fc"
+    },
+    {
+      "path": "source-v2/manifest.json",
+      "bytes": 2369,
+      "sha256": "a009b6edfb9a7b501745aefac0c53e85fb026b9731495836c814418d5ec6bd54"
+    },
+    {
+      "path": "source-v2/pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "source-v2/scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "source-v2/scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "source-v2/scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "source-v2/scripts/verify_combined_schur_analytic_entries.py",
+      "bytes": 16003,
+      "sha256": "15961f4b337e1d26cc63aa41bcb3976fa975636d0b5e006b0f51bd3d625576e4"
+    },
+    {
+      "path": "source-v2/scripts/verify_fourier_minorant_matrix.py",
+      "bytes": 21417,
+      "sha256": "47e74237741d727e854033af4fb595af6e4197c7abb4f3d01a0cb1500f10d6b1"
+    },
+    {
+      "path": "source-v2/scripts/verify_weighted_low_space.py",
+      "bytes": 18721,
+      "sha256": "91f5afcaabff90378de9ece3222115f1262ec4883929d9fa2a79b059e66c2cb1"
+    },
+    {
+      "path": "source-v2/scripts/verify_weighted_low_space_inputs.py",
+      "bytes": 25346,
+      "sha256": "ad63fbb5b24a0c4d3f45a98d0731b2b6a64bb1e3d480deac43a02cd972447d64"
+    },
+    {
+      "path": "source-v2/scripts/weil_fourier_minorant_matrix.py",
+      "bytes": 9575,
+      "sha256": "9b430b5fc8401f35da7c5360070a089160a25d5ceade78937796b096fe4c898c"
+    },
+    {
+      "path": "source-v2/scripts/weil_fourier_minorant_scout.py",
+      "bytes": 4238,
+      "sha256": "fa23b7cd95f730d034cf14df2bf26fe628e79eb06c0ddff4938cc60ce96f63a7"
+    },
+    {
+      "path": "source-v2/tests/test_fourier_minorant_matrix.py",
+      "bytes": 1737,
+      "sha256": "b6cfdf51bb555f9db662a8dbe5bc25e3b322ddbb983fc2dc79eb5dff596a5f2c"
+    },
+    {
+      "path": "source-v2/uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    }
+  ],
+  "scope": "Complete fixed Fourier-minorant independent source acceptance and exact research proof. Original invalid version and failures preserved. No new support or production admission. Only the root manifest excludes itself."
+}

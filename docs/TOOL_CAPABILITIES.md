@@ -3,7 +3,7 @@
 - **Audit:** SYS-1 current-state technical inventory
 - **Audited repository revision:** `20a691105ec808e623faef2fc5bbaf4806a0d352` (`main`, 2026-10-08 commit)
 - **Audit date:** 2026-10-17
-- **Last updated:** `2026-10-25T15:08:18Z` (later factual addenda; original audit identity unchanged)
+- **Last updated:** `2026-10-25T18:25:39Z` (later factual addenda; original audit identity unchanged)
 - **Scope:** Implemented Python/Arb mathematics, Rust, Lean, execution/orchestration, retained evidence and agent navigation
 - **Disposition:** Public technical record of *existing* behavior only; not a research strategy, roadmap, or tooling-upgrade register
 - **Method:** Read current source, tests, schemas, contracts, and retained verification records; independently execute the checks listed in §8
@@ -11,6 +11,12 @@
 This audit describes the source tree at the pinned revision. An implemented function, a prior passing test, a freshly passing test, an external mathematical premise, and an admitted theorem are different forms of evidence. They are not interchangeable.
 
 The audit did **not** edit or regenerate any historical attempt, finding, computation, or retained certificate. It did **not** run a new mathematical qualification sweep.
+
+## 2026-10-25T18:25:39Z: complete fixed Fourier-minorant source and acceptance
+
+`scripts.weil_fourier_minorant_scout` supplies non-proof proposals. `scripts.weil_fourier_minorant_matrix` independently generates complete fixed P/P²/GP, signed pole, band and low A matrices, paying the entire frequency quadrature remainder in operator norm, then constructs exact finite rational witnesses. `scripts.verify_fourier_minorant_matrix` rebuilds every analytical entry with different arithmetic intersections, quadrature orders, weights and finite-series anchors, and checks all exact finite consequences. It shares Arb/FLINT primitives, not producer source imports. Its explicit exact-only mode is not fresh analytical acceptance.
+
+[X-20261025-006](../computations/2026-10-25T155033Z-fourier-minorant-sign/record.md) accepts all292968 entries and both complete positive parity lowers. Four regressions,5 actual altered-report rejections and byte-identical isolated source/proof/exact-receipt regeneration pass. The initial consumer coefficient defect is preserved and corrected in a separate packet version. No old arithmetic module, test, certificate profile or admission changes. Implemented scope is the fixed research case only; no generic continuation, larger-support cost law, concentration-gap lower or production verification is claimed.
 
 ## 2026-10-25T15:08:18Z: rigorous reference and residual scalar controls
 

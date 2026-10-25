@@ -1,10 +1,12 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-25T15:08:18Z`
+- **Last updated:** `2026-10-25T18:25:39Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
+
+**Complete Fourier minorant positive at the matched support, 2026-10-25T18:25:39Z.** [F-20261025-006](../findings/2026-10-25T155033Z-positive-fourier-minorant.md) / C-0096 and [X-20261025-006](../computations/2026-10-25T155033Z-fourier-minorant-sign/record.md) join C-0094's infinite complement to fresh complete finite matrices at T=1353/2048,a=7/2,Omega256,N312. Both156-dimensional exact sufficient blocks are positive, with finite mass-lower displays1.39956336347e-11/8.21361193846e-9. All292968 entries are independently reconstructed at Arb768; exact rational congruences,4 regressions,5 rejection controls and byte-identical isolated regeneration/replay pass. The first producer's arithmetic coefficient error is preserved as an invalid version, not mathematical negative evidence. The corrected proof establishes whole-space H0 positivity and the source-conditional smooth-test implication without inheriting the old positive physical K312 authority. This is an alternative proof at an already positive support, not a new support, production admission, global family or RH result.
 
 **Quantitative bounded-reference and global residual bounds, 2026-10-25T15:08:18Z.** [F-20261025-005](../findings/2026-10-25T142424Z-reference-route-selection.md) / C-0094,C-0095 and [X-20261025-005](../computations/2026-10-25T142424Z-reference-route-selection/record.md) qualify two explicit estimates. The Fourier bounded minorant at T=3/5 and1353/2048,a=7/2,Omega256,N312 has a strictly positive arithmetic reference, nonnegative complete exterior and compact double/one-sided bounds below1e-82/1e-40. All mixed Gram terms can be paid by3e-40 I above combined GP, leaving one explicit finite sufficient matrix sign; that sign is not evaluated. Separately, the exact real residual has a full one-sided Legendre range bound valid at every finite support, without the local Taylor cutoff. At the current T,N312 its double-tail bound is about4.243 times the sharper retained local bound, so this is a source-range contribution, not a local repair. Independent written qualifications and actual scalar CLI/isolated replay pass. No new positivity matrix, support, production admission or RH result; existing local source/refusal behavior is unchanged.
 

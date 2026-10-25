@@ -1,13 +1,28 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-25T15:08:18Z`
+- **Last updated:** `2026-10-25T18:25:39Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
 ## Byte identity on checkout
 
 The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep their pinned sources/configuration in LF, the original SYS-6.4 probe in its recorded CRLF checkout format, and retained bundles verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+
+## Complete fixed bounded Fourier minorant
+
+The research-only fixed-case workflow in [X-20261025-006](../computations/2026-10-25T155033Z-fourier-minorant-sign/record.md) separately generates sources, proposes exact witnesses and independently accepts all source entries:
+
+```text
+uv run --locked python -m scripts.weil_fourier_minorant_scout --order 64 --output <fresh-scout.json>
+uv run --locked python -m scripts.weil_fourier_minorant_matrix source --output <fresh-source.json.gz>
+uv run --locked python -m scripts.weil_fourier_minorant_matrix prove --source <fresh-source.json.gz> --output <fresh-proof.json.gz>
+uv run --locked python -m scripts.verify_fourier_minorant_matrix <fresh-proof.json.gz> --source <fresh-source.json.gz> --output <fresh-audit.json>
+uv run --locked python -m scripts.verify_fourier_minorant_matrix <fresh-proof.json.gz> --source <fresh-source.json.gz> --exact-only --output <fresh-exact-replay.json>
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_fourier_minorant_matrix.py
+```
+
+The accepted packet is research format `research-fourier-minorant-matrix-v2`, not production certificate-v2. Parameters are closed at T1353/2048,a7/2,Omega256,N312. The full audit checks292968 entries and both exact sufficient parity blocks with the complete C-0094 outside allowance. Exact-only replay never rebuilds analytical inputs. All outputs require fresh paths. The original defective coefficient consumer and its failed version remain reproducible in the bundle; no frozen historical arithmetic code changed. No new support, production profile, Rust/Lean verification or theorem admission is implied.
 
 ## Quantitative reference and global-residual scalar controls
 
