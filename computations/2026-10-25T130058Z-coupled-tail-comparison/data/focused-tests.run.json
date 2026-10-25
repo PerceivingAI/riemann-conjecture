@@ -1,0 +1,19 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "--extra",
+    "test",
+    "python",
+    "-m",
+    "pytest",
+    "-n",
+    "0",
+    "-q",
+    "tests/test_coupled_tail_comparison.py"
+  ],
+  "started_utc": "2026-10-25T13:09:47.756726+00:00",
+  "elapsed_seconds": 3.3921889000339434,
+  "exit_code": 1
+}

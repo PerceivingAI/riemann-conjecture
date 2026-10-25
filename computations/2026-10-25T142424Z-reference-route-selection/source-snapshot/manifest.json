@@ -1,0 +1,9 @@
+{
+  "format": "captured-reference-controls-source-v1",
+  "files": {
+    "scalar-controls-v1.py": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13",
+    "scripts/weil_reference_route_controls.py": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13",
+    "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+    "scripts/cert/__init__.py": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+  }
+}

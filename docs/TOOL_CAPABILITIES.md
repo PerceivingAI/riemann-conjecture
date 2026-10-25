@@ -3,7 +3,7 @@
 - **Audit:** SYS-1 current-state technical inventory
 - **Audited repository revision:** `20a691105ec808e623faef2fc5bbaf4806a0d352` (`main`, 2026-10-08 commit)
 - **Audit date:** 2026-10-17
-- **Last updated:** `2026-10-24T23:28:30Z` (later factual addenda; original audit identity unchanged)
+- **Last updated:** `2026-10-25T15:08:18Z` (later factual addenda; original audit identity unchanged)
 - **Scope:** Implemented Python/Arb mathematics, Rust, Lean, execution/orchestration, retained evidence and agent navigation
 - **Disposition:** Public technical record of *existing* behavior only; not a research strategy, roadmap, or tooling-upgrade register
 - **Method:** Read current source, tests, schemas, contracts, and retained verification records; independently execute the checks listed in §8
@@ -11,6 +11,36 @@
 This audit describes the source tree at the pinned revision. An implemented function, a prior passing test, a freshly passing test, an external mathematical premise, and an admitted theorem are different forms of evidence. They are not interchangeable.
 
 The audit did **not** edit or regenerate any historical attempt, finding, computation, or retained certificate. It did **not** run a new mathematical qualification sweep.
+
+## 2026-10-25T15:08:18Z: rigorous reference and residual scalar controls
+
+`scripts.weil_reference_route_controls` evaluates explicit Fourier exterior, bounded-reference and compact-tail constants, exact time-band bump upper bounds, global real-residual tail estimates and direct/partial-fraction point corroborations. It reuses the unchanged rational rounding helper, not a new interval framework. [X-20261025-005](../computations/2026-10-25T142424Z-reference-route-selection/record.md) retains the exact version, initial interface/line-ending failures, all outputs and captured-module replay. The locked CLI and isolated final source exit0 with byte-identical reports.
+
+The independent written derivations establish the uniform inequalities; the point samples alone do not. This CLI does not generate Fourier matrices, prove the bounded minorant positive, extend production source acceptance beyond its current radius, certify a concentration lower gap, or admit a theorem. No historical generator, test, verifier or dependency changed.
+
+## 2026-10-25T13:52:37Z: retained criterion and workload accounting
+
+[X-20261025-004](../computations/2026-10-25T134254Z-coupled-route-viability/record.md) provides a standalone versioned assessment procedure, not another production or research-source generator. It checks exact finite Schur controls, actual serialized source geometry, dense split accounting and preserved runtime receipts. Captured-input execution under isolated Python reproduces the report byte-for-byte. No old source, test, dependency or verifier behavior changes.
+
+The independently qualified C-0093 equivalence fixes the outside reference and includes the positive E-block obligation. Current coupled-tail diagnostics still inherit the complete M312 construction. Their runtime is not a measured fresh-source acceleration. Dense accounting identities do not exclude structured algorithms, different bounds or useful conditioning; no stronger reference or new positivity run was implemented by this assessment.
+
+## 2026-10-25T13:16:42Z: inherited coupled-tail directional comparison
+
+`scripts.weil_coupled_tail_comparison` reuses accepted K312 and exact old coercivity witnesses to bound nested elimination on the C-0091 trials. It separately encloses the finite true inverse response, the full response and their outside-tail excess, and measures signed retained stiffness. Numerical solves provide proposals only; exact physical residual completion certifies the bounds. No old source, test, validator or production contract is changed.
+
+`scripts.verify_coupled_tail_comparison` independently evaluates the new inequalities with Fraction interval sums, sharing the accepted legacy K reconstruction as inherited authority. [X-20261025-003](../computations/2026-10-25T130058Z-coupled-tail-comparison/record.md) checks46 scalars and1752 coordinates;2 regressions,5 actual rejections, exact replay and isolated replay from22 captured files/36 inputs pass. Initial test-harness failure and corrected version are preserved. This is not fresh analytical acceptance, a uniform new P20 reference, a smaller-data proof, a production-cost improvement or admission.
+
+## 2026-10-25T01:20:21Z: complete retained-source reprojection
+
+Separate `scripts.weil_complete_reprojection` and `scripts.verify_complete_reprojection` assess every P20 coordinate by exact reprojection of accepted M312 data. The new tail Gram adds all newly exposed rows20..311; all remaining signed component heads are summed before products. The original-v2 frozen-selection checker and exact replay execute in their isolated original closure. The later version3 validator and all historical packets remain unchanged.
+
+[X-20261025-002](../computations/2026-10-25T010204Z-complete-retained-reprojection/record.md) inherits original352/native512 analytical evidence and independently evaluates consequences at Arb1536:420 A/U entries,998 head rows and two complete10-dimensional parity blocks. Both genuine full-reference upper directions are negative. Two finite-operator regressions, five actual rejected reports, exact replay and isolated replay from20 captured source/environment files and32 inputs pass. This is not fresh analytical acceptance, a full spectral minimum, Weil negativity or production admission.
+
+## 2026-10-25T00:32:20Z: retained-data coupling and projection consequences
+
+`scripts.weil_coupling_projection` resolves signed V/P/RK coupling by physical mode and selects a projection using exact lower certificates on the original P16 compression. It subtracts promoted modes from the complete Gram, rebases H_L weights and retains all unknown-tail/residual charges. `scripts.verify_coupling_projection` independently uses the narrower native512 receipt with Arb1536, rather than generating new analytical source arrays or calling the primary coupling formulas.
+
+[X-20261025-001](../computations/2026-10-25T001555Z-coupling-derived-projection/record.md) checks76 mode rows,408 U entries across L16,18,20, changed complements and exact witnesses. Mode16/17 explain the original recorded failures; projection20 certifies the old P16 compression only. Two finite-operator regressions, five actual altered-report rejections, exact replay and isolated replay from24 captured files/5 inputs pass. No full P20 assessment, historical-code change or production admission occurred.
 
 ## 2026-10-24T23:28:30Z: complete tail-complement reference assessment
 

@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_complete_reprojection",
+    "origin",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\original-v2-gate-v1.json"
+  ],
+  "started_utc": "2026-10-25T01:14:14.676653+00:00",
+  "elapsed_seconds": 16.02118999999948,
+  "exit_code": 0
+}

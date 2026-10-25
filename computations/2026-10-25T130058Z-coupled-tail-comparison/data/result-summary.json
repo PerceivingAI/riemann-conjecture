@@ -1,0 +1,101 @@
+{
+  "status": "BOTH_TRUE_SCHUR_DIRECTIONS_POSITIVE",
+  "verified_utc": "2026-10-25T13:16:42Z",
+  "dimensions": {
+    "low": 20,
+    "coupled": 292,
+    "parities": [
+      10,
+      10
+    ],
+    "coupled_parities": [
+      146,
+      146
+    ]
+  },
+  "checked_scalar_count": 46,
+  "checked_response_coordinates": 1752,
+  "input_files": 36,
+  "source_files": 22,
+  "input_bytes": 47295789,
+  "rows": [
+    {
+      "physical_norm_exact": 0.9999999999999972,
+      "lower_quadratic": 3.987120169638078e-05,
+      "residual_dual_squared": 3.454318205380142e-36,
+      "residual_penalty": 2.4405760826942155e-25,
+      "true_schur_lower": 3.987120169638078e-05,
+      "galerkin_form_upper": 4.057730020855332e-05,
+      "a_lower": 5.496205196110313e-05,
+      "a_upper": 5.49620519673116e-05,
+      "true_inverse_lower": 1.4384751752549813e-05,
+      "true_inverse_upper": 1.5090850270930823e-05,
+      "reference_upper": -1.2468066947396933e-05,
+      "gain_lower": 5.233926864377771e-05,
+      "finite_inverse_lower": 1.438475175874308e-05,
+      "finite_inverse_upper": 1.4384751758773526e-05,
+      "outside_excess_upper": 7.060985121877436e-07,
+      "finite_residual_norm_upper": 3.1059551194096167e-15,
+      "stiffness_diagonal_lower": 0.000241165278995451,
+      "stiffness_diagonal_upper": 0.000241165278995451,
+      "stiffness_offdiagonal_lower": 5.976128928858508e-05,
+      "stiffness_offdiagonal_upper": 5.976128928858508e-05,
+      "stiffness_full_lower": 0.0003009265682840357,
+      "stiffness_full_upper": 0.0003009265682840365,
+      "parity": 0,
+      "outside_to_certified_gain_ratio_upper_display": 0.013490798218703946
+    },
+    {
+      "physical_norm_exact": 0.9999999999999998,
+      "lower_quadratic": 6.462715619710941e-08,
+      "residual_dual_squared": 1.406183573489023e-38,
+      "residual_penalty": 1.6786681437891844e-30,
+      "true_schur_lower": 6.462715619710941e-08,
+      "galerkin_form_upper": 6.530726193270838e-08,
+      "a_lower": 1.0241917884658793e-07,
+      "a_upper": 1.0241918505505996e-07,
+      "true_inverse_lower": 3.711191691387955e-08,
+      "true_inverse_upper": 3.779202885795055e-08,
+      "reference_upper": -4.175443917469902e-08,
+      "gain_lower": 1.0638159537180843e-07,
+      "finite_inverse_lower": 3.7111923121517756e-08,
+      "finite_inverse_upper": 3.711192312318552e-08,
+      "outside_excess_upper": 6.801057364327975e-10,
+      "finite_residual_norm_upper": 3.1043484287126468e-15,
+      "stiffness_diagonal_lower": 4.2158051258270043e-07,
+      "stiffness_diagonal_upper": 4.2158051258270043e-07,
+      "stiffness_offdiagonal_lower": 7.906541707539347e-08,
+      "stiffness_offdiagonal_upper": 7.906541707539347e-08,
+      "stiffness_full_lower": 5.006459296580931e-07,
+      "stiffness_full_upper": 5.006459296580947e-07,
+      "parity": 1,
+      "outside_to_certified_gain_ratio_upper_display": 0.0063930770548777495
+    }
+  ],
+  "core_sha256": {
+    "comparison-v1.json": "e21b06e294f3a35a3d8870697b297a98551a2bf2d4106ce47bcaa1fbec5c7550",
+    "independent-audit-v1.json": "7e1eae38096dbf8f6737bb4862f530297f87ab8e1df0ac19b007786135c6b2a1",
+    "exact-replay-v1.json": "f972d4e3a37b353e860f61c4a3077c9598919f802d38109d0fa723fbcd52956e"
+  },
+  "source_sha256": {
+    "scripts/weil_coupled_tail_comparison.py": "1a1a82207870cb063f213274f2021f27bbde7859f45838103b4220cade0f10ad",
+    "scripts/verify_coupled_tail_comparison.py": "36116eff01132e98516206091880917e9613d6a60c89a9f4a8933131c782c860",
+    "scripts/weil_complete_reprojection.py": "efb9db0d98187d20ddf75a75d2e3de4875c722ae7e7da23a27955a099ade30ef",
+    "scripts/verify_complete_reprojection.py": "676fa27ecfff79c65c62398ab3e93dd195552aba7559a67f98992472ce1780f5",
+    "scripts/verify_weighted_low_space.py": "91f5afcaabff90378de9ece3222115f1262ec4883929d9fa2a79b059e66c2cb1",
+    "scripts/verify_weighted_low_space_inputs.py": "ad63fbb5b24a0c4d3f45a98d0731b2b6a64bb1e3d480deac43a02cd972447d64",
+    "scripts/weil_weighted_extension_diagnostics.py": "8195e510b401e87e0faae91c047b1df377c79cb2f6e76e117026f45cf0ed90e0",
+    "scripts/weil_residual_tail_bound.py": "f2dfbac1d3797e581f471ac4283507f58b8b795ae30e0b4a327944069642bd67",
+    "scripts/verify_residual_tail_bound.py": "6b6b29c6f50ee41ece3a32470bf335967fb8ec97a62aca9505a0cbff56280f96",
+    "scripts/cert/quadrature.py": "c8bc5bc04655722f394dba6c46655494cd90e5e68117e3361a835ac10e719663",
+    "scripts/cert/__init__.py": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092",
+    "scripts/weil_weighted_low_space.py": "8e3a8b7707b1b415f59793b0641b4d47e911cb5ff517dfe629d57ecf9f37c2d2",
+    "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+    "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+    "scripts/cert/mixed_gram_research.py": "61c830e808d281e9a0d61ad040f7ffaeaf42821ebf753f977887567a4fdf01f3",
+    "scripts/cert/multi_prime_legendre_schur.py": "341c64284182e774886ff487d3d1107fabe29e86c1bcc3d1782e6d1111103246",
+    "scripts/cert/prime_power_terms.py": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+    "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+    "scripts/verify_combined_schur_analytic_entries.py": "15961f4b337e1d26cc63aa41bcb3976fa975636d0b5e006b0f51bd3d625576e4"
+  }
+}

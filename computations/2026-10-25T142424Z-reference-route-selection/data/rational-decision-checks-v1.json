@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "p_less_than_9_over_8": true,
+    "m_greater_than_19_over_8": true,
+    "exterior_lower_greater_than_1_over_5": true,
+    "3/5_compact_double_below_1e-82": true,
+    "3/5_compact_cross_below_1e-40": true,
+    "1353/2048_compact_double_below_1e-82": true,
+    "1353/2048_compact_cross_below_1e-40": true
+  },
+  "all_passed": true,
+  "total_mixed_Gram_allowance_upper_exact": "3/10000000000000000000000000000000000000000",
+  "tail_denominator_lower_exact": "23749999999999999999999999999999999999999999999999999999999999999999999999999999999/10000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "interpretation": "sufficient bounded-minorant complement closure only, not a low-matrix sign"
+}

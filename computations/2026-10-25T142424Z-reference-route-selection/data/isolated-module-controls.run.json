@@ -1,0 +1,17 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-c",
+    "import sys,runpy;sys.path.insert(0,'D:\\\\2_Add_Projects\\\\riemann-conjecture\\\\computations\\\\2026-10-25T142424Z-reference-route-selection\\\\source-snapshot');runpy.run_module(\"scripts.weil_reference_route_controls\",run_name=\"__main__\")",
+    "--input",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T142424Z-reference-route-selection\\data\\matched-local-input-v1.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T142424Z-reference-route-selection\\data\\isolated-module-controls-v1.json"
+  ],
+  "cwd": "computations\\2026-10-25T142424Z-reference-route-selection\\source-snapshot",
+  "returncode": 0,
+  "elapsed_seconds": 0.2613488999195397,
+  "stdout": "{\"scope\": \"analytical constants only; no low matrix, positivity theorem or admission\", \"fourier_N312_tail_positive\": [true, true], \"kernel_controls\": 4, \"admission_changed\": false}\n",
+  "stderr": ""
+}

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_complete_reprojection",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\complete-reference-v1.json",
+    "--origin",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\original-v2-gate-v1.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\independent-audit-v1.json"
+  ],
+  "started_utc": "2026-10-25T01:14:43.909702+00:00",
+  "elapsed_seconds": 7.094523100065999,
+  "exit_code": 0
+}

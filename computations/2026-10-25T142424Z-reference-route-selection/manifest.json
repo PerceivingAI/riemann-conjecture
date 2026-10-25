@@ -1,0 +1,190 @@
+{
+  "format": "research-computation-bundle-integrity-v1",
+  "computation_id": "X-20261025-005",
+  "sealed_utc": "2026-10-25T15:25:50Z",
+  "member_count": 36,
+  "total_member_bytes": 398036,
+  "members": [
+    {
+      "path": "bounded-minorant-closure-v1.md",
+      "bytes": 5956,
+      "sha256": "92728b8029469c95fe75d7cc641a73a5cf18adee82d99bac1a6c0f25d3e7ec02"
+    },
+    {
+      "path": "data/canonical-controls.initial-crlf.py",
+      "bytes": 8638,
+      "sha256": "8fd151ee05a90a0c67372c30a2c4443467ef83c60666f1db8946bb0fa6d45897"
+    },
+    {
+      "path": "data/canonical-module-controls-v1.json",
+      "bytes": 40287,
+      "sha256": "6bb7065af5e577c4216268c48c14e22ae9f7511029b3379b2e0490bb84d5474e"
+    },
+    {
+      "path": "data/canonical-module-controls.run.json",
+      "bytes": 785,
+      "sha256": "b21ae397d0f7e53f1bd5703514dbe876f6347cfa2da2f0616b731c712a737c59"
+    },
+    {
+      "path": "data/canonical-module-qualified-v1.json",
+      "bytes": 40287,
+      "sha256": "7d3975bb76c621f15182c6377503ac9fd63a83c786b66898e271294fbf09f3fc"
+    },
+    {
+      "path": "data/canonical-module-qualified.run.json",
+      "bytes": 786,
+      "sha256": "54ea7bc9e761fe67505b7de73559ade6fb7f9f078064bd6fc1396e26732d8986"
+    },
+    {
+      "path": "data/canonical-replay-comparison-v1.json",
+      "bytes": 459,
+      "sha256": "36ad989a302207dd1d6feef9c1715125351b717f7767058f000bc0c44739d1b6"
+    },
+    {
+      "path": "data/environment-v1.json",
+      "bytes": 287,
+      "sha256": "089246e3a4b92040750db251928eb0507c1a24daad5384d02c3aaea1eee334b1"
+    },
+    {
+      "path": "data/execution-summary-v1.json",
+      "bytes": 411,
+      "sha256": "5b674a04f7537a49d10b88b116de9aceec0cbe6e0a5e1d6c3fa2810d1a2bc9c5"
+    },
+    {
+      "path": "data/isolated-module-controls-v1.json",
+      "bytes": 40287,
+      "sha256": "6bb7065af5e577c4216268c48c14e22ae9f7511029b3379b2e0490bb84d5474e"
+    },
+    {
+      "path": "data/isolated-module-controls.run.json",
+      "bytes": 1076,
+      "sha256": "35ca6c753fe01ff66fd9f934d5cc02f1c4aebe1a1ca8d4f9980951a31ee317b4"
+    },
+    {
+      "path": "data/isolated-module-qualified-v1.json",
+      "bytes": 40287,
+      "sha256": "7d3975bb76c621f15182c6377503ac9fd63a83c786b66898e271294fbf09f3fc"
+    },
+    {
+      "path": "data/isolated-module-qualified.run.json",
+      "bytes": 1077,
+      "sha256": "fad3420241979dd0de061ecdcecd79a506c2f4c99a735de2ba2a0e934e743f57"
+    },
+    {
+      "path": "data/matched-local-input-v1.json",
+      "bytes": 752,
+      "sha256": "6a3980155796c1b0726fc920b0af865200d51910f278f10073051209a7749dca"
+    },
+    {
+      "path": "data/preservation-document-validation-v2.json",
+      "bytes": 774,
+      "sha256": "a88cb5bc1f55382be9bb34845ec4b4434e631160dcdb5c3f0009d89f56dbd77b"
+    },
+    {
+      "path": "data/rational-decision-checks-v1.json",
+      "bytes": 760,
+      "sha256": "2886d5786ee5bee2e0293641e0f06caa780f655503b84291092e5967fdf335e0"
+    },
+    {
+      "path": "data/replay-comparison-v1.json",
+      "bytes": 173,
+      "sha256": "98b45943568afd66bbd0cdf00f8d46c7612ffdab7b688ab20c7df0ac0c03d5d0"
+    },
+    {
+      "path": "data/scalar-controls-isolated-replay-v1.json",
+      "bytes": 40287,
+      "sha256": "7d3975bb76c621f15182c6377503ac9fd63a83c786b66898e271294fbf09f3fc"
+    },
+    {
+      "path": "data/scalar-controls-isolated-replay.run.json",
+      "bytes": 1193,
+      "sha256": "99a126f47fd0d656a612d1fc5adcc7466e59dd24a0b371d2ecdb27cab07e88d0"
+    },
+    {
+      "path": "data/scalar-controls-qualified.run.json",
+      "bytes": 922,
+      "sha256": "8a09526639f4d22c2580c0484e1af960e18fdc1fc931980447fe9cb49f59a7ad"
+    },
+    {
+      "path": "data/scalar-controls-v1.json",
+      "bytes": 40287,
+      "sha256": "7d3975bb76c621f15182c6377503ac9fd63a83c786b66898e271294fbf09f3fc"
+    },
+    {
+      "path": "data/scalar-controls.initial.py",
+      "bytes": 8456,
+      "sha256": "5df96464fe3dce129cb1bcff9f58556382facd3d8d7ff05b0ee473347a505d51"
+    },
+    {
+      "path": "data/scalar-controls.run.json",
+      "bytes": 1959,
+      "sha256": "1c933523c17d9b32adae4efaf04e6771e4e936ca2222dfd5dbbfd8d550a58e63"
+    },
+    {
+      "path": "data/source-provenance-v1.json",
+      "bytes": 949,
+      "sha256": "4cc95f67f09e43ac1accf9da59092c99767935b47ba8e3b3bc0ea4f508050754"
+    },
+    {
+      "path": "data/uv-module-controls-v1.json",
+      "bytes": 40287,
+      "sha256": "7d3975bb76c621f15182c6377503ac9fd63a83c786b66898e271294fbf09f3fc"
+    },
+    {
+      "path": "data/uv-module-qualified.run.json",
+      "bytes": 757,
+      "sha256": "32e76ddb66c8ace6d6c094efb2dcd2fb237bfc7058f34c9e0a070a7c3e1c307f"
+    },
+    {
+      "path": "fourier-qualification.md",
+      "bytes": 21502,
+      "sha256": "c97be2d80127560fd7445ebdfa4470f5575ed8d7f71938ee702fcd05e247c5bf"
+    },
+    {
+      "path": "physical-tail-derivation-v1.md",
+      "bytes": 4653,
+      "sha256": "da8b22225231fb2c4caa8b88d21692d8b9b111e0c28687323432e2bcb68cdf78"
+    },
+    {
+      "path": "physical-tail-qualification.md",
+      "bytes": 12920,
+      "sha256": "340acdea372b76434087dd54b64f94c673a3d13262f37b2c3619ec0df45da1c7"
+    },
+    {
+      "path": "record.md",
+      "bytes": 9140,
+      "sha256": "81561a1bc4f731afc987ec3ce1ef7752547a508c0fc2b45908486dbb8b8a0add"
+    },
+    {
+      "path": "scalar-controls-v1.py",
+      "bytes": 8462,
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13"
+    },
+    {
+      "path": "source-snapshot/manifest.json",
+      "bytes": 496,
+      "sha256": "26c3e61cb8acadc05634af51c9d7133d2de56228d70e5f720d2fd08bfa86504f"
+    },
+    {
+      "path": "source-snapshot/scalar-controls-v1.py",
+      "bytes": 8462,
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13"
+    },
+    {
+      "path": "source-snapshot/scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "source-snapshot/scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "source-snapshot/scripts/weil_reference_route_controls.py",
+      "bytes": 8462,
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13"
+    }
+  ],
+  "scope": "Independent analytical qualification and actual reference/global-residual scalar controls. No finite low-matrix sign, positivity theorem, source-range cutover or production admission. Only this root manifest is excluded; nested manifests are sealed members."
+}

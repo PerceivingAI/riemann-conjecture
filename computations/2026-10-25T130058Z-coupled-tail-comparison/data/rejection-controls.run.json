@@ -1,0 +1,11 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T130058Z-coupled-tail-comparison\\run-controls-v1.py",
+    "--bundle",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T130058Z-coupled-tail-comparison"
+  ],
+  "started_utc": "2026-10-25T13:13:56.168415+00:00",
+  "elapsed_seconds": 40.333473499980755,
+  "exit_code": 0
+}

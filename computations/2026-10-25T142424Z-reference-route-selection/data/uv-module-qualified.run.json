@@ -1,0 +1,19 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-m",
+    "scripts.weil_reference_route_controls",
+    "--input",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T142424Z-reference-route-selection\\data\\matched-local-input-v1.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T142424Z-reference-route-selection\\data\\uv-module-controls-v1.json"
+  ],
+  "cwd": ".",
+  "returncode": 0,
+  "elapsed_seconds": 0.2921449000714347,
+  "stdout": "{\"scope\": \"analytical constants only; no low matrix, positivity theorem or admission\", \"fourier_N312_tail_positive\": [true, true], \"kernel_controls\": 4, \"admission_changed\": false}\n",
+  "stderr": ""
+}

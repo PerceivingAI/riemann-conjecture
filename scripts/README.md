@@ -1,13 +1,78 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-24T23:28:30Z`
+- **Last updated:** `2026-10-25T15:08:18Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
 ## Byte identity on checkout
 
 The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep their pinned sources/configuration in LF, the original SYS-6.4 probe in its recorded CRLF checkout format, and retained bundles verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+
+## Quantitative reference and global-residual scalar controls
+
+`scripts.weil_reference_route_controls` is a research-only scalar procedure for the executed [X-20261025-005 comparison](../computations/2026-10-25T142424Z-reference-route-selection/record.md):
+
+```text
+uv run --locked python -m scripts.weil_reference_route_controls --input computations/2026-10-25T142424Z-reference-route-selection/data/matched-local-input-v1.json --output <fresh-output.json>
+```
+
+It evaluates rigorous exterior and compact-complement constants, exact bump upper obstructions, global real-residual tails and direct/partial-fraction corroborations. Canonical and isolated captured-source outputs are byte-identical. The complete inequalities, sources and limits are in [F-20261025-005](../findings/2026-10-25T142424Z-reference-route-selection.md). It does not generate a low Fourier matrix, certify its sign, prove a concentration lower gap, broaden old local-kernel acceptance, export certificates or change admissions. Use a fresh output path to preserve earlier records.
+
+## Matched coupled-tail criterion assessment
+
+The versioned [X-20261025-004 procedure](../computations/2026-10-25T134254Z-coupled-route-viability/assess-v1.py) checks exact finite algebra and retained data/work accounting without generating a new positivity matrix:
+
+```text
+uv run --locked python computations/2026-10-25T134254Z-coupled-route-viability/assess-v1.py --output <fresh-output.json>
+uv run --locked python -I computations/2026-10-25T134254Z-coupled-route-viability/assess-v1.py --root computations/2026-10-25T134254Z-coupled-route-viability/inputs --output <another-fresh-output.json>
+```
+
+Both executions pass and their reports are byte-identical. The [record](../computations/2026-10-25T134254Z-coupled-route-viability/record.md) distinguishes matched-reference equivalence, dense accounting identities, inherited diagnostic timings and fresh analytical workloads. This is an assessment artifact, not a new coupled solver, a complexity lower bound or an external benchmark.
+
+## Retained coupled-tail directional comparison
+
+`scripts.weil_coupled_tail_comparison` compares the exact C-0091 negative harmonic-reference trials with the retained coupled block20..311. The complete accepted K312 pays the entire outside tail. A finite inverse is separately bounded and is never used as the full inverse; solve proposals are certified by exact physical residuals.
+
+```text
+uv run --locked python -m scripts.weil_coupled_tail_comparison analyze --output computations/<fresh-bundle>/data/comparison.json
+uv run --locked python -m scripts.verify_coupled_tail_comparison computations/<fresh-bundle>/data/comparison.json --output computations/<fresh-bundle>/data/audit.json
+uv run --locked python -m scripts.weil_coupled_tail_comparison replay --result computations/<fresh-bundle>/data/comparison.json --output computations/<fresh-bundle>/data/replay.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_coupled_tail_comparison.py
+```
+
+Use an existing output directory and fresh filenames. [X-20261025-003](../computations/2026-10-25T130058Z-coupled-tail-comparison/record.md) retains positive true-Schur bounds on both preserved trials, quantitative diagonal-reference loss, full outside-response bounds, independent46-scalar/1752-coordinate checks,2 regressions,5 rejections and isolated replay. The operation inherits original analytical evidence and common legacy K reconstruction. It does not certify a new uniform P20 reference, choose a new projection, establish a smaller-data proof or grant admission.
+
+## Complete retained-source reprojection
+
+`scripts.weil_complete_reprojection` and `scripts.verify_complete_reprojection` assess all20 low directions at fixed T=1353/2048,K38 using the accepted original-v2 M312 tensors. The exact Gram identity restores rows20..311; the unknown infinite tail and full residual/cross error stay paid. The original old-version checker/replay runs before the new consequence, without weakening the current version3 validator.
+
+With an existing output directory and fresh filenames:
+
+```text
+uv run --locked python -m scripts.weil_complete_reprojection origin --output computations/<fresh-bundle>/data/origin.json
+uv run --locked python -m scripts.weil_complete_reprojection analyze --origin computations/<fresh-bundle>/data/origin.json --output computations/<fresh-bundle>/data/reference.json
+uv run --locked python -m scripts.verify_complete_reprojection computations/<fresh-bundle>/data/reference.json --origin computations/<fresh-bundle>/data/origin.json --output computations/<fresh-bundle>/data/audit.json
+uv run --locked python -m scripts.weil_complete_reprojection replay --origin computations/<fresh-bundle>/data/origin.json --result computations/<fresh-bundle>/data/reference.json --output computations/<fresh-bundle>/data/replay.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_complete_reprojection.py
+```
+
+[X-20261025-002](../computations/2026-10-25T010204Z-complete-retained-reprojection/record.md) records negative full-reference upper directions in both10-dimensional parity blocks, native512/Arb1536 consequence checks,2 regressions,5 rejected alterations and isolated replay. The analytical evidence is inherited, not freshly generated. Old-subspace witnesses cannot certify new low coordinates; neither this negative reference nor its exact replay grants a production admission or proves Weil negativity.
+
+## Retained-data coupled modes and projection selection
+
+`scripts.weil_coupling_projection` diagnoses the accepted C-0089 source by signed V/P/RK mode energy, then tests changed projections on the original P16 space. It uses the complete Gram-prefix identity, physical masses, the correct H_L reference and full tail/residual allowances. It does not silently reuse G16 after deleting head rows.
+
+```text
+uv run --locked python -m scripts.weil_coupling_projection analyze --output computations/<fresh-bundle>/data/projection.json
+uv run --locked python -m scripts.verify_coupling_projection computations/<fresh-bundle>/data/projection.json --output computations/<fresh-bundle>/data/audit.json
+uv run --locked python -m scripts.weil_coupling_projection replay --result computations/<fresh-bundle>/data/projection.json --output computations/<fresh-bundle>/data/replay.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_coupling_projection.py
+```
+
+Use an existing output directory and fresh filenames. The source pins its historical input bytes and replays the original result. The independent auditor uses narrower native512 inputs and separately organized Arb1536 consequences. Neither reruns analytical source generation.
+
+[X-20261025-001](../computations/2026-10-25T001555Z-coupling-derived-projection/record.md) retains mode16/17 attribution, the first certified projection20 under the whole-known-space rule,2 regressions,5 rejected altered reports and isolated replay. The certificates cover only the original16 low coordinates. They do not test the added directions16..19 or establish full P20 positivity, a minimum dimension, new support or theorem admission.
 
 ## Complete reference with the tail-restricted complement
 

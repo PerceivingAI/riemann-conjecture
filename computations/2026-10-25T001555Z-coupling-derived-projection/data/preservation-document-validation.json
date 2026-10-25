@@ -1,0 +1,23 @@
+{
+  "local_links_checked": 605,
+  "markdown_tables_checked": 19,
+  "missing_links": [],
+  "old_public_text_preserved_except_timestamp": {
+    "docs/CLAIMS.md": true,
+    "docs/STATUS.md": true,
+    "docs/LOG.md": true,
+    "docs/INDEX.md": true,
+    "docs/TOOL_CAPABILITIES.md": true,
+    "scripts/README.md": true
+  },
+  "protected_entry_files_unchanged": 25,
+  "previous_sealed_members_unchanged": 263,
+  "previous_seals": {
+    "computations/2026-10-24T191616Z-weighted-support-extension": "28eff565a893a54b5ae111e6b70dd92f46d9440b736aa8ac5469bdf3b487da92",
+    "computations/2026-10-24T224948Z-tail-restricted-residual": "5be84184c903232cea5bb1905a6c9a489864014f3e1c8de1b2ecd5a75007461b",
+    "computations/2026-10-24T231555Z-tail-complement-weighted-reference": "23ad23d8c393bc1c79e5c577e7d1e34a662dfbdb3c9c691edc74e9b3e622e56a"
+  },
+  "current_captured_source_files_match": 24,
+  "public_files_scanned_including_gzip_contents": 94,
+  "private_path_disclosures": []
+}

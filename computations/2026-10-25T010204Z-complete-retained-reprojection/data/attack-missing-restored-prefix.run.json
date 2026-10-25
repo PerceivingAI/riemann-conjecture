@@ -1,0 +1,16 @@
+{
+  "name": "missing-restored-prefix",
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_complete_reprojection",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\attack-missing-restored-prefix.json",
+    "--origin",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\original-v2-gate-v1.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\attack-missing-restored-prefix.accepted.json"
+  ],
+  "exit_code": 2,
+  "elapsed_seconds": 7.148337600054219,
+  "success_output_exists": false
+}

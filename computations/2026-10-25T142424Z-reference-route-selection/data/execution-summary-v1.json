@@ -1,0 +1,11 @@
+{
+  "format": "reference-control-execution-summary-v1",
+  "locked_cli_returncode": 0,
+  "isolated_cli_returncode": 0,
+  "all_final_outputs_byte_identical": true,
+  "report_sha256": "7d3975bb76c621f15182c6377503ac9fd63a83c786b66898e271294fbf09f3fc",
+  "mathematical_thresholds_all_passed": true,
+  "finite_minorant_sign_evaluated": false,
+  "permanent_tests_run": false,
+  "rust_or_lean_run": false
+}

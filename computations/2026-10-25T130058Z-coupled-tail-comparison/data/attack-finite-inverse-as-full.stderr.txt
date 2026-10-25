@@ -1,0 +1,1 @@
+REJECTED: true_inverse_upper: incorrect directed consequence

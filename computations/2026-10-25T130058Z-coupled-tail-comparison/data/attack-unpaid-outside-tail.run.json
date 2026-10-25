@@ -1,0 +1,14 @@
+{
+  "name": "unpaid-outside-tail",
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_coupled_tail_comparison",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T130058Z-coupled-tail-comparison\\data\\attack-unpaid-outside-tail.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T130058Z-coupled-tail-comparison\\data\\attack-unpaid-outside-tail.accepted.json"
+  ],
+  "exit_code": 2,
+  "elapsed_seconds": 7.353356400039047,
+  "success_output_exists": false
+}

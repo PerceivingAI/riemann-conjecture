@@ -1,0 +1,16 @@
+{
+  "name": "borrowed-eight-dimensional-witness",
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_complete_reprojection",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\attack-borrowed-eight-dimensional-witness.json",
+    "--origin",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\original-v2-gate-v1.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\attack-borrowed-eight-dimensional-witness.accepted.json"
+  ],
+  "exit_code": 2,
+  "elapsed_seconds": 7.140786400064826,
+  "success_output_exists": false
+}

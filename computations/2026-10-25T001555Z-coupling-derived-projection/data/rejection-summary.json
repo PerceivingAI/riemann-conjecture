@@ -1,0 +1,27 @@
+[
+  {
+    "control": "dropped-constructive-cross",
+    "exit_code": 2,
+    "success_output_exists": false
+  },
+  {
+    "control": "unpaid-infinite-tail",
+    "exit_code": 2,
+    "success_output_exists": false
+  },
+  {
+    "control": "altered-positive-margin",
+    "exit_code": 2,
+    "success_output_exists": false
+  },
+  {
+    "control": "uncertified-projection-choice",
+    "exit_code": 2,
+    "success_output_exists": false
+  },
+  {
+    "control": "expanded-low-space-claim",
+    "exit_code": 2,
+    "success_output_exists": false
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "status": "PRESERVATION_AND_DOCUMENT_VALIDATION_PASS",
+  "verified_utc": "2026-10-25T12:51:31.367143+00:00",
+  "entry_protected_files_unchanged": 28,
+  "earlier_sealed_members_unchanged": 348,
+  "earlier_seals_unchanged": 4,
+  "current_source_captures_match": 20,
+  "maintained_public_documents_preserve_prior_nonmetadata_content": 6,
+  "public_document_count": 9,
+  "public_local_links_checked": 550,
+  "public_tables_checked": 10,
+  "public_disclosure_scan_files": 128,
+  "public_disclosure_scan_bytes_including_decompressed_inputs": 231047584,
+  "public_disclosure_scan": "PASS",
+  "new_source_and_document_whitespace": "PASS",
+  "preexisting_document_EOF_conventions_preserved": true
+}

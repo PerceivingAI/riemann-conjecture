@@ -1,0 +1,14 @@
+{
+  "status": "ARCHIVED_COMPLETE_REFERENCE_REPLAY_PASS",
+  "source_files": 20,
+  "input_files": 32,
+  "live_script_imports": false,
+  "original_gate_bindings_equal": true,
+  "audit_all_fields_equal_except": [
+    "elapsed_seconds"
+  ],
+  "exact_replay_receipt_byte_identical": true,
+  "report_sha256": "35468a0d04b26d3f94aff718f90009a42f260e7caa80dafbf50e56f71bce37c3",
+  "selected_status": "NEGATIVE_REFERENCE_DIRECTION",
+  "scope": "Retained-input complete P20 research consequence, not fresh analytical acceptance or admission."
+}

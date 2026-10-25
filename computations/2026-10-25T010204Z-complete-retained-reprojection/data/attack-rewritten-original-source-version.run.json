@@ -1,0 +1,16 @@
+{
+  "name": "rewritten-original-source-version",
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_complete_reprojection",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\attack-rewritten-original-source-version.json",
+    "--origin",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\attack-rewritten-origin.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\attack-rewritten-original-source-version.accepted.json"
+  ],
+  "exit_code": 2,
+  "elapsed_seconds": 1.8008553999243304,
+  "success_output_exists": false
+}

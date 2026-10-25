@@ -1,0 +1,12 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-c",
+    "import runpy;runpy.run_path('computations/2026-10-25T010204Z-complete-retained-reprojection/run-controls-v1.py',run_name='__main__')",
+    "--bundle",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection"
+  ],
+  "started_utc": "2026-10-25T01:18:28.431096+00:00",
+  "elapsed_seconds": 27.393882800010033,
+  "exit_code": 0
+}

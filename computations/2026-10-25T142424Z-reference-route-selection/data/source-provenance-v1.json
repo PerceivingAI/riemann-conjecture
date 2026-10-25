@@ -1,0 +1,27 @@
+{
+  "format": "reference-source-provenance-v1",
+  "inspected_utc": "2026-10-25T14:24:24Z",
+  "sources": [
+    {
+      "id": "R-0028",
+      "url": "https://arxiv.org/html/2606.09096v3",
+      "version": "arXiv2606.09096v3",
+      "used": "original smooth-test Fourier identity and complete real residual; source premise, not imported code"
+    },
+    {
+      "id": "R-0030",
+      "url": "https://dlmf.nist.gov/5.7.E6",
+      "exact_tex": "https://dlmf.nist.gov/5.7.E6.tex",
+      "used": "digamma series, locally uniform derivative and signed finite-tail bounds"
+    },
+    {
+      "id": "R-0036",
+      "url": "https://dlmf.nist.gov/4.36.E5",
+      "exact_tex": "https://dlmf.nist.gov/4.36.E5.tex",
+      "used": "csch partial fraction and differentiated real-kernel estimates"
+    }
+  ],
+  "external_code_imported": false,
+  "outside_numerical_certificate_replayed": false,
+  "novelty_or_priority_established": false
+}
