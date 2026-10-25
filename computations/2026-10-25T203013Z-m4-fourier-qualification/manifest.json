@@ -1,0 +1,174 @@
+{
+  "format": "research-computation-bundle-integrity-v1",
+  "computation_id": "X-20261025-007",
+  "sealed_utc": "2026-10-25T20:56:40Z",
+  "member_count": 33,
+  "total_member_bytes": 489644,
+  "members": [
+    {
+      "path": "data/documentation-check.json",
+      "bytes": 355,
+      "sha256": "6afc3d5d0831a0640becba31e956f4cd00125425d5e43e0725a93c9cfe7940e7"
+    },
+    {
+      "path": "data/environment.json",
+      "bytes": 277,
+      "sha256": "f7ca9503cfcff429d76631e40d2720dcc8f39d9d44f6619d1295aae67c02cbb1"
+    },
+    {
+      "path": "data/isolated-qualification-controls-v1.json",
+      "bytes": 15675,
+      "sha256": "b0eacdeeb755b04c08f9f1b41801829943de2577747279ded6995d70cad58a48"
+    },
+    {
+      "path": "data/isolated-qualification-controls.run.json",
+      "bytes": 876,
+      "sha256": "c90200af3df51a0cc3de29249b14c6e9999f2bc0416e8bee7114bdeffc6bc0e0"
+    },
+    {
+      "path": "data/isolated-rational-geometry-controls-v1.json",
+      "bytes": 1148,
+      "sha256": "80ee0f586f02d9a2b19461032fcef49aaada0b02fa41fc8bf84268a25c80bb2e"
+    },
+    {
+      "path": "data/isolated-rational-geometry-controls.run.json",
+      "bytes": 774,
+      "sha256": "5dda216d26af112e3af63248b32c73ea8f5c6ccab9fff6eb036f809a7dbe7c70"
+    },
+    {
+      "path": "data/isolated-replay-summary.json",
+      "bytes": 176,
+      "sha256": "58ffd10173932f6c40838acc61afaae57416b99260bbb9814f21ba95549540fc"
+    },
+    {
+      "path": "data/preservation-check.json",
+      "bytes": 908,
+      "sha256": "ab9a6afe6986afa350414ab6a84f40c8f803c69b7155b8f0bd11a9b347124f3e"
+    },
+    {
+      "path": "data/qualification-controls-v1.json",
+      "bytes": 15675,
+      "sha256": "b0eacdeeb755b04c08f9f1b41801829943de2577747279ded6995d70cad58a48"
+    },
+    {
+      "path": "data/qualification-controls.run.json",
+      "bytes": 617,
+      "sha256": "b397996c0e0f7d8d9b1955e44960aa494d51829f12c57ea7688e997d359bf3c3"
+    },
+    {
+      "path": "data/rational-geometry-controls-v1.json",
+      "bytes": 1148,
+      "sha256": "80ee0f586f02d9a2b19461032fcef49aaada0b02fa41fc8bf84268a25c80bb2e"
+    },
+    {
+      "path": "data/rational-geometry-controls.run.json",
+      "bytes": 585,
+      "sha256": "b276636a144467e068fa2a7d615443856709ab2f47e68724aad835989452037e"
+    },
+    {
+      "path": "fourier-extension-contract-v1.md",
+      "bytes": 9047,
+      "sha256": "6945ae8c894d10a21f82ef00f16aea2a4c62a71f1836930a3b549281d5d75206"
+    },
+    {
+      "path": "independent-arithmetic-qualification.md",
+      "bytes": 23375,
+      "sha256": "07fcfd99d246f0b35f1362758687f0085f7c8ce413d47542f6bae8e6c03c936b"
+    },
+    {
+      "path": "independent-fourier-contract-review.md",
+      "bytes": 11162,
+      "sha256": "50a297a3ada0b13422137a8ac311e86499b7dc14f483bc63491b2fa3f285cc51"
+    },
+    {
+      "path": "record.md",
+      "bytes": 6819,
+      "sha256": "09e0b44bbfdb13f7aafbf4f893ddd8cc0d321e72ac13548e180ee503b72640d2"
+    },
+    {
+      "path": "source-v1/computations/2026-10-25T142424Z-reference-route-selection/data/scalar-controls-v1.json",
+      "bytes": 40287,
+      "sha256": "7d3975bb76c621f15182c6377503ac9fd63a83c786b66898e271294fbf09f3fc"
+    },
+    {
+      "path": "source-v1/manifest.json",
+      "bytes": 2905,
+      "sha256": "c720966d151fe784d66f17c67ea16894be0c78b366825489c3584ea9a24a42a6"
+    },
+    {
+      "path": "source-v1/pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "source-v1/scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "source-v1/scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "source-v1/scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "source-v1/scripts/verify_combined_schur_analytic_entries.py",
+      "bytes": 16003,
+      "sha256": "15961f4b337e1d26cc63aa41bcb3976fa975636d0b5e006b0f51bd3d625576e4"
+    },
+    {
+      "path": "source-v1/scripts/verify_fourier_minorant_matrix.py",
+      "bytes": 21417,
+      "sha256": "47e74237741d727e854033af4fb595af6e4197c7abb4f3d01a0cb1500f10d6b1"
+    },
+    {
+      "path": "source-v1/scripts/verify_weighted_low_space.py",
+      "bytes": 18721,
+      "sha256": "91f5afcaabff90378de9ece3222115f1262ec4883929d9fa2a79b059e66c2cb1"
+    },
+    {
+      "path": "source-v1/scripts/verify_weighted_low_space_inputs.py",
+      "bytes": 25346,
+      "sha256": "ad63fbb5b24a0c4d3f45a98d0731b2b6a64bb1e3d480deac43a02cd972447d64"
+    },
+    {
+      "path": "source-v1/scripts/weil_fourier_minorant_matrix.py",
+      "bytes": 9575,
+      "sha256": "9b430b5fc8401f35da7c5360070a089160a25d5ceade78937796b096fe4c898c"
+    },
+    {
+      "path": "source-v1/scripts/weil_fourier_minorant_scout.py",
+      "bytes": 4238,
+      "sha256": "fa23b7cd95f730d034cf14df2bf26fe628e79eb06c0ddff4938cc60ce96f63a7"
+    },
+    {
+      "path": "source-v1/scripts/weil_m4_fourier_qualification.py",
+      "bytes": 8706,
+      "sha256": "46cbec1f64ac7ddb32983d538f9b5b3447c7948dd0e46bf3a657e521957199eb"
+    },
+    {
+      "path": "source-v1/scripts/weil_m4_geometry_controls.py",
+      "bytes": 4444,
+      "sha256": "76286122b8d13e49f5d76c596361c25c70e03ff00dcf522669fab0f3ecf8cc3c"
+    },
+    {
+      "path": "source-v1/scripts/weil_reference_route_controls.py",
+      "bytes": 8462,
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13"
+    },
+    {
+      "path": "source-v1/tests/test_fourier_minorant_matrix.py",
+      "bytes": 1737,
+      "sha256": "b6cfdf51bb555f9db662a8dbe5bc25e3b322ddbb983fc2dc79eb5dff596a5f2c"
+    },
+    {
+      "path": "source-v1/uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    }
+  ]
+}

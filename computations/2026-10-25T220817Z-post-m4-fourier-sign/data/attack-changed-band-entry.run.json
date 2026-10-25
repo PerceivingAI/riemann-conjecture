@@ -1,0 +1,22 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-m",
+    "scripts.verify_m4_fourier_matrix",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\data\\attack-changed-band-entry-source.json.gz",
+    "--source",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\data\\attack-changed-band-entry-source.json.gz",
+    "--source-only",
+    "--output",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\data\\attack-changed-band-entry-unexpected-success.json"
+  ],
+  "cwd": ".",
+  "started_utc": "2026-10-25T23:02:39.746903+00:00",
+  "elapsed_seconds": 94.86451930005569,
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"<workspace>\\scripts\\verify_m4_fourier_matrix.py\", line 660, in <module>\n    main()\n    ~~~~^^\n  File \"<workspace>\\scripts\\verify_m4_fourier_matrix.py\", line 651, in main\n    result = audit(args.input, args.source, args.exact_only, args.source_only)\n  File \"<workspace>\\scripts\\verify_m4_fourier_matrix.py\", line 619, in audit\n    checks[name] = contain_triangle(matrices[name], fresh[name], name)\n                   ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<workspace>\\scripts\\verify_m4_fourier_matrix.py\", line 423, in contain_triangle\n    raise ValueError(f\"independent input not contained: {name}[{i},{j}]\")\nValueError: independent input not contained: band[0,0]\n"
+}

@@ -1,13 +1,39 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-25T18:25:39Z`
+- **Last updated:** `2026-10-25T23:08:20Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
 ## Byte identity on checkout
 
-The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep their pinned sources/configuration in LF, the original SYS-6.4 probe in its recorded CRLF checkout format, and retained bundles verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep pinned sources/configuration in their recorded LF form, and the original SYS-6.4 probe plus the executed T3/4 Fourier producer in their recorded CRLF form. Retained bundles remain verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+
+## Complete fixed post-m4 bounded Fourier minorant
+
+The separate research-only T3/4 operation in [X-20261025-009](../computations/2026-10-25T220817Z-post-m4-fourier-sign/record.md) generates and independently accepts all complete2/3/4 source matrices and exact positive parity proofs:
+
+```text
+uv run --locked python -m scripts.weil_m4_fourier_matrix source --output <fresh-source.json.gz>
+uv run --locked python -m scripts.weil_m4_fourier_matrix prove --source <fresh-source.json.gz> --output <fresh-proof.json.gz>
+uv run --locked python -m scripts.verify_m4_fourier_matrix <fresh-proof.json.gz> --source <fresh-source.json.gz> --output <fresh-audit.json>
+uv run --locked python -m scripts.verify_m4_fourier_matrix <fresh-proof.json.gz> --source <fresh-source.json.gz> --exact-only --output <fresh-exact.json>
+uv run --locked python -m scripts.verify_m4_fourier_matrix <fresh-source.json.gz> --source <fresh-source.json.gz> --source-only --output <fresh-source-audit.json>
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_fourier_minorant_matrix.py tests/test_m4_fourier_matrix.py tests/test_m4_fourier_audit.py
+```
+
+PASS covers fresh complete source plus exact positive consequences. EXACT_ONLY_PASS is exact replay without analytical reconstruction. ANALYTICAL_SOURCE_PASS rebuilds the full source but makes no positive claim alone. Source/proof/exact-receipt regeneration is byte-identical under captured-source isolation; a fresh isolated analytical source audit also passes. These programs preserve the earlier fixed consumers below unchanged. The research packet is not a production Weil certificate and admits no theorem.
+
+## Post-m4 mathematical qualification controls
+
+The research-only controls in [X-20261025-007](../computations/2026-10-25T203013Z-m4-fourier-qualification/record.md) evaluate whole-window scalar bounds and exact toy geometry:
+
+```text
+uv run --locked python -m scripts.weil_m4_fourier_qualification --output <fresh-scalar.json>
+uv run --locked python -m scripts.weil_m4_geometry_controls --output <fresh-geometry.json>
+```
+
+Neither command selects a support, builds a low positivity matrix or admits a theorem. The toy rational shifts detect missing signed intersections and wrong mass; they are not an arithmetic support. Canonical outputs and isolated captured-source reproductions agree byte-for-byte. The independent full extension contract does not change the closed matrix workflow below.
 
 ## Complete fixed bounded Fourier minorant
 

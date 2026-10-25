@@ -1,0 +1,7 @@
+{
+  "comparison_byte_identical": true,
+  "code_source_snapshot": "source-v1/manifest.json",
+  "data_closure": "SHA-pinned inherited public bundles, not copied inputs",
+  "input_pins": "input-pins.json",
+  "new_support_matrix_computed": false
+}

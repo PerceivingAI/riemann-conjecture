@@ -1,0 +1,17 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "computations\\2026-10-25T211305Z-post-m4-scalar-cost-assessment\\assessment-v1.py",
+    "--output",
+    "computations\\2026-10-25T211305Z-post-m4-scalar-cost-assessment\\data\\assessment-v1.json"
+  ],
+  "cwd": ".",
+  "started_utc": "2026-10-25T21:14:55.459872+00:00",
+  "elapsed_seconds": 0.6748332999413833,
+  "returncode": 0,
+  "stdout": "{\"support\": [3, 4], \"mixed_Gram_upper\": \"3/500000000000000000000000\", \"q49_below_baseline_q48\": true, \"matrix_slots\": 292968, \"new_low_matrix_computed\": false}\n",
+  "stderr": ""
+}

@@ -1,0 +1,51 @@
+{
+  "historical_bundles": 11,
+  "historical_members": 804,
+  "original_member_sets_equal": true,
+  "protected_public_sources_unchanged": {
+    "scripts/cert/prime_power_terms.py": true,
+    "scripts/cert/legendre_schur.py": true,
+    "scripts/cert/constants.py": true,
+    "scripts/weil_fourier_minorant_matrix.py": true,
+    "scripts/verify_fourier_minorant_matrix.py": true,
+    "scripts/weil_fourier_minorant_scout.py": true,
+    "scripts/weil_reference_route_controls.py": true,
+    "tests/test_fourier_minorant_matrix.py": true,
+    "pyproject.toml": true,
+    "uv.lock": true,
+    "scripts/weil_m4_fourier_qualification.py": true,
+    "scripts/weil_m4_geometry_controls.py": true
+  },
+  "previous_public_content_preserved_except_metadata_and_documented_byte_policy": {
+    "docs/CLAIMS.md": true,
+    "docs/STATUS.md": true,
+    "docs/LOG.md": true,
+    "docs/INDEX.md": true,
+    "docs/TOOL_CAPABILITIES.md": true,
+    "scripts/README.md": true
+  },
+  "intentional_maintained_guide_change": "scripts/README.md byte-policy paragraph now includes the recorded T3/4 producer CRLF exception",
+  "recorded_checkout_byte_policies": {
+    "scripts/weil_m4_fourier_matrix.py": {
+      "recorded_line_endings": "CRLF",
+      "CR_count": 273,
+      "LF_count": 273
+    },
+    "scripts/verify_m4_fourier_matrix.py": {
+      "recorded_line_endings": "LF",
+      "CR_count": 0,
+      "LF_count": 660
+    },
+    "tests/test_m4_fourier_matrix.py": {
+      "recorded_line_endings": "LF",
+      "CR_count": 0,
+      "LF_count": 59
+    },
+    "tests/test_m4_fourier_audit.py": {
+      "recorded_line_endings": "LF",
+      "CR_count": 0,
+      "LF_count": 183
+    }
+  },
+  "new_source_trailing_whitespace": "PASS"
+}

@@ -1,0 +1,26 @@
+{
+  "historical_bundles": 9,
+  "historical_members": 742,
+  "all_original_member_sets_equal": true,
+  "unchanged_protected_public_sources_and_configs": {
+    "scripts/cert/prime_power_terms.py": true,
+    "scripts/cert/legendre_schur.py": true,
+    "scripts/cert/constants.py": true,
+    "scripts/weil_fourier_minorant_matrix.py": true,
+    "scripts/verify_fourier_minorant_matrix.py": true,
+    "scripts/weil_fourier_minorant_scout.py": true,
+    "scripts/weil_reference_route_controls.py": true,
+    "tests/test_fourier_minorant_matrix.py": true,
+    "pyproject.toml": true,
+    "uv.lock": true
+  },
+  "previous_public_content_preserved_except_metadata": {
+    "docs/CLAIMS.md": true,
+    "docs/STATUS.md": true,
+    "docs/LOG.md": true,
+    "docs/INDEX.md": true,
+    "docs/TOOL_CAPABILITIES.md": true,
+    "scripts/README.md": true,
+    "references/BIBLIOGRAPHY.md": true
+  }
+}

@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-25T18:25:39Z`
+- **Last updated:** `2026-10-25T23:33:31Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -54,6 +54,10 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [F-20261025-010](../findings/2026-10-25T232320Z-fourier-reference-scaling-obligation.md) / [X-20261025-010](../computations/2026-10-25T232320Z-fourier-structural-assessment/record.md) — C-0101 necessary a/Omega growth for the globally positive arithmetic reference and current geometric-tail N prerequisite. Retained-case scope/cost comparison, independent proof review and scalar/exact replay; no global positivity or general no-go.
+- [F-20261025-009](../findings/2026-10-25T220817Z-positive-post-m4-fourier-minorant.md) / [X-20261025-009](../computations/2026-10-25T220817Z-post-m4-fourier-sign/record.md) — C-0100 full bounded Fourier reference positive at T3/4 across activation of4, unchanged N312. All292968 inputs accepted independently, both exact parity proofs, complete outside payment,21 focused regressions and7 rejection controls; no production admission or global family.
+- [F-20261025-008](../findings/2026-10-25T211305Z-pointwise-fourier-resolution-accounting.md) / [X-20261025-008](../computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/record.md) — C-0099 pointwise complete Fourier allowance, physical-mass interval-order conversion and conditional resolution at T3/4,N312. Exact/scalar controls and contraction-volume accounting, not a low sign or measured matrix cost.
+- [F-20261025-007](../findings/2026-10-25T203013Z-m4-fourier-qualification.md) / [X-20261025-007](../computations/2026-10-25T203013Z-m4-fourier-qualification/record.md) — C-0097/C-0098 coupled2/4 norm, complete20-domain arithmetic and full Fourier complement/source qualification on log2<T<log5/2. Exact/scalar controls and isolated replay; no new support selection or low sign.
 - [F-20261025-006](../findings/2026-10-25T155033Z-positive-fourier-minorant.md) / [X-20261025-006](../computations/2026-10-25T155033Z-fourier-minorant-sign/record.md) — C-0096 complete bounded Fourier minorant positive at matched T1353/2048,N312. All292968 inputs rebuilt independently, both exact parity lowers and complete outside budget paid; original coefficient defect preserved. Alternative research proof, not new support or admission.
 - [F-20261025-005](../findings/2026-10-25T142424Z-reference-route-selection.md) / [X-20261025-005](../computations/2026-10-25T142424Z-reference-route-selection/record.md) — C-0094 explicit complete Fourier bounded-minorant complement and C-0095 global real-residual one-sided range bound. Independent written qualifications and scalar replay; finite minorant sign not evaluated, global residual coarser locally, no new support or admission.
 - [F-20261025-004](../findings/2026-10-25T134254Z-coupled-route-equivalence-and-viability.md) / [X-20261025-004](../computations/2026-10-25T134254Z-coupled-route-viability/record.md) — C-0093 matched-outside coupled-tail/larger-projection equivalence, explicit E positivity and dense accounting. Current dense construction assessed as diagnostic, not a distinct continuation mechanism; no global no-go.

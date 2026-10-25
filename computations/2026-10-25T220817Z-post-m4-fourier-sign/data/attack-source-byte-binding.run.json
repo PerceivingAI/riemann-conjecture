@@ -1,0 +1,22 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-m",
+    "scripts.verify_m4_fourier_matrix",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\data\\attack-source-byte-binding-proof.json.gz",
+    "--source",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\data\\source-v1.json.gz",
+    "--exact-only",
+    "--output",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\data\\attack-source-byte-binding-unexpected-success.json"
+  ],
+  "cwd": ".",
+  "started_utc": "2026-10-25T23:02:36.990893+00:00",
+  "elapsed_seconds": 1.0414412000682205,
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"<workspace>\\scripts\\verify_m4_fourier_matrix.py\", line 660, in <module>\n    main()\n    ~~~~^^\n  File \"<workspace>\\scripts\\verify_m4_fourier_matrix.py\", line 651, in main\n    result = audit(args.input, args.source, args.exact_only, args.source_only)\n  File \"<workspace>\\scripts\\verify_m4_fourier_matrix.py\", line 598, in audit\n    validate_identity(obj, source_raw, source, source_only)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<workspace>\\scripts\\verify_m4_fourier_matrix.py\", line 569, in validate_identity\n    raise ValueError(\"source packet byte binding changed\")\nValueError: source packet byte binding changed\n"
+}

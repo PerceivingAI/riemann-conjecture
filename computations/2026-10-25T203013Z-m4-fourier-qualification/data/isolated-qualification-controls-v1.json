@@ -1,0 +1,540 @@
+{
+  "format": "m4-fourier-qualification-controls-v1",
+  "scope": "whole log2<T<log5/2 analytical qualification; no selected support or positivity matrix",
+  "elementary_norm": {
+    "finite_exp_lower_order": 8,
+    "finite_exp_lowers": {
+      "log2_upper": "3850611009028498675129/1924145348608000000000",
+      "log3_upper": "1730395430023/576000000000",
+      "twice_support_majorant": "490736939863/96636764160"
+    },
+    "joint_arithmetic_elementary_upper": "1350523/885760",
+    "p_upper": "49/32",
+    "reference_lower": "63/32",
+    "bare_reference_scalar_Schur_lower": "7/9",
+    "support_majorant_role": "13/16 bounds log5/2; it is not a selected support case"
+  },
+  "geometry": {
+    "scope": "dimensionless exact fibers and symbolic window classification, not a support probe",
+    "three_chain_full_shift_characteristic": [
+      "0",
+      "-2",
+      "0",
+      "1"
+    ],
+    "old_norm_one_counterdirection": {
+      "vector": [
+        1,
+        1,
+        1
+      ],
+      "mass": "3",
+      "energy": "4",
+      "Rayleigh": "4/3"
+    },
+    "joint_24_characteristic": [
+      "-1/2",
+      "-5/4",
+      "0",
+      "1"
+    ],
+    "ordered_image_pairs": [
+      {
+        "left": [
+          2,
+          -1
+        ],
+        "right": [
+          2,
+          -1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          2,
+          -1
+        ],
+        "right": [
+          2,
+          1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          2,
+          -1
+        ],
+        "right": [
+          3,
+          -1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          2,
+          -1
+        ],
+        "right": [
+          3,
+          1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          2,
+          -1
+        ],
+        "right": [
+          4,
+          -1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          2,
+          -1
+        ],
+        "right": [
+          4,
+          1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          2,
+          1
+        ],
+        "right": [
+          2,
+          -1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          2,
+          1
+        ],
+        "right": [
+          2,
+          1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          2,
+          1
+        ],
+        "right": [
+          3,
+          -1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          2,
+          1
+        ],
+        "right": [
+          3,
+          1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          2,
+          1
+        ],
+        "right": [
+          4,
+          -1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          2,
+          1
+        ],
+        "right": [
+          4,
+          1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          3,
+          -1
+        ],
+        "right": [
+          2,
+          -1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          3,
+          -1
+        ],
+        "right": [
+          2,
+          1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          3,
+          -1
+        ],
+        "right": [
+          3,
+          -1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          3,
+          -1
+        ],
+        "right": [
+          3,
+          1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          3,
+          -1
+        ],
+        "right": [
+          4,
+          -1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          3,
+          -1
+        ],
+        "right": [
+          4,
+          1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          3,
+          1
+        ],
+        "right": [
+          2,
+          -1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          3,
+          1
+        ],
+        "right": [
+          2,
+          1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          3,
+          1
+        ],
+        "right": [
+          3,
+          -1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          3,
+          1
+        ],
+        "right": [
+          3,
+          1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          3,
+          1
+        ],
+        "right": [
+          4,
+          -1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          3,
+          1
+        ],
+        "right": [
+          4,
+          1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          4,
+          -1
+        ],
+        "right": [
+          2,
+          -1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          4,
+          -1
+        ],
+        "right": [
+          2,
+          1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          4,
+          -1
+        ],
+        "right": [
+          3,
+          -1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          4,
+          -1
+        ],
+        "right": [
+          3,
+          1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          4,
+          -1
+        ],
+        "right": [
+          4,
+          -1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          4,
+          -1
+        ],
+        "right": [
+          4,
+          1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          4,
+          1
+        ],
+        "right": [
+          2,
+          -1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          4,
+          1
+        ],
+        "right": [
+          2,
+          1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          4,
+          1
+        ],
+        "right": [
+          3,
+          -1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          4,
+          1
+        ],
+        "right": [
+          3,
+          1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          4,
+          1
+        ],
+        "right": [
+          4,
+          -1
+        ],
+        "nonempty": false,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      },
+      {
+        "left": [
+          4,
+          1
+        ],
+        "right": [
+          4,
+          1
+        ],
+        "nonempty": true,
+        "criterion": "same sign: max active shift below2; opposite sign: product<exp(2T) with4<exp(2T)<5"
+      }
+    ],
+    "nonempty_pairs": 20,
+    "empty_pairs": 16,
+    "new_pairs_involving4_nonempty": 10,
+    "new_pairs_involving4_empty": 10,
+    "new_opposite_sign_22_nonempty": 2,
+    "prime_power4_base": 2
+  },
+  "scalars": {
+    "p_joint": {
+      "lower": "32370437479341579901499855977660160613/21267647932558653966460912964485513216",
+      "upper": "517926999669465278423997695642562569809/340282366920938463463374607431768211456",
+      "display": "[1.522050655624483 +/- 1.05e-17]"
+    },
+    "reference_gap": {
+      "lower": "673061284553819343697813430368626170287/340282366920938463463374607431768211456",
+      "upper": "42066330284613708981113339398039135643/21267647932558653966460912964485513216",
+      "display": "[1.977949344375517 +/- 1.05e-17]"
+    },
+    "band_weight_upper": {
+      "lower": "377380946706351792239238995101199132243/42535295865117307932921825928971026432",
+      "upper": "94345236676587948059809748775299783061/10633823966279326983230456482242756608",
+      "display": "[8.872183419225666 +/- 4.18e-16]"
+    },
+    "rational_band_weight_upper": "9",
+    "band_support_upper_only": "13/16",
+    "frequency_argument_upper_only": "208",
+    "projection_control_role": "existing baselineN312, analytic comparison only; no new case selected",
+    "compact_double_tail": {
+      "lower": "426384339164676146893693788355025628067/210624583337114373395836055367340864637790190801098222508621955072",
+      "upper": "106596084791169036723423447088756407017/52656145834278593348959013841835216159447547700274555627155488768",
+      "display": "[2.024380689134603e-27 +/- 3.25e-43]"
+    },
+    "compact_one_sided_tail": {
+      "lower": "25250886136028584353237785678303841465/187072209578355573530071658587684226515959365500928",
+      "upper": "404014178176457349651804570852861463441/2993155353253689176481146537402947624255349848014848",
+      "display": "[1.349793547258670e-13 +/- 3.69e-29]"
+    },
+    "compact_double_tail_upper": "3/1000000000000000000000000000",
+    "compact_one_sided_tail_upper": "7/50000000000000",
+    "complete_mixed_Gram_upper": "1/2000000000000",
+    "outside_denominator_lower": "1968749999999999999999999997/1000000000000000000000000000",
+    "quadrature_operator_errors": {
+      "48": {
+        "lower": "225164192610972373065029246910826664313/12554203470773361527671578846415332832204710888928069025792",
+        "upper": "450328385221944746130058493821653328627/25108406941546723055343157692830665664409421777856138051584",
+        "display": "[1.793536269626048e-20 +/- 1.64e-36]"
+      },
+      "64": {
+        "lower": "225164192610972373065029246910826664313/53919893334301279589334030174039261347274288845081144962207220498432",
+        "upper": "450328385221944746130058493821653328627/107839786668602559178668060348078522694548577690162289924414440996864",
+        "display": "[4.175902040735930e-30 +/- 1.76e-46]"
+      }
+    },
+    "anchor_n_min": 312,
+    "anchor_terms": 384,
+    "anchor_ratio_upper": "10816/269621",
+    "anchor_hypergeometric_tail_upper": "26222964982277121906670390648685105178257995395389048383172775723107768622500351339310345530642256039210959584057649700888271529186838483402866419285979160002625160814923975535304826896/431671911326367004371851150700187872867169508193381952720950938785528801539025457217722491048451604814309952839034780150250284005711910874844553554108341534449621606259689173334821587184489120614588586880407220840124556771086074609382735194523293466753527698496512666609388358194566480278300747381036588417108763686668512168177545201575749146544673525363113496285888771824156233207772821924043246579255",
+    "anchor_tail_below_2_to_minus720": true,
+    "polar_anchor_terms": 128,
+    "polar_anchor_u_upper": "169/4096",
+    "polar_hypergeometric_tail_upper": "13137654881719944549844207353704004923526887094237548816639263081829368261926934712559817176557936487217301165986189172047192267281834346707639625158410991859693685642635574293418938256592913042755411161215839935443062897716113124831831743452661335058575030910250329/16522430693404867698521440463135531824460717200938057584685096899096369088148800576381647283998340018049582966119625951467003783999423311545736889668073296851218627970620179336298966223191275031745312640117700390440983768614667695302604708250065277947318589445310446811106651741024155709474734033521797695935699987601356886820784998562473294369566936005439829398756010110876612179255394929461663650510438930649827797229472696113104712990247603382405051448519286966744923743677751510720145214287405213127758651006231176042860295531299313062671661357984833765973874160264822514806269925943709965318370719913603711936011415846176927415226639884843809568338357578852481571940513604565931371183631968745048106686973824368986003365490438244035133557792064226834347527195116566453417725376251732868786203176744314687789098598400000000000000000000000000000000000000000000000000000000000000",
+    "exterior_source_sha256": "7d3975bb76c621f15182c6377503ac9fd63a83c786b66898e271294fbf09f3fc",
+    "exterior_weight_lower": "1/5"
+  },
+  "script_sha256": "46cbec1f64ac7ddb32983d538f9b5b3447c7948dd0e46bf3a657e521957199eb"
+}

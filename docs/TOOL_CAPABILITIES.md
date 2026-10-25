@@ -3,7 +3,7 @@
 - **Audit:** SYS-1 current-state technical inventory
 - **Audited repository revision:** `20a691105ec808e623faef2fc5bbaf4806a0d352` (`main`, 2026-10-08 commit)
 - **Audit date:** 2026-10-17
-- **Last updated:** `2026-10-25T18:25:39Z` (later factual addenda; original audit identity unchanged)
+- **Last updated:** `2026-10-25T23:08:20Z` (later factual addenda; original audit identity unchanged)
 - **Scope:** Implemented Python/Arb mathematics, Rust, Lean, execution/orchestration, retained evidence and agent navigation
 - **Disposition:** Public technical record of *existing* behavior only; not a research strategy, roadmap, or tooling-upgrade register
 - **Method:** Read current source, tests, schemas, contracts, and retained verification records; independently execute the checks listed in §8
@@ -11,6 +11,20 @@
 This audit describes the source tree at the pinned revision. An implemented function, a prior passing test, a freshly passing test, an external mathematical premise, and an admitted theorem are different forms of evidence. They are not interchangeable.
 
 The audit did **not** edit or regenerate any historical attempt, finding, computation, or retained certificate. It did **not** run a new mathematical qualification sweep.
+
+## 2026-10-25T23:08:20Z: complete fixed post-m4 Fourier source and proof
+
+`scripts.weil_m4_fourier_matrix` and the separately organized `scripts.verify_m4_fourier_matrix` implement the fixed T3/4,a7/2,Omega256,N312 case. The producer uses combined images on seven cells; the checker uses all36 direct image pairs,20 nonempty, with correct fourth-term coefficient and full GP. Source/audit polynomial orders312/313, band orders49/64 and Arb512/768 are exercised. Exact integer grid inflation separates analytic band radii from independently measured numerical-width bounds.
+
+[X-20261025-009](../computations/2026-10-25T220817Z-post-m4-fourier-sign/record.md) accepts all292968 analytical slots and both complete exact positive parity blocks with the full outside budget. The21 focused old/new regressions,7 actual altered-input rejections and byte-identical isolated source/proof/exact-receipt reproduction pass. A further isolated source-only mode freshly rebuilds all inputs and explicitly claims no positivity by itself. Exact-only mode rebuilds none. A rebound band corruption is actually rejected by fresh analytical containment.
+
+The old fixed Fourier consumers and tests remain unchanged. This is a new fixed research capability across an arithmetic boundary, not generic continuation, a production certificate/profile, Rust/Lean acceptance, a measured scaling law or an unbounded-support result.
+
+## 2026-10-25T20:51:16Z: post-m4 scalar and exact geometry qualification controls
+
+`scripts.weil_m4_fourier_qualification` checks whole-window reference/exterior/compact constants, finite-series envelopes and signed-pair classification. `scripts.weil_m4_geometry_controls` independently compares exact seven-cell image integration with36 direct pair intersections, before parity projection, and detects the missing central pair and incorrect physical mass. [X-20261025-007](../computations/2026-10-25T203013Z-m4-fourier-qualification/record.md) retains actual successful CLI outputs and byte-identical isolated replays.
+
+These are research-only mathematical controls, not post-transition low-matrix generation or positivity acceptance. The complete extension contract is independently reviewed; no support option, generic continuation, old source/checker broadening, production format or admission is implemented.
 
 ## 2026-10-25T18:25:39Z: complete fixed Fourier-minorant source and acceptance
 

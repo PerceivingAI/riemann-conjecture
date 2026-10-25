@@ -1,0 +1,7 @@
+{
+  "source_byte_identical": true,
+  "proof_byte_identical": true,
+  "exact_receipt_byte_identical": true,
+  "fresh_isolated_analytical_source_status": "ANALYTICAL_SOURCE_PASS",
+  "source_snapshot": "source-v1/manifest.json"
+}

@@ -1,0 +1,89 @@
+{
+  "format": "retained-research-comparison-inputs-v1",
+  "members": [
+    {
+      "path": "computations/2026-10-25T155033Z-fourier-minorant-sign/data/source-v2.json.gz",
+      "sha256": "6f8994ee0d8813ddd0bbb3ba88e35b2070905199693788f9660906474edbeb66",
+      "bytes": 3331807,
+      "bundle_manifest": "computations/2026-10-25T155033Z-fourier-minorant-sign/manifest.json",
+      "bundle_manifest_sha256": "df94fdde1b9800ce514408c2ec51f3d7493819a032b52ffd8641f0f58043d544"
+    },
+    {
+      "path": "computations/2026-10-25T155033Z-fourier-minorant-sign/data/proof-v2.json.gz",
+      "sha256": "02ee0e095a23c6c09949fe51b0833d541cb76a3298402d84609950619b07612d",
+      "bytes": 3557084,
+      "bundle_manifest": "computations/2026-10-25T155033Z-fourier-minorant-sign/manifest.json",
+      "bundle_manifest_sha256": "df94fdde1b9800ce514408c2ec51f3d7493819a032b52ffd8641f0f58043d544"
+    },
+    {
+      "path": "computations/2026-10-25T155033Z-fourier-minorant-sign/data/independent-audit-v2.json",
+      "sha256": "ef927d5dbafebf77ef3166b4a18bb98cc6127a32c8ee23233cd9f7ffa0cda5b3",
+      "bytes": 6101,
+      "bundle_manifest": "computations/2026-10-25T155033Z-fourier-minorant-sign/manifest.json",
+      "bundle_manifest_sha256": "df94fdde1b9800ce514408c2ec51f3d7493819a032b52ffd8641f0f58043d544"
+    },
+    {
+      "path": "computations/2026-10-25T155033Z-fourier-minorant-sign/data/corrected-execution-receipts-v2.json",
+      "sha256": "92aeabd7af1c096a71139848cac7c8e53bc6afafaad9a303b026c5f1d2884615",
+      "bytes": 395,
+      "bundle_manifest": "computations/2026-10-25T155033Z-fourier-minorant-sign/manifest.json",
+      "bundle_manifest_sha256": "df94fdde1b9800ce514408c2ec51f3d7493819a032b52ffd8641f0f58043d544"
+    },
+    {
+      "path": "computations/2026-10-25T155033Z-fourier-minorant-sign/data/independent-execution-receipt-v2.json",
+      "sha256": "7d6df9487262e1cc4753b10284f25fc109e2b7cd1801b9569fdb376bc01115c6",
+      "bytes": 429,
+      "bundle_manifest": "computations/2026-10-25T155033Z-fourier-minorant-sign/manifest.json",
+      "bundle_manifest_sha256": "df94fdde1b9800ce514408c2ec51f3d7493819a032b52ffd8641f0f58043d544"
+    },
+    {
+      "path": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/source-v1.json.gz",
+      "sha256": "cd254a2a7002e17b56dce12a0ec00166eac8023e30374e38053d8963ade28b9c",
+      "bytes": 3398061,
+      "bundle_manifest": "computations/2026-10-25T220817Z-post-m4-fourier-sign/manifest.json",
+      "bundle_manifest_sha256": "e6fc379fea7524c7a38beeb04f60658eb27c77a50cf34022c9dce06101cb42fe"
+    },
+    {
+      "path": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/proof-v1.json.gz",
+      "sha256": "9e7b0e03254261e4a971be192d21c7991faefaf2f71b0cbbfe8faf946b186cef",
+      "bytes": 3627039,
+      "bundle_manifest": "computations/2026-10-25T220817Z-post-m4-fourier-sign/manifest.json",
+      "bundle_manifest_sha256": "e6fc379fea7524c7a38beeb04f60658eb27c77a50cf34022c9dce06101cb42fe"
+    },
+    {
+      "path": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/independent-audit-v1.json",
+      "sha256": "0d9945db3be65760ccfad27d3bb9eebd38b472b2e6cfd25197b0f02e50ba713a",
+      "bytes": 6273,
+      "bundle_manifest": "computations/2026-10-25T220817Z-post-m4-fourier-sign/manifest.json",
+      "bundle_manifest_sha256": "e6fc379fea7524c7a38beeb04f60658eb27c77a50cf34022c9dce06101cb42fe"
+    },
+    {
+      "path": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/source-v1.run.json",
+      "sha256": "8b5caba4147ff257dfe8828c3a2fa4914f5659a18d6cdde47d9a9c371ac54d0d",
+      "bytes": 677,
+      "bundle_manifest": "computations/2026-10-25T220817Z-post-m4-fourier-sign/manifest.json",
+      "bundle_manifest_sha256": "e6fc379fea7524c7a38beeb04f60658eb27c77a50cf34022c9dce06101cb42fe"
+    },
+    {
+      "path": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/proof-v1.run.json",
+      "sha256": "319216f600d6b6b66aca311b6f19122f841dc0ffa2ab8289653a0e4697bf81d4",
+      "bytes": 2033,
+      "bundle_manifest": "computations/2026-10-25T220817Z-post-m4-fourier-sign/manifest.json",
+      "bundle_manifest_sha256": "e6fc379fea7524c7a38beeb04f60658eb27c77a50cf34022c9dce06101cb42fe"
+    },
+    {
+      "path": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/independent-audit-v1.run.json",
+      "sha256": "40b0207d71d28c6620e857b5e46317d8007728424913735384a65149e44728c7",
+      "bytes": 2730,
+      "bundle_manifest": "computations/2026-10-25T220817Z-post-m4-fourier-sign/manifest.json",
+      "bundle_manifest_sha256": "e6fc379fea7524c7a38beeb04f60658eb27c77a50cf34022c9dce06101cb42fe"
+    },
+    {
+      "path": "computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/data/assessment-v1.json",
+      "sha256": "f9b98150587834c145c81f17b9946f2a36a9e8e2c091659bd4b56c728e2b08df",
+      "bytes": 7370,
+      "bundle_manifest": "computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/manifest.json",
+      "bundle_manifest_sha256": "8bf554bc6ef2b57624213b5a72df55c6aed874a11e5b1c01b91cca7c76210213"
+    }
+  ]
+}

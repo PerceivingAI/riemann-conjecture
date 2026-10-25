@@ -1,0 +1,7 @@
+{
+  "source_snapshot": "source-v1/manifest.json",
+  "byte_identical": {
+    "qualification-controls-v1.json": true,
+    "rational-geometry-controls-v1.json": true
+  }
+}

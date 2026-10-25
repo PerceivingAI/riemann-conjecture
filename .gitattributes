@@ -72,3 +72,13 @@
 /scripts/verify_fourier_minorant_matrix.py text eol=lf
 /tests/test_fourier_minorant_matrix.py text eol=lf
 /computations/2026-10-25T155033Z-fourier-minorant-sign/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_m4_fourier_qualification.py text eol=lf
+/scripts/weil_m4_geometry_controls.py text eol=lf
+/computations/2026-10-25T203013Z-m4-fourier-qualification/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_m4_fourier_matrix.py text eol=crlf
+/scripts/verify_m4_fourier_matrix.py text eol=lf
+/tests/test_m4_fourier_matrix.py text eol=lf
+/tests/test_m4_fourier_audit.py text eol=lf
+/computations/2026-10-25T220817Z-post-m4-fourier-sign/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-25T232320Z-fourier-structural-assessment/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

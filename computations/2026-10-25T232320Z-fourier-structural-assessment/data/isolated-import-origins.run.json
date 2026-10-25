@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-c",
+    "import sys,json;from pathlib import Path;capture=Path(sys.argv[1]).resolve();sys.path.insert(0,str(capture));import scripts.cert,scripts.cert.constants,scripts.cert.prime_power_terms;names=['scripts.cert','scripts.cert.constants','scripts.cert.prime_power_terms'];paths={name:Path(sys.modules[name].__file__).resolve() for name in names};assert all(path.is_relative_to(capture) for path in paths.values());print(json.dumps({name:path.relative_to(capture).as_posix() for name,path in paths.items()}))",
+    "computations\\2026-10-25T232320Z-fourier-structural-assessment\\source-v1"
+  ],
+  "cwd": ".",
+  "started_utc": "2026-10-25T23:35:02.725245+00:00",
+  "elapsed_seconds": 0.196871199994348,
+  "returncode": 0,
+  "stdout": "{\"scripts.cert\": \"scripts/cert/__init__.py\", \"scripts.cert.constants\": \"scripts/cert/constants.py\", \"scripts.cert.prime_power_terms\": \"scripts/cert/prime_power_terms.py\"}\n",
+  "stderr": ""
+}

@@ -1,0 +1,23 @@
+{
+  "command": [
+    ".venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-c",
+    "import runpy,sys;sys.path.insert(0,sys.argv.pop(1));runpy.run_module(sys.argv.pop(1),run_name='__main__')",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\source-v1",
+    "scripts.verify_m4_fourier_matrix",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\data\\isolated-source-v1.json.gz",
+    "--source",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\data\\isolated-source-v1.json.gz",
+    "--source-only",
+    "--output",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\data\\isolated-source-audit-v1.json"
+  ],
+  "cwd": ".",
+  "started_utc": "2026-10-25T23:06:00.141678+00:00",
+  "elapsed_seconds": 96.3995820999844,
+  "returncode": 0,
+  "stdout": "{\n  \"status\": \"ANALYTICAL_SOURCE_PASS\",\n  \"matrix_entries_checked\": {\n    \"A\": 48828,\n    \"GP\": 48828,\n    \"P\": 48828,\n    \"P_squared\": 48828,\n    \"band\": 48828,\n    \"pole\": 48828\n  },\n  \"blocks\": {}\n}\n",
+  "stderr": ""
+}

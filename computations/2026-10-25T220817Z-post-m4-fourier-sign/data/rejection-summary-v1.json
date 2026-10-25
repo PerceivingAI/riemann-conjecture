@@ -1,0 +1,65 @@
+[
+  {
+    "case": "unpaid-mixed",
+    "mode": "--exact-only",
+    "returncode": 1,
+    "no_success_output": true,
+    "input": "data/attack-unpaid-mixed-proof.json.gz",
+    "source": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/attack-unpaid-mixed-source.json.gz",
+    "diagnostic": "ValueError: complete complement binding changed"
+  },
+  {
+    "case": "dishonest-width",
+    "mode": "--exact-only",
+    "returncode": 1,
+    "no_success_output": true,
+    "input": "data/attack-dishonest-width-proof.json.gz",
+    "source": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/attack-dishonest-width-source.json.gz",
+    "diagnostic": "ValueError: dishonest numerical order-loss report"
+  },
+  {
+    "case": "forged-margin",
+    "mode": "--exact-only",
+    "returncode": 1,
+    "no_success_output": true,
+    "input": "data/attack-forged-margin-proof.json.gz",
+    "source": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/source-v1.json.gz",
+    "diagnostic": "ValueError: nonpositive or dishonest exact congruence margin"
+  },
+  {
+    "case": "forged-mass-gap",
+    "mode": "--exact-only",
+    "returncode": 1,
+    "no_success_output": true,
+    "input": "data/attack-forged-mass-gap-proof.json.gz",
+    "source": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/source-v1.json.gz",
+    "diagnostic": "ValueError: dishonest mass-normalized lower"
+  },
+  {
+    "case": "singular-transform",
+    "mode": "--exact-only",
+    "returncode": 1,
+    "no_success_output": true,
+    "input": "data/attack-singular-transform-proof.json.gz",
+    "source": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/source-v1.json.gz",
+    "diagnostic": "ValueError: singular or non-upper-triangular congruence witness"
+  },
+  {
+    "case": "source-byte-binding",
+    "mode": "--exact-only",
+    "returncode": 1,
+    "no_success_output": true,
+    "input": "data/attack-source-byte-binding-proof.json.gz",
+    "source": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/source-v1.json.gz",
+    "diagnostic": "ValueError: source packet byte binding changed"
+  },
+  {
+    "case": "changed-band-entry",
+    "mode": "--source-only",
+    "returncode": 1,
+    "no_success_output": true,
+    "input": "data/attack-changed-band-entry-source.json.gz",
+    "source": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/attack-changed-band-entry-source.json.gz",
+    "diagnostic": "ValueError: independent input not contained: band[0,0]"
+  }
+]
