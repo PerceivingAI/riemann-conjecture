@@ -1,0 +1,23 @@
+{
+  "format": "research-preservation-validation-v1",
+  "old_sealed_members_unchanged": 677,
+  "old_seals_unchanged": 8,
+  "shared_source_files_unchanged": 6,
+  "maintained_content_preserved": {
+    "docs/CLAIMS.md": true,
+    "docs/STATUS.md": true,
+    "docs/LOG.md": true,
+    "docs/INDEX.md": true,
+    "docs/TOOL_CAPABILITIES.md": true,
+    "scripts/README.md": true,
+    "references/BIBLIOGRAPHY.md": true
+  },
+  "public_docs": {
+    "local_links": 608,
+    "tables": 11
+  },
+  "public_privacy_scan_files": 74,
+  "public_privacy_scan_decoded_bytes": 164209176,
+  "restricted_references_found": false,
+  "source_snapshots_valid": true
+}

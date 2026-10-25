@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-25T15:08:18Z`
+- **Last updated:** `2026-10-25T18:25:39Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -411,6 +411,16 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-10-25T14:24:24Z`
 - **Used for:** C-0095's complete real-residual decomposition, uniform derivative bounds, diagonal cusp and global one-sided Legendre range estimate.
 - **Verification notes:** Inspected the csch partial fraction directly and independently differentiated its scaled rational terms. DLMF4.36.3 also supplies the coefficient identity sum n^-2=pi²/6. The repository derives all operator/endpoint bounds; DLMF does not assert our Weil positivity or admission. No external source code was imported.
+
+### R-0037 — NIST Legendre Fourier integral and Gaussian exactness
+
+- **Authors:** NIST Digital Library of Mathematical Functions
+- **Title:** Section10.54, Integral Representations; Section3.5(v), Gauss Quadrature
+- **Publication:** NIST DLMF, continuously maintained
+- **Stable identifiers:** https://dlmf.nist.gov/10.54.E2 ; https://dlmf.nist.gov/3.5#v
+- **First verified/accessed:** `2026-10-25T18:25:39Z`
+- **Used for:** C-0096's entire Legendre Fourier vectors, positive Gaussian weights and exactness through degree2q-1. The complete operator-valued frequency remainder is derived separately in the repository.
+- **Verification notes:** Inspected exact TeX of10.54.E2 and the positive-weight/exactness statements in3.5(v), including3.5.20_1. Substitution x=cos(theta) gives the stated phase and normalization. Arb/FLINT rigorous-root correctness remains a numerical trust premise, not a theorem attributed to DLMF. No external implementation was imported.
 
 ## Entry format
 

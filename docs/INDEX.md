@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-25T15:08:18Z`
+- **Last updated:** `2026-10-25T18:25:39Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -54,6 +54,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [F-20261025-006](../findings/2026-10-25T155033Z-positive-fourier-minorant.md) / [X-20261025-006](../computations/2026-10-25T155033Z-fourier-minorant-sign/record.md) — C-0096 complete bounded Fourier minorant positive at matched T1353/2048,N312. All292968 inputs rebuilt independently, both exact parity lowers and complete outside budget paid; original coefficient defect preserved. Alternative research proof, not new support or admission.
 - [F-20261025-005](../findings/2026-10-25T142424Z-reference-route-selection.md) / [X-20261025-005](../computations/2026-10-25T142424Z-reference-route-selection/record.md) — C-0094 explicit complete Fourier bounded-minorant complement and C-0095 global real-residual one-sided range bound. Independent written qualifications and scalar replay; finite minorant sign not evaluated, global residual coarser locally, no new support or admission.
 - [F-20261025-004](../findings/2026-10-25T134254Z-coupled-route-equivalence-and-viability.md) / [X-20261025-004](../computations/2026-10-25T134254Z-coupled-route-viability/record.md) — C-0093 matched-outside coupled-tail/larger-projection equivalence, explicit E positivity and dense accounting. Current dense construction assessed as diagnostic, not a distinct continuation mechanism; no global no-go.
 - [F-20261025-003](../findings/2026-10-25T130058Z-coupled-tail-comparison.md) / [X-20261025-003](../computations/2026-10-25T130058Z-coupled-tail-comparison/record.md) — C-0092 complete-tail directional comparison quantifies diagonal-reference overcharge and retained coupled stiffness on both P20 failing trials. Independent exact consequences and replay; no finite/full inverse substitution, new support or smaller-data proof.

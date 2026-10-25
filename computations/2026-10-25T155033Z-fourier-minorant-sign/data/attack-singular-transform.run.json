@@ -1,0 +1,20 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-m",
+    "scripts.verify_fourier_minorant_matrix",
+    "computations\\2026-10-25T155033Z-fourier-minorant-sign\\data\\attack-singular-transform.json.gz",
+    "--source",
+    "computations\\2026-10-25T155033Z-fourier-minorant-sign\\data\\source-v2.json.gz",
+    "--exact-only",
+    "--output",
+    "computations\\2026-10-25T155033Z-fourier-minorant-sign\\data\\attack-singular-transform.accepted.json"
+  ],
+  "returncode": 1,
+  "elapsed_seconds": 0.9569137999787927,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"<REPO_ROOT>\\scripts\\verify_fourier_minorant_matrix.py\", line 488, in <module>\n    main()\n    ~~~~^^\n  File \"<REPO_ROOT>\\scripts\\verify_fourier_minorant_matrix.py\", line 479, in main\n    result = audit(args.input, args.source, args.exact_only)\n  File \"<REPO_ROOT>\\scripts\\verify_fourier_minorant_matrix.py\", line 453, in audit\n    margins = exact_blocks(obj)\n  File \"<REPO_ROOT>\\scripts\\verify_fourier_minorant_matrix.py\", line 423, in exact_blocks\n    return {name: verify_block(sufficient_lower(obj[\"matrices\"], parity),\n                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                               obj[\"blocks\"][name], parity)\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<REPO_ROOT>\\scripts\\verify_fourier_minorant_matrix.py\", line 357, in verify_block\n    raise ValueError(\"singular or non-upper-triangular congruence witness\")\nValueError: singular or non-upper-triangular congruence witness\n"
+}

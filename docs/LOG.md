@@ -1,10 +1,18 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-25T15:08:18Z`
+- **Last updated:** `2026-10-25T18:25:39Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-25T18:25:39Z — Complete bounded Fourier reference passes fresh source and exact positivity gates
+
+[F-20261025-006](../findings/2026-10-25T155033Z-positive-fourier-minorant.md) / C-0096 and [X-20261025-006](../computations/2026-10-25T155033Z-fourier-minorant-sign/record.md) execute the fixed whole-minorant test. Positive floating retained directions are not promoted; complete finite source generation and independent acceptance follow. All six matrices,292968 entries, are rebuilt independently; both156-dimensional rational sufficient blocks pass with the full C-0094 outside allowance. The result proves this bounded H0 positive at the previously established support, not merely positive sampled directions.
+
+The initial consumer incorrectly halved the existing one-sided arithmetic coefficient, quartering P². Its source packet, failed proof and executable closure remain intact. A minimized constant-overlap/combined-square control fails before and passes after the consumer correction; version2 receives separate full generation and acceptance. Exact replay,4 focused regressions,5 altered-report rejections and byte-identical isolated regeneration pass. No old arithmetic API, source/test record, verifier contract or theorem admission changed. No new support, matched timing superiority or all-support/RH conclusion follows.
+
+---
 
 ## 2026-10-25T15:08:18Z — Explicit Fourier complement and global real-residual bounds qualified
 

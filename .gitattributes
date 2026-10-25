@@ -67,3 +67,8 @@
 /computations/2026-10-25T134254Z-coupled-route-viability/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /scripts/weil_reference_route_controls.py text eol=lf
 /computations/2026-10-25T142424Z-reference-route-selection/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_fourier_minorant_scout.py text eol=lf
+/scripts/weil_fourier_minorant_matrix.py text eol=lf
+/scripts/verify_fourier_minorant_matrix.py text eol=lf
+/tests/test_fourier_minorant_matrix.py text eol=lf
+/computations/2026-10-25T155033Z-fourier-minorant-sign/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

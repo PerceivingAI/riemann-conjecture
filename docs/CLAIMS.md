@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-25T15:08:18Z`
+- **Last updated:** `2026-10-25T18:25:39Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -1070,6 +1070,17 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** R-0028 global real residual; R-0036 DLMF4.36.5; the spectral Legendre argument used in C-0088, but not its local Taylor remainder.
 - **Source:** [F-20261025-005](../findings/2026-10-25T142424Z-reference-route-selection.md), [X-20261025-005](../computations/2026-10-25T142424Z-reference-route-selection/record.md).
 - **Verification notes:** Independent proof includes the multiplier -T²(1-x²)/24 and exact rank-two pole norm2T+2sinh(T). Direct kernel/derivative values and partial fractions corroborate at four points; uniform validity comes from the proof, not sampling. At T=1353/2048,N312 the full double-tail bound displays2.52001201167e-6, about4.243 times the retained C-0088 upper; it is coarser locally. At T2,N312 it remains finite, display3.18578593339e-5. Old kernels/refusals are unchanged. Global source range does not establish closed-domain equality, new support positivity, efficient N(T), production admission or RH.
+
+### C-0096 — Complete bounded Fourier minorant positive at the matched support
+
+- **Statement:** At T=1353/2048,a=7/2,Omega256,N312, fresh complete matrix enclosures and exact rational congruences prove both156-dimensional parity blocks of A_--[(GP)_++3e-40 D]/(19/8-1e-82) strictly positive in ordinary Legendre mass D_j=2/(2j+1). Certified finite-block mass lowers display1.3995633634664128e-11 even and8.213611938461616e-9 odd. C-0094's full complement implies H0>0 on all L²(-T,T), then original smooth-test Weil positivity under the documented source premises. GP contains the combined prime square and mixed products; the odd pole and full band error remain paid.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` complete fresh independent Arb source acceptance and exact rational research proof; no production admission or new support
+- **First recorded:** `2026-10-25T15:50:33Z`
+- **Last verified:** `2026-10-25T18:25:39Z`
+- **Dependencies:** C-0094; R-0028 Suzuki v3; R-0030 digamma series; R-0037 Legendre Fourier integral and positive Gaussian exactness. Shared Arb/FLINT transcendental and rigorous-root premises.
+- **Source:** [F-20261025-006](../findings/2026-10-25T155033Z-positive-fourier-minorant.md), [X-20261025-006](../computations/2026-10-25T155033Z-fourier-minorant-sign/record.md).
+- **Verification notes:** All292968 serialized entries in six complete matrices are independently rebuilt at Arb768 with arithmetic Gauss313 versus312, band Gauss64 versus48, direct signed-shift intersections, separate weights and bounded finite-series anchors. Exact congruence, physical mass lowers, exact replay,4 focused regressions and5 actual altered-report rejections pass. Isolated source/proof/receipt regeneration is byte-identical. Initial half-coefficient/quarter-square producer defect, invalid packet and failed proof remain reproducible; corrected packet is a separate version. No inherited positive K312 authority, new support frontier, matched speedup, global support family, Rust/Lean check or RH result.
 
 ## Entry format
 

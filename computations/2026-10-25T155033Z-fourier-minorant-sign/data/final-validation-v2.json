@@ -1,0 +1,18 @@
+{
+  "format": "research-final-validation-v2",
+  "old_sealed_members_unchanged": 677,
+  "old_seals_unchanged": 8,
+  "shared_source_files_unchanged": 6,
+  "public_documents": {
+    "local_links": 609,
+    "tables": 11
+  },
+  "preseal_public_scan_files": 76,
+  "preseal_decoded_bytes": 164212572,
+  "restricted_references_found": false,
+  "local_workspace_prefix_found": false,
+  "source_and_proof_byte_identical_after_isolation": true,
+  "focused_tests_passed": 4,
+  "original_frozen_regression_fails": true,
+  "actual_altered_reports_rejected": 5
+}

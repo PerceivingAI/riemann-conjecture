@@ -1,0 +1,18 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "--extra",
+    "test",
+    "python",
+    "-I",
+    "-c",
+    "import sys;sys.path.insert(0,'computations/2026-10-25T155033Z-fourier-minorant-sign/source-v1');import scripts.weil_fourier_minorant_matrix;import pytest;raise SystemExit(pytest.main(['-n','0','-q','tests/test_fourier_minorant_matrix.py::test_arithmetic_constant_overlap_and_combined_square']))"
+  ],
+  "returncode": 1,
+  "elapsed_seconds": 1.4043131000362337,
+  "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0\nrootdir: <REPO_ROOT>\nconfigfile: pyproject.toml\nplugins: hypothesis-6.165.10, xdist-3.8.0\ncollected 1 item\n\ntests\\test_fourier_minorant_matrix.py F                                  [100%]\n\n================================== FAILURES ===================================\n____________ test_arithmetic_constant_overlap_and_combined_square _____________\n\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000152E260B490>\n\n    def test_arithmetic_constant_overlap_and_combined_square(monkeypatch):\n        monkeypatch.setattr(source, 'N', 4)\n        with ctx.workprec(256):\n            p, square, _ = source.arithmetic()\n            terms = source.enumerate_active_prime_power_terms(1353, 2048, prec=256)\n            expected_p = -sum((2*t.coefficient*(2-t.tau) for t in terms), arb(0))\n            expected_square = 2*sum((a.coefficient*b.coefficient*(2-max(a.tau,b.tau))\n                                     for a in terms for b in terms), arb(0))\n>           assert p[0][0,0].overlaps(expected_p)\nE           assert False\nE            +  where False = overlaps([-1.359614477930718194634591516934816360062426790918939860131554965331109311526 +/- 3.37e-76])\nE            +    where overlaps = [-0.6798072389653590973172957584674081800312133954594699300657774826655546557629 +/- 8.64e-77].overlaps\n\ntests\\test_fourier_minorant_matrix.py:18: AssertionError\n=========================== short test summary info ===========================\nFAILED tests/test_fourier_minorant_matrix.py::test_arithmetic_constant_overlap_and_combined_square\n============================== 1 failed in 0.42s ==============================\n",
+  "stderr": "",
+  "command_path_policy": "repository-relative paths and redacted local workspace prefix; numerical verdict unchanged"
+}

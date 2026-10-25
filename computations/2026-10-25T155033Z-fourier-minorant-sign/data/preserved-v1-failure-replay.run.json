@@ -1,0 +1,20 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-I",
+    "-c",
+    "import sys,runpy;sys.path.insert(0,'computations/2026-10-25T155033Z-fourier-minorant-sign/source-v1');runpy.run_module('scripts.weil_fourier_minorant_matrix',run_name='__main__')",
+    "prove",
+    "--source",
+    "computations\\2026-10-25T155033Z-fourier-minorant-sign\\data\\source-v1.json.gz",
+    "--output",
+    "computations\\2026-10-25T155033Z-fourier-minorant-sign\\data\\invalid-v1-proof-must-not-exist.json.gz"
+  ],
+  "returncode": 1,
+  "elapsed_seconds": 1.102274400065653,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import sys,runpy;sys.path.insert(0,'computations/2026-10-25T155033Z-fourier-minorant-sign/source-v1');runpy.run_module('scripts.weil_fourier_minorant_matrix',run_name='__main__')\n                                                                                                          ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 229, in run_module\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"<REPO_ROOT>\\computations/2026-10-25T155033Z-fourier-minorant-sign/source-v1\\scripts\\weil_fourier_minorant_matrix.py\", line 231, in <module>\n    result=source() if args.command=='source' else prove(args.source)\n                                                   ~~~~~^^^^^^^^^^^^^\n  File \"<REPO_ROOT>\\computations/2026-10-25T155033Z-fourier-minorant-sign/source-v1\\scripts\\weil_fourier_minorant_matrix.py\", line 213, in prove\n    if proof is None: raise ValueError('complete sufficient lower not certified: '+name)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: complete sufficient lower not certified: even\n"
+}

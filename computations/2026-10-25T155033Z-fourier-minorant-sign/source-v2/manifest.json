@@ -1,0 +1,70 @@
+{
+  "format": "research-source-snapshot-v1",
+  "members": [
+    {
+      "path": "computations/2026-10-25T142424Z-reference-route-selection/data/scalar-controls-v1.json",
+      "sha256": "7d3975bb76c621f15182c6377503ac9fd63a83c786b66898e271294fbf09f3fc",
+      "bytes": 40287
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf",
+      "bytes": 1432
+    },
+    {
+      "path": "scripts/cert/__init__.py",
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092",
+      "bytes": 412
+    },
+    {
+      "path": "scripts/cert/constants.py",
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "bytes": 5348
+    },
+    {
+      "path": "scripts/cert/prime_power_terms.py",
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+      "bytes": 21423
+    },
+    {
+      "path": "scripts/verify_combined_schur_analytic_entries.py",
+      "sha256": "15961f4b337e1d26cc63aa41bcb3976fa975636d0b5e006b0f51bd3d625576e4",
+      "bytes": 16003
+    },
+    {
+      "path": "scripts/verify_fourier_minorant_matrix.py",
+      "sha256": "47e74237741d727e854033af4fb595af6e4197c7abb4f3d01a0cb1500f10d6b1",
+      "bytes": 21417
+    },
+    {
+      "path": "scripts/verify_weighted_low_space.py",
+      "sha256": "91f5afcaabff90378de9ece3222115f1262ec4883929d9fa2a79b059e66c2cb1",
+      "bytes": 18721
+    },
+    {
+      "path": "scripts/verify_weighted_low_space_inputs.py",
+      "sha256": "ad63fbb5b24a0c4d3f45a98d0731b2b6a64bb1e3d480deac43a02cd972447d64",
+      "bytes": 25346
+    },
+    {
+      "path": "scripts/weil_fourier_minorant_matrix.py",
+      "sha256": "9b430b5fc8401f35da7c5360070a089160a25d5ceade78937796b096fe4c898c",
+      "bytes": 9575
+    },
+    {
+      "path": "scripts/weil_fourier_minorant_scout.py",
+      "sha256": "fa23b7cd95f730d034cf14df2bf26fe628e79eb06c0ddff4938cc60ce96f63a7",
+      "bytes": 4238
+    },
+    {
+      "path": "tests/test_fourier_minorant_matrix.py",
+      "sha256": "b6cfdf51bb555f9db662a8dbe5bc25e3b322ddbb983fc2dc79eb5dff596a5f2c",
+      "bytes": 1737
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a",
+      "bytes": 210571
+    }
+  ]
+}

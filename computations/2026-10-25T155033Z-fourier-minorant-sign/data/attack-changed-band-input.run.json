@@ -1,0 +1,20 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-m",
+    "scripts.verify_fourier_minorant_matrix",
+    "computations\\2026-10-25T155033Z-fourier-minorant-sign\\data\\attack-changed-band-input.json.gz",
+    "--source",
+    "computations\\2026-10-25T155033Z-fourier-minorant-sign\\data\\source-v2.json.gz",
+    "--exact-only",
+    "--output",
+    "computations\\2026-10-25T155033Z-fourier-minorant-sign\\data\\attack-changed-band-input.accepted.json"
+  ],
+  "returncode": 1,
+  "elapsed_seconds": 0.6084391999756917,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"<REPO_ROOT>\\scripts\\verify_fourier_minorant_matrix.py\", line 488, in <module>\n    main()\n    ~~~~^^\n  File \"<REPO_ROOT>\\scripts\\verify_fourier_minorant_matrix.py\", line 479, in main\n    result = audit(args.input, args.source, args.exact_only)\n  File \"<REPO_ROOT>\\scripts\\verify_fourier_minorant_matrix.py\", line 431, in audit\n    validate_identity(obj, source_raw, source)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<REPO_ROOT>\\scripts\\verify_fourier_minorant_matrix.py\", line 389, in validate_identity\n    raise ValueError(\"proof changed its original source packet\")\nValueError: proof changed its original source packet\n"
+}

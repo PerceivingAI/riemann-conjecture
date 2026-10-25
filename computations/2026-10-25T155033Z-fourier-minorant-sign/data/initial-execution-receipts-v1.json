@@ -1,0 +1,13 @@
+{
+  "source": {
+    "command": "uv run --locked python -m scripts.weil_fourier_minorant_matrix source --output computations/2026-10-25T155033Z-fourier-minorant-sign/data/source-v1.json.gz",
+    "exit_code": 0,
+    "tool_wall_seconds": 34.47
+  },
+  "proof": {
+    "exit_code": 1,
+    "tool_wall_seconds": 1.91,
+    "error": "ValueError: complete sufficient lower not certified: even"
+  },
+  "initial_packet_status": "INVALID_FOR_INTENDED_MINORANT: half arithmetic coefficient; no positivity claim"
+}

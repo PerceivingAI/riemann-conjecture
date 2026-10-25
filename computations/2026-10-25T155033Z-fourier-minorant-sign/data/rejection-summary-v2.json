@@ -1,0 +1,32 @@
+[
+  {
+    "name": "changed-band-input",
+    "exit_code": 1,
+    "success_output_exists": false,
+    "scope": "exact proof/source binding and consequence replay, not a second fresh analytic rebuild"
+  },
+  {
+    "name": "unpaid-complement",
+    "exit_code": 1,
+    "success_output_exists": false,
+    "scope": "exact proof/source binding and consequence replay, not a second fresh analytic rebuild"
+  },
+  {
+    "name": "forged-margin",
+    "exit_code": 1,
+    "success_output_exists": false,
+    "scope": "exact proof/source binding and consequence replay, not a second fresh analytic rebuild"
+  },
+  {
+    "name": "forged-mass-gap",
+    "exit_code": 1,
+    "success_output_exists": false,
+    "scope": "exact proof/source binding and consequence replay, not a second fresh analytic rebuild"
+  },
+  {
+    "name": "singular-transform",
+    "exit_code": 1,
+    "success_output_exists": false,
+    "scope": "exact proof/source binding and consequence replay, not a second fresh analytic rebuild"
+  }
+]
