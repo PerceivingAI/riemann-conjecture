@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-I",
+    "-c",
+    "import runpy,sys;sys.path.insert(0,sys.argv.pop(1));runpy.run_module(sys.argv.pop(1),run_name='__main__')",
+    "computations\\2026-10-25T203013Z-m4-fourier-qualification\\source-v1",
+    "scripts.weil_m4_fourier_qualification",
+    "--output",
+    "computations\\2026-10-25T203013Z-m4-fourier-qualification\\data\\isolated-qualification-controls-v1.json"
+  ],
+  "cwd": ".",
+  "started_utc": "2026-10-25T20:50:34.700275+00:00",
+  "elapsed_seconds": 0.39344390004407614,
+  "returncode": 0,
+  "stdout": "{\"scope\": \"whole log2<T<log5/2 analytical qualification; no selected support or positivity matrix\", \"nonempty_signed_image_pairs\": 20, \"reference_lower\": \"63/32\", \"complete_mixed_Gram_upper\": \"1/2000000000000\", \"new_low_matrix_computed\": false}\n",
+  "stderr": ""
+}

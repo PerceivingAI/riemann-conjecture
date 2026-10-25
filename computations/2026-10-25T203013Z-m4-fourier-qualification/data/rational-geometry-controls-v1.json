@@ -1,0 +1,68 @@
+{
+  "format": "m4-rational-geometry-countercontrols-v1",
+  "controls": {
+    "toy_shifts": [
+      "3/4",
+      "7/5",
+      "3/2"
+    ],
+    "selected_support": false,
+    "breakpoints": [
+      "-1",
+      "-1/2",
+      "-2/5",
+      "-1/4",
+      "1/4",
+      "2/5",
+      "1/2",
+      "1"
+    ],
+    "cell_counts": [
+      3,
+      2,
+      1,
+      2,
+      1,
+      2,
+      3
+    ],
+    "ordered_image_pairs": 36,
+    "positive_length_pairs": 20,
+    "low_matrix": [
+      [
+        "-47/10",
+        "0"
+      ],
+      [
+        "0",
+        "26873/24000"
+      ]
+    ],
+    "square_from_cells": [
+      [
+        "121/10",
+        "0"
+      ],
+      [
+        "0",
+        "6137/2400"
+      ]
+    ],
+    "square_from_pairs": [
+      [
+        "121/10",
+        "0"
+      ],
+      [
+        "0",
+        "6137/2400"
+      ]
+    ],
+    "omitted_central_pair_loss": "1",
+    "wrong_omission_square": "111/10",
+    "correct_mass_tail_Gram": "211/200",
+    "wrong_identity_mass_tail_Gram": "-999/100",
+    "off_parity_checked_before_projection": true
+  },
+  "script_sha256": "76286122b8d13e49f5d76c596361c25c70e03ff00dcf522669fab0f3ecf8cc3c"
+}

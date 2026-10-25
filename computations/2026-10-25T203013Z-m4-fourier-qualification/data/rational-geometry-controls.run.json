@@ -1,0 +1,18 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-m",
+    "scripts.weil_m4_geometry_controls",
+    "--output",
+    "computations\\2026-10-25T203013Z-m4-fourier-qualification\\data\\rational-geometry-controls-v1.json"
+  ],
+  "cwd": ".",
+  "started_utc": "2026-10-25T20:48:15.975144+00:00",
+  "elapsed_seconds": 0.22406020003836602,
+  "returncode": 0,
+  "stdout": "{\"positive_length_pairs\": 20, \"correct_mass_tail_Gram\": \"211/200\", \"omission_detected\": true, \"mass_error_detected\": true, \"support_probe\": false}\n",
+  "stderr": ""
+}

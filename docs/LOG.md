@@ -1,10 +1,42 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-25T18:25:39Z`
+- **Last updated:** `2026-10-25T23:33:31Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-25T23:33:31Z — Structural crossing assessed; fixed positive arithmetic references are not an all-support mechanism
+
+[F-20261025-010](../findings/2026-10-25T232320Z-fourier-reference-scaling-obligation.md) / C-0101 and [X-20261025-010](../computations/2026-10-25T232320Z-fourier-structural-assessment/record.md) bind12 original source/proof/audit/receipt inputs to their original seals and compare complete workloads without a new matrix. Same finite dimensions and source slots establish a practical structural crossing, not reduced data, matched speedup or a global law. Reported finite congruence lowers are not interpreted as spectral-gap ratios.
+
+A self-contained constant-trial and elementary Euler-product proof shows necessary a/Omega growth for this globally nonnegative-M construction along unbounded supports. The present geometric majorant imposes a separate dimension-growth prerequisite. No common positive coercivity constant, RH, prime number theorem or quantitative cancellation premise is assumed. Independent mathematical review and subsequent scalar/exact controls pass; captured-code replay is byte-identical, with isolated import origins checked. No old source/test/result, new support sign, production profile or admission changes. The result is not a no-go for H0 positivity, Weil positivity or other reference constructions.
+
+---
+
+## 2026-10-25T23:08:20Z — Full post-m4 bounded Fourier reference passes independent source and exact positive gates
+
+[F-20261025-009](../findings/2026-10-25T220817Z-positive-post-m4-fourier-minorant.md) / C-0100 and [X-20261025-009](../computations/2026-10-25T220817Z-post-m4-fourier-sign/record.md) establish source-conditional smooth-test positivity at T3/4, with a7/2,Omega256,N312 fixed before signs. New separate producer/checker versions retain all2/3/4 mixed arithmetic,20 nonempty direct image domains, the signed pole and complete source/complement errors. Exact integer analytic-radius inflation keeps numerical matrix-width reports independently measurable. All292968 source slots and both156-dimensional exact parity congruences pass on the first frozen precision configuration.
+
+The21 focused old/new regressions and7 actual altered inputs pass their acceptance/rejection contracts. The rebound band corruption requires and fails a fresh analytical containment check. Separate exact-only replay does not rebuild source inputs; isolated source/proof/exact-receipt regeneration is byte-identical, and a further isolated fresh analytical source audit passes. Original source/test/artifact versions remain unchanged. No production profile, whitelist or admission changes. No global support-covering, originality, matched speedup, canonical-domain equality or RH claim follows.
+
+---
+
+## 2026-10-25T21:19:30Z — Pointwise post-m4 allowances and full enclosure-order loss assessed
+
+[F-20261025-008](../findings/2026-10-25T211305Z-pointwise-fourier-resolution-accounting.md) / C-0099 and [X-20261025-008](../computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/record.md) execute only scalar/error and exact contraction-volume calculations at T3/4,N312. The complete pointwise compact allowance is sharper than the uniform-window envelope. The source interval-box conversion pays its full mass-dependent loss rather than equating an operator quadrature radius with the final lower error. Numerical width budgets and the finite sign remain uncomputed hypotheses.
+
+The retained source q48 comparison lies between the new q48 and q49 analytic bounds. Dense contraction-volume ratios are exact accounting, not timing or memory measurements. An independent mathematical/source review finds no defect requiring repair; canonical and captured-source outputs agree byte-for-byte. No old source/test/artifact, matrix implementation, positivity theorem, production profile or admission changes.
+
+---
+
+## 2026-10-25T20:51:16Z — Coupled dyadic reference and complete post-m4 Fourier bounds qualified
+
+[F-20261025-007](../findings/2026-10-25T203013Z-m4-fourier-qualification.md) / C-0097,C-0098 and [X-20261025-007](../computations/2026-10-25T203013Z-m4-fourier-qualification/record.md) derive the whole first post-m4 window before any new low sign. Exact2/4 fiber coupling improves the reference norm, while all36 ordered image pairs reveal20 positive-length domains, including two formerly empty opposite-sign2/2 pairs. The full exterior, one-sided/double compact complement, mixed Gram, domains, frequency quadrature and expanded finite anchors are independently qualified.
+
+The unchanged a7/2,Omega256 remain admissible. Existing N312 supplies a uniform complete-complement comparison, not a selected new case. Canonical scalar and rational toy-geometry controls pass; captured-source replays are byte-identical. The toy square detects omitted central pairs and wrong physical mass. No new support, low positivity, matrix implementation, production profile or admission is claimed. Historical source/test/evidence versions remain unchanged.
+
+---
 
 ## 2026-10-25T18:25:39Z — Complete bounded Fourier reference passes fresh source and exact positivity gates
 

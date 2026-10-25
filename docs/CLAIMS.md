@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-25T18:25:39Z`
+- **Last updated:** `2026-10-25T23:33:31Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -1081,6 +1081,61 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** C-0094; R-0028 Suzuki v3; R-0030 digamma series; R-0037 Legendre Fourier integral and positive Gaussian exactness. Shared Arb/FLINT transcendental and rigorous-root premises.
 - **Source:** [F-20261025-006](../findings/2026-10-25T155033Z-positive-fourier-minorant.md), [X-20261025-006](../computations/2026-10-25T155033Z-fourier-minorant-sign/record.md).
 - **Verification notes:** All292968 serialized entries in six complete matrices are independently rebuilt at Arb768 with arithmetic Gauss313 versus312, band Gauss64 versus48, direct signed-shift intersections, separate weights and bounded finite-series anchors. Exact congruence, physical mass lowers, exact replay,4 focused regressions and5 actual altered-report rejections pass. Isolated source/proof/receipt regeneration is byte-identical. Initial half-coefficient/quarter-square producer defect, invalid packet and failed proof remain reproducible; corrected packet is a separate version. No inherited positive K312 authority, new support frontier, matched speedup, global support family, Rust/Lean check or RH result.
+
+### C-0097 — Coupled dyadic reference bound on the first post-m4 window
+
+- **Statement:** Throughout log2<T<log5/2, active prime powers are2,3,4 and tau4=2tau2. The joint2/4 signed-shift norm is log2*(1+sqrt17)/4; adding3 gives ||P||<49/32 and M=(7/2)I+P>=63I/32. The seven-cell geometry has20 positive-length signed-image intersections among36 ordered pairs, retaining all mixed products and the two newly nonempty opposite-sign2/2 image pairs. The4 one-sided coefficient is log2/2.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` independent fiber/domain derivation and exact rational countercontrols; not positivity of M+K
+- **First recorded:** `2026-10-25T20:30:13Z`
+- **Last verified:** `2026-10-25T20:51:16Z`
+- **Dependencies:** C-0040 compressed-shift chain argument; C-0094/C-0096 source conventions; exact finite fiber spectral algebra.
+- **Source:** [F-20261025-007](../findings/2026-10-25T203013Z-m4-fourier-qualification.md), [X-20261025-007](../computations/2026-10-25T203013Z-m4-fourier-qualification/record.md).
+- **Verification notes:** Rational characteristic polynomial, weighted self-adjointness, log/radical envelopes and36-pair classification pass. Independent toy seven-cell and direct-pair integration agree; omission of the central pair loses1 and wrong identity mass makes the constant tail Gram negative. No rational support, low sign or admission is generated.
+
+### C-0098 — Complete post-m4 Fourier complement and source-enclosure qualification
+
+- **Statement:** On the same window, a=7/2,Omega256 retain A(t)-a>1/5 on the whole exterior. The full compact double/one-sided formulas kappa(T,N),eta(T,N) and mixed allowance2*(49/32)eta+eta² yield a positive outside denominator. Uniformly at the existing comparison N312, kappa<3e-27,eta<1.4e-13 and the complete mixed allowance<5e-13. Thus both complete parity blocks of A_- - [(GP)_+ +5e-13 D]/[63/32-3e-27]>0 would imply H0>0 and smooth-test Weil positivity. The complete frequency-quadrature and expanded w<208 finite-anchor enclosure method are qualified; no finite sign is evaluated.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` conditional finite criterion and whole-window complete bounds, not support positivity
+- **First recorded:** `2026-10-25T20:30:13Z`
+- **Last verified:** `2026-10-25T20:51:16Z`
+- **Dependencies:** C-0097; C-0094 full source/exterior/compact argument; C-0096 source-enclosure derivation; R-0028,R-0030,R-0037 and scalar Arb/FLINT premises.
+- **Source:** [F-20261025-007](../findings/2026-10-25T203013Z-m4-fourier-qualification.md), [X-20261025-007](../computations/2026-10-25T203013Z-m4-fourier-qualification/record.md).
+- **Verification notes:** Independent full-contract review,512-bit scalar bounds and byte-identical isolated source replay pass. Rational13/16 is a monotone analytic majorant only, not a support with this active set. Full quadrature bounds at q48/q64 are below2e-20/5e-30; anchor tails below2^-720 still require prefactors and interval recurrence propagation. No new matrix, fixed accuracy guarantee, generic generator, full canonical-domain equality, new support theorem, production admission or RH conclusion.
+
+### C-0099 — Pointwise Fourier allowances and complete interval-order resolution
+
+- **Statement:** At T=3/4,a7/2,Omega256,N312, full compact bounds give kappa<4e-49,eta<1.9e-24 and mixed allowance epsilon0=6e-24, with d0=63/32-4e-49>0. For the existing entry-radius/row-sum construction the full parity mass-order conversion factor is less than470. If the numerical low-A and GP true-to-ordered-bound losses are at most1e-27 and1e-28, excluding the separately paid band analytic radius E<3e-21, then the sufficient lower S_-=A_- - [(GP)_+ +epsilon0 D]/d0 satisfies0<=A-GP/(63/32)-S_-<1.5e-18 D.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` scalar bounds and conditional resolution, not numerical matrix widths or positivity
+- **First recorded:** `2026-10-25T21:13:05Z`
+- **Last verified:** `2026-10-25T21:19:30Z`
+- **Dependencies:** C-0097/C-0098; exact symmetric interval order; C-0096's byte-bound quadrature comparison and source organization.
+- **Source:** [F-20261025-008](../findings/2026-10-25T211305Z-pointwise-fourier-resolution-accounting.md), [X-20261025-008](../computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/record.md).
+- **Verification notes:** Independent review accepts complete mass/denominator/mixed-error algebra. Executed512-bit scalar controls and exact nonuniform-mass box control pass; isolated output is byte-identical. q49 is the least integer order beating the old q48 analytic upper at this support, not actual-error optimality. Exact dense contraction-volume ratios1.328/1.520 are shape accounting, not runtime or native-complexity claims. No low matrix, width-budget achievement, new support positivity, source upgrade or admission.
+
+### C-0100 — Complete bounded Fourier minorant positive across the4 transition
+
+- **Statement:** At T=3/4,a7/2,Omega256,N312, fresh complete P/P²/GP,pole,band,A enclosures and exact rational congruences prove both156-dimensional blocks of A_--[(GP)_++6e-24 D]/[63/32-4e-49] strictly positive. Certified finite mass-lower displays are3.4303902537912005e-15 even and3.215845801374643e-12 odd. C-0097/C-0098/C-0099's full complement and exterior imply H0>0 on all L²(-T,T), then complex smooth-test Weil positivity under documented Suzuki/Arb premises. Active2,3,4, all20 nonempty signed-image domains and the negative odd pole are retained.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` complete fresh independent analytical acceptance and exact rational research proof, not production admission
+- **First recorded:** `2026-10-25T22:08:17Z`
+- **Last verified:** `2026-10-25T23:08:20Z`
+- **Dependencies:** C-0097/C-0098/C-0099; R-0028,R-0030,R-0037; shared Arb/FLINT transcendental and rigorous-root premises.
+- **Source:** [F-20261025-009](../findings/2026-10-25T220817Z-positive-post-m4-fourier-minorant.md), [X-20261025-009](../computations/2026-10-25T220817Z-post-m4-fourier-sign/record.md).
+- **Verification notes:** All292968 serialized slots are independently rebuilt at Arb768 versus source512, polynomial Gauss313 versus312 and band Gauss64 versus49. Numerical A/GP order losses about8.00e-34/3.29e-33 meet the declared budgets; full analytic radius and mixed payment remain separate. Both exact blocks,21 focused old/new regressions and7 actual altered-input rejections pass, including fresh analytical rejection of a rebound band corruption. Isolated source/proof/exact-receipt regeneration is byte-identical; an additional isolated fresh analytical source audit also passes. No precision retry, inherited positive low authority, global support family, full canonical-domain equality, literature originality, Rust/Lean acceptance or theorem admission.
+
+### C-0101 — Necessary growth of the present positive arithmetic reference
+
+- **Statement:** For complete signed arithmetic P_T on L²(-T,T), the normalized constant trial gives r(T)=sum_(log(m)<2T) Lambda(m)/sqrt(m)*(2-log(m)/T)->infinity. Any globally nonnegative M_T=a(T)I+P_T along T_j->infinity therefore requires a(T_j)->infinity, without a common positive coercivity constant. Requiring the complete exterior A(t)-a(T)>=0 for abs(t)>Omega(T) gives a(T)<=A(Omega(T)) and hence Omega(T_j)->infinity. Continuing to use the present geometric Legendre majorant requires N>sqrt((T Omega)^2+1)/2-1, so its dimension also grows.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` independently reviewed necessary-growth argument, not a global positivity or no-go theorem
+- **First recorded:** `2026-10-25T23:23:20Z`
+- **Last verified:** `2026-10-25T23:33:31Z`
+- **Dependencies:** C-0039/C-0058 complete arithmetic convention; C-0094/C-0098 exterior and tail formulas; elementary finite Euler products, unique factorization and harmonic divergence.
+- **Source:** [F-20261025-010](../findings/2026-10-25T232320Z-fourier-reference-scaling-obligation.md), [X-20261025-010](../computations/2026-10-25T232320Z-fourier-structural-assessment/record.md).
+- **Verification notes:** Independent mathematical review checks normalization, divergence, cutoff inequality and quantifiers. Canonical/isolated retained comparison outputs are byte-identical; fresh scalar constant trials fit both original source intervals and exact finite Euler/boundary controls pass. No new matrix or support sign is generated. This limits the present globally positive-M construction and geometric enclosure, not H0/Weil positivity, different references or all Fourier methods. No growth rate, minimum positivity dimension, practical global cost or production admission is proved.
 
 ## Entry format
 

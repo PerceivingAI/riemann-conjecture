@@ -1,0 +1,17 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "computations\\2026-10-25T232320Z-fourier-structural-assessment\\comparison-v1.py",
+    "--output",
+    "computations\\2026-10-25T232320Z-fourier-structural-assessment\\data\\comparison-v1.json"
+  ],
+  "cwd": ".",
+  "started_utc": "2026-10-25T23:28:59.953354+00:00",
+  "elapsed_seconds": 1.0665686000138521,
+  "returncode": 0,
+  "stdout": "{\"source_slots_each\": 292968, \"new_support_matrix_computed\": false, \"constant_trial_controls\": \"PASS\", \"finite_series_controls\": \"PASS\", \"observed_timing_ratios_are_speedup_claims\": false}\n",
+  "stderr": ""
+}

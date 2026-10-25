@@ -1,0 +1,12 @@
+{
+  "checked_utc": "2026-10-25T23:44:15.930159+00:00",
+  "public_markdown": {
+    "local_links": 523,
+    "tables": 3
+  },
+  "preseal_scan_files": 27,
+  "preseal_scan_decoded_bytes": 842613,
+  "restricted_references_found": 0,
+  "local_workspace_prefixes_found": 0,
+  "new_calculation_LF_and_trailing_whitespace": "PASS"
+}

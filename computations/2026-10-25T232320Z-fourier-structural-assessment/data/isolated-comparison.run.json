@@ -1,0 +1,20 @@
+{
+  "command": [
+    ".venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-c",
+    "import runpy,sys;runpy.run_path(sys.argv.pop(1),run_name=\"__main__\")",
+    "computations\\2026-10-25T232320Z-fourier-structural-assessment\\source-v1\\computations\\2026-10-25T232320Z-fourier-structural-assessment\\comparison-v1.py",
+    "--input-root",
+    ".",
+    "--output",
+    "computations\\2026-10-25T232320Z-fourier-structural-assessment\\data\\isolated-comparison-v1.json"
+  ],
+  "cwd": ".",
+  "started_utc": "2026-10-25T23:31:01.618084+00:00",
+  "elapsed_seconds": 1.0849548000842333,
+  "returncode": 0,
+  "stdout": "{\"source_slots_each\": 292968, \"new_support_matrix_computed\": false, \"constant_trial_controls\": \"PASS\", \"finite_series_controls\": \"PASS\", \"observed_timing_ratios_are_speedup_claims\": false}\n",
+  "stderr": ""
+}

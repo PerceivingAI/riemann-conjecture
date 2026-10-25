@@ -1,0 +1,22 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-m",
+    "scripts.verify_m4_fourier_matrix",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\data\\attack-singular-transform-proof.json.gz",
+    "--source",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\data\\source-v1.json.gz",
+    "--exact-only",
+    "--output",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\data\\attack-singular-transform-unexpected-success.json"
+  ],
+  "cwd": ".",
+  "started_utc": "2026-10-25T23:02:33.594537+00:00",
+  "elapsed_seconds": 1.7329852000111714,
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"<workspace>\\scripts\\verify_m4_fourier_matrix.py\", line 660, in <module>\n    main()\n    ~~~~^^\n  File \"<workspace>\\scripts\\verify_m4_fourier_matrix.py\", line 651, in main\n    result = audit(args.input, args.source, args.exact_only, args.source_only)\n  File \"<workspace>\\scripts\\verify_m4_fourier_matrix.py\", line 620, in audit\n    margins = {} if source_only else exact_blocks(obj)\n                                     ~~~~~~~~~~~~^^^^^\n  File \"<workspace>\\scripts\\verify_m4_fourier_matrix.py\", line 583, in exact_blocks\n    return {name: verify_block(sufficient_lower(obj[\"matrices\"], parity),\n                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                               obj[\"blocks\"][name], parity)\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<workspace>\\scripts\\verify_m4_fourier_matrix.py\", line 470, in verify_block\n    raise ValueError(\"singular or non-upper-triangular congruence witness\")\nValueError: singular or non-upper-triangular congruence witness\n"
+}

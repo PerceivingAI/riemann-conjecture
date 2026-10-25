@@ -1,0 +1,40 @@
+{
+  "format": "research-source-snapshot-v1",
+  "members": [
+    {
+      "path": "computations/2026-10-25T232320Z-fourier-structural-assessment/comparison-v1.py",
+      "bytes": 9809,
+      "sha256": "3bfa96b8b6c67ba2ec0d4177801808c86115970f609cbb495945fabc566e6f55"
+    },
+    {
+      "path": "computations/2026-10-25T232320Z-fourier-structural-assessment/input-pins.json",
+      "bytes": 5131,
+      "sha256": "217743db39149923cc47b6b45e77e8fa1739e116815f8256a387089294221127"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    }
+  ]
+}

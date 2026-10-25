@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-c",
+    "import runpy,sys;runpy.run_path(sys.argv.pop(1),run_name=\"__main__\")",
+    "computations\\2026-10-25T211305Z-post-m4-scalar-cost-assessment\\source-v1\\computations\\2026-10-25T211305Z-post-m4-scalar-cost-assessment\\assessment-v1.py",
+    "--output",
+    "computations\\2026-10-25T211305Z-post-m4-scalar-cost-assessment\\data\\isolated-assessment-v1.json"
+  ],
+  "cwd": ".",
+  "started_utc": "2026-10-25T21:19:13.442114+00:00",
+  "elapsed_seconds": 2.2843951999675483,
+  "returncode": 0,
+  "stdout": "{\"support\": [3, 4], \"mixed_Gram_upper\": \"3/500000000000000000000000\", \"q49_below_baseline_q48\": true, \"matrix_slots\": 292968, \"new_low_matrix_computed\": false}\n",
+  "stderr": ""
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-m",
+    "scripts.weil_m4_fourier_qualification",
+    "--output",
+    "computations\\2026-10-25T203013Z-m4-fourier-qualification\\data\\qualification-controls-v1.json"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 0.3222313999431208,
+  "stdout": "{\"scope\": \"whole log2<T<log5/2 analytical qualification; no selected support or positivity matrix\", \"nonempty_signed_image_pairs\": 20, \"reference_lower\": \"63/32\", \"complete_mixed_Gram_upper\": \"1/2000000000000\", \"new_low_matrix_computed\": false}\n",
+  "stderr": ""
+}

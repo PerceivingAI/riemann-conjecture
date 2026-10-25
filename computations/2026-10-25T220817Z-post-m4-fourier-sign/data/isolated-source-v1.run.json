@@ -1,0 +1,20 @@
+{
+  "command": [
+    ".venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-c",
+    "import runpy,sys;sys.path.insert(0,sys.argv.pop(1));runpy.run_module(sys.argv.pop(1),run_name='__main__')",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\source-v1",
+    "scripts.weil_m4_fourier_matrix",
+    "source",
+    "--output",
+    "computations\\2026-10-25T220817Z-post-m4-fourier-sign\\data\\isolated-source-v1.json.gz"
+  ],
+  "cwd": ".",
+  "started_utc": "2026-10-25T23:05:21.644815+00:00",
+  "elapsed_seconds": 33.06857240002137,
+  "returncode": 0,
+  "stdout": "{\"scope\": \"complete fixed T3/4 research minorant inputs; no positivity or admission until independently accepted\", \"status\": \"SOURCE_ONLY\", \"quadrature_operator_error_upper\": \"854332567774897665/340282366920938463463374607431768211456\", \"gaps\": {}}\n",
+  "stderr": ""
+}
