@@ -1,0 +1,165 @@
+{
+  "format": "research-computation-bundle-integrity-v1",
+  "computation_id": "X-20261025-004",
+  "sealed_utc": "2026-10-25T14:05:40Z",
+  "member_count": 31,
+  "total_member_bytes": 23557715,
+  "members": [
+    {
+      "path": "assess-v1.py",
+      "bytes": 8425,
+      "sha256": "4ebd76e877937f557a6eacdccc2303c8518195e3daf4da71002a472f00bfe62c"
+    },
+    {
+      "path": "data/assessment-v1.json",
+      "bytes": 4817,
+      "sha256": "d295b3a1c54832f353efb3c1916a93831e731c1dc546f9077d5e020004117a75"
+    },
+    {
+      "path": "data/captured-input-replay-v1.json",
+      "bytes": 4817,
+      "sha256": "d295b3a1c54832f353efb3c1916a93831e731c1dc546f9077d5e020004117a75"
+    },
+    {
+      "path": "data/captured-input-replay.run.json",
+      "bytes": 619,
+      "sha256": "ff3342c4d6357e0f22877a59dde8441caa7d32f0c13b3aa095c4f760823fabfd"
+    },
+    {
+      "path": "data/captured-input-replay.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/captured-input-replay.stdout.txt",
+      "bytes": 283,
+      "sha256": "081757e6cd1d941e131dadc58460e8c44908aeb40751135877f7fa9125f726fd"
+    },
+    {
+      "path": "data/decision.json",
+      "bytes": 969,
+      "sha256": "090c257c783adcd7e61ed7a3f67f55a56fca2d9cc51f991a074baae78d16e233"
+    },
+    {
+      "path": "data/preservation-document-validation.json",
+      "bytes": 703,
+      "sha256": "95ab380349700748466bb6b831ce18187821f14fc8fc2ef3197bb2c246c49884"
+    },
+    {
+      "path": "data/viability-accounting.run.json",
+      "bytes": 532,
+      "sha256": "aff27a596fe32ab6b0994415837c74399fb07ef602df7f2191ae6077896975d2"
+    },
+    {
+      "path": "data/viability-accounting.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/viability-accounting.stdout.txt",
+      "bytes": 283,
+      "sha256": "081757e6cd1d941e131dadc58460e8c44908aeb40751135877f7fa9125f726fd"
+    },
+    {
+      "path": "derivation-v1.md",
+      "bytes": 3030,
+      "sha256": "1acfad81cdc9c49a4cb8f91aff6a76579105d0d30e9938c4949ed29a8c54963f"
+    },
+    {
+      "path": "environment.json",
+      "bytes": 389,
+      "sha256": "7c7245d25f6fd27bfe9ea91f1aa1d6766ab9d575956cef66f2776db82b42d5a0"
+    },
+    {
+      "path": "inputs/computations/2026-10-24T153012Z-weighted-reference-continuation/data/source-m626-v1.json.gz",
+      "bytes": 5853746,
+      "sha256": "0d63fe8f879138ddfa60cbf6dab2f00190dea624dc91c77c3a5556394d8f1fda"
+    },
+    {
+      "path": "inputs/computations/2026-10-24T191616Z-weighted-support-extension/data/assessment-run.json",
+      "bytes": 889,
+      "sha256": "b5e2168f734d76449b3816e97bbe406c538453be82e7220c5a2dd1e151653657"
+    },
+    {
+      "path": "inputs/computations/2026-10-24T191616Z-weighted-support-extension/data/audit-run.json",
+      "bytes": 721,
+      "sha256": "1cbb9f4960d25291e12f3bcc3f70448c24a9979b1598ae6dccdc386fc9eac3cf"
+    },
+    {
+      "path": "inputs/computations/2026-10-24T191616Z-weighted-support-extension/data/extension-assessment-v1.json",
+      "bytes": 1108723,
+      "sha256": "d7569a7037021fc729987b27851e64648f8f8f1eead8123dbd3391c4ce27cb8d"
+    },
+    {
+      "path": "inputs/computations/2026-10-24T191616Z-weighted-support-extension/data/extension-source-v1.json.gz",
+      "bytes": 16183360,
+      "sha256": "c9790a7b129aae0d410670830e8a472d639105d01884a041165fc119e627671e"
+    },
+    {
+      "path": "inputs/computations/2026-10-24T191616Z-weighted-support-extension/data/replay-run.json",
+      "bytes": 1040,
+      "sha256": "e7fc9b972cccf4f86c58ad697eec41a75ef2e8f5c9ed6d2462bd16350aec5c58"
+    },
+    {
+      "path": "inputs/computations/2026-10-24T191616Z-weighted-support-extension/data/source-run.json",
+      "bytes": 722,
+      "sha256": "bf5c5d78cc77577f5ee2656814fe25fdc969f1d67e3711991660f28d75a19bdf"
+    },
+    {
+      "path": "inputs/computations/2026-10-24T191616Z-weighted-support-extension/manifest.json",
+      "bytes": 20680,
+      "sha256": "28eff565a893a54b5ae111e6b70dd92f46d9440b736aa8ac5469bdf3b487da92"
+    },
+    {
+      "path": "inputs/computations/2026-10-25T130058Z-coupled-tail-comparison/data/comparison-v1.json",
+      "bytes": 74704,
+      "sha256": "e21b06e294f3a35a3d8870697b297a98551a2bf2d4106ce47bcaa1fbec5c7550"
+    },
+    {
+      "path": "inputs/computations/2026-10-25T130058Z-coupled-tail-comparison/data/coupled-comparison.run.json",
+      "bytes": 422,
+      "sha256": "f3c2183cec36fa2220a065236cc5828873912a10d339f3403cf5a58c68c9b487"
+    },
+    {
+      "path": "inputs/computations/2026-10-25T130058Z-coupled-tail-comparison/data/independent-audit-v1.json",
+      "bytes": 8632,
+      "sha256": "7e1eae38096dbf8f6737bb4862f530297f87ab8e1df0ac19b007786135c6b2a1"
+    },
+    {
+      "path": "inputs/computations/2026-10-25T130058Z-coupled-tail-comparison/manifest.json",
+      "bytes": 27522,
+      "sha256": "c50598a28ccc747f36c0842bc4fc39ef0e0accf2eafc85e648c7c2f48d9129a3"
+    },
+    {
+      "path": "inputs/manifest.json",
+      "bytes": 2160,
+      "sha256": "580f668d0d2350c7dca8495666c9fdfc9d1d9bd430a30f1cec2b171df37f8fed"
+    },
+    {
+      "path": "inputs/pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "inputs/scripts/weil_coupled_tail_comparison.py",
+      "bytes": 14285,
+      "sha256": "1a1a82207870cb063f213274f2021f27bbde7859f45838103b4220cade0f10ad"
+    },
+    {
+      "path": "inputs/uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    },
+    {
+      "path": "mathematical-review.md",
+      "bytes": 14047,
+      "sha256": "005c6ed9f595a0e15dd35d232b594762895e98446012431b8415b8c29cebd702"
+    },
+    {
+      "path": "record.md",
+      "bytes": 9192,
+      "sha256": "d866a31e5415998e2d2ef128d65b6033ead7347ecd834649670ceaa05b8e9d0e"
+    }
+  ],
+  "scope": "Matched-criterion mathematical assessment and retained accounting, not a new positivity run, global no-go or theorem admission"
+}

@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.weil_coupling_projection",
+    "analyze",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T001555Z-coupling-derived-projection\\data\\projection-v1.json"
+  ],
+  "started_utc": "2026-10-25T00:24:29.656167+00:00",
+  "elapsed_seconds": 0.6595799999777228,
+  "exit_code": 0
+}

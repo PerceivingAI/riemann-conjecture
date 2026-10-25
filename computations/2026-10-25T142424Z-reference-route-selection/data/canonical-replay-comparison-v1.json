@@ -1,0 +1,8 @@
+{
+  "canonical_returncode": 0,
+  "isolated_returncode": 0,
+  "canonical_and_isolated_byte_identical": true,
+  "canonical_and_retained_procedure_byte_identical": true,
+  "initial_canonical_difference": "Only script_sha256 differed because the initial new-file helper wrote CRLF. Exact CRLF source and initial outputs/runs are retained. The final root source and isolated snapshot use identical LF bytes.",
+  "independent_library_verification": false
+}

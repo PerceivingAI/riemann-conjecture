@@ -1,0 +1,1 @@
+{"status": "MATCHED_CRITERION_AND_COST_ACCOUNTING_PASS", "source_slots": 758475, "full_parity_order": 156, "retained_tail_order": 146, "low_order": 10, "dense_work_identity": "2530944", "fresh_pipeline_seconds": 2727.277751999907, "inherited_comparison_seconds": 7.961842999910004}

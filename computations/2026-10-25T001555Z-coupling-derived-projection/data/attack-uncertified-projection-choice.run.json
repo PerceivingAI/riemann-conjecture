@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_coupling_projection",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T001555Z-coupling-derived-projection\\data\\attack-uncertified-projection-choice.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T001555Z-coupling-derived-projection\\data\\attack-uncertified-projection-choice-success.json"
+  ],
+  "started_utc": "2026-10-25T00:29:22.545595+00:00",
+  "elapsed_seconds": 0.7525437000440434,
+  "exit_code": 2
+}

@@ -1,0 +1,1 @@
+REJECTED: outside_excess_upper: incorrect directed consequence

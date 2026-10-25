@@ -1,0 +1,1 @@
+{"status": "PROJECTION_DIAGNOSED", "selected_projection": 20, "output": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T001555Z-coupling-derived-projection\\data\\projection-v1.json"}

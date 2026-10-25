@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-24T23:28:30Z`
+- **Last updated:** `2026-10-25T15:08:18Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -1004,6 +1004,72 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** C-0063, C-0072, C-0082, C-0085, C-0088 and the retained complete source intervals. C-0087 supplies the existing support and contrasting positive N312 result, not a premise needed for the negative directions.
 - **Source:** [F-20261024-008](../findings/2026-10-24T231555Z-tail-complement-weighted-reference.md), [X-20261024-006](../computations/2026-10-24T231555Z-tail-complement-weighted-reference/record.md).
 - **Verification notes:** All2099 inputs are fresh at source768/native1536 bits, m54, physical masses and both8-dimensional parity blocks. Full R_T error is paid in the low upper and reverse-triangle inverse-energy lower. Actual reference uppers display-1.54268971276305/-0.75511662564937; even an optimistic zero residual-norm charge leaves-1.53998867124716/-0.75377418933396. The hypothetical reference is not claimed to dominate or be dominated by the actual tail. Four regressions, exact replay, three actual rejected controls and isolated captured-source regeneration/replay pass. A negative sufficient lower alone was not used to infer negativity. No longer head, greater precision or residual-only bound can rescue this same reference; no claim of true-Schur/Weil negativity, optimal larger dimension, method-wide failure, new support, production admission, priority or RH follows.
+
+### C-0090 — Coupled modes identify projection20 on the known P16 compression
+
+- **Statement:** At unchanged T=1353/2048,K38, the accepted C-0089 trials have sufficient original weighted coupling at mode16 even and mode17 odd, respectively, to force the negative reference sign after the full source error is paid. Their dominant weighted charges display3.071139864/1.832913796 with constructive V/P cross charges1.510861425/0.892875310. Reprojection uses G_L restricted to P16 =G16-sum_(16<=k<L)t_k*t_k/d_k and weights1/(mu_L+H_k-H_L), with the C-0088 complement. Under the declared whole-known-space lower-certificate rule, the first even projection is L20: both8-dimensional P16-compression blocks have exact positive lower certificates. No full P20 reference positivity is asserted.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` source-conditional retained-data consequence with independent interval audit and exact old-subspace witnesses; not a new full-space positivity result or admission
+- **First recorded:** `2026-10-25T00:15:55Z`
+- **Last verified:** `2026-10-25T00:32:20Z`
+- **Dependencies:** C-0063, C-0072, C-0082, C-0085, C-0088 and the accepted C-0089 source/receipt/trials.
+- **Source:** [F-20261025-001](../findings/2026-10-25T001555Z-coupling-derived-projection.md), [X-20261025-001](../computations/2026-10-25T001555Z-coupling-derived-projection/record.md).
+- **Verification notes:** No fresh analytical arrays. The independent1536-bit consequence evaluator uses the narrower native512 receipt to check76 mode rows and408 U entries at L16,18,20, changed scalar complements, signed cross terms, complete tails and both exact witnesses. At L18 the two stored trials are strictly positive but the whole known-space lower is uncertified. At L20 mass-normalized lower displays are1.2043113561921998e-9 even and5.752414055738578e-8 odd on P16 only. Two finite-operator regressions, exact replay, five altered-report rejections and isolated captured-source replay pass. Neither omission of promoted rows from the head alone nor retaining H16 in the new weights is valid. New low directions16..19, full P20 positivity, optimal dimension, new support, production admission, priority and RH remain unestablished.
+
+### C-0091 — Complete P20 harmonic reference has negative directions in both parities
+
+- **Statement:** At unchanged T=1353/2048,K38,N20 and the exact C-0088 complement displaying0.4726350157991974, the full harmonic reference S0=A-B*C0^-1B, C0 e_k=(mu20+H_k-H20)e_k, is not positive in either parity sector. Retained rational, nearly unit-physical-mass trials have genuine full-reference uppers displaying-1.24680669473969e-5 even and-4.17544391746990e-8 odd. Complete reprojection from the accepted M312 source restores all low-cross rows20..311 and includes the four new low coordinates16..19.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` source-conditional negative reference directions, inherited analytical inputs, independent consequence audit and exact replay; not Weil negativity
+- **First recorded:** `2026-10-25T01:02:04Z`
+- **Last verified:** `2026-10-25T01:20:21Z`
+- **Dependencies:** C-0063, C-0072, C-0082, C-0085, C-0088, the retained original-v2 C-0087 source/receipt and the C-0090 projection choice.
+- **Source:** [F-20261025-002](../findings/2026-10-25T010204Z-complete-retained-reprojection.md), [X-20261025-002](../computations/2026-10-25T010204Z-complete-retained-reprojection/record.md).
+- **Verification notes:** Original-version full frozen-selection acceptance and exact replay pass without changing the later version3 validator. The native512/Arb1536 consequence audit checks420 A/U entries,998 combined rows and both complete10-dimensional parity blocks; no fresh analytical arrays. Full residual and cross norm remain paid. Two finite-operator regressions, five actual altered-report rejections, exact replay and isolated captured-source replay pass. C-0090's positive P16 compression remains valid but does not extend to P20. Neither more head rows nor precision rescues this fixed exact reference; no minimum dimension, true-Schur negativity, new support or production admission follows.
+
+### C-0092 — Coupled-tail comparison quantifies loss in the P20 diagonal reference
+
+- **Statement:** On the two exact C-0091 trials at unchanged T=1353/2048,N20,K38, nested variational elimination of degrees20..311 using the complete accepted K312 lower gives true-Schur lower displays3.98712016963808e-5 even and6.46271561971094e-8 odd. Subtracting the genuine negative harmonic-reference uppers gives reference-loss lower displays5.23392686437777e-5/1.06381595371808e-7. Finite coupled inverse energies are separately enclosed; the remaining infinite outside-response excess is at most7.06098512187744e-7/6.80105736432798e-10. Exact residual completion uses K_EE>=gD_E and the original physical masses.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` inherited-source quantitative directional consequence with independent exact audit and replay; not a new whole-space positivity theorem or admission
+- **First recorded:** `2026-10-25T13:00:58Z`
+- **Last verified:** `2026-10-25T13:16:42Z`
+- **Dependencies:** C-0063, C-0072, C-0087, C-0088 and C-0091, including original complete source/error authority and exact mass-normalized K312 gaps.
+- **Source:** [F-20261025-003](../findings/2026-10-25T130058Z-coupled-tail-comparison.md), [X-20261025-003](../computations/2026-10-25T130058Z-coupled-tail-comparison/record.md).
+- **Verification notes:** Independent Fraction consequences check46 scalars and1752 response coordinates, sharing only accepted legacy K reconstruction/provenance. Full outside tail and residual remain paid; no finite inverse is relabeled full. Truncated diagonal and signed off-diagonal stiffness increments are positive on both harmonic-response probes; total intervals restore delta. Two regressions, five actual rejected alterations, exact replay and isolated captured-source replay pass. The initial fmpq/Fraction test-harness failure and corrected version are preserved; no mathematical producer change. Positivity at this support was already known from C-0087. No new uniform P20 reference, smaller-data proof, block-size choice, cost reduction, production admission or RH claim.
+
+### C-0093 — Matched finite coupled-tail elimination is the larger-cut reference criterion
+
+- **Statement:** Under C-0063/C-0072's domain and bounded-cross hypotheses, fix L=P_N,E=P_M-P_N,F=Q_M and the same outside form reference D>=dI>0 for both constructions. Keeping identical finite blocks and F cross maps, elimination gives H_M=A_M-B_M*D^-1B_M and S_N^coupled=Schur_E(H_M). H_M>0 iff (H_M)_EE>0 and S_N^coupled>0, equivalently a positive coupled reference tail plus positive low Schur. The same finite equivalence holds for one fixed complete Loewner lower K_M. Relabeling E as coupled tail does not strengthen that matched exact criterion.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` independently qualified form/square-completion argument and exact finite controls; standard algebra applied locally, no novelty or production admission claim
+- **First recorded:** `2026-10-25T13:42:54Z`
+- **Last verified:** `2026-10-25T13:52:37Z`
+- **Dependencies:** C-0063, C-0072, positive outside reference and positive finite E Schur; C-0087/C-0092 provide the assessed implementation and retained evidence.
+- **Source:** [F-20261025-004](../findings/2026-10-25T134254Z-coupled-route-equivalence-and-viability.md), [X-20261025-004](../computations/2026-10-25T134254Z-coupled-route-viability/record.md).
+- **Verification notes:** Four exact controls enforce matched outside reference, E positivity and one-sided enclosure distinctions. Retained accounting confirms758475 source slots and146+10 coordinates per parity; the full dense leading-work and triangular-parameter identities do not imply universal algorithm lower bounds. Captured-input replay is byte-identical. Different historical reserves, bounds or conditioning are not identified. The concrete dense route is assessed as diagnostic rather than a demonstrated distinct continuation advantage; no global no-go, optimal dimension, fresh-source speedup, new support or RH result follows.
+
+### C-0094 — Quantitative Fourier bounded-minorant complement closure
+
+- **Statement:** Suzuki's smooth-test form splits as bounded H0=aI+P+K plus the exterior Fourier weight A(t)-a, A=Re psi(1/4+it/2)-log pi, with the complete signed arithmetic P and signed rank-two pole. At T in {3/5,1353/2048}, a=7/2, Omega256,N312, rigorous scalar bounds give A(t)-a>1/5 outside the band, ||P||<9/8, ||QKQ||<1e-82 and ||QK||<1e-40. Thus A312-(GP+3e-40 I)/(19/8-1e-82)>0 would imply H0>0 and smooth-test Weil positivity, where GP=Pi P Q P Pi includes combined arithmetic mixed products. The full mixed Gram is paid by its norm allowance; no concentration-gap lower bound is required.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` source/sign/domain qualification and rigorous scalar complement; finite low-matrix sign not evaluated
+- **First recorded:** `2026-10-25T14:24:24Z`
+- **Last verified:** `2026-10-25T15:08:18Z`
+- **Dependencies:** R-0028 Suzuki v3 smooth-test identity; R-0030 DLMF5.7.6; normalized Legendre/Rodrigues estimates and bounded-operator square completion. C-0093 distinguishes changed outside reference from elimination order.
+- **Source:** [F-20261025-005](../findings/2026-10-25T142424Z-reference-route-selection.md), [X-20261025-005](../computations/2026-10-25T142424Z-reference-route-selection/record.md).
+- **Verification notes:** Independent written qualification;512-bit direct digamma and signed4096-term series corroboration; exact rational thresholds; canonical locked CLI and isolated captured-module outputs agree byte-for-byte. Bump trials give only upper obstructions about8.624e-66/1.633e-72. H0 and the original unbounded form have distinct domains. No matrix source, new positivity theorem, support, speedup, originality claim or production admission.
+
+### C-0095 — Global real-residual one-sided Legendre range bound
+
+- **Statement:** For every finite T>0, the complete real Suzuki residual has g(t)=sech(t/2)/4+t sum_(n>=1)(-1)^n/(t²+4pi²n²), with |g'|<=5/48, |g''|<23/288 and cusp derivative g'(0+)=-1/48. Put C(T)=11T²/24+23T³/144 and E_N(z)=(2N+1)z^(2N)/((2N+1)!!)^2/[1-z²/((2N+1)(2N+3))]. For N>=1 and the displayed ratio below1, ||Q_N R_T Q_N||<=C(T)/[N(N+1)]+4T exp(T)E_N(T/2), and ||Q_N R_T||<=C(T)/[N(N+1)]+4sqrt(T exp(T)sinh(T)E_N(T/2)). There is no2T<pi condition or fixed Taylor-error floor.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` independently qualified full real-kernel, cusp, endpoint, range and pole derivation with scalar corroboration; not positivity
+- **First recorded:** `2026-10-25T14:24:24Z`
+- **Last verified:** `2026-10-25T15:08:18Z`
+- **Dependencies:** R-0028 global real residual; R-0036 DLMF4.36.5; the spectral Legendre argument used in C-0088, but not its local Taylor remainder.
+- **Source:** [F-20261025-005](../findings/2026-10-25T142424Z-reference-route-selection.md), [X-20261025-005](../computations/2026-10-25T142424Z-reference-route-selection/record.md).
+- **Verification notes:** Independent proof includes the multiplier -T²(1-x²)/24 and exact rank-two pole norm2T+2sinh(T). Direct kernel/derivative values and partial fractions corroborate at four points; uniform validity comes from the proof, not sampling. At T=1353/2048,N312 the full double-tail bound displays2.52001201167e-6, about4.243 times the retained C-0088 upper; it is coarser locally. At T2,N312 it remains finite, display3.18578593339e-5. Old kernels/refusals are unchanged. Global source range does not establish closed-domain equality, new support positivity, efficient N(T), production admission or RH.
 
 ## Entry format
 

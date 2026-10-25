@@ -1,0 +1,44 @@
+{
+  "status": "NEGATIVE_REFERENCE_DIRECTION",
+  "support": [
+    1353,
+    2048
+  ],
+  "dimension": 20,
+  "origin_dimension": 312,
+  "boundary": 1018,
+  "residual_order": 38,
+  "mu_display": 0.4726350157991974,
+  "directional_displays": [
+    {
+      "norm": 0.9999999999999972,
+      "a_full_upper": 5.49620519673116e-05,
+      "full_inverse_energy_lower": 6.743011891470853e-05,
+      "reference_upper": -1.2468066947396933e-05,
+      "parity": 0
+    },
+    {
+      "norm": 0.9999999999999998,
+      "a_full_upper": 1.0241918505505996e-07,
+      "full_inverse_energy_lower": 1.4417362422975897e-07,
+      "reference_upper": -4.175443917469902e-08,
+      "parity": 1
+    }
+  ],
+  "core_sha256": {
+    "original-v2-gate-v1.json": "9e7837dceefc3b3b35d0700077aec2157348c3610a07a82ccb9c76d83567ffcf",
+    "complete-reference-v1.json": "35468a0d04b26d3f94aff718f90009a42f260e7caa80dafbf50e56f71bce37c3",
+    "independent-audit-v1.json": "6729834e3c35bf85faf735da87865ea7db28636b90c4d8a2b46fbbb1f234920e",
+    "exact-replay-v1.json": "990d7080cb5e4f3b55b5055f92ccdaef67246d750f729801b5690baab0fb21e2"
+  },
+  "original_input_authority": "Original source-v2 acceptance/replay, inherited352/512 inputs; not fresh analytical generation",
+  "checked_triangle_entries": 420,
+  "checked_head_rows": 998,
+  "parity_dimensions": [
+    10,
+    10
+  ],
+  "source_files": 20,
+  "input_files": 32,
+  "verified_utc": "2026-10-25T01:20:21Z"
+}

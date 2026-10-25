@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_coupled_tail_comparison",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T130058Z-coupled-tail-comparison\\data\\comparison-v1.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T130058Z-coupled-tail-comparison\\data\\independent-audit-v1.json"
+  ],
+  "started_utc": "2026-10-25T13:11:12.748171+00:00",
+  "elapsed_seconds": 10.21714660001453,
+  "exit_code": 0
+}

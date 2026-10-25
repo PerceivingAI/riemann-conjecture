@@ -1,0 +1,29 @@
+{
+  "text": "Serialization aligned with primary:\n- Prefix sums published `weighted_energy_pair` lower endpoints.\n- Prefix index is physical k, not ranking position.\n- Prefix negativity uses the unrounded final reverse-triangle bound.\n\nOther fields match. Native U and directional calculations remain independent. No numerical jobs or checks run.",
+  "details": {
+    "totalLines": 6,
+    "rowPrefixes": false,
+    "displayContent": {
+      "text": "Serialization aligned with primary:\n- Prefix sums published `weighted_energy_pair` lower endpoints.\n- Prefix index is physical k, not ranking position.\n- Prefix negativity uses the unrounded final reverse-triangle bound.\n\nOther fields match. Native U and directional calculations remain independent. No numerical jobs or checks run.",
+      "startLine": 1,
+      "lineNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "fileSize": 332,
+    "meta": {
+      "source": {
+        "type": "internal",
+        "value": "agent://ProjectionAudit"
+      },
+      "pagedSource": true
+    },
+    "resolvedPath": "C:\\Users\\carlo\\.omp\\agent\\sessions\\--D--2_Add_Projects-riemann-conjecture--\\2026-10-22T14-24-43-006Z_01a163ff-fbfe-75c4-84c9-437c3641e5fc\\ProjectionAudit.md",
+    "contentType": "text/markdown"
+  }
+}

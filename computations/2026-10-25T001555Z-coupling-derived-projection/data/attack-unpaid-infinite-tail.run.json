@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_coupling_projection",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T001555Z-coupling-derived-projection\\data\\attack-unpaid-infinite-tail.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T001555Z-coupling-derived-projection\\data\\attack-unpaid-infinite-tail-success.json"
+  ],
+  "started_utc": "2026-10-25T00:29:21.109059+00:00",
+  "elapsed_seconds": 0.6346269000787288,
+  "exit_code": 2
+}

@@ -1,0 +1,79 @@
+{
+  "format": "research-coupled-route-assessment-v1",
+  "source_sha256": "4ebd76e877937f557a6eacdccc2303c8518195e3daf4da71002a472f00bfe62c",
+  "input_sha256": {
+    "computations/2026-10-24T153012Z-weighted-reference-continuation/data/source-m626-v1.json.gz": "0d63fe8f879138ddfa60cbf6dab2f00190dea624dc91c77c3a5556394d8f1fda",
+    "computations/2026-10-24T191616Z-weighted-support-extension/data/assessment-run.json": "b5e2168f734d76449b3816e97bbe406c538453be82e7220c5a2dd1e151653657",
+    "computations/2026-10-24T191616Z-weighted-support-extension/data/audit-run.json": "1cbb9f4960d25291e12f3bcc3f70448c24a9979b1598ae6dccdc386fc9eac3cf",
+    "computations/2026-10-24T191616Z-weighted-support-extension/data/extension-assessment-v1.json": "d7569a7037021fc729987b27851e64648f8f8f1eead8123dbd3391c4ce27cb8d",
+    "computations/2026-10-24T191616Z-weighted-support-extension/data/extension-source-v1.json.gz": "c9790a7b129aae0d410670830e8a472d639105d01884a041165fc119e627671e",
+    "computations/2026-10-24T191616Z-weighted-support-extension/data/replay-run.json": "e7fc9b972cccf4f86c58ad697eec41a75ef2e8f5c9ed6d2462bd16350aec5c58",
+    "computations/2026-10-24T191616Z-weighted-support-extension/data/source-run.json": "bf5c5d78cc77577f5ee2656814fe25fdc969f1d67e3711991660f28d75a19bdf",
+    "computations/2026-10-24T191616Z-weighted-support-extension/manifest.json": "28eff565a893a54b5ae111e6b70dd92f46d9440b736aa8ac5469bdf3b487da92",
+    "computations/2026-10-25T130058Z-coupled-tail-comparison/data/comparison-v1.json": "e21b06e294f3a35a3d8870697b297a98551a2bf2d4106ce47bcaa1fbec5c7550",
+    "computations/2026-10-25T130058Z-coupled-tail-comparison/data/coupled-comparison.run.json": "f3c2183cec36fa2220a065236cc5828873912a10d339f3403cf5a58c68c9b487",
+    "computations/2026-10-25T130058Z-coupled-tail-comparison/data/independent-audit-v1.json": "7e1eae38096dbf8f6737bb4862f530297f87ab8e1df0ac19b007786135c6b2a1",
+    "computations/2026-10-25T130058Z-coupled-tail-comparison/manifest.json": "c50598a28ccc747f36c0842bc4fc39ef0e0accf2eafc85e648c7c2f48d9129a3",
+    "pyproject.toml": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf",
+    "scripts/weil_coupled_tail_comparison.py": "1a1a82207870cb063f213274f2021f27bbde7859f45838103b4220cade0f10ad",
+    "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+  },
+  "exact_controls": {
+    "matched_outside_direct": "10/3",
+    "matched_outside_nested": "10/3",
+    "bare_finite_overstatement": "7/2",
+    "positive_low_schur_with_negative_tail_counterexample": "5",
+    "changed_outside_is_a_different_criterion": "3",
+    "conservative_enclosure_lower": "223/70",
+    "control_count": 4,
+    "status": "EXACT_ALGEBRA_CONTROLS_PASS"
+  },
+  "baseline_inventory": {
+    "dimension": 192,
+    "boundary": 626,
+    "low_and_gram_slots": 37056,
+    "signed_head_slots": 249984,
+    "scalar_slots": 2,
+    "total_slots": 287042,
+    "count_scope": "Serialized interval slots including exact parity zeros, not distinct transcendental integrals"
+  },
+  "current_inventory": {
+    "dimension": 312,
+    "boundary": 1018,
+    "low_and_gram_slots": 97656,
+    "signed_head_slots": 660816,
+    "scalar_slots": 3,
+    "total_slots": 758475,
+    "count_scope": "Serialized interval slots including exact parity zeros, not distinct transcendental integrals"
+  },
+  "dense_accounting": {
+    "parity_order": 156,
+    "low_order": 10,
+    "coupled_order": 146,
+    "two_parity_dense_leading_work_full": "2530944",
+    "two_parity_dense_leading_work_split": "2530944",
+    "two_parity_triangular_entries_full": 24492,
+    "two_parity_triangular_entries_split": 24492,
+    "scope": "Dense block-Cholesky leading arithmetic model and parameter identity, not measured runtime, serialized existing witness size or a lower bound for structured algorithms"
+  },
+  "two_observation_slot_ratio_exact": "758475/287042",
+  "two_observation_ratio_is_not_a_scaling_law": true,
+  "recorded_fresh_pipeline_seconds": {
+    "source": 795.2479035999859,
+    "audit": 1903.3478026000084,
+    "assessment": 14.974558799993247,
+    "replay": 13.707486999919638
+  },
+  "recorded_fresh_pipeline_total_seconds": 2727.277751999907,
+  "recorded_inherited_comparison_seconds": 7.961842999910004,
+  "fresh_coupled_pipeline_seconds": null,
+  "timings_are_different_workloads_not_a_speedup_comparison": true,
+  "comparison_still_depends_on_full312_analytical_inputs": true,
+  "new_support_or_new_outside_reference_evaluated": false,
+  "environment": {
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "python_flint": "0.9.0"
+  },
+  "scope": "Matched-criterion algebra and inherited data/work accounting; no new positivity run, theorem admission or global no-go",
+  "status": "MATCHED_CRITERION_AND_COST_ACCOUNTING_PASS"
+}

@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-24T23:28:30Z`
+- **Last updated:** `2026-10-25T15:08:18Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -54,6 +54,11 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [F-20261025-005](../findings/2026-10-25T142424Z-reference-route-selection.md) / [X-20261025-005](../computations/2026-10-25T142424Z-reference-route-selection/record.md) — C-0094 explicit complete Fourier bounded-minorant complement and C-0095 global real-residual one-sided range bound. Independent written qualifications and scalar replay; finite minorant sign not evaluated, global residual coarser locally, no new support or admission.
+- [F-20261025-004](../findings/2026-10-25T134254Z-coupled-route-equivalence-and-viability.md) / [X-20261025-004](../computations/2026-10-25T134254Z-coupled-route-viability/record.md) — C-0093 matched-outside coupled-tail/larger-projection equivalence, explicit E positivity and dense accounting. Current dense construction assessed as diagnostic, not a distinct continuation mechanism; no global no-go.
+- [F-20261025-003](../findings/2026-10-25T130058Z-coupled-tail-comparison.md) / [X-20261025-003](../computations/2026-10-25T130058Z-coupled-tail-comparison/record.md) — C-0092 complete-tail directional comparison quantifies diagonal-reference overcharge and retained coupled stiffness on both P20 failing trials. Independent exact consequences and replay; no finite/full inverse substitution, new support or smaller-data proof.
+- [F-20261025-002](../findings/2026-10-25T010204Z-complete-retained-reprojection.md) / [X-20261025-002](../computations/2026-10-25T010204Z-complete-retained-reprojection/record.md) — C-0091 complete P20 harmonic-reference negativity in both parity sectors. Exact retained-source reprojection, original-v2 acceptance, independent consequence audit and isolated replay; not negativity of the true Schur or Weil form.
+- [F-20261025-001](../findings/2026-10-25T001555Z-coupling-derived-projection.md) / [X-20261025-001](../computations/2026-10-25T001555Z-coupling-derived-projection/record.md) — C-0090 mode16/17 constructive signed coupling and data-derived projection20, with both exact lower witnesses on the original P16 compression. Native retained-data audit/replay; no full P20 or new support certificate.
 - [F-20261024-008](../findings/2026-10-24T231555Z-tail-complement-weighted-reference.md) / [X-20261024-006](../computations/2026-10-24T231555Z-tail-complement-weighted-reference/record.md) — C-0089 genuine negative N16 harmonic-reference directions in both parities at unchanged support; all2099 inputs fresh and reviewed residual-only scalar obstruction. No Weil negativity, new support or admission.
 - [F-20261024-007](../findings/2026-10-24T224948Z-tail-restricted-residual-bound.md) / [X-20261024-005](../computations/2026-10-24T224948Z-tail-restricted-residual/record.md) — C-0088 independently reviewed infinite-tail residual compression; fixed-support scalar reserve cutoff312 to16 even, independent scalar reconstruction and byte-identical isolated source replay. No smaller low-block positivity certificate or new admission.
 - [F-20261024-006](../findings/2026-10-24T202855Z-controlled-weighted-support-positivity.md) / [X-20261024-004](../computations/2026-10-24T191616Z-weighted-support-extension/record.md) — C-0087 source-conditional whole reference positivity at geometry-selected T=1353/2048,N=312,K=38,m=1018; all758475 inputs fresh, both exact parity witnesses/replay, changed-proof/byte rejection and preserved-version isolated replay. No production admission or RH claim.

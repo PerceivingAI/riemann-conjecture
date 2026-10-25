@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-10-25T13:16:42Z",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+  "packages": {
+    "python-flint": "0.9.0",
+    "numpy": "2.5.2",
+    "pytest": "9.1.1",
+    "hypothesis": "6.165.10",
+    "pytest-xdist": "3.8.0"
+  },
+  "baseline_commit": "ed6946669b459c261f7670a849d4cb3240ecfc48",
+  "source_state": "Additive uncommitted coupled-tail research; source-v1 initial regression failure, source-v2 corrected numeric comparison; no producer math change",
+  "no_fresh_analytical_generation": true,
+  "analytical_authority": "Inherited original C0087/C0091; common legacy K reconstruction, independent new Fraction consequences"
+}

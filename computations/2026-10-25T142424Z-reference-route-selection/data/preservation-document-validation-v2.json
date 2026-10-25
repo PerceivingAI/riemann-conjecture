@@ -1,0 +1,23 @@
+{
+  "format": "reference-preservation-validation-v2",
+  "protected_files_unchanged": 34,
+  "old_sealed_members_unchanged": 641,
+  "old_seals_unchanged": 7,
+  "maintained_public_previous_content_preserved": {
+    "docs/CLAIMS.md": true,
+    "docs/STATUS.md": true,
+    "docs/LOG.md": true,
+    "docs/INDEX.md": true,
+    "docs/TOOL_CAPABILITIES.md": true,
+    "scripts/README.md": true,
+    "references/BIBLIOGRAPHY.md": true
+  },
+  "public_preseal_links_tables": [
+    582,
+    8
+  ],
+  "public_privacy_scan_files": 44,
+  "public_privacy_scan_bytes": 1087868,
+  "private_path_matches": [],
+  "self_manifest_link": "The record links the final root manifest. Its full link check runs after manifest-last sealing; no placeholder manifest was created."
+}

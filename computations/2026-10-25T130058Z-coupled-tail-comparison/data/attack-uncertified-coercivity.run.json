@@ -1,0 +1,14 @@
+{
+  "name": "uncertified-coercivity",
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-m",
+    "scripts.verify_coupled_tail_comparison",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T130058Z-coupled-tail-comparison\\data\\attack-uncertified-coercivity.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T130058Z-coupled-tail-comparison\\data\\attack-uncertified-coercivity.accepted.json"
+  ],
+  "exit_code": 2,
+  "elapsed_seconds": 6.6018535000039265,
+  "success_output_exists": false
+}

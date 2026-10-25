@@ -1,10 +1,42 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-24T23:28:30Z`
+- **Last updated:** `2026-10-25T15:08:18Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-25T15:08:18Z — Explicit Fourier complement and global real-residual bounds qualified
+
+[F-20261025-005](../findings/2026-10-25T142424Z-reference-route-selection.md) / C-0094,C-0095 and [X-20261025-005](../computations/2026-10-25T142424Z-reference-route-selection/record.md) give new written quantitative estimates from Suzuki v3 and DLMF identities. The bounded Fourier minorant has complete exterior and compact-complement control at the two existing supports, with an explicit finite sufficient sign still uncomputed. Complete arithmetic/compact cross terms are bounded rather than discarded; a time-band gap upper obstruction is not relabeled a lower reserve. The full real-residual estimate controls one-sided and double tails for every finite T, retaining the cusp and signed rank-two pole; it is coarser than C-0088 at the matched local parameters.
+
+Independent analytical qualifications,512-bit scalar controls and byte-identical canonical/isolated source replay pass. The new research CLI is scalar-only. Initial numeric-type failure and a line-ending-only fingerprint mismatch are retained with their original procedures. No old research source/test, theorem artifact, local refusal or admission semantics changed. No matrix sign, new support theorem, measured source-generation speedup or RH conclusion follows.
+
+---
+
+## 2026-10-25T13:52:37Z — Matched-criterion assessment narrows dense coupled-tail interpretation
+
+[F-20261025-004](../findings/2026-10-25T134254Z-coupled-route-equivalence-and-viability.md) / C-0093 and [X-20261025-004](../computations/2026-10-25T134254Z-coupled-route-viability/record.md) qualify the common-reference Schur equivalence and execute retained source/work accounting. Calling146 tail coordinates plus10 low coordinates a P20 low problem does not remove the complete156-coordinate parity construction. The exact criterion and conventional full dense accounting are unchanged when the same outside reference and blocks are retained. Four rational controls and captured-input replay pass; no new positivity matrix or solver is built. The assessed construction is narrowed to diagnostics rather than promoted as a distinct continuation mechanism. This preserves the value and validity of C-0092 without treating its inherited7.96-second run as a speedup over the distinct fresh2727.28-second workload. All historical research/admissions remain unchanged; no general coupled-method no-go is claimed.
+
+---
+
+## 2026-10-25T13:16:42Z — Complete-tail comparison measures the P20 diagonal-reference loss
+
+[F-20261025-003](../findings/2026-10-25T130058Z-coupled-tail-comparison.md) / C-0092 and [X-20261025-003](../computations/2026-10-25T130058Z-coupled-tail-comparison/record.md) retain both C-0091 trials and use accepted K312 to certify coupled elimination rather than mistake a finite inverse for the infinite inverse. True-Schur lower displays are3.98712016964e-5/6.46271561971e-8; the reference-loss lower is positive in both sectors and the outside-response excess is separately bounded. Retained diagonal and off-diagonal stiffness increments are both positive on the fixed probes. The independent consequence audit checks46 scalars and1752 coordinates. Two corrected regressions, five actual rejection controls, exact replay and isolated replay pass; the initial fmpq/Fraction test-harness failure and both source snapshots are preserved. No mathematical producer or historical record is rewritten, no fresh analytical source is generated and no new support/admission follows. This is quantitative diagnosis using an already positive larger bound, not a smaller-data whole-space proof.
+
+---
+
+## 2026-10-25T01:20:21Z — Complete P20 assessment rejects the enlarged harmonic reference
+
+[F-20261025-002](../findings/2026-10-25T010204Z-complete-retained-reprojection.md) / C-0091 and [X-20261025-002](../computations/2026-10-25T010204Z-complete-retained-reprojection/record.md) reproject the accepted original-v2 M312 data at unchanged support/K, adding the complete newly exposed20..311 prefix and all four promoted low directions. The full P20 reference has strictly negative directional uppers in both10-dimensional parity sectors, displays-1.24680669473969e-5/-4.17544391746990e-8 after full source error. Native512/Arb1536 consequences check420 entries and998 rows; original-version full-contract acceptance,2 finite regressions,5 actual rejection controls, exact replay and isolated restoration of20 files/32 inputs pass. No fresh analytical arrays, historical rewrites or production changes. The old P16 compression's positive witnesses remain correct but do not imply positivity after enlarging the low space; C-0087's positive N312 result remains intact. No Weil negativity or RH claim.
+
+---
+
+## 2026-10-25T00:32:20Z — Signed coupling identifies projection20 without guessing a new source dimension
+
+[F-20261025-001](../findings/2026-10-25T001555Z-coupling-derived-projection.md) / C-0090 and [X-20261025-001](../computations/2026-10-25T001555Z-coupling-derived-projection/record.md) reuse the accepted N16 data. Mode16 even and17 odd individually force the original failures; constructive V/P cross charges are material and later mixed terms have both signs. Correct physical Gram-prefix subtraction and changed harmonic weights cure the two retained trials at L18. The first even projection with both whole-known-P16 lower witnesses is L20, gap displays1.20431e-9/5.75241e-8. The independent native512/Arb1536 evaluator checks76 mode rows and408 U entries;2 regressions, exact replay, five altered-report rejections and isolated archived-source replay pass. No fresh analytical arrays or new low directions were tested. L18 is not proved impossible and full P20 reference positivity is not established. The preceding public work was committed as ed6946669b459c261f7670a849d4cb3240ecfc48 before this investigation; no push occurred. Historical records and admissions remain unchanged.
+
+---
 
 ## 2026-10-24T23:28:30Z — Full N16 reference fails despite the stronger tail complement
 

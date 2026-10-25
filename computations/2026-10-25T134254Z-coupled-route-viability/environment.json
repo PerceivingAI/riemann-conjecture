@@ -1,0 +1,8 @@
+{
+  "created_utc": "2026-10-25T13:42:54Z",
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python_flint": "0.9.0",
+  "baseline_commit": "ed6946669b459c261f7670a849d4cb3240ecfc48",
+  "operation": "Retained matched-criterion algebra and accounting; no fresh positivity run or production change"
+}

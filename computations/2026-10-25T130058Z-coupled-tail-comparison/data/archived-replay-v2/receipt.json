@@ -1,0 +1,13 @@
+{
+  "status": "ARCHIVED_COUPLED_TAIL_REPLAY_PASS",
+  "source_files": 22,
+  "input_files": 36,
+  "live_script_imports": false,
+  "audit_all_fields_equal_except": [
+    "elapsed_seconds"
+  ],
+  "exact_replay_receipt_byte_identical": true,
+  "report_sha256": "e21b06e294f3a35a3d8870697b297a98551a2bf2d4106ce47bcaa1fbec5c7550",
+  "selected_status": "BOTH_TRUE_SCHUR_DIRECTIONS_POSITIVE",
+  "scope": "Inherited-source directional comparison, not fresh analytical generation or admission."
+}

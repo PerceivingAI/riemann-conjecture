@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-18T07:53:59Z`
+- **Last updated:** `2026-10-25T15:08:18Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -346,6 +346,7 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-08-21T04:06:54Z`
 - **Used for:** Standard digamma representations supporting the positive exponential-kernel decomposition in `C-0043`.
 - **Verification notes:** Section 5.9(ii), including the standard integral/series representations for `psi`, was checked directly. The nonnegative-kernel decomposition is derived in the repository.
+- **Material-use addendum, 2026-10-25T15:08:18Z:** Directly inspected [DLMF5.7.6](https://dlmf.nist.gov/5.7.E6) and its [exact TeX](https://dlmf.nist.gov/5.7.E6.tex). The digamma partial-fraction series gives the locally uniform derivative and monotonicity of Re psi(1/4+it/2), with an explicit signed omitted-series enclosure used in C-0094. This is a new source use, not a change to the original C-0043 provenance.
 
 ### R-0031 — Public `weil-first-prime` proof-code candidate
 
@@ -400,6 +401,16 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-10-08T02:44:31Z`
 - **Used for:** Truncated von Mangoldt explicit formula (Theorem 7.2), half-weighted prime-power jump convention, `N(T)=O(Tlog T)` (Theorem 7.6), `sum 1/|rho|=O(log²T)`, and section 7.3's fixed-zero-strip `psi(x)-x=O(x^(1-c)log²x)`. Classical prime-power comparison and partial summation transfer to `theta`/`pi`.
 - **Verification notes:** Inspected Chapter 7 directly. `c=1/8` follows **only from** the OpenAI `EXT-0001` zero strip. Our finding `F-20261008-002` restores ordinary `psi` at jumps at cost `O(log x)`; no zero-free assertion is attributed to the classical text.
+
+### R-0036 — NIST DLMF hyperbolic partial fractions
+
+- **Authors:** NIST Digital Library of Mathematical Functions
+- **Title:** Section4.36 — Infinite Products and Partial Fractions
+- **Publication:** NIST DLMF, continuously maintained
+- **Stable identifier:** https://dlmf.nist.gov/4.36.E5 ; exact formula https://dlmf.nist.gov/4.36.E5.tex
+- **First verified/accessed:** `2026-10-25T14:24:24Z`
+- **Used for:** C-0095's complete real-residual decomposition, uniform derivative bounds, diagonal cusp and global one-sided Legendre range estimate.
+- **Verification notes:** Inspected the csch partial fraction directly and independently differentiated its scaled rational terms. DLMF4.36.3 also supplies the coefficient identity sum n^-2=pi²/6. The repository derives all operator/endpoint bounds; DLMF does not assert our Weil positivity or admission. No external source code was imported.
 
 ## Entry format
 

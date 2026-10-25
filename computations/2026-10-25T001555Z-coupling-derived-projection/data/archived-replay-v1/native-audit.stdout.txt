@@ -1,0 +1,1 @@
+{"status": "RETAINED_INPUT_CONSEQUENCES_ACCEPTED", "selected_projection": 20}

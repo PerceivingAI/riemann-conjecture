@@ -1,0 +1,7 @@
+{
+  "computations/2026-10-24T231555Z-tail-complement-weighted-reference/data/source-m54-v1.json.gz": "8c7626b05e5f686155eca520d05c9908f829f3c78fbfe3cea900cd22b63da8af",
+  "computations/2026-10-24T231555Z-tail-complement-weighted-reference/data/audit-m54-v1.json.gz": "563f7ad158e7362d5417166c01b9a63e4289378961cc70c85f885c7c0d477335",
+  "computations/2026-10-24T231555Z-tail-complement-weighted-reference/data/result-m54-v1.json": "ce6f31d8393452ee5d55b1c8e12049d8090b60556d1ab4c689d788a4d9c521d9",
+  "computations/2026-10-24T231555Z-tail-complement-weighted-reference/data/prior-scalars-v1.json": "65cc22df9e5edfbaebd9b183edbc29b179c7d3474731e24170cc9abc543a0b9a",
+  "computations/2026-10-24T191616Z-weighted-support-extension/data/selection-v1.json": "e120acab4919b9ab28e6fd6c7044053bb14514f300d810952a2d52e5dae6d7a3"
+}

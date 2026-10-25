@@ -1,0 +1,1 @@
+{"status": "NEGATIVE_REFERENCE_DIRECTION", "output": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T010204Z-complete-retained-reprojection\\data\\complete-reference-v1.json"}
