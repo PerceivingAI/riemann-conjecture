@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "canonical_and_captured_code_outputs_byte_identical": true,
+  "controls_sha256": "76ecb999551e17a86ab5e800e06e68580abc92a0440be50363d0fb68fe81c8c4",
+  "captured_files": 8,
+  "project_source_origins_enforced_under_execution_root": true,
+  "data_location": "Original SHA-bound retained T3/4 source packet supplied explicitly via --input-root",
+  "captured_closure_is_code_not_a_duplicate_source_packet": true,
+  "new_support_matrix_computed": false,
+  "useful_relative_alpha_b_proved": false
+}

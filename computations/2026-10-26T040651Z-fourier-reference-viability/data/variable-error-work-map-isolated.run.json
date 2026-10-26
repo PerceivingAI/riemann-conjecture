@@ -1,0 +1,17 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-c",
+    "import runpy,sys;runpy.run_path(sys.argv.pop(1),run_name=\"__main__\")",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T020435Z-variable-fourier-error-work\\source-v1\\computations\\2026-10-26T020435Z-variable-fourier-error-work\\variable-controls-v1.py",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T040651Z-fourier-reference-viability\\data\\variable-error-work-map-isolated.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T020435Z-variable-fourier-error-work\\source-v1",
+  "returncode": 0,
+  "seconds": 0.3040185999125242,
+  "stdout": "{\"status\": \"PASS\", \"existing_cases\": 2, \"toy_tail_controls\": 4, \"entire_closed_form_controls\": 2, \"new_support_matrix_computed\": false}\n",
+  "stderr": ""
+}

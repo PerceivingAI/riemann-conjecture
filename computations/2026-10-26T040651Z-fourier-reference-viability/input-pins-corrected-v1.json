@@ -1,0 +1,44 @@
+{
+  "format": "fourier-reference-viability-input-pins-v1",
+  "created": "2026-10-26T04:06:51Z",
+  "scope": "Replay three unchanged existing procedures on their frozen cases and controls only. No new scalar/support grid, matrix, source audit or proof generation.",
+  "inputs": [
+    {
+      "label": "accepted-case-comparison",
+      "bundle": "computations/2026-10-25T232320Z-fourier-structural-assessment",
+      "bundle_manifest_sha256": "e9e61c6aa3a5f8fd0e8b876cd6f9c0547af94f4c9ff9b492d8c364ea93230420",
+      "canonical_script": "computations/2026-10-25T232320Z-fourier-structural-assessment/comparison-v1.py",
+      "script_sha256": "3bfa96b8b6c67ba2ec0d4177801808c86115970f609cbb495945fabc566e6f55",
+      "retained_output": "data/comparison-v1.json",
+      "retained_output_sha256": "b06af3437645615380bce766a42200c57a3461deb414ec015e49b36bee016973",
+      "isolated_root": "computations/2026-10-25T232320Z-fourier-structural-assessment/source-v1",
+      "isolated_script": "computations/2026-10-25T232320Z-fourier-structural-assessment/comparison-v1.py",
+      "isolated_input_root_scope": "original repository, explicit --input-root; source snapshot is code-only"
+    },
+    {
+      "label": "reference-cutoff-envelope",
+      "bundle": "computations/2026-10-26T001954Z-quantitative-reference-cutoff",
+      "bundle_manifest_sha256": "df3c3843fefdc96f484ec32ba1c21366e939baa616299e8dab61d7bee476f31c",
+      "canonical_script": "computations/2026-10-26T001954Z-quantitative-reference-cutoff/envelope-controls-v1.py",
+      "script_sha256": "b092d8578c7cbdce448b38e1ab933fbf10d758c1b3ba48c60007e11b1d86342c",
+      "retained_output": "data/controls-v1.json",
+      "retained_output_sha256": "16810d339ed0d43a3dafbd158eafeb98a0b7ee0499772cdfe7b46611b7918f7d",
+      "isolated_root": "computations/2026-10-26T001954Z-quantitative-reference-cutoff/source-v1",
+      "isolated_script": "computations/2026-10-26T001954Z-quantitative-reference-cutoff/envelope-controls-v1.py",
+      "isolated_input_root_scope": "captured root contains all consumed scalar inputs"
+    },
+    {
+      "label": "variable-error-work-map",
+      "bundle": "computations/2026-10-26T020435Z-variable-fourier-error-work",
+      "bundle_manifest_sha256": "a822f4f93b73f9b56d3717cf6877a87c0c3768896a7eb81455f967f85de5efa2",
+      "canonical_script": "computations/2026-10-26T020435Z-variable-fourier-error-work/variable-controls-v1.py",
+      "script_sha256": "175304991c2127da34edfd814c3d8720dad4024ee4482a61f3212271c8acf721",
+      "retained_output": "data/controls-v1.json",
+      "retained_output_sha256": "4a9591e1ef2cd99ab09b6e0942bb2694cb0e19bc8370487263b34564cd889431",
+      "isolated_root": "computations/2026-10-26T020435Z-variable-fourier-error-work/source-v1",
+      "isolated_script": "computations/2026-10-26T020435Z-variable-fourier-error-work/variable-controls-v1.py",
+      "isolated_input_root_scope": "captured root contains all consumed scalar inputs"
+    }
+  ],
+  "correction": "Initial accepted-case isolated invocation omitted its required --input-root. Original successful receipt confirms captured code reads separately SHA-bound retained packets from the repository. Preserve the failed receipt; change invocation only, not old code or data."
+}

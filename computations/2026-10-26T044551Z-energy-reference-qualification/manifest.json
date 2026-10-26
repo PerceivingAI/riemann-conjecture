@@ -1,0 +1,141 @@
+{
+  "format": "energy-reference-qualification-research-bundle-v1",
+  "computation_id": "X-20261026-004",
+  "created": "2026-10-26T04:45:51Z",
+  "verified": "2026-10-26T05:00:39Z",
+  "status": "COMPLETE_REVIEWED_QUALIFICATION_REJECTED_DERIVATIVE_CLOSURE",
+  "claims": [
+    "C-0107",
+    "C-0108",
+    "C-0109"
+  ],
+  "exact_decomposition_and_reference_bounds_qualified": true,
+  "useful_relative_discrepancy_constants_proved": false,
+  "new_support_matrix_computed": false,
+  "production_admission_changed": false,
+  "source_snapshot_manifest_sha256": "5cc7951d3dc31267ca5794545e2588a9b64f621873b57fafd5e33fefb38aa1f5",
+  "data_dependencies": [
+    {
+      "bundle": "computations/2026-10-25T220817Z-post-m4-fourier-sign",
+      "manifest_sha256": "e6fc379fea7524c7a38beeb04f60658eb27c77a50cf34022c9dce06101cb42fe",
+      "source_sha256": "cd254a2a7002e17b56dce12a0ec00166eac8023e30374e38053d8963ade28b9c"
+    }
+  ],
+  "members": [
+    {
+      "path": "compact-correction-obstruction-v1.md",
+      "bytes": 13730,
+      "sha256": "b0415d0d2923673e2c7b2530a00dba26d19bbc108db8664b6edaf503269741cd"
+    },
+    {
+      "path": "data/controls-v1.json",
+      "bytes": 16558,
+      "sha256": "76ecb999551e17a86ab5e800e06e68580abc92a0440be50363d0fb68fe81c8c4"
+    },
+    {
+      "path": "data/documentation-check.json",
+      "bytes": 259,
+      "sha256": "e19853da48e041b1fd55df65276787747763f07e2de003cfc596fbf26a48a011"
+    },
+    {
+      "path": "data/environment.json",
+      "bytes": 381,
+      "sha256": "142fb0b63c0149b31d69db8ed77bb6663edacc8e3738d841bad63c4b0d9417bb"
+    },
+    {
+      "path": "data/isolated-controls-v1.json",
+      "bytes": 16558,
+      "sha256": "76ecb999551e17a86ab5e800e06e68580abc92a0440be50363d0fb68fe81c8c4"
+    },
+    {
+      "path": "data/isolated-replay-summary.json",
+      "bytes": 516,
+      "sha256": "596488f55b8603648fc2ed9b99ac7bed8f60fb6a316febc7db3faab7c9e8b257"
+    },
+    {
+      "path": "data/isolated-scalar-exact-controls.run.json",
+      "bytes": 1071,
+      "sha256": "182c57ab942dc8e4e1a832fe84da51ae030aa071e1644a32f188af3bc6c884a3"
+    },
+    {
+      "path": "data/preservation-check.json",
+      "bytes": 245,
+      "sha256": "bdd67cb2728c723755a17fca02c72a27dd2dc5d9b1cd0b1cdc061e1cb995c3a8"
+    },
+    {
+      "path": "data/scalar-exact-controls.run.json",
+      "bytes": 747,
+      "sha256": "a203bef4055d4921f28492bcde4119c05d0b8c25e822b1e429de27d12ac720c6"
+    },
+    {
+      "path": "energy-controls-v1.py",
+      "bytes": 11277,
+      "sha256": "460f47fccb102c9635126b507f261e8e34b778d131b2cb29071fc963b7be438a"
+    },
+    {
+      "path": "energy-discrepancy-reference-v1.md",
+      "bytes": 10615,
+      "sha256": "922acb9dd03b9eea710339c4e5842ecd1ac71fbc121334a64e7707ce37362ecf"
+    },
+    {
+      "path": "independent-qualification-review.md",
+      "bytes": 2113,
+      "sha256": "e8e0b48a6cdc0bc8bc08b7ef5a4965737449652b4715061a2a702c30b0e9bfd5"
+    },
+    {
+      "path": "input-pins.json",
+      "bytes": 1265,
+      "sha256": "9a566f53a856daa7166a68843cd83c56007b62eb397599931d62bd2a817f85e6"
+    },
+    {
+      "path": "record.md",
+      "bytes": 8570,
+      "sha256": "ba942ee992e2a1e4c7d6a7e1a2d6bba102104c62d16196481cf35083dc4e995e"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T044551Z-energy-reference-qualification/energy-controls-v1.py",
+      "bytes": 11277,
+      "sha256": "460f47fccb102c9635126b507f261e8e34b778d131b2cb29071fc963b7be438a"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T044551Z-energy-reference-qualification/input-pins.json",
+      "bytes": 1265,
+      "sha256": "9a566f53a856daa7166a68843cd83c56007b62eb397599931d62bd2a817f85e6"
+    },
+    {
+      "path": "source-v1/manifest.json",
+      "bytes": 1759,
+      "sha256": "5cc7951d3dc31267ca5794545e2588a9b64f621873b57fafd5e33fefb38aa1f5"
+    },
+    {
+      "path": "source-v1/pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "source-v1/scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "source-v1/scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "source-v1/scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "source-v1/scripts/weil_reference_route_controls.py",
+      "bytes": 8462,
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13"
+    },
+    {
+      "path": "source-v1/uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    }
+  ]
+}

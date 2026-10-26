@@ -1,10 +1,42 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-25T23:33:31Z`
+- **Last updated:** `2026-10-26T05:00:39Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-26T05:00:39Z: exact energy decomposition qualified; derivative closure rejected
+
+[F-20261026-004](../findings/2026-10-26T044551Z-energy-reference-qualification.md) / C-0107,C-0108,C-0109 and [X-20261026-004](../computations/2026-10-26T044551Z-energy-reference-qualification/record.md) derive P+K_pole=L_T-D_E with positive Laplace kernel and complete signed discrepancy. The shifted logarithmic archimedean form has a full Legendre-tail lower and a precise conditional outside criterion. No useful energy-relative discrepancy constants or independent low sign are proved. Smooth modulation shows that the attempted H1 absolute majorant cannot be absorbed into logarithmic energy; the true discrepancy operator remains bounded.
+
+An elementary phase-recurrence/compactness proof extends the necessary scalar floor to arbitrary compact corrections and finite-low removal. It applies directly to bounded Fourier H0 without the separate positive-M premise, but not to the unbounded archimedean form or full Weil sign. Independent review approves. Four fresh P/pole scalar normalizations fit the retained T3/4 source, exact continuum/Stieltjes/overlap and declared non-Weil toy controls pass, and captured-code output is byte-identical on first execution. Sixteen earlier seals and965 members remain unchanged. No historical rewrite, new support matrix, replacement implementation, admission, Rust/Lean acceptance or RH conclusion.
+
+---
+
+## 2026-10-26T04:11:57Z: finite positive reference retained, global dense-ladder role restricted
+
+[F-20261026-003](../findings/2026-10-26T040651Z-fourier-reference-viability.md) / [X-20261026-003](../computations/2026-10-26T040651Z-fourier-reference-viability/record.md) close the reference-viability assessment with RESTRICT. Retain the two independently verified finite cases and complete reproducibility machinery; stop selecting the current geometric-tail/six-full-triangle continuation ladder as the unbounded-support execution mechanism. Explicit necessary reference/cutoff bounds, representation-specific dimension/payload growth and the independent missing low-gap/conditioning obligations support that methodological choice. No mathematical impossibility result, finite infeasibility threshold or maximum useful support is invented.
+
+Independent review approves the scope. Three unchanged retained procedures execute in canonical and captured-code modes and reproduce all original output bytes. The initial captured comparison omitted its documented input-root argument; that failed invocation is preserved and the corrected invocation succeeds without changing historical code/data. Fifteen original seals and943 members remain unchanged. No new support/sign, claim ID, replacement-method implementation, tooling upgrade, certificate or admission; RH unresolved.
+
+---
+
+## 2026-10-26T02:21:56Z: complete variable error and representation obligations qualified
+
+[F-20261026-002](../findings/2026-10-26T020435Z-variable-fourier-error-work.md) / C-0104,C-0105,C-0106 and [X-20261026-002](../computations/2026-10-26T020435Z-variable-fourier-error-work/record.md) replace implicit fixed-parameter extrapolation with explicit variable compact/mixed, denominator, sufficient-dimension, complex quadrature, entire-series, recurrence and source-order budgets. They preserve both pole signs, full combined arithmetic products and physical mass. Declared tolerances are not low positive gaps; no successful working-precision or runtime law is inferred.
+
+Exact arithmetic/domain and dense shape formulas separate active terms, nonempty cells, direct signed pairs and serialized slots. The present geometric enclosure plus C-0103 imposes double-exponential dimension/payload growth on that execution strategy, not a universal positivity dimension or general no-go. Independent mathematical review and first-run declared scalar/exact controls pass; captured-source replay is byte-identical. Fourteen previous seals and915 member bytes remain unchanged. No new support matrix/sign, source/test refactor, dependency, certificate or admission change; RH unresolved.
+
+---
+
+## 2026-10-26T00:28:18Z — Positive arithmetic-reference scale and exterior cutoff quantified
+
+[F-20261026-001](../findings/2026-10-26T001954Z-quantitative-fourier-reference-envelope.md) / C-0102,C-0103 and [X-20261026-001](../computations/2026-10-26T001954Z-quantitative-reference-cutoff/record.md) derive explicit finite inequalities from verified Rosser–Schoenfeld and DLMF premises. The constant trial has rate exp(T)/T; a distinct normalized boundary-cap trial forces a>(3/20)exp(T) for T>=7/2. The sufficient complete norm envelope (21/5)exp(T)-21/10 bounds the scale gap below28. The exact chain and qualified joint2/4 local bounds remain separate from this coarse global estimate.
+
+The explicit digamma remainder bounds its positive-target inverse between2pi exp(b±1/8), establishing necessary double-exponential cutoff order for this positive-M/nonnegative-exterior construction. Per-support reserves may tend to zero. Independent proof review and scalar/exact checks pass, including byte-identical replay under an isolated source root. Two initial calculation defects and their source/receipt bytes are preserved, not interpreted as mathematical failure. No previous source/test/result, support matrix/sign, admission or RH status changes. This is not a general no-go or a practical global cost law.
+
+---
 
 ## 2026-10-25T23:33:31Z — Structural crossing assessed; fixed positive arithmetic references are not an all-support mechanism
 

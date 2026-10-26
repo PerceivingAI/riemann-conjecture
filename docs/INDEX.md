@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-25T23:33:31Z`
+- **Last updated:** `2026-10-26T05:00:39Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -54,6 +54,10 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [F-20261026-004](../findings/2026-10-26T044551Z-energy-reference-qualification.md) / [X-20261026-004](../computations/2026-10-26T044551Z-energy-reference-qualification/record.md) — C-0107/C-0108/C-0109 exact signed discrepancy/logarithmic reference, stronger compact-correction scalar floor applying to bounded H0, and rejected derivative-energy closure. Independent proofs/review and fixed-source scalar/captured replay; no useful closing constants or new Weil sign.
+- [F-20261026-003](../findings/2026-10-26T040651Z-fourier-reference-viability.md) / [X-20261026-003](../computations/2026-10-26T040651Z-fourier-reference-viability/record.md) — reviewed RESTRICT assessment: retain exact finite reference controls, stop selecting the current geometric/dense finite-certificate ladder as an unbounded-support mechanism. Three unchanged procedures replay original bytes; no new sign, theorem or general no-go.
+- [F-20261026-002](../findings/2026-10-26T020435Z-variable-fourier-error-work.md) / [X-20261026-002](../computations/2026-10-26T020435Z-variable-fourier-error-work/record.md) — C-0104/C-0105/C-0106 full variable compact/mixed, quadrature/anchor/source-order and representation-work map. Explicit sufficient truncation and strategy-specific dimension/payload growth; independent review and scalar/exact isolated replay, no new sign or general complexity law.
+- [F-20261026-001](../findings/2026-10-26T001954Z-quantitative-fourier-reference-envelope.md) / [X-20261026-001](../computations/2026-10-26T001954Z-quantitative-reference-cutoff/record.md) — C-0102/C-0103 explicit necessary/sufficient exponential arithmetic-reference scale and double-exponential exterior-cutoff order. Independent proof review, scalar/exact controls and isolated replay; no new support sign, practical cost law or global positivity.
 - [F-20261025-010](../findings/2026-10-25T232320Z-fourier-reference-scaling-obligation.md) / [X-20261025-010](../computations/2026-10-25T232320Z-fourier-structural-assessment/record.md) — C-0101 necessary a/Omega growth for the globally positive arithmetic reference and current geometric-tail N prerequisite. Retained-case scope/cost comparison, independent proof review and scalar/exact replay; no global positivity or general no-go.
 - [F-20261025-009](../findings/2026-10-25T220817Z-positive-post-m4-fourier-minorant.md) / [X-20261025-009](../computations/2026-10-25T220817Z-post-m4-fourier-sign/record.md) — C-0100 full bounded Fourier reference positive at T3/4 across activation of4, unchanged N312. All292968 inputs accepted independently, both exact parity proofs, complete outside payment,21 focused regressions and7 rejection controls; no production admission or global family.
 - [F-20261025-008](../findings/2026-10-25T211305Z-pointwise-fourier-resolution-accounting.md) / [X-20261025-008](../computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/record.md) — C-0099 pointwise complete Fourier allowance, physical-mass interval-order conversion and conditional resolution at T3/4,N312. Exact/scalar controls and contraction-volume accounting, not a low sign or measured matrix cost.

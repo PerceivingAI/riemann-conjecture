@@ -1,0 +1,157 @@
+{
+  "format": "variable-fourier-error-work-research-bundle-v1",
+  "computation_id": "X-20261026-002",
+  "created": "2026-10-26T02:04:35Z",
+  "verified": "2026-10-26T02:21:56Z",
+  "claims": [
+    "C-0104",
+    "C-0105",
+    "C-0106"
+  ],
+  "status": "COMPLETE_REVIEWED_SCALAR_EXACT_MAP",
+  "new_support_matrix_computed": false,
+  "production_admission_changed": false,
+  "source_snapshot_manifest_sha256": "56aa84bbc008724f5b7025cc18666af3aa4b4714fda996899e3d3b399e01b0f3",
+  "members": [
+    {
+      "path": "data/controls-v1.json",
+      "bytes": 16022,
+      "sha256": "4a9591e1ef2cd99ab09b6e0942bb2694cb0e19bc8370487263b34564cd889431"
+    },
+    {
+      "path": "data/documentation-check.json",
+      "bytes": 262,
+      "sha256": "6a800e7f6e4da8c5afa852250d983dac8aec582abc4607782bed44d4ef7115fb"
+    },
+    {
+      "path": "data/environment.json",
+      "bytes": 325,
+      "sha256": "2376daa29843f222e8b3b65a5018d6013e2520fcda651e1962a044f3c9210846"
+    },
+    {
+      "path": "data/isolated-controls-v1.json",
+      "bytes": 16022,
+      "sha256": "4a9591e1ef2cd99ab09b6e0942bb2694cb0e19bc8370487263b34564cd889431"
+    },
+    {
+      "path": "data/isolated-replay-summary.json",
+      "bytes": 364,
+      "sha256": "6cb71e4bcc9b2d6ae071c23ec51e8ddd442fc39c30cda184ed88a0f9ee3cb101"
+    },
+    {
+      "path": "data/isolated-scalar-exact-controls.run.json",
+      "bytes": 817,
+      "sha256": "6686fd73f2263b2bb90d9c15868e44dc14229d84fff38862ddaa6a03d6b688c6"
+    },
+    {
+      "path": "data/preservation-check.json",
+      "bytes": 204,
+      "sha256": "ed628e7e10899c46b50cb33abf81b0a11e31203edb180807025c926ffbaace52"
+    },
+    {
+      "path": "data/scalar-exact-controls.run.json",
+      "bytes": 662,
+      "sha256": "22c77a1695e961b69af296c40f454e4ba17dd3f2c900e213f9e205195c5ff214"
+    },
+    {
+      "path": "independent-map-review.md",
+      "bytes": 1802,
+      "sha256": "71b563e487a164117ab1291330899b04fe58427f19456cc4730298f1838f5548"
+    },
+    {
+      "path": "input-pins.json",
+      "bytes": 2537,
+      "sha256": "88ae360f15be9c9aac2885289ef223e46fdb36023cbd57d5d3a2793b176bac49"
+    },
+    {
+      "path": "quadrature-source-map-v1.md",
+      "bytes": 22261,
+      "sha256": "14c7f766cb4a0d8336222e07f63929e96fcdeb2f364dfd97265084c55a578065"
+    },
+    {
+      "path": "record.md",
+      "bytes": 9457,
+      "sha256": "d7579ea3ee861c7b9287d6b02e43d9b75726deb415074622e9d8a6f036b43247"
+    },
+    {
+      "path": "source-v1/computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/data/assessment-v1.json",
+      "bytes": 7370,
+      "sha256": "f9b98150587834c145c81f17b9946f2a36a9e8e2c091659bd4b56c728e2b08df"
+    },
+    {
+      "path": "source-v1/computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/manifest.json",
+      "bytes": 5441,
+      "sha256": "8bf554bc6ef2b57624213b5a72df55c6aed874a11e5b1c01b91cca7c76210213"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T001954Z-quantitative-reference-cutoff/data/controls-v1.json",
+      "bytes": 16780,
+      "sha256": "16810d339ed0d43a3dafbd158eafeb98a0b7ee0499772cdfe7b46611b7918f7d"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T001954Z-quantitative-reference-cutoff/manifest.json",
+      "bytes": 5357,
+      "sha256": "df3c3843fefdc96f484ec32ba1c21366e939baa616299e8dab61d7bee476f31c"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T020435Z-variable-fourier-error-work/input-pins.json",
+      "bytes": 2537,
+      "sha256": "88ae360f15be9c9aac2885289ef223e46fdb36023cbd57d5d3a2793b176bac49"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T020435Z-variable-fourier-error-work/variable-controls-v1.py",
+      "bytes": 13356,
+      "sha256": "175304991c2127da34edfd814c3d8720dad4024ee4482a61f3212271c8acf721"
+    },
+    {
+      "path": "source-v1/manifest.json",
+      "bytes": 2602,
+      "sha256": "56aa84bbc008724f5b7025cc18666af3aa4b4714fda996899e3d3b399e01b0f3"
+    },
+    {
+      "path": "source-v1/pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "source-v1/scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "source-v1/scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "source-v1/scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "source-v1/scripts/verify_m4_fourier_matrix.py",
+      "bytes": 29992,
+      "sha256": "ea19fbe7602e8598e9a29a931cba0fac831b11b6ffe2c3f05541025e1a3a5d2a"
+    },
+    {
+      "path": "source-v1/scripts/weil_reference_route_controls.py",
+      "bytes": 8462,
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13"
+    },
+    {
+      "path": "source-v1/uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    },
+    {
+      "path": "variable-complement-work-v1.md",
+      "bytes": 11974,
+      "sha256": "c15b91d72d0acfe1067d7986d046180c4dce4aeec9ea042cb4aaed49bb6e51c9"
+    },
+    {
+      "path": "variable-controls-v1.py",
+      "bytes": 13356,
+      "sha256": "175304991c2127da34edfd814c3d8720dad4024ee4482a61f3212271c8acf721"
+    }
+  ]
+}

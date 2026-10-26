@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-25T18:25:39Z`
+- **Last updated:** `2026-10-26T02:21:56Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -421,6 +421,37 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-10-25T18:25:39Z`
 - **Used for:** C-0096's entire Legendre Fourier vectors, positive Gaussian weights and exactness through degree2q-1. The complete operator-valued frequency remainder is derived separately in the repository.
 - **Verification notes:** Inspected exact TeX of10.54.E2 and the positive-weight/exactness statements in3.5(v), including3.5.20_1. Substitution x=cos(theta) gives the stated phase and normalization. Arb/FLINT rigorous-root correctness remains a numerical trust premise, not a theorem attributed to DLMF. No external implementation was imported.
+
+### R-0038 — Rosser-Schoenfeld explicit Chebyshev bounds
+
+- **Authors:** J. Barkley Rosser; Lowell Schoenfeld
+- **Title:** Approximate formulas for some functions of prime numbers
+- **Publication:** Illinois Journal of Mathematics6(1), pp.64–94
+- **Year:** 1962
+- **Stable identifier:** https://doi.org/10.1215/ijm/1255631807 ; inspected original scanned facsimile: http://denise.vella.chemla.free.fr/Rosser-Schoenfeld-1962.pdf
+- **First verified/accessed:** `2026-10-26T00:28:18Z`
+- **Used for:** C-0102's unconditional psi(x)>=0.9x for x>=563 and psi(x)<=1.05x for x>0; quantitative constant-trial, boundary-cap and complete arithmetic norm envelopes.
+- **Verification notes:** CrossRef metadata checked. Publisher access was blocked; the original scanned printed p.70 Theorem4(3.14) and p.71 Theorem12(3.35) were visually inspected in Chromium. They state theta(x)>x[1-1/(2log x)] for x>=563 and psi(x)<1.03883x for x>0. The weaker constants are locally derived; the paper's finite verification was not independently replayed. No full paper or external code was imported, and these bounds do not assume RH.
+
+### R-0039 — NIST digamma expansion and complex remainder
+
+- **Authors:** NIST Digital Library of Mathematical Functions
+- **Title:** Section5.11, Asymptotic Expansions; subsection(ii), Error Bounds and Exponential Improvement
+- **Publication:** NIST DLMF, continuously maintained
+- **Stable identifiers:** https://dlmf.nist.gov/5.11.E2 ; https://dlmf.nist.gov/5.11#ii
+- **First verified/accessed:** `2026-10-26T00:28:18Z`
+- **Used for:** C-0103's uniform explicit error for Re psi(1/4+it/2)-log pi and complete-exterior cutoff bracket.
+- **Verification notes:** Inspected the digamma expansion and the complex first-neglected-term error multiplied by sec^(2n+1)(arg z/2). With n=1, |arg z|<pi/2 and B2/(2z²)=1/(12z²), the repository derives the real-part bound2/t² and its inverse bracket. An asymptotic equivalence alone is not used as a rigorous inequality. No implementation was imported.
+
+### R-0040 — NIST generalized hypergeometric series
+
+- **Authors:** NIST Digital Library of Mathematical Functions
+- **Title:** Section16.2, Definition and Analytic Properties
+- **Publication:** NIST DLMF, continuously maintained
+- **Stable identifier:** https://dlmf.nist.gov/16.2.E1 ; exact formula https://dlmf.nist.gov/16.2.E1.tex
+- **First verified/accessed:** `2026-10-26T02:21:56Z`
+- **Used for:** C-0105's entire0F1 Fourier/pole anchors and explicit first-omitted/truncation policies.
+- **Verification notes:** The exact series definition was inspected. For b=n+3/2>0 the repository independently derives convergence, geometric first-omitted bound, sufficient order and prefactor/recurrence propagation. Fourier/pole normalization also follows directly from Rodrigues. No asymptotic cancellation assumption or external implementation is imported.
 
 ## Entry format
 

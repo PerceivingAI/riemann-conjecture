@@ -1,0 +1,119 @@
+{
+  "format": "research-computation-bundle-integrity-v1",
+  "computation_id": "X-20261025-010",
+  "sealed_utc": "2026-10-25T23:44:15Z",
+  "member_count": 22,
+  "total_member_bytes": 314731,
+  "members": [
+    {
+      "path": "comparison-v1.py",
+      "bytes": 9809,
+      "sha256": "3bfa96b8b6c67ba2ec0d4177801808c86115970f609cbb495945fabc566e6f55"
+    },
+    {
+      "path": "data/comparison-v1.json",
+      "bytes": 10864,
+      "sha256": "b06af3437645615380bce766a42200c57a3461deb414ec015e49b36bee016973"
+    },
+    {
+      "path": "data/comparison.run.json",
+      "bytes": 653,
+      "sha256": "ab4556a8da13ae4faf9540dc1df919314769ac09e7586fb8d85484e9004731b0"
+    },
+    {
+      "path": "data/documentation-check.json",
+      "bytes": 335,
+      "sha256": "89f626e89a811c06f438fda2cb8d71eb1b772dfd28fd48e0b84472221281e1d2"
+    },
+    {
+      "path": "data/environment.json",
+      "bytes": 275,
+      "sha256": "a5dcd58fa1c4ef8861bf5749652a4aa38a9c3773c398de45558a280fdf607a64"
+    },
+    {
+      "path": "data/isolated-comparison-v1.json",
+      "bytes": 10864,
+      "sha256": "b06af3437645615380bce766a42200c57a3461deb414ec015e49b36bee016973"
+    },
+    {
+      "path": "data/isolated-comparison.run.json",
+      "bytes": 860,
+      "sha256": "f4d5fc125bc2ba40115afa20efcae1e42a7f4cc5813e22bc7c0563b5edb5f9a6"
+    },
+    {
+      "path": "data/isolated-import-origins.run.json",
+      "bytes": 1032,
+      "sha256": "bf7a9ab07e8c7365aeed6207a983356f1a23470404f140de00c3a76bb16c2fa8"
+    },
+    {
+      "path": "data/isolated-replay-summary.json",
+      "bytes": 251,
+      "sha256": "5f5360bf225c1a4d972c3e8d84055b85f64ddf44774b9aa529625f5746f1d9a7"
+    },
+    {
+      "path": "data/preservation-check.json",
+      "bytes": 1075,
+      "sha256": "245f11c5cbc54ea745b7090f7be2b5a5bcd16758e672b50eed5f06e5532655fb"
+    },
+    {
+      "path": "independent-scaling-review.md",
+      "bytes": 3181,
+      "sha256": "3a20fdf0eb9f5873e44e882e489cea2040fdd59767a395183cdb3ba4f140c3b4"
+    },
+    {
+      "path": "input-pins.json",
+      "bytes": 5131,
+      "sha256": "217743db39149923cc47b6b45e77e8fa1739e116815f8256a387089294221127"
+    },
+    {
+      "path": "record.md",
+      "bytes": 10075,
+      "sha256": "e8a8c485e9bbf090b053db4340344c1357e96282ac542a9c791774c598fdb0fd"
+    },
+    {
+      "path": "reference-scaling-obligation-v1.md",
+      "bytes": 4890,
+      "sha256": "3755393172f44f25e92c3dd24deb88a47565d43508d63984f2474fc4fdf23504"
+    },
+    {
+      "path": "source-v1/computations/2026-10-25T232320Z-fourier-structural-assessment/comparison-v1.py",
+      "bytes": 9809,
+      "sha256": "3bfa96b8b6c67ba2ec0d4177801808c86115970f609cbb495945fabc566e6f55"
+    },
+    {
+      "path": "source-v1/computations/2026-10-25T232320Z-fourier-structural-assessment/input-pins.json",
+      "bytes": 5131,
+      "sha256": "217743db39149923cc47b6b45e77e8fa1739e116815f8256a387089294221127"
+    },
+    {
+      "path": "source-v1/manifest.json",
+      "bytes": 1310,
+      "sha256": "4423633122f0fbb6595ec2e8824d83487e6ac0be23d37c8fa7dc76ae0c941781"
+    },
+    {
+      "path": "source-v1/pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "source-v1/scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "source-v1/scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "source-v1/scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "source-v1/uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    }
+  ]
+}

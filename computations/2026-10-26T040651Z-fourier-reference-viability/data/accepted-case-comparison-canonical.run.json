@@ -1,0 +1,14 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-B",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T232320Z-fourier-structural-assessment\\comparison-v1.py",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T040651Z-fourier-reference-viability\\data\\accepted-case-comparison-canonical.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "returncode": 0,
+  "seconds": 2.510738500044681,
+  "stdout": "{\"source_slots_each\": 292968, \"new_support_matrix_computed\": false, \"constant_trial_controls\": \"PASS\", \"finite_series_controls\": \"PASS\", \"observed_timing_ratios_are_speedup_claims\": false}\n",
+  "stderr": ""
+}

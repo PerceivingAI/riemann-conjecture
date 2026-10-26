@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "old_bundle_seals_checked": 15,
+  "old_bundle_members_checked": 943,
+  "protected_public_files_checked": 16,
+  "all_old_seals_members_and_protected_public_files_unchanged": true,
+  "replay_python_disables_bytecode_writes": true
+}

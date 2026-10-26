@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-25T23:33:31Z`
+- **Last updated:** `2026-10-26T05:00:39Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -1136,6 +1136,94 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** C-0039/C-0058 complete arithmetic convention; C-0094/C-0098 exterior and tail formulas; elementary finite Euler products, unique factorization and harmonic divergence.
 - **Source:** [F-20261025-010](../findings/2026-10-25T232320Z-fourier-reference-scaling-obligation.md), [X-20261025-010](../computations/2026-10-25T232320Z-fourier-structural-assessment/record.md).
 - **Verification notes:** Independent mathematical review checks normalization, divergence, cutoff inequality and quantifiers. Canonical/isolated retained comparison outputs are byte-identical; fresh scalar constant trials fit both original source intervals and exact finite Euler/boundary controls pass. No new matrix or support sign is generated. This limits the present globally positive-M construction and geometric enclosure, not H0/Weil positivity, different references or all Fourier methods. No growth rate, minimum positivity dimension, practical global cost or production admission is proved.
+
+### C-0102 — Quantitative complete positive arithmetic-reference scale
+
+- **Statement:** With all strictly active prime powers included, a_*(T)=sup sigma(-P_T) is the exact nonnegative-reference threshold. The constant trial r(T)=Theta(exp(T)/T) has explicit finite bounds, but a normalized two-boundary-cap trial proves a_*(T)>(3/20)exp(T) for T>=7/2. A complete norm sum and partial summation give ||P_T||<=(21/5)exp(T)-21/10 for every T>0. Thus a_*(T)=Theta(exp(T)); the upper/lower scale gap is below28 on T>=7/2. M_T>=m(T)I requires a>=a_*+m(T), without any uniform positive reserve.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` independently reviewed mathematical bounds with external unconditional premises
+- **First recorded:** `2026-10-26T00:19:54Z`
+- **Last verified:** `2026-10-26T00:28:18Z`
+- **Dependencies:** C-0101 complete arithmetic normalization; C-0040/C-0097 compressed-chain and scoped joint2/4 norms; R-0038 explicit Chebyshev inequalities.
+- **Source:** [F-20261026-001](../findings/2026-10-26T001954Z-quantitative-fourier-reference-envelope.md), [X-20261026-001](../computations/2026-10-26T001954Z-quantitative-reference-cutoff/record.md).
+- **Verification notes:** The original Rosser–Schoenfeld printed inequalities and domains were visually checked; their finite verification is not locally replayed. Independent mathematical review checks partial summation, cap normalization, signs and endpoints. Exact/scalar controls at the two retained cases and isolated byte-identical replay pass. The global norm upper is not the exact norm; no new Weil support sign, H0 negativity, practical complexity law, literature originality or admission follows.
+
+### C-0103 — Explicit Fourier exterior-cutoff envelope and intrinsic growth order
+
+- **Statement:** A(t)=Re psi(1/4+it/2)-log pi satisfies |A(t)-log(t/(2pi))|<=2/t² for t>0. It is increasing on t>0 and A(4)<0. For every b>=0 its unique inverse cutoff lies between2pi exp(b-1/8) and2pi exp(b+1/8); the upper endpoint guarantees the complete exterior target. Combining with C-0102, M_T>=m(T)I and A(t)-a>=e(T)>=0 outside Omega require Omega>=2pi exp((3/20)exp(T)+m(T)+e(T)-1/8) for T>=7/2. A separate choice a=(21/5)exp(T)-21/10+m(T), Omega=2pi exp(a+e(T)+1/8) is sufficient for those two bounds. If m+e=O(exp(T)), the minimal cutoff order of this construction is double exponential in T.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` independently reviewed complete-exterior bound, not an all-support Weil theorem
+- **First recorded:** `2026-10-26T00:19:54Z`
+- **Last verified:** `2026-10-26T00:28:18Z`
+- **Dependencies:** C-0102; C-0094/C-0098 digamma monotonicity and exterior normalization; R-0039 complex digamma remainder.
+- **Source:** [F-20261026-001](../findings/2026-10-26T001954Z-quantitative-fourier-reference-envelope.md), [X-20261026-001](../computations/2026-10-26T001954Z-quantitative-reference-cutoff/record.md).
+- **Verification notes:** Explicit sector/remainder and domain justify the inverse bracket, not a midpoint estimate. Independent written review, direct-versus-convergent-series controls, exact boundary checks and isolated replay pass. Reserves may tend to zero; larger reserves may impose faster growth. No low-gap estimate, H0/Weil positivity, minimum positivity dimension, practical global work law, general Fourier no-go, formal kernel acceptance or production admission is claimed.
+
+### C-0104 — Variable complete compact, mixed-Gram and truncation requirements
+
+- **Statement:** For the complete bounded Fourier minorant, let p>=||P||, m=a-p>0, c=T Omega, beta=2c/pi, H=4T exp(T), W=max(|A(0)-a|,|A(Omega)-a|). Full double/one-sided compact bounds are kappa=W beta E_N(c)+H E_N(T/2), eta=W sqrt(beta E_N(c))+H sqrt(E_N(T/2)). If d=m-kappa>0, the combined cross Gram is at most GP+(2p eta+eta²)D. Genuine one-sided input/order losses ell_A,ell_G give ideal-comparison loss at most ell_A+ell_G/d+(2p eta+eta²)/d+p² kappa/(dm). A closed sufficient integer policy based on E_N(z)<3*2^(-N) for N>=max(1,3z) meets any declared positive compact-loss tolerance without assuming a low positive gap.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` independently reviewed sufficient bounds, not finite or global positivity
+- **First recorded:** `2026-10-26T02:04:35Z`
+- **Last verified:** `2026-10-26T02:21:56Z`
+- **Dependencies:** C-0094/C-0098 full source/pole/compact identities; C-0099 physical-mass order-loss distinction; C-0102/C-0103 variable reference/exterior scope.
+- **Source:** [F-20261026-002](../findings/2026-10-26T020435Z-variable-fourier-error-work.md), [X-20261026-002](../computations/2026-10-26T020435Z-variable-fourier-error-work/record.md).
+- **Verification notes:** Both pole signs, full prime-power mixed products, one-sided tail and denominator payment are retained. Independent proof review, exact toy tail/denominator controls and two retained-case scalar checks pass; isolated output is byte-identical. Coarse derived dimensions are sufficient-policy controls, not selected matrix experiments or replacements for accepted N312. No unknown-support sign, gap or admission.
+
+### C-0105 — Variable analytic quadrature and conditional source accuracy
+
+- **Statement:** For rho in(0,1/4], the finite-band complex digamma multiplier has explicit pole-free rectangle envelope B=a+3+(3/4+Omega/2+rho)[1/(1/4-rho/2)+1] and a finite-series tail bound (3/4+Omega/2+rho)/K. Uniform exact panels with count ceil(Omega/rho) have complete Gauss operator error at most(8T Omega/pi)B exp(2T rho)2^(-2q), yielding explicit sufficient q. Geometric first-omitted0F1 bounds, full Fourier/pole prefactors and uncertain-reciprocal recurrence products provide variable analytic series budgets. Physical-mass conversion and publication bounds distinguish center radius from true-to-ordered loss; analytic, working-width and rounding budgets are separate.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` analytic and conditional numerical-width map, not a guaranteed working-precision law
+- **First recorded:** `2026-10-26T02:04:35Z`
+- **Last verified:** `2026-10-26T02:21:56Z`
+- **Dependencies:** C-0098/C-0099 normalization and source-order conventions; R-0030 digamma series; R-0037 Gaussian exactness/positive weights; R-0040 hypergeometric series.
+- **Source:** [F-20261026-002](../findings/2026-10-26T020435Z-variable-fourier-error-work.md), [X-20261026-002](../computations/2026-10-26T020435Z-variable-fourier-error-work/record.md).
+- **Verification notes:** Independent review checks pole exclusion, complete operator constant, omitted indexing, all recurrence errors, mass and factor-two conversion. Eight complex probes, two independent sine/sinh checks, exact uncertain-reciprocal countercontrol and propagated anchor-tail controls pass, with isolated replay. Uniform policies are sufficient only. Actual input/root widths, amplification, rounding and a positive decision margin remain prerequisites for any successful working-precision claim. No variable-range source implementation, matrix/sign or admission is generated.
+
+### C-0106 — Active arithmetic and enclosure-specific dense work obligations
+
+- **Statement:** Complete active prime-power count J(T)=Theta(exp(2T)/T), with explicit finite bounds for T>=7/2. Ordered nonempty square domains number2J²+2#{ordered active(m,n):log(mn)<2T}; same-sign pairs are always retained and equality domains have measure zero. Combined nonempty cells and direct pairs have distinct exact counting formulas. Six full serialized triangles have3N(N+1) interval slots. Continuing to use the present geometric-tail enclosure requires N>sqrt((T Omega)²+1)/2-1, implying more than3(T Omega)²/16 slots for T Omega>=4. C-0103 therefore forces double-exponential dimension/payload growth for this enclosure/serialization strategy.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` representation-specific accounting, not a universal complexity or minimum positivity-dimension theorem
+- **First recorded:** `2026-10-26T02:04:35Z`
+- **Last verified:** `2026-10-26T02:21:56Z`
+- **Dependencies:** C-0102/C-0103 explicit arithmetic/exterior bounds; C-0097 complete signed-image intersections; C-0099 dense contraction conventions.
+- **Source:** [F-20261026-002](../findings/2026-10-26T020435Z-variable-fourier-error-work.md), [X-20261026-002](../computations/2026-10-26T020435Z-variable-fourier-error-work/record.md).
+- **Verification notes:** Independent proof review and exact/scalar retained-case counts recover4/7 nonempty cells and8/20 ordered square domains. Dense source/audit contraction shapes remain distinct and exclude setup, precision, serialization and witness work. No runtime, peak RAM, bit-complexity, general Fourier no-go, global positive family or admission is inferred. Other representations and analytical family proofs are not required to retain these dense certificates.
+
+### C-0107 — Exact pole-discrepancy decomposition and logarithmic reference tail
+
+- **Statement:** With complete prime-power P, signed pole K_pole and E(l)=psi(exp(l))-exp(l)+1, define D_E=integral exp(-l/2)(U_l+U_-l)dE(l). Then P+K_pole=L_T-D_E, where L_T has positive compact kernel exp(-|u-v|/2). The shifted archimedean form d_A=q_A+(1-A(0))||f||² is at least ||f||². On a Legendre tail its full lower is mu_N(R)=1+[A(R)-A(0)]max(0,1-(2TR/pi)E_N(TR)), with a valid geometric majorant. For R=N/(3T), leakage is at most(2N/pi)2^(-N). A proved discrepancy bound d_E<=alpha d_A+b||f||², alpha<1, would give the outside lower(1-alpha)mu_N+A(0)-1-b; it does not establish the low/cross signs.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` exact decomposition/reference bounds; useful closing discrepancy constants unproved
+- **First recorded:** `2026-10-26T04:45:51Z`
+- **Last verified:** `2026-10-26T05:00:39Z`
+- **Dependencies:** C-0094/C-0098 source, signed pole and Fourier normalization; C-0103 digamma bounds; C-0104 complete Legendre/Fourier tail. Suzuki/Arb source premises remain explicit.
+- **Source:** [F-20261026-004](../findings/2026-10-26T044551Z-energy-reference-qualification.md), [X-20261026-004](../computations/2026-10-26T044551Z-energy-reference-qualification/record.md).
+- **Verification notes:** Independent mathematical review checks signs, Stieltjes endpoints, Laplace positivity, form domain and full tail. Four fresh fixed-source P/pole scalars fit original physical-mass intervals; exact overlap/continuum/Stieltjes controls and captured-code replay pass. No new full source audit, finite Weil sign, useful alpha/b, changed canonical domain, implemented replacement or admission is asserted.
+
+### C-0108 — Compact corrections cannot lower the arithmetic scalar floor
+
+- **Statement:** For every fixed T>0, compact self-adjoint C and mu>=0, bI+P_T+C>=mu I implies b>=mu+a_*(T), with a_*=sup sigma(-P_T). C-0102 gives a_*>(3/20)exp(T) for T>=7/2. The same floor persists on the complement of any finite-dimensional subspace. Since pole and finite-band corrections are compact, nonnegative bounded Fourier H0 itself requires a>=a_*, even without separately requiring positive aI+P. An energy-independent one-sided scalar upper for D_E also has b>=a_*.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` necessary bounded-reference obstruction, not a Weil or general energy-reference no-go
+- **First recorded:** `2026-10-26T04:45:51Z`
+- **Last verified:** `2026-10-26T05:00:39Z`
+- **Dependencies:** C-0102 cap lower; C-0094/C-0098 bounded H0 and compact corrections; elementary finite-phase pigeonhole recurrence, weak modulation and compactness, fully proved locally.
+- **Source:** [F-20261026-004](../findings/2026-10-26T044551Z-energy-reference-qualification.md), [X-20261026-004](../computations/2026-10-26T044551Z-energy-reference-qualification/record.md).
+- **Verification notes:** Independent proof covers unbounded denominators, exact periods, empty active set, strict/non-strict endpoints, smooth trials and finite-low removal. Non-Weil commensurate-phase/rank-one controls and isolated replay pass. This strengthens the earlier positive-M limitation without rewriting history. The unbounded archimedean energy grows on the trial sequence and is outside the compact theorem; bounded-H0 negative directions when a<a_* are not Weil negative directions. No new matrix/sign experiment, spectral-minimum computation or admission.
+
+### C-0109 — The absolute derivative discrepancy majorant cannot close logarithmic energy
+
+- **Statement:** Exact Stieltjes integration gives |d_E[f]|<=B(T)[2||f|| ||f'||+||f||²], with finite B(T)=integral_0^(2T) exp(-l/2)|psi(exp(l))-exp(l)+1|dl. At a fixed T with B>0, this H1 majorant cannot be absorbed by finite constants times d_A[f] and ||f||² on all smooth tests. For real smooth unit g and f_n=exp(inu)g, ||f_n'||²=n²+||g'||² but d_A[f_n]<=3-A(0)+(1/2)log(1+n²+||g'||²). The actual D_E remains bounded on L²; failure concerns this majorant, not its true relative boundedness.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` rejected derivative-based closure, not rejection of all energy-aware estimates
+- **First recorded:** `2026-10-26T04:45:51Z`
+- **Last verified:** `2026-10-26T05:00:39Z`
+- **Dependencies:** C-0107 exact discrepancy/reference identity; C-0103 multiplier upper bound; direct Cauchy, modulation and logarithmic tangent-line integration.
+- **Source:** [F-20261026-004](../findings/2026-10-26T044551Z-energy-reference-qualification.md), [X-20261026-004](../computations/2026-10-26T044551Z-energy-reference-qualification/record.md).
+- **Verification notes:** Independent review approves the asymptotic counterargument on genuinely smooth tests. At retained T3/4, piecewise sign checks and a separate closed sum give B about0.58433318957. Declared cosine H1 modulation controls illustrate the energy-order mismatch while the actual discrepancy stays bounded; no finite sample is used as its proof and the cosine is not presented as a smooth Weil-sign test. No useful replacement constants, support extension, zero-free assumption, formal proof or admission.
 
 ## Entry format
 
