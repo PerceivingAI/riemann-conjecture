@@ -1,0 +1,14 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-B",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T232320Z-fourier-structural-assessment\\source-v1\\computations\\2026-10-25T232320Z-fourier-structural-assessment\\comparison-v1.py",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T040651Z-fourier-reference-viability\\data\\accepted-case-comparison-isolated.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T232320Z-fourier-structural-assessment\\source-v1",
+  "returncode": 1,
+  "seconds": 0.28970640001352876,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T232320Z-fourier-structural-assessment\\source-v1\\computations\\2026-10-25T232320Z-fourier-structural-assessment\\comparison-v1.py\", line 146, in <module>\n    result=evaluate(args.input_root,Path(__file__).with_name('input-pins.json'))\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-25T232320Z-fourier-structural-assessment\\source-v1\\computations\\2026-10-25T232320Z-fourier-structural-assessment\\comparison-v1.py\", line 39, in evaluate\n    raw=(input_root/manifest_path).read_bytes()\n  File \"C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\pathlib\\__init__.py\", line 782, in read_bytes\n    with self.open(mode='rb', buffering=0) as f:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\pathlib\\__init__.py\", line 776, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'D:\\\\2_Add_Projects\\\\riemann-conjecture\\\\computations\\\\2026-10-25T232320Z-fourier-structural-assessment\\\\source-v1\\\\computations\\\\2026-10-25T155033Z-fourier-minorant-sign\\\\manifest.json'\n"
+}

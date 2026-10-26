@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "canonical_and_isolated_controls_byte_identical": true,
+  "controls_sha256": "16810d339ed0d43a3dafbd158eafeb98a0b7ee0499772cdfe7b46611b7918f7d",
+  "source_members": 10,
+  "source_module_origins_enforced_under_execution_root": true,
+  "namespace_paths": {
+    "scripts": [
+      "scripts"
+    ]
+  },
+  "new_support_matrix_computed": false
+}

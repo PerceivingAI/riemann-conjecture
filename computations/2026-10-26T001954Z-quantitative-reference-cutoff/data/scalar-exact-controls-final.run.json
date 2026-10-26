@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T001954Z-quantitative-reference-cutoff\\envelope-controls-v1.py",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T001954Z-quantitative-reference-cutoff\\data\\controls-v1.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "returncode": 0,
+  "seconds": 0.4747110999887809,
+  "stdout": "{\"status\": \"PASS\", \"existing_cases\": 2, \"exact_cap_controls\": 5, \"digamma_frequency_controls\": 4, \"new_support_matrix_computed\": false}\n",
+  "stderr": ""
+}

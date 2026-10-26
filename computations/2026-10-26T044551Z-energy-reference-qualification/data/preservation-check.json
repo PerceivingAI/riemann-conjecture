@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "old_bundle_seals_checked": 16,
+  "old_bundle_members_checked": 965,
+  "protected_public_files_checked": 16,
+  "old_research_sources_tests_configs_and_sealed_members_unchanged": true,
+  "bytecode_writes_disabled": true
+}

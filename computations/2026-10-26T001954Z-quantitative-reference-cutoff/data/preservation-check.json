@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "old_bundle_seals_checked": 13,
+  "old_bundle_members_checked": 887,
+  "protected_public_files_checked": 16,
+  "all_old_seals_members_and_protected_public_files_unchanged": true
+}

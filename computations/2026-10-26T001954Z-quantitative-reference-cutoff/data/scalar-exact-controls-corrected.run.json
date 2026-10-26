@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T001954Z-quantitative-reference-cutoff\\envelope-controls-v1.py",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T001954Z-quantitative-reference-cutoff\\data\\controls-v1.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "returncode": 1,
+  "seconds": 0.43653269996866584,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T001954Z-quantitative-reference-cutoff\\envelope-controls-v1.py\", line 157, in <module>\n    args=parser.parse_args();result=evaluate()\n                                    ~~~~~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T001954Z-quantitative-reference-cutoff\\envelope-controls-v1.py\", line 141, in evaluate\n    path=Path(module.__file__).resolve()\n         ~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\pathlib\\__init__.py\", line 150, in __init__\n    raise TypeError(\n    ...<2 lines>...\n        f\"not {type(path).__name__!r}\")\nTypeError: argument should be a str or an os.PathLike object where __fspath__ returns a str, not 'NoneType'\n"
+}

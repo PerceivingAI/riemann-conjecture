@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "replays": [
+    {
+      "label": "accepted-case-comparison",
+      "status": "PASS",
+      "canonical_isolated_and_original_byte_identical": true,
+      "output_sha256": "b06af3437645615380bce766a42200c57a3461deb414ec015e49b36bee016973",
+      "canonical_seconds": 2.510738500044681,
+      "isolated_seconds": 0.9684233000734821,
+      "isolated_scope": "original repository, explicit --input-root; source snapshot is code-only"
+    },
+    {
+      "label": "reference-cutoff-envelope",
+      "status": "PASS",
+      "canonical_isolated_and_original_byte_identical": true,
+      "output_sha256": "16810d339ed0d43a3dafbd158eafeb98a0b7ee0499772cdfe7b46611b7918f7d",
+      "canonical_seconds": 0.41346619999967515,
+      "isolated_seconds": 0.4099776999792084,
+      "isolated_scope": "captured root contains all consumed scalar inputs"
+    },
+    {
+      "label": "variable-error-work-map",
+      "status": "PASS",
+      "canonical_isolated_and_original_byte_identical": true,
+      "output_sha256": "4a9591e1ef2cd99ab09b6e0942bb2694cb0e19bc8370487263b34564cd889431",
+      "canonical_seconds": 0.2559864999493584,
+      "isolated_seconds": 0.3040185999125242,
+      "isolated_scope": "captured root contains all consumed scalar inputs"
+    }
+  ],
+  "new_support_matrix_computed": false,
+  "fresh_complete_source_or_exact_proof_replay_performed": false,
+  "no_new_research_program_written": true,
+  "initial_invocation_failure_preserved": true
+}

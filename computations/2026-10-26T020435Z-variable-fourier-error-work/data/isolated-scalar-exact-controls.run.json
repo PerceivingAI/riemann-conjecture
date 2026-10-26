@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T020435Z-variable-fourier-error-work\\source-v1\\computations\\2026-10-26T020435Z-variable-fourier-error-work\\variable-controls-v1.py",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T020435Z-variable-fourier-error-work\\data\\isolated-controls-v1.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T020435Z-variable-fourier-error-work\\source-v1",
+  "returncode": 0,
+  "seconds": 0.32917969999834895,
+  "stdout": "{\"status\": \"PASS\", \"existing_cases\": 2, \"toy_tail_controls\": 4, \"entire_closed_form_controls\": 2, \"new_support_matrix_computed\": false}\n",
+  "stderr": ""
+}

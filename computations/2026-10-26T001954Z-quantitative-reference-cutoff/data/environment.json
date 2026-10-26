@@ -1,0 +1,7 @@
+{
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+  "python_flint": "0.9.0",
+  "baseline_commit": "9cde2f4dc148b0de309e0d5f462072fbf571cfca",
+  "scope": "Scalar and exact controls only; no new matrix, permanent tooling change or production admission."
+}

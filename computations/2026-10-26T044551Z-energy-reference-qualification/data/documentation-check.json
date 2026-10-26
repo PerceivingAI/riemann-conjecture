@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "result": {
+    "local_links": 567,
+    "tables": 2
+  },
+  "new_public_content_has_no_private_planning_references": true,
+  "changed_public_documents_have_no_trailing_whitespace": true,
+  "existing_log_body_preserved_verbatim": true
+}

@@ -1,0 +1,55 @@
+{
+  "format": "variable-fourier-error-work-input-pins-v1",
+  "created": "2026-10-26T02:04:35Z",
+  "inputs": [
+    {
+      "path": "computations/2026-10-26T001954Z-quantitative-reference-cutoff/manifest.json",
+      "bytes": 5357,
+      "sha256": "df3c3843fefdc96f484ec32ba1c21366e939baa616299e8dab61d7bee476f31c"
+    },
+    {
+      "path": "computations/2026-10-26T001954Z-quantitative-reference-cutoff/data/controls-v1.json",
+      "bytes": 16780,
+      "sha256": "16810d339ed0d43a3dafbd158eafeb98a0b7ee0499772cdfe7b46611b7918f7d"
+    },
+    {
+      "path": "computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/manifest.json",
+      "bytes": 5441,
+      "sha256": "8bf554bc6ef2b57624213b5a72df55c6aed874a11e5b1c01b91cca7c76210213"
+    },
+    {
+      "path": "computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/data/assessment-v1.json",
+      "bytes": 7370,
+      "sha256": "f9b98150587834c145c81f17b9946f2a36a9e8e2c091659bd4b56c728e2b08df"
+    }
+  ],
+  "bindings": [
+    {
+      "manifest": "computations/2026-10-26T001954Z-quantitative-reference-cutoff/manifest.json",
+      "path": "computations/2026-10-26T001954Z-quantitative-reference-cutoff/data/controls-v1.json",
+      "member": "data/controls-v1.json"
+    },
+    {
+      "manifest": "computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/manifest.json",
+      "path": "computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/data/assessment-v1.json",
+      "member": "data/assessment-v1.json"
+    }
+  ],
+  "reference_controls": "computations/2026-10-26T001954Z-quantitative-reference-cutoff/data/controls-v1.json",
+  "pointwise_assessment": "computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/data/assessment-v1.json",
+  "compact_schur_loss_target": "1/1000000000000000000",
+  "theta": "1/2",
+  "boxed_quadrature_order_loss_target": "1/1000000000000000000000000",
+  "publication_order_loss_target": "1/1000000000000000000000000000",
+  "toy_tail_arguments": [
+    "0",
+    "1/4",
+    "1",
+    "2"
+  ],
+  "toy_entire_terms": 40,
+  "digamma_prefix_terms": 64,
+  "anchor_halfwidth": "1/1024",
+  "anchor_vector_tail_target": "1/1208925819614629174706176",
+  "declared_finite_scope": "Only two already accepted support cases. Derived dimensions/orders are scalar sufficient-policy controls, not proposed matrix runs. Compact tolerance is not an assumed positive low gap. Toy uncertain recurrence uses w in[1,2] and prescribed exact anchors; complex envelope probes are zero, cutoff, upper middle strip and left rectangle corner."
+}

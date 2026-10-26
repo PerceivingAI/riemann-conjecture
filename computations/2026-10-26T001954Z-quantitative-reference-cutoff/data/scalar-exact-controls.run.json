@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T001954Z-quantitative-reference-cutoff\\envelope-controls-v1.py",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T001954Z-quantitative-reference-cutoff\\data\\controls-v1.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "returncode": 1,
+  "seconds": 0.2787735000019893,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T001954Z-quantitative-reference-cutoff\\envelope-controls-v1.py\", line 156, in <module>\n    args=parser.parse_args();result=evaluate()\n                                    ~~~~~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T001954Z-quantitative-reference-cutoff\\envelope-controls-v1.py\", line 102, in evaluate\n    if not (r<selected and selected<=p and p<global_upper):raise ValueError('necessary/sufficient ordering failed')\n                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: necessary/sufficient ordering failed\n"
+}

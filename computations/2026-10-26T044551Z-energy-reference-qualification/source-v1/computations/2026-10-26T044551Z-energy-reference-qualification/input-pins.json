@@ -1,0 +1,44 @@
+{
+  "format": "energy-reference-qualification-input-pins-v1",
+  "created": "2026-10-26T04:45:51Z",
+  "source": {
+    "path": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/source-v1.json.gz",
+    "manifest": "computations/2026-10-25T220817Z-post-m4-fourier-sign/manifest.json",
+    "member": "data/source-v1.json.gz",
+    "source_sha256": "cd254a2a7002e17b56dce12a0ec00166eac8023e30374e38053d8963ade28b9c",
+    "manifest_sha256": "e6fc379fea7524c7a38beeb04f60658eb27c77a50cf34022c9dce06101cb42fe"
+  },
+  "fixed_support": "3/4",
+  "retained_legendre_N": 312,
+  "normalization_modes": [
+    0,
+    1
+  ],
+  "toy_correlation_shifts": [
+    "0",
+    "3/8",
+    "3/4",
+    "3/2"
+  ],
+  "derivative_modulations": [
+    1,
+    16,
+    256,
+    4096
+  ],
+  "compact_toy_phase_indices": [
+    1,
+    2,
+    4
+  ],
+  "compact_toy_halfwidth": "1",
+  "compact_toy_shifts": [
+    "1/2",
+    "1"
+  ],
+  "compact_toy_coefficients": [
+    "1",
+    "2"
+  ],
+  "scope": "One already accepted T3/4 source only. Four scalar P/pole diagonal normalizations, exact continuum/Stieltjes identities, one logarithmic reference-tail value at existingN312, declared H1/log-energy illustrations, and non-Weil commensurate-shift toys. No new support, full low matrix or Weil sign."
+}

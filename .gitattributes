@@ -82,3 +82,7 @@
 /tests/test_m4_fourier_audit.py text eol=lf
 /computations/2026-10-25T220817Z-post-m4-fourier-sign/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /computations/2026-10-25T232320Z-fourier-structural-assessment/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T001954Z-quantitative-reference-cutoff/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T020435Z-variable-fourier-error-work/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T040651Z-fourier-reference-viability/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T044551Z-energy-reference-qualification/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
