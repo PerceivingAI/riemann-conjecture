@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-26T05:00:39Z`
+- **Last updated:** `2026-10-26T19:48:35Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -1196,12 +1196,12 @@ This ledger tracks mathematical statements important enough to be reused across 
 
 - **Statement:** With complete prime-power P, signed pole K_pole and E(l)=psi(exp(l))-exp(l)+1, define D_E=integral exp(-l/2)(U_l+U_-l)dE(l). Then P+K_pole=L_T-D_E, where L_T has positive compact kernel exp(-|u-v|/2). The shifted archimedean form d_A=q_A+(1-A(0))||f||² is at least ||f||². On a Legendre tail its full lower is mu_N(R)=1+[A(R)-A(0)]max(0,1-(2TR/pi)E_N(TR)), with a valid geometric majorant. For R=N/(3T), leakage is at most(2N/pi)2^(-N). A proved discrepancy bound d_E<=alpha d_A+b||f||², alpha<1, would give the outside lower(1-alpha)mu_N+A(0)-1-b; it does not establish the low/cross signs.
 - **Type:** `DERIVED_RESULT`
-- **Status:** `VERIFIED` exact decomposition/reference bounds; useful closing discrepancy constants unproved
+- **Status:** `VERIFIED` exact decomposition/reference bounds; subsequent C-0110/C-0111 supply useful fixed-case closing constants, not an all-support law
 - **First recorded:** `2026-10-26T04:45:51Z`
-- **Last verified:** `2026-10-26T05:00:39Z`
+- **Last verified:** `2026-10-26T12:12:12Z`
 - **Dependencies:** C-0094/C-0098 source, signed pole and Fourier normalization; C-0103 digamma bounds; C-0104 complete Legendre/Fourier tail. Suzuki/Arb source premises remain explicit.
 - **Source:** [F-20261026-004](../findings/2026-10-26T044551Z-energy-reference-qualification.md), [X-20261026-004](../computations/2026-10-26T044551Z-energy-reference-qualification/record.md).
-- **Verification notes:** Independent mathematical review checks signs, Stieltjes endpoints, Laplace positivity, form domain and full tail. Four fresh fixed-source P/pole scalars fit original physical-mass intervals; exact overlap/continuum/Stieltjes controls and captured-code replay pass. No new full source audit, finite Weil sign, useful alpha/b, changed canonical domain, implemented replacement or admission is asserted.
+- **Verification notes:** Independent mathematical review checks signs, Stieltjes endpoints, Laplace positivity, form domain and full tail. Four fresh fixed-source P/pole scalars fit original physical-mass intervals; exact overlap/continuum/Stieltjes controls and captured-code replay pass. The original record supplies no useful alpha/b or new finite Weil sign. Subsequent C-0110/C-0111 independently close the discrepancy and complete outside inequality at T3/4 only. No changed canonical domain, full replacement low/cross sign or admission is asserted.
 
 ### C-0108 — Compact corrections cannot lower the arithmetic scalar floor
 
@@ -1224,6 +1224,95 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** C-0107 exact discrepancy/reference identity; C-0103 multiplier upper bound; direct Cauchy, modulation and logarithmic tangent-line integration.
 - **Source:** [F-20261026-004](../findings/2026-10-26T044551Z-energy-reference-qualification.md), [X-20261026-004](../computations/2026-10-26T044551Z-energy-reference-qualification/record.md).
 - **Verification notes:** Independent review approves the asymptotic counterargument on genuinely smooth tests. At retained T3/4, piecewise sign checks and a separate closed sum give B about0.58433318957. Declared cosine H1 modulation controls illustrate the energy-order mismatch while the actual discrepancy stays bounded; no finite sample is used as its proof and the cosine is not presented as a smooth Weil-sign test. No useful replacement constants, support extension, zero-free assumption, formal proof or admission.
+
+### C-0110 — Fixed-case signed discrepancy bound in logarithmic energy
+
+- **Statement:** At T3/4, C-0107's complete signed discrepancy satisfies d_E[f]<=(1/4)d_A[f]+(873/1024)||f||² for every supported f in the shifted logarithmic form domain. Its exact multiplier includes all active terms2,3,4 and the signed continuum. The complete real frequency line is covered; the full unbounded reference is not truncated.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` fixed-case uniform research enclosure under qualified-source and Arb/FLINT premises; not production admission
+- **First recorded:** `2026-10-26T11:42:58Z`
+- **Last verified:** `2026-10-26T12:12:12Z`
+- **Dependencies:** C-0107 exact signed decomposition and reference; C-0103 digamma bounds; elementary multiplier calculus and interval/tail proof given in the retained contract.
+- **Source:** [F-20261026-005](../findings/2026-10-26T114258Z-signed-logarithmic-discrepancy.md), [X-20261026-005](../computations/2026-10-26T114258Z-signed-logarithmic-discrepancy/record.md).
+- **Verification notes:** Independent mathematical review and full384-bit reconstruction of the256-bit source cover2371 exact dyadic cells plus both analytic infinite tails. Distinct symbol expressions, derivative constants and lower energy estimates agree through rigorous enclosures. The finite supremum gap is below1/256;873/1024 is the declared upward1/1024-grid ceiling. Captured source/audit bytes reproduce; three actual understated-bound/coverage/margin packets reject. No derivative absorption, all-support law, global advantage, literature originality or new support matrix/sign.
+
+### C-0111 — Positive complete logarithmic-energy outside bound at T3/4,N312
+
+- **Statement:** At T3/4,N312, C-0110 and the complete C-0107 reference-tail estimate at R256 give Q_W[f]>=(1/3)||f||² for all f in Q_312 H_T intersect the logarithmic form domain. The independent conservative lower is56974749020002431543911492482047780255/170141183460469231731687303715884105728>1/3. This is a full infinite-complement bound, not a finite low/cross or whole-form positivity result.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` fixed-case complete outside research bound under documented source/Arb premises; not a new full positivity theorem or admission
+- **First recorded:** `2026-10-26T11:42:58Z`
+- **Last verified:** `2026-10-26T12:12:12Z`
+- **Dependencies:** C-0110 signed discrepancy bound; C-0107 positive Laplace remainder and form implication; C-0104 complete Legendre/Fourier geometric tail. No earlier positive low matrix is used as input.
+- **Source:** [F-20261026-005](../findings/2026-10-26T114258Z-signed-logarithmic-discrepancy.md), [X-20261026-005](../computations/2026-10-26T114258Z-signed-logarithmic-discrepancy/record.md).
+- **Verification notes:** Both inherited R416/3 and existing fixed-source R256 were declared before execution and independently reconstructed; the former's insufficient bound is retained, not asserted as true-tail negativity. The sharper exact geometric bound applies at c192 without the coarse N>=3c policy. Independent review, exact rejection controls and isolated replay pass. The older scalar-reference outside lower63/32-4e-49 is numerically stronger here; no comparative improvement or global reach is established. Full low/cross/Schur verification remains separate; admissions8v1/0v2/1v3 and RH unresolved are unchanged.
+
+### C-0112 — Complete weighted logarithmic-energy sufficient criterion
+
+- **Statement:** Given a proved discrepancy inequality d_E<=alpha d+beta||.||², let g=(1-alpha)w-(1+beta-A0). For a complete Q_N low-band leakage bound lambda and g(R)>=m>0, h=max(m,g),epsilon=max(0,m-g(0))lambda,eta=1-epsilon/m>0 give c_Q>=eta J_Q*h J_Q. The exact full low A_low and complete dual Gram G(K) from xi_j=A(t)Jp_j+J(V_Tp_j),zeta_j=xi_j-sum Jp_k K_kj satisfy B*c_Q^-1B<=eta^-1G(K). Thus A_low-eta^-1G(K)>0 suffices for full-form positivity. Weighted finite subtraction K=M^-1R minimizes this particular Gram; explicit residual, BV/infinite-tail and one-sided source-error rules complete the finite acceptance operation.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` conditional full criterion and bounded qualification; no actual new full Weil array or Schur sign
+- **First recorded:** `2026-10-26T12:50:36Z`
+- **Last verified:** `2026-10-26T13:09:30Z`
+- **Dependencies:** C-0107 exact source/form; C-0103 digamma growth; C-0104 complete Legendre leakage. C-0110/C-0111 qualify the existing fixed-case premises; C-0093/C-0108 delimit finite-reordering equivalence and the bounded-reference obstruction. Compression, weighted projection and complete source-tail rules are proved directly.
+- **Source:** [F-20261026-006](../findings/2026-10-26T125036Z-energy-aware-schur-contract.md), [X-20261026-006](../computations/2026-10-26T125036Z-energy-aware-schur-contract/record.md).
+- **Verification notes:** Independent mathematical and code/output review approves domains, inverse direction, leakage factor, dual time-compression distinction, residual bracket, norm gap, mixed products and complete tails. Seven exact non-Weil groups and existing-case384-bit scalar qualification pass, with byte-identical isolated replay. At T3/4,N312 the fixed m1/3 has eta>=1-9/10^49. This is a complete conditional criterion, not verification of its new source arrays or positivity sign. No dominance, support extension, useful scaling, originality, canonical full-domain identification or admission; RH unresolved.
+- **Subsequent assessment, 2026-10-26T13:43:38Z:** C-0113 proves that this particular whole-line dual contraction at m1/3 fails the known T3/4 control for every finite supported low subtraction. The conditional theorem remains valid; its true compressed reference and other energy-aware representations are not rejected.
+
+### C-0113 — Unavoidable outside-time loss in the whole-line dual contraction
+
+- **Statement:** For C-0112's specified dual representative, a normalized adjacent outside-time box annihilates every supported low subtraction. Writing a(T) for the full normalized constant low entry and I(T)>0 for its exact archimedean adjacent-box coupling, every K,N containing the constant and qualified0<eta<=1 satisfies [A_low-eta^-1G(K)]_00<=a(T)-I(T)^2/[m+5/(8piT)]. At T3/4,m1/3 this is at most-1431/1024 although a(T)>0. For positivity the same contraction needs m>57/4 there; raising the floor in the stated geometric recipe requires N>2097152 for any allowed relative pair, and N>8589934592 at alpha1/4,beta873/1024. These are necessary recipe bounds, not sufficient repair dimensions or global complexity limits.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` negative exact sufficient-matrix direction and parameter assessment; not actual Weil negativity or rejection of the true energy reference
+- **First recorded:** `2026-10-26T13:31:05Z`
+- **Last verified:** `2026-10-26T13:43:38Z`
+- **Dependencies:** C-0112 full source/domain/dual definition; C-0107 signed physical source; C-0103 digamma envelope and inverse bracket. The positive resolvent series, outside witness, full tails, parameter and conditioning laws are derived directly; C-0110/C-0111 remain valid fixed-case premises.
+- **Source:** [F-20261026-007](../findings/2026-10-26T133105Z-energy-aware-dual-assessment.md), [X-20261026-007](../computations/2026-10-26T133105Z-energy-aware-dual-assessment/record.md).
+- **Verification notes:** Independent mathematical and code/output review approves. A64-term384-bit source and separate128-term512-bit two-sided reconstruction verify full physical/coupling intervals and exact negative/floor/dimension publications. Three falsified-bound packets reject; eight captured files reproduce source and audit byte-identically. The obstruction survives optimal finite subtraction, zero source error and low enlargement at the same floor. Stop selecting this whole-line contraction, not all energy-aware methods. No new full matrix, support positivity, global no-go, originality or production admission; RH unresolved.
+
+### C-0114 — Supported source action and complete energy-weighted coupling-error bounds
+
+- **Statement:** The physical polynomial action A_Tp equals p times the explicit boundary-log source A0+F(T+u)+F(T-u), plus the regular difference-kernel integral, with F(r)=atanh(exp(-r/2))+atan(exp(-r/2)). Complete endpoint/cell/residual bounds construct supported approximants Z with finite-column error e. For the actual supported dual Gram, B*C^-1B<=eta^-1G_s(K); source approximation adds at most2rho e/sqrt(m)+e²/m to its model Gram, with complete finite-band/BV infinity and one-sided source errors paid. At T3/4 the independently accepted p0/p1 approximants have combined operator error<=5/256. This numerical bound covers those two columns, not all312 low modes.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` conditional full supported-source/error operation and actual two-column accuracy; no full weighted Gram, Schur positivity or usefulness claim
+- **First recorded:** `2026-10-26T14:17:04Z`
+- **Last verified:** `2026-10-26T15:01:06Z`
+- **Dependencies:** C-0107/C-0112 physical source, domain and reference; C-0113 resolvent and old-representative obstruction. Boundary/difference action, full source/Gram errors and cancellation-aware/exact-cell refinements are derived directly. C-0110/C-0111 retain the existing fixed reference premises.
+- **Source:** [F-20261026-008](../findings/2026-10-26T141704Z-supported-coupling-qualification.md), [X-20261026-008](../computations/2026-10-26T141704Z-supported-coupling-qualification/record.md).
+- **Verification notes:** Independent mathematical, refinement and code/output review approves. The512-bit consumer reconstructs all2054 positive-half cells, both parity columns, endpoint/residual completion, full approximant Fourier tail and physical/Fourier controls. Final squared errors1/32768 and23/65536 sum to25/65536. Earlier valid versions miss the unchanged odd target and remain separately retained/audited; six widened-ball jump ambiguities are diagnosed and exact-cell classification resolves them. Three real invalid packets reject; all three source/audit variants replay byte-identically from13 captured files. No source/grid/precision/target escalation, full positivity matrix, support extension, global advantage, originality or admission; RH unresolved.
+
+### C-0115 — Complete supported coupling comparison and exact harmonic-residual reuse
+
+- **Statement:** At existing T3/4,Q312, a complete supported two-column weighted inverse-coupling enclosure gives paid upper allowances below0.001845341 and0.008060860 for p0/p1, versus matched older true-source scalar uppers0.000510873 and0.002060608. The selected sufficient diagonal lowers exceed0.052506008 and0.158431539. Infinite-lattice Parseval completes every FFT alias; the continuum quadrature pays both weight derivative kinks and all physical source/projection errors. Separately, existing harmonic-diagonal cancellation gives Q_N W Pi_N=Q_N(V+P+R)Pi_N, and C-0095 yields the full one-sided ||Q312 R||<1/300000, including the signed poles. This whole-map bound has no sqrt312 inflation.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` conditional complete two-column comparison and existing operator-bound specialization; no improved matched allowance, full312 sign or extension
+- **First recorded:** `2026-10-26T17:17:55Z`
+- **Last verified:** `2026-10-26T17:51:55Z`
+- **Dependencies:** C-0114 SHA-bound supported source/error premise; C-0110/C-0111/C-0112 fixed energy reference; C-0099/C-0100 older actual-Weil tail comparator; C-0063/C-0095 exact harmonic split and full one-sided residual; C-0113 retained whole-line obstruction.
+- **Source:** [F-20261026-009](../findings/2026-10-26T171755Z-supported-penalty-comparison.md), [X-20261026-009](../computations/2026-10-26T171755Z-supported-penalty-comparison/record.md).
+- **Verification notes:** Independent mathematical/producer/consumer/reuse review approves. The768/192-bit consumer reconstructs32768 positive-half bins and62583 frequency samples per column plus eight direct physical transforms. Both failed audit versions and diagnostics remain preserved; exact binary rational conversion and independently evaluated phases repair the auxiliary audit without changing the source packet, precision or acceptance bounds. Three falsified mathematical bounds reject; captured source/audit/reuse reproduce canonical bytes. The literal derivative residual charge needs M>=12916885 for degree311 at individual1/16, but this is recipe-specific and avoidable through the already proved split/range bound, not an intrinsic cost or missing new residual theorem. Restrict the implemented diagnostic recipe; complete whole-space weighted V/P coupling and actual low control remain unresolved. No exact inverse ordering, global no-go, new full positivity, support, originality or admission; RH unresolved.
+
+### C-0116 — Whole-low-space obstruction to isotropic residual-norm completion
+
+- **Statement:** At T3/4,N312, the supported split B=Q(V+P+R)Pi with the valid full residual allowance r=1/300000 and m1/3 admits a norm-only completion whose ideal sufficient matrix obeys S_norm<=A-r²/m I=A-(1/30000000000)I, independently of the exact positive V/P Gram. Exact even/odd polynomial witnesses of degree310/311 have actual full Weil Rayleigh uppers below5.804e-14 and7.239e-12. Their completed-matrix uppers are below-3.3275e-11 and-2.6094e-11. Either excludes positivity of this WHOLE312 completion. These are actual low-source uppers, not exact eigenvalues or merely small conservative positivity margins.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` source-conditional rejection of the specified isotropic completion; exact supported criterion unresolved, no actual Weil negativity
+- **First recorded:** `2026-10-26T18:15:54Z`
+- **Last verified:** `2026-10-26T18:55:12Z`
+- **Dependencies:** C-0063 actual source/domain and mass; C-0099/C-0100 accepted two-sided bounded H0 source; C-0103 complete exterior envelope; C-0112/C-0114 supported Gram/error direction; C-0095/C-0115 full one-sided residual allowance. The actual low upper includes the whole positive exterior rather than substituting bounded H0 as actual Weil A.
+- **Source:** [F-20261026-010](../findings/2026-10-26T181554Z-whole-low-residual-completion.md), [X-20261026-010](../computations/2026-10-26T181554Z-full-coupling-viability/record.md).
+- **Verification notes:** Independent proof/code/output review approves. Exact1536-bit source and independent2048-bit binomial/Rodrigues/rational reconstruction verify physical mass, endpoint jets, actual bounded-source interval contraction and complete Sobolev/terminating Fourier exterior. Both parity witnesses reject the whole completion. Original source-only proposals have valid nonrejecting bounds and remain separately audited; enclosure-aware optimization changes neither the full constrained space nor support/projection/frequency/precision/grid/target. Both source/audit versions reproduce canonical bytes from19 captured files; three false mathematical packets reject. A timestamped addendum preserves/corrects the original derivative-display typo without changing code/results. The valid residual bound is not proved absent or actual residual large; it is inadequate as this isotropic proof-error charge. Direction-/matrix-sensitive control or another qualified complete budget remains missing. No full exact criterion rejection, global no-go, new support, originality or admission; RH unresolved.
+
+### C-0117 — Exact finite residual cross band and complete whole-low model-error qualification
+
+- **Statement:** For the canonical local residual polynomial R_K, even K with2K<N gives Q_N R_K Pi_N=P_[N,N+K) R_K P_[N-K,N). Even-degree kernel ranges and odd primitive boundary terms are below N; full low even/polar terms remain required. At existing T3/4,N312, the first even order satisfying the declared complete remainder target is K56. Its56-by56 expansion map has812nonzero entries; all3136 are checked exactly. The complete regular-plus-polar ||R-R_56|| upper is below9.152e-19. Retaining R_56 inside the signed V/P/R_56 Gram gives the complete low/coupling MODEL-error allowance Lambda below1.794913e-17. An inherited accepted-control full-form lower ell0=1e-15 yields A_K-Lambda I>9.81135e-16 I on WHOLE312. This is a NECESSARY budget check, not positivity after subtracting the uncomputed weighted Gram.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` source-conditional exact residual representation/error interface at an already positive control; no full mixed-Gram sign or new support
+- **First recorded:** `2026-10-26T19:19:41Z`
+- **Last verified:** `2026-10-26T19:48:35Z`
+- **Dependencies:** C-0063 actual source/domain and mass; frozen canonical local residual series/tail with2T<pi including signed poles; C-0085 crossV and C-0097 fullP norm; C-0099/C-0100 accepted old proof and C-0086 full-gap conversion at this control; C-0112/C-0114 supported weighted-Gram direction/error rule; C-0095/C-0115 one-sided residual-cross norm. No physical-form gap is assumed at an unproved support or substituted for the new reference-Schur gap.
+- **Source:** [F-20261026-011](../findings/2026-10-26T191941Z-structured-residual-coupling.md), [X-20261026-011](../computations/2026-10-26T191941Z-structured-residual-coupling/record.md).
+- **Verification notes:** Independent formal-quotient/Rodrigues-power consumer checks all coefficients/entries, full remainder, every preceding even order, physical-mass control-gap conversion and both critical residual images. Source512/consumer768 scalar bits and exact rational matrix algebra pass. Separate proof/code/output review approves; shared FLINT/Arb and accepted old proof remain premises, not fresh analytical replay. Isolated source/audit reproduce canonical bytes from13 captured files. Three false mathematical packets reject with no success output. All23 earlier seals/1282 historical members and frozen helpers remain unchanged. This removes C-0116's residual-error-floor obstruction for a DIFFERENT representation, not its retained STOP. Actual A_K, complete weighted V/P/R_K Gram and their computational enclosures remain uncomputed. No root tool upgrade, new positivity/support, global law or admission; RH unresolved.
 
 ## Entry format
 

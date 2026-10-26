@@ -1,0 +1,17 @@
+{
+  "started": "2026-10-26T17:44:36.826979+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/reuse-coupling-split-v1.py",
+    "--output",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/reuse-control-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.24967520008794963,
+  "stdout": "{\"format\": \"exact-existing-coupling-split-control-v1\", \"status\": \"PASS\", \"support\": \"3/4\", \"N\": 312, \"harmonic_scalar_cross_exactly_zero\": true, \"full_pole_already_in_residual\": true, \"residual_operator_upper\": \"1/300000\", \"weighted_residual_map_error_upper\": \"sqrt(3)/300000\", \"main_residual_bound\": \"111/33333248\", \"geometric_ratio\": \"3/8360000\", \"one_sided_not_double_tail_or_columnwise\": true, \"source_matrix_generated\": false, \"code_sha256\": \"b7dc903ad3b46670a2fb7305fd372dfee3832dded83bbc70f95040705dc4f35e\"}\n",
+  "stderr": ""
+}

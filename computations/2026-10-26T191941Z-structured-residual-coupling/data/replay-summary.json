@@ -1,0 +1,12 @@
+[
+  {
+    "role": "source",
+    "sha256": "afa2a31af3f25fbe1e75aa36633c2be70433fea0479e0d4bea90cd1899f2d01b",
+    "byte_identical": true
+  },
+  {
+    "role": "audit",
+    "sha256": "97355f8e996d51166b7c1e26c119b0eab5b3d4e079f70a04fca45ee1bd69318e",
+    "byte_identical": true
+  }
+]

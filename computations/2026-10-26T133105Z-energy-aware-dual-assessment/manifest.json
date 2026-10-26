@@ -1,0 +1,224 @@
+{
+  "format": "energy-aware-dual-usefulness-research-bundle-v1",
+  "computation_id": "X-20261026-007",
+  "created": "2026-10-26T13:31:05Z",
+  "verified": "2026-10-26T13:43:38Z",
+  "baseline_commit": "0a10e5aef2ee451d224028f7746c55369002b36f",
+  "claims": [
+    "C-0113"
+  ],
+  "status": "COMPLETE_SCOPED_STOP_WHOLE_LINE_DUAL_CONTRACTION",
+  "support": "3/4",
+  "evaluated_floor": "1/3",
+  "ideal_sufficient_acceptance_diagonal_upper": "-1431/1024",
+  "physical_constant_form_value_positive": true,
+  "all_supported_low_subtractions_and_low_dimensions_containing_constant_covered": true,
+  "all_qualified_eta_covered": true,
+  "necessary_floor_for_repair_strictly_greater_than": "57/4",
+  "necessary_geometric_repair_dimensions": [
+    {
+      "label": "all_allowed_relative_pairs",
+      "published_N_strictly_greater_than": 2097152,
+      "dense_array_entries_at_minimum_integer_N": 4398050705409
+    },
+    {
+      "label": "fixed_alpha_beta",
+      "published_N_strictly_greater_than": 8589934592,
+      "dense_array_entries_at_minimum_integer_N": 73786976312018075649
+    }
+  ],
+  "source_precision_bits": 384,
+  "source_positive_series_terms": 64,
+  "independent_precision_bits": 512,
+  "independent_positive_series_terms": 128,
+  "independent_two_sided_tail_reconstruction": true,
+  "independent_mathematical_review": "APPROVE",
+  "independent_implementation_review": "APPROVE",
+  "actual_invalid_bound_rejections": 3,
+  "source_sha256": "cc0699b16362f228d20d55c0a54f8d7f343c089bc374feeb9d140805402ae7b0",
+  "audit_sha256": "d2e3f2f0baaf528d0f48b2ed2de7996000bf38e21548d2069f5573585ec33076",
+  "source_and_audit_isolated_byte_identical": true,
+  "captured_files": 8,
+  "source_snapshot_manifest_sha256": "6d024626c5d499c6798912fcbd20ea0cbaa2e1ecac15f10ef6e051853e149471",
+  "historical_seals_unchanged": 19,
+  "historical_members_unchanged": 1046,
+  "negative_sufficient_dual_schur_direction_proved": true,
+  "new_actual_Weil_negative_direction": false,
+  "new_full_Weil_positivity_theorem": false,
+  "new_support_or_full_matrix_generated": false,
+  "general_energy_reference_or_global_no_go_proved": false,
+  "production_admission_changed": false,
+  "trust_boundary": "Exact analytical outside-time witness proof and independent Arb/FLINT scalar reconstruction under qualified source conventions. Conditional theorem and actual compressed energy reference are not refuted. Necessary repair costs apply only to the stated geometric recipe; no formal Rust/Lean admission.",
+  "members": [
+    {
+      "path": "assess-dual-v1.py",
+      "bytes": 6219,
+      "sha256": "42a656b0f84eea326fa1bd4002ef6cda6b0e53c92a7998b7eb45b60a5cbb3901"
+    },
+    {
+      "path": "assessment-inputs-v1.json",
+      "bytes": 916,
+      "sha256": "043fe40cb0058eb14be1c9f4026833a9765ba0a9738f3cbc57b12470eca8bd55"
+    },
+    {
+      "path": "data/assessment-v1.json",
+      "bytes": 7002,
+      "sha256": "cc0699b16362f228d20d55c0a54f8d7f343c089bc374feeb9d140805402ae7b0"
+    },
+    {
+      "path": "data/canonical-source.run.json",
+      "bytes": 596,
+      "sha256": "e4e14d9dc22420a11ca629b8f955aa816bdfcc02f5c0e8336f3f1c7f0cda6154"
+    },
+    {
+      "path": "data/documentation-check.json",
+      "bytes": 520,
+      "sha256": "663fd0c7b0b82522309e274b008c38ed68a0076073f9e18db73a38b6559af484"
+    },
+    {
+      "path": "data/environment.json",
+      "bytes": 470,
+      "sha256": "bf6c906bed340f063e2648553bc5b9cbeeab4d500f7a3fd3f4ce6eb695d86648"
+    },
+    {
+      "path": "data/fabricated-repair-dimension.json",
+      "bytes": 6561,
+      "sha256": "e456da740833456d9fe1e08f1ebd6b2f2caa3828da584889fecb760703dbb3b8"
+    },
+    {
+      "path": "data/fabricated-repair-dimension.run.json",
+      "bytes": 605,
+      "sha256": "24811fc3903e6d6d80fd069454fe0ae1585b0264cb238879057d4ea193bc89cc"
+    },
+    {
+      "path": "data/independent-audit-v1.json",
+      "bytes": 3167,
+      "sha256": "d2e3f2f0baaf528d0f48b2ed2de7996000bf38e21548d2069f5573585ec33076"
+    },
+    {
+      "path": "data/independent-audit.run.json",
+      "bytes": 657,
+      "sha256": "043294a2faa42160b16a049d649d3d6c09d2f5b866db288e7d40172dad2d02a0"
+    },
+    {
+      "path": "data/inflated-outside-coupling.json",
+      "bytes": 6756,
+      "sha256": "e5f9798dd1be47605ecb844b7211b433059c0c6313eedf1caa6d831b78703561"
+    },
+    {
+      "path": "data/inflated-outside-coupling.run.json",
+      "bytes": 616,
+      "sha256": "b9fe7fbd3b045ac93b3f4e2408c1d03842d9cd657e93dfd63d1a8942f5b59d49"
+    },
+    {
+      "path": "data/isolated-assessment-v1.json",
+      "bytes": 7002,
+      "sha256": "cc0699b16362f228d20d55c0a54f8d7f343c089bc374feeb9d140805402ae7b0"
+    },
+    {
+      "path": "data/isolated-audit-v1.json",
+      "bytes": 3167,
+      "sha256": "d2e3f2f0baaf528d0f48b2ed2de7996000bf38e21548d2069f5573585ec33076"
+    },
+    {
+      "path": "data/isolated-audit.run.json",
+      "bytes": 964,
+      "sha256": "f7a83bda5cdb0b9d9b9552f82ba48c2cbf73e208c775697c97a1f5e22c6525c4"
+    },
+    {
+      "path": "data/isolated-source.run.json",
+      "bytes": 867,
+      "sha256": "ecbd423f973222befc29f0fcaa1b6ed1f0affe4674d807ee97fd41526a42c907"
+    },
+    {
+      "path": "data/preservation-check.json",
+      "bytes": 287,
+      "sha256": "8d020e12c1147cbbf3d02b9d0aa6c445aeaf90e1c49fed78857865530d5bd909"
+    },
+    {
+      "path": "data/rejection-summary.json",
+      "bytes": 649,
+      "sha256": "432e5c84cfec715b9f741eb8b6c1518837718490b2e50810bc93c89ac901135d"
+    },
+    {
+      "path": "data/replay-summary.json",
+      "bytes": 460,
+      "sha256": "e5e37489cebd244ed165638d2f11dbf1b8fa1152e1db234148be6c402c308c45"
+    },
+    {
+      "path": "data/understated-physical-low.json",
+      "bytes": 6997,
+      "sha256": "972b5a0d8dabc78d39500fec4b65b20eb5c69531d3df4bafc322f4556661cf16"
+    },
+    {
+      "path": "data/understated-physical-low.run.json",
+      "bytes": 607,
+      "sha256": "7ae389eb1be64cfc9559cc00f345f4ec42689969d6d1a2b607ebce83837e1f96"
+    },
+    {
+      "path": "dual-loss-assessment-v1.md",
+      "bytes": 9262,
+      "sha256": "90cb3d4903844c79e9e261f61d1203ee979f1f72ae9a347326afb90e183ed4e7"
+    },
+    {
+      "path": "independent-review.md",
+      "bytes": 3458,
+      "sha256": "96eea61b62f7b495ea755e9fa2d3256fe12b05002bdb66e2eb4bd71631df4014"
+    },
+    {
+      "path": "record.md",
+      "bytes": 8423,
+      "sha256": "92baeeb71cebf9677d70897f48cabc26efecb784b1813d6912362eafc42dd745"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T133105Z-energy-aware-dual-assessment/assess-dual-v1.py",
+      "bytes": 6219,
+      "sha256": "42a656b0f84eea326fa1bd4002ef6cda6b0e53c92a7998b7eb45b60a5cbb3901"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T133105Z-energy-aware-dual-assessment/assessment-inputs-v1.json",
+      "bytes": 916,
+      "sha256": "043fe40cb0058eb14be1c9f4026833a9765ba0a9738f3cbc57b12470eca8bd55"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T133105Z-energy-aware-dual-assessment/verify-dual-v1.py",
+      "bytes": 8276,
+      "sha256": "b06e0af8e9a86b69ed6548548fe95e71d354d5ba29de54dcacdaeca82d83a81a"
+    },
+    {
+      "path": "source-v1/manifest.json",
+      "bytes": 1604,
+      "sha256": "6d024626c5d499c6798912fcbd20ea0cbaa2e1ecac15f10ef6e051853e149471"
+    },
+    {
+      "path": "source-v1/pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "source-v1/scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "source-v1/scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "source-v1/scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "source-v1/uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    },
+    {
+      "path": "verify-dual-v1.py",
+      "bytes": 8276,
+      "sha256": "b06e0af8e9a86b69ed6548548fe95e71d354d5ba29de54dcacdaeca82d83a81a"
+    }
+  ]
+}

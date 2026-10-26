@@ -1,0 +1,104 @@
+{
+  "format": "whole-low-source-captured-closure-v1",
+  "files": [
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/capture-run-v1.py",
+      "bytes": 813,
+      "sha256": "e9cddaac687c7ba70160d3e6dfcc9838e8a3355a308e71c7a99251c70118c67a"
+    },
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/propose-coupled-v1.py",
+      "bytes": 2979,
+      "sha256": "b35589b71bebabe3495e1b88252af46a1343315c76a1d8ab7d6f09738c7d08df"
+    },
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/propose-low-floor-v1.py",
+      "bytes": 2427,
+      "sha256": "2d2796f1b70ce5f438ca90bb1397c89f4f33c783c61c855ebc072194f06c8c4b"
+    },
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/propose-low-floor-v2.py",
+      "bytes": 2634,
+      "sha256": "9c81e0e8806864aaf1b24e88b4b288494a6282a6a6d5b837b36fe10fff0d8b82"
+    },
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/assess-low-floor-v1.py",
+      "bytes": 6114,
+      "sha256": "11d0913e80fd51739f4f5b78b23c818740ebaf5fd0cbfd77937321732ab201e8"
+    },
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/assess-low-floor-v2.py",
+      "bytes": 6260,
+      "sha256": "ab25eb41b2913a8878f34c4a1f72ab49f610407ade26981ebeb07ee8cb5060d7"
+    },
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/verify-low-floor-v1.py",
+      "bytes": 8006,
+      "sha256": "e147e36ec22d7cb405d5714ebadb290acc5112b35570db3d949ced48c5586e91"
+    },
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/replay-and-reject-v1.py",
+      "bytes": 3275,
+      "sha256": "4bc5f23d72066a91b2a93d78be15d5e445e8d59c039bfb709a9a26b5ab1227da"
+    },
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/assessment-inputs-v1.json",
+      "bytes": 1138,
+      "sha256": "90c4cbbe7c2a0846bc33e9b7f566dcce5d589ed86669e513c24ba85c66e1fc47"
+    },
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/residual-completion-inputs-v1.json",
+      "bytes": 999,
+      "sha256": "2779eb216abfdb9d5d978102772cd79403a9a25a35cb31d92dbd7f38f9405c27"
+    },
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/residual-completion-inputs-v2.json",
+      "bytes": 1376,
+      "sha256": "69391cde4b04d433b2b9d6a3fe410e9a33a12135e32fc49e3d6cf058f1c05459"
+    },
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/data/proposal-v1.json",
+      "bytes": 18233,
+      "sha256": "593c3669ecd9e581bd0809ab675b060e6949be19f9d6be91aac374fe27b1fdf1"
+    },
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/data/low-proposal-v1.json",
+      "bytes": 9600,
+      "sha256": "9afb06866c131fd8d3d94991b96b5e82ff2e3cef877db3111b19ef617a70e70d"
+    },
+    {
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability/data/low-proposal-v2.json",
+      "bytes": 9849,
+      "sha256": "52400b008a17f9d41abc20431f23b96920b031419fb5eb1ecc7bf416e097e437"
+    },
+    {
+      "path": "scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    },
+    {
+      "path": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/source-v1.json.gz",
+      "bytes": 3398061,
+      "sha256": "cd254a2a7002e17b56dce12a0ec00166eac8023e30374e38053d8963ade28b9c"
+    }
+  ],
+  "exact_source_and_consumer_project_imports": [],
+  "canonical_arithmetic_module_only_imported_by_nonproof_proposal": true,
+  "old_bounded_source_reused_not_regenerated": true,
+  "floating_proposal_outputs_captured_as_fixed_scientific_inputs": true
+}

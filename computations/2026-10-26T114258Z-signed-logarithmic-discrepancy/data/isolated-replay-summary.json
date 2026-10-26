@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "producer_output_byte_identical": true,
+  "independent_audit_output_byte_identical": true,
+  "producer_output_sha256": "872d643987790050f1f0414bd6473e7f76881e9b35b01fcf0ff8bbfe2f5ac792",
+  "audit_output_sha256": "1628749da24f8c47cefe12f79064dc6ac84bc767d97ab3bad619d8618958570b",
+  "captured_code_files": 10,
+  "captured_import_origins_enforced": true,
+  "new_support_matrix_computed": false
+}

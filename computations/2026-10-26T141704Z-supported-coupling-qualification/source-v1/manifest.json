@@ -1,0 +1,72 @@
+{
+  "format": "supported-coupling-source-closure-v1",
+  "created": "2026-10-26T14:17:04Z",
+  "baseline_commit": "0a10e5aef2ee451d224028f7746c55369002b36f",
+  "members": [
+    {
+      "path": "computations/2026-10-26T141704Z-supported-coupling-qualification/build-supported-v1.py",
+      "bytes": 9471,
+      "sha256": "17bb7ddaa0b6f3478d3a734488c7b5e2d227c2bdce1d5b9658fc1ce5068b11b4"
+    },
+    {
+      "path": "computations/2026-10-26T141704Z-supported-coupling-qualification/build-supported-v2.py",
+      "bytes": 10246,
+      "sha256": "f13f74c32482337ef11c7246291a481a5f7570301d491818292375c24c29ef79"
+    },
+    {
+      "path": "computations/2026-10-26T141704Z-supported-coupling-qualification/build-supported-v3.py",
+      "bytes": 10328,
+      "sha256": "bf9c1f6dfcca978914e28c1bbb2f5c6f650a8f20effb023ebe299dd8eeea1972"
+    },
+    {
+      "path": "computations/2026-10-26T141704Z-supported-coupling-qualification/diagnose-branches-v1.py",
+      "bytes": 2016,
+      "sha256": "f39f910312bd98f65d06f9678feb87ce025dffec0e7c991df9a30ed930aa932f"
+    },
+    {
+      "path": "computations/2026-10-26T141704Z-supported-coupling-qualification/qualification-inputs-v1.json",
+      "bytes": 1193,
+      "sha256": "3534270d16f8783ec1866ac3b21bd4350fad6234791c2fbabf025d777ec9165a"
+    },
+    {
+      "path": "computations/2026-10-26T141704Z-supported-coupling-qualification/qualification-inputs-v2.json",
+      "bytes": 1420,
+      "sha256": "8d6dff7a48c98654781c4370be34fa880bcc0789b34dfb62d54ed8dcbe98d179"
+    },
+    {
+      "path": "computations/2026-10-26T141704Z-supported-coupling-qualification/qualification-inputs-v3.json",
+      "bytes": 1462,
+      "sha256": "a5b1b2dfe8b6df77929a473df73814740014a07f50ae39ca69241f60bcda5fa8"
+    },
+    {
+      "path": "computations/2026-10-26T141704Z-supported-coupling-qualification/verify-supported-v1.py",
+      "bytes": 13125,
+      "sha256": "1dd35b2e4f748288e37f70c01427ce47ec4fe1b77338ef8b6d63d8dac54e25a1"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    }
+  ]
+}

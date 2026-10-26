@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "understated-physical-low",
+      "exit": 2,
+      "reason": "REJECT: dishonest physical constant low enclosure",
+      "no_success_output": true
+    },
+    {
+      "case": "inflated-outside-coupling",
+      "exit": 2,
+      "reason": "REJECT: dishonest outside archimedean coupling enclosure",
+      "no_success_output": true
+    },
+    {
+      "case": "fabricated-repair-dimension",
+      "exit": 2,
+      "reason": "REJECT: dishonest cutoff/dimension lower",
+      "no_success_output": true
+    }
+  ],
+  "scope": "Research scalar/coupling assessment packets, not production certificates."
+}

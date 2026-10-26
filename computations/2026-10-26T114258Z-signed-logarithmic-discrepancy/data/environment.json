@@ -1,0 +1,8 @@
+{
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "python_flint": "0.9.0",
+  "baseline_commit": "0a10e5aef2ee451d224028f7746c55369002b36f",
+  "source_precision_bits": 256,
+  "independent_precision_bits": 384,
+  "scope": "Fixed-support global scalar/form enclosure and complete outside bound; no low matrix/sign, source-support extension or admission."
+}

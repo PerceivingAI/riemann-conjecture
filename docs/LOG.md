@@ -1,10 +1,58 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-26T05:00:39Z`
+- **Last updated:** `2026-10-26T19:48:35Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-26T19:48:35Z: exact residual cross representation and complete whole-low model-error budget
+
+[F-20261026-011](../findings/2026-10-26T191941Z-structured-residual-coupling.md) / C-0117 and [X-20261026-011](../computations/2026-10-26T191941Z-structured-residual-coupling/record.md) qualify a DIFFERENT residual-aware operation at unchanged T3/4,N312. The finite residual stays signed inside the full mixed source. Its derived K56 cross is exactly supported on input256..311/output312..367; every other finite-model column/output is zero by proof, not sampling. All3136 rational entries/812nonzeros, complete regular/polar remainder and low/coupling error allowance are independently accepted. Low even/polar terms remain mandatory.
+
+The adopted ALREADY PROVED physical-form control lower1e-15 comes from the accepted old proof and full-gap conversion, not an unknown new-reference Schur gap. Complete remainder is below9.152e-19 and full residual-model error below1.794913e-17; the whole-low NECESSARY budget stays above9.81135e-16. The actual A_K and complete weighted V/P/R_K Gram remain uncomputed. No full criterion positivity, support extension, full pipeline or stronger full residual-norm theorem is claimed.
+
+Source512/consumer768 and exact Legendre-walk versus formal-quotient/Rodrigues-power reconstructions pass. Isolated source/audit replay byte-identically from13 captured files; three real false mathematical packets reject. Independent proof/code/output review approves the qualified-operation conclusion. All23 prior seals/1282 members and frozen helpers remain unchanged. C-0116's isotropic-completion STOP is preserved. No production admission; RH unresolved.
+
+## 2026-10-26T18:55:12Z: whole-low-space residual-completion obstruction independently accepted
+
+[F-20261026-010](../findings/2026-10-26T181554Z-whole-low-residual-completion.md) / C-0116 and [X-20261026-010](../computations/2026-10-26T181554Z-full-coupling-viability/record.md) derive the complete supported V/P-plus-residual norm criterion and prove its isotropic residual charge prevents positivity on the WHOLE312 low space. Actual even/odd full Weil Rayleigh uppers lie below that charge, giving strict negative completion directions even with exact V/P input. The old bounded source is used with its true meaning and whole exterior completion, not as an interchangeable actual low matrix.
+
+The declared coupled floating screen gives no rejection and no positivity proof. Original endpoint-constrained source-only proposals yield valid nonrejecting actual-source bounds; complete exterior-aware optimization in the same full constrained space yields exact witnesses. Both source/audit versions are preserved and independently accepted. Source1536/consumer2048, exact polynomial masses and endpoint jets, signed interval contractions and complete Sobolev/terminating exterior bounds pay all losses. Both exact versions replay byte-identically from19 captured files; three actual false mathematical inputs reject. A timestamped derivative-display correction changes no code/result. All22 preceding seals and1211 members remain unchanged.
+
+STOP the specified isotropic completion, not the exact supported criterion or actual Weil positivity. Existing uniform residual estimates are valid but their proof-error adequacy cannot be inferred from unit-scale smallness. Direction-/matrix-sensitive residual control or another complete qualified budget remains missing; no stronger uniform theorem, support extension or admission is proved necessary. RH unresolved.
+
+## 2026-10-26T17:51:55Z: complete supported coupling comparison and existing exact source reuse
+
+[F-20261026-009](../findings/2026-10-26T171755Z-supported-penalty-comparison.md) / C-0115 and [X-20261026-009](../computations/2026-10-26T171755Z-supported-penalty-comparison/record.md) compute complete paid supported-source penalties at existing T3/4,Q312. Both selected constant/odd compressions pass, but their upper allowances exceed the matched older true-source scalar bounds. Infinite aliases use exact lattice mass, and the continuum enclosure pays both weight derivative kinks. No full312 positivity or new support is inferred.
+
+Independent768/192-bit acceptance reconstructs all32768 positive-half uniform bins and62583 frequency samples per column with eight direct physical transform controls. Two failed audit versions remain preserved: the traceback exposes a decimal rational-conversion limit, and binary conversion exposes interval wrapping in repeated auxiliary phase multiplication. Independent midpoint phases fix the root overestimation without changing the source packet or scientific parameters. Three actual false bounds reject; captured source/audit/reuse reproduce canonical bytes. All21 earlier seals and1144 historical members remain unchanged.
+
+RESTRICT the implemented diagnostic recipe rather than scale its literal source residual charge. Existing harmonic-diagonal cancellation removes that evaluation from the true cross, and the already proved full one-sided residual bound specializes below1/300000 without a column-count factor. Complete weighted V/P coupling and actual low control remain unresolved; no new stronger residual theorem is presumed necessary. No generic energy-reference no-go, whole-space sign, extension or admission; RH unresolved.
+
+## 2026-10-26T15:01:06Z: actual supported source and complete coupling-error operation qualified
+
+[F-20261026-008](../findings/2026-10-26T141704Z-supported-coupling-qualification.md) / C-0114 and [X-20261026-008](../computations/2026-10-26T141704Z-supported-coupling-qualification/record.md) derive explicit boundary-log plus regular polynomial source action and a full error-controlled supported energy dual. At existing T3/4,2054 positive-half cells for the constant/first-odd columns independently meet the declared accuracy, with combined operator error5/256. Complete approximant Fourier tails are bounded; the true singular source is separately completed in L². No full weighted Gram or positivity matrix is computed.
+
+The initial natural-interval and derivative variants fail the unchanged odd accuracy target but retain valid bounds. A diagnostic finds six conservative jump ambiguities from widened Arb storage balls; exact partition branching resolves them with the same grid, precision, support and target. All versions remain unmodified and separately audited. Independent mathematical/code review,512-bit all-cell acceptance, three actual invalid-bound rejections and byte-identical isolated source/audit replay pass. Twenty earlier seals and1080 historical members remain unchanged. The old representative stays rejected; no usefulness, extension, global advantage or admission follows.
+
+## 2026-10-26T13:43:38Z: whole-line dual contraction rejected by actual outside-time loss
+
+[F-20261026-007](../findings/2026-10-26T133105Z-energy-aware-dual-assessment.md) / C-0113 and [X-20261026-007](../computations/2026-10-26T133105Z-energy-aware-dual-assessment/record.md) derive an adjacent outside-time witness annihilating every supported low subtraction while retaining actual archimedean coupling. At existing T3/4,m1/3 the ideal whole-line acceptance diagonal is at most-1431/1024 although the full physical constant value is positive. The obstruction survives optimal finite subtraction, exact source arithmetic and low enlargement at that floor. A larger-floor repair needs m>57/4 and incurs stated necessary geometric dimension bounds, not verified repair or a universal algorithm lower bound.
+
+Independent mathematical/code review,64-term384-bit source and128-term512-bit two-sided reconstruction accept all intervals and publications. Three false-bound packets reject; captured source and audit reproduce canonical bytes. Nineteen earlier seals and1046 members remain unchanged. STOP this whole-line contraction as a full-matrix extension operation; no larger-support sign run is justified by it. C-0110/C-0111 and C-0112's conditional theorem remain valid. No actual Weil negative direction, general energy-reference no-go, new positivity theorem or admission.
+
+## 2026-10-26T13:09:30Z: complete weighted logarithmic-energy criterion qualified
+
+[F-20261026-006](../findings/2026-10-26T125036Z-energy-aware-schur-contract.md) / C-0112 and [X-20261026-006](../computations/2026-10-26T125036Z-energy-aware-schur-contract/record.md) derive a conditional full low/cross/outside criterion with a positive full-frequency energy weight, paid leakage, explicit finite weighted projection and residual/source/infinite-tail bounds. Compression and inverse are not interchanged. The criterion retains the unbounded reference rather than reducing it everywhere to its scalar minimum.
+
+Independent mathematical and implementation review approves. Seven exact non-Weil controls include a false-positive counterexample when leakage is omitted and opposite penalty order for two valid reference bounds on different coupling directions. Existing T3/4,N312 scalar reconstruction qualifies the weight with eta>=1-9/10^49. Canonical and isolated programs pass byte-identically;18 old seals and1026 members are unchanged. No actual new full Weil source array or Schur sign, support extension, dominance, global usefulness or production admission is asserted.
+
+## 2026-10-26T12:12:12Z: useful signed logarithmic discrepancy and complete outside bounds
+
+[F-20261026-005](../findings/2026-10-26T114258Z-signed-logarithmic-discrepancy.md) / C-0110,C-0111 and [X-20261026-005](../computations/2026-10-26T114258Z-signed-logarithmic-discrepancy/record.md) establish d_E<=(1/4)d_A+(873/1024)||f||² at fixed T3/4 and a full Q312 outside lower1/3. The direct signed multiplier estimate avoids the derivative absorption rejected earlier. Complete interval coverage and analytic infinite tails retain the unbounded energy. Both reference anchors are declared before scalar execution; the weaker anchor's insufficient estimate remains recorded.
+
+Independent mathematical review,384-bit full reconstruction of2371 cells, actual false-bound/coverage/margin rejection and isolated source/audit byte-identical replay pass. Seventeen preceding seals and988 members are unchanged. The known older scalar-reference outside lower is larger, so this is a new fixed-case energy-relative qualification, not improved local coercivity, global reach or demonstrated comparative advantage. Full low/cross positivity and an all-support parameter law remain unproved. No new support matrix, production admission, Rust/Lean acceptance or RH conclusion.
 
 ## 2026-10-26T05:00:39Z: exact energy decomposition qualified; derivative closure rejected
 

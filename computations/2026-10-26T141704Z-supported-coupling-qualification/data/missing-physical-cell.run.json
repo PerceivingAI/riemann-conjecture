@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\verify-supported-v1.py",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\data\\missing-physical-cell.json",
+    "--output",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\data\\missing-physical-cell-SHOULD-NOT-EXIST.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "returncode": 2,
+  "elapsed_seconds": 0.3132642999989912,
+  "stdout": "",
+  "stderr": "REJECT: source coverage count defect\n"
+}

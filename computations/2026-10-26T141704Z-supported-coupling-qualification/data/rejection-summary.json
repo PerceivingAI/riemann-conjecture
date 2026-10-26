@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "missing-physical-cell",
+      "exit": 2,
+      "reason": "REJECT: source coverage count defect",
+      "no_success_output": true
+    },
+    {
+      "case": "understated-source-error",
+      "exit": 2,
+      "reason": "REJECT: understated complete L2 source error",
+      "no_success_output": true
+    },
+    {
+      "case": "unpaid-fourier-tail",
+      "exit": 2,
+      "reason": "REJECT: understated complete Fourier tail",
+      "no_success_output": true
+    }
+  ],
+  "scope": "Research source-accuracy and error packets, not production certificates."
+}

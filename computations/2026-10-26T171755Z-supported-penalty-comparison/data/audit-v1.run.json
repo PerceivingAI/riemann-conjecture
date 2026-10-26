@@ -1,0 +1,18 @@
+{
+  "started": "2026-10-26T17:28:06.116051+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/verify-comparison-v1.py",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/comparison-v1.json.gz",
+    "--output",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/independent-audit-v1.json"
+  ],
+  "exit_code": 2,
+  "elapsed_seconds": 34.54790779994801,
+  "stdout": "",
+  "stderr": "ValueError: Exceeds the limit (4300 digits) for integer string conversion: value has 14677 digits; use sys.set_int_max_str_digits() to increase the limit\n"
+}

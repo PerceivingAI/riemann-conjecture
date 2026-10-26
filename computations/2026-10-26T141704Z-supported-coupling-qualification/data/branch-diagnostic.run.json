@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\diagnose-branches-v1.py",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\data\\supported-source-v2.json",
+    "--output",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\data\\branch-diagnostic-v1.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "returncode": 0,
+  "elapsed_seconds": 0.7251399999950081,
+  "stdout": "{\"branch_disagreements\": 6, \"overlap_due_only_to_storage\": 6}\n",
+  "stderr": ""
+}

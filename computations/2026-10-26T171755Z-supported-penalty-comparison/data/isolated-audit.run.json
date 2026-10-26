@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-26T17:46:36.909757+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-I",
+    "-B",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/source-v2/computations/2026-10-26T171755Z-supported-penalty-comparison/verify-comparison-v3.py",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/isolated-comparison-v1.json.gz",
+    "--output",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/isolated-audit-v3.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 42.487393100047484,
+  "stdout": "{\"format\": \"independent-supported-penalty-audit-v1\", \"status\": \"PASS_COMPLETE_TWO_COLUMN_COMPARISON\", \"source_packet_sha256\": \"68307305f40b5e808fc349fff070ba38250a1d7cdbbb031fa0464539ed37c02f\", \"audit_code_sha256\": \"0bce445258d3ee8762058e56818c2468ad9c6a9f15f9b4860012d51c479f9564\", \"projection_precision_bits\": 768, \"transform_precision_bits\": 192, \"columns\": [{\"degree\": 0, \"all_uniform_bins_checked\": 32768, \"all_frequency_prefix_samples_checked\": 62583, \"independent_direct_transform_controls\": 4, \"supported_penalty_upper\": \"34040526131052471/18446744073709551616\", \"matched_scalar_penalty_upper\": \"4711967649358747/9223372036854775808\", \"compressed_diagonal_lower\": \"121070611503267571/2305843009213693952\"}, {\"degree\": 1, \"all_uniform_bins_checked\": 32768, \"all_frequency_prefix_samples_checked\": 62583, \"independent_direct_transform_controls\": 4, \"supported_penalty_upper\": \"148696604317428107/18446744073709551616\", \"matched_scalar_penalty_upper\": \"38011491848679839/18446744073709551616\", \"compressed_diagonal_lower\": \"1461273031252491869/9223372036854775808\"}], \"all_aliases_and_continuum_kinks_paid\": true, \"necessary_M311\": 12916885, \"all_two_column_sufficient_diagonals_positive\": true, \"full312_source_or_schur_computed\": false, \"upstream_supported_action_reused_not_freshly_rebuilt\": true}\n",
+  "stderr": ""
+}

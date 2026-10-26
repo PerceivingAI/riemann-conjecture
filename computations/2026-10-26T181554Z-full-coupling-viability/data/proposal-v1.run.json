@@ -1,0 +1,17 @@
+{
+  "started": "2026-10-26T18:20:54.680075+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-26T181554Z-full-coupling-viability/propose-coupled-v1.py",
+    "--output",
+    "computations/2026-10-26T181554Z-full-coupling-viability/data/proposal-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 5.411797299981117,
+  "stdout": "[{\"parity\": 0, \"minimum_NON_PROOF\": 0.668302251831138}, {\"parity\": 1, \"minimum_NON_PROOF\": 0.6697486816423422}]\n",
+  "stderr": ""
+}

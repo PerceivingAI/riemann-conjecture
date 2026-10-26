@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T125036Z-energy-aware-schur-contract\\source-v1\\computations\\2026-10-26T125036Z-energy-aware-schur-contract\\qualify-controls-v1.py",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T125036Z-energy-aware-schur-contract\\data\\isolated-controls-v1.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T125036Z-energy-aware-schur-contract\\source-v1",
+  "returncode": 0,
+  "elapsed_seconds": 0.23955990001559258,
+  "stdout": "{\"status\": \"PASS\", \"exact_control_groups\": 7, \"fixed_positive_weight_qualified\": true, \"new_low_Weil_matrix\": false}\n",
+  "stderr": ""
+}

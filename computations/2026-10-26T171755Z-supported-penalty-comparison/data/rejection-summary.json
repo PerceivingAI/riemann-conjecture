@@ -1,0 +1,20 @@
+[
+  {
+    "case": "understated-source-error",
+    "packet_sha256": "80850994c6f9602832e40cfc93bf39a0d0ec1ba5d244751c637836d7d4653ad9",
+    "exit_code": 2,
+    "success_output_exists": false
+  },
+  {
+    "case": "unpaid-continuum-quadrature",
+    "packet_sha256": "c228c392bf0557ff4a11b0f5bc9c8bff1896d4ff723ec09f49138bb3f4297226",
+    "exit_code": 2,
+    "success_output_exists": false
+  },
+  {
+    "case": "false-residual-work-floor",
+    "packet_sha256": "580eb5c1b747d620c977173e76cfd979f8c1dc019aa505dfdd309c9e86329c4b",
+    "exit_code": 2,
+    "success_output_exists": false
+  }
+]

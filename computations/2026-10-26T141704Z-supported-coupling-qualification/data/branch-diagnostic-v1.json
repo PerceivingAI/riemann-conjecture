@@ -1,0 +1,50 @@
+{
+  "format": "supported-source-branch-diagnostic-v1",
+  "source_sha256": "bc393680bac951ac370fc05a3ff69f0595a8c5d3404946b0d97269c3cf0fb7f5",
+  "precision_bits": 384,
+  "branch_disagreements": [
+    {
+      "left": "27/512",
+      "right": "4504344417990779844016491623/79228162514264337593543950336",
+      "shift_index": 0,
+      "exact_branch": "inside",
+      "stored_ball_branch": "overlap"
+    },
+    {
+      "left": "563043052248847480502061453/9903520314283042199192993792",
+      "right": "15/256",
+      "shift_index": 0,
+      "exact_branch": "outside",
+      "stored_ball_branch": "overlap"
+    },
+    {
+      "left": "177/512",
+      "right": "27619911061066626572507254101/79228162514264337593543950336",
+      "shift_index": 3,
+      "exact_branch": "outside",
+      "stored_ball_branch": "overlap"
+    },
+    {
+      "left": "13809955530533313286253627051/39614081257132168796771975168",
+      "right": "45/128",
+      "shift_index": 3,
+      "exact_branch": "inside",
+      "stored_ball_branch": "overlap"
+    },
+    {
+      "left": "651/1024",
+      "right": "3150777065607293344195311219/4951760157141521099596496896",
+      "shift_index": 5,
+      "exact_branch": "outside",
+      "stored_ball_branch": "overlap"
+    },
+    {
+      "left": "50412433049716693507124979505/79228162514264337593543950336",
+      "right": "1305/2048",
+      "shift_index": 5,
+      "exact_branch": "inside",
+      "stored_ball_branch": "overlap"
+    }
+  ],
+  "cause": "Arb interval storage may widen an exact partition endpoint across a jump. This makes the whole ball ambiguous although the exact cell is on one side. It is conservative, not an invalid source enclosure."
+}

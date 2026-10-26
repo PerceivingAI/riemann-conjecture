@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-26T17:47:44.653944+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-I",
+    "-B",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/source-v2/computations/2026-10-26T171755Z-supported-penalty-comparison/verify-comparison-v3.py",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/unpaid-continuum-quadrature.json.gz",
+    "--output",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/unpaid-continuum-quadrature-must-not-exist.json"
+  ],
+  "exit_code": 2,
+  "elapsed_seconds": 32.633469900116324,
+  "stdout": "",
+  "stderr": "ValueError: continuum and kink error is not a full enclosure\n"
+}

@@ -1,0 +1,12 @@
+{
+  "verified": "2026-10-26T15:01:06Z",
+  "public_document_count": 10,
+  "public_links_checked": 601,
+  "public_tables_checked": 1,
+  "new_public_reference_scope_clean": true,
+  "historical_log_body_unchanged": true,
+  "all_three_source_and_audit_identities_preserved": true,
+  "code_input_closure_integrity": true,
+  "prior_seals_unchanged": 20,
+  "prior_members_unchanged": 1080
+}

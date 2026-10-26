@@ -1,0 +1,461 @@
+{
+  "format": "whole-low-residual-completion-research-bundle-v1",
+  "computation_id": "X-20261026-010",
+  "finding_id": "F-20261026-010",
+  "claims": [
+    "C-0116"
+  ],
+  "created": "2026-10-26T18:15:54Z",
+  "verified": "2026-10-26T18:55:12Z",
+  "sealed": "2026-10-26T19:01:17Z",
+  "baseline_commit": "0a10e5aef2ee451d224028f7746c55369002b36f",
+  "provenance": "Uncommitted research, not clean production certificate",
+  "assessment": "STOP_SPECIFIED_ISOTROPIC_RESIDUAL_NORM_COMPLETION",
+  "support": "3/4",
+  "N": 312,
+  "residual_allowance": "1/300000",
+  "weight_floor": "1/3",
+  "isotropic_identity_charge": "1/30000000000",
+  "whole_norm_completed_matrix_rejected": true,
+  "exact_supported_criterion_rejected": false,
+  "actual_Weil_negative_claim": false,
+  "new_support_or_admission": false,
+  "actual_low_witnesses": [
+    {
+      "parity": 0,
+      "degree": 310,
+      "actual_Weil_rayleigh_upper": "4597944607745037/79228162514264337593543950336",
+      "whole_norm_completion_upper": "-2636340805867732881/79228162514264337593543950336"
+    },
+    {
+      "parity": 1,
+      "degree": 311,
+      "actual_Weil_rayleigh_upper": "573486485915580829/79228162514264337593543950336",
+      "whole_norm_completion_upper": "-2067452264559897089/79228162514264337593543950336"
+    }
+  ],
+  "raw_existing_norm_allowance_formula_floor": "36963/1111105422229504",
+  "rounding_radius_is_not_failure_cause": true,
+  "source_precision_bits": 1536,
+  "independent_precision_bits": 2048,
+  "all_endpoint_physical_mass_and_infinite_exterior_charges_paid": true,
+  "old_bounded_source_reused_as_H0_not_substituted_as_actual_Weil_A": true,
+  "old_source_sha256": "cd254a2a7002e17b56dce12a0ec00166eac8023e30374e38053d8963ade28b9c",
+  "original_coupled_floating_screen_NON_PROOF": true,
+  "original_valid_nonrejecting_source_version_preserved": true,
+  "complete_form_proposal_same_constrained_space_and_fixed_parameters": true,
+  "derivative_display_typo_preserved_with_timestamped_correction_no_code_change": true,
+  "stronger_uniform_residual_theorem_proved_necessary": false,
+  "actual_residual_proved_large": false,
+  "remaining_unresolved": "Direction/matrix-sensitive residual correlation or another complete budget qualified against the sensitive low space; exact supported criterion viability.",
+  "independent_mathematical_code_and_recorded_output_review": "APPROVE",
+  "captured_files": 19,
+  "captured_manifest_sha256": "5b10d35563bc566d2fb3158c99dfdde1213e92384bb27edd6d55bfb7411a1c7c",
+  "isolated_exact_source_and_audit_replays": [
+    {
+      "variant": 1,
+      "role": "source",
+      "sha256": "5df4de56a7a91176460e3750660891b120953ce9e8b1361048b1bd9e1e1dbb1b",
+      "byte_identical": true
+    },
+    {
+      "variant": 1,
+      "role": "audit",
+      "sha256": "2102eaf9735b70c7bc102707051c5c583b22907f1fd28edb05b225d8d10638e5",
+      "byte_identical": true
+    },
+    {
+      "variant": 2,
+      "role": "source",
+      "sha256": "6e18940d7e34eaa29acd6d3457f75c036729b1a4de652ac0b37802b8c0486340",
+      "byte_identical": true
+    },
+    {
+      "variant": 2,
+      "role": "audit",
+      "sha256": "ae7103c40171b5d51d60370582c795b72d90c3fc3f73f95b105604137c979143",
+      "byte_identical": true
+    }
+  ],
+  "floating_proposals_captured_not_claimed_regenerated_in_exact_replay": true,
+  "actual_false_math_rejections": [
+    {
+      "case": "false-physical-mass",
+      "packet_sha256": "06510aabf928247ed447013f58c88ed5e11a7f2d9b2ba8f12b3f126712b1f1a0",
+      "exit_code": 1,
+      "success_output_exists": false
+    },
+    {
+      "case": "unpaid-complete-exterior",
+      "packet_sha256": "429627e09e1d6272029d8eafe883e304a18838e141e005cab5e7b661d98baa17",
+      "exit_code": 1,
+      "success_output_exists": false
+    },
+    {
+      "case": "fabricated-completion-margin",
+      "packet_sha256": "4b373ae406ec7fb633a1ef346169904d349efbbe4e1e488ef4a1d21ed9e12303",
+      "exit_code": 1,
+      "success_output_exists": false
+    }
+  ],
+  "prior_public_seals_unchanged": 22,
+  "prior_public_members_unchanged": 1211,
+  "trust_boundary": "Shared FLINT/Arb correctness, registered source/domain/envelope and residual theorems, previously accepted SHA-pinned bounded-source enclosure. Independent exact polynomial/source/exterior consequence reconstruction, not formal kernel or production theorem admission.",
+  "members": [
+    {
+      "path": "assess-low-floor-v1.py",
+      "bytes": 6114,
+      "sha256": "11d0913e80fd51739f4f5b78b23c818740ebaf5fd0cbfd77937321732ab201e8"
+    },
+    {
+      "path": "assess-low-floor-v2.py",
+      "bytes": 6260,
+      "sha256": "ab25eb41b2913a8878f34c4a1f72ab49f610407ade26981ebeb07ee8cb5060d7"
+    },
+    {
+      "path": "assessment-inputs-v1.json",
+      "bytes": 1138,
+      "sha256": "90c4cbbe7c2a0846bc33e9b7f566dcce5d589ed86669e513c24ba85c66e1fc47"
+    },
+    {
+      "path": "capture-run-v1.py",
+      "bytes": 813,
+      "sha256": "e9cddaac687c7ba70160d3e6dfcc9838e8a3355a308e71c7a99251c70118c67a"
+    },
+    {
+      "path": "complete-form-proposal-v2.md",
+      "bytes": 1789,
+      "sha256": "f2eeec2f35c5aaca9bb1fa1be59a3275b2eaf18d47b441cabb44190390fefa95"
+    },
+    {
+      "path": "coupled-witness-contract-v1.md",
+      "bytes": 6097,
+      "sha256": "d04360cedadb9cd7bde3920f1dbc41d95a06b4ebe9848c329b3a24c75a02e510"
+    },
+    {
+      "path": "data/acceptance-batch.run.json",
+      "bytes": 1635,
+      "sha256": "0f940dfab6cc7996358f835475f21d8731f5bc8ab6e5d21cf2a534dab4132505"
+    },
+    {
+      "path": "data/documentation-check.json",
+      "bytes": 500,
+      "sha256": "4a075ba84343562af1cbdaa8d109f54740744d6a58aa839e439cb7951e3952b1"
+    },
+    {
+      "path": "data/environment.json",
+      "bytes": 417,
+      "sha256": "1d204bf6d3c2319957e58fec95601d4a81688e36a507b40db7095c7b696a8865"
+    },
+    {
+      "path": "data/fabricated-completion-margin.json",
+      "bytes": 39007,
+      "sha256": "4b373ae406ec7fb633a1ef346169904d349efbbe4e1e488ef4a1d21ed9e12303"
+    },
+    {
+      "path": "data/fabricated-completion-margin.run.json",
+      "bytes": 668,
+      "sha256": "6170e9069f6443fc075910a93f161d450dff79cdd325389f1c1a2d1709bbfc44"
+    },
+    {
+      "path": "data/false-physical-mass.json",
+      "bytes": 38489,
+      "sha256": "06510aabf928247ed447013f58c88ed5e11a7f2d9b2ba8f12b3f126712b1f1a0"
+    },
+    {
+      "path": "data/false-physical-mass.run.json",
+      "bytes": 628,
+      "sha256": "89495858e84a11b1be24a8cd32916afb488a2791cc7b120c5879497b4a26558b"
+    },
+    {
+      "path": "data/floor-assessment-v1.json",
+      "bytes": 98556,
+      "sha256": "5df4de56a7a91176460e3750660891b120953ce9e8b1361048b1bd9e1e1dbb1b"
+    },
+    {
+      "path": "data/floor-assessment-v2.json",
+      "bytes": 39055,
+      "sha256": "6e18940d7e34eaa29acd6d3457f75c036729b1a4de652ac0b37802b8c0486340"
+    },
+    {
+      "path": "data/floor-audit-v1.run.json",
+      "bytes": 1807,
+      "sha256": "eb6391d333d957ea152199bdb8d80137a36316ad1b49d4c310b1e0d625c69513"
+    },
+    {
+      "path": "data/floor-audit-v2.run.json",
+      "bytes": 1777,
+      "sha256": "317ee47c6b9bc86f299b5be9bfabccf509358f9b47ca0c0530d40a93ad75dab4"
+    },
+    {
+      "path": "data/floor-source-v1.run.json",
+      "bytes": 810,
+      "sha256": "4612a102d3f32560e0505e53f0556be104719f3ad858b21d9eef3623260f6a78"
+    },
+    {
+      "path": "data/floor-source-v2.run.json",
+      "bytes": 810,
+      "sha256": "34a05f50b13ebf9936d6049bdafb37dd9a50a55aafff7c9850836d0a4725a30b"
+    },
+    {
+      "path": "data/independent-floor-audit-v1.json",
+      "bytes": 1382,
+      "sha256": "2102eaf9735b70c7bc102707051c5c583b22907f1fd28edb05b225d8d10638e5"
+    },
+    {
+      "path": "data/independent-floor-audit-v2.json",
+      "bytes": 1351,
+      "sha256": "ae7103c40171b5d51d60370582c795b72d90c3fc3f73f95b105604137c979143"
+    },
+    {
+      "path": "data/isolated-audit-v1.run.json",
+      "bytes": 1869,
+      "sha256": "db301b906b53a86841574b8658b192e3608873bb6e08647dd73889971b7228c2"
+    },
+    {
+      "path": "data/isolated-audit-v2.run.json",
+      "bytes": 1837,
+      "sha256": "e32fc04f7c4bfc47c67a5dca90c3db21931d1430219fe763d21fa5c10c71f0e2"
+    },
+    {
+      "path": "data/isolated-floor-assessment-v1.json",
+      "bytes": 98556,
+      "sha256": "5df4de56a7a91176460e3750660891b120953ce9e8b1361048b1bd9e1e1dbb1b"
+    },
+    {
+      "path": "data/isolated-floor-assessment-v2.json",
+      "bytes": 39055,
+      "sha256": "6e18940d7e34eaa29acd6d3457f75c036729b1a4de652ac0b37802b8c0486340"
+    },
+    {
+      "path": "data/isolated-floor-audit-v1.json",
+      "bytes": 1382,
+      "sha256": "2102eaf9735b70c7bc102707051c5c583b22907f1fd28edb05b225d8d10638e5"
+    },
+    {
+      "path": "data/isolated-floor-audit-v2.json",
+      "bytes": 1351,
+      "sha256": "ae7103c40171b5d51d60370582c795b72d90c3fc3f73f95b105604137c979143"
+    },
+    {
+      "path": "data/isolated-source-v1.run.json",
+      "bytes": 939,
+      "sha256": "30a15c0c299a23cc72de1db21cee7f5ff3395c5042483d7cda82c2abf7f0dc64"
+    },
+    {
+      "path": "data/isolated-source-v2.run.json",
+      "bytes": 941,
+      "sha256": "49c071c2a93099c080c308142b9a41cf9e5ca1f256da10ecc420777a782f525b"
+    },
+    {
+      "path": "data/low-proposal-v1.json",
+      "bytes": 9600,
+      "sha256": "9afb06866c131fd8d3d94991b96b5e82ff2e3cef877db3111b19ef617a70e70d"
+    },
+    {
+      "path": "data/low-proposal-v1.run.json",
+      "bytes": 640,
+      "sha256": "fb853c9f42e9ef4483545e787b465ad4ef9f67b6ff8b1cffb503690d981fa153"
+    },
+    {
+      "path": "data/low-proposal-v2.json",
+      "bytes": 9849,
+      "sha256": "52400b008a17f9d41abc20431f23b96920b031419fb5eb1ecc7bf416e097e437"
+    },
+    {
+      "path": "data/low-proposal-v2.run.json",
+      "bytes": 643,
+      "sha256": "e6b3b0a794de9974adb08ae19d6d4efeded12b4018fe5beff70298b8c56d7436"
+    },
+    {
+      "path": "data/preservation-check.json",
+      "bytes": 254,
+      "sha256": "c3f33018f7fa1806a4d08faf7e6634b3897083411e2793e9425e9054f6797e0f"
+    },
+    {
+      "path": "data/proposal-v1.json",
+      "bytes": 18233,
+      "sha256": "593c3669ecd9e581bd0809ab675b060e6949be19f9d6be91aac374fe27b1fdf1"
+    },
+    {
+      "path": "data/proposal-v1.run.json",
+      "bytes": 543,
+      "sha256": "73592078640e2e1efd36536bcf4d93bd12b12240dc33132578de78719d534b3f"
+    },
+    {
+      "path": "data/rejection-summary.json",
+      "bytes": 601,
+      "sha256": "d726186fd1d7d0ec4ab61e93891b43ff3354769f16f7ad4371553c1a518d584e"
+    },
+    {
+      "path": "data/replay-summary.json",
+      "bytes": 659,
+      "sha256": "370b42e04bd7ef9c3a76fe8ac0726c8ab3eb596b31d20ea39ce4ad7de7797eed"
+    },
+    {
+      "path": "data/unpaid-complete-exterior.json",
+      "bytes": 38651,
+      "sha256": "429627e09e1d6272029d8eafe883e304a18838e141e005cab5e7b661d98baa17"
+    },
+    {
+      "path": "data/unpaid-complete-exterior.run.json",
+      "bytes": 643,
+      "sha256": "9c65e5ac1434f321f831d08892da1292cfcf735ef52a8c327b09289c7e8ade77"
+    },
+    {
+      "path": "independent-review.md",
+      "bytes": 2515,
+      "sha256": "c8d32492f006f6460db543f27895b56134f576f8e56fb1a5decd1d0e6bc2534b"
+    },
+    {
+      "path": "polynomial-exterior-completion-v1.md",
+      "bytes": 1313,
+      "sha256": "8c978c05b6ee84c6e86055782bf255b5dca905e80745bbfa60aa7042cc6d90df"
+    },
+    {
+      "path": "propose-coupled-v1.py",
+      "bytes": 2979,
+      "sha256": "b35589b71bebabe3495e1b88252af46a1343315c76a1d8ab7d6f09738c7d08df"
+    },
+    {
+      "path": "propose-low-floor-v1.py",
+      "bytes": 2427,
+      "sha256": "2d2796f1b70ce5f438ca90bb1397c89f4f33c783c61c855ebc072194f06c8c4b"
+    },
+    {
+      "path": "propose-low-floor-v2.py",
+      "bytes": 2634,
+      "sha256": "9c81e0e8806864aaf1b24e88b4b288494a6282a6a6d5b837b36fe10fff0d8b82"
+    },
+    {
+      "path": "record.md",
+      "bytes": 9934,
+      "sha256": "5532cf87dbce5597e83e4df245bb6ae07d712517e91f3ed1f9ee7fd5bd441c82"
+    },
+    {
+      "path": "replay-and-reject-v1.py",
+      "bytes": 3275,
+      "sha256": "4bc5f23d72066a91b2a93d78be15d5e445e8d59c039bfb709a9a26b5ab1227da"
+    },
+    {
+      "path": "residual-completion-contract-v1.md",
+      "bytes": 4901,
+      "sha256": "4d89b8f011813326e55429f74c2b01658f671385c27ea46d0e3084736c8b489a"
+    },
+    {
+      "path": "residual-completion-inputs-v1.json",
+      "bytes": 999,
+      "sha256": "2779eb216abfdb9d5d978102772cd79403a9a25a35cb31d92dbd7f38f9405c27"
+    },
+    {
+      "path": "residual-completion-inputs-v2.json",
+      "bytes": 1376,
+      "sha256": "69391cde4b04d433b2b9d6a3fe410e9a33a12135e32fc49e3d6cf058f1c05459"
+    },
+    {
+      "path": "source-v1/computations/2026-10-25T220817Z-post-m4-fourier-sign/data/source-v1.json.gz",
+      "bytes": 3398061,
+      "sha256": "cd254a2a7002e17b56dce12a0ec00166eac8023e30374e38053d8963ade28b9c"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/assess-low-floor-v1.py",
+      "bytes": 6114,
+      "sha256": "11d0913e80fd51739f4f5b78b23c818740ebaf5fd0cbfd77937321732ab201e8"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/assess-low-floor-v2.py",
+      "bytes": 6260,
+      "sha256": "ab25eb41b2913a8878f34c4a1f72ab49f610407ade26981ebeb07ee8cb5060d7"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/assessment-inputs-v1.json",
+      "bytes": 1138,
+      "sha256": "90c4cbbe7c2a0846bc33e9b7f566dcce5d589ed86669e513c24ba85c66e1fc47"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/capture-run-v1.py",
+      "bytes": 813,
+      "sha256": "e9cddaac687c7ba70160d3e6dfcc9838e8a3355a308e71c7a99251c70118c67a"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/data/low-proposal-v1.json",
+      "bytes": 9600,
+      "sha256": "9afb06866c131fd8d3d94991b96b5e82ff2e3cef877db3111b19ef617a70e70d"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/data/low-proposal-v2.json",
+      "bytes": 9849,
+      "sha256": "52400b008a17f9d41abc20431f23b96920b031419fb5eb1ecc7bf416e097e437"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/data/proposal-v1.json",
+      "bytes": 18233,
+      "sha256": "593c3669ecd9e581bd0809ab675b060e6949be19f9d6be91aac374fe27b1fdf1"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/propose-coupled-v1.py",
+      "bytes": 2979,
+      "sha256": "b35589b71bebabe3495e1b88252af46a1343315c76a1d8ab7d6f09738c7d08df"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/propose-low-floor-v1.py",
+      "bytes": 2427,
+      "sha256": "2d2796f1b70ce5f438ca90bb1397c89f4f33c783c61c855ebc072194f06c8c4b"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/propose-low-floor-v2.py",
+      "bytes": 2634,
+      "sha256": "9c81e0e8806864aaf1b24e88b4b288494a6282a6a6d5b837b36fe10fff0d8b82"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/replay-and-reject-v1.py",
+      "bytes": 3275,
+      "sha256": "4bc5f23d72066a91b2a93d78be15d5e445e8d59c039bfb709a9a26b5ab1227da"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/residual-completion-inputs-v1.json",
+      "bytes": 999,
+      "sha256": "2779eb216abfdb9d5d978102772cd79403a9a25a35cb31d92dbd7f38f9405c27"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/residual-completion-inputs-v2.json",
+      "bytes": 1376,
+      "sha256": "69391cde4b04d433b2b9d6a3fe410e9a33a12135e32fc49e3d6cf058f1c05459"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T181554Z-full-coupling-viability/verify-low-floor-v1.py",
+      "bytes": 8006,
+      "sha256": "e147e36ec22d7cb405d5714ebadb290acc5112b35570db3d949ced48c5586e91"
+    },
+    {
+      "path": "source-v1/manifest.json",
+      "bytes": 4166,
+      "sha256": "5b10d35563bc566d2fb3158c99dfdde1213e92384bb27edd6d55bfb7411a1c7c"
+    },
+    {
+      "path": "source-v1/pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "source-v1/scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "source-v1/scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "source-v1/uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    },
+    {
+      "path": "verify-low-floor-v1.py",
+      "bytes": 8006,
+      "sha256": "e147e36ec22d7cb405d5714ebadb290acc5112b35570db3d949ced48c5586e91"
+    }
+  ]
+}

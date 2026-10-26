@@ -1,0 +1,57 @@
+{
+  "format": "signed-logarithmic-discrepancy-code-closure-v1",
+  "created": "2026-10-26T11:42:58Z",
+  "baseline_commit": "0a10e5aef2ee451d224028f7746c55369002b36f",
+  "members": [
+    {
+      "path": "computations/2026-10-26T114258Z-signed-logarithmic-discrepancy/input-pins.json",
+      "bytes": 808,
+      "sha256": "6bce3f0cad760b9a0f8c57198934e03872fd3645180ad97455ecdffee8014ba0"
+    },
+    {
+      "path": "computations/2026-10-26T114258Z-signed-logarithmic-discrepancy/qualified-inputs-v1.json",
+      "bytes": 1197,
+      "sha256": "18ae95a0617748d1d6d040eeb086a379a56c12c843a03cfa1f49cb28a72b68ee"
+    },
+    {
+      "path": "computations/2026-10-26T114258Z-signed-logarithmic-discrepancy/signed-bound-v1.py",
+      "bytes": 6732,
+      "sha256": "0e576be460e97c26e55d7847bcf21c6d3b4ffe0ffa27daeb61e4f47c76bf247d"
+    },
+    {
+      "path": "computations/2026-10-26T114258Z-signed-logarithmic-discrepancy/verify-signed-bound-v1.py",
+      "bytes": 9232,
+      "sha256": "3dcd232cdb701112bc12bda10cae444577626e4fedc59c50efdba543243b937b"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "scripts/weil_reference_route_controls.py",
+      "bytes": 8462,
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    }
+  ]
+}

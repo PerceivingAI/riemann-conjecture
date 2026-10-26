@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-26T18:50:03.632867+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-I",
+    "-B",
+    "computations/2026-10-26T181554Z-full-coupling-viability/source-v1/computations/2026-10-26T181554Z-full-coupling-viability/verify-low-floor-v1.py",
+    "computations/2026-10-26T181554Z-full-coupling-viability/data/unpaid-complete-exterior.json",
+    "--output",
+    "computations/2026-10-26T181554Z-full-coupling-viability/data/unpaid-complete-exterior-must-not-exist.json"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 6.739778300048783,
+  "stdout": "",
+  "stderr": "ValueError: unpaid complete exterior\n"
+}

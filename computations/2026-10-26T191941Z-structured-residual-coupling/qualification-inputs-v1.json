@@ -1,0 +1,22 @@
+{
+  "format": "structured-residual-control-inputs-v1",
+  "created": "2026-10-26T19:19:41Z",
+  "support": "3/4",
+  "N": 312,
+  "old_positive_proof": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/proof-v1.json.gz",
+  "old_positive_proof_sha256": "9e7b0e03254261e4a971be192d21c7991faefaf2f71b0cbbfe8faf946b186cef",
+  "critical_witness_packet": "computations/2026-10-26T181554Z-full-coupling-viability/data/floor-assessment-v2.json",
+  "critical_witness_sha256": "6e18940d7e34eaa29acd6d3457f75c036729b1a4de652ac0b37802b8c0486340",
+  "full_control_gap_lower": "1/1000000000000000",
+  "complete_kernel_error_target": "1/1024000000000000000",
+  "order_policy": "Least even K>=2 with complete Schur kernel remainder upper <= control_gap/1024; require2K<N for this declared band operation. No support/projection grid.",
+  "source_scalar_precision_bits": 512,
+  "independent_scalar_precision_bits": 768,
+  "matrix_arithmetic": "exact rational",
+  "combined_P_norm_upper": "49/32",
+  "full_residual_QN_upper": "1/300000",
+  "weight_floor": "1/3",
+  "eta_lower": "9999999999999999999999999999999999999999999999991/10000000000000000000000000000000000000000000000000",
+  "full_error_target": "control_gap/16",
+  "scope": "Qualify exact residual cross map and complete model-error budget at existing known positive support; no new weighted mixed Gram or Schur sign."
+}

@@ -1,0 +1,29 @@
+{
+  "format": "supported-penalty-comparison-inputs-v1",
+  "created": "2026-10-26T17:17:55Z",
+  "support": "3/4",
+  "reference_N": 312,
+  "degrees": [
+    0,
+    1
+  ],
+  "qualified_source": "computations/2026-10-26T141704Z-supported-coupling-qualification/data/supported-source-v3.json",
+  "qualified_source_sha256": "b3b3578d778c9d7af5127ba218dde7d124d8dcb47b7f826e98c8913282c3612c",
+  "qualified_audit": "computations/2026-10-26T141704Z-supported-coupling-qualification/data/independent-audit-v3.json",
+  "qualified_audit_sha256": "9da33ed4b3110da4906e3c40c2f81215e45ca9433bb7c051c5a610aff4b39925",
+  "physical_uniform_cells": 65536,
+  "zero_padding": 16,
+  "frequency_anchor": "16384",
+  "projection_coefficient_bits": 64,
+  "uniform_coefficient_bits": 48,
+  "projection_precision_bits": 512,
+  "transform_precision_bits": 128,
+  "independent_projection_precision_bits": 768,
+  "independent_transform_precision_bits": 192,
+  "alpha": "1/4",
+  "beta": "873/1024",
+  "floor": "1/3",
+  "eta_lower": "9999999999999999999999999999999999999999999999991/10000000000000000000000000000000000000000000000000",
+  "old_true_Weil_tail_lower": "4921874999999999999999999999999999999999999999999/2500000000000000000000000000000000000000000000000",
+  "scope": "Complete two-column projected supported penalties and current source-enclosure work requirements. No full312 source or Schur sign, extension, production admission or runtime extrapolation."
+}

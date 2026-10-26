@@ -1,0 +1,16 @@
+{
+  "verified": "2026-10-26T18:55:12Z",
+  "public_document_count": 11,
+  "public_documentation": {
+    "local_links": 615,
+    "tables": 1
+  },
+  "new_public_reference_scope_clean": true,
+  "historical_log_body_unchanged": true,
+  "both_exact_source_audit_versions_byte_identical": true,
+  "original_valid_nonrejection_preserved": true,
+  "three_actual_false_mathematical_rejections": true,
+  "captured_code_inputs_integrity": true,
+  "prior_seals_unchanged": 22,
+  "prior_members_unchanged": 1211
+}

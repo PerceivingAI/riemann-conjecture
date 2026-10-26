@@ -1,0 +1,33 @@
+{
+  "format": "supported-coupling-qualification-inputs-v2",
+  "declared": "2026-10-26T14:38:21Z",
+  "support": "3/4",
+  "degrees": [
+    0,
+    1
+  ],
+  "reference_N": 312,
+  "alpha": "1/4",
+  "beta": "873/1024",
+  "m": "1/3",
+  "source_precision_bits": 384,
+  "audit_precision_bits": 512,
+  "residual_terms": 128,
+  "cap_relative_to_T_power": 32,
+  "graded_subcells_per_doubling": 64,
+  "arithmetic_breakpoint_bits": 96,
+  "coefficient_bits": 48,
+  "squared_error_publication_grid": "1/65536",
+  "squared_error_publication_rule": "Ceiling on the declared grid plus one grid reserve. Source and audit certify complete L2 errors, not sample errors.",
+  "individual_L2_accuracy": "1/16",
+  "fourier_control_frequencies": [
+    "0",
+    "4",
+    "256"
+  ],
+  "fourier_gram_tail_target": "1/16",
+  "fourier_tail_anchor_start": "256",
+  "fourier_tail_anchor_policy": "Double the exact positive anchor until the proved complete two-column BV/h tail upper is at most the target. Retain every attempted bound. No matrix or positivity search.",
+  "scope": "Construct and independently qualify full supported source approximants for the existing constant and first odd mode. No full low matrix, Schur positivity or new support.",
+  "cell_enclosure": "Midpoint source plus analytic full-cell derivative, with ambiguous arithmetic slabs separately enclosed. Same support, modes, residual terms, grid, precision and target as v1."
+}

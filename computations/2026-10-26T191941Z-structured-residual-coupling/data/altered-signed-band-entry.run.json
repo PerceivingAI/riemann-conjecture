@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-26T19:41:21.329171+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-I",
+    "-B",
+    "computations/2026-10-26T191941Z-structured-residual-coupling/source-v1/computations/2026-10-26T191941Z-structured-residual-coupling/verify-structured-v1.py",
+    "computations/2026-10-26T191941Z-structured-residual-coupling/data/altered-signed-band-entry.json",
+    "--output",
+    "computations/2026-10-26T191941Z-structured-residual-coupling/data/altered-signed-band-entry-must-not-exist.json"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 0.8670731999445707,
+  "stdout": "",
+  "stderr": "ValueError: exact residual cross entry (312, 256)\n"
+}

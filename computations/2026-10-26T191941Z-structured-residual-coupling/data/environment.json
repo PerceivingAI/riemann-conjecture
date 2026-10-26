@@ -1,0 +1,12 @@
+{
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "python_flint": "0.9.0",
+  "platform": "win32",
+  "baseline_commit": "0a10e5aef2ee451d224028f7746c55369002b36f",
+  "source_uncommitted_research_not_production_certificate": true,
+  "source_scalar_bits": 512,
+  "independent_scalar_bits": 768,
+  "matrix_arithmetic": "exact rational",
+  "old_positive_proof_and_critical_witnesses_reused_as_accepted_premises": true,
+  "new_full_mixed_Gram_or_Schur_sign": false
+}

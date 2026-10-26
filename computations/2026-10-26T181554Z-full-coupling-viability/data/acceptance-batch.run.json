@@ -1,0 +1,19 @@
+{
+  "started": "2026-10-26T18:48:56.794886+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-26T181554Z-full-coupling-viability/replay-and-reject-v1.py",
+    "--capture",
+    "computations/2026-10-26T181554Z-full-coupling-viability/source-v1",
+    "--data",
+    "computations/2026-10-26T181554Z-full-coupling-viability/data"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 80.37534899986349,
+  "stdout": "{\"operation\": \"isolated-source-v1\", \"exit_code\": 0}\n{\"operation\": \"isolated-audit-v1\", \"exit_code\": 0}\n{\"operation\": \"isolated-source-v2\", \"exit_code\": 0}\n{\"operation\": \"isolated-audit-v2\", \"exit_code\": 0}\n{\"operation\": \"false-physical-mass\", \"exit_code\": 1}\n{\"operation\": \"unpaid-complete-exterior\", \"exit_code\": 1}\n{\"operation\": \"fabricated-completion-margin\", \"exit_code\": 1}\n{\"status\": \"PASS_BOTH_EXACT_VERSIONS_ISOLATED_AND_THREE_FALSE_BOUND_REJECTIONS\", \"replays\": [{\"variant\": 1, \"role\": \"source\", \"sha256\": \"5df4de56a7a91176460e3750660891b120953ce9e8b1361048b1bd9e1e1dbb1b\", \"byte_identical\": true}, {\"variant\": 1, \"role\": \"audit\", \"sha256\": \"2102eaf9735b70c7bc102707051c5c583b22907f1fd28edb05b225d8d10638e5\", \"byte_identical\": true}, {\"variant\": 2, \"role\": \"source\", \"sha256\": \"6e18940d7e34eaa29acd6d3457f75c036729b1a4de652ac0b37802b8c0486340\", \"byte_identical\": true}, {\"variant\": 2, \"role\": \"audit\", \"sha256\": \"ae7103c40171b5d51d60370582c795b72d90c3fc3f73f95b105604137c979143\", \"byte_identical\": true}], \"rejections\": 3}\n",
+  "stderr": ""
+}

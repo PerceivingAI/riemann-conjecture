@@ -1,0 +1,20 @@
+[
+  {
+    "case": "false-physical-mass",
+    "packet_sha256": "06510aabf928247ed447013f58c88ed5e11a7f2d9b2ba8f12b3f126712b1f1a0",
+    "exit_code": 1,
+    "success_output_exists": false
+  },
+  {
+    "case": "unpaid-complete-exterior",
+    "packet_sha256": "429627e09e1d6272029d8eafe883e304a18838e141e005cab5e7b661d98baa17",
+    "exit_code": 1,
+    "success_output_exists": false
+  },
+  {
+    "case": "fabricated-completion-margin",
+    "packet_sha256": "4b373ae406ec7fb633a1ef346169904d349efbbe4e1e488ef4a1d21ed9e12303",
+    "exit_code": 1,
+    "success_output_exists": false
+  }
+]
