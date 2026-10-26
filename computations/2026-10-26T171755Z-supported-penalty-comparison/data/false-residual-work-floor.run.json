@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-26T17:48:17.370691+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-I",
+    "-B",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/source-v2/computations/2026-10-26T171755Z-supported-penalty-comparison/verify-comparison-v3.py",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/false-residual-work-floor.json.gz",
+    "--output",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/false-residual-work-floor-must-not-exist.json"
+  ],
+  "exit_code": 2,
+  "elapsed_seconds": 43.06039400002919,
+  "stdout": "",
+  "stderr": "ValueError: necessary residual-term integer\n"
+}

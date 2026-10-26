@@ -1,0 +1,20 @@
+[
+  {
+    "case": "altered-signed-band-entry",
+    "input_sha256": "47ac0a19537a9fa78724b29e32d9fd6ec4d39d7f1cf6dfce95de6f9a4557f6c0",
+    "exit_code": 1,
+    "success_output_exists": false
+  },
+  {
+    "case": "unpaid-infinite-remainder",
+    "input_sha256": "ab87b4f4374ecab1c766135f7af9a82204582e73d1e796cbb5a107a823c45d38",
+    "exit_code": 1,
+    "success_output_exists": false
+  },
+  {
+    "case": "forged-whole-low-error",
+    "input_sha256": "c677a41901ab2870f50bb77490009b4e7ffcfa837cee6569a2369b8ef8c7e2be",
+    "exit_code": 1,
+    "success_output_exists": false
+  }
+]

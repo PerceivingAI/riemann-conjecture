@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T141704Z-supported-coupling-qualification\\source-v1\\computations\\2026-10-26T141704Z-supported-coupling-qualification\\verify-supported-v1.py",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T141704Z-supported-coupling-qualification\\data\\isolated-source-v3.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T141704Z-supported-coupling-qualification\\data\\isolated-audit-v3.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T141704Z-supported-coupling-qualification\\source-v1",
+  "returncode": 0,
+  "elapsed_seconds": 47.49091499997303,
+  "stdout": "{\"status\": \"PASS_SOURCE_AND_ACCURACY\", \"source_variant\": 3, \"complete_cells_checked\": 2054, \"finite_column_operator_error_squared\": \"25/65536\"}\n",
+  "stderr": ""
+}

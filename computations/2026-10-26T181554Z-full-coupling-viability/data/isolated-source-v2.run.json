@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-26T18:49:28.224888+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-I",
+    "-B",
+    "computations/2026-10-26T181554Z-full-coupling-viability/source-v1/computations/2026-10-26T181554Z-full-coupling-viability/assess-low-floor-v2.py",
+    "computations/2026-10-26T181554Z-full-coupling-viability/source-v1/computations/2026-10-26T181554Z-full-coupling-viability/data/low-proposal-v2.json",
+    "--output",
+    "computations/2026-10-26T181554Z-full-coupling-viability/data/isolated-floor-assessment-v2.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 17.286232199985534,
+  "stdout": "[{\"parity\": 0, \"degree\": 310, \"rayleigh_upper\": 5.803421992674912e-14, \"completion_upper\": -3.3275299113406586e-11, \"rejected\": true}, {\"parity\": 1, \"degree\": 311, \"rayleigh_upper\": 7.238417094582114e-12, \"completion_upper\": -2.609491623875122e-11, \"rejected\": true}]\n",
+  "stderr": ""
+}

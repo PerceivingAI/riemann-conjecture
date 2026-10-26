@@ -1,0 +1,17 @@
+{
+  "N": 312,
+  "audit_code_sha256": "a40dfb9d0bef2dcb97ce942bbb5dd99623f3ba857d74be62eae324cf629c6f23",
+  "complete_infinite_kernel_remainder_checked": true,
+  "critical_images_checked": 2,
+  "exact_nonzero_entries": 812,
+  "format": "independent-structured-residual-audit-v1",
+  "matrix_entries_checked": 3136,
+  "new_mixed_Gram_or_Schur_sign": false,
+  "new_support_or_admission": false,
+  "old_gap_conversion_reconstructed_not_new_source_replay": true,
+  "order": 56,
+  "precision_bits": 768,
+  "source_sha256": "afa2a31af3f25fbe1e75aa36633c2be70433fea0479e0d4bea90cd1899f2d01b",
+  "status": "PASS_EXACT_WHOLE_MAP_AND_COMPLETE_ERROR_BUDGET",
+  "whole_low_budget_lower": "187948255705141564900763660449881571089406324599122147/191561942608236107294793378393788647952342390272950272000000000000000"
+}

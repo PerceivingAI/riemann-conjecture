@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\verify-supported-v1.py",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\data\\understated-source-error.json",
+    "--output",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\data\\understated-source-error-SHOULD-NOT-EXIST.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "returncode": 2,
+  "elapsed_seconds": 43.31906320003327,
+  "stdout": "",
+  "stderr": "REJECT: understated complete L2 source error\n"
+}

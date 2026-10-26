@@ -1,0 +1,142 @@
+{
+  "format": "energy-aware-schur-qualification-research-bundle-v1",
+  "computation_id": "X-20261026-006",
+  "created": "2026-10-26T12:50:36Z",
+  "verified": "2026-10-26T13:09:30Z",
+  "baseline_commit": "0a10e5aef2ee451d224028f7746c55369002b36f",
+  "status": "QUALIFIED_CONDITIONAL_COMPLETE_ENERGY_AWARE_CRITERION",
+  "claims": [
+    "C-0112"
+  ],
+  "conditional_full_form_criterion_proved": true,
+  "weighted_finite_projection_and_residual_bracket_proved": true,
+  "complete_finite_and_infinite_source_error_rules_proved": true,
+  "independent_mathematical_review": "APPROVE",
+  "independent_control_implementation_review": "APPROVE",
+  "executed_exact_non_Weil_control_groups": 7,
+  "fixed_scalar_control": {
+    "T": "3/4",
+    "N": 312,
+    "alpha": "1/4",
+    "beta": "873/1024",
+    "R": "256",
+    "m": "1/3",
+    "precision_bits": 384,
+    "epsilon_upper": "3/10000000000000000000000000000000000000000000000000",
+    "eta_lower": "9999999999999999999999999999999999999999999999991/10000000000000000000000000000000000000000000000000"
+  },
+  "controls_sha256": "d8e59b87caebcb9494964650f7488624803f55c813b28a099a5e37bae911a9dc",
+  "isolated_controls_byte_identical": true,
+  "source_snapshot_manifest_sha256": "985ede33511b730399b3dba0b2cc547fd2ebd4b5b048a6d4dc52d32224748dee",
+  "source_snapshot_files": 6,
+  "historical_seals_unchanged": 18,
+  "historical_members_unchanged": 1026,
+  "new_full_Weil_source_arrays_computed": false,
+  "new_full_Weil_schur_sign_proved": false,
+  "new_support_positivity_proved": false,
+  "comparative_or_global_advantage_proved": false,
+  "production_admission_changed": false,
+  "trust_boundary": "Direct conditional form proof with independent review; exact non-Weil fraction controls and fixed-case Arb scalar qualification. The qualified source and Arb/FLINT premises remain explicit. No new full source audit, Rust/Lean acceptance or all-support theorem.",
+  "members": [
+    {
+      "path": "control-inputs-v1.json",
+      "bytes": 1575,
+      "sha256": "a992c55155972c84814488138c134bf4a3eccd244ffe23aa0c2040de099bbd17"
+    },
+    {
+      "path": "data/canonical.run.json",
+      "bytes": 550,
+      "sha256": "45da859547ae6f5eb209b50c1a82b24fa62c70a3a813a8bb9c1aa0a070acda18"
+    },
+    {
+      "path": "data/controls-v1.json",
+      "bytes": 5067,
+      "sha256": "d8e59b87caebcb9494964650f7488624803f55c813b28a099a5e37bae911a9dc"
+    },
+    {
+      "path": "data/documentation-check.json",
+      "bytes": 349,
+      "sha256": "ffe73e127a1a4b0dd9dcf48a05542023c0d872aa2c3085290d3d15b3abff3e64"
+    },
+    {
+      "path": "data/environment.json",
+      "bytes": 378,
+      "sha256": "cd93de6f4677c42e2332b6fd0b7bce476492f2ca87e9bea6921b040e0f144591"
+    },
+    {
+      "path": "data/isolated-controls-v1.json",
+      "bytes": 5067,
+      "sha256": "d8e59b87caebcb9494964650f7488624803f55c813b28a099a5e37bae911a9dc"
+    },
+    {
+      "path": "data/isolated.run.json",
+      "bytes": 820,
+      "sha256": "1e1caefd9624de447d743d7cb75513359b8ad6b41d5ae682ba75b2636b5a121a"
+    },
+    {
+      "path": "data/preservation-check.json",
+      "bytes": 284,
+      "sha256": "ad7d95cb93358d327dd9c1c663f86cf220b324389755e576a5a41daa94acf326"
+    },
+    {
+      "path": "data/replay-summary.json",
+      "bytes": 260,
+      "sha256": "e2b1d0ce7190ca64244e9fdaf068a52d094a9c4f18cb182ebd5e543ff7303234"
+    },
+    {
+      "path": "energy-aware-criterion-v1.md",
+      "bytes": 13284,
+      "sha256": "69725e6b5e4eaf029096d910e08b4d1c40004c819b50ba50cfe3a27bb8270564"
+    },
+    {
+      "path": "independent-review.md",
+      "bytes": 3383,
+      "sha256": "82ada2cb639c5162077c5dd30f400eb559bc7c7d3f8b06320de43ff87f45aab6"
+    },
+    {
+      "path": "qualify-controls-v1.py",
+      "bytes": 9062,
+      "sha256": "3c144cf685b7be1f514fb941a487493798422a8e2fb4b3d0497cee63e03e3c34"
+    },
+    {
+      "path": "record.md",
+      "bytes": 6766,
+      "sha256": "60f0b3c72c7733e8e311649a6619c74235c559f881433f60433de03b48b1b591"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T125036Z-energy-aware-schur-contract/control-inputs-v1.json",
+      "bytes": 1575,
+      "sha256": "a992c55155972c84814488138c134bf4a3eccd244ffe23aa0c2040de099bbd17"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T125036Z-energy-aware-schur-contract/qualify-controls-v1.py",
+      "bytes": 9062,
+      "sha256": "3c144cf685b7be1f514fb941a487493798422a8e2fb4b3d0497cee63e03e3c34"
+    },
+    {
+      "path": "source-v1/manifest.json",
+      "bytes": 1229,
+      "sha256": "985ede33511b730399b3dba0b2cc547fd2ebd4b5b048a6d4dc52d32224748dee"
+    },
+    {
+      "path": "source-v1/pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "source-v1/scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "source-v1/scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "source-v1/uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "format": "captured-supported-comparison-closure-v1",
+  "files": [
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/compare-supported-v1.py",
+      "bytes": 9770,
+      "sha256": "7dcee70d58a80a2eab3c4e73a28835e0b5a65847ac7b764203fd2012b9668b7b"
+    },
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/verify-comparison-v1.py",
+      "bytes": 12622,
+      "sha256": "40aea05f8fd80091916d370456084bd22eac4d7e00b79fed2712f365311a0576"
+    },
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/capture-run-v1.py",
+      "bytes": 813,
+      "sha256": "e9cddaac687c7ba70160d3e6dfcc9838e8a3355a308e71c7a99251c70118c67a"
+    },
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/comparison-inputs-v1.json",
+      "bytes": 1440,
+      "sha256": "1af61783e3827f7ee069b68531e47cd24fea591abf188ee56e28e2d8eb167bf2"
+    },
+    {
+      "path": "computations/2026-10-26T141704Z-supported-coupling-qualification/data/supported-source-v3.json",
+      "bytes": 427023,
+      "sha256": "b3b3578d778c9d7af5127ba218dde7d124d8dcb47b7f826e98c8913282c3612c"
+    },
+    {
+      "path": "computations/2026-10-26T141704Z-supported-coupling-qualification/data/independent-audit-v3.json",
+      "bytes": 2519,
+      "sha256": "9da33ed4b3110da4906e3c40c2f81215e45ca9433bb7c051c5a610aff4b39925"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    }
+  ],
+  "project_imports": [],
+  "upstream_supported_source_reused_as_accepted_input": true
+}

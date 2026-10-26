@@ -1,0 +1,27 @@
+{
+  "verified": "2026-10-26T15:01:06Z",
+  "captured_files": 13,
+  "versions": [
+    {
+      "variant": 1,
+      "source_sha256": "0a2a0aa14be22b901450d8d8ca69594bd8c2fc8948be69a4e6c72b5e068e5728",
+      "audit_sha256": "3a2aefacc0686e04324a1c5ce33aa61c2ba0c3e6262f75ab0ce5edcbcd93a646",
+      "source_and_audit_byte_identical": true
+    },
+    {
+      "variant": 2,
+      "source_sha256": "bc393680bac951ac370fc05a3ff69f0595a8c5d3404946b0d97269c3cf0fb7f5",
+      "audit_sha256": "1d39575d076d765cd6d3e37044dd7ad16a42a5f1900fecf544ffecfb657e5dda",
+      "source_and_audit_byte_identical": true
+    },
+    {
+      "variant": 3,
+      "source_sha256": "b3b3578d778c9d7af5127ba218dde7d124d8dcb47b7f826e98c8913282c3612c",
+      "audit_sha256": "9da33ed4b3110da4906e3c40c2f81215e45ca9433bb7c051c5a610aff4b39925",
+      "source_and_audit_byte_identical": true
+    }
+  ],
+  "all_source_and_audit_outputs_byte_identical": true,
+  "project_import_root_enforced": true,
+  "bytecode_disabled": true
+}

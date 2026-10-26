@@ -1,0 +1,117 @@
+{
+  "format": "research-energy-aware-schur-controls-v1",
+  "status": "PASS",
+  "scope": "Exact non-Weil finite algebra and the already qualified fixed-case positive-weight/leakage hypotheses. No low Weil matrix or Schur sign.",
+  "inputs_sha256": "a992c55155972c84814488138c134bf4a3eccd244ffe23aa0c2040de099bbd17",
+  "program_sha256": "3c144cf685b7be1f514fb941a487493798422a8e2fb4b3d0497cee63e03e3c34",
+  "exact_control_groups": {
+    "compression_not_inverse_commutation": {
+      "inverse_of_compression": "2/5",
+      "compression_of_inverse": "5/8",
+      "strict_upper_not_equality": true
+    },
+    "omitting_leakage_creates_false_positive": {
+      "actual_tail": "11/5",
+      "compressed_positive_weight": "73/25",
+      "eta": "7/25",
+      "certified_weighted_tail": "511/625",
+      "actual_schur": "-1/44",
+      "invalid_unpaid_schur": "67/292",
+      "paid_sufficient_schur": "-3581/2044"
+    },
+    "weight_derived_finite_projection": {
+      "M": "15/32",
+      "R": "19/16",
+      "H": "33/8",
+      "K_opt": "38/15",
+      "unweighted_K": "3",
+      "minimum_gram": "67/60",
+      "unweighted_projection_gram": "39/32",
+      "exact_residual_gap": "49/480"
+    },
+    "smaller_floor_does_not_order_coupling_penalties": [
+      {
+        "cross": [
+          "1",
+          "0"
+        ],
+        "weighted_penalty": "1",
+        "old_scalar_penalty": "1/2"
+      },
+      {
+        "cross": [
+          "0",
+          "1"
+        ],
+        "weighted_penalty": "1/4",
+        "old_scalar_penalty": "1/2"
+      }
+    ],
+    "strict_denominator_boundary": [
+      {
+        "lambda": "1/4",
+        "eta": "1/2",
+        "qualified": true
+      },
+      {
+        "lambda": "1/2",
+        "eta": "0",
+        "qualified": false
+      },
+      {
+        "lambda": "3/4",
+        "eta": "-1/2",
+        "qualified": false
+      }
+    ],
+    "one_sided_source_error_boundary": [
+      {
+        "nominal_low": "9/4",
+        "nominal_schur": "1/4",
+        "complete_lower": "0",
+        "strictly_positive": false
+      },
+      {
+        "nominal_low": "5/2",
+        "nominal_schur": "1/2",
+        "complete_lower": "1/4",
+        "strictly_positive": true
+      }
+    ],
+    "complete_form_norm_gap": {
+      "gap": "14/9",
+      "shifted_determinant": "7/81"
+    }
+  },
+  "fixed_positive_weight_qualification": {
+    "support": "3/4",
+    "N": 312,
+    "alpha": "1/4",
+    "beta": "873/1024",
+    "R": "256",
+    "m": "1/3",
+    "precision_bits": 384,
+    "g_R": {
+      "lower": "221380960280542253264867051673335044871206185098205493809072347687187146938618107018360347096927227340432190246266791585193/661055968790248598951915308032771039828404682964281219284648795274405791236311345825189210439715284847591212025023358304256",
+      "upper": "221380960280542253264867051673335044871206185098205493809072347687187146938618107018360347096927227340432190246268663700055/661055968790248598951915308032771039828404682964281219284648795274405791236311345825189210439715284847591212025023358304256"
+    },
+    "complete_leakage": {
+      "lower": "5129559219103487422382260431337193328151161725327668666383500257601503999886681347968131104893881040047710504954635236130025/123665200736552267030251260509823595017565674550605919957031528046448612553265933585158200530621522494798835713008069669675682517153375604983773077550946583958303386074349568",
+      "upper": "5129559219103487422382260431337193328151161725327668666383500257601503999886681347968131104893881040047710504954636455658263/123665200736552267030251260509823595017565674550605919957031528046448612553265933585158200530621522494798835713008069669675682517153375604983773077550946583958303386074349568"
+    },
+    "epsilon": {
+      "lower": "545661335473546797874829447887240404224690433538388269405600874062829735535285697795409968148754376286337165383627896573659/1932268761508629172347675945465993672149463664853217499328617625725759571144780212268096883290961288981231808015751088588682539330521493827871454336733540374348490407411712",
+      "upper": "545661335473546797874829447887240404224690433538388269405600874062829735535285697795409968148754376286337165383628170670373/1932268761508629172347675945465993672149463664853217499328617625725759571144780212268096883290961288981231808015751088588682539330521493827871454336733540374348490407411712"
+    },
+    "published_epsilon_upper": "3/10000000000000000000000000000000000000000000000000",
+    "published_eta_lower": "9999999999999999999999999999999999999999999999991/10000000000000000000000000000000000000000000000000",
+    "weighted_reference_norm_lower": "9999999999999999999999999999999999999999999999991/30000000000000000000000000000000000000000000000000",
+    "new_Weil_schur_sign": false
+  },
+  "imported_project_modules": {
+    "scripts/cert/__init__.py": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092",
+    "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+  },
+  "new_low_Weil_matrix": false,
+  "all_support_or_comparative_advantage_proved": false
+}

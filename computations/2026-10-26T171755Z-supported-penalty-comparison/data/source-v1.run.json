@@ -1,0 +1,17 @@
+{
+  "started": "2026-10-26T17:24:15.862825+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/compare-supported-v1.py",
+    "--output",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/comparison-v1.json.gz"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 126.02683210000396,
+  "stdout": "{\"status\": \"COMPLETE_TWO_COLUMN_COMPARISON\", \"frequency_prefix_K\": 62582, \"all_two_column_sufficient_diagonals_positive\": true, \"source_rule_work\": {\"degree3_M128_residual_charge_squared\": \"1792/259081\", \"degree311_M128_residual_charge_squared\": \"10427867061248/259081\", \"degree311_minimum_M_for_individual_1_over_16\": 12916885, \"minimum_verified_by_adjacent_integer\": true, \"scope\": \"Necessary only for the current uniform-derivative residual charge; not an actual-error or universal algorithm lower bound.\"}}\n",
+  "stderr": ""
+}

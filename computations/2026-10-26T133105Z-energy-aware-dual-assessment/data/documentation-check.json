@@ -1,0 +1,12 @@
+{
+  "verified": "2026-10-26T13:43:38Z",
+  "public_document_count": 8,
+  "public_links_checked": 587,
+  "public_tables_checked": 2,
+  "new_public_reference_scope_clean": true,
+  "historical_log_body_unchanged": true,
+  "source_input_closure_and_replay_integrity": true,
+  "prior_bundle_seals_unchanged": 19,
+  "prior_members_unchanged": 1046,
+  "documentation_correction": "An indented mathematical product was restated with d_m to avoid ambiguous Markdown-link syntax; no formula or scientific source/output changed."
+}

@@ -1,0 +1,34 @@
+{
+  "audit_code_sha256": "e147e36ec22d7cb405d5714ebadb290acc5112b35570db3d949ced48c5586e91",
+  "exact_supported_criterion_rejected": false,
+  "format": "independent-whole-low-floor-audit-v1",
+  "new_support_or_admission": false,
+  "norm_completion_rejected_on_whole312": true,
+  "old_source_reused_as_two_sided_H0_not_actual_Weil_A": true,
+  "packet_sha256": "6e18940d7e34eaa29acd6d3457f75c036729b1a4de652ac0b37802b8c0486340",
+  "precision_bits": 2048,
+  "source_variant": 2,
+  "status": "PASS_COMPLETE_SOURCE_AND_EXTERIOR",
+  "witnesses": [
+    {
+      "actual_Weil_rayleigh_upper": "4597944607745037/79228162514264337593543950336",
+      "bounded_source_and_full_exterior_checked": true,
+      "degree": 310,
+      "endpoint_jets_exact": true,
+      "mass_exact": true,
+      "parity": 0,
+      "strict_floor_rejection": true,
+      "whole_norm_completion_upper": "-2636340805867732881/79228162514264337593543950336"
+    },
+    {
+      "actual_Weil_rayleigh_upper": "573486485915580829/79228162514264337593543950336",
+      "bounded_source_and_full_exterior_checked": true,
+      "degree": 311,
+      "endpoint_jets_exact": true,
+      "mass_exact": true,
+      "parity": 1,
+      "strict_floor_rejection": true,
+      "whole_norm_completion_upper": "-2067452264559897089/79228162514264337593543950336"
+    }
+  ]
+}

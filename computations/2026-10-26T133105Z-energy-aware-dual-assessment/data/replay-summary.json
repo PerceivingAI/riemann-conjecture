@@ -1,0 +1,13 @@
+{
+  "verified": "2026-10-26T13:43:38Z",
+  "captured_files": 8,
+  "canonical_source_exit": 0,
+  "independent_audit_exit": 0,
+  "isolated_source_exit": 0,
+  "isolated_audit_exit": 0,
+  "source_byte_identical": true,
+  "audit_byte_identical": true,
+  "source_sha256": "cc0699b16362f228d20d55c0a54f8d7f343c089bc374feeb9d140805402ae7b0",
+  "audit_sha256": "d2e3f2f0baaf528d0f48b2ed2de7996000bf38e21548d2069f5573585ec33076",
+  "project_import_root_enforced": true
+}

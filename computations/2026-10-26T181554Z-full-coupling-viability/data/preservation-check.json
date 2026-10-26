@@ -1,0 +1,6 @@
+{
+  "prior_public_seals_unchanged": 22,
+  "historical_public_members_unchanged": 1211,
+  "protected_public_source_test_config_unchanged": 16,
+  "accepted_reused_bounded_source_sha256": "cd254a2a7002e17b56dce12a0ec00166eac8023e30374e38053d8963ade28b9c"
+}

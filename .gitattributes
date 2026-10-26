@@ -86,3 +86,10 @@
 /computations/2026-10-26T020435Z-variable-fourier-error-work/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /computations/2026-10-26T040651Z-fourier-reference-viability/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /computations/2026-10-26T044551Z-energy-reference-qualification/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T114258Z-signed-logarithmic-discrepancy/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T125036Z-energy-aware-schur-contract/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T133105Z-energy-aware-dual-assessment/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T141704Z-supported-coupling-qualification/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T171755Z-supported-penalty-comparison/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T181554Z-full-coupling-viability/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T191941Z-structured-residual-coupling/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

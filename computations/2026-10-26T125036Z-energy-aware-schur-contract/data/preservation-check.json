@@ -1,0 +1,7 @@
+{
+  "verified": "2026-10-26T13:09:30Z",
+  "historical_bundle_seals_unchanged": 18,
+  "historical_members_unchanged": 1026,
+  "protected_public_files_unchanged": 16,
+  "scope": "Exact previous-byte preservation; no old source, test, result or retained-proof admission is rewritten."
+}

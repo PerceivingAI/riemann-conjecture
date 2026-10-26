@@ -1,0 +1,17 @@
+{
+  "started": "2026-10-26T18:31:58.053479+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-26T181554Z-full-coupling-viability/propose-low-floor-v1.py",
+    "--output",
+    "computations/2026-10-26T181554Z-full-coupling-viability/data/low-proposal-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 1.2274710999336094,
+  "stdout": "[{\"parity\": 0, \"minimum_NON_PROOF\": 3.643080006512874e-15, \"nonzero_quantized_coefficients\": 152}, {\"parity\": 1, \"minimum_NON_PROOF\": 3.3209652946280127e-12, \"nonzero_quantized_coefficients\": 152}]\n",
+  "stderr": ""
+}

@@ -1,0 +1,79 @@
+{
+  "format": "captured-supported-comparison-closure-v2",
+  "files": [
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/compare-supported-v1.py",
+      "bytes": 9770,
+      "sha256": "7dcee70d58a80a2eab3c4e73a28835e0b5a65847ac7b764203fd2012b9668b7b"
+    },
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/verify-comparison-v1.py",
+      "bytes": 12622,
+      "sha256": "40aea05f8fd80091916d370456084bd22eac4d7e00b79fed2712f365311a0576"
+    },
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/verify-comparison-v2.py",
+      "bytes": 12807,
+      "sha256": "a5afc1968b6b00585fae6100cac8b78d4ca96b4856f54fa255417e073d7e9c05"
+    },
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/verify-comparison-v3.py",
+      "bytes": 12998,
+      "sha256": "0bce445258d3ee8762058e56818c2468ad9c6a9f15f9b4860012d51c479f9564"
+    },
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/capture-run-v1.py",
+      "bytes": 813,
+      "sha256": "e9cddaac687c7ba70160d3e6dfcc9838e8a3355a308e71c7a99251c70118c67a"
+    },
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/diagnose-consumer-v1.py",
+      "bytes": 293,
+      "sha256": "23b108a00fc8a2daaf356d97fc379e930e5737c5919956d6671e3e2e67577cae"
+    },
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/diagnose-wrapping-v1.py",
+      "bytes": 700,
+      "sha256": "69de0de9fc7cdf6330435ca2943a307b755efaa79cb23e444e78c39b0edfdcc0"
+    },
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/reuse-coupling-split-v1.py",
+      "bytes": 1335,
+      "sha256": "b7dc903ad3b46670a2fb7305fd372dfee3832dded83bbc70f95040705dc4f35e"
+    },
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/replay-and-reject-v1.py",
+      "bytes": 3444,
+      "sha256": "e04c6223b2b1c9f0647ad216bb7091633f1ebbb0fe8d46585bc4d0c84f4e774d"
+    },
+    {
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison/comparison-inputs-v1.json",
+      "bytes": 1440,
+      "sha256": "1af61783e3827f7ee069b68531e47cd24fea591abf188ee56e28e2d8eb167bf2"
+    },
+    {
+      "path": "computations/2026-10-26T141704Z-supported-coupling-qualification/data/supported-source-v3.json",
+      "bytes": 427023,
+      "sha256": "b3b3578d778c9d7af5127ba218dde7d124d8dcb47b7f826e98c8913282c3612c"
+    },
+    {
+      "path": "computations/2026-10-26T141704Z-supported-coupling-qualification/data/independent-audit-v3.json",
+      "bytes": 2519,
+      "sha256": "9da33ed4b3110da4906e3c40c2f81215e45ca9433bb7c051c5a610aff4b39925"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    }
+  ],
+  "project_imports": [],
+  "original_failed_consumers_preserved": true,
+  "integer_conversion_guard_unchanged": true,
+  "upstream_supported_source_reused_as_accepted_input": true
+}

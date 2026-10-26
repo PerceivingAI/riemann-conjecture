@@ -1,0 +1,15 @@
+{
+  "verified": "2026-10-26T17:51:55Z",
+  "public_documentation": {
+    "local_links": 610,
+    "tables": 1
+  },
+  "public_document_count": 9,
+  "new_public_reference_scope_clean": true,
+  "historical_log_body_unchanged": true,
+  "source_audit_reuse_byte_identical": true,
+  "false_bound_rejections": 3,
+  "no_failed_attempt_success_output": true,
+  "prior_seals_unchanged": 21,
+  "prior_members_unchanged": 1144
+}

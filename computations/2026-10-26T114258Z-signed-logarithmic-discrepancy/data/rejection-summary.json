@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "beta-zero",
+      "returncode": 2,
+      "rejected": true,
+      "no_success_output_created": true,
+      "stdout": "{\"status\": \"REJECTED\", \"error\": \"independent all-frequency interval bound exceeds beta\"}\n"
+    },
+    {
+      "case": "coverage-gap",
+      "returncode": 2,
+      "rejected": true,
+      "no_success_output_created": true,
+      "stdout": "{\"status\": \"REJECTED\", \"error\": \"frequency coverage gap/overlap/order defect\"}\n"
+    },
+    {
+      "case": "false-outside-margin",
+      "returncode": 2,
+      "rejected": true,
+      "no_success_output_created": true,
+      "stdout": "{\"status\": \"REJECTED\", \"error\": \"dishonest source reference margin\"}\n"
+    }
+  ],
+  "scope": "Actual altered scalar enclosure packets, not production theorem certificates."
+}

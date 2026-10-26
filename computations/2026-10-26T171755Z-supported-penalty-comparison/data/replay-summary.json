@@ -1,0 +1,17 @@
+[
+  {
+    "role": "source",
+    "sha256": "68307305f40b5e808fc349fff070ba38250a1d7cdbbb031fa0464539ed37c02f",
+    "byte_identical": true
+  },
+  {
+    "role": "audit",
+    "sha256": "c395b16c69481ed60097c29584024d3d6bee7b72bcc21d549a593a7bd509aa70",
+    "byte_identical": true
+  },
+  {
+    "role": "reuse",
+    "sha256": "ca6b4723edbf49846013b37d02a22449ae675277ff084206e048fff2c8af3aa9",
+    "byte_identical": true
+  }
+]

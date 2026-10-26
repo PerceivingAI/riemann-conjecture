@@ -1,0 +1,19 @@
+{
+  "started": "2026-10-26T17:44:37.294973+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/replay-and-reject-v1.py",
+    "--capture",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/source-v2",
+    "--data",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 263.1689148999285,
+  "stdout": "{\"operation\": \"isolated-source\", \"exit_code\": 0}\n{\"operation\": \"isolated-audit\", \"exit_code\": 0}\n{\"operation\": \"isolated-reuse\", \"exit_code\": 0}\n{\"operation\": \"understated-source-error\", \"exit_code\": 2}\n{\"operation\": \"unpaid-continuum-quadrature\", \"exit_code\": 2}\n{\"operation\": \"false-residual-work-floor\", \"exit_code\": 2}\n{\"status\": \"PASS_ISOLATED_BYTES_AND_THREE_REAL_REJECTIONS\", \"roles\": [{\"role\": \"source\", \"sha256\": \"68307305f40b5e808fc349fff070ba38250a1d7cdbbb031fa0464539ed37c02f\", \"byte_identical\": true}, {\"role\": \"audit\", \"sha256\": \"c395b16c69481ed60097c29584024d3d6bee7b72bcc21d549a593a7bd509aa70\", \"byte_identical\": true}, {\"role\": \"reuse\", \"sha256\": \"ca6b4723edbf49846013b37d02a22449ae675277ff084206e048fff2c8af3aa9\", \"byte_identical\": true}], \"rejections\": 3}\n",
+  "stderr": ""
+}

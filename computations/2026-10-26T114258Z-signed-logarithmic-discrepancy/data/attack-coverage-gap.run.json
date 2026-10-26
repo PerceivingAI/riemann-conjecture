@@ -1,0 +1,15 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-B",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T114258Z-signed-logarithmic-discrepancy\\verify-signed-bound-v1.py",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T114258Z-signed-logarithmic-discrepancy\\data\\attack-coverage-gap.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T114258Z-signed-logarithmic-discrepancy\\data\\attack-coverage-gap-unexpected-audit.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "returncode": 2,
+  "seconds": 2.468635099940002,
+  "stdout": "{\"status\": \"REJECTED\", \"error\": \"frequency coverage gap/overlap/order defect\"}\n",
+  "stderr": ""
+}

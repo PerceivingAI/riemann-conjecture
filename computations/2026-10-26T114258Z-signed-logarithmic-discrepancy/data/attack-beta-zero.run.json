@@ -1,0 +1,15 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-B",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T114258Z-signed-logarithmic-discrepancy\\verify-signed-bound-v1.py",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T114258Z-signed-logarithmic-discrepancy\\data\\attack-beta-zero.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T114258Z-signed-logarithmic-discrepancy\\data\\attack-beta-zero-unexpected-audit.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "returncode": 2,
+  "seconds": 0.5994821999920532,
+  "stdout": "{\"status\": \"REJECTED\", \"error\": \"independent all-frequency interval bound exceeds beta\"}\n",
+  "stderr": ""
+}

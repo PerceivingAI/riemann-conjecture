@@ -1,0 +1,245 @@
+{
+  "format": "signed-logarithmic-discrepancy-research-bundle-v1",
+  "computation_id": "X-20261026-005",
+  "created": "2026-10-26T11:42:58Z",
+  "verified": "2026-10-26T12:12:12Z",
+  "baseline_commit": "0a10e5aef2ee451d224028f7746c55369002b36f",
+  "status": "QUALIFIED_FIXED_CASE_SIGNED_FORM_AND_COMPLETE_OUTSIDE_BOUND",
+  "claims": [
+    "C-0110",
+    "C-0111"
+  ],
+  "support": "3/4",
+  "projection_dimension": 312,
+  "alpha": "1/4",
+  "beta": "873/1024",
+  "published_complete_outside_lower": "1/3",
+  "complete_finite_intervals_checked": 2371,
+  "analytic_both_infinite_tails_checked": true,
+  "full_unbounded_logarithmic_reference_retained": true,
+  "reference_controls": [
+    {
+      "label": "closed_policy",
+      "R": "416/3",
+      "independent_outside_lower": "-10635184912763033715514733181834755907/85070591730234615865843651857942052864",
+      "independent_outside_positive": false,
+      "independent_outside_above_one_third": false
+    },
+    {
+      "label": "retained_source_anchor",
+      "R": "256",
+      "independent_outside_lower": "56974749020002431543911492482047780255/170141183460469231731687303715884105728",
+      "independent_outside_positive": true,
+      "independent_outside_above_one_third": true
+    }
+  ],
+  "source_precision_bits": 256,
+  "independent_precision_bits": 384,
+  "source_packet_sha256": "872d643987790050f1f0414bd6473e7f76881e9b35b01fcf0ff8bbfe2f5ac792",
+  "independent_audit_sha256": "1628749da24f8c47cefe12f79064dc6ac84bc767d97ab3bad619d8618958570b",
+  "source_snapshot_manifest_sha256": "1c694a5406ebc3378a5eb87930ba9ddd972bee9badad649a9d434b7cc06b6e15",
+  "independent_mathematical_review": "APPROVE",
+  "actual_altered_packet_rejections": 3,
+  "isolated_source_and_audit_byte_identical": true,
+  "historical_seals_unchanged": 17,
+  "historical_members_unchanged": 988,
+  "new_support_matrix_computed": false,
+  "complete_low_cross_positivity_proved": false,
+  "new_complete_Weil_positivity_theorem_proved": false,
+  "all_support_estimate_proved": false,
+  "comparative_or_global_advantage_proved": false,
+  "production_admission_changed": false,
+  "trust_boundary": "Qualified source identities and shared Arb/FLINT enclosure correctness; independent full numerical reconstruction and mathematical review, not Lean/Rust acceptance. The older scalar-reference local outside lower is larger.",
+  "members": [
+    {
+      "path": "data/attack-beta-zero.json",
+      "bytes": 378710,
+      "sha256": "d7507a439c1d28ba48d560c0e31f8c88cd9ca0878981a25701ba93cf24b8e47a"
+    },
+    {
+      "path": "data/attack-beta-zero.run.json",
+      "bytes": 790,
+      "sha256": "3df4bf93382171d0675224faf354767a9bebb0ac899b4dcfbda7b758dcb3c727"
+    },
+    {
+      "path": "data/attack-coverage-gap.json",
+      "bytes": 378561,
+      "sha256": "a3d361ba0590095c4d596397ddaeab9c52fa16492e8219a60bdf84236e7aca3d"
+    },
+    {
+      "path": "data/attack-coverage-gap.run.json",
+      "bytes": 785,
+      "sha256": "1f13d9c5f4a726f2ac3c3081be150409a0edc34dc31786292e39c6356fd823a3"
+    },
+    {
+      "path": "data/attack-false-outside-margin.json",
+      "bytes": 378640,
+      "sha256": "65011c545575d58537ebb9693f6daba580222c7592b281becc2c134921b9b2f2"
+    },
+    {
+      "path": "data/attack-false-outside-margin.run.json",
+      "bytes": 791,
+      "sha256": "f3e271891a96a66f6f9566cf7f164ab150b13a7caf74f9a2706c6207a02696ba"
+    },
+    {
+      "path": "data/documentation-check.json",
+      "bytes": 648,
+      "sha256": "6772c5b1f9afd3397a2e2fff9a1c5011accf23e62b0aecf55c318f4a5f919bfb"
+    },
+    {
+      "path": "data/environment.json",
+      "bytes": 404,
+      "sha256": "b6d1b719cddaedd40f584fb5d42af1b94f522306267c69c606f6b53b87dee70a"
+    },
+    {
+      "path": "data/independent-audit-v1.json",
+      "bytes": 1955,
+      "sha256": "1628749da24f8c47cefe12f79064dc6ac84bc767d97ab3bad619d8618958570b"
+    },
+    {
+      "path": "data/independent-signed-bound-audit.run.json",
+      "bytes": 1338,
+      "sha256": "a67965da89f8d1a0f5b35cd61f6a6de3dc08356ba6a3f6583543ca58e0ad62b1"
+    },
+    {
+      "path": "data/isolated-independent-audit-v1.json",
+      "bytes": 1955,
+      "sha256": "1628749da24f8c47cefe12f79064dc6ac84bc767d97ab3bad619d8618958570b"
+    },
+    {
+      "path": "data/isolated-independent-audit.run.json",
+      "bytes": 1607,
+      "sha256": "e80e6efb92728e3a4343c848cd4deefc924f10c17a366c5bdb59c691c82caf6e"
+    },
+    {
+      "path": "data/isolated-replay-summary.json",
+      "bytes": 418,
+      "sha256": "21b5efeb028ec989ac5405dfa77c50e93ecfc9d377847ce77fd0a6c9c5631dc1"
+    },
+    {
+      "path": "data/isolated-signed-bound-source.run.json",
+      "bytes": 1335,
+      "sha256": "5494d4f82403b14552e10723739eac5720f4f99cb81dff8fccef825399021647"
+    },
+    {
+      "path": "data/isolated-signed-bound-v1.json",
+      "bytes": 378717,
+      "sha256": "872d643987790050f1f0414bd6473e7f76881e9b35b01fcf0ff8bbfe2f5ac792"
+    },
+    {
+      "path": "data/preservation-check.json",
+      "bytes": 243,
+      "sha256": "98e90b17013e3fd3675c6194443f43c83c6d27bd035dc46b099bf74b391e13b7"
+    },
+    {
+      "path": "data/rejection-summary.json",
+      "bytes": 851,
+      "sha256": "a3299d5e9af21d8350a722853892f4ed9a98e01b0712e94af3cab327c8514c6f"
+    },
+    {
+      "path": "data/signed-bound-source.run.json",
+      "bytes": 1076,
+      "sha256": "6bc12c520d75a97b4d66d11a1519a9d235a54d296e22bcc473adfd7cf981d41c"
+    },
+    {
+      "path": "data/signed-bound-v1.json",
+      "bytes": 378717,
+      "sha256": "872d643987790050f1f0414bd6473e7f76881e9b35b01fcf0ff8bbfe2f5ac792"
+    },
+    {
+      "path": "independent-mathematical-review.md",
+      "bytes": 2291,
+      "sha256": "47a476a330d5cb35bfc61efb7a6045ce83c14c6bb4cb251a0407fbe47b1c6e1d"
+    },
+    {
+      "path": "input-pins.json",
+      "bytes": 808,
+      "sha256": "6bce3f0cad760b9a0f8c57198934e03872fd3645180ad97455ecdffee8014ba0"
+    },
+    {
+      "path": "qualified-inputs-v1.json",
+      "bytes": 1197,
+      "sha256": "18ae95a0617748d1d6d040eeb086a379a56c12c843a03cfa1f49cb28a72b68ee"
+    },
+    {
+      "path": "qualified-result-v1.md",
+      "bytes": 5260,
+      "sha256": "d9153102c4097984ca9ab32d539340d5ac2c259c5a6ea9bcad05f1cff580e882"
+    },
+    {
+      "path": "record.md",
+      "bytes": 8678,
+      "sha256": "61017e423bbb688cc8e8d7dc6c7c79be98f994eba05802a6a701424d66610939"
+    },
+    {
+      "path": "signed-bound-v1.py",
+      "bytes": 6732,
+      "sha256": "0e576be460e97c26e55d7847bcf21c6d3b4ffe0ffa27daeb61e4f47c76bf247d"
+    },
+    {
+      "path": "signed-symbol-contract-v1.md",
+      "bytes": 15066,
+      "sha256": "be0a724e9ccda5351177b8b1a75095add35935f5b8f5637ec0e059958c1654ed"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T114258Z-signed-logarithmic-discrepancy/input-pins.json",
+      "bytes": 808,
+      "sha256": "6bce3f0cad760b9a0f8c57198934e03872fd3645180ad97455ecdffee8014ba0"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T114258Z-signed-logarithmic-discrepancy/qualified-inputs-v1.json",
+      "bytes": 1197,
+      "sha256": "18ae95a0617748d1d6d040eeb086a379a56c12c843a03cfa1f49cb28a72b68ee"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T114258Z-signed-logarithmic-discrepancy/signed-bound-v1.py",
+      "bytes": 6732,
+      "sha256": "0e576be460e97c26e55d7847bcf21c6d3b4ffe0ffa27daeb61e4f47c76bf247d"
+    },
+    {
+      "path": "source-v1/computations/2026-10-26T114258Z-signed-logarithmic-discrepancy/verify-signed-bound-v1.py",
+      "bytes": 9232,
+      "sha256": "3dcd232cdb701112bc12bda10cae444577626e4fedc59c50efdba543243b937b"
+    },
+    {
+      "path": "source-v1/manifest.json",
+      "bytes": 2014,
+      "sha256": "1c694a5406ebc3378a5eb87930ba9ddd972bee9badad649a9d434b7cc06b6e15"
+    },
+    {
+      "path": "source-v1/pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "source-v1/scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "source-v1/scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "source-v1/scripts/cert/prime_power_terms.py",
+      "bytes": 21423,
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "path": "source-v1/scripts/weil_reference_route_controls.py",
+      "bytes": 8462,
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13"
+    },
+    {
+      "path": "source-v1/uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    },
+    {
+      "path": "verify-signed-bound-v1.py",
+      "bytes": 9232,
+      "sha256": "3dcd232cdb701112bc12bda10cae444577626e4fedc59c50efdba543243b937b"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "started": "2026-10-26T17:36:30.833075+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/verify-comparison-v2.py",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/comparison-v1.json.gz",
+    "--output",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/independent-audit-v2.json"
+  ],
+  "exit_code": 2,
+  "elapsed_seconds": 33.027186000021175,
+  "stdout": "",
+  "stderr": "ValueError: independent direct step transform is not a full enclosure\n"
+}

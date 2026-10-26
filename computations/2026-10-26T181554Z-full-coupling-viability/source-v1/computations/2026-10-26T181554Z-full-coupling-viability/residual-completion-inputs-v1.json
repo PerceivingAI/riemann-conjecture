@@ -1,0 +1,29 @@
+{
+  "format": "whole-space-residual-completion-inputs-v1",
+  "created": "2026-10-26T18:31:50Z",
+  "support": "3/4",
+  "N": 312,
+  "bounded_source": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/source-v1.json.gz",
+  "bounded_source_sha256": "cd254a2a7002e17b56dce12a0ec00166eac8023e30374e38053d8963ade28b9c",
+  "residual_operator_allowance": "1/300000",
+  "weight_floor": "1/3",
+  "isotropic_completion_floor": "1/30000000000",
+  "endpoint_zero_order": 4,
+  "jacobi_parameters": [
+    8,
+    8
+  ],
+  "jacobi_degrees": [
+    0,
+    303
+  ],
+  "both_parities": true,
+  "witness_coefficient_grid_bits": 40,
+  "proposal_gauss_order": 312,
+  "source_precision_bits": 1536,
+  "independent_precision_bits": 2048,
+  "outside_frequency_anchor": 256,
+  "outside_logarithmic_constant_upper": "1/2",
+  "physical_derivative_order": 4,
+  "scope": "Necessary low-space test of the explicit isotropic norm-based residual completion; not rejection of exact supported Gram or actual Weil positivity."
+}

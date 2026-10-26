@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\build-supported-v1.py",
+    "--output",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\data\\supported-source-v1.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "returncode": 0,
+  "elapsed_seconds": 1.7337365000275895,
+  "stdout": "{\"status\": \"SOURCE_ACCURACY_UNRESOLVED\", \"positive_half_cells\": 2054, \"L2_squared_uppers\": [\"91/65536\", \"615/65536\"], \"complete_fourier_tail_U\": \"16384\", \"full_weighted_gram_computed\": false}\n",
+  "stderr": ""
+}

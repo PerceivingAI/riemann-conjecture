@@ -1,0 +1,26 @@
+[
+  {
+    "variant": 1,
+    "role": "source",
+    "sha256": "5df4de56a7a91176460e3750660891b120953ce9e8b1361048b1bd9e1e1dbb1b",
+    "byte_identical": true
+  },
+  {
+    "variant": 1,
+    "role": "audit",
+    "sha256": "2102eaf9735b70c7bc102707051c5c583b22907f1fd28edb05b225d8d10638e5",
+    "byte_identical": true
+  },
+  {
+    "variant": 2,
+    "role": "source",
+    "sha256": "6e18940d7e34eaa29acd6d3457f75c036729b1a4de652ac0b37802b8c0486340",
+    "byte_identical": true
+  },
+  {
+    "variant": 2,
+    "role": "audit",
+    "sha256": "ae7103c40171b5d51d60370582c795b72d90c3fc3f73f95b105604137c979143",
+    "byte_identical": true
+  }
+]

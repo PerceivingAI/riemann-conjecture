@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T133105Z-energy-aware-dual-assessment\\source-v1\\computations\\2026-10-26T133105Z-energy-aware-dual-assessment\\assess-dual-v1.py",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T133105Z-energy-aware-dual-assessment\\data\\isolated-assessment-v1.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T133105Z-energy-aware-dual-assessment\\source-v1",
+  "returncode": 0,
+  "elapsed_seconds": 0.23059930000454187,
+  "stdout": "{\"status\": \"NEGATIVE_CURRENT_CONTRACTION_CERTIFIED\", \"ideal_schur_upper\": \"-1431/1024\", \"necessary_floor_lower\": \"57/4\", \"new_Weil_negative_direction\": false}\n",
+  "stderr": ""
+}

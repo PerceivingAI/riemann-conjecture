@@ -1,0 +1,17 @@
+{
+  "command": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-c",
+    "import runpy,sys;runpy.run_path(sys.argv.pop(1),run_name=\"__main__\")",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T114258Z-signed-logarithmic-discrepancy\\source-v1\\computations\\2026-10-26T114258Z-signed-logarithmic-discrepancy\\signed-bound-v1.py",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T114258Z-signed-logarithmic-discrepancy\\data\\isolated-signed-bound-v1.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T114258Z-signed-logarithmic-discrepancy\\source-v1",
+  "returncode": 0,
+  "seconds": 0.7297949999338016,
+  "stdout": "{\"status\": \"GLOBAL_FORM_BOUND_CERTIFIED\", \"leaf_intervals\": 2371, \"beta\": \"873/1024\", \"reference_tails\": [{\"label\": \"closed_policy\", \"outside_lower\": \"-21257373724071345279530439344345670815/170141183460469231731687303715884105728\", \"outside_lower_positive\": false}, {\"label\": \"retained_source_anchor\", \"outside_lower\": \"56978562112791276808269547588109982265/170141183460469231731687303715884105728\", \"outside_lower_positive\": true}], \"new_support_matrix_computed\": false, \"all_support_estimate_proved\": false}\n",
+  "stderr": ""
+}

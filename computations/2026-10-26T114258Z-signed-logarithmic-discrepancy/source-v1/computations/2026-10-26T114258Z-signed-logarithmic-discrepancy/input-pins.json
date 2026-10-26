@@ -1,0 +1,16 @@
+{
+  "format": "signed-logarithmic-discrepancy-inputs-v1",
+  "created": "2026-10-26T11:42:58Z",
+  "baseline_commit": "0a10e5aef2ee451d224028f7746c55369002b36f",
+  "support": "3/4",
+  "alpha": "1/4",
+  "certification_frequency_boundary": "256",
+  "reference_legendre_N": 312,
+  "reference_R_policy": "N/(3T)",
+  "initial_interval_width": "1/8",
+  "finite_supremum_gap_target": "1/256",
+  "publication_beta_grid": "1/1024",
+  "producer_precision_bits": 256,
+  "independent_precision_bits": 384,
+  "scope": "One fixed previously accepted support; exact complete signed Fourier multiplier; exhaustive dyadic interval coverage and an analytic infinite tail. Alpha fixed before calculation, no support/dimension/alpha grid or new low matrix/sign. Finite proof boundary is not a truncation of archimedean energy."
+}

@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\verify-supported-v1.py",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\data\\supported-source-v1.json",
+    "--output",
+    "computations\\2026-10-26T141704Z-supported-coupling-qualification\\data\\independent-audit-v1.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "returncode": 0,
+  "elapsed_seconds": 49.24775930005126,
+  "stdout": "{\"status\": \"PASS_SOURCE_BOUNDS_TARGET_UNRESOLVED\", \"source_variant\": 1, \"complete_cells_checked\": 2054, \"finite_column_operator_error_squared\": \"353/32768\"}\n",
+  "stderr": ""
+}

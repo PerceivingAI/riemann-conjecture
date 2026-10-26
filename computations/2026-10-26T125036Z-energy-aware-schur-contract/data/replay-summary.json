@@ -1,0 +1,9 @@
+{
+  "verified": "2026-10-26T13:09:30Z",
+  "source_closure_files": 6,
+  "canonical_exit": 0,
+  "isolated_exit": 0,
+  "source_import_root_enforced": true,
+  "byte_identical": true,
+  "sha256": "d8e59b87caebcb9494964650f7488624803f55c813b28a099a5e37bae911a9dc"
+}

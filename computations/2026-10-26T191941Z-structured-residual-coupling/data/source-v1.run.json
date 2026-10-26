@@ -1,0 +1,17 @@
+{
+  "started": "2026-10-26T19:31:22.891668+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-26T191941Z-structured-residual-coupling/qualify-structured-v1.py",
+    "--output",
+    "computations/2026-10-26T191941Z-structured-residual-coupling/data/structured-source-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.7438273001462221,
+  "stdout": "{\"status\": \"QUALIFIED_EXACT_WHOLE_LOW_RESIDUAL_MODEL_AND_ERROR_BUDGET\", \"order\": 56, \"band_shape\": [56, 56], \"nonzero_entries\": 812, \"delta_upper\": 9.151976102651061e-19, \"complete_error_upper\": 1.7949128225503348e-17, \"known_gap_lower\": 1e-15, \"whole_low_necessary_budget_lower\": 9.811356741642314e-16, \"critical_residual_weighted_image_uppers\": [2.6789205376343708e-36, 7.460153650066704e-36]}\n",
+  "stderr": ""
+}

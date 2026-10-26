@@ -1,0 +1,18 @@
+{
+  "started": "2026-10-26T18:44:06.091730+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-26T181554Z-full-coupling-viability/verify-low-floor-v1.py",
+    "computations/2026-10-26T181554Z-full-coupling-viability/data/floor-assessment-v1.json",
+    "--output",
+    "computations/2026-10-26T181554Z-full-coupling-viability/data/independent-floor-audit-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 13.97226609988138,
+  "stdout": "{\"format\": \"independent-whole-low-floor-audit-v1\", \"status\": \"PASS_COMPLETE_SOURCE_AND_EXTERIOR\", \"source_variant\": 1, \"packet_sha256\": \"5df4de56a7a91176460e3750660891b120953ce9e8b1361048b1bd9e1e1dbb1b\", \"audit_code_sha256\": \"e147e36ec22d7cb405d5714ebadb290acc5112b35570db3d949ced48c5586e91\", \"precision_bits\": 2048, \"witnesses\": [{\"parity\": 0, \"degree\": 310, \"mass_exact\": true, \"endpoint_jets_exact\": true, \"bounded_source_and_full_exterior_checked\": true, \"actual_Weil_rayleigh_upper\": \"799841436654797335314099/79228162514264337593543950336\", \"whole_norm_completion_upper\": \"399919397858023429918091/39614081257132168796771975168\", \"strict_floor_rejection\": false}, {\"parity\": 1, \"degree\": 311, \"mass_exact\": true, \"endpoint_jets_exact\": true, \"bounded_source_and_full_exterior_checked\": true, \"actual_Weil_rayleigh_upper\": \"624593735990686478385451379/79228162514264337593543950336\", \"whole_norm_completion_upper\": \"312296866674873863954986731/39614081257132168796771975168\", \"strict_floor_rejection\": false}], \"norm_completion_rejected_on_whole312\": false, \"exact_supported_criterion_rejected\": false, \"old_source_reused_as_two_sided_H0_not_actual_Weil_A\": true, \"new_support_or_admission\": false}\n",
+  "stderr": ""
+}

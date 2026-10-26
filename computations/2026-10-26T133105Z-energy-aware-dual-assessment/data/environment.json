@@ -1,0 +1,11 @@
+{
+  "created": "2026-10-26T13:31:05Z",
+  "baseline_commit": "0a10e5aef2ee451d224028f7746c55369002b36f",
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "python_flint": "0.9.0",
+  "source_precision_bits": 384,
+  "independent_precision_bits": 512,
+  "source_series_terms": 64,
+  "independent_series_terms": 128,
+  "scope": "One actual physical low mode and one outside-time dual witness; no full matrix or new support."
+}

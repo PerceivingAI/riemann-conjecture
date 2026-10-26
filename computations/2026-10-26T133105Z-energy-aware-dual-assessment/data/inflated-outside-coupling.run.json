@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations\\2026-10-26T133105Z-energy-aware-dual-assessment\\verify-dual-v1.py",
+    "computations\\2026-10-26T133105Z-energy-aware-dual-assessment\\data\\inflated-outside-coupling.json",
+    "--output",
+    "computations\\2026-10-26T133105Z-energy-aware-dual-assessment\\data\\inflated-outside-coupling-SHOULD-NOT-EXIST.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "returncode": 2,
+  "elapsed_seconds": 0.2719819999765605,
+  "stdout": "",
+  "stderr": "REJECT: dishonest outside archimedean coupling enclosure\n"
+}

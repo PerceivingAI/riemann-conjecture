@@ -1,0 +1,18 @@
+{
+  "started": "2026-10-26T19:35:56.742156+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-26T191941Z-structured-residual-coupling/verify-structured-v1.py",
+    "computations/2026-10-26T191941Z-structured-residual-coupling/data/structured-source-v1.json",
+    "--output",
+    "computations/2026-10-26T191941Z-structured-residual-coupling/data/independent-audit-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 1.18961300002411,
+  "stdout": "{\"format\": \"independent-structured-residual-audit-v1\", \"status\": \"PASS_EXACT_WHOLE_MAP_AND_COMPLETE_ERROR_BUDGET\", \"source_sha256\": \"afa2a31af3f25fbe1e75aa36633c2be70433fea0479e0d4bea90cd1899f2d01b\", \"audit_code_sha256\": \"a40dfb9d0bef2dcb97ce942bbb5dd99623f3ba857d74be62eae324cf629c6f23\", \"precision_bits\": 768, \"N\": 312, \"order\": 56, \"matrix_entries_checked\": 3136, \"exact_nonzero_entries\": 812, \"complete_infinite_kernel_remainder_checked\": true, \"old_gap_conversion_reconstructed_not_new_source_replay\": true, \"whole_low_budget_lower\": \"187948255705141564900763660449881571089406324599122147/191561942608236107294793378393788647952342390272950272000000000000000\", \"critical_images_checked\": 2, \"new_mixed_Gram_or_Schur_sign\": false, \"new_support_or_admission\": false}\n",
+  "stderr": ""
+}

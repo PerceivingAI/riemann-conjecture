@@ -1,0 +1,21 @@
+{
+  "format": "signed-logarithmic-discrepancy-inputs-v1",
+  "created": "2026-10-26T11:42:58Z",
+  "baseline_commit": "0a10e5aef2ee451d224028f7746c55369002b36f",
+  "support": "3/4",
+  "alpha": "1/4",
+  "certification_frequency_boundary": "256",
+  "reference_legendre_N": 312,
+  "reference_R_policy": "Report both the prior closed sufficient anchor N/(3T) and the existing fixed-source frequency256 using the exact E_N bound. These are declared before any scalar execution, not a search for a successful new dimension or support.",
+  "initial_interval_width": "1/8",
+  "finite_supremum_gap_target": "1/256",
+  "publication_beta_grid": "1/1024",
+  "producer_precision_bits": 256,
+  "independent_precision_bits": 384,
+  "scope": "One fixed accepted support and fixed alpha. Exact signed Fourier multiplier, exhaustive interval cover and analytic infinite tail. Report the coarse reference anchor and the sharper already-qualified fixed-source anchor, not an unknown-support sign or parameter grid. Keep the full logarithmic energy unbounded.",
+  "initial_pins_sha256": "6bce3f0cad760b9a0f8c57198934e03872fd3645180ad97455ecdffee8014ba0",
+  "reference_frequency_anchors": [
+    "N/(3T)",
+    "256"
+  ]
+}

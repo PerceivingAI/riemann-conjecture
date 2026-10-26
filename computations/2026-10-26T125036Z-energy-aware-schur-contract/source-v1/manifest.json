@@ -1,0 +1,37 @@
+{
+  "format": "energy-aware-schur-control-source-closure-v1",
+  "created": "2026-10-26T12:50:36Z",
+  "baseline_commit": "0a10e5aef2ee451d224028f7746c55369002b36f",
+  "members": [
+    {
+      "path": "computations/2026-10-26T125036Z-energy-aware-schur-contract/control-inputs-v1.json",
+      "bytes": 1575,
+      "sha256": "a992c55155972c84814488138c134bf4a3eccd244ffe23aa0c2040de099bbd17"
+    },
+    {
+      "path": "computations/2026-10-26T125036Z-energy-aware-schur-contract/qualify-controls-v1.py",
+      "bytes": 9062,
+      "sha256": "3c144cf685b7be1f514fb941a487493798422a8e2fb4b3d0497cee63e03e3c34"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 1432,
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "path": "scripts/cert/__init__.py",
+      "bytes": 412,
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "path": "scripts/cert/constants.py",
+      "bytes": 5348,
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 210571,
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    }
+  ]
+}

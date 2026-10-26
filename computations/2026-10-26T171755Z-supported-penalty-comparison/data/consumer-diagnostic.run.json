@@ -1,0 +1,18 @@
+{
+  "started": "2026-10-26T17:34:34.993148+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/diagnose-consumer-v1.py",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/comparison-v1.json.gz",
+    "--output",
+    "computations/2026-10-26T171755Z-supported-penalty-comparison/data/diagnostic-no-acceptance.json"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 33.475615600124,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T171755Z-supported-penalty-comparison\\diagnose-consumer-v1.py\", line 6, in <module>\n    namespace['main']()\n    ~~~~~~~~~~~~~~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T171755Z-supported-penalty-comparison\\verify-comparison-v1.py\", line 136, in main\n    checked('independent direct step transform',sample['sample_squared'],direct.real**2+direct.imag**2)\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T171755Z-supported-penalty-comparison\\verify-comparison-v1.py\", line 14, in checked\n    lo,hi=endpoints(value)\n          ~~~~~~~~~^^^^^^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T171755Z-supported-penalty-comparison\\verify-comparison-v1.py\", line 11, in endpoints\n    def endpoints(v):return Q(str(v.lower().fmpq())),Q(str(v.upper().fmpq()))\n                            ~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\fractions.py\", line 263, in __new__\n    numerator = int(m.group('num') or '0')\nValueError: Exceeds the limit (4300 digits) for integer string conversion: value has 14677 digits; use sys.set_int_max_str_digits() to increase the limit\n"
+}
