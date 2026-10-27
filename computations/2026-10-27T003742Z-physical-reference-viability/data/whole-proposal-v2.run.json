@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-27T01:38:40.981381+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T003742Z-physical-reference-viability/propose-whole-v2.py",
+    "--source",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-source-v4.json",
+    "--output",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-proposal-v2.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 2.8561118999496102,
+  "stdout": "even theta 0.7968208456486536 relative_Gram 0.49478150580125546 Smin 0.8123204308582413\nodd theta 0.7307899436982552 relative_Gram 0.488510512931995 Smin 0.8366560217268277\n",
+  "stderr": ""
+}

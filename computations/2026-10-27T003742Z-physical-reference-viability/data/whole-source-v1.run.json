@@ -1,0 +1,14 @@
+{
+  "started": "2026-10-27T01:24:59.591427+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T003742Z-physical-reference-viability/build-whole-source-v1.py",
+    "--output",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-source-v1.json"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 4.261341799981892,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\build-whole-source-v1.py\", line 189, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\build-whole-source-v1.py\", line 180, in main\n    matrices=source(parity,polys,H,H2,rmap,old,edges,weights,kappa)\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\build-whole-source-v1.py\", line 98, in source\n    P=old_matrix(old,'P',parity);GP=old_matrix(old,'GP',parity)\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\build-whole-source-v1.py\", line 38, in old_matrix\n    return arb_mat([[ball(rows[i][j],proof['bits']) for j in ids] for i in ids])\n                          ~~~~~~~^^^\nIndexError: list index out of range\n"
+}

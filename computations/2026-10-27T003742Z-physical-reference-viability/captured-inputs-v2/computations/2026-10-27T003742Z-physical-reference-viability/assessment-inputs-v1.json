@@ -1,0 +1,30 @@
+{
+  "N": 312,
+  "acceptance": "strict outward negative physical dual upper; no positivity inference from finite sample",
+  "alpha": "1/4",
+  "auxiliary_tail_degrees": [
+    312,
+    623
+  ],
+  "beta": "873/1024",
+  "critical_packet": "computations/2026-10-26T181554Z-full-coupling-viability/data/floor-assessment-v2.json",
+  "critical_packet_sha256": "6e18940d7e34eaa29acd6d3457f75c036729b1a4de652ac0b37802b8c0486340",
+  "first_proposals": "both already accepted complete critical low vectors; finite full-tail-reference solve; positive directions are inconclusive",
+  "floor": "1/3",
+  "format": "physical-reference-assessment-inputs-v1",
+  "further_search_if_no_negative": "whole low312 with same auxiliary shell, no projection/support increase",
+  "independent_precision_bits": 4096,
+  "leakage_deficit_upper": "3/10000000000000000000000000000000000000000000000000",
+  "low_witness_space": [
+    0,
+    311
+  ],
+  "new_support_or_admission": false,
+  "published_rational_bits": 192,
+  "residual_order": 56,
+  "residual_packet": "computations/2026-10-26T191941Z-structured-residual-coupling/data/structured-source-v1.json",
+  "residual_packet_sha256": "afa2a31af3f25fbe1e75aa36633c2be70433fea0479e0d4bea90cd1899f2d01b",
+  "source_precision_bits": 3072,
+  "support": "3/4",
+  "tail_coefficient_grid_bits": 96
+}

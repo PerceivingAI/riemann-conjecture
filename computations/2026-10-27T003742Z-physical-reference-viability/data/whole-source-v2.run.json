@@ -1,0 +1,14 @@
+{
+  "started": "2026-10-27T01:26:51.763223+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T003742Z-physical-reference-viability/build-whole-source-v2.py",
+    "--output",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-source-v2.json"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 81.75696070003323,
+  "stdout": "actual A model complete 0\ncomplete signed arithmetic and VP 0 2\ncomplete signed arithmetic and VP 0 3\ncomplete signed arithmetic and VP 0 4\ncomplete signed infinite-output Gram assembled 0\n",
+  "stderr": "Traceback (most recent call last):\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\build-whole-source-v2.py\", line 189, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\build-whole-source-v2.py\", line 185, in main\n    out['matrices'][f'{name}-{parity}']={'path':path.relative_to(HERE).as_posix(),'sha256':hashlib.sha256(raw).hexdigest(),'size':len(raw)}\n                                                ~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\carlo\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\pathlib\\__init__.py\", line 495, in relative_to\n    raise ValueError(f\"{str(self)!r} is not in the subpath of {str(other)!r}\")\nValueError: 'computations\\\\2026-10-27T003742Z-physical-reference-viability\\\\data\\\\whole-matrices-v2\\\\A_model-0.json.gz' is not in the subpath of 'D:\\\\2_Add_Projects\\\\riemann-conjecture\\\\computations\\\\2026-10-27T003742Z-physical-reference-viability'\n"
+}

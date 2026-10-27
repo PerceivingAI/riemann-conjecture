@@ -1,0 +1,50 @@
+{
+  "accepted_positive_source": false,
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-B",
+    "computations\\2026-10-27T003742Z-physical-reference-viability\\build-whole-source-v3.py",
+    "--output",
+    "computations\\2026-10-27T003742Z-physical-reference-viability\\data\\whole-source-v3.json"
+  ],
+  "elapsed_seconds": 154.86149389995262,
+  "exit_code": 0,
+  "format": "wide-unaccepted-raw-regeneration-v1",
+  "isolated_tree_removed": true,
+  "matrices": {
+    "A_model-0": {
+      "byte_identical_to_recorded_hash": true,
+      "sha256": "eb0db1c8255e233130d3ef4a8981d2b7877ed9f2214e6c461ea06db2d5ac76b2",
+      "size": 510061
+    },
+    "A_model-1": {
+      "byte_identical_to_recorded_hash": true,
+      "sha256": "e1954bc8f07a6cd2b11701803c6d16c2891c4b6234f7e196d22a04dea407cb6a",
+      "size": 510194
+    },
+    "weighted_complete_tail-0": {
+      "byte_identical_to_recorded_hash": true,
+      "sha256": "d3f046425810625f9020554d3e6fa5cd57d4382b97a504a19bd4d4a5b2f09da6",
+      "size": 507973
+    },
+    "weighted_complete_tail-1": {
+      "byte_identical_to_recorded_hash": true,
+      "sha256": "5e6068c7fda40c8d8e922dbfad3c24fd726fce6ea83c9631d4271032f6ce5014",
+      "size": 507985
+    },
+    "weighted_head-0": {
+      "byte_identical_to_recorded_hash": true,
+      "sha256": "4da84b66bccece8c326640d629043f4a33806a051b5cd43a4b8176692a44fb1d",
+      "size": 21395150
+    },
+    "weighted_head-1": {
+      "byte_identical_to_recorded_hash": true,
+      "sha256": "396a0210f2e146320a610af380a5fe8d564a089ec57d84ef19ac86e55a2ac210",
+      "size": 21395642
+    }
+  },
+  "original_records_overwritten": false,
+  "status": "PASS_WIDE_RAW_REGENERATION",
+  "stderr": "",
+  "stdout": "actual A model complete 0\ncomplete signed arithmetic and VP 0 2\ncomplete signed arithmetic and VP 0 3\ncomplete signed arithmetic and VP 0 4\ncomplete signed infinite-output Gram assembled 0\nactual A model complete 1\ncomplete signed arithmetic and VP 1 2\ncomplete signed arithmetic and VP 1 3\ncomplete signed arithmetic and VP 1 4\ncomplete signed infinite-output Gram assembled 1\n{\"status\": \"COMPLETE_INTERVAL_MATRICES_NOT_YET_POSITIVITY_VERIFIED\", \"matrix_files\": 6, \"frequency_anchors\": 60, \"kappa\": \"1.1699318631981226\"}\n"
+}

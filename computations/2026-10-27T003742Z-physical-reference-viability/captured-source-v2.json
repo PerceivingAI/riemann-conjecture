@@ -1,0 +1,137 @@
+{
+  "files": [
+    {
+      "destination": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/proof-v1.json.gz",
+      "sha256": "9e7b0e03254261e4a971be192d21c7991faefaf2f71b0cbbfe8faf946b186cef",
+      "size": 3627039,
+      "stored": "captured-inputs-v2/computations/2026-10-25T220817Z-post-m4-fourier-sign/data/proof-v1.json.gz"
+    },
+    {
+      "destination": "computations/2026-10-26T181554Z-full-coupling-viability/data/floor-assessment-v2.json",
+      "sha256": "6e18940d7e34eaa29acd6d3457f75c036729b1a4de652ac0b37802b8c0486340",
+      "size": 39055,
+      "stored": "captured-inputs-v2/computations/2026-10-26T181554Z-full-coupling-viability/data/floor-assessment-v2.json"
+    },
+    {
+      "destination": "computations/2026-10-26T191941Z-structured-residual-coupling/data/structured-source-v1.json",
+      "sha256": "afa2a31af3f25fbe1e75aa36633c2be70433fea0479e0d4bea90cd1899f2d01b",
+      "size": 341385,
+      "stored": "captured-inputs-v2/computations/2026-10-26T191941Z-structured-residual-coupling/data/structured-source-v1.json"
+    },
+    {
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/assess-physical-v2.py",
+      "sha256": "720d099e16f137e48fa15a93c14088a1ff6e6c9c13ff2d327c5fa8e19bc18710",
+      "size": 8545,
+      "stored": "captured-inputs-v2/computations/2026-10-27T003742Z-physical-reference-viability/assess-physical-v2.py"
+    },
+    {
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/assessment-inputs-v1.json",
+      "sha256": "7703ba08736a4b5605630e5a1d9e9d6f90ff31399521310df5e1ee19d6d10458",
+      "size": 1312,
+      "stored": "captured-inputs-v2/computations/2026-10-27T003742Z-physical-reference-viability/assessment-inputs-v1.json"
+    },
+    {
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/build-whole-source-v4.py",
+      "sha256": "9544fac738809ae929f52d6bbb74196b72442198dc59098438a66bd5f6867a34",
+      "size": 10776,
+      "stored": "captured-inputs-v2/computations/2026-10-27T003742Z-physical-reference-viability/build-whole-source-v4.py"
+    },
+    {
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/data/proposal-v2.json",
+      "sha256": "4dad2fd7abf53ad854352b69142380d804cb5212ead7e6ed84e7e4d849847f3b",
+      "size": 149210,
+      "stored": "captured-inputs-v2/computations/2026-10-27T003742Z-physical-reference-viability/data/proposal-v2.json"
+    },
+    {
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-proposal-v2.json",
+      "sha256": "8c349c3596ee3cc7c9fa91fda4c76c502b75b35255157e2f49b90c5448f118fb",
+      "size": 1309395,
+      "stored": "captured-inputs-v2/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-proposal-v2.json"
+    },
+    {
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+      "sha256": "2db67f5add9fd164a23a03c33ebe6181cb5f171499adcdfb93d3875eddc7c29f",
+      "size": 1881,
+      "stored": "captured-inputs-v2/computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py"
+    },
+    {
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/propose-physical-v2.py",
+      "sha256": "7219f9acbb4948ca72f0b0e59332207ff83a576a10bd52492099d468603a2995",
+      "size": 4444,
+      "stored": "captured-inputs-v2/computations/2026-10-27T003742Z-physical-reference-viability/propose-physical-v2.py"
+    },
+    {
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/verify-physical-v1.py",
+      "sha256": "0d9d07c548b2487626fb7d33d17a8556ce5b40185b66e9f7224dd21fe9a67466",
+      "size": 24432,
+      "stored": "captured-inputs-v2/computations/2026-10-27T003742Z-physical-reference-viability/verify-physical-v1.py"
+    },
+    {
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/verify-whole-proof-v1.py",
+      "sha256": "072829aab59d561d2560a4c20e72d889b7e352046a20124aa360c1933d426926",
+      "size": 4837,
+      "stored": "captured-inputs-v2/computations/2026-10-27T003742Z-physical-reference-viability/verify-whole-proof-v1.py"
+    },
+    {
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/verify-whole-v1.py",
+      "sha256": "07a248929ae3a4b9381d42c3db75ae4c3b9ed2b3642d25ca0a0aa929d851faba",
+      "size": 30145,
+      "stored": "captured-inputs-v2/computations/2026-10-27T003742Z-physical-reference-viability/verify-whole-v1.py"
+    },
+    {
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/whole-gram-inputs-v2.json",
+      "sha256": "4c8ff1748fb3424e401d753b9be39031965265a41ab71ac564a11a9a8b3324b5",
+      "size": 2065,
+      "stored": "captured-inputs-v2/computations/2026-10-27T003742Z-physical-reference-viability/whole-gram-inputs-v2.json"
+    },
+    {
+      "destination": "scripts/cert/__init__.py",
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092",
+      "size": 412,
+      "stored": "captured-inputs-v2/scripts/cert/__init__.py"
+    },
+    {
+      "destination": "scripts/cert/constants.py",
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "size": 5348,
+      "stored": "captured-inputs-v2/scripts/cert/constants.py"
+    },
+    {
+      "destination": "scripts/cert/legendre_schur.py",
+      "sha256": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+      "size": 14453,
+      "stored": "captured-inputs-v2/scripts/cert/legendre_schur.py"
+    },
+    {
+      "destination": "scripts/cert/mixed_gram_research.py",
+      "sha256": "61c830e808d281e9a0d61ad040f7ffaeaf42821ebf753f977887567a4fdf01f3",
+      "size": 13979,
+      "stored": "captured-inputs-v2/scripts/cert/mixed_gram_research.py"
+    },
+    {
+      "destination": "scripts/cert/multi_prime_legendre_schur.py",
+      "sha256": "341c64284182e774886ff487d3d1107fabe29e86c1bcc3d1782e6d1111103246",
+      "size": 13682,
+      "stored": "captured-inputs-v2/scripts/cert/multi_prime_legendre_schur.py"
+    },
+    {
+      "destination": "scripts/cert/prime_power_terms.py",
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+      "size": 21423,
+      "stored": "captured-inputs-v2/scripts/cert/prime_power_terms.py"
+    },
+    {
+      "destination": "scripts/cert/quadrature.py",
+      "sha256": "c8bc5bc04655722f394dba6c46655494cd90e5e68117e3361a835ac10e719663",
+      "size": 6229,
+      "stored": "captured-inputs-v2/scripts/cert/quadrature.py"
+    },
+    {
+      "destination": "scripts/cert/residual_kernel.py",
+      "sha256": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "size": 12441,
+      "stored": "captured-inputs-v2/scripts/cert/residual_kernel.py"
+    }
+  ],
+  "format": "complete-fixed-assessment-source-closure-v2"
+}

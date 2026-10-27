@@ -1,0 +1,24 @@
+{
+  "R56_exterior_zero": "endpoint primitive polynomial degree strictly below 624",
+  "checked_matrix_files": 6,
+  "checked_triangular_entries": 73476,
+  "complete_signed_VP_Gram": true,
+  "consumer_sha256": "07a248929ae3a4b9381d42c3db75ae4c3b9ed2b3642d25ca0a0aa929d851faba",
+  "declaration_sha256": "4c8ff1748fb3424e401d753b9be39031965265a41ab71ac564a11a9a8b3324b5",
+  "entry_requirement": "independent endpoints contained in published 192-bit intervals",
+  "frequency_anchors": 60,
+  "frequency_exterior_paid": true,
+  "independent_precision_bits": 4096,
+  "inherited_arithmetic_sha256": "9e7b0e03254261e4a971be192d21c7991faefaf2f71b0cbbfe8faf946b186cef",
+  "ordinary_legendre_masses": "2/(2n+1)",
+  "positivity_checked": false,
+  "production_admission": false,
+  "retained_fields_independently_reconstructed": [
+    "P",
+    "GP"
+  ],
+  "scope": "complete mathematical source enclosure audit only; no positivity or admission claim",
+  "source": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\data\\whole-source-v4.json",
+  "source_sha256": "20a1e75749d8681af8b191ca017cf8233acd4d76df330d986b311de4034405a4",
+  "status": "PASS_COMPLETE_SOURCE"
+}

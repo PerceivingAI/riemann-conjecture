@@ -1,0 +1,14 @@
+{
+  "started": "2026-10-27T01:46:24.527387+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T003742Z-physical-reference-viability/replay-fixed-assessment-v1.py",
+    "--output",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/isolated-replay-v1.json"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 5.360978499986231,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\replay-fixed-assessment-v1.py\", line 53, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\replay-fixed-assessment-v1.py\", line 35, in main\n    run('directional_audit',['verify-physical-v1.py',data('physical-source-v2.json'),'--output',data('independent-audit-v1.json')])\n    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\replay-fixed-assessment-v1.py\", line 32, in run\n    if proc.returncode:raise ValueError('isolated step failed '+name+' '+proc.stderr[-2000:])\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: isolated step failed directional_audit FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\carlo\\\\AppData\\\\Local\\\\Temp\\\\rh_complete_gram_1s9684ai\\\\computations\\\\2026-10-27T003742Z-physical-reference-viability\\\\propose-physical-v2.py'\n\n"
+}

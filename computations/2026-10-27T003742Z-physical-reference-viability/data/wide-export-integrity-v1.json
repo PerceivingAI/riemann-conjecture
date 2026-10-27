@@ -1,0 +1,11 @@
+{
+  "canonical_raw_records_unchanged": true,
+  "disposable_export_copies_removed": true,
+  "exact_original_hashes": {
+    "weighted_head-0": "4da84b66bccece8c326640d629043f4a33806a051b5cd43a4b8176692a44fb1d",
+    "weighted_head-1": "396a0210f2e146320a610af380a5fe8d564a089ec57d84ef19ac86e55a2ac210"
+  },
+  "format": "wide-raw-export-smoke-v1",
+  "status": "PASS_BOTH_EXPORTED_RAW_BYTES",
+  "verified_exported_files": 2
+}

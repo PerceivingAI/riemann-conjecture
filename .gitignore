@@ -43,3 +43,7 @@ Thumbs.db
 
 # Repo Notes
 notes/
+
+# Unaccepted wide-enclosure raw data; hashes and regeneration stay public.
+/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v3/weighted_head-0.json.gz
+/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v3/weighted_head-1.json.gz
