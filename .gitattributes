@@ -109,3 +109,5 @@
 /computations/2026-10-27T140745Z-t081-complete-gram-attempt/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Preserve the pinned review's intentional Markdown hard line break.
 /computations/2026-10-27T132236Z-t081-prime-five-qualification/independent-review-v1.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T182100Z-t081-retained-acceptance/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T182100Z-t081-retained-acceptance/independent-review-v1.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

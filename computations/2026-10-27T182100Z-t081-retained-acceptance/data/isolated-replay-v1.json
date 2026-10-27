@@ -1,0 +1,261 @@
+{
+  "captured_files": 55,
+  "captured_manifest_sha256": "96735e3e00d5d3b079571cb2f365d774a1b116c1b8ad6d7a56a6f69e489c3e88",
+  "checks": {
+    "A_model-0": {
+      "byte_identical": true,
+      "sha256": "479fa8ffd000ffb41caf4309fc84a91dfb6db893a2d75f5c83c0cb6e37fee36b"
+    },
+    "A_model-1": {
+      "byte_identical": true,
+      "sha256": "1c814c9b8f8f5ff09823c5bde38414e6392c10a73b5b0adc743dade1e9077bad"
+    },
+    "complete_exact_sign": {
+      "byte_identical": true,
+      "sha256": "b8a439634131a51cbbe029fd0e438eceb2851fe1a8e8d40cac5082009f36046d"
+    },
+    "complete_native_audit": {
+      "all_other_fields_identical": true,
+      "identical_except_explicit_paths": [
+        "source",
+        "inputs"
+      ]
+    },
+    "complete_source": {
+      "byte_identical": true,
+      "sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e"
+    },
+    "weighted_complete_tail-0": {
+      "byte_identical": true,
+      "sha256": "85b802528bfee414678327dca90ee3c293ec71cfd7c7e951aa261502cd964601"
+    },
+    "weighted_complete_tail-1": {
+      "byte_identical": true,
+      "sha256": "e707a3339d4f8310c3a03d4364421ce5229daad9d1319e747c734fd11f79bf64"
+    },
+    "weighted_head-0": {
+      "byte_identical": true,
+      "sha256": "f82b9c5d344d63610eb031c8d71128748de5ad2220ebd9f945964a2550b7b2dd"
+    },
+    "weighted_head-1": {
+      "byte_identical": true,
+      "sha256": "5dc0878352456e29d3ab5c778e0dbcd46c74dc596dd0521ce2e32004b549eace"
+    }
+  },
+  "driver_sha256": "6221e063559d9c03c79cfe215b417292bf91a13e6e3ea69d496701cebe4ead78",
+  "expected_full_target_outputs_installed_in_child": false,
+  "format": "t081-complete-retained-isolated-replay-v1",
+  "original_tree_scientific_execution": false,
+  "own_isolated_tree_removed": true,
+  "production_admission": false,
+  "qualification_checks": {
+    "four_mode_topology_native_audit": {
+      "byte_identical": true,
+      "sha256": "4a71562fda4908d68e7267057251d3fd50788207288ab2569332640f3595ea87"
+    },
+    "four_mode_topology_source": {
+      "byte_identical": true,
+      "sha256": "595c9950e61b58480d79e6b6344d6dc6713bfe0a0b14ec8174057dc08de0b617"
+    },
+    "fresh_global_native_audit": {
+      "byte_identical": true,
+      "sha256": "688cfdad899ff17a6aafd7510f1d9e37b9216925ba0970d0ae369edd352bb5ea"
+    },
+    "fresh_global_source": {
+      "byte_identical": true,
+      "sha256": "3429099699fb19d0ee8cfd682c79ccb679badeb52472f0ca67305902ea348921"
+    },
+    "supported_reference_native_audit": {
+      "byte_identical": true,
+      "sha256": "65f5b7d7ed5996c220e2c87b20770847c35cf73bbc8600b3cf3fe058bf37c569"
+    },
+    "supported_reference_source": {
+      "byte_identical": true,
+      "sha256": "52bbb50458c067146af1523a80691223b5eed93abede9c73a917a188ef87d42d"
+    },
+    "target_declaration": {
+      "byte_identical": true,
+      "sha256": "026658a580d6ebe2ff8543d9e94ebbd24ea92d13027c5e43714e876cce353341"
+    },
+    "target_declaration_native_audit": {
+      "byte_identical": true,
+      "sha256": "a10cf29c29193f6b3a9c981ad07631bced6799b2a4b34efe0cc7f415716f66c7"
+    }
+  },
+  "source_sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e",
+  "status": "PASS_COMPLETE_CAPTURED_REFERENCE_SOURCE_AND_EXACT_REPLAY",
+  "steps": [
+    {
+      "argv": [
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualify-reference-v1.py",
+        "--inputs",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualification-inputs-v2.json",
+        "--output",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\global-source.json"
+      ],
+      "elapsed_seconds": 1.3164163999972516,
+      "exit_code": 0,
+      "name": "fresh_global_source",
+      "stderr": "",
+      "stdout": "{\"status\": \"SCALAR_REFERENCE_QUALIFIED\", \"beta\": \"1933/1024\", \"R\": 1038, \"N\": 1188, \"M\": 2376, \"Rc\": 2076}\n"
+    },
+    {
+      "argv": [
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-reference-v1.py",
+        "--inputs",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualification-inputs-v2.json",
+        "--source",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\global-source.json",
+        "--output",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\global-audit.json"
+      ],
+      "elapsed_seconds": 2.412470499999472,
+      "exit_code": 0,
+      "name": "fresh_global_native_audit",
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS\", \"beta\": \"1933/1024\", \"R\": 1038, \"N\": 1188, \"M\": 2376, \"Rc\": 2076}\n"
+    },
+    {
+      "argv": [
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualify-reference-v2.py",
+        "--inputs",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualification-inputs-v3.json",
+        "--output",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\supported-source.json"
+      ],
+      "elapsed_seconds": 1.1049270000003162,
+      "exit_code": 0,
+      "name": "supported_reference_source",
+      "stderr": "",
+      "stdout": "{\"status\": \"SCALAR_REFERENCE_QUALIFIED\", \"beta\": \"821/512\", \"R\": 710, \"N\": 826, \"M\": 1652, \"Rc\": 1420}\n"
+    },
+    {
+      "argv": [
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-reference-v2.py",
+        "--inputs",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualification-inputs-v3.json",
+        "--source",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\supported-source.json",
+        "--output",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\supported-audit.json"
+      ],
+      "elapsed_seconds": 3.908987100003287,
+      "exit_code": 0,
+      "name": "supported_reference_native_audit",
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS\", \"beta\": \"821/512\", \"R\": 710, \"N\": 826, \"M\": 1652, \"Rc\": 1420}\n"
+    },
+    {
+      "argv": [
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\declare-target-v1.py",
+        "--inputs",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\parameter-inputs-v1.json",
+        "--reference-audit",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\supported-audit.json",
+        "--output",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\declaration.json"
+      ],
+      "elapsed_seconds": 0.2928992000015569,
+      "exit_code": 0,
+      "name": "target_declaration",
+      "stderr": "",
+      "stdout": "{\"status\": \"QUALIFIED_TARGET_PARAMETERS_NOT_POSITIVITY\", \"N\": 826, \"K\": 86, \"M\": 1652, \"source_bits\": 4608, \"independent_bits\": 6144, \"model_error_upper\": 1.2378912042033409e-23, \"accuracy_goal\": 1.5078515584951228e-23}\n"
+    },
+    {
+      "argv": [
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-target-declaration-v1.py",
+        "--inputs",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\parameter-inputs-v1.json",
+        "--source",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\declaration.json",
+        "--reference-audit",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\supported-audit.json",
+        "--output",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\declaration-audit.json"
+      ],
+      "elapsed_seconds": 4.2090934999941965,
+      "exit_code": 0,
+      "name": "target_declaration_native_audit",
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS\", \"verifiedK\": 86, \"N\": 826}\n"
+    },
+    {
+      "argv": [
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualify-prime-five-topology-v1.py",
+        "--inputs",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\topology-inputs-v1.json",
+        "--output",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\topology-source.json"
+      ],
+      "elapsed_seconds": 0.30535909999889554,
+      "exit_code": 0,
+      "name": "four_mode_topology_source",
+      "stderr": "",
+      "stdout": "{\"status\": \"FOUR_MODE_DIAGNOSTIC_ONLY\", \"active_terms\": [2, 3, 4, 5], \"translation_cells\": 9, \"mixed_prime5_pairs\": 3}\n"
+    },
+    {
+      "argv": [
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-prime-five-topology-v1.py",
+        "--inputs",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\topology-inputs-v1.json",
+        "--source",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\topology-source.json",
+        "--output",
+        "computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\retained-replay\\topology-audit.json"
+      ],
+      "elapsed_seconds": 0.31819779999932507,
+      "exit_code": 0,
+      "name": "four_mode_topology_native_audit",
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS\", \"matrix_cells_checked\": 80, \"breakpoints_checked\": 10}\n"
+    },
+    {
+      "argv": [
+        "computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\build-whole-source-v1.py",
+        "--inputs",
+        "computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\whole-inputs-v1.json",
+        "--output",
+        "computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\data\\retained-replay\\source-v1.json"
+      ],
+      "elapsed_seconds": 4591.960687899998,
+      "exit_code": 0,
+      "name": "fresh_complete_source",
+      "stderr": "",
+      "stdout": "fresh full combined P squared, all translation cells 9\nfresh P low/tail and signed VP 0 2\nfresh P low/tail and signed VP 0 3\nfresh P low/tail and signed VP 0 4\nfresh P low/tail and signed VP 0 5\ncomplete full source parity 0\nfresh P low/tail and signed VP 1 2\nfresh P low/tail and signed VP 1 3\nfresh P low/tail and signed VP 1 4\nfresh P low/tail and signed VP 1 5\ncomplete full source parity 1\n{\"status\": \"COMPLETE_INTERVAL_MATRICES_NOT_YET_POSITIVITY_VERIFIED\", \"matrix_files\": 6, \"frequency_anchors\": 60, \"kappa\": \"1.1509601418724942\"}\n"
+    },
+    {
+      "argv": [
+        "computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\verify-whole-source-v1.py",
+        "--inputs",
+        "computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\whole-inputs-v1.json",
+        "--source",
+        "computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\data\\retained-replay\\source-v1.json",
+        "--output",
+        "computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\data\\retained-replay\\source-audit-v1.json"
+      ],
+      "elapsed_seconds": 9213.5530574,
+      "exit_code": 0,
+      "name": "independent_complete_analytic_audit",
+      "stderr": "",
+      "stdout": "{\n  \"N\": 826,\n  \"R86_exterior_zero\": \"polynomial model only: exact endpoint primitive degrees below 1652\",\n  \"active_prime_powers\": [\n    2,\n    3,\n    4,\n    5\n  ],\n  \"all_combined_2_3_4_5_square_products\": true,\n  \"arithmetic_squared_overlap_cells\": 9,\n  \"both_signed_VP_orientations\": true,\n  \"both_translation_windows_evaluated\": true,\n  \"checked_matrix_files\": 6,\n  \"checked_triangular_entries\": 512946,\n  \"consumer_sha256\": \"4bc4d25db589fe987bb2c7f78f31bd7dc83849666daae82b017295db30d94720\",\n  \"entry_requirement\": \"native endpoints contained in inclusive published dyadic endpoints\",\n  \"first_attempt_seal_sha256\": \"7b29db1a39707f489de185c48d7b361077686e9713d294397e24466b3f4f0dc3\",\n  \"format\": \"t081-complete-gram-source-audit-v1\",\n  \"frequency_anchors\": 60,\n  \"frequency_exterior_paid\": true,\n  \"fresh_arithmetic_fields\": [\n    \"P_low\",\n    \"P_tail\",\n    \"VP\",\n    \"P_squared\",\n    \"GP\"\n  ],\n  \"ignored_producer_metadata\": [\n    \"basis\",\n    \"imported_project_sources\",\n    \"production_admission\",\n    \"retained_residual_helper_sha256\",\n    \"status\"\n  ],\n  \"independent_precision_bits\": 6144,\n  \"inputs\": \"C:\\\\Users\\\\carlo\\\\AppData\\\\Local\\\\Temp\\\\rh_t081_retained_t2x151fu\\\\computations\\\\2026-10-27T140745Z-t081-complete-gram-attempt\\\\whole-inputs-v1.json\",\n  \"inputs_sha256\": \"19eac80d7869fcc6d6ddd0d33dcb90901b65254b2f076c6964148575019982a1\",\n  \"order\": 86,\n  \"ordinary_legendre_masses\": \"2/(2n+1)\",\n  \"parity_summary\": [\n    {\n      \"checked_triangular_entries\": 256473,\n      \"dimension\": 413,\n      \"first_head_mode\": 826,\n      \"first_low_mode\": 0,\n      \"last_head_mode\": 1650,\n      \"last_low_mode\": 824,\n      \"matrix_entries\": {\n        \"A_model\": 85491,\n        \"weighted_complete_tail\": 85491,\n        \"weighted_head\": 85491\n      },\n      \"parity\": 0,\n      \"status\": \"PASS_NATIVE_CONTAINMENT\"\n    },\n    {\n      \"checked_triangular_entries\": 256473,\n      \"dimension\": 413,\n      \"first_head_mode\": 827,\n      \"first_low_mode\": 1,\n      \"last_head_mode\": 1651,\n      \"last_low_mode\": 825,\n      \"matrix_entries\": {\n        \"A_model\": 85491,\n        \"weighted_complete_tail\": 85491,\n        \"weighted_head\": 85491\n      },\n      \"parity\": 1,\n      \"status\": \"PASS_NATIVE_CONTAINMENT\"\n    }\n  ],\n  \"physical_extent\": 1652,\n  \"physical_exterior_complete\": true,\n  \"positivity_checked\": false,\n  \"producer_sha256\": \"0d37cc35a8a777d4a941d206056d28f4e481df347fe46aea68d4bb39c70e97c1\",\n  \"production_admission\": false,\n  \"publication_bits\": 256,\n  \"reference_beta_scope\": \"supported quadratic-form bound, not a pointwise multiplier bound\",\n  \"residual_endpoint_boundaries\": [\n    -1,\n    1\n  ],\n  \"scalar_premise\": \"fresh native supported-form reference qualification and complete physical-tail inverse bound\",\n  \"scalar_qualification\": {\n    \"accepted_declaration_audit_sha256\": \"a10cf29c29193f6b3a9c981ad07631bced6799b2a4b34efe0cc7f415716f66c7\",\n    \"declaration_checker_sha256\": \"a99f306135c88c3a155ebc1cbea30866deac4a71c49d7dde0d6a2bd801edea3f\",\n    \"positivity_checked\": false,\n    \"production_admission\": false,\n    \"reference_audit_sha256\": \"65f5b7d7ed5996c220e2c87b20770847c35cf73bbc8600b3cf3fe058bf37c569\",\n    \"reference_native_acceptance_replayed\": true,\n    \"reference_source_sha256\": \"52bbb50458c067146af1523a80691223b5eed93abede9c73a917a188ef87d42d\",\n    \"status\": \"PASS_FRESH_NATIVE_DECLARATION_REPLAY\",\n    \"supported_form_beta\": \"821/512\"\n  },\n  \"scope\": \"analytic matrix source audit only; no positivity or admission claim\",\n  \"shared_arithmetic_premise\": \"python-flint/Arb rigorous arithmetic and Gauss root/weight enclosures\",\n  \"source\": \"C:\\\\Users\\\\carlo\\\\AppData\\\\Local\\\\Temp\\\\rh_t081_retained_t2x151fu\\\\computations\\\\2026-10-27T140745Z-t081-complete-gram-attempt\\\\data\\\\retained-replay\\\\source-v1.json\",\n  \"source_sha256\": \"f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e\",\n  \"status\": \"PASS_COMPLETE_SOURCE\",\n  \"support\": \"81/100\",\n  \"target_declaration_sha256\": \"026658a580d6ebe2ff8543d9e94ebbd24ea92d13027c5e43714e876cce353341\",\n  \"true_residual_discrepancy\": \"paid by the complete declared canonical model allowance\",\n  \"von_mangoldt_prime_bases\": [\n    2,\n    3,\n    2,\n    5\n  ]\n}\n"
+    },
+    {
+      "argv": [
+        "computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\verify-whole-sign-v1.py",
+        "--inputs",
+        "computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\whole-inputs-v1.json",
+        "--source",
+        "computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\data\\retained-replay\\source-v1.json",
+        "--proposal",
+        "computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\data\\proposal-v1.json.gz",
+        "--output",
+        "computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\data\\retained-replay\\exact-sign-v1.json"
+      ],
+      "elapsed_seconds": 33.56519750000007,
+      "exit_code": 0,
+      "name": "zero_float_complete_sign",
+      "stderr": "",
+      "stdout": "even positive complete sign True negative selected lower direction False physical width qualified True\nodd positive complete sign True negative selected lower direction False physical width qualified True\nPASS_COMPLETE_SOURCE_CONDITIONAL_CANDIDATE\n"
+    }
+  ]
+}

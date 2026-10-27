@@ -1,0 +1,17 @@
+{
+  "started": "2026-10-27T18:25:07.235372+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-27T182100Z-t081-retained-acceptance/replay-acceptance-v1.py",
+    "--output",
+    "computations/2026-10-27T182100Z-t081-retained-acceptance/data/isolated-replay-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 13853.798568799997,
+  "stdout": "{\"status\": \"PASS_COMPLETE_CAPTURED_REFERENCE_SOURCE_AND_EXACT_REPLAY\", \"captured_files\": 55, \"qualification_checks\": 8, \"target_checks\": 9, \"own_isolated_tree_removed\": true}\n",
+  "stderr": ""
+}

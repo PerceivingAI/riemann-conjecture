@@ -1,10 +1,16 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-27T18:06:21Z`
+- **Last updated:** `2026-10-27T22:29:21Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-27T22:29:21Z: complete T81/100 captured source/input reproduction passes
+
+[X-20261027-007](../computations/2026-10-27T182100Z-t081-retained-acceptance/record.md) reexecutes the unchanged C-0123 source, complete independent6144-bit analytical reconstruction and zero-float exact sign from55 captured destinations. Eight scalar/reference outputs and nine target comparisons pass. Source, six matrices and exact report are byte-identical; the native report excludes only the two explicit source/input execution paths. All512946 analytical entries, both full413 parity signs, exact nonsingularity and numerical goals pass. Expected full-target outputs are not installed in the scientific child tree; the owned temporary tree is removed.
+
+The actual replay takes13853.799s. Full source/native/exact phases take4591.961/9213.553/33.565s, different workloads rather than an optimization comparison. The nine-case adversarial driver, full smooth-test/source-norm argument and conjunctive acceptance code are implemented and conditionally reviewed, but the adversarial and final-gate executions have NOT occurred. No retained new-support release, accepted10^-21 source-norm bound, new C-0124, production admission, external comparison, global-support result or RH claim is made. Earlier research bytes and frozen inventories remain unchanged.
 
 ## 2026-10-27T18:06:21Z: complete prime-five T81/100 source and exact parity assessment positive
 
