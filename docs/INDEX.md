@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-27T06:48:04Z`
+- **Last updated:** `2026-10-27T09:14:02Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -54,6 +54,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [F-20261027-004](../findings/2026-10-27T084414Z-t080-retained-smooth-test-positivity.md) / [X-20261027-004](../computations/2026-10-27T084414Z-t080-retained-acceptance/record.md) — retained C-0120 and C-0121 strict source-conditional smooth-test positivity at T4/5, full source-norm lower>=10^-20. All78246 analytical entries, full161/161 exact signs,84-destination scalar/source/input replay and7 adversarial controls pass. No production admission, entire-operator-domain equality or RH.
 - [F-20261027-003](../findings/2026-10-27T061820Z-t080-complete-supported-gram-candidate.md) / [X-20261027-003](../computations/2026-10-27T061820Z-t080-complete-gram-attempt/record.md) — provisional C-0120 complete positive T4/5,N322,K76 candidate:78246 independently reconstructed entries and both full paid exact parity signs pass with unchanged controls. Numerical failures/refinements preserved; new target adversarial and isolated retained-replay gates pending. No release theorem or admission yet.
 - [F-20261027-002](../findings/2026-10-27T050743Z-t080-reference-and-parameter-qualification.md) / [X-20261027-002](../computations/2026-10-27T050743Z-t080-target-qualification/record.md) — C-0119 complete T4/5 reference and source/error qualification. Fresh beta859/1024, scalar-policyN322, residualK76 and complete exterior/numerical-control declaration independently accepted. Eight exact T3/4 budget caps distinguish material coupling costs from small residual error. No target low/coupling matrix, T4/5 positivity sign or admission.
 - [F-20261027-001](../findings/2026-10-27T003742Z-complete-supported-gram-control.md) / [X-20261027-001](../computations/2026-10-27T003742Z-physical-reference-viability/record.md) — C-0118 complete supported weighted-Gram sufficient criterion positive on WHOLE312 at unchanged T3/4. Actual low source, signed V/P/R56, full combined arithmetic/VP infinity and model errors independently accepted in73476 matrix entries; zero-float exact congruence verifies both full parity blocks. Fixed-control usefulness, not global viability, a new support or admission.
@@ -231,4 +232,4 @@ This is the compact index of the Riemann Conjecture research repository.
 
 ## Current state
 
-RH remains unresolved. `C-0050` through `C-0057` are registered independently verified finite-support theorems, with the current frontier at `(T,N)=(27/50,104)`. `A-20260826-001` remains active. `X-20260923-001` is historical pre-theorem evidence only; separate clean-provenance `X-20260924-001` establishes `F-20260924-001` / `C-0057` after independent zero-float Rust PASS, real-certificate adversarial checks, explicit retained-proof registration, and canonical `8/8` replay. The next structural boundary is entry of the `p=3` compressed translation at `(1/2)log 3`, still above the current support. See [`STATUS.md`](STATUS.md).
+RH remains unresolved. The frozen v1 production profile admits C-0050 through C-0057, ending at(T,N)=(27/50,104), with its independent retained8/8 chain. Separate v3 admission C-0067 remains exactly(T,N)=(11/20,192); v2 admits none. These closed inventories are distinct from the newer source-conditional RESEARCH frontier at T4/5, C-0121, which has full analytical/exact/adversarial/captured-replay acceptance but no production profile/admission. Historical X-20260923-001 remains pre-theorem evidence; X-20260924-001 is the clean proof-bearing v1 artifact. The old p3 boundary belongs to that frozen one-prime history, not the current research support. See [STATUS.md](STATUS.md).

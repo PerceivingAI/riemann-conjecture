@@ -1,0 +1,16 @@
+{
+  "case": "numerical-width-uncertainty",
+  "consumer": "exact",
+  "expected": "NUMERICAL_WIDTH_GOAL_FAILED",
+  "expected_exit_code": 0,
+  "large_required_proof_input": {
+    "bytes": 3315734,
+    "path": "proposal.json",
+    "reason": "Necessary exact full rational witness consumed by unchanged zero-float checker; required proof-artifact exception.",
+    "sha256": "588404270afc385ee0f0c127ce18086b93df1c433c0f062a0179a93ee0b2e88c"
+  },
+  "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+  "passed": true,
+  "source_sha256": "4b1b72b7e07e2b9a281f5dcfbe4c9a9b3c0e2798d203b4c93e5a3aec402d2cfc",
+  "synthetic_not_analytic_truth": false
+}

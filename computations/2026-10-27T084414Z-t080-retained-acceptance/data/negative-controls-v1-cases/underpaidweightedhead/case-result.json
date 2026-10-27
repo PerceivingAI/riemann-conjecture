@@ -1,0 +1,11 @@
+{
+  "case": "underpaidweightedhead",
+  "consumer": "source",
+  "expected": "source enclosure fails at weighted_head-0",
+  "expected_exit_code": 1,
+  "large_required_proof_input": null,
+  "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+  "passed": true,
+  "source_sha256": "d99ccbd945a13ec2717781ca5c4f94149990b52ed56eebb11ec5193905adda46",
+  "synthetic_not_analytic_truth": false
+}

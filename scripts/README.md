@@ -1,13 +1,27 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-27T06:48:04Z`
+- **Last updated:** `2026-10-27T09:14:02Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
 ## Byte identity on checkout
 
 The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep pinned sources/configuration in their recorded LF form, and the original SYS-6.4 probe plus the executed T3/4 Fourier producer in their recorded CRLF form. Retained bundles remain verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+
+## Retained full T4/5 smooth-test acceptance
+
+[X-20261027-004](../computations/2026-10-27T084414Z-t080-retained-acceptance/record.md) preserves the separate fixed-case source/input replay, seven adversarial mathematical/exact cases and exact full-consequence gate. The interfaces below ran against the recorded native environment. Use fresh output names; the negative runner requires its output under the new bundle data directory and creates a new per-output case directory.
+
+```text
+.venv/Scripts/python.exe -B computations/2026-10-27T084414Z-t080-retained-acceptance/replay-acceptance-v2.py --output <fresh-replay.json>
+.venv/Scripts/python.exe -B computations/2026-10-27T084414Z-t080-retained-acceptance/negative-controls-v1.py --output computations/2026-10-27T084414Z-t080-retained-acceptance/data/<fresh-negatives.json>
+.venv/Scripts/python.exe -B computations/2026-10-27T084414Z-t080-retained-acceptance/accept-retained-v1.py --replay <fresh-replay.json> --negative-controls computations/2026-10-27T084414Z-t080-retained-acceptance/data/<fresh-negatives.json> --output <fresh-acceptance.json>
+```
+
+The84-destination capture reuses immutable bytes rather than silently recapture root helpers. It replays14 scalar/reference and9 target checks, all78246 analytical entries and both full exact parity signs. Source, six matrices and exact report are byte-identical; native audit excludes only the two explicit execution-path fields. Seven controls distinguish mathematical enclosure, singularity, finite selected-negative and uncertainty outcomes. The final gate requires scientific statuses and matching source hashes, not exit0 alone, and derives the full source-norm lower10^-20 exactly.
+
+These reviewed local-driver reports establish C-0121 within recorded source/Arb premises, not arbitrary untrusted-report verification, OS/library isolation, a new production certificate or RH. Earlier first-replay installation failure and capture remain; v2 adds five aliases of already-captured files. Original source/helper/test/profile files are unchanged. The candidate section below records its earlier stage, now completed by this retained gate.
 
 ## Complete fixed T4/5 source/sign research candidate
 

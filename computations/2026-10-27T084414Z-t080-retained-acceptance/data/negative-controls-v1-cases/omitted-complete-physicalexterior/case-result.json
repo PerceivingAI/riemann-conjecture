@@ -1,0 +1,11 @@
+{
+  "case": "omitted-complete-physicalexterior",
+  "consumer": "source",
+  "expected": "source enclosure fails at weighted_complete_tail-0",
+  "expected_exit_code": 1,
+  "large_required_proof_input": null,
+  "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+  "passed": true,
+  "source_sha256": "55b13114c33fecde336b5fa88f612e47eaa0c2ae71cf0ee39175b4af88c07e03",
+  "synthetic_not_analytic_truth": false
+}

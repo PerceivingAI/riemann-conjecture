@@ -1,0 +1,16 @@
+{
+  "case": "singular-fullspace-witness",
+  "consumer": "exact",
+  "expected": "singular full congruence",
+  "expected_exit_code": 1,
+  "large_required_proof_input": {
+    "bytes": 3307853,
+    "path": "proposal.json",
+    "reason": "Necessary exact full rational witness consumed by unchanged zero-float checker; required proof-artifact exception.",
+    "sha256": "f0423b8ae380a00979232a3b475df57627bf4017b2b22f916de9688424eb2fcb"
+  },
+  "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+  "passed": true,
+  "source_sha256": "07aa5b1b9e2c63cfacb3d2a6c5f2bc09db5e6380799d163f41da88696d8e355d",
+  "synthetic_not_analytic_truth": false
+}

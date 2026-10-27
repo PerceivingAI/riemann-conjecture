@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T061820Z-t080-complete-gram-attempt\\verify-whole-sign-v1.py",
+    "--inputs",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T061820Z-t080-complete-gram-attempt\\whole-inputs-v1.json",
+    "--source",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T084414Z-t080-retained-acceptance\\data\\negative-controls-v1-cases\\synthetic-selected-negative\\source.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T084414Z-t080-retained-acceptance\\data\\negative-controls-v1-cases\\synthetic-selected-negative\\audit.json",
+    "--proposal",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T084414Z-t080-retained-acceptance\\data\\negative-controls-v1-cases\\synthetic-selected-negative\\proposal.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "elapsed_seconds": 5.337467699999934,
+  "exit_code": 0,
+  "numerical_threads": 1,
+  "stderr": "",
+  "stdout": "even positive complete sign False negative selected lower direction True physical width qualified True\r\nodd positive complete sign False negative selected lower direction True physical width qualified True\r\nSELECTED_CONSERVATIVE_SCHUR_NEGATIVE_NOT_WEIL_NEGATIVITY\r\n"
+}

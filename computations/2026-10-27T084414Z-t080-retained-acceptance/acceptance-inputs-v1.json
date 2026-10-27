@@ -1,0 +1,14 @@
+{
+  "K": 76,
+  "M": 644,
+  "N": 322,
+  "candidate_bundle": "computations/2026-10-27T061820Z-t080-complete-gram-attempt",
+  "candidate_manifest_sha256": "44fa003528a4b88d860cfd7c9d8dc390fae06d548460ebb9e165fbd9f3082fbf",
+  "created": "2026-10-27T08:44:14Z",
+  "format": "t080-retained-acceptance-inputs-v1",
+  "full_source_and_exact_replay_required": true,
+  "production_admission": false,
+  "research_baseline_commit": "041d947eaae743963b0dfc6aa0aeed55019aedbb",
+  "source_sha256": "f50d8a194bf4d13ad4cd65ccbcf5762c403d8f5e26d384cbdb38be5ccb807fe6",
+  "support": "4/5"
+}

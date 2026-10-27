@@ -1,0 +1,774 @@
+{
+  "aliases_of_already_captured_bytes": [
+    "computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+    "computations/2026-10-27T050743Z-t080-target-qualification/control-budget-inputs-v1.json",
+    "computations/2026-10-27T050743Z-t080-target-qualification/parameter-selection-inputs-v1.json",
+    "computations/2026-10-27T050743Z-t080-target-qualification/reference-contract-v1.md",
+    "computations/2026-10-27T050743Z-t080-target-qualification/target-source-error-contract-v1.md"
+  ],
+  "capture_contract": "Complete installed source/input aliases; expected target outputs remain outside scientific child execution tree",
+  "driver_sha256": "038ccdeb13097972a64fe67d3726ec9d7966d73d69710e4211095fb676755673",
+  "extends_capture_sha256": "c0957cbab8d1a6818446744f049e35f969e691405d87bd75defeb37937f07c7e",
+  "files": [
+    {
+      "bytes": 3627039,
+      "destination": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/proof-v1.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "9e7b0e03254261e4a971be192d21c7991faefaf2f71b0cbbfe8faf946b186cef",
+      "stored": "captured-bytes-v1/computations/2026-10-25T220817Z-post-m4-fourier-sign/data/proof-v1.json.gz"
+    },
+    {
+      "bytes": 1309395,
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-proposal-v2.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "8c349c3596ee3cc7c9fa91fda4c76c502b75b35255157e2f49b90c5448f118fb",
+      "stored": "captured-bytes-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-proposal-v2.json"
+    },
+    {
+      "bytes": 1881,
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "2db67f5add9fd164a23a03c33ebe6181cb5f171499adcdfb93d3875eddc7c29f",
+      "stored": "captured-bytes-v1/computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py"
+    },
+    {
+      "bytes": 2065,
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/whole-gram-inputs-v2.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "4c8ff1748fb3424e401d753b9be39031965265a41ab71ac564a11a9a8b3324b5",
+      "stored": "captured-bytes-v1/computations/2026-10-27T003742Z-physical-reference-viability/whole-gram-inputs-v2.json"
+    },
+    {
+      "bytes": 3627039,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-25T220817Z-post-m4-fourier-sign/data/proof-v1.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "9e7b0e03254261e4a971be192d21c7991faefaf2f71b0cbbfe8faf946b186cef",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-25T220817Z-post-m4-fourier-sign/data/proof-v1.json.gz"
+    },
+    {
+      "bytes": 221789,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-exact-proof-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "8f294afb944e1e854dd701088e217d05ecc2706b7146ccb08226d1b098994965",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-exact-proof-v1.json"
+    },
+    {
+      "bytes": 510061,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/A_model-0.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "eb0db1c8255e233130d3ef4a8981d2b7877ed9f2214e6c461ea06db2d5ac76b2",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/A_model-0.json.gz"
+    },
+    {
+      "bytes": 510194,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/A_model-1.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "e1954bc8f07a6cd2b11701803c6d16c2891c4b6234f7e196d22a04dea407cb6a",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/A_model-1.json.gz"
+    },
+    {
+      "bytes": 507973,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_complete_tail-0.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "d3f046425810625f9020554d3e6fa5cd57d4382b97a504a19bd4d4a5b2f09da6",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_complete_tail-0.json.gz"
+    },
+    {
+      "bytes": 507985,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_complete_tail-1.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "5e6068c7fda40c8d8e922dbfad3c24fd726fce6ea83c9631d4271032f6ce5014",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_complete_tail-1.json.gz"
+    },
+    {
+      "bytes": 399680,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_head-0.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "805164b96d9650ff1e9e1a2fd809de4e6a58f3afabfb832e77d5970d7e6ecc05",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_head-0.json.gz"
+    },
+    {
+      "bytes": 399425,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_head-1.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "2eeceb1b5f479ea2b83fb583cad93d93836a70953bdd55073278a28059cd9a92",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_head-1.json.gz"
+    },
+    {
+      "bytes": 1309395,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-proposal-v2.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "8c349c3596ee3cc7c9fa91fda4c76c502b75b35255157e2f49b90c5448f118fb",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-proposal-v2.json"
+    },
+    {
+      "bytes": 15478,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-source-v4.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "20a1e75749d8681af8b191ca017cf8233acd4d76df330d986b311de4034405a4",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-source-v4.json"
+    },
+    {
+      "bytes": 27042,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/manifest.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "ecea29f03fd75664e2a39371b47e43fe1f565c4415986d9549c95555d5fb4b66",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/manifest.json"
+    },
+    {
+      "bytes": 1075,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/control-budget-inputs-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "6ba46b9c2f0fb49742a2b1400fd788c8032ad29362f9a1c52abec8a09a3b2d3f",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/control-budget-inputs-v1.json"
+    },
+    {
+      "bytes": 1740,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/parameter-selection-inputs-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "84c2b56dfb2780d9b9ca37b0ceed134a1464dc7d5d2311158191b714280f818a",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/parameter-selection-inputs-v1.json"
+    },
+    {
+      "bytes": 1155,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "bf840c67beeaf7846dbe6d8c0e43b63fe6a4d2b199e6106fcbc5e7682706ea31",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json"
+    },
+    {
+      "bytes": 13931,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/reference-contract-v1.md",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "0368883f144291f22fa1946d95b7bfc66139bdec387661f6a99b5e11c89a2fed",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/reference-contract-v1.md"
+    },
+    {
+      "bytes": 8328,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/target-source-error-contract-v1.md",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "7064da3e67ace119e1c240a052396f2891afa2eb452c20a9b6699d2c80042e58",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/target-source-error-contract-v1.md"
+    },
+    {
+      "bytes": 1432,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/pyproject.toml",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/pyproject.toml"
+    },
+    {
+      "bytes": 412,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/cert/__init__.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/cert/__init__.py"
+    },
+    {
+      "bytes": 5348,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/cert/constants.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/cert/constants.py"
+    },
+    {
+      "bytes": 21423,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/cert/prime_power_terms.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/cert/prime_power_terms.py"
+    },
+    {
+      "bytes": 6229,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/cert/quadrature.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "c8bc5bc04655722f394dba6c46655494cd90e5e68117e3361a835ac10e719663",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/cert/quadrature.py"
+    },
+    {
+      "bytes": 12441,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/cert/residual_kernel.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/cert/residual_kernel.py"
+    },
+    {
+      "bytes": 7139,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/verify_t080_control_budget.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "6b4a0b35c5afbe9bdf90b26bfab0a35f2c9f22e152db861852cdb5e582e186c7",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/verify_t080_control_budget.py"
+    },
+    {
+      "bytes": 17239,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/verify_t080_reference_qualification.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "332779553723f5e9aead03cb0084f7131e686bd92f0a13a8e2074f2c0ab57a5d",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/verify_t080_reference_qualification.py"
+    },
+    {
+      "bytes": 24509,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/verify_t080_target_declaration.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "d0d614d7fb21a771398c24cfcf319e5e7dc7c9e78f6639dafc6a09876d353ed1",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/verify_t080_target_declaration.py"
+    },
+    {
+      "bytes": 25929,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/verify_t080_target_declaration_v2.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "1a8410cfaf628f59884f8da7a249c6fcdf8a18665f4192e47e24a9113f872e98",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/verify_t080_target_declaration_v2.py"
+    },
+    {
+      "bytes": 8462,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/weil_reference_route_controls.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/weil_reference_route_controls.py"
+    },
+    {
+      "bytes": 7841,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/weil_t080_control_budget.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "db74edddc393735fd28df1130dc3cf28e18ccc0b916ea8a0654533253b625f43",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/weil_t080_control_budget.py"
+    },
+    {
+      "bytes": 10360,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/weil_t080_reference_qualification.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "74736cbd88ab1aaf1f47f71ade83005088470ce380b34d5cd502704c11436bf9",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/weil_t080_reference_qualification.py"
+    },
+    {
+      "bytes": 7960,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/weil_t080_target_declaration.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "901b415fdbdc20ac4b0e4dcdfb4e2aa40a80e84ef7080e755d70cdf5ea7d1a4e",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/scripts/weil_t080_target_declaration.py"
+    },
+    {
+      "bytes": 210571,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/uv.lock",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/uv.lock"
+    },
+    {
+      "bytes": 9878,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/captured-source-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "ed1483f756240484aef385a8109c9bbea941b36520ec5a0b60c231de2e4787f1",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-source-v1.json"
+    },
+    {
+      "bytes": 1075,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/control-budget-inputs-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "6ba46b9c2f0fb49742a2b1400fd788c8032ad29362f9a1c52abec8a09a3b2d3f",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/control-budget-inputs-v1.json"
+    },
+    {
+      "bytes": 3250,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-audit-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "b0c5d1c3d4f486933e3e2f615edc202f822220504146db2bf92f0e3e402e6613",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-audit-v1.json"
+    },
+    {
+      "bytes": 114391,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "98d04badd7e411d9bf2efa3ed8f1fa7e6cb005ddff892a4d75a24539ee01fd91",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-v1.json"
+    },
+    {
+      "bytes": 171460,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/even-canonical_residual_model_error.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "25d6c5a3f91e6c5a8a8d040f8296a3f582cb66d789c532215ab9a400d07b784b",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/even-canonical_residual_model_error.json.gz"
+    },
+    {
+      "bytes": 171855,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/even-combined_paid.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "382c64c6145576969f5720dc4ab615690762fc576d47fc8a241b55826ec34b1e",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/even-combined_paid.json.gz"
+    },
+    {
+      "bytes": 172635,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/even-complete_physical_tail.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "113106027215e6dfa04041d97b372b17f348e56369a407633e88842dc3a5be18",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/even-complete_physical_tail.json.gz"
+    },
+    {
+      "bytes": 172022,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/even-finite_head.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "53f42e67e4e2f34fa1b6024bb323b56879784a47ce3a7aa674edc0dd67059b39",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/even-finite_head.json.gz"
+    },
+    {
+      "bytes": 170843,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/odd-canonical_residual_model_error.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "57704e6d0803231bd21f4e26d8671e7a0d3dd699432ae5e94fb7abd9d7f3ce4e",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/odd-canonical_residual_model_error.json.gz"
+    },
+    {
+      "bytes": 171853,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/odd-combined_paid.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "0e7c6db9ace1ea598a209f5dc08134b1dc380b72d6c4b1e856153700725093eb",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/odd-combined_paid.json.gz"
+    },
+    {
+      "bytes": 172443,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/odd-complete_physical_tail.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "9de587934c46a98878427217c5ed2093d577763cee949854a64452de8fff692b",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/odd-complete_physical_tail.json.gz"
+    },
+    {
+      "bytes": 171832,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/odd-finite_head.json.gz",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "a37c8e711e3c278d3e1dfed362b7183de0edae6a4f0d546cb907f73131050cb0",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/control-cap-witnesses-v1/odd-finite_head.json.gz"
+    },
+    {
+      "bytes": 1822,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/first-attempt-seal-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "3f9017693e11dc99d523746f9160a27d56ac6aa321ace69db2d9dda22e914fe1",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/first-attempt-seal-v1.json"
+    },
+    {
+      "bytes": 5306,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "3cfafc4c5e7db8c0b76e8ada4afe73b34738e4697a3f030d5b6f19b2023c1e34",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json"
+    },
+    {
+      "bytes": 314708,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "5d9f66d2941db36b338fab1c23d06b15a67e0c9452f1678dbaaddbce6c31a0e6",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json"
+    },
+    {
+      "bytes": 1824,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-audit-v2.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "e098c85af344ee38d9d06e79bd1aafced905b10a5cac4d0ba1b4dbaf476a284b",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-audit-v2.json"
+    },
+    {
+      "bytes": 46598,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-v1.json",
+      "roles": [
+        "installed",
+        "installed"
+      ],
+      "sha256": "ab63147ed5c77b1f0f1c611d5f72a86219932e41c5d5196cf3511654aaa3a898",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-v1.json"
+    },
+    {
+      "bytes": 17691,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/manifest.json",
+      "roles": [
+        "evidence"
+      ],
+      "sha256": "94482706d0bf56cef4011657515bd23eb9dfc6b7f855c288b73fbb7fb3e7492c",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/manifest.json"
+    },
+    {
+      "bytes": 1740,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/parameter-selection-inputs-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "84c2b56dfb2780d9b9ca37b0ceed134a1464dc7d5d2311158191b714280f818a",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/parameter-selection-inputs-v1.json"
+    },
+    {
+      "bytes": 1155,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "bf840c67beeaf7846dbe6d8c0e43b63fe6a4d2b199e6106fcbc5e7682706ea31",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json"
+    },
+    {
+      "bytes": 13931,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/reference-contract-v1.md",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "0368883f144291f22fa1946d95b7bfc66139bdec387661f6a99b5e11c89a2fed",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/reference-contract-v1.md"
+    },
+    {
+      "bytes": 8328,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/target-source-error-contract-v1.md",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "7064da3e67ace119e1c240a052396f2891afa2eb452c20a9b6699d2c80042e58",
+      "stored": "captured-bytes-v1/computations/2026-10-27T050743Z-t080-target-qualification/captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/target-source-error-contract-v1.md"
+    },
+    {
+      "bytes": 12123,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/build-whole-source-v2.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "a67d34f4c8fe464535634a835d52c763b7555a1da35adaf61cfc6c4db95a1ed7",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/build-whole-source-v2.py"
+    },
+    {
+      "bytes": 273527,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-exact-sign-v2.json",
+      "roles": [
+        "expected"
+      ],
+      "sha256": "bb3d714b2b2523ee99335c12ba23ec4238f5d6f4fd1b36007c0b8a86beed65f3",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-exact-sign-v2.json"
+    },
+    {
+      "bytes": 560159,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-matrices-v2/A_model-0.json.gz",
+      "roles": [
+        "expected"
+      ],
+      "sha256": "4afcee2855ab9c3e6b8e9626965952226fd157a7c6e3aee58d62a9130a828c28",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-matrices-v2/A_model-0.json.gz"
+    },
+    {
+      "bytes": 559991,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-matrices-v2/A_model-1.json.gz",
+      "roles": [
+        "expected"
+      ],
+      "sha256": "9397f7970e6cc73e112920b1a9e3825011f305c7f2d71082173ed1d9ec17b0d9",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-matrices-v2/A_model-1.json.gz"
+    },
+    {
+      "bytes": 552687,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-matrices-v2/weighted_complete_tail-0.json.gz",
+      "roles": [
+        "expected"
+      ],
+      "sha256": "cff6e00ef3502d0f42f105c41ae9514733910664b341c91c1950a7a311b7f614",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-matrices-v2/weighted_complete_tail-0.json.gz"
+    },
+    {
+      "bytes": 552360,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-matrices-v2/weighted_complete_tail-1.json.gz",
+      "roles": [
+        "expected"
+      ],
+      "sha256": "a669ba725c4a451b1808b4fc44d6526caa88215ae3b098664ca4cdb46110b8e4",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-matrices-v2/weighted_complete_tail-1.json.gz"
+    },
+    {
+      "bytes": 555447,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-matrices-v2/weighted_head-0.json.gz",
+      "roles": [
+        "expected"
+      ],
+      "sha256": "ad16b560b3f248008e4f2a2eab91253fc72c13458180dc0b7e526fa0e459884c",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-matrices-v2/weighted_head-0.json.gz"
+    },
+    {
+      "bytes": 555626,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-matrices-v2/weighted_head-1.json.gz",
+      "roles": [
+        "expected"
+      ],
+      "sha256": "2b57817396367203ad66ff2cdf41168a163abf8c7c44bfa0b9799a27b4769c4f",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-matrices-v2/weighted_head-1.json.gz"
+    },
+    {
+      "bytes": 2739453,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-proposal-v2.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-proposal-v2.json"
+    },
+    {
+      "bytes": 3038,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-source-audit-v2.json",
+      "roles": [
+        "expected"
+      ],
+      "sha256": "ef5d57b35c90a4cfff656b18f467bcfc6df52b56bc6e61e2dd89c9ec06aa2914",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-source-audit-v2.json"
+    },
+    {
+      "bytes": 18023,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-source-v2.json",
+      "roles": [
+        "expected"
+      ],
+      "sha256": "f50d8a194bf4d13ad4cd65ccbcf5762c403d8f5e26d384cbdb38be5ccb807fe6",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-source-v2.json"
+    },
+    {
+      "bytes": 12199,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/manifest.json",
+      "roles": [
+        "expected"
+      ],
+      "sha256": "44fa003528a4b88d860cfd7c9d8dc390fae06d548460ebb9e165fbd9f3082fbf",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/manifest.json"
+    },
+    {
+      "bytes": 5991,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/propose-whole-v2.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "13d9d966ae570d2caaecad73ded80db937eba55069d5442ea4c1424c49d18a30",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/propose-whole-v2.py"
+    },
+    {
+      "bytes": 7384,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/verify-whole-sign-v1.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "251a4305f1ea13f5eb26b5e600e9394810ae2d56d7eb7936748edb0bd1119be1",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/verify-whole-sign-v1.py"
+    },
+    {
+      "bytes": 35107,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/verify-whole-source-v2.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "4673ba02681f5faaa40ba2e55b9c9ca6fc17db6431f7ac2b9933b538fc79a9f4",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/verify-whole-source-v2.py"
+    },
+    {
+      "bytes": 1355,
+      "destination": "computations/2026-10-27T061820Z-t080-complete-gram-attempt/whole-inputs-v1.json",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "fd13c5b0451751c5228efbf719405f8fc7e57174c58f1501822792fcb6443994",
+      "stored": "captured-bytes-v1/computations/2026-10-27T061820Z-t080-complete-gram-attempt/whole-inputs-v1.json"
+    },
+    {
+      "bytes": 1432,
+      "destination": "pyproject.toml",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf",
+      "stored": "captured-bytes-v1/pyproject.toml"
+    },
+    {
+      "bytes": 412,
+      "destination": "scripts/cert/__init__.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092",
+      "stored": "captured-bytes-v1/scripts/cert/__init__.py"
+    },
+    {
+      "bytes": 5348,
+      "destination": "scripts/cert/constants.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "stored": "captured-bytes-v1/scripts/cert/constants.py"
+    },
+    {
+      "bytes": 14453,
+      "destination": "scripts/cert/legendre_schur.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+      "stored": "captured-bytes-v1/scripts/cert/legendre_schur.py"
+    },
+    {
+      "bytes": 13979,
+      "destination": "scripts/cert/mixed_gram_research.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "61c830e808d281e9a0d61ad040f7ffaeaf42821ebf753f977887567a4fdf01f3",
+      "stored": "captured-bytes-v1/scripts/cert/mixed_gram_research.py"
+    },
+    {
+      "bytes": 13682,
+      "destination": "scripts/cert/multi_prime_legendre_schur.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "341c64284182e774886ff487d3d1107fabe29e86c1bcc3d1782e6d1111103246",
+      "stored": "captured-bytes-v1/scripts/cert/multi_prime_legendre_schur.py"
+    },
+    {
+      "bytes": 21423,
+      "destination": "scripts/cert/prime_power_terms.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+      "stored": "captured-bytes-v1/scripts/cert/prime_power_terms.py"
+    },
+    {
+      "bytes": 6229,
+      "destination": "scripts/cert/quadrature.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "c8bc5bc04655722f394dba6c46655494cd90e5e68117e3361a835ac10e719663",
+      "stored": "captured-bytes-v1/scripts/cert/quadrature.py"
+    },
+    {
+      "bytes": 12441,
+      "destination": "scripts/cert/residual_kernel.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "stored": "captured-bytes-v1/scripts/cert/residual_kernel.py"
+    },
+    {
+      "bytes": 8693,
+      "destination": "scripts/weil_t080_qualification_replay.py",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "56693c80000571c6fc72b6170b1d4483414d878541d11c3139109d5cee5a251d",
+      "stored": "captured-bytes-v1/scripts/weil_t080_qualification_replay.py"
+    },
+    {
+      "bytes": 210571,
+      "destination": "uv.lock",
+      "roles": [
+        "installed"
+      ],
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a",
+      "stored": "captured-bytes-v1/uv.lock"
+    }
+  ],
+  "format": "t080-retained-complete-source-input-closure-v2",
+  "original_capture_preserved": true,
+  "source_sha256": "f50d8a194bf4d13ad4cd65ccbcf5762c403d8f5e26d384cbdb38be5ccb807fe6"
+}

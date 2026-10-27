@@ -1,0 +1,480 @@
+{
+  "actual_Weil_negativity_claimed": false,
+  "candidate_manifest_sha256": "44fa003528a4b88d860cfd7c9d8dc390fae06d548460ebb9e165fbd9f3082fbf",
+  "candidate_source_sha256": "f50d8a194bf4d13ad4cd65ccbcf5762c403d8f5e26d384cbdb38be5ccb807fe6",
+  "case_directory": "data/negative-controls-v1-cases",
+  "cases": [
+    {
+      "case": "wrongactual-lowconstant",
+      "consumer": "source",
+      "expected": "source enclosure fails at A_model-0",
+      "expected_exit_code": 1,
+      "files": [
+        {
+          "bytes": 5992,
+          "path": "wrongactual-lowconstant/audit.json",
+          "sha256": "5c5e5c2575271396c0b0d4a9302edd4b23f3ca180f8cf499bf19313e67366d5c"
+        },
+        {
+          "bytes": 426,
+          "path": "wrongactual-lowconstant/case-result.json",
+          "sha256": "ade50339023bfcb1cbf8dd2e377527de22a94ff10a047e034b92c5ab4d9bc586"
+        },
+        {
+          "bytes": 581390,
+          "path": "wrongactual-lowconstant/matrices/A_model-0.json.gz",
+          "sha256": "01bf7ae05769aa5880921af946ad7e6d455c6d0aafe9180d559b1c6dcd01dbf8"
+        },
+        {
+          "bytes": 581590,
+          "path": "wrongactual-lowconstant/matrices/A_model-1.json.gz",
+          "sha256": "e29735d547240cec1cb27aae8d69b11083e6e9c3470056074c00470905a32d7e"
+        },
+        {
+          "bytes": 552687,
+          "path": "wrongactual-lowconstant/matrices/weighted_complete_tail-0.json.gz",
+          "sha256": "cff6e00ef3502d0f42f105c41ae9514733910664b341c91c1950a7a311b7f614"
+        },
+        {
+          "bytes": 552360,
+          "path": "wrongactual-lowconstant/matrices/weighted_complete_tail-1.json.gz",
+          "sha256": "a669ba725c4a451b1808b4fc44d6526caa88215ae3b098664ca4cdb46110b8e4"
+        },
+        {
+          "bytes": 555447,
+          "path": "wrongactual-lowconstant/matrices/weighted_head-0.json.gz",
+          "sha256": "ad16b560b3f248008e4f2a2eab91253fc72c13458180dc0b7e526fa0e459884c"
+        },
+        {
+          "bytes": 555626,
+          "path": "wrongactual-lowconstant/matrices/weighted_head-1.json.gz",
+          "sha256": "2b57817396367203ad66ff2cdf41168a163abf8c7c44bfa0b9799a27b4769c4f"
+        },
+        {
+          "bytes": 7038,
+          "path": "wrongactual-lowconstant/receipt.json",
+          "sha256": "171a1196bb47fba20bd2d957eab58551f13bc9c4576bd506cc092c5b8f88d394"
+        },
+        {
+          "bytes": 17785,
+          "path": "wrongactual-lowconstant/source.json",
+          "sha256": "2b8837fb4e82ec7a04d064b35f31435b07fb5b2e1060e723a4272f8a206d3b7a"
+        }
+      ],
+      "large_required_proof_input": null,
+      "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+      "passed": true,
+      "source_sha256": "2b8837fb4e82ec7a04d064b35f31435b07fb5b2e1060e723a4272f8a206d3b7a",
+      "synthetic_not_analytic_truth": false
+    },
+    {
+      "case": "underpaidweightedhead",
+      "consumer": "source",
+      "expected": "source enclosure fails at weighted_head-0",
+      "expected_exit_code": 1,
+      "files": [
+        {
+          "bytes": 5996,
+          "path": "underpaidweightedhead/audit.json",
+          "sha256": "66ebe383f24a01ea1492e9491aae4f4dc4d765a8d35090d886630bab3f9b3ae2"
+        },
+        {
+          "bytes": 430,
+          "path": "underpaidweightedhead/case-result.json",
+          "sha256": "10ac617735d81899f5ee94feb9808145a39b942eb62e4f4df0d5e429d2947779"
+        },
+        {
+          "bytes": 560159,
+          "path": "underpaidweightedhead/matrices/A_model-0.json.gz",
+          "sha256": "4afcee2855ab9c3e6b8e9626965952226fd157a7c6e3aee58d62a9130a828c28"
+        },
+        {
+          "bytes": 559991,
+          "path": "underpaidweightedhead/matrices/A_model-1.json.gz",
+          "sha256": "9397f7970e6cc73e112920b1a9e3825011f305c7f2d71082173ed1d9ec17b0d9"
+        },
+        {
+          "bytes": 552687,
+          "path": "underpaidweightedhead/matrices/weighted_complete_tail-0.json.gz",
+          "sha256": "cff6e00ef3502d0f42f105c41ae9514733910664b341c91c1950a7a311b7f614"
+        },
+        {
+          "bytes": 552360,
+          "path": "underpaidweightedhead/matrices/weighted_complete_tail-1.json.gz",
+          "sha256": "a669ba725c4a451b1808b4fc44d6526caa88215ae3b098664ca4cdb46110b8e4"
+        },
+        {
+          "bytes": 574170,
+          "path": "underpaidweightedhead/matrices/weighted_head-0.json.gz",
+          "sha256": "a8fc1655fe123dd0e8692cb300cd7784683945743421702be0765f195d2fbd0d"
+        },
+        {
+          "bytes": 574146,
+          "path": "underpaidweightedhead/matrices/weighted_head-1.json.gz",
+          "sha256": "30978fc8ef5f65f341e6acd2239666411bee14d7597d64c8f7fe0fe203e52510"
+        },
+        {
+          "bytes": 7037,
+          "path": "underpaidweightedhead/receipt.json",
+          "sha256": "98e7026e562b130ee48cbe7cbd2a173e5ca2266980334727e5dd91b538876c8e"
+        },
+        {
+          "bytes": 17785,
+          "path": "underpaidweightedhead/source.json",
+          "sha256": "d99ccbd945a13ec2717781ca5c4f94149990b52ed56eebb11ec5193905adda46"
+        }
+      ],
+      "large_required_proof_input": null,
+      "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+      "passed": true,
+      "source_sha256": "d99ccbd945a13ec2717781ca5c4f94149990b52ed56eebb11ec5193905adda46",
+      "synthetic_not_analytic_truth": false
+    },
+    {
+      "case": "omitted-complete-physicalexterior",
+      "consumer": "source",
+      "expected": "source enclosure fails at weighted_complete_tail-0",
+      "expected_exit_code": 1,
+      "files": [
+        {
+          "bytes": 5715,
+          "path": "omitted-complete-physicalexterior/audit.json",
+          "sha256": "f410a75be9e5b1083a97bf5131cfdf31c6aa10c0ab4a715d7fe2cf86bd19572b"
+        },
+        {
+          "bytes": 451,
+          "path": "omitted-complete-physicalexterior/case-result.json",
+          "sha256": "95ff0f84ad85ac75d3ebc63feb8d2cf134d7443d96f1403208173794b4bf038d"
+        },
+        {
+          "bytes": 560159,
+          "path": "omitted-complete-physicalexterior/matrices/A_model-0.json.gz",
+          "sha256": "4afcee2855ab9c3e6b8e9626965952226fd157a7c6e3aee58d62a9130a828c28"
+        },
+        {
+          "bytes": 559991,
+          "path": "omitted-complete-physicalexterior/matrices/A_model-1.json.gz",
+          "sha256": "9397f7970e6cc73e112920b1a9e3825011f305c7f2d71082173ed1d9ec17b0d9"
+        },
+        {
+          "bytes": 1097,
+          "path": "omitted-complete-physicalexterior/matrices/weighted_complete_tail-0.json.gz",
+          "sha256": "c826e3d3d6fc34d40a38a52502f34c03bdb26c8a5cf4ba9cb5ce49034b6cfe16"
+        },
+        {
+          "bytes": 1098,
+          "path": "omitted-complete-physicalexterior/matrices/weighted_complete_tail-1.json.gz",
+          "sha256": "a00cc456170ad2f48d97a10c6b89457b2c80f78647f8a26a3b5c52ba74d4cf5d"
+        },
+        {
+          "bytes": 555447,
+          "path": "omitted-complete-physicalexterior/matrices/weighted_head-0.json.gz",
+          "sha256": "ad16b560b3f248008e4f2a2eab91253fc72c13458180dc0b7e526fa0e459884c"
+        },
+        {
+          "bytes": 555626,
+          "path": "omitted-complete-physicalexterior/matrices/weighted_head-1.json.gz",
+          "sha256": "2b57817396367203ad66ff2cdf41168a163abf8c7c44bfa0b9799a27b4769c4f"
+        },
+        {
+          "bytes": 6781,
+          "path": "omitted-complete-physicalexterior/receipt.json",
+          "sha256": "ddbfe7f10160659b718abcef4cfd2a6ecc34573d5635c2705c75fcd8fd18e27b"
+        },
+        {
+          "bytes": 17781,
+          "path": "omitted-complete-physicalexterior/source.json",
+          "sha256": "55b13114c33fecde336b5fa88f612e47eaa0c2ae71cf0ee39175b4af88c07e03"
+        }
+      ],
+      "large_required_proof_input": null,
+      "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+      "passed": true,
+      "source_sha256": "55b13114c33fecde336b5fa88f612e47eaa0c2ae71cf0ee39175b4af88c07e03",
+      "synthetic_not_analytic_truth": false
+    },
+    {
+      "case": "underpaid-terminal-inverseweight",
+      "consumer": "source",
+      "expected": "inverse weights differ from declaration",
+      "expected_exit_code": 1,
+      "files": [
+        {
+          "bytes": 715,
+          "path": "underpaid-terminal-inverseweight/audit.json",
+          "sha256": "347228ba27745bc3486dea8985b85a8d7cf9b433cf0c48ad3e2cc3ab48bec56e"
+        },
+        {
+          "bytes": 439,
+          "path": "underpaid-terminal-inverseweight/case-result.json",
+          "sha256": "389ca86fecac86c80dc4321eec470207b7733f93bf97a0e49ae44c99c7a221e8"
+        },
+        {
+          "bytes": 560159,
+          "path": "underpaid-terminal-inverseweight/matrices/A_model-0.json.gz",
+          "sha256": "4afcee2855ab9c3e6b8e9626965952226fd157a7c6e3aee58d62a9130a828c28"
+        },
+        {
+          "bytes": 559991,
+          "path": "underpaid-terminal-inverseweight/matrices/A_model-1.json.gz",
+          "sha256": "9397f7970e6cc73e112920b1a9e3825011f305c7f2d71082173ed1d9ec17b0d9"
+        },
+        {
+          "bytes": 552687,
+          "path": "underpaid-terminal-inverseweight/matrices/weighted_complete_tail-0.json.gz",
+          "sha256": "cff6e00ef3502d0f42f105c41ae9514733910664b341c91c1950a7a311b7f614"
+        },
+        {
+          "bytes": 552360,
+          "path": "underpaid-terminal-inverseweight/matrices/weighted_complete_tail-1.json.gz",
+          "sha256": "a669ba725c4a451b1808b4fc44d6526caa88215ae3b098664ca4cdb46110b8e4"
+        },
+        {
+          "bytes": 555447,
+          "path": "underpaid-terminal-inverseweight/matrices/weighted_head-0.json.gz",
+          "sha256": "ad16b560b3f248008e4f2a2eab91253fc72c13458180dc0b7e526fa0e459884c"
+        },
+        {
+          "bytes": 555626,
+          "path": "underpaid-terminal-inverseweight/matrices/weighted_head-1.json.gz",
+          "sha256": "2b57817396367203ad66ff2cdf41168a163abf8c7c44bfa0b9799a27b4769c4f"
+        },
+        {
+          "bytes": 1779,
+          "path": "underpaid-terminal-inverseweight/receipt.json",
+          "sha256": "7df30632bc53fa6b9b297848915f8bd4bdd9aa0510d4e4c259cf3275492786bb"
+        },
+        {
+          "bytes": 17631,
+          "path": "underpaid-terminal-inverseweight/source.json",
+          "sha256": "a54366fb9cf1c4ac520341cc3d300a475270ecaf780164a452cfacb0cd6344cf"
+        }
+      ],
+      "large_required_proof_input": null,
+      "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+      "passed": true,
+      "source_sha256": "a54366fb9cf1c4ac520341cc3d300a475270ecaf780164a452cfacb0cd6344cf",
+      "synthetic_not_analytic_truth": false
+    },
+    {
+      "case": "singular-fullspace-witness",
+      "consumer": "exact",
+      "expected": "singular full congruence",
+      "expected_exit_code": 1,
+      "files": [
+        {
+          "bytes": 682,
+          "path": "singular-fullspace-witness/case-result.json",
+          "sha256": "c9c639cae6c09c0a1841d639bbe239cfb42c6deac96273a4503150446d495404"
+        },
+        {
+          "bytes": 560159,
+          "path": "singular-fullspace-witness/matrices/A_model-0.json.gz",
+          "sha256": "4afcee2855ab9c3e6b8e9626965952226fd157a7c6e3aee58d62a9130a828c28"
+        },
+        {
+          "bytes": 559991,
+          "path": "singular-fullspace-witness/matrices/A_model-1.json.gz",
+          "sha256": "9397f7970e6cc73e112920b1a9e3825011f305c7f2d71082173ed1d9ec17b0d9"
+        },
+        {
+          "bytes": 552687,
+          "path": "singular-fullspace-witness/matrices/weighted_complete_tail-0.json.gz",
+          "sha256": "cff6e00ef3502d0f42f105c41ae9514733910664b341c91c1950a7a311b7f614"
+        },
+        {
+          "bytes": 552360,
+          "path": "singular-fullspace-witness/matrices/weighted_complete_tail-1.json.gz",
+          "sha256": "a669ba725c4a451b1808b4fc44d6526caa88215ae3b098664ca4cdb46110b8e4"
+        },
+        {
+          "bytes": 555447,
+          "path": "singular-fullspace-witness/matrices/weighted_head-0.json.gz",
+          "sha256": "ad16b560b3f248008e4f2a2eab91253fc72c13458180dc0b7e526fa0e459884c"
+        },
+        {
+          "bytes": 555626,
+          "path": "singular-fullspace-witness/matrices/weighted_head-1.json.gz",
+          "sha256": "2b57817396367203ad66ff2cdf41168a163abf8c7c44bfa0b9799a27b4769c4f"
+        },
+        {
+          "bytes": 3307853,
+          "path": "singular-fullspace-witness/proposal.json",
+          "sha256": "f0423b8ae380a00979232a3b475df57627bf4017b2b22f916de9688424eb2fcb"
+        },
+        {
+          "bytes": 2103,
+          "path": "singular-fullspace-witness/receipt.json",
+          "sha256": "3537a15d3faa2a1635ad01cc186ca34410f04b1ba7708f4b8a0244fe9144fce3"
+        },
+        {
+          "bytes": 17785,
+          "path": "singular-fullspace-witness/source.json",
+          "sha256": "07aa5b1b9e2c63cfacb3d2a6c5f2bc09db5e6380799d163f41da88696d8e355d"
+        }
+      ],
+      "large_required_proof_input": {
+        "bytes": 3307853,
+        "path": "proposal.json",
+        "reason": "Necessary exact full rational witness consumed by unchanged zero-float checker; required proof-artifact exception.",
+        "sha256": "f0423b8ae380a00979232a3b475df57627bf4017b2b22f916de9688424eb2fcb"
+      },
+      "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+      "passed": true,
+      "source_sha256": "07aa5b1b9e2c63cfacb3d2a6c5f2bc09db5e6380799d163f41da88696d8e355d",
+      "synthetic_not_analytic_truth": false
+    },
+    {
+      "case": "synthetic-selected-negative",
+      "consumer": "exact",
+      "expected": "SELECTED_CONSERVATIVE_SCHUR_NEGATIVE_NOT_WEIL_NEGATIVITY",
+      "expected_exit_code": 0,
+      "files": [
+        {
+          "bytes": 314552,
+          "path": "synthetic-selected-negative/audit.json",
+          "sha256": "c1f9aeb55d8cb8bce279d810b735f15a7237fd297f13bad5e330797cbf93dd65"
+        },
+        {
+          "bytes": 714,
+          "path": "synthetic-selected-negative/case-result.json",
+          "sha256": "b0c3ef0168e8f7c57460b72c6ed556178e76b4c0764ecfea3f8be16d1a4a66c2"
+        },
+        {
+          "bytes": 10840,
+          "path": "synthetic-selected-negative/matrices/A_model-0.json.gz",
+          "sha256": "e2cc93276df6d06c95ff19eedbb36a73c8926b82b42aa8bd7e21880f443ea4d4"
+        },
+        {
+          "bytes": 10868,
+          "path": "synthetic-selected-negative/matrices/A_model-1.json.gz",
+          "sha256": "d2c9c57376aaf1af04d2f5951d3f92a8514c37703d51e2155476429ddf48bab5"
+        },
+        {
+          "bytes": 552687,
+          "path": "synthetic-selected-negative/matrices/weighted_complete_tail-0.json.gz",
+          "sha256": "cff6e00ef3502d0f42f105c41ae9514733910664b341c91c1950a7a311b7f614"
+        },
+        {
+          "bytes": 552360,
+          "path": "synthetic-selected-negative/matrices/weighted_complete_tail-1.json.gz",
+          "sha256": "a669ba725c4a451b1808b4fc44d6526caa88215ae3b098664ca4cdb46110b8e4"
+        },
+        {
+          "bytes": 555447,
+          "path": "synthetic-selected-negative/matrices/weighted_head-0.json.gz",
+          "sha256": "ad16b560b3f248008e4f2a2eab91253fc72c13458180dc0b7e526fa0e459884c"
+        },
+        {
+          "bytes": 555626,
+          "path": "synthetic-selected-negative/matrices/weighted_head-1.json.gz",
+          "sha256": "2b57817396367203ad66ff2cdf41168a163abf8c7c44bfa0b9799a27b4769c4f"
+        },
+        {
+          "bytes": 3315734,
+          "path": "synthetic-selected-negative/proposal.json",
+          "sha256": "c4c16871aacc53c58ce64265f6990a05c7332f222b0c0ab571b93e16f0c4d040"
+        },
+        {
+          "bytes": 1422,
+          "path": "synthetic-selected-negative/receipt.json",
+          "sha256": "1c450b44fe71329d29fec13379c54cac48a44414669b95f04a9e1c8e54b3f85e"
+        },
+        {
+          "bytes": 17783,
+          "path": "synthetic-selected-negative/source.json",
+          "sha256": "ae72cf0899e264b03858b1113acc05c53615c0c483fb2d49fd01d5863736071c"
+        }
+      ],
+      "large_required_proof_input": {
+        "bytes": 3315734,
+        "path": "proposal.json",
+        "reason": "Necessary exact full rational witness consumed by unchanged zero-float checker; required proof-artifact exception.",
+        "sha256": "c4c16871aacc53c58ce64265f6990a05c7332f222b0c0ab571b93e16f0c4d040"
+      },
+      "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+      "passed": true,
+      "source_sha256": "ae72cf0899e264b03858b1113acc05c53615c0c483fb2d49fd01d5863736071c",
+      "synthetic_not_analytic_truth": true
+    },
+    {
+      "case": "numerical-width-uncertainty",
+      "consumer": "exact",
+      "expected": "NUMERICAL_WIDTH_GOAL_FAILED",
+      "expected_exit_code": 0,
+      "files": [
+        {
+          "bytes": 276881,
+          "path": "numerical-width-uncertainty/audit.json",
+          "sha256": "30bd154f2c89b9fa775ff1cb4fead4a330e84276bbbfb867c84c42663ef5eb90"
+        },
+        {
+          "bytes": 686,
+          "path": "numerical-width-uncertainty/case-result.json",
+          "sha256": "05da7ca8fbafe457f6ec0b7e30018a059f2a44d25292c403492c69954acb61b8"
+        },
+        {
+          "bytes": 581445,
+          "path": "numerical-width-uncertainty/matrices/A_model-0.json.gz",
+          "sha256": "dd6320234304bf9db55b21925d1e1aa35ab0b4119d53ef10a4c6377fe5894f7c"
+        },
+        {
+          "bytes": 581609,
+          "path": "numerical-width-uncertainty/matrices/A_model-1.json.gz",
+          "sha256": "1341bf3b6d04ef98358882b79e414ab60f617140b6f6228fc8e2ae9799069267"
+        },
+        {
+          "bytes": 552687,
+          "path": "numerical-width-uncertainty/matrices/weighted_complete_tail-0.json.gz",
+          "sha256": "cff6e00ef3502d0f42f105c41ae9514733910664b341c91c1950a7a311b7f614"
+        },
+        {
+          "bytes": 552360,
+          "path": "numerical-width-uncertainty/matrices/weighted_complete_tail-1.json.gz",
+          "sha256": "a669ba725c4a451b1808b4fc44d6526caa88215ae3b098664ca4cdb46110b8e4"
+        },
+        {
+          "bytes": 555447,
+          "path": "numerical-width-uncertainty/matrices/weighted_head-0.json.gz",
+          "sha256": "ad16b560b3f248008e4f2a2eab91253fc72c13458180dc0b7e526fa0e459884c"
+        },
+        {
+          "bytes": 555626,
+          "path": "numerical-width-uncertainty/matrices/weighted_head-1.json.gz",
+          "sha256": "2b57817396367203ad66ff2cdf41168a163abf8c7c44bfa0b9799a27b4769c4f"
+        },
+        {
+          "bytes": 3315734,
+          "path": "numerical-width-uncertainty/proposal.json",
+          "sha256": "588404270afc385ee0f0c127ce18086b93df1c433c0f062a0179a93ee0b2e88c"
+        },
+        {
+          "bytes": 1397,
+          "path": "numerical-width-uncertainty/receipt.json",
+          "sha256": "5bd7a343fe016fd7f462029bc8fdd187bf4f9dfce9515de86b28f10b75b0c734"
+        },
+        {
+          "bytes": 17785,
+          "path": "numerical-width-uncertainty/source.json",
+          "sha256": "4b1b72b7e07e2b9a281f5dcfbe4c9a9b3c0e2798d203b4c93e5a3aec402d2cfc"
+        }
+      ],
+      "large_required_proof_input": {
+        "bytes": 3315734,
+        "path": "proposal.json",
+        "reason": "Necessary exact full rational witness consumed by unchanged zero-float checker; required proof-artifact exception.",
+        "sha256": "588404270afc385ee0f0c127ce18086b93df1c433c0f062a0179a93ee0b2e88c"
+      },
+      "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+      "passed": true,
+      "source_sha256": "4b1b72b7e07e2b9a281f5dcfbe4c9a9b3c0e2798d203b4c93e5a3aec402d2cfc",
+      "synthetic_not_analytic_truth": false
+    }
+  ],
+  "format": "t080-retained-negative-controls-v1",
+  "positive_candidate_must_pass_independently": true,
+  "production_admission": false,
+  "status": "PASS_NEGATIVE_CONTROLS",
+  "synthetic_negative_scope": "Artificial A_model=-D with narrow dyadic intervals; only finite selected paid-lower negativity, not analytic source truth or actual Weil negativity.",
+  "underpaid_head_scope": "Outward-rounded halving of weighted_head, not a claim to isolate the terminal frequency payment."
+}

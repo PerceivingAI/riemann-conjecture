@@ -1,0 +1,11 @@
+{
+  "case": "wrongactual-lowconstant",
+  "consumer": "source",
+  "expected": "source enclosure fails at A_model-0",
+  "expected_exit_code": 1,
+  "large_required_proof_input": null,
+  "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+  "passed": true,
+  "source_sha256": "2b8837fb4e82ec7a04d064b35f31435b07fb5b2e1060e723a4272f8a206d3b7a",
+  "synthetic_not_analytic_truth": false
+}
