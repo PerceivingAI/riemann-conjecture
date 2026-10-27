@@ -1,0 +1,38 @@
+{
+  "coordinate_reuse_only": "old exact156dimensional parity transform padded by identity5newmodes to161; recompute all target matrices in high precision before numerical proposal",
+  "format": "t080-qualified-reuse-and-gap-assessment-v1",
+  "fresh_target_required": [
+    "complete arithmetic P and combined P-squared with all2/3/4 mixed products",
+    "complete GP, ordered VP and actual A_K",
+    "target R76 head/boundary/polar terms and model cross",
+    "target finite weighted head and complete signed physical exterior Gram",
+    "actual numerical interval widths and target exact full parity sign"
+  ],
+  "immutable_math_helpers": [
+    "scripts/cert/prime_power_terms.py",
+    "scripts/cert/residual_kernel.py",
+    "scripts/weil_reference_route_controls.py"
+  ],
+  "implemented_now": [
+    "fixed scalar/reference producer and standalone independent consumer",
+    "exact old-control budget producer and independent endpoint consumer",
+    "target declaration producer and corrected independent consumer with fresh native reference replay"
+  ],
+  "new_generic_engine_selected": false,
+  "old_control_inputs_not_target_inputs": [
+    "T3/4 P/GP intervals",
+    "T3/4 actual or bounded-reference A",
+    "old residual coefficients or positivity gap"
+  ],
+  "production_admission": false,
+  "reusable_theorems": [
+    "C-0063 actual mapped form/mass",
+    "C-0085 crossV Hilbert bound",
+    "C-0112 supported weighted inverse direction",
+    "C-0117 general finite residual cross-band theorem",
+    "C-0118 whole-frequency kernel and complete physical-tail identity"
+  ],
+  "target_matrices_computed": false,
+  "target_positivity_proved": false,
+  "unimplemented_target_operations": "target-specific full low/Gram producer and independent matrix consumer; this qualification neither implements nor claims those operations"
+}

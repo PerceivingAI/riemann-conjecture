@@ -1,10 +1,26 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-27T01:51:31Z`
+- **Last updated:** `2026-10-27T06:48:04Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-27T06:48:04Z: complete T4/5 source/sign candidate positive in both full parity blocks
+
+[F-20261027-003](../findings/2026-10-27T061820Z-t080-complete-supported-gram-candidate.md) / provisional C-0120 and [X-20261027-003](../computations/2026-10-27T061820Z-t080-complete-gram-attempt/record.md) execute the unchanged C-0119 declaration at T4/5,N322,K76,M644. Fresh target P/P-squared/GP/VP, actual A_model, complete weighted signed source and both infinite exteriors are retained. Independent4096-bit reconstruction contains all78246 triangular entries in six256-bit matrix packets; exact nonsingular interval congruence verifies positive complete paid lowers on both161-dimensional parity blocks. Both reports bind source SHA256 f50d8a194bf4d13ad4cd65ccbcf5762c403d8f5e26d384cbdb38be5ccb807fe6.
+
+Original producer v1 fails its2048-bit seed guard on nondyadic input-ball propagation. Raising seed precision alone does not qualify it. New v2 evaluates spherical seeds at the exact midpoint and rigorously pays the full input radius using DLMF10.54.2/Cauchy-Schwarz, retaining the guard and3072/4096 controls. All118 seed checks pass. Original floating proposals are exactly unresolved, with no negative upper. Fresh actual-A Cholesky BEFORE floating and direct native80-bit rational coordinate composition yield the successful proposal; N,K,reference,model and exterior bounds do not change. Every failed/unresolved version remains preserved.
+
+The positive congruence margins are not full-Weil coercivity constants. Eight consumed project modules are captured verbatim and separate read-only composition review finds no defect. Full target false-mathematical-input tests and isolated source/input replay have NOT run; this remains a PROVISIONAL research candidate pending retained acceptance, not an external-paper audit, production theorem, global-support result or RH proof. Admissions8v1/0v2/1v3 remain unchanged.
+
+## 2026-10-27T05:48:45Z: full T4/5 reference and executable source/error declaration independently qualified
+
+[F-20261027-002](../findings/2026-10-27T050743Z-t080-reference-and-parameter-qualification.md) / C-0119 and [X-20261027-002](../computations/2026-10-27T050743Z-t080-target-qualification/record.md) qualify the target scalar mathematics without computing the target low/coupling source or sign. Fresh all-frequency signed discrepancy gives beta859/1024 at alpha1/4. Exact active powers2/3/4, local residual domain, first integerR257 and sufficient scalar-policyN322 are independently checked. The whole complement is at least1/3, with eta1-2^-128 relative to the capped logarithmic reference.
+
+Eight exact old-control whole-space budget caps use actual A_model, not the bounded-reference proxy. Head and complete physical-tail contributions dominate the residual charge; combined caps are below0.494783/0.488511 and are separately proved rather than added independent maxima. The old selected-Schur physical lower3.4862946e-15 informs an accuracy policy only. It is not a new-support gap.
+
+The frozen declaration selects K76,M644,Rc514,60 frequency anchors with terminal infinity payment, and a full model-error allowance below2.969474e-21. Independent quotient/direct-tail reconstruction checks all77 coefficients,37 preceding orders and both exterior rules. The first parameter consumer's invalid containment comparison between separately rounded REPORT intervals rejects; its code/receipt remain. V2 reexecutes the complete native independent reference acceptance, requires the accepted audit dictionary, and preserves native containment without an overlap shortcut. Matrix starting precision is a policy, not proof of achieved width or target positivity. No production admission, larger-support positivity result or RH claim.
 
 ## 2026-10-27T01:51:31Z: complete supported weighted-Gram criterion passes the unchanged whole control
 

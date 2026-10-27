@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-27T06:24:25.710318+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/build-whole-source-v1.py",
+    "--inputs",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/whole-inputs-v1.json",
+    "--output",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-source-v1.json"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 139.0385457999073,
+  "stdout": "fresh full combined P squared, all translation cells 7\nfresh P low/tail and signed VP 0 2\nfresh P low/tail and signed VP 0 3\nfresh P low/tail and signed VP 0 4\n",
+  "stderr": "Traceback (most recent call last):\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T061820Z-t080-complete-gram-attempt\\build-whole-source-v1.py\", line 182, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T061820Z-t080-complete-gram-attempt\\build-whole-source-v1.py\", line 172, in main\n    matrices=source(parity,polys,H,H2,rmap,terms,quad,P2[parity],edges,weights,kappa)\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T061820Z-t080-complete-gram-attempt\\build-whole-source-v1.py\", line 141, in source\n    Cphysical=tinv*(VT+PT+RT);Kh=kernel_step(edges,weights,parity)\n                                 ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T061820Z-t080-complete-gram-attempt\\build-whole-source-v1.py\", line 64, in kernel_step\n    c=a(T*omega);js=bessel(c,M)\n                    ~~~~~~^^^^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T061820Z-t080-complete-gram-attempt\\build-whole-source-v1.py\", line 56, in bessel\n    if out[n].rel_accuracy_bits()<2048:raise ValueError('unresolved spherical Bessel seed')\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: unresolved spherical Bessel seed\n"
+}

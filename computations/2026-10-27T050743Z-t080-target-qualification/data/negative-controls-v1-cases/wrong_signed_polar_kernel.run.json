@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "-m",
+    "scripts.verify_t080_target_declaration_v2",
+    "--inputs",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T050743Z-t080-target-qualification\\parameter-selection-inputs-v1.json",
+    "--source",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T050743Z-t080-target-qualification\\data\\negative-controls-v1-cases\\wrong_signed_polar_kernel.json",
+    "--reference-audit",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T050743Z-t080-target-qualification\\data\\reference-audit-v1.json",
+    "--control-audit",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T050743Z-t080-target-qualification\\data\\control-budget-audit-v1.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T050743Z-t080-target-qualification\\data\\negative-controls-v1-cases\\wrong_signed_polar_kernel.audit.json"
+  ],
+  "elapsed_seconds": 2.1565515999682248,
+  "exit_code": 2,
+  "mathematical_error_expected": "incorrect complete formal kernel coefficients",
+  "name": "wrong_signed_polar_kernel",
+  "packet_sha256": "d86864ecdd3ee14bb3189998d7bf5a7ca51796580aed51ba7a2c101cde87e88d",
+  "stderr": "",
+  "stdout": "{\"status\": \"REJECT\", \"error\": \"incorrect complete formal kernel coefficients\"}\n",
+  "success_file_emitted": false
+}

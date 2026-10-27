@@ -1,0 +1,19 @@
+{
+  "started": "2026-10-27T05:19:37.050326+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "scripts.verify_t080_reference_qualification",
+    "--inputs",
+    "computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+    "--source",
+    "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json",
+    "--output",
+    "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 1.8911546000745147,
+  "stdout": "{\"status\": \"PASS\", \"beta\": \"859/1024\", \"R\": 257, \"N\": 322, \"M\": 644, \"Rc\": 514}\n",
+  "stderr": ""
+}

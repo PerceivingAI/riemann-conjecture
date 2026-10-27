@@ -1,0 +1,898 @@
+{
+  "declaration_sha256": "ab63147ed5c77b1f0f1c611d5f72a86219932e41c5d5196cf3511654aaa3a898",
+  "derivative_bound": "|j_n prime|<=1/sqrt(3(2n+1))<=1 by DLMF10.54.2, ordinary Legendre mass and Cauchy-Schwarz",
+  "format": "t080-native-midpoint-bessel-qualification-v1",
+  "guard_2048_retained": true,
+  "higher_precision_check": 4096,
+  "minimum_seed_bits": 2249,
+  "probe_sha256": "b4ccca14e901c22ac85287c8a1abf02bef92640451d8e827dc1e41d60d81ee85",
+  "rows": [
+    {
+      "edge": "257",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2252
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2249
+        }
+      ]
+    },
+    {
+      "edge": "4369/16",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2305
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2303
+        }
+      ]
+    },
+    {
+      "edge": "74273/256",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2358
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2356
+        }
+      ]
+    },
+    {
+      "edge": "1262641/4096",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2410
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2408
+        }
+      ]
+    },
+    {
+      "edge": "21464897/65536",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2461
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2459
+        }
+      ]
+    },
+    {
+      "edge": "364903249/1048576",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2512
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2510
+        }
+      ]
+    },
+    {
+      "edge": "6203355233/16777216",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2563
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2561
+        }
+      ]
+    },
+    {
+      "edge": "105457038961/268435456",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2612
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2610
+        }
+      ]
+    },
+    {
+      "edge": "1792769662337/4294967296",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2661
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2659
+        }
+      ]
+    },
+    {
+      "edge": "30477084259729/68719476736",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2709
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2707
+        }
+      ]
+    },
+    {
+      "edge": "518110432415393/1099511627776",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2755
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2753
+        }
+      ]
+    },
+    {
+      "edge": "8807877351061681/17592186044416",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2800
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2798
+        }
+      ]
+    },
+    {
+      "edge": "149733914968048577/281474976710656",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2843
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2842
+        }
+      ]
+    },
+    {
+      "edge": "2545476554456825809/4503599627370496",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2884
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2883
+        }
+      ]
+    },
+    {
+      "edge": "43273101425766038753/72057594037927936",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2923
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2922
+        }
+      ]
+    },
+    {
+      "edge": "735642724238022658801/1152921504606846976",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2959
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2958
+        }
+      ]
+    },
+    {
+      "edge": "12505926312046385199617/18446744073709551616",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2991
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2990
+        }
+      ]
+    },
+    {
+      "edge": "212600747304788548393489/295147905179352825856",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3019
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3018
+        }
+      ]
+    },
+    {
+      "edge": "3614212704181405322689313/4722366482869645213696",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3041
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3041
+        }
+      ]
+    },
+    {
+      "edge": "61441615971083890485718321/75557863725914323419136",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3052
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3052
+        }
+      ]
+    },
+    {
+      "edge": "1044507471508426138257211457/1208925819614629174706176",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3050
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3051
+        }
+      ]
+    },
+    {
+      "edge": "17756627015643244350372594769/19342813113834066795298816",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3051
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3051
+        }
+      ]
+    },
+    {
+      "edge": "301862659265935153956334111073/309485009821345068724781056",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3051
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3051
+        }
+      ]
+    },
+    {
+      "edge": "5131665207520897617257679888241/4951760157141521099596496896",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3051
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3051
+        }
+      ]
+    },
+    {
+      "edge": "87238308527855259493380558100097/79228162514264337593543950336",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3051
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3051
+        }
+      ]
+    },
+    {
+      "edge": "1483051244973539411387469487701649/1267650600228229401496703205376",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3050
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3051
+        }
+      ]
+    },
+    {
+      "edge": "25211871164550169993586981290928033/20282409603651670423947251286016",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3050
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3051
+        }
+      ]
+    },
+    {
+      "edge": "428601809797352889890978681945776561/324518553658426726783156020576256",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3048
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3049
+        }
+      ]
+    },
+    {
+      "edge": "7286230766554999128146637593078201537/5192296858534827628530496329220096",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3046
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3049
+        }
+      ]
+    },
+    {
+      "edge": "123865923031434985178492839082329426129/83076749736557242056487941267521536",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3049
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3049
+        }
+      ]
+    },
+    {
+      "edge": "2105720691534394748034378264399600244193/1329227995784915872903807060280344576",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3049
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3049
+        }
+      ]
+    },
+    {
+      "edge": "35797251756084710716584430494793204151281/21267647932558653966460912964485513216",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3049
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3049
+        }
+      ]
+    },
+    {
+      "edge": "608553279853440082181935318411484470571777/340282366920938463463374607431768211456",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3049
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3047
+        }
+      ]
+    },
+    {
+      "edge": "10345405757508481397092900412995235999720209/5444517870735015415413993718908291383296",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3046
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3049
+        }
+      ]
+    },
+    {
+      "edge": "175871897877644183750579307020919011995243553/87112285931760246646623899502532662132736",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2883
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2882
+        }
+      ]
+    },
+    {
+      "edge": "2989822263919951123759848219355623203919140401/1393796574908163946345982392040522594123776",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2893
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2892
+        }
+      ]
+    },
+    {
+      "edge": "50826978486639169103917419729045594466625386817/22300745198530623141535718272648361505980416",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2900
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2903
+        }
+      ]
+    },
+    {
+      "edge": "864058634272865874766596135393775105932631575889/356811923176489970264571492362373784095686656",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2911
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2912
+        }
+      ]
+    },
+    {
+      "edge": "14688996782638719871032134301694176800854736790113/5708990770823839524233143877797980545530986496",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2922
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2921
+        }
+      ]
+    },
+    {
+      "edge": "249712945304858237807546283128801005614530525431921/91343852333181432387730302044767688728495783936",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2930
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2930
+        }
+      ]
+    },
+    {
+      "edge": "4245120070182590042728286813189617095447018932342657/1461501637330902918203684832716283019655932542976",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2938
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2937
+        }
+      ]
+    },
+    {
+      "edge": "72167041193104030726380875824223490622599321849825169/23384026197294446691258957323460528314494920687616",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2945
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2945
+        }
+      ]
+    },
+    {
+      "edge": "1226839700282768522348474889011799340584188471447027873/374144419156711147060143317175368453031918731001856",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2953
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2951
+        }
+      ]
+    },
+    {
+      "edge": "20856274904807064879924073113200588789931204014599473841/5986310706507378352962293074805895248510699696029696",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2955
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2959
+        }
+      ]
+    },
+    {
+      "edge": "354556673381720102958709242924410009428830468248191055297/95780971304118053647396689196894323976171195136475136",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2963
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2965
+        }
+      ]
+    },
+    {
+      "edge": "6027463447489241750298057129714970160290117960219247940049/1532495540865888858358347027150309183618739122183602176",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2972
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2970
+        }
+      ]
+    },
+    {
+      "edge": "102466878607317109755066971205154492724932005323727214980833/24519928653854221733733552434404946937899825954937634816",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2972
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2977
+        }
+      ]
+    },
+    {
+      "edge": "1741936936324390865836138510487626376323844090503362654674161/392318858461667547739736838950479151006397215279002157056",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2981
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2980
+        }
+      ]
+    },
+    {
+      "edge": "29612927917514644719214354678289648397505349538557165129460737/6277101735386680763835789423207666416102355444464034512896",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2985
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2987
+        }
+      ]
+    },
+    {
+      "edge": "503419774597748960226644029530924022757590942155471807200832529/100433627766186892221372630771322662657637687111424552206336",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2989
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2992
+        }
+      ]
+    },
+    {
+      "edge": "8558136168161732323852948502025708386879046016643020722414152993/1606938044258990275541962092341162602522202993782792835301376",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 2996
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2996
+        }
+      ]
+    },
+    {
+      "edge": "145488314858749449505500124534437042576943782282931352281040600881/25711008708143844408671393477458601640355247900524685364822016",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3000
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 2999
+        }
+      ]
+    },
+    {
+      "edge": "2473301352598740641593502117085429723808044298809832988777690214977/411376139330301510538742295639337626245683966408394965837152256",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3004
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3004
+        }
+      ]
+    },
+    {
+      "edge": "42046122994178590907089535990452305304736753079767160809220733654609/6582018229284824168619876730229402019930943462534319453394436096",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3007
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3006
+        }
+      ]
+    },
+    {
+      "edge": "714784090901036045420522111837689190180524802356041733756752472128353/105312291668557186697918027683670432318895095400549111254310977536",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3011
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3009
+        }
+      ]
+    },
+    {
+      "edge": "12151329545317612772148875901240716233068921640052709473864792026182001/1684996666696914987166688442938726917102321526408785780068975640576",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3014
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3014
+        }
+      ]
+    },
+    {
+      "edge": "206572602270399417126530890321092175962171667880896061055701464445094017/26959946667150639794667015087019630673637144422540572481103610249216",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3015
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3018
+        }
+      ]
+    },
+    {
+      "edge": "3511734238596790091151025135458566991356918353975233037946924895566598289/431359146674410236714672241392314090778194310760649159697657763987456",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3020
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3020
+        }
+      ]
+    },
+    {
+      "edge": "8224",
+      "seeds": [
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 644,
+          "relative_bits": 3020
+        },
+        {
+          "independent_higher_precision_contained": true,
+          "mode": 645,
+          "relative_bits": 3020
+        }
+      ]
+    }
+  ],
+  "source_precision": 3072,
+  "status": "PASS_ALL_118_SEEDS"
+}

@@ -1,0 +1,18 @@
+{
+  "started": "2026-10-27T05:46:05.469788+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "scripts.weil_t080_qualification_replay",
+    "--bundle",
+    "computations/2026-10-27T050743Z-t080-target-qualification",
+    "--negative-controls",
+    "--output",
+    "computations/2026-10-27T050743Z-t080-target-qualification/data/negative-controls-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 6.603586700046435,
+  "stdout": "{\"status\": \"PASS_THREE_MATHEMATICAL_REJECTIONS\", \"target_low_coupling_matrix_computed\": false, \"target_positivity_proved\": false}\n",
+  "stderr": ""
+}

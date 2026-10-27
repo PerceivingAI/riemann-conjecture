@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-27T01:51:31Z`
+- **Last updated:** `2026-10-27T06:48:04Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -1324,6 +1324,28 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** C-0063 actual scaled form and mass; C-0099/C-0100 accepted P/GP data and old transform as coordinates, NOT old reference A; C-0104 complete Legendre leakage; C-0107/C-0110 logarithmic reference/discrepancy; C-0112/C-0114 supported criterion/error direction; C-0117 complete residual model/error. Earlier discrepancy and Lambda remain accepted pinned premises.
 - **Source:** [F-20261027-001](../findings/2026-10-27T003742Z-complete-supported-gram-control.md), [X-20261027-001](../computations/2026-10-27T003742Z-physical-reference-viability/record.md).
 - **Verification notes:** Source3072/independent4096 Arb acceptance checks all73476 triangular entries in six complete matrices; the independent consumer freshly reconstructs old P/GP within their128-bit intervals, both arithmetic windows, full mixed infinity and all residual low boundary terms. Separate zero-float exact rational congruence pays every transformed interval radius and row sum, with exact nonsingularity. Independent mathematics/code review approves. Source SHA20a1e75749d8681af8b191ca017cf8233acd4d76df330d986b311de4034405a4 is shared by source audit and exact sign. Initial finite searches/valid nonrejecting bounds, failed implementations and wide-enclosure source remain preserved as distinct outcomes. The known physical-form gap is not substituted for the new Schur sign. C-0116's different completion remains stopped. No all-support inference, global viability, original physical spectral-gap claim, new production theorem, or RH conclusion.
+
+### C-0119 — Complete T4/5 reference and first-attempt source/error parameters qualified
+
+- **Statement:** At T4/5, the full signed discrepancy obeys d_E<=(1/4)q_w+(859/1024)||f||² on the complete logarithmic form domain. Strict log4<8/5<log5 gives exactly2/3/4, with coefficient4=log2/2, and8/5<pi validates the canonical local residual series. The first declared integer anchorR257 and evenN322 satisfy complete outside>=1/3 and q_g>=eta q_h for h=max(1/3,g), eta=1-2^-128. N322 is a sufficient scalar-policy minimum, NOT a positivity minimum. The qualified first-attempt declaration uses K76,M644,Rc514,60 whole-frequency inverse-weight anchors through8224, and full canonical residual-model allowance below2.969474e-21 against a baseline-derived accuracy goal about3.324790e-21. This goal is not an assumed target gap.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` source-conditional reference/error qualification; actual T4/5 low/coupling matrix and complete positivity sign NOT computed
+- **First recorded:** `2026-10-27T05:07:43Z`
+- **Last verified:** `2026-10-27T05:48:45Z`
+- **Dependencies:** C-0063 actual source/domain/mass; C-0085 bounded V cross; C-0104 full Legendre leakage; C-0107/C-0110 signed energy structure; C-0112 supported criterion; C-0117 universal finite residual band and canonical Taylor remainder; C-0118 accepted T3/4 matrices as control data ONLY; R-0030 Binet digamma integral. Frozen canonical helpers and FLINT/Arb remain trust premises.
+- **Source:** [F-20261027-002](../findings/2026-10-27T050743Z-t080-reference-and-parameter-qualification.md), [X-20261027-002](../computations/2026-10-27T050743Z-t080-target-qualification/record.md).
+- **Verification notes:** Independent512/768-bit full-frequency source acceptance checks1516 intervals, analytic infinity and six scalar N trials. Separate formal quotient/direct-tail512/1024-bit reconstruction checks77 target kernel coefficients,37 preceding orders,2K<N,60 inverse weights and exact starting-precision policies. Exact old-control endpoint audits certify8 whole-space budget caps relative to actual A_model; combined paid caps are below0.494783/0.488511, not sums of separate maxima. The old selected-Schur physical lower is converted by margin/tr(U^TDU), then divided by2^20 as an accuracy choice, never transported as target coercivity. A failed audit-publication composition remains preserved; corrected v2 reruns full native reference acceptance rather than substituting rounded-report containment or overlap. No achieved target matrix-width, low sign, T4/5 positivity theorem, production admission, external proof endorsement, global support family or RH conclusion.
+
+### C-0120 — Complete T4/5 supported weighted-Gram positive research candidate
+
+- **Statement:** At T4/5,N322,K76,M644, fresh actual A_model and complete signed V/P/R76 head plus full Q644(V+P) outside Gram produce positive selected sufficient paid lowers in BOTH full161-dimensional parity blocks after eta, canonical Lambda, both infinities and every transformed matrix radius are paid. Independent4096-bit native reconstruction contains all78246 published triangular entries. Separate zero-float nonsingular congruence on the identical source bytes gives complete margins>0.9999999999999 in selected coordinates. Both physical numerical-radius goals pass. Converted selected LOW Schur physical bounds>1.58e-17 even and>1.50e-14 odd are not full-Weil coercivity constants or original spectral minima.
+- **Type:** `COMPUTATIONAL_OBSERVATION`
+- **Status:** `PROVISIONAL` — complete positive source/sign candidate; full target adversarial and isolated retained-reproduction acceptance pending
+- **First recorded:** `2026-10-27T06:18:20Z`
+- **Last checked:** `2026-10-27T06:48:04Z`
+- **Dependencies:** C-0063 source/domain/masses; C-0085 cross-V bound; C-0104 leakage; C-0110/C-0112 signed reference and complete supported Schur; C-0117 finite residual band and true model remainder; C-0119 accepted target scalar/declaration. C-0118 supplies coordinates ONLY, never target arithmetic or positivity. R-0041 spherical-Bessel integral and locally derived input-radius rule. FLINT/Arb and earlier source premises remain explicit.
+- **Source:** [F-20261027-003](../findings/2026-10-27T061820Z-t080-complete-supported-gram-candidate.md), [X-20261027-003](../computations/2026-10-27T061820Z-t080-complete-gram-attempt/record.md).
+- **Verification notes:** Actual3072-bit source, independent4096-bit analytic consumer, nonproof proposal and zero-float exact sign run successfully; native and exact reports bind SHA256 f50d8a194bf4d13ad4cd65ccbcf5762c403d8f5e26d384cbdb38be5ccb807fe6. Original source seed failure and exactly unresolved coordinate proposal remain. Fully paid midpoint seeds retain the2048 guard; fresh-A native Cholesky precedes all floating conditioning and final80-bit dyadic transforms are proved nonsingular. Separate read-only composition review approves. Eight consumed modules are captured; complete source/input isolated replay and new false-math packets have NOT run. No accepted new-support release, external-proof audit, originality, optimality, production admission, global-support family or RH inference.
 
 ## Entry format
 

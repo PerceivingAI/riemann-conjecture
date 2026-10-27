@@ -1,0 +1,19 @@
+{
+  "started": "2026-10-27T05:18:27.852765+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "scripts.verify_t080_control_budget",
+    "--inputs",
+    "computations/2026-10-27T050743Z-t080-target-qualification/control-budget-inputs-v1.json",
+    "--source",
+    "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-v1.json",
+    "--output",
+    "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-audit-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 112.68337199999951,
+  "stdout": "{\"status\": \"PASS\", \"whole_space_caps_checked\": 8, \"target_matrices_computed\": false}\n",
+  "stderr": ""
+}

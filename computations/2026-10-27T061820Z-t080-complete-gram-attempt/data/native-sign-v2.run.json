@@ -1,0 +1,20 @@
+{
+  "started": "2026-10-27T06:46:20.438491+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/verify-whole-sign-v1.py",
+    "--inputs",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/whole-inputs-v1.json",
+    "--source",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-source-v2.json",
+    "--proposal",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-proposal-v2.json",
+    "--output",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-exact-sign-v2.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 6.042445700149983,
+  "stdout": "even positive complete sign True negative selected lower direction False physical width qualified True\nodd positive complete sign True negative selected lower direction False physical width qualified True\nPASS_COMPLETE_SOURCE_CONDITIONAL_CANDIDATE\n",
+  "stderr": ""
+}

@@ -1,0 +1,10 @@
+{
+  "all_earlier_log_entries_exactly_preserved": true,
+  "format": "t080-earlier-public-research-preservation-v1",
+  "old_source_method_test_and_admission_semantics_changed": false,
+  "previous_control_and_neutral_public_code_unchanged": true,
+  "previous_historical_members_verified": 1456,
+  "previous_retained_seals_verified": 25,
+  "qualification_bundle_files_unchanged": 77,
+  "status": "PASS"
+}

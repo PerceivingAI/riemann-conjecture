@@ -1,0 +1,44 @@
+{
+  "format": "t080-source-matrix-width-profile-v1",
+  "paid_numerical_goal_requires_selected_theta": true,
+  "profiles": [
+    {
+      "bytes": 560159,
+      "entries": 13041,
+      "max_row_radius": "483/231584178474632390847141970017375815706539969331281128078915168015826259279872",
+      "name": "A_model-0"
+    },
+    {
+      "bytes": 559991,
+      "entries": 13041,
+      "max_row_radius": "483/231584178474632390847141970017375815706539969331281128078915168015826259279872",
+      "name": "A_model-1"
+    },
+    {
+      "bytes": 552687,
+      "entries": 13041,
+      "max_row_radius": "483/231584178474632390847141970017375815706539969331281128078915168015826259279872",
+      "name": "weighted_complete_tail-0"
+    },
+    {
+      "bytes": 552360,
+      "entries": 13041,
+      "max_row_radius": "483/231584178474632390847141970017375815706539969331281128078915168015826259279872",
+      "name": "weighted_complete_tail-1"
+    },
+    {
+      "bytes": 555447,
+      "entries": 13041,
+      "max_row_radius": "483/231584178474632390847141970017375815706539969331281128078915168015826259279872",
+      "name": "weighted_head-0"
+    },
+    {
+      "bytes": 555626,
+      "entries": 13041,
+      "max_row_radius": "483/231584178474632390847141970017375815706539969331281128078915168015826259279872",
+      "name": "weighted_head-1"
+    }
+  ],
+  "publication_bits": 256,
+  "source_sha256": "f50d8a194bf4d13ad4cd65ccbcf5762c403d8f5e26d384cbdb38be5ccb807fe6"
+}

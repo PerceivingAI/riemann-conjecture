@@ -1,0 +1,32 @@
+{
+  "K": 76,
+  "M": 644,
+  "N": 322,
+  "all_parameter_inputs": {
+    "control-budget-inputs-v1.json": "6ba46b9c2f0fb49742a2b1400fd788c8032ad29362f9a1c52abec8a09a3b2d3f",
+    "parameter-selection-inputs-v1.json": "84c2b56dfb2780d9b9ca37b0ceed134a1464dc7d5d2311158191b714280f818a",
+    "qualification-inputs-v1.json": "bf840c67beeaf7846dbe6d8c0e43b63fe6a4d2b199e6106fcbc5e7682706ea31"
+  },
+  "complete_source_error_contract_sha256": "7064da3e67ace119e1c240a052396f2891afa2eb452c20a9b6699d2c80042e58",
+  "first_attempt": {
+    "core_symmetric_source_entries": 78246,
+    "independent_combined_square_Gauss_order": 322,
+    "initial_low_dimension": 322,
+    "initial_residual_order": 76,
+    "model_error_goal": "accepted old selected-S physical lower /2^20; accuracy policy, never a target positive-gap premise",
+    "parity_dimensions": [
+      161,
+      161
+    ],
+    "refinement_policy": "Keep T4/5 fixed. Diagnose numerical width vs analytic loss vs real negative upper. If width fails, increase native precision by1024 and publication by64 only as implicated, retaining versions. If canonical model allowance dominates sensitive directions, increase evenK by2 and recheck2K<N. Alter N/reference/physical split only from a recorded coupled obstruction or complete error requirement, never blind grids. No automatic admission.",
+    "source_arithmetic_Gauss_order": 483
+  },
+  "format": "t080-first-attempt-declaration-seal-v1",
+  "independent_target_declaration_audit_sha256": "e098c85af344ee38d9d06e79bd1aafced905b10a5cac4d0ba1b4dbaf476a284b",
+  "production_admission": false,
+  "sealed": "2026-10-27T05:46:05Z",
+  "support": "4/5",
+  "target_declaration_sha256": "ab63147ed5c77b1f0f1c611d5f72a86219932e41c5d5196cf3511654aaa3a898",
+  "target_low_coupling_matrix_computed": false,
+  "target_positivity_proved": false
+}

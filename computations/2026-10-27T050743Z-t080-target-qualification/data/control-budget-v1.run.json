@@ -1,0 +1,17 @@
+{
+  "started": "2026-10-27T05:15:27.738168+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "scripts.weil_t080_control_budget",
+    "--inputs",
+    "computations/2026-10-27T050743Z-t080-target-qualification/control-budget-inputs-v1.json",
+    "--output",
+    "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 90.28214429994114,
+  "stdout": "even finite_head certified cap 0.4511404796503484\neven complete_physical_tail certified cap 0.3670852684881538\neven canonical_residual_model_error certified cap 0.004950846312567592\neven combined_paid certified cap 0.49478281126357615\nodd finite_head certified cap 0.4324285709299147\nodd complete_physical_tail certified cap 0.3822741883341223\nodd canonical_residual_model_error certified cap 5.346955731511116e-06\nodd combined_paid certified cap 0.4885105136781931\nCONTROL_BUDGET_AND_PHYSICAL_ACCURACY_SCALE_CERTIFIED\n",
+  "stderr": ""
+}

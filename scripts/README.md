@@ -1,13 +1,34 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-25T23:08:20Z`
+- **Last updated:** `2026-10-27T06:48:04Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
 ## Byte identity on checkout
 
 The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep pinned sources/configuration in their recorded LF form, and the original SYS-6.4 probe plus the executed T3/4 Fourier producer in their recorded CRLF form. Retained bundles remain verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+
+## Complete fixed T4/5 source/sign research candidate
+
+[X-20261027-003](../computations/2026-10-27T061820Z-t080-complete-gram-attempt/record.md) retains separate `build-whole-source-v2.py`, `verify-whole-source-v2.py`, `propose-whole-v2.py` and `verify-whole-sign-v1.py` alongside the executed earlier versions. The record gives exact native invocations and fresh-output-parent reproduction commands. This is a fixed research operation at N322,K76,M644, not a generic continuation driver or production certificate profile.
+
+Source3072/independent4096-bit reconstruction and zero-float sign pass for all78246 matrix entries and both full parity blocks. The complete signed arithmetic/mixed/residual source and both infinities are retained. Native midpoint seeds pay full argument uncertainty; fresh-A native Cholesky prevents ill-conditioned floating proposals. Exact acceptance still checks full nonsingularity and every transformed radius. Exit0 means a completed sign assessment, including unresolved/negative cases: inspect the mathematical status and require a matching successful analytical audit on identical source bytes. Never route on process exit alone.
+
+The consumed project modules are captured verbatim. Full target adversarial mathematical inputs and isolated source/input replay are NOT yet executed; the result remains a provisional candidate, not an accepted new-support release or theorem admission. Earlier helpers/tests, v1/v2/v3 production admission and previous research artifacts are unchanged.
+
+## Fixed T4/5 reference and source/error qualification
+
+[X-20261027-002](../computations/2026-10-27T050743Z-t080-target-qualification/record.md) retains the scalar/reference and exact accepted-control budget operations. These qualify N322,K76,M644 and complete error controls; they do not construct the T4/5 low/coupling matrix or prove its positivity. They change no existing producer, checker or admission rule.
+
+The repeatable capture/replay operation executes all three source/independent-consumer pairs from immutable captured code and inputs:
+
+```text
+uv run --locked python -m scripts.weil_t080_qualification_replay --bundle computations/2026-10-27T050743Z-t080-target-qualification --output <fresh-replay.json>
+uv run --locked python -m scripts.weil_t080_qualification_replay --bundle computations/2026-10-27T050743Z-t080-target-qualification --negative-controls --output computations/2026-10-27T050743Z-t080-target-qualification/data/<fresh-negative-controls.json>
+```
+
+The three pairs are `weil_t080_control_budget` / `verify_t080_control_budget`, `weil_t080_reference_qualification` / `verify_t080_reference_qualification`, and `weil_t080_target_declaration` / `verify_t080_target_declaration_v2`. Their exact inputs, commands and output pins are in the computation record. The failed first declaration consumer remains unchanged as historical evidence. V2 replays native reference containment rather than compare separately rounded audit reports as if they were native intervals. All output names must be fresh; negative-control cases must remain inside the computation bundle.
 
 ## Complete fixed post-m4 bounded Fourier minorant
 
