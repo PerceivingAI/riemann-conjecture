@@ -1,0 +1,188 @@
+{
+  "byte_identical_calculations": 8,
+  "capture_description_sha256": "67898d18a497e988c03bbadffe28e6d12e116f58c5fa3e9dd5b5086793a18026",
+  "captured_destinations": 38,
+  "checks": [
+    {
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualify-reference-v1.py",
+        "--inputs",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualification-inputs-v2.json",
+        "--output",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-global-source.json"
+      ],
+      "byte_identical": true,
+      "check": "fresh-global-source",
+      "elapsed_seconds": 1.2844167000002926,
+      "exit_code": 0,
+      "expected_project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/reference-source-v2.json",
+      "expected_sha256": "3429099699fb19d0ee8cfd682c79ccb679badeb52472f0ca67305902ea348921",
+      "reproduced_sha256": "3429099699fb19d0ee8cfd682c79ccb679badeb52472f0ca67305902ea348921",
+      "stderr": "",
+      "stdout": "{\"status\": \"SCALAR_REFERENCE_QUALIFIED\", \"beta\": \"1933/1024\", \"R\": 1038, \"N\": 1188, \"M\": 2376, \"Rc\": 2076}\n"
+    },
+    {
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-reference-v1.py",
+        "--inputs",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualification-inputs-v2.json",
+        "--source",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-global-source.json",
+        "--output",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-global-audit.json"
+      ],
+      "byte_identical": true,
+      "check": "fresh-global-native-audit",
+      "elapsed_seconds": 2.3501373999970383,
+      "exit_code": 0,
+      "expected_project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/reference-audit-v2.json",
+      "expected_sha256": "688cfdad899ff17a6aafd7510f1d9e37b9216925ba0970d0ae369edd352bb5ea",
+      "reproduced_sha256": "688cfdad899ff17a6aafd7510f1d9e37b9216925ba0970d0ae369edd352bb5ea",
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS\", \"beta\": \"1933/1024\", \"R\": 1038, \"N\": 1188, \"M\": 2376, \"Rc\": 2076}\n"
+    },
+    {
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualify-reference-v2.py",
+        "--inputs",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualification-inputs-v3.json",
+        "--output",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-supported-source.json"
+      ],
+      "byte_identical": true,
+      "check": "supported-reference-source",
+      "elapsed_seconds": 0.9667324000001827,
+      "exit_code": 0,
+      "expected_project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/supported-reference-source-v1.json",
+      "expected_sha256": "52bbb50458c067146af1523a80691223b5eed93abede9c73a917a188ef87d42d",
+      "reproduced_sha256": "52bbb50458c067146af1523a80691223b5eed93abede9c73a917a188ef87d42d",
+      "stderr": "",
+      "stdout": "{\"status\": \"SCALAR_REFERENCE_QUALIFIED\", \"beta\": \"821/512\", \"R\": 710, \"N\": 826, \"M\": 1652, \"Rc\": 1420}\n"
+    },
+    {
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-reference-v2.py",
+        "--inputs",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualification-inputs-v3.json",
+        "--source",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-supported-source.json",
+        "--output",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-supported-audit.json"
+      ],
+      "byte_identical": true,
+      "check": "supported-reference-native-audit",
+      "elapsed_seconds": 3.76574729999993,
+      "exit_code": 0,
+      "expected_project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/supported-reference-audit-v1.json",
+      "expected_sha256": "65f5b7d7ed5996c220e2c87b20770847c35cf73bbc8600b3cf3fe058bf37c569",
+      "reproduced_sha256": "65f5b7d7ed5996c220e2c87b20770847c35cf73bbc8600b3cf3fe058bf37c569",
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS\", \"beta\": \"821/512\", \"R\": 710, \"N\": 826, \"M\": 1652, \"Rc\": 1420}\n"
+    },
+    {
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\declare-target-v1.py",
+        "--inputs",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\parameter-inputs-v1.json",
+        "--reference-audit",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-supported-audit.json",
+        "--output",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-target-declaration.json"
+      ],
+      "byte_identical": true,
+      "check": "target-declaration",
+      "elapsed_seconds": 0.2939327999993111,
+      "exit_code": 0,
+      "expected_project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/target-declaration-source-v1.json",
+      "expected_sha256": "026658a580d6ebe2ff8543d9e94ebbd24ea92d13027c5e43714e876cce353341",
+      "reproduced_sha256": "026658a580d6ebe2ff8543d9e94ebbd24ea92d13027c5e43714e876cce353341",
+      "stderr": "",
+      "stdout": "{\"status\": \"QUALIFIED_TARGET_PARAMETERS_NOT_POSITIVITY\", \"N\": 826, \"K\": 86, \"M\": 1652, \"source_bits\": 4608, \"independent_bits\": 6144, \"model_error_upper\": 1.2378912042033409e-23, \"accuracy_goal\": 1.5078515584951228e-23}\n"
+    },
+    {
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-target-declaration-v1.py",
+        "--inputs",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\parameter-inputs-v1.json",
+        "--source",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-target-declaration.json",
+        "--reference-audit",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-supported-audit.json",
+        "--output",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-target-audit.json"
+      ],
+      "byte_identical": true,
+      "check": "target-declaration-native-audit",
+      "elapsed_seconds": 4.246395300000586,
+      "exit_code": 0,
+      "expected_project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/target-declaration-audit-v1.json",
+      "expected_sha256": "a10cf29c29193f6b3a9c981ad07631bced6799b2a4b34efe0cc7f415716f66c7",
+      "reproduced_sha256": "a10cf29c29193f6b3a9c981ad07631bced6799b2a4b34efe0cc7f415716f66c7",
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS\", \"verifiedK\": 86, \"N\": 826}\n"
+    },
+    {
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualify-prime-five-topology-v1.py",
+        "--inputs",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\topology-inputs-v1.json",
+        "--output",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-topology-source.json"
+      ],
+      "byte_identical": true,
+      "check": "four-mode-topology-source",
+      "elapsed_seconds": 0.311194500001875,
+      "exit_code": 0,
+      "expected_project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/topology-source-v1.json",
+      "expected_sha256": "595c9950e61b58480d79e6b6344d6dc6713bfe0a0b14ec8174057dc08de0b617",
+      "reproduced_sha256": "595c9950e61b58480d79e6b6344d6dc6713bfe0a0b14ec8174057dc08de0b617",
+      "stderr": "",
+      "stdout": "{\"status\": \"FOUR_MODE_DIAGNOSTIC_ONLY\", \"active_terms\": [2, 3, 4, 5], \"translation_cells\": 9, \"mixed_prime5_pairs\": 3}\n"
+    },
+    {
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-prime-five-topology-v1.py",
+        "--inputs",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\topology-inputs-v1.json",
+        "--source",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-topology-source.json",
+        "--output",
+        "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reproduced-topology-audit.json"
+      ],
+      "byte_identical": true,
+      "check": "four-mode-topology-native-audit",
+      "elapsed_seconds": 0.338234899998497,
+      "exit_code": 0,
+      "expected_project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/topology-audit-v1.json",
+      "expected_sha256": "4a71562fda4908d68e7267057251d3fd50788207288ab2569332640f3595ea87",
+      "reproduced_sha256": "4a71562fda4908d68e7267057251d3fd50788207288ab2569332640f3595ea87",
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS\", \"matrix_cells_checked\": 80, \"breakpoints_checked\": 10}\n"
+    }
+  ],
+  "driver_sha256": "9a31122dde641176a22487c563bb02b84f722544ce99b02462a04c530c55c2d0",
+  "elapsed_seconds": 14.035015400000702,
+  "format": "t081-qualification-captured-replay-v1",
+  "full_target_matrix_or_sign_run": false,
+  "owned_temporary_tree": "C:\\Users\\carlo\\AppData\\Local\\Temp\\t081-qualification-replay-k2lae3n9",
+  "owned_temporary_tree_removed": true,
+  "production_admission": false,
+  "shared_premise": "recorded host Python/FLINT runtime; captured project source and input bytes, not an OS sandbox or independent arithmetic library",
+  "status": "PASS"
+}

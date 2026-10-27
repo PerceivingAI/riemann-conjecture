@@ -1,0 +1,21 @@
+{
+  "started": "2026-10-27T18:02:40.689645+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-27T140745Z-t081-complete-gram-attempt/propose-whole-v1.py",
+    "--inputs",
+    "computations/2026-10-27T140745Z-t081-complete-gram-attempt/whole-inputs-v1.json",
+    "--source",
+    "computations/2026-10-27T140745Z-t081-complete-gram-attempt/data/source-v1.json",
+    "--output",
+    "computations/2026-10-27T140745Z-t081-complete-gram-attempt/data/proposal-v1.json.gz"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 151.53208890000678,
+  "stdout": "even theta 0.8522074483653341 relativeGram 0.5047252165797099 fresh_whitened_S_min 0.49527478342028813\nodd theta 0.8701577795982303 relativeGram 0.4844209502536452 fresh_whitened_S_min 0.5155790497463547\n",
+  "stderr": ""
+}

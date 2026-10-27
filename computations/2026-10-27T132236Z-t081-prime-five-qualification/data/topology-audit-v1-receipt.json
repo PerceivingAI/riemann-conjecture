@@ -1,0 +1,20 @@
+{
+  "started": "2026-10-27T13:37:01.547815+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-prime-five-topology-v1.py",
+    "--inputs",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/topology-inputs-v1.json",
+    "--source",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/topology-source-v1.json",
+    "--output",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/topology-audit-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.3551500000030501,
+  "stdout": "{\"status\": \"PASS\", \"matrix_cells_checked\": 80, \"breakpoints_checked\": 10}\n",
+  "stderr": ""
+}

@@ -1,0 +1,20 @@
+{
+  "started": "2026-10-27T13:31:34.354625+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/declare-target-v1.py",
+    "--inputs",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/parameter-inputs-v1.json",
+    "--reference-audit",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/supported-reference-audit-v1.json",
+    "--output",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/target-declaration-source-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.3301035000004049,
+  "stdout": "{\"status\": \"QUALIFIED_TARGET_PARAMETERS_NOT_POSITIVITY\", \"N\": 826, \"K\": 86, \"M\": 1652, \"source_bits\": 4608, \"independent_bits\": 6144, \"model_error_upper\": 1.2378912042033409e-23, \"accuracy_goal\": 1.5078515584951228e-23}\n",
+  "stderr": ""
+}

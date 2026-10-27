@@ -1,0 +1,268 @@
+{
+  "cases": [
+    {
+      "expected_rejection_seam": "arithmetic coefficient",
+      "mutated_source": "data/negative-controls-v1-cases/omit-active-prime5.json",
+      "mutated_source_sha256": "b0fc771f0f30e3013cdda242da343bb9bff56304f460b9ba63f86230e1beae3e",
+      "name": "omit-active-prime5",
+      "pass_output_created": false,
+      "receipt": {
+        "argv": [
+          "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+          "-B",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-reference-v2.py",
+          "--inputs",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualification-inputs-v3.json",
+          "--source",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\omit-active-prime5.json",
+          "--output",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\omit-active-prime5-audit.json"
+        ],
+        "elapsed_seconds": 0.2385065000016766,
+        "exit_code": 2,
+        "stderr": "",
+        "stdout": "{\"status\": \"REJECTED\", \"error\": \"dishonest enclosure arithmetic coefficient\"}\n"
+      },
+      "rejection": {
+        "error": "dishonest enclosure arithmetic coefficient",
+        "status": "REJECTED"
+      }
+    },
+    {
+      "expected_rejection_seam": "arithmetic coefficient",
+      "mutated_source": "data/negative-controls-v1-cases/wrong-von-mangoldt4.json",
+      "mutated_source_sha256": "08e1ae13e06cfebe26e1e075c2dd35770597c35ec29a73554ec236305fe4a8bb",
+      "name": "wrong-von-mangoldt4",
+      "pass_output_created": false,
+      "receipt": {
+        "argv": [
+          "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+          "-B",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-reference-v2.py",
+          "--inputs",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualification-inputs-v3.json",
+          "--source",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\wrong-von-mangoldt4.json",
+          "--output",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\wrong-von-mangoldt4-audit.json"
+        ],
+        "elapsed_seconds": 0.23246070000095642,
+        "exit_code": 2,
+        "stderr": "",
+        "stdout": "{\"status\": \"REJECTED\", \"error\": \"dishonest enclosure arithmetic coefficient\"}\n"
+      },
+      "rejection": {
+        "error": "dishonest enclosure arithmetic coefficient",
+        "status": "REJECTED"
+      }
+    },
+    {
+      "expected_rejection_seam": "supported transfer coefficient5",
+      "mutated_source": "data/negative-controls-v1-cases/unpaid-supported-prime5.json",
+      "mutated_source_sha256": "2194d56637126f6703ff376b64ff48a4720caa61af3134963fc5562854a525c9",
+      "name": "unpaid-supported-prime5",
+      "pass_output_created": false,
+      "receipt": {
+        "argv": [
+          "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+          "-B",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-reference-v2.py",
+          "--inputs",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualification-inputs-v3.json",
+          "--source",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\unpaid-supported-prime5.json",
+          "--output",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\unpaid-supported-prime5-audit.json"
+        ],
+        "elapsed_seconds": 1.9754155999980867,
+        "exit_code": 2,
+        "stderr": "",
+        "stdout": "{\"status\": \"REJECTED\", \"error\": \"dishonest enclosure supported transfer coefficient5\"}\n"
+      },
+      "rejection": {
+        "error": "dishonest enclosure supported transfer coefficient5",
+        "status": "REJECTED"
+      }
+    },
+    {
+      "expected_rejection_seam": "leakage at N=",
+      "mutated_source": "data/negative-controls-v1-cases/unpaid-complete-leakage.json",
+      "mutated_source_sha256": "b040dcdba5b17dd397fa9d7f590bb1add63927fa53bf51e2d8f5464f1f18557f",
+      "name": "unpaid-complete-leakage",
+      "pass_output_created": false,
+      "receipt": {
+        "argv": [
+          "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+          "-B",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-reference-v2.py",
+          "--inputs",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualification-inputs-v3.json",
+          "--source",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\unpaid-complete-leakage.json",
+          "--output",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\unpaid-complete-leakage-audit.json"
+        ],
+        "elapsed_seconds": 3.719136800002161,
+        "exit_code": 2,
+        "stderr": "",
+        "stdout": "{\"status\": \"REJECTED\", \"error\": \"dishonest enclosure leakage at N=826\"}\n"
+      },
+      "rejection": {
+        "error": "dishonest enclosure leakage at N=826",
+        "status": "REJECTED"
+      }
+    },
+    {
+      "expected_rejection_seam": "inverse kappa",
+      "mutated_source": "data/negative-controls-v1-cases/unpaid-physical-inverse.json",
+      "mutated_source_sha256": "8473a8ad1fb156892f5c532ef54f4ee0fad25b7524ea874952829fe2055d8488",
+      "name": "unpaid-physical-inverse",
+      "pass_output_created": false,
+      "receipt": {
+        "argv": [
+          "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+          "-B",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-reference-v2.py",
+          "--inputs",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\qualification-inputs-v3.json",
+          "--source",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\unpaid-physical-inverse.json",
+          "--output",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\unpaid-physical-inverse-audit.json"
+        ],
+        "elapsed_seconds": 3.705028200001834,
+        "exit_code": 2,
+        "stderr": "",
+        "stdout": "{\"status\": \"REJECTED\", \"error\": \"dishonest enclosure inverse kappa\"}\n"
+      },
+      "rejection": {
+        "error": "dishonest enclosure inverse kappa",
+        "status": "REJECTED"
+      }
+    },
+    {
+      "expected_rejection_seam": "complete formal kernel coefficients",
+      "mutated_source": "data/negative-controls-v1-cases/omit-canonical-polar-coefficient.json",
+      "mutated_source_sha256": "2ca91cc4b3c1b47de9104f9d09c653180a0b90db9d72d041cecd24bd1ff4f3b3",
+      "name": "omit-canonical-polar-coefficient",
+      "pass_output_created": false,
+      "receipt": {
+        "argv": [
+          "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+          "-B",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-target-declaration-v1.py",
+          "--inputs",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\parameter-inputs-v1.json",
+          "--source",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\omit-canonical-polar-coefficient.json",
+          "--output",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\omit-canonical-polar-coefficient-audit.json",
+          "--reference-audit",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\supported-reference-audit-v1.json"
+        ],
+        "elapsed_seconds": 3.972358399998484,
+        "exit_code": 2,
+        "stderr": "",
+        "stdout": "{\"status\": \"REJECT\", \"error\": \"incorrect complete formal kernel coefficients\"}\n"
+      },
+      "rejection": {
+        "error": "incorrect complete formal kernel coefficients",
+        "status": "REJECT"
+      }
+    },
+    {
+      "expected_rejection_seam": "inverse weight at ",
+      "mutated_source": "data/negative-controls-v1-cases/discard-frequency-infinity.json",
+      "mutated_source_sha256": "f9f3e9744b8e4acbc613daec80f03716e8a156d0e8fb10bb6a634a03a3d1219b",
+      "name": "discard-frequency-infinity",
+      "pass_output_created": false,
+      "receipt": {
+        "argv": [
+          "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+          "-B",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-target-declaration-v1.py",
+          "--inputs",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\parameter-inputs-v1.json",
+          "--source",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\discard-frequency-infinity.json",
+          "--output",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\discard-frequency-infinity-audit.json",
+          "--reference-audit",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\supported-reference-audit-v1.json"
+        ],
+        "elapsed_seconds": 4.00843420000092,
+        "exit_code": 2,
+        "stderr": "",
+        "stdout": "{\"status\": \"REJECT\", \"error\": \"false analytic upper inverse weight at 22720\"}\n"
+      },
+      "rejection": {
+        "error": "false analytic upper inverse weight at 22720",
+        "status": "REJECT"
+      }
+    },
+    {
+      "expected_rejection_seam": "P_squared[0,0]",
+      "mutated_source": "data/negative-controls-v1-cases/discard-prime5-mixed-squares.json",
+      "mutated_source_sha256": "067c3e8fdb6779f27e3713b5602b59472b484558a535ff00945b780364f3de25",
+      "name": "discard-prime5-mixed-squares",
+      "pass_output_created": false,
+      "receipt": {
+        "argv": [
+          "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+          "-B",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-prime-five-topology-v1.py",
+          "--inputs",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\topology-inputs-v1.json",
+          "--source",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\discard-prime5-mixed-squares.json",
+          "--output",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\discard-prime5-mixed-squares-audit.json"
+        ],
+        "elapsed_seconds": 0.30607679999957327,
+        "exit_code": 2,
+        "stderr": "",
+        "stdout": "{\"status\": \"REJECTED\", \"error\": \"native containment failure P_squared[0,0]\"}\n"
+      },
+      "rejection": {
+        "error": "native containment failure P_squared[0,0]",
+        "status": "REJECTED"
+      }
+    },
+    {
+      "expected_rejection_seam": "VP[",
+      "mutated_source": "data/negative-controls-v1-cases/symmetrize-ordered-VP.json",
+      "mutated_source_sha256": "bf1de5a1daff97f5d355bc3460f1d3f6aae21186afcdec7d421dafd16b11c466",
+      "name": "symmetrize-ordered-VP",
+      "pass_output_created": false,
+      "receipt": {
+        "argv": [
+          "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+          "-B",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\verify-prime-five-topology-v1.py",
+          "--inputs",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\topology-inputs-v1.json",
+          "--source",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\symmetrize-ordered-VP.json",
+          "--output",
+          "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\negative-controls-v1-cases\\symmetrize-ordered-VP-audit.json"
+        ],
+        "elapsed_seconds": 0.30599879999863333,
+        "exit_code": 2,
+        "stderr": "",
+        "stdout": "{\"status\": \"REJECTED\", \"error\": \"native containment failure VP[0,2]\"}\n"
+      },
+      "rejection": {
+        "error": "native containment failure VP[0,2]",
+        "status": "REJECTED"
+      }
+    }
+  ],
+  "driver_sha256": "9a31122dde641176a22487c563bb02b84f722544ce99b02462a04c530c55c2d0",
+  "elapsed_seconds": 18.569255500002328,
+  "format": "t081-qualification-negative-controls-v1",
+  "full_target_matrix_or_sign_run": false,
+  "production_admission": false,
+  "scope": "actual native analytic rejection seams; not expected exit alone",
+  "status": "PASS",
+  "substantive_cases_passed": 9
+}

@@ -1,0 +1,18 @@
+{
+  "started": "2026-10-27T13:28:52.720750+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/qualify-reference-v2.py",
+    "--inputs",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/qualification-inputs-v3.json",
+    "--output",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/supported-reference-source-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.9798183999992034,
+  "stdout": "{\"status\": \"SCALAR_REFERENCE_QUALIFIED\", \"beta\": \"821/512\", \"R\": 710, \"N\": 826, \"M\": 1652, \"Rc\": 1420}\n",
+  "stderr": ""
+}

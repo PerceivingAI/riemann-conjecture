@@ -1,0 +1,237 @@
+{
+  "created": "2026-10-27T13:49:47Z",
+  "format": "t081-captured-source-inputs-v1",
+  "members": [
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json",
+      "project_path": "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json",
+      "sha256": "3cfafc4c5e7db8c0b76e8ada4afe73b34738e4697a3f030d5b6f19b2023c1e34",
+      "size": 5306
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json",
+      "project_path": "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json",
+      "sha256": "5d9f66d2941db36b338fab1c23d06b15a67e0c9452f1678dbaaddbce6c31a0e6",
+      "size": 314708
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+      "project_path": "computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+      "sha256": "bf840c67beeaf7846dbe6d8c0e43b63fe6a4d2b199e6106fcbc5e7682706ea31",
+      "size": 1155
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T084414Z-t080-retained-acceptance/data/full-acceptance-v1.json",
+      "project_path": "computations/2026-10-27T084414Z-t080-retained-acceptance/data/full-acceptance-v1.json",
+      "sha256": "7530f0c05c0caad1b4fa206fa75e7dafbd75adc8aa72141a6bb757e4d44bb237",
+      "size": 3809
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/reference-audit-v2.json",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/reference-audit-v2.json",
+      "sha256": "688cfdad899ff17a6aafd7510f1d9e37b9216925ba0970d0ae369edd352bb5ea",
+      "size": 5326
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/reference-source-v2.json",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/reference-source-v2.json",
+      "sha256": "3429099699fb19d0ee8cfd682c79ccb679badeb52472f0ca67305902ea348921",
+      "size": 1209811
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/supported-reference-audit-v1.json",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/supported-reference-audit-v1.json",
+      "sha256": "65f5b7d7ed5996c220e2c87b20770847c35cf73bbc8600b3cf3fe058bf37c569",
+      "size": 7475
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/supported-reference-source-v1.json",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/supported-reference-source-v1.json",
+      "sha256": "52bbb50458c067146af1523a80691223b5eed93abede9c73a917a188ef87d42d",
+      "size": 796660
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/target-declaration-audit-v1.json",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/target-declaration-audit-v1.json",
+      "sha256": "a10cf29c29193f6b3a9c981ad07631bced6799b2a4b34efe0cc7f415716f66c7",
+      "size": 1936
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/target-declaration-source-v1.json",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/target-declaration-source-v1.json",
+      "sha256": "026658a580d6ebe2ff8543d9e94ebbd24ea92d13027c5e43714e876cce353341",
+      "size": 64423
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/topology-audit-v1.json",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/topology-audit-v1.json",
+      "sha256": "4a71562fda4908d68e7267057251d3fd50788207288ab2569332640f3595ea87",
+      "size": 889
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/topology-source-v1.json",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/topology-source-v1.json",
+      "sha256": "595c9950e61b58480d79e6b6344d6dc6713bfe0a0b14ec8174057dc08de0b617",
+      "size": 28899
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/declare-target-v1.py",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/declare-target-v1.py",
+      "sha256": "31ca7ab10d53aeef9dd43fbd3000f0abe1a1280e959fb3ac0ff51a06bb81e594",
+      "size": 8058
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/exercise-qualification-v1.py",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/exercise-qualification-v1.py",
+      "sha256": "9a31122dde641176a22487c563bb02b84f722544ce99b02462a04c530c55c2d0",
+      "size": 10919
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/parameter-inputs-v1.json",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/parameter-inputs-v1.json",
+      "sha256": "3c4fa7281dfd6c4e2d26caaee00e75bcccc099f90984bf68aee4fbffd764f574",
+      "size": 1828
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/qualification-inputs-v2.json",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/qualification-inputs-v2.json",
+      "sha256": "6047c5442b781f0b8138922404120b5004ff2dedd39df41c9bea1b9355f5ef4f",
+      "size": 1154
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/qualification-inputs-v3.json",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/qualification-inputs-v3.json",
+      "sha256": "67c73d107bd1448464ebfa9eaab3ded94766f3d0bf703b4397d3f71f730aadf0",
+      "size": 1773
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/qualify-prime-five-topology-v1.py",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/qualify-prime-five-topology-v1.py",
+      "sha256": "f3d4aaf7cbd05a760d34e1e79c411e69618036813f4ed532f5958a18dcc0e80f",
+      "size": 4728
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/qualify-reference-v1.py",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/qualify-reference-v1.py",
+      "sha256": "e77576606a367e3d8aead66aad5ae251ad286cbac92718a4c36572b439e0a153",
+      "size": 10375
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/qualify-reference-v2.py",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/qualify-reference-v2.py",
+      "sha256": "28f10b9f1a95af2d161cb3724e5f66c0b2142adc9d214fbf5a0e3e96e1ede442",
+      "size": 12179
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/topology-inputs-v1.json",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/topology-inputs-v1.json",
+      "sha256": "c2898335ee8780a930e0aa0066e9b4a84d7bfae7e0f78ef16ce5966d39dd2c32",
+      "size": 290
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-prime-five-topology-v1.py",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-prime-five-topology-v1.py",
+      "sha256": "23cc2773140c20e7284a8ad1d29f09d3358b64bbba8a968bdf6d715c87d762d6",
+      "size": 12811
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-reference-v1.py",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-reference-v1.py",
+      "sha256": "057e47208ff576041b7d896149a877d25b57adc227b92bdcc9adddfebdb0da7d",
+      "size": 19551
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-reference-v2.py",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-reference-v2.py",
+      "sha256": "d96b73519a2128c71d4a82a8748bc96d5a7fd4d7a778870f490d004019917013",
+      "size": 24947
+    },
+    {
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-target-declaration-v1.py",
+      "project_path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-target-declaration-v1.py",
+      "sha256": "a99f306135c88c3a155ebc1cbea30866deac4a71c49d7dde0d6a2bd801edea3f",
+      "size": 23490
+    },
+    {
+      "captured_path": "captured-inputs-v1/pyproject.toml",
+      "project_path": "pyproject.toml",
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf",
+      "size": 1432
+    },
+    {
+      "captured_path": "captured-inputs-v1/scripts/cert/__init__.py",
+      "project_path": "scripts/cert/__init__.py",
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092",
+      "size": 412
+    },
+    {
+      "captured_path": "captured-inputs-v1/scripts/cert/constants.py",
+      "project_path": "scripts/cert/constants.py",
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "size": 5348
+    },
+    {
+      "captured_path": "captured-inputs-v1/scripts/cert/legendre_schur.py",
+      "project_path": "scripts/cert/legendre_schur.py",
+      "sha256": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+      "size": 14453
+    },
+    {
+      "captured_path": "captured-inputs-v1/scripts/cert/mixed_gram_research.py",
+      "project_path": "scripts/cert/mixed_gram_research.py",
+      "sha256": "61c830e808d281e9a0d61ad040f7ffaeaf42821ebf753f977887567a4fdf01f3",
+      "size": 13979
+    },
+    {
+      "captured_path": "captured-inputs-v1/scripts/cert/multi_prime_legendre_schur.py",
+      "project_path": "scripts/cert/multi_prime_legendre_schur.py",
+      "sha256": "341c64284182e774886ff487d3d1107fabe29e86c1bcc3d1782e6d1111103246",
+      "size": 13682
+    },
+    {
+      "captured_path": "captured-inputs-v1/scripts/cert/prime_power_terms.py",
+      "project_path": "scripts/cert/prime_power_terms.py",
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+      "size": 21423
+    },
+    {
+      "captured_path": "captured-inputs-v1/scripts/cert/quadrature.py",
+      "project_path": "scripts/cert/quadrature.py",
+      "sha256": "c8bc5bc04655722f394dba6c46655494cd90e5e68117e3361a835ac10e719663",
+      "size": 6229
+    },
+    {
+      "captured_path": "captured-inputs-v1/scripts/cert/residual_kernel.py",
+      "project_path": "scripts/cert/residual_kernel.py",
+      "sha256": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "size": 12441
+    },
+    {
+      "captured_path": "captured-inputs-v1/scripts/verify_t080_reference_qualification.py",
+      "project_path": "scripts/verify_t080_reference_qualification.py",
+      "sha256": "332779553723f5e9aead03cb0084f7131e686bd92f0a13a8e2074f2c0ab57a5d",
+      "size": 17239
+    },
+    {
+      "captured_path": "captured-inputs-v1/scripts/weil_reference_route_controls.py",
+      "project_path": "scripts/weil_reference_route_controls.py",
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13",
+      "size": 8462
+    },
+    {
+      "captured_path": "captured-inputs-v1/scripts/weil_t080_reference_qualification.py",
+      "project_path": "scripts/weil_t080_reference_qualification.py",
+      "sha256": "74736cbd88ab1aaf1f47f71ade83005088470ce380b34d5cd502704c11436bf9",
+      "size": 10360
+    },
+    {
+      "captured_path": "captured-inputs-v1/uv.lock",
+      "project_path": "uv.lock",
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a",
+      "size": 210571
+    }
+  ],
+  "production_admission": false,
+  "scope": "immutable consumed project code and exact scalar/parameter/diagnostic inputs, expected outputs and declared accuracy control; not a target matrix or OS image",
+  "support": "81/100"
+}

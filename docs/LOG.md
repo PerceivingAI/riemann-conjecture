@@ -1,10 +1,26 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-27T09:14:02Z`
+- **Last updated:** `2026-10-27T18:06:21Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-27T18:06:21Z: complete prime-five T81/100 source and exact parity assessment positive
+
+[F-20261027-006](../findings/2026-10-27T140745Z-t081-complete-supported-gram-candidate.md) / provisional C-0123 and [X-20261027-006](../computations/2026-10-27T140745Z-t081-complete-gram-attempt/record.md) run the unchanged N826,K86,M1652 declaration. New fixed-case producer, native consumer, fresh-coordinate proposal and exact sign preserve all earlier programs. Correct2/3/4/5 coefficients, all nine translation cells and combined mixed squares, both VP orientations, complete low even/polar/endpoint residual and both infinities are retained. The beta821/512 premise remains a supported form inequality, not a pointwise claim.
+
+Independent6144-bit native reconstruction accepts all512946 triangular inputs. Separate zero-float exact rational congruence verifies both full413 parity signs, exact nonsingularity and both physical numerical-radius goals on source SHA256 f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e. Fresh native actual-A Cholesky precedes all floating proposals; full80-bit dyadic transforms are independently checked, with no old coordinates or target arithmetic reused. Near-unit congruence margins are not spectral gaps; converted selected LOW physical bounds are not full source-norm bounds.
+
+All four first-attempt CLIs pass without a parameter or precision refinement. Observed source/audit/proposal/exact times are4527.829/9449.884/151.532/33.692s, different workloads rather than a performance comparison. Nine consumed source/helper files are captured verbatim; separate read-only implementation review approves. Capture is not isolated replay. Full target adversarial cases, retained source/input reproduction and reviewed smooth-test/full-norm consequence remain unexecuted. This is a positive COMPLETE research candidate, not retained new-support acceptance, production admission, external comparison, global support family or RH proof. Every earlier research artifact and closed production inventory remains unchanged.
+
+## 2026-10-27T13:51:11Z: supported prime-five reference and complete T81/100 execution declaration qualified
+
+[F-20261027-005](../findings/2026-10-27T132236Z-t081-prime-five-reference-qualification.md) / C-0122 and [X-20261027-005](../computations/2026-10-27T132236Z-t081-prime-five-qualification/record.md) establish strict2/3/4/5 activation and the local residual domain, complete signed reference/outside/physical-inverse bounds and independently derived error/precision controls. The fresh global symbol bound yields beta1933/1024,N1188. The old global multiplier bound applies to NEW supported inputs without transporting old positivity. Disjoint compressed long shifts have norm1, so the new prime/continuum charge is at most log5/sqrt5+2(exp(.81)-exp(.8)). The supported beta821/512 reduces the sufficient cutoff toN826,R710,M1652,Rc1420.
+
+The K86 declaration pays full canonical error below1.23789121e-23 against an accuracy choice about1.50785156e-23, not a target gap. Source4608/independent6144/publication256 are starting precision policies. Native checks cover1563 fresh frequency leaves and infinity, the reexecuted old global premise, every even scalar trial,87 exact coefficients,42 preceding residual orders,60 positive-terminal frequency anchors and80 four-mode P/P-squared/GP/VP/PV entries. All9 substantive mathematical attacks reject. A38-destination captured replay reproduces all8 source/audit scientific outputs byte-identically and removes its tree. Separate read-only mathematical/code review approves the qualification scope.
+
+Original missing-directory receipt, stale initial anchor-policy input and unsupported storage estimate remain; corrected declarations and resource v2 explicitly identify their limits. All accepted T4/5 research artifacts and root mathematical helpers remain unchanged. No full826-mode source/sign, T81/100 positivity, target-width guarantee, full-run resource forecast, external comparison, originality, production admission, global support family or RH claim. C-0121 at T4/5 remains the verified research positivity frontier.
 
 ## 2026-10-27T09:14:02Z: retained acceptance establishes source-conditional full smooth-test positivity at T4/5
 

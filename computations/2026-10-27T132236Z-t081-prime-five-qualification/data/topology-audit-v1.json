@@ -1,0 +1,20 @@
+{
+  "format": "t081-prime-five-topology-independent-audit-v1",
+  "status": "PASS",
+  "source_sha256": "595c9950e61b58480d79e6b6344d6dc6713bfe0a0b14ec8174057dc08de0b617",
+  "inputs_sha256": "c2898335ee8780a930e0aa0066e9b4a84d7bfae7e0f78ef16ce5966d39dd2c32",
+  "consumer_sha256": "23cc2773140c20e7284a8ad1d29f09d3358b64bbba8a968bdf6d715c87d762d6",
+  "support": "81/100",
+  "diagnostic_dimension": 4,
+  "audit_precision_bits": 768,
+  "matrix_cells_checked": 80,
+  "breakpoints_checked": 10,
+  "prime5_mixed_square_terms_checked": 3,
+  "ordered_potential_asymmetry_verified": true,
+  "independent_method": "Rodrigues, binomial shifts, monomial and logarithmic moments",
+  "shared_trust": "FLINT/Arb arithmetic and transcendental enclosures",
+  "diagnostic_only": true,
+  "full_target_low_coupling_matrix_computed": false,
+  "target_positivity_proved": false,
+  "production_admission": false
+}
