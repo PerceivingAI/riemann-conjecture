@@ -1,0 +1,124 @@
+{
+  "captured_files": 31,
+  "checks": {
+    "control-budget-audit-v1.json": "b0c5d1c3d4f486933e3e2f615edc202f822220504146db2bf92f0e3e402e6613",
+    "control-budget-v1.json": "98d04badd7e411d9bf2efa3ed8f1fa7e6cb005ddff892a4d75a24539ee01fd91",
+    "even-canonical_residual_model_error": "25d6c5a3f91e6c5a8a8d040f8296a3f582cb66d789c532215ab9a400d07b784b",
+    "even-combined_paid": "382c64c6145576969f5720dc4ab615690762fc576d47fc8a241b55826ec34b1e",
+    "even-complete_physical_tail": "113106027215e6dfa04041d97b372b17f348e56369a407633e88842dc3a5be18",
+    "even-finite_head": "53f42e67e4e2f34fa1b6024bb323b56879784a47ce3a7aa674edc0dd67059b39",
+    "odd-canonical_residual_model_error": "57704e6d0803231bd21f4e26d8671e7a0d3dd699432ae5e94fb7abd9d7f3ce4e",
+    "odd-combined_paid": "0e7c6db9ace1ea598a209f5dc08134b1dc380b72d6c4b1e856153700725093eb",
+    "odd-complete_physical_tail": "9de587934c46a98878427217c5ed2093d577763cee949854a64452de8fff692b",
+    "odd-finite_head": "a37c8e711e3c278d3e1dfed362b7183de0edae6a4f0d546cb907f73131050cb0",
+    "reference-audit-v1.json": "3cfafc4c5e7db8c0b76e8ada4afe73b34738e4697a3f030d5b6f19b2023c1e34",
+    "reference-v1.json": "5d9f66d2941db36b338fab1c23d06b15a67e0c9452f1678dbaaddbce6c31a0e6",
+    "target-declaration-audit-v2.json": "e098c85af344ee38d9d06e79bd1aafced905b10a5cac4d0ba1b4dbaf476a284b",
+    "target-declaration-v1.json": "ab63147ed5c77b1f0f1c611d5f72a86219932e41c5d5196cf3511654aaa3a898"
+  },
+  "format": "t080-qualification-isolated-replay-v1",
+  "own_isolated_tree_removed": true,
+  "status": "PASS_CAPTURED_QUALIFICATION_REPLAY",
+  "steps": [
+    {
+      "argv": [
+        "-m",
+        "scripts.weil_t080_control_budget",
+        "--inputs",
+        "computations/2026-10-27T050743Z-t080-target-qualification/control-budget-inputs-v1.json",
+        "--output",
+        "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-v1.json"
+      ],
+      "elapsed_seconds": 85.67501839995384,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "even finite_head certified cap 0.4511404796503484\neven complete_physical_tail certified cap 0.3670852684881538\neven canonical_residual_model_error certified cap 0.004950846312567592\neven combined_paid certified cap 0.49478281126357615\nodd finite_head certified cap 0.4324285709299147\nodd complete_physical_tail certified cap 0.3822741883341223\nodd canonical_residual_model_error certified cap 5.346955731511116e-06\nodd combined_paid certified cap 0.4885105136781931\nCONTROL_BUDGET_AND_PHYSICAL_ACCURACY_SCALE_CERTIFIED\n"
+    },
+    {
+      "argv": [
+        "-m",
+        "scripts.verify_t080_control_budget",
+        "--inputs",
+        "computations/2026-10-27T050743Z-t080-target-qualification/control-budget-inputs-v1.json",
+        "--source",
+        "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-v1.json",
+        "--output",
+        "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-audit-v1.json"
+      ],
+      "elapsed_seconds": 114.35098350001499,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS\", \"whole_space_caps_checked\": 8, \"target_matrices_computed\": false}\n"
+    },
+    {
+      "argv": [
+        "-m",
+        "scripts.weil_t080_reference_qualification",
+        "--inputs",
+        "computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+        "--output",
+        "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json"
+      ],
+      "elapsed_seconds": 0.7740881000645459,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"status\": \"SCALAR_REFERENCE_QUALIFIED\", \"beta\": \"859/1024\", \"R\": 257, \"N\": 322, \"M\": 644, \"Rc\": 514}\n"
+    },
+    {
+      "argv": [
+        "-m",
+        "scripts.verify_t080_reference_qualification",
+        "--inputs",
+        "computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+        "--source",
+        "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json",
+        "--output",
+        "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json"
+      ],
+      "elapsed_seconds": 1.8904783998150378,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS\", \"beta\": \"859/1024\", \"R\": 257, \"N\": 322, \"M\": 644, \"Rc\": 514}\n"
+    },
+    {
+      "argv": [
+        "-m",
+        "scripts.weil_t080_target_declaration",
+        "--inputs",
+        "computations/2026-10-27T050743Z-t080-target-qualification/parameter-selection-inputs-v1.json",
+        "--reference-audit",
+        "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json",
+        "--control-audit",
+        "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-audit-v1.json",
+        "--output",
+        "computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-v1.json"
+      ],
+      "elapsed_seconds": 0.2578765000216663,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"status\": \"QUALIFIED_TARGET_PARAMETERS_NOT_POSITIVITY\", \"N\": 322, \"K\": 76, \"M\": 644, \"source_bits\": 3072, \"independent_bits\": 4096, \"model_error_upper\": 2.969473126902646e-21, \"accuracy_goal\": 3.324789638166813e-21}\n"
+    },
+    {
+      "argv": [
+        "-m",
+        "scripts.verify_t080_target_declaration_v2",
+        "--inputs",
+        "computations/2026-10-27T050743Z-t080-target-qualification/parameter-selection-inputs-v1.json",
+        "--source",
+        "computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-v1.json",
+        "--reference-audit",
+        "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json",
+        "--control-audit",
+        "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-audit-v1.json",
+        "--output",
+        "computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-audit-v2.json"
+      ],
+      "elapsed_seconds": 2.1784682001452893,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS\", \"verifiedK\": 76, \"N\": 322}\n"
+    }
+  ],
+  "target_low_coupling_matrix_computed": false,
+  "target_positivity_proved": false
+}

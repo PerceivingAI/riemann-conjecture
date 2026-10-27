@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-27T06:33:57.990462+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/qualify-midpoint-seeds-v1.py",
+    "--declaration",
+    "computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-v1.json",
+    "--output",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/midpoint-seeds-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.5346626001410186,
+  "stdout": "{\"format\": \"t080-native-midpoint-bessel-qualification-v1\", \"declaration_sha256\": \"ab63147ed5c77b1f0f1c611d5f72a86219932e41c5d5196cf3511654aaa3a898\", \"probe_sha256\": \"b4ccca14e901c22ac85287c8a1abf02bef92640451d8e827dc1e41d60d81ee85\", \"derivative_bound\": \"|j_n prime|<=1/sqrt(3(2n+1))<=1 by DLMF10.54.2, ordinary Legendre mass and Cauchy-Schwarz\", \"source_precision\": 3072, \"higher_precision_check\": 4096, \"guard_2048_retained\": true, \"minimum_seed_bits\": 2249, \"status\": \"PASS_ALL_118_SEEDS\"}\n",
+  "stderr": ""
+}

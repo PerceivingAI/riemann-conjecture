@@ -1,0 +1,17 @@
+{
+  "started": "2026-10-27T05:46:05.478066+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "scripts.weil_t080_qualification_replay",
+    "--bundle",
+    "computations/2026-10-27T050743Z-t080-target-qualification",
+    "--output",
+    "computations/2026-10-27T050743Z-t080-target-qualification/data/isolated-replay-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 205.73963430011645,
+  "stdout": "{\"status\": \"PASS_CAPTURED_QUALIFICATION_REPLAY\", \"target_low_coupling_matrix_computed\": false, \"target_positivity_proved\": false}\n",
+  "stderr": ""
+}

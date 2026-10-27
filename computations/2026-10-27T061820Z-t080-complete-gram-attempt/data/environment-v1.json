@@ -1,0 +1,16 @@
+{
+  "created": "2026-10-27T06:38:52Z",
+  "executable": "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+  "independent_precision_bits": 4096,
+  "packages": {
+    "numpy": "2.5.2",
+    "python-flint": "0.9.0",
+    "scipy": "1.18.0"
+  },
+  "platform": "Windows-11-10.0.26300-SP0",
+  "production_admission": false,
+  "publication_bits": 256,
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "research_only": true,
+  "source_precision_bits": 3072
+}

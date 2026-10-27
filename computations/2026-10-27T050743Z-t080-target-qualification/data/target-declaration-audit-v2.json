@@ -1,0 +1,22 @@
+{
+  "N": 322,
+  "consumer_sha256": "1a8410cfaf628f59884f8da7a249c6fcdf8a18665f4192e47e24a9113f872e98",
+  "format": "t080-target-declaration-independent-audit-v2",
+  "frequency_exterior_paid_by_terminal_Parseval_weight": true,
+  "frequency_weights_checked": 60,
+  "fresh_complete_reference_native_acceptance_replayed": true,
+  "full_remainder_and_coefficient_checks": true,
+  "mapped_Legendre_physical_mass_convention": "D_n=2/(2n+1), with support factors in the mapped operators",
+  "policy_minimum_scope": "first qualifying published sufficient allowance, not optimal true residual degree",
+  "policy_prior_orders_checked": 37,
+  "precision_policy_checked": true,
+  "precision_policy_is_not_an_actual_enclosure_width_or_gap_proof": true,
+  "production_admission": false,
+  "required_numerical_physical_width_goal": "719085319468766875760047857143391294023921190656386509610472099759292292444717696791981072504234078710230308453085635623031141220437911918118443334533721117058587180542193893151187937827810834772518672035589530724138459318673510712032928692535909605613788567331610280709323152038824397581480298186333570715639288261835297087981076407359730856885/865119779265491728325868389743722924777797902778926120828796683156540867403668274636948996284917780436562872275238054883140761188750751350041049855871880453109646809777568654015490316661527616385031355944923226382460820562705730408882616352829109768984338547299719854111377130808727399595660513767676178574734136833215902363593292894020709602623026633918773626667008",
+  "shared_trust": "FLINT/Arb enclosed arithmetic and transcendental functions",
+  "source_sha256": "ab63147ed5c77b1f0f1c611d5f72a86219932e41c5d5196cf3511654aaa3a898",
+  "status": "PASS",
+  "target_low_coupling_matrix_computed": false,
+  "target_positivity_proved": false,
+  "verifiedK": 76
+}

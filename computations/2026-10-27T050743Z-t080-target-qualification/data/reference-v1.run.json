@@ -1,0 +1,17 @@
+{
+  "started": "2026-10-27T05:18:27.876794+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "scripts.weil_t080_reference_qualification",
+    "--inputs",
+    "computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+    "--output",
+    "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.7184317000210285,
+  "stdout": "{\"status\": \"SCALAR_REFERENCE_QUALIFIED\", \"beta\": \"859/1024\", \"R\": 257, \"N\": 322, \"M\": 644, \"Rc\": 514}\n",
+  "stderr": ""
+}

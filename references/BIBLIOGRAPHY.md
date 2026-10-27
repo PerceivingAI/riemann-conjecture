@@ -1,7 +1,7 @@
 # Research Bibliography
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-26T02:21:56Z`
+- **Last updated:** `2026-10-27T06:48:04Z`
 
 This is the authoritative source registry for literature materially used in the repository.
 
@@ -347,6 +347,7 @@ This is the authoritative source registry for literature materially used in the 
 - **Used for:** Standard digamma representations supporting the positive exponential-kernel decomposition in `C-0043`.
 - **Verification notes:** Section 5.9(ii), including the standard integral/series representations for `psi`, was checked directly. The nonnegative-kernel decomposition is derived in the repository.
 - **Material-use addendum, 2026-10-25T15:08:18Z:** Directly inspected [DLMF5.7.6](https://dlmf.nist.gov/5.7.E6) and its [exact TeX](https://dlmf.nist.gov/5.7.E6.tex). The digamma partial-fraction series gives the locally uniform derivative and monotonicity of Re psi(1/4+it/2), with an explicit signed omitted-series enclosure used in C-0094. This is a new source use, not a change to the original C-0043 provenance.
+- **Material-use addendum, 2026-10-27T05:48:45Z:** Inspected [DLMF5.9.15](https://dlmf.nist.gov/5.9#E15) and its [exact TeX](https://dlmf.nist.gov/5.9.E15.tex). Binet's digamma integral on Re(z)>0 supplies C-0119's independent shifted-digamma reconstruction. Finite expansion of its rational denominator and the Bose moment derive the explicit remainder |B_(2p)|/[2p Re(z)^(2p)]; this bound is not asserted from an asymptotic equivalence. No external code is imported.
 
 ### R-0031 — Public `weil-first-prime` proof-code candidate
 
@@ -452,6 +453,16 @@ This is the authoritative source registry for literature materially used in the 
 - **First verified/accessed:** `2026-10-26T02:21:56Z`
 - **Used for:** C-0105's entire0F1 Fourier/pole anchors and explicit first-omitted/truncation policies.
 - **Verification notes:** The exact series definition was inspected. For b=n+3/2>0 the repository independently derives convergence, geometric first-omitted bound, sufficient order and prefactor/recurrence propagation. Fourier/pole normalization also follows directly from Rodrigues. No asymptotic cancellation assumption or external implementation is imported.
+
+### R-0041 — NIST spherical Bessel integral representation
+
+- **Authors:** NIST Digital Library of Mathematical Functions
+- **Title:** Section10.54, Integral Representations; equation10.54.2
+- **Publication:** NIST DLMF, continuously maintained
+- **Stable identifier:** https://dlmf.nist.gov/10.54.E2 ; exact primary formula https://dlmf.nist.gov/10.54.E2.tex
+- **First registered/source-checked:** `2026-10-27T06:48:04Z`
+- **Used for:** C-0120's rigorously paid exact-midpoint spherical-Bessel seed evaluation at nondyadic T4/5 frequency arguments.
+- **Verification notes:** Inspected the primary exact TeX; a separate reviewer also fetched it independently. Substitution t=cos(theta), differentiation under the finite integral and ordinary Legendre mass give |j_n'(real)|<=1/sqrt(3(2n+1))<=1 by Cauchy-Schwarz. Enlarging the native midpoint value radius by the full input radius is therefore rigorous. This is a locally derived enclosure rule, not a claim from a floating comparison or a suppression of the seed guard. No external implementation was imported.
 
 ## Entry format
 

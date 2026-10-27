@@ -1,0 +1,18 @@
+{
+  "started": "2026-10-27T06:44:36.862469+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/propose-whole-v2.py",
+    "--inputs",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/whole-inputs-v1.json",
+    "--source",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-source-v2.json",
+    "--output",
+    "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-proposal-v2.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 12.150733199901879,
+  "stdout": "even theta 0.6695613743813738 relativeGram 0.49346845628992314 fresh_whitened_S_min 0.5065315437100774\nodd theta 0.6665414259350655 relativeGram 0.5055790620337642 fresh_whitened_S_min 0.4944209379662358\n",
+  "stderr": ""
+}

@@ -1,0 +1,23 @@
+{
+  "started": "2026-10-27T05:30:41.417542+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "scripts.verify_t080_target_declaration",
+    "--inputs",
+    "computations/2026-10-27T050743Z-t080-target-qualification/parameter-selection-inputs-v1.json",
+    "--source",
+    "computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-v1.json",
+    "--reference-audit",
+    "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json",
+    "--control-audit",
+    "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-audit-v1.json",
+    "--output",
+    "computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-audit-v1.json"
+  ],
+  "exit_code": 2,
+  "elapsed_seconds": 0.23826669994741678,
+  "stdout": "{\"status\": \"REJECT\", \"error\": \"reference audited interval mismatch outside_lower_form\"}\n",
+  "stderr": ""
+}
