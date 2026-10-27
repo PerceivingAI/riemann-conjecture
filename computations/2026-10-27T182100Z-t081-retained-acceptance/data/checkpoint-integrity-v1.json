@@ -1,0 +1,20 @@
+{
+  "RH_status": "UNRESOLVED",
+  "actual_replay_status": "PASS_COMPLETE_CAPTURED_REFERENCE_SOURCE_AND_EXACT_REPLAY",
+  "adversarial_target_execution_performed": false,
+  "captured_bytes_match_canonical_inputs": true,
+  "captured_destinations_checked": 55,
+  "created": "2026-10-27T22:29:21Z",
+  "earlier_research_members_unchanged": 434,
+  "final_retained_acceptance_gate_executed": false,
+  "format": "t081-retained-replay-checkpoint-integrity-v1",
+  "local_markdown_links_checked": 799,
+  "new_accepted_claim_created": false,
+  "new_public_boundary_reference_hits": [],
+  "owned_temporary_tree_removed": true,
+  "production_admission": false,
+  "qualification_byte_comparisons": 8,
+  "status": "PASS",
+  "tables_checked": 7,
+  "target_comparisons": 9
+}

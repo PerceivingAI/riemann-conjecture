@@ -1,0 +1,18 @@
+{
+  "acceptance_program_sha256": "bf9e9aea87395d991b858a8bd6573b997fc26c548e6b7e97e592e62613556306",
+  "common_smooth_form_domain_not_entire_operator_identity": true,
+  "created": "2026-10-27T18:35:10Z",
+  "format": "t081-retained-proof-review-binding-v1",
+  "native_negative_scope": "one fresh original-even control and subset rejection probes, separate from full positive replay",
+  "negative_controls_driver_sha256": "7fed87506ba578df7233bdd0672e41068ee1e3faede0cd9ff9061b8950f97409",
+  "production_admission": false,
+  "published_rational_source_norm_gap_lower": "1/1000000000000000000000",
+  "replay_driver_sha256": "6221e063559d9c03c79cfe215b417292bf91a13e6e3ea69d496701cebe4ead78",
+  "report_trust_boundary": "trusted reviewed local scientific drivers; shared recorded source/FLINT/Arb/Gauss premises",
+  "review_text_sha256": "6654f3c331e05b2d41bb283d199939205ab9aade1568f08e9273f0c8f9e46738",
+  "reviewer_executed_scientific_checks": false,
+  "scope_approval_is_conditional_on_actual_gates": true,
+  "scope_approved": true,
+  "smooth_test_consequence_sha256": "0745f682bbba48d2851ab967030e1e7e03269eb01c0ccebcf54ac189575e0ec2",
+  "source_sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e"
+}

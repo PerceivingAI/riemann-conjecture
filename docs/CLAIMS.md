@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-27T18:06:21Z`
+- **Last updated:** `2026-10-27T22:29:21Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -1382,6 +1382,8 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** C-0063 source/common domain/ordinary physical mass; C-0085 bounded V cross; C-0104 complete leakage; C-0107/C-0112 signed reference and complete supported completion; C-0117 full canonical residual model/band; C-0118 complete physical weighted-Gram criterion; C-0122 exact supported-reference, inverse and error/precision declaration. R-0041 paid nonexact-input Bessel seed rule. Existing source and FLINT/Arb/Gauss premises remain explicit. Earlier accepted positivity is not target data or coercivity.
 - **Source:** [F-20261027-006](../findings/2026-10-27T140745Z-t081-complete-supported-gram-candidate.md), [X-20261027-006](../computations/2026-10-27T140745Z-t081-complete-gram-attempt/record.md).
 - **Verification notes:** Actual source, full independent analytical consumer, nonproof proposal and exact full-sign CLIs all pass and bind source SHA256 f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e. Correct2/3/4/5 arithmetic, all mixed squares, both translation windows and VP orientations, signed full residual and both infinite exteriors are retained. Fresh actual-A native conditioning precedes float; exact80-bit full coordinates replace all inherited transforms. Both413 determinants and every complete Gershgorin radius pass; physical numerical radii<2.217e-71 satisfy goal about3.770e-24. No declared parameter/precision refinement is needed. Separate read-only review approves; nine consumed source/helper files are captured. Full target false-math/exact adversarial checks, isolated retained reproduction and separately reviewed smooth-test/full-norm consequence have NOT run. No retained new-support release, full source-norm bound, external normalization, novelty/priority, production admission, unbounded family or RH follows.
+
+- **Captured-replay checkpoint, 2026-10-27T22:29:21Z:** [X-20261027-007](../computations/2026-10-27T182100Z-t081-retained-acceptance/record.md) completes55-destination isolated reproduction with8 scalar/reference and9 target comparisons. Fresh source, six matrices and complete exact report are byte-identical; native audit excludes only source/input execution paths, checks all512946 entries and reproduces every other field. Both full exact signs and numerical goals pass, and the owned tree is removed. This resolves the earlier replay-pending portion of the verification note, not the whole acceptance gate. Nine substantive adversarial cases and the final conjunctive gate remain UNEXECUTED; C-0123 stays PROVISIONAL and the conditional10^-21 full-norm consequence is not released. No prior record or production inventory changes.
 
 ## Entry format
 

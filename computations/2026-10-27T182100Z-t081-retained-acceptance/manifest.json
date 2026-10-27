@@ -1,0 +1,346 @@
+{
+  "created": "2026-10-27T18:21:00Z",
+  "format": "t081-retained-replay-checkpoint-bundle-v1",
+  "members": [
+    {
+      "path": "accept-retained-v1.py",
+      "sha256": "bf9e9aea87395d991b858a8bd6573b997fc26c548e6b7e97e592e62613556306",
+      "size": 13610
+    },
+    {
+      "path": "acceptance-inputs-v1.json",
+      "sha256": "bb19e0fbafa6aff30e0eab92de1951b8c54c0cf380ab8681e0e0c098879b757a",
+      "size": 736
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+      "sha256": "2db67f5add9fd164a23a03c33ebe6181cb5f171499adcdfb93d3875eddc7c29f",
+      "size": 1881
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json",
+      "sha256": "3cfafc4c5e7db8c0b76e8ada4afe73b34738e4697a3f030d5b6f19b2023c1e34",
+      "size": 5306
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json",
+      "sha256": "5d9f66d2941db36b338fab1c23d06b15a67e0c9452f1678dbaaddbce6c31a0e6",
+      "size": 314708
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+      "sha256": "bf840c67beeaf7846dbe6d8c0e43b63fe6a4d2b199e6106fcbc5e7682706ea31",
+      "size": 1155
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T084414Z-t080-retained-acceptance/data/full-acceptance-v1.json",
+      "sha256": "7530f0c05c0caad1b4fa206fa75e7dafbd75adc8aa72141a6bb757e4d44bb237",
+      "size": 3809
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/first-attempt-seal-v1.json",
+      "sha256": "7b29db1a39707f489de185c48d7b361077686e9713d294397e24466b3f4f0dc3",
+      "size": 4913
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/reference-audit-v2.json",
+      "sha256": "688cfdad899ff17a6aafd7510f1d9e37b9216925ba0970d0ae369edd352bb5ea",
+      "size": 5326
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/reference-source-v2.json",
+      "sha256": "3429099699fb19d0ee8cfd682c79ccb679badeb52472f0ca67305902ea348921",
+      "size": 1209811
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/supported-reference-audit-v1.json",
+      "sha256": "65f5b7d7ed5996c220e2c87b20770847c35cf73bbc8600b3cf3fe058bf37c569",
+      "size": 7475
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/supported-reference-source-v1.json",
+      "sha256": "52bbb50458c067146af1523a80691223b5eed93abede9c73a917a188ef87d42d",
+      "size": 796660
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/target-declaration-audit-v1.json",
+      "sha256": "a10cf29c29193f6b3a9c981ad07631bced6799b2a4b34efe0cc7f415716f66c7",
+      "size": 1936
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/target-declaration-source-v1.json",
+      "sha256": "026658a580d6ebe2ff8543d9e94ebbd24ea92d13027c5e43714e876cce353341",
+      "size": 64423
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/topology-audit-v1.json",
+      "sha256": "4a71562fda4908d68e7267057251d3fd50788207288ab2569332640f3595ea87",
+      "size": 889
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/data/topology-source-v1.json",
+      "sha256": "595c9950e61b58480d79e6b6344d6dc6713bfe0a0b14ec8174057dc08de0b617",
+      "size": 28899
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/declare-target-v1.py",
+      "sha256": "31ca7ab10d53aeef9dd43fbd3000f0abe1a1280e959fb3ac0ff51a06bb81e594",
+      "size": 8058
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/exercise-qualification-v1.py",
+      "sha256": "9a31122dde641176a22487c563bb02b84f722544ce99b02462a04c530c55c2d0",
+      "size": 10919
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/parameter-inputs-v1.json",
+      "sha256": "3c4fa7281dfd6c4e2d26caaee00e75bcccc099f90984bf68aee4fbffd764f574",
+      "size": 1828
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/qualification-inputs-v2.json",
+      "sha256": "6047c5442b781f0b8138922404120b5004ff2dedd39df41c9bea1b9355f5ef4f",
+      "size": 1154
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/qualification-inputs-v3.json",
+      "sha256": "67c73d107bd1448464ebfa9eaab3ded94766f3d0bf703b4397d3f71f730aadf0",
+      "size": 1773
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/qualify-prime-five-topology-v1.py",
+      "sha256": "f3d4aaf7cbd05a760d34e1e79c411e69618036813f4ed532f5958a18dcc0e80f",
+      "size": 4728
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/qualify-reference-v1.py",
+      "sha256": "e77576606a367e3d8aead66aad5ae251ad286cbac92718a4c36572b439e0a153",
+      "size": 10375
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/qualify-reference-v2.py",
+      "sha256": "28f10b9f1a95af2d161cb3724e5f66c0b2142adc9d214fbf5a0e3e96e1ede442",
+      "size": 12179
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/reference-and-error-contract-v1.md",
+      "sha256": "6ac3e241aa4406132080cce2a4da029136bdb8cfc986943a4e78709fa8d4b863",
+      "size": 9580
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/topology-inputs-v1.json",
+      "sha256": "c2898335ee8780a930e0aa0066e9b4a84d7bfae7e0f78ef16ce5966d39dd2c32",
+      "size": 290
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-prime-five-topology-v1.py",
+      "sha256": "23cc2773140c20e7284a8ad1d29f09d3358b64bbba8a968bdf6d715c87d762d6",
+      "size": 12811
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-reference-v1.py",
+      "sha256": "057e47208ff576041b7d896149a877d25b57adc227b92bdcc9adddfebdb0da7d",
+      "size": 19551
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-reference-v2.py",
+      "sha256": "d96b73519a2128c71d4a82a8748bc96d5a7fd4d7a778870f490d004019917013",
+      "size": 24947
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-target-declaration-v1.py",
+      "sha256": "a99f306135c88c3a155ebc1cbea30866deac4a71c49d7dde0d6a2bd801edea3f",
+      "size": 23490
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+      "sha256": "0d37cc35a8a777d4a941d206056d28f4e481df347fe46aea68d4bb39c70e97c1",
+      "size": 12425
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/data/exact-sign-v1.json",
+      "sha256": "b8a439634131a51cbbe029fd0e438eceb2851fe1a8e8d40cac5082009f36046d",
+      "size": 1079079
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/data/proposal-v1.json.gz",
+      "sha256": "3444b4cd498e16b46d9c10b539285cd5038489976a88b3111bd47364d247c85e",
+      "size": 4721644
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/data/source-audit-v1.json",
+      "sha256": "2a4fa791bec54ae4486fd88222827c27da519c2cb8b51df0c16d6afe16c0c08c",
+      "size": 4072
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/data/source-v1.json",
+      "sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e",
+      "size": 18023
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/data/whole-matrices-v1/A_model-0.json.gz",
+      "sha256": "479fa8ffd000ffb41caf4309fc84a91dfb6db893a2d75f5c83c0cb6e37fee36b",
+      "size": 3639769
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/data/whole-matrices-v1/A_model-1.json.gz",
+      "sha256": "1c814c9b8f8f5ff09823c5bde38414e6392c10a73b5b0adc743dade1e9077bad",
+      "size": 3639505
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/data/whole-matrices-v1/weighted_complete_tail-0.json.gz",
+      "sha256": "85b802528bfee414678327dca90ee3c293ec71cfd7c7e951aa261502cd964601",
+      "size": 3587922
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/data/whole-matrices-v1/weighted_complete_tail-1.json.gz",
+      "sha256": "e707a3339d4f8310c3a03d4364421ce5229daad9d1319e747c734fd11f79bf64",
+      "size": 3587595
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/data/whole-matrices-v1/weighted_head-0.json.gz",
+      "sha256": "f82b9c5d344d63610eb031c8d71128748de5ad2220ebd9f945964a2550b7b2dd",
+      "size": 3610918
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/data/whole-matrices-v1/weighted_head-1.json.gz",
+      "sha256": "5dc0878352456e29d3ab5c778e0dbcd46c74dc596dd0521ce2e32004b549eace",
+      "size": 3610803
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/verify-whole-sign-v1.py",
+      "sha256": "def3d7d7d242a319c9f93fec39674c2c2cf40796b653ddb44f47df2e8019fd64",
+      "size": 6481
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/verify-whole-source-v1.py",
+      "sha256": "4bc4d25db589fe987bb2c7f78f31bd7dc83849666daae82b017295db30d94720",
+      "size": 40205
+    },
+    {
+      "path": "captured-inputs-v1/computations/2026-10-27T140745Z-t081-complete-gram-attempt/whole-inputs-v1.json",
+      "sha256": "19eac80d7869fcc6d6ddd0d33dcb90901b65254b2f076c6964148575019982a1",
+      "size": 894
+    },
+    {
+      "path": "captured-inputs-v1/pyproject.toml",
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf",
+      "size": 1432
+    },
+    {
+      "path": "captured-inputs-v1/scripts/cert/__init__.py",
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092",
+      "size": 412
+    },
+    {
+      "path": "captured-inputs-v1/scripts/cert/constants.py",
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "size": 5348
+    },
+    {
+      "path": "captured-inputs-v1/scripts/cert/legendre_schur.py",
+      "sha256": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+      "size": 14453
+    },
+    {
+      "path": "captured-inputs-v1/scripts/cert/mixed_gram_research.py",
+      "sha256": "61c830e808d281e9a0d61ad040f7ffaeaf42821ebf753f977887567a4fdf01f3",
+      "size": 13979
+    },
+    {
+      "path": "captured-inputs-v1/scripts/cert/multi_prime_legendre_schur.py",
+      "sha256": "341c64284182e774886ff487d3d1107fabe29e86c1bcc3d1782e6d1111103246",
+      "size": 13682
+    },
+    {
+      "path": "captured-inputs-v1/scripts/cert/prime_power_terms.py",
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+      "size": 21423
+    },
+    {
+      "path": "captured-inputs-v1/scripts/cert/quadrature.py",
+      "sha256": "c8bc5bc04655722f394dba6c46655494cd90e5e68117e3361a835ac10e719663",
+      "size": 6229
+    },
+    {
+      "path": "captured-inputs-v1/scripts/cert/residual_kernel.py",
+      "sha256": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "size": 12441
+    },
+    {
+      "path": "captured-inputs-v1/scripts/verify_t080_reference_qualification.py",
+      "sha256": "332779553723f5e9aead03cb0084f7131e686bd92f0a13a8e2074f2c0ab57a5d",
+      "size": 17239
+    },
+    {
+      "path": "captured-inputs-v1/scripts/weil_reference_route_controls.py",
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13",
+      "size": 8462
+    },
+    {
+      "path": "captured-inputs-v1/scripts/weil_t080_reference_qualification.py",
+      "sha256": "74736cbd88ab1aaf1f47f71ade83005088470ce380b34d5cd502704c11436bf9",
+      "size": 10360
+    },
+    {
+      "path": "captured-inputs-v1/uv.lock",
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a",
+      "size": 210571
+    },
+    {
+      "path": "captured-source-inputs-v1.json",
+      "sha256": "96735e3e00d5d3b079571cb2f365d774a1b116c1b8ad6d7a56a6f69e489c3e88",
+      "size": 21721
+    },
+    {
+      "path": "data/checkpoint-integrity-v1.json",
+      "sha256": "0ea676d3bd9681b41f93eeb0950a79c12d7312dfea5061445fc91cb1b071565a",
+      "size": 755
+    },
+    {
+      "path": "data/isolated-replay-v1-receipt.json",
+      "sha256": "5134c153f967fcc819ae497e1c030432d38112682394297a5762780b2cd987b5",
+      "size": 622
+    },
+    {
+      "path": "data/isolated-replay-v1.json",
+      "sha256": "44f8516a60836516849ac3150f243807452c5fa807d6aba8606d92f1f2589445",
+      "size": 16737
+    },
+    {
+      "path": "independent-review-v1.md",
+      "sha256": "6654f3c331e05b2d41bb283d199939205ab9aade1568f08e9273f0c8f9e46738",
+      "size": 4119
+    },
+    {
+      "path": "negative-controls-v1.py",
+      "sha256": "7fed87506ba578df7233bdd0672e41068ee1e3faede0cd9ff9061b8950f97409",
+      "size": 30259
+    },
+    {
+      "path": "record.md",
+      "sha256": "7ce3caa2f8a918063fb672f2d85166c4dc469b1ed80142a45369f2490d332334",
+      "size": 5645
+    },
+    {
+      "path": "replay-acceptance-v1.py",
+      "sha256": "6221e063559d9c03c79cfe215b417292bf91a13e6e3ea69d496701cebe4ead78",
+      "size": 9170
+    },
+    {
+      "path": "review-decision-v1.json",
+      "sha256": "aacf45ea6c4990dad599f6536e8b6cd69bfed68b98da44fe76483402c8ca9929",
+      "size": 1225
+    },
+    {
+      "path": "smooth-test-consequence-v1.md",
+      "sha256": "0745f682bbba48d2851ab967030e1e7e03269eb01c0ccebcf54ac189575e0ec2",
+      "size": 6741
+    }
+  ],
+  "production_admission": false,
+  "record": "record.md",
+  "sealed": "2026-10-27T22:38:42Z",
+  "source_sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e",
+  "status": "FULL_CAPTURED_REPLAY_PASS_RETAINED_ACCEPTANCE_PENDING"
+}

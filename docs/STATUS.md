@@ -1,10 +1,12 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-27T18:06:21Z`
+- **Last updated:** `2026-10-27T22:29:21Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
+
+**Full T81/100 captured replay passed, 2026-10-27T22:29:21Z; retained acceptance still pending.** [X-20261027-007](../computations/2026-10-27T182100Z-t081-retained-acceptance/record.md) reproduces the unchanged C-0123 candidate from55 captured destinations. All8 scalar/reference outputs and9 target comparisons pass; source, six matrices and exact report are byte-identical. Native6144-bit acceptance again checks all512946 entries and both full413-dimensional exact parity signs/nonsingularity/numerical goals pass. Only source/input execution paths are excluded from native report equality. Expected full-target outputs remain outside the child tree and the owned tree is removed. The nine substantive adversarial checks and final conjunctive consequence gate have NOT run. The conditionally reviewed10^-21 full source-norm publication is not released. C-0123 remains provisional; C-0121 at T4/5 remains the retained-accepted frontier. No production admission or RH conclusion.
 
 **Complete T81/100 prime-five candidate positive, 2026-10-27T18:06:21Z; retained acceptance pending.** [F-20261027-006](../findings/2026-10-27T140745Z-t081-complete-supported-gram-candidate.md) / provisional C-0123 and [X-20261027-006](../computations/2026-10-27T140745Z-t081-complete-gram-attempt/record.md) execute the unchanged C-0122 declaration N826,K86,M1652. Fresh actual low and complete signed V/P/R86 retain all2/3/4/5 mixed squares, both VP orientations, full residual and both infinities. Independent6144-bit native acceptance contains all512946 triangular entries; separate zero-float nonsingular congruence proves both complete413-dimensional paid parity lowers positive on identical source bytes. Both physical numerical-width goals pass. Selected LOW physical bounds exceed4.88e-18 even/5.29e-15 odd; these are not full source-norm or external coercivity constants. No parameter/precision refinement is needed. Nine consumed source/helper files are captured, but new target adversarial cases, isolated full replay and reviewed smooth-test/full-norm consequence have NOT run. C-0121 at T4/5 remains the retained-accepted frontier. Production8v1/0v2/1v3 and RH unresolved are unchanged.
 

@@ -1,13 +1,23 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-27T18:06:21Z`
+- **Last updated:** `2026-10-27T22:29:21Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
 ## Byte identity on checkout
 
 The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep pinned sources/configuration in their recorded LF form, and the original SYS-6.4 probe plus the executed T3/4 Fourier producer in their recorded CRLF form. Retained bundles remain verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+
+## Complete T81/100 captured replay checkpoint
+
+[X-20261027-007](../computations/2026-10-27T182100Z-t081-retained-acceptance/record.md) retains the actually executed full55-destination source/input reproduction. Expected target outputs are withheld from the scientific child tree. All8 scalar/reference outputs and9 target comparisons pass, including all512946 analytical entries and both complete exact signs/numerical goals. Source, six matrices and exact report are byte-identical; native equality excludes only source/input execution paths. The owned tree is removed.
+
+```text
+uv run --locked python -B computations/2026-10-27T182100Z-t081-retained-acceptance/replay-acceptance-v1.py --output <fresh-replay.json>
+```
+
+The same bundle contains implemented, conditionally reviewed `negative-controls-v1.py` and `accept-retained-v1.py`, but neither target execution has run at this checkpoint. The native countercase driver explicitly uses an independently reconstructed original-even subset for six false-source probes, separate from the complete positive replay; three exact cases use the unchanged full checker. No adversarial PASS, retained smooth-test release, accepted full-norm constant or production admission is claimed. The dated earlier candidate section below predates this successful replay.
 
 ## Complete fixed T81/100 source/sign research candidate
 

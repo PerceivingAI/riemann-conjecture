@@ -1,0 +1,16 @@
+{
+  "K": 86,
+  "M": 1652,
+  "N": 826,
+  "candidate_bundle": "computations/2026-10-27T140745Z-t081-complete-gram-attempt",
+  "candidate_manifest_sha256": "b44bdfcb3567e9182b659b0037edc7bdca4fe464dfca6eebd595ac5c93debe24",
+  "created": "2026-10-27T18:21:00Z",
+  "format": "t081-retained-acceptance-inputs-v1",
+  "full_source_and_exact_replay_required": true,
+  "production_admission": false,
+  "qualification_bundle": "computations/2026-10-27T132236Z-t081-prime-five-qualification",
+  "qualification_manifest_sha256": "a1431dac564a4aafa0b2cba5f86ca28f95e12bb63f9b7aa331300a204f1d6da9",
+  "research_baseline_commit": "268af0c",
+  "source_sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e",
+  "support": "81/100"
+}
