@@ -1,0 +1,14 @@
+{
+  "started": "2026-10-27T02:02:08.954566+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T003742Z-physical-reference-viability/replay-fixed-assessment-v3.py",
+    "--output",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/isolated-replay-v3.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 514.7719682001043,
+  "stdout": "{\"status\": \"PASS_CAPTURED_ISOLATED_REPLAY\", \"captured_files\": 22, \"checks\": 11}\n",
+  "stderr": ""
+}

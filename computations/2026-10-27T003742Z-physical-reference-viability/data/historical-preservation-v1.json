@@ -1,0 +1,128 @@
+{
+  "format": "whole-control-historical-preservation-v1",
+  "frozen_public_code_test_config_files_verified": 16,
+  "historical_members_verified": 1324,
+  "prior_bundles": [
+    {
+      "manifest_sha256": "28eff565a893a54b5ae111e6b70dd92f46d9440b736aa8ac5469bdf3b487da92",
+      "path": "computations/2026-10-24T191616Z-weighted-support-extension",
+      "verified_members": 119
+    },
+    {
+      "manifest_sha256": "5be84184c903232cea5bb1905a6c9a489864014f3e1c8de1b2ecd5a75007461b",
+      "path": "computations/2026-10-24T224948Z-tail-restricted-residual",
+      "verified_members": 55
+    },
+    {
+      "manifest_sha256": "23ad23d8c393bc1c79e5c577e7d1e34a662dfbdb3c9c691edc74e9b3e622e56a",
+      "path": "computations/2026-10-24T231555Z-tail-complement-weighted-reference",
+      "verified_members": 89
+    },
+    {
+      "manifest_sha256": "74aba5cb6bdb9a0ec9fa34c7cd140f0a8b41ea710648ea42f4d7500b994aa034",
+      "path": "computations/2026-10-25T001555Z-coupling-derived-projection",
+      "verified_members": 85
+    },
+    {
+      "manifest_sha256": "6a6fb19db869e6d93a33fa691171571b45aeb23fa31f28a23592363378913bba",
+      "path": "computations/2026-10-25T010204Z-complete-retained-reprojection",
+      "verified_members": 119
+    },
+    {
+      "manifest_sha256": "c50598a28ccc747f36c0842bc4fc39ef0e0accf2eafc85e648c7c2f48d9129a3",
+      "path": "computations/2026-10-25T130058Z-coupled-tail-comparison",
+      "verified_members": 143
+    },
+    {
+      "manifest_sha256": "9d449302af60194040a44a707a22d594eed09eae172e357f92dd6c94c60002d2",
+      "path": "computations/2026-10-25T134254Z-coupled-route-viability",
+      "verified_members": 31
+    },
+    {
+      "manifest_sha256": "d036b0c16e5f0c32b29c75c6ec63402940886f4dee1c3bda5394a5c908e468a9",
+      "path": "computations/2026-10-25T142424Z-reference-route-selection",
+      "verified_members": 36
+    },
+    {
+      "manifest_sha256": "df94fdde1b9800ce514408c2ec51f3d7493819a032b52ffd8641f0f58043d544",
+      "path": "computations/2026-10-25T155033Z-fourier-minorant-sign",
+      "verified_members": 65
+    },
+    {
+      "manifest_sha256": "ff26286ca9c73ec01be0dbc47f2e320cca2fcc2df272968775c37cf69c716835",
+      "path": "computations/2026-10-25T203013Z-m4-fourier-qualification",
+      "verified_members": 33
+    },
+    {
+      "manifest_sha256": "8bf554bc6ef2b57624213b5a72df55c6aed874a11e5b1c01b91cca7c76210213",
+      "path": "computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment",
+      "verified_members": 29
+    },
+    {
+      "manifest_sha256": "e6fc379fea7524c7a38beeb04f60658eb27c77a50cf34022c9dce06101cb42fe",
+      "path": "computations/2026-10-25T220817Z-post-m4-fourier-sign",
+      "verified_members": 61
+    },
+    {
+      "manifest_sha256": "e9e61c6aa3a5f8fd0e8b876cd6f9c0547af94f4c9ff9b492d8c364ea93230420",
+      "path": "computations/2026-10-25T232320Z-fourier-structural-assessment",
+      "verified_members": 22
+    },
+    {
+      "manifest_sha256": "df3c3843fefdc96f484ec32ba1c21366e939baa616299e8dab61d7bee476f31c",
+      "path": "computations/2026-10-26T001954Z-quantitative-reference-cutoff",
+      "verified_members": 28
+    },
+    {
+      "manifest_sha256": "a822f4f93b73f9b56d3717cf6877a87c0c3768896a7eb81455f967f85de5efa2",
+      "path": "computations/2026-10-26T020435Z-variable-fourier-error-work",
+      "verified_members": 28
+    },
+    {
+      "manifest_sha256": "111a9b34d4c82994bafe51fb88bfac0a6c68cf1f892e2501d4f39c98a44f9d60",
+      "path": "computations/2026-10-26T040651Z-fourier-reference-viability",
+      "verified_members": 22
+    },
+    {
+      "manifest_sha256": "aeef217487dc7b3398e44e8ee9963e9463c081a6ff56905958a44458c586d2ff",
+      "path": "computations/2026-10-26T044551Z-energy-reference-qualification",
+      "verified_members": 23
+    },
+    {
+      "manifest_sha256": "82ee0a45eef410b1a06b97cbfb84037d9d2622363a48e35814e8b9d931950546",
+      "path": "computations/2026-10-26T114258Z-signed-logarithmic-discrepancy",
+      "verified_members": 38
+    },
+    {
+      "manifest_sha256": "595bf95d4dad8a5e6f9ca2f5e7bfd48581bac17561bf1d4d962f6b37f96f1e0a",
+      "path": "computations/2026-10-26T125036Z-energy-aware-schur-contract",
+      "verified_members": 20
+    },
+    {
+      "manifest_sha256": "d194401b62685306234f55aad3620c9a75bc2b2f1781abeb45afd2e3787240cd",
+      "path": "computations/2026-10-26T133105Z-energy-aware-dual-assessment",
+      "verified_members": 34
+    },
+    {
+      "manifest_sha256": "094101cbfc93f47dde6a46fecec6f920f49558ce2bcdd12d3ce8c29c02ef9786",
+      "path": "computations/2026-10-26T141704Z-supported-coupling-qualification",
+      "verified_members": 64
+    },
+    {
+      "manifest_sha256": "5da62e6f81950c91c014a02b40bc65b403dda1e4aa09f75ca0540dd83f82316b",
+      "path": "computations/2026-10-26T171755Z-supported-penalty-comparison",
+      "verified_members": 67
+    },
+    {
+      "manifest_sha256": "21d9173b5a04f78474bf63e4cdf4b0035e9d109aa109fe8f75e5eeb27a7852c7",
+      "path": "computations/2026-10-26T181554Z-full-coupling-viability",
+      "verified_members": 71
+    },
+    {
+      "manifest_sha256": "3e8111d27e922d6af9c34955df86cebdb2445c3d64315833a071ce2960c1ffc3",
+      "path": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-26T191941Z-structured-residual-coupling",
+      "verified_members": 42
+    }
+  ],
+  "status": "PASS_ALL_PRIOR_PUBLIC_RESEARCH_UNCHANGED"
+}

@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-27T01:38:40.994716+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T003742Z-physical-reference-viability/verify-whole-v1.py",
+    "--source",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-source-v4.json",
+    "--output",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-independent-audit-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 382.8613551000599,
+  "stdout": "{\n  \"R56_exterior_zero\": \"endpoint primitive polynomial degree strictly below 624\",\n  \"checked_matrix_files\": 6,\n  \"checked_triangular_entries\": 73476,\n  \"complete_signed_VP_Gram\": true,\n  \"consumer_sha256\": \"07a248929ae3a4b9381d42c3db75ae4c3b9ed2b3642d25ca0a0aa929d851faba\",\n  \"declaration_sha256\": \"4c8ff1748fb3424e401d753b9be39031965265a41ab71ac564a11a9a8b3324b5\",\n  \"entry_requirement\": \"independent endpoints contained in published 192-bit intervals\",\n  \"frequency_anchors\": 60,\n  \"frequency_exterior_paid\": true,\n  \"independent_precision_bits\": 4096,\n  \"inherited_arithmetic_sha256\": \"9e7b0e03254261e4a971be192d21c7991faefaf2f71b0cbbfe8faf946b186cef\",\n  \"ordinary_legendre_masses\": \"2/(2n+1)\",\n  \"positivity_checked\": false,\n  \"production_admission\": false,\n  \"retained_fields_independently_reconstructed\": [\n    \"P\",\n    \"GP\"\n  ],\n  \"scope\": \"complete mathematical source enclosure audit only; no positivity or admission claim\",\n  \"source\": \"D:\\\\2_Add_Projects\\\\riemann-conjecture\\\\computations\\\\2026-10-27T003742Z-physical-reference-viability\\\\data\\\\whole-source-v4.json\",\n  \"source_sha256\": \"20a1e75749d8681af8b191ca017cf8233acd4d76df330d986b311de4034405a4\",\n  \"status\": \"PASS_COMPLETE_SOURCE\"\n}\n",
+  "stderr": ""
+}

@@ -1,0 +1,17 @@
+{
+  "started": "2026-10-27T00:39:00.884990+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-27T003742Z-physical-reference-viability/propose-physical-v1.py",
+    "--output",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/proposal-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 1.9246311001479626,
+  "stdout": "[{\"parity\": 0, \"low_witness_index\": 0, \"floating_h_block_minimum_NOT_PROOF\": 0.7264717035924608, \"floating_V_pair_norm_NOT_PROOF\": 3.916592139862166e-14, \"floating_P_pair_norm_NOT_PROOF\": 1.143757906922282e-09, \"floating_R_pair_norm_NOT_PROOF\": 2.9775147302428386e-20, \"floating_dual_lower_NOT_PROOF\": 1.5980196212727649e-18, \"accepted_actual_low_Rayleigh_upper\": \"4597944607745037/79228162514264337593543950336\", \"floating_reference_deficit_NOT_PROOF\": 5.803262190712785e-14, \"floating_residual_symmetry_error_NOT_PROOF\": 1.3234889800848443e-23}, {\"parity\": 1, \"low_witness_index\": 1, \"floating_h_block_minimum_NOT_PROOF\": 0.7288163052111994, \"floating_V_pair_norm_NOT_PROOF\": 8.756332353359335e-13, \"floating_P_pair_norm_NOT_PROOF\": 2.788162283240736e-08, \"floating_R_pair_norm_NOT_PROOF\": 6.61735452155607e-19, \"floating_dual_lower_NOT_PROOF\": 9.445476680169092e-16, \"accepted_actual_low_Rayleigh_upper\": \"573486485915580829/79228162514264337593543950336\", \"floating_reference_deficit_NOT_PROOF\": 7.237472546914097e-12, \"floating_residual_symmetry_error_NOT_PROOF\": 1.9852334701272664e-23}]\n",
+  "stderr": ""
+}

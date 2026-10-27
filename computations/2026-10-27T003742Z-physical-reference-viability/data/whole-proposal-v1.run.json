@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-27T01:33:30.930070+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T003742Z-physical-reference-viability/propose-whole-v1.py",
+    "--source",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-source-v3.json",
+    "--output",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-proposal-v1.json"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 8.40701730013825,
+  "stdout": "",
+  "stderr": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\propose-whole-v1.py:38: RuntimeWarning: invalid value encountered in matmul\n  hw=Linv@hf@Linv.T;ew=Linv@ef@Linv.T\nTraceback (most recent call last):\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\propose-whole-v1.py\", line 52, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\propose-whole-v1.py\", line 42, in main\n    opt=minimize_scalar(objective,bounds=(-20,20),method='bounded',options={'xatol':1e-10})\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Lib\\site-packages\\scipy\\optimize\\_minimize.py\", line 1027, in minimize_scalar\n    res = _minimize_scalar_bounded(fun, bounds, args, **options)\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Lib\\site-packages\\scipy\\optimize\\_optimize.py\", line 2336, in _minimize_scalar_bounded\n    fx = func(x, *args)\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T003742Z-physical-reference-viability\\propose-whole-v1.py\", line 41, in objective\n    return float(np.linalg.eigvalsh((g+g.T)/2)[-1])\n                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Lib\\site-packages\\numpy\\linalg\\_linalg.py\", line 1359, in eigvalsh\n    w = gufunc(a, signature=signature)\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Lib\\site-packages\\numpy\\linalg\\_linalg.py\", line 150, in _raise_linalgerror_eigenvalues_nonconvergence\n    raise LinAlgError(\"Eigenvalues did not converge\")\nnumpy.linalg.LinAlgError: Eigenvalues did not converge\n"
+}

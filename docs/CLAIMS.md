@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-26T19:48:35Z`
+- **Last updated:** `2026-10-27T01:51:31Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -1313,6 +1313,17 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Dependencies:** C-0063 actual source/domain and mass; frozen canonical local residual series/tail with2T<pi including signed poles; C-0085 crossV and C-0097 fullP norm; C-0099/C-0100 accepted old proof and C-0086 full-gap conversion at this control; C-0112/C-0114 supported weighted-Gram direction/error rule; C-0095/C-0115 one-sided residual-cross norm. No physical-form gap is assumed at an unproved support or substituted for the new reference-Schur gap.
 - **Source:** [F-20261026-011](../findings/2026-10-26T191941Z-structured-residual-coupling.md), [X-20261026-011](../computations/2026-10-26T191941Z-structured-residual-coupling/record.md).
 - **Verification notes:** Independent formal-quotient/Rodrigues-power consumer checks all coefficients/entries, full remainder, every preceding even order, physical-mass control-gap conversion and both critical residual images. Source512/consumer768 scalar bits and exact rational matrix algebra pass. Separate proof/code/output review approves; shared FLINT/Arb and accepted old proof remain premises, not fresh analytical replay. Isolated source/audit reproduce canonical bytes from13 captured files. Three false mathematical packets reject with no success output. All23 earlier seals/1282 historical members and frozen helpers remain unchanged. This removes C-0116's residual-error-floor obstruction for a DIFFERENT representation, not its retained STOP. Actual A_K, complete weighted V/P/R_K Gram and their computational enclosures remain uncomputed. No root tool upgrade, new positivity/support, global law or admission; RH unresolved.
+
+### C-0118 — Complete supported weighted-Gram criterion positive at the unchanged control
+
+- **Statement:** At T3/4,N312, actual A_model=D(H-cT)+V+P+R56 and a complete signed weighted-Gram upper give a strictly positive paid lower on BOTH156-dimensional parity blocks, hence WHOLE312. The model residual remains inside the signed V/P/R56 source; the full analytic discrepancy is paid by C-0117 Lambda<1.794913e-17. Physical output312..623 is evaluated through exact Bessel band matrices and a whole-frequency step majorant; the infinite Q624 output is paid through its COMPLETE signed V/P Gram, including VP+PV and all combined2/3/4 square terms. No frequency or physical exterior is omitted. Exact per-parity rational Young parameters and nonsingular congruences give positive complete row margins>0.99999999994 in the selected congruence coordinates, not original physical spectral gaps.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` source-conditional whole sufficient-criterion validation at an already positive control; no support extension or production admission
+- **First recorded:** `2026-10-27T00:37:42Z`
+- **Last verified:** `2026-10-27T01:51:31Z`
+- **Dependencies:** C-0063 actual scaled form and mass; C-0099/C-0100 accepted P/GP data and old transform as coordinates, NOT old reference A; C-0104 complete Legendre leakage; C-0107/C-0110 logarithmic reference/discrepancy; C-0112/C-0114 supported criterion/error direction; C-0117 complete residual model/error. Earlier discrepancy and Lambda remain accepted pinned premises.
+- **Source:** [F-20261027-001](../findings/2026-10-27T003742Z-complete-supported-gram-control.md), [X-20261027-001](../computations/2026-10-27T003742Z-physical-reference-viability/record.md).
+- **Verification notes:** Source3072/independent4096 Arb acceptance checks all73476 triangular entries in six complete matrices; the independent consumer freshly reconstructs old P/GP within their128-bit intervals, both arithmetic windows, full mixed infinity and all residual low boundary terms. Separate zero-float exact rational congruence pays every transformed interval radius and row sum, with exact nonsingularity. Independent mathematics/code review approves. Source SHA20a1e75749d8681af8b191ca017cf8233acd4d76df330d986b311de4034405a4 is shared by source audit and exact sign. Initial finite searches/valid nonrejecting bounds, failed implementations and wide-enclosure source remain preserved as distinct outcomes. The known physical-form gap is not substituted for the new Schur sign. C-0116's different completion remains stopped. No all-support inference, global viability, original physical spectral-gap claim, new production theorem, or RH conclusion.
 
 ## Entry format
 

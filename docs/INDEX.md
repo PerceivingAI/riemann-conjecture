@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-26T19:48:35Z`
+- **Last updated:** `2026-10-27T01:51:31Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -54,6 +54,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [F-20261027-001](../findings/2026-10-27T003742Z-complete-supported-gram-control.md) / [X-20261027-001](../computations/2026-10-27T003742Z-physical-reference-viability/record.md) — C-0118 complete supported weighted-Gram sufficient criterion positive on WHOLE312 at unchanged T3/4. Actual low source, signed V/P/R56, full combined arithmetic/VP infinity and model errors independently accepted in73476 matrix entries; zero-float exact congruence verifies both full parity blocks. Fixed-control usefulness, not global viability, a new support or admission.
 - [F-20261026-011](../findings/2026-10-26T191941Z-structured-residual-coupling.md) / [X-20261026-011](../computations/2026-10-26T191941Z-structured-residual-coupling/record.md) — C-0117 exact whole-low residual cross band and complete analytic model-error budget at unchanged T3/4,N312. Derived K56, all3136 rational entries, complete infinity and inherited known-control gap independently accepted; isolated replay and three false-math rejections pass. Removes the prior residual-error-floor obstruction for this representation, not a full mixed-Gram sign or extension.
 - [F-20261026-010](../findings/2026-10-26T181554Z-whole-low-residual-completion.md) / [X-20261026-010](../computations/2026-10-26T181554Z-full-coupling-viability/record.md) — C-0116 whole312 isotropic residual-completion obstruction from certified actual low Rayleigh uppers and complete exterior. Original nonrejecting and complete-form methods preserved; independent exact source/audit/replay/rejections. Exact supported criterion remains unresolved, no actual Weil negativity or extension.
 - [F-20261026-009](../findings/2026-10-26T171755Z-supported-penalty-comparison.md) / [X-20261026-009](../computations/2026-10-26T171755Z-supported-penalty-comparison/record.md) — C-0115 complete supported two-column weighted comparison, all Fourier aliases/continuum/source errors paid. Positive selected compressions give no improved matched allowance or full312 sign. Existing harmonic cancellation and full residual-range reuse avoid the literal source-charge floor. Independent acceptance, honest failed-audit history, rejection and isolated replay; implemented recipe restricted, no extension or admission.

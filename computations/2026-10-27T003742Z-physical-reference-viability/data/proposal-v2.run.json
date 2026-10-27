@@ -1,0 +1,17 @@
+{
+  "started": "2026-10-27T00:48:47.420011+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-27T003742Z-physical-reference-viability/propose-physical-v2.py",
+    "--output",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/proposal-v2.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 2.3590712998993695,
+  "stdout": "[{\"parity\": 0, \"minima_NON_PROOF\": [-6.334786478021415e-16, 1.1499112318789785e-09, 4.2712668309960155e-05, 0.08805686166262046], \"residual_symmetry_error\": 2.710505431213761e-20}, {\"parity\": 1, \"minima_NON_PROOF\": [3.3570284174881735e-12, 2.4663174589498624e-07, 0.0036360698038302936, 0.5756661849449375], \"residual_symmetry_error\": 1.3552527156068805e-20}]\n",
+  "stderr": ""
+}

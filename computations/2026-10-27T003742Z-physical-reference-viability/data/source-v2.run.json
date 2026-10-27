@@ -1,0 +1,18 @@
+{
+  "started": "2026-10-27T00:56:55.112171+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-27T003742Z-physical-reference-viability/assess-physical-v2.py",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/proposal-v2.json",
+    "--output",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/physical-source-v2.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 4.575264299986884,
+  "stdout": "{\"parity\": 0, \"actual_low_upper\": 3.6309773000082485e-15, \"h_upper\": 3.449668436571898e-17, \"cross_lower\": 3.449558743114498e-17, \"physical_deficit_upper\": 3.596482809511678e-15, \"strict_negative\": false}\n{\"parity\": 1, \"actual_low_upper\": 3.3595053173057915e-12, \"h_upper\": 2.4077151927404553e-14, \"cross_lower\": 2.4077155265506392e-14, \"physical_deficit_upper\": 3.335428158702183e-12, \"strict_negative\": false}\n{\"status\": \"VALID_PHYSICAL_BOUNDS_NONREJECTING\"}\n",
+  "stderr": ""
+}

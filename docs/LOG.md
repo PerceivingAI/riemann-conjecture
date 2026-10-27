@@ -1,10 +1,20 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-26T19:48:35Z`
+- **Last updated:** `2026-10-27T01:51:31Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-27T01:51:31Z: complete supported weighted-Gram criterion passes the unchanged whole control
+
+[F-20261027-001](../findings/2026-10-27T003742Z-complete-supported-gram-control.md) / C-0118 and [X-20261027-001](../computations/2026-10-27T003742Z-physical-reference-viability/record.md) validate the ACTUAL whole312-dimensional sufficient criterion at existing T3/4,N312. All signed V/P/R56 mixed terms, full low even/polar residual terms, the complete combined arithmetic operator, VP orientations and both infinities are retained or rigorously paid. The accepted old P/GP data supply only actual operator inputs; the bounded-reference A and old positive margin do not stand in for the new source/sign.
+
+Initial critical-direction and full finite coupled searches yield no certified rejection; rigorous actual-source upper bounds do not confirm the tiny floating even negative. That nonrejecting result is not promoted to whole positivity. The later complete upper uses exact physical projection identities, Bessel band kernels, a whole-line inverse-weight step majorant and the complete signed infinite-output Gram. Weighted Young parameters are exact and parity-specific. Independent4096-bit analytic reconstruction accepts all73476 published triangular entries; separate exact rational congruence pays all entry uncertainty and verifies both156-dimensional blocks. Congruence margins>0.99999999994 are not physical spectral gaps.
+
+Mathematical/implementation review approves the qualified conclusion. Source/program versions, API/layout/path failures and the unusably wide intermediate-frequency 0F1 enclosures remain separate records; native half-integer Bessel evaluation resolves the latter without changing support, projection, reference, precision or frequency partition. The previously rejected isotropic residual completion remains rejected. This establishes usefulness at one already positive control, not an all-support mechanism, support extension, production admission or RH.
+
+Three self-consistent false mathematical packets reject for incorrect actual low action, omitted infinite signed VP Gram, and underpaid frequency exterior. A22-file captured closure reproduces the directional source/audit, complete source, six matrices and exact sign byte-identically; the complete audit agrees after removing its explicit absolute source-path field. The initial incomplete capture remains preserved. All24 earlier seals and1324 historical members, and frozen root source/test/config files, are unchanged. Oversized unaccepted wide raw intervals stay local unchanged, with public hashes and verified deterministic regeneration; accepted proof inputs/outputs remain retained.
 
 ## 2026-10-26T19:48:35Z: exact residual cross representation and complete whole-low model-error budget
 

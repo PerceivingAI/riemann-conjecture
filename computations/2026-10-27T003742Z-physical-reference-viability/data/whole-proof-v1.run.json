@@ -1,0 +1,18 @@
+{
+  "started": "2026-10-27T01:40:19.016785+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T003742Z-physical-reference-viability/verify-whole-proof-v1.py",
+    "--source",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-source-v4.json",
+    "--proposal",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-proposal-v2.json",
+    "--output",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-exact-proof-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 4.57253329991363,
+  "stdout": "even exact complete margin sign 1\nodd exact complete margin sign 1\nPASS_COMPLETE_SUPPORTED_GRAM_CRITERION\n",
+  "stderr": ""
+}

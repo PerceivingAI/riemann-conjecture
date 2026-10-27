@@ -1,10 +1,12 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-26T19:48:35Z`
+- **Last updated:** `2026-10-27T01:51:31Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
+
+**Whole supported weighted-Gram criterion validated, 2026-10-27T01:51:31Z.** [F-20261027-001](../findings/2026-10-27T003742Z-complete-supported-gram-control.md) / C-0118 and [X-20261027-001](../computations/2026-10-27T003742Z-physical-reference-viability/record.md) establish a strictly positive COMPLETE paid lower at unchanged already-positive T3/4,N312. Actual A_model is freshly evaluated, not replaced by old bounded H0. Signed V/P/R56 coupling, complete combined2/3/4 square and VP terms, whole frequency line, physical infinity and C-0117's true residual-model error are all paid. Independent4096-bit reconstruction verifies source containment at all73476 entries; separate zero-float exact nonsingular congruence verifies both full parity blocks. This is the first completed whole sign for this selected supported logarithmic-energy criterion, not a favorable-mode sample or necessary residual budget. It establishes fixed-control usefulness, not global viability, a support-covering family or a new frontier. Earlier completion STOPs remain intact. No production admission; RH unresolved.
 
 **Structured residual operation qualified, 2026-10-26T19:48:35Z.** [F-20261026-011](../findings/2026-10-26T191941Z-structured-residual-coupling.md) / C-0117 and [X-20261026-011](../computations/2026-10-26T191941Z-structured-residual-coupling/record.md) retain the finite residual SIGNED inside the combined source rather than charge its entire cross norm as uncertainty. At unchanged T3/4,N312, the derived K56 gives an exact56-by56 cross band covering ALL low directions; all3136 entries and complete regular/polar remainder are independently checked. Complete residual-model error is below1.794913e-17 and passes the WHOLE-low necessary error budget against the already proved control gap. This removes the prior error-floor obstruction for this representation, not the old completion's STOP. Actual A_K, complete weighted V/P/R_K Gram and their computational errors are NOT evaluated, so no full Schur sign, new support or global usefulness is established. Source/audit isolated bytes, three false-math rejections and separate proof/code/output review pass;23 prior seals/1282 historical members remain unchanged. Production8v1/0v2/1v3 and RH unresolved.
 

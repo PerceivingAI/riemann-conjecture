@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-27T02:03:31.479005+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T003742Z-physical-reference-viability/regenerate-wide-source-v1.py",
+    "--output",
+    "computations/2026-10-27T003742Z-physical-reference-viability/data/wide-export-smoke-v1.json",
+    "--export-dir",
+    ".cache/whole-gram-wide-export-20261027T020331"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 152.0067592000123,
+  "stdout": "{\"status\": \"PASS_WIDE_RAW_REGENERATION\", \"matrix_hashes_checked\": 6}\n",
+  "stderr": ""
+}
