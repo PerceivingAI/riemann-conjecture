@@ -1,0 +1,240 @@
+{
+  "captured_files": 84,
+  "captured_manifest_sha256": "86c88ce8893683d24e3dce7cee592b586a811b5c1f3e5de0701813945af235eb",
+  "checks": {
+    "A_model-0": {
+      "byte_identical": true,
+      "sha256": "4afcee2855ab9c3e6b8e9626965952226fd157a7c6e3aee58d62a9130a828c28"
+    },
+    "A_model-1": {
+      "byte_identical": true,
+      "sha256": "9397f7970e6cc73e112920b1a9e3825011f305c7f2d71082173ed1d9ec17b0d9"
+    },
+    "complete_exact_sign": {
+      "byte_identical": true,
+      "sha256": "bb3d714b2b2523ee99335c12ba23ec4238f5d6f4fd1b36007c0b8a86beed65f3"
+    },
+    "complete_native_audit": {
+      "all_other_fields_identical": true,
+      "identical_except_explicit_paths": [
+        "source",
+        "inputs"
+      ]
+    },
+    "complete_source": {
+      "byte_identical": true,
+      "sha256": "f50d8a194bf4d13ad4cd65ccbcf5762c403d8f5e26d384cbdb38be5ccb807fe6"
+    },
+    "weighted_complete_tail-0": {
+      "byte_identical": true,
+      "sha256": "cff6e00ef3502d0f42f105c41ae9514733910664b341c91c1950a7a311b7f614"
+    },
+    "weighted_complete_tail-1": {
+      "byte_identical": true,
+      "sha256": "a669ba725c4a451b1808b4fc44d6526caa88215ae3b098664ca4cdb46110b8e4"
+    },
+    "weighted_head-0": {
+      "byte_identical": true,
+      "sha256": "ad16b560b3f248008e4f2a2eab91253fc72c13458180dc0b7e526fa0e459884c"
+    },
+    "weighted_head-1": {
+      "byte_identical": true,
+      "sha256": "2b57817396367203ad66ff2cdf41168a163abf8c7c44bfa0b9799a27b4769c4f"
+    }
+  },
+  "driver_sha256": "038ccdeb13097972a64fe67d3726ec9d7966d73d69710e4211095fb676755673",
+  "format": "t080-complete-retained-isolated-replay-v1",
+  "original_tree_scientific_execution": false,
+  "own_isolated_tree_removed": true,
+  "production_admission": false,
+  "qualification_replay": {
+    "captured_files": 31,
+    "checks": {
+      "control-budget-audit-v1.json": "b0c5d1c3d4f486933e3e2f615edc202f822220504146db2bf92f0e3e402e6613",
+      "control-budget-v1.json": "98d04badd7e411d9bf2efa3ed8f1fa7e6cb005ddff892a4d75a24539ee01fd91",
+      "even-canonical_residual_model_error": "25d6c5a3f91e6c5a8a8d040f8296a3f582cb66d789c532215ab9a400d07b784b",
+      "even-combined_paid": "382c64c6145576969f5720dc4ab615690762fc576d47fc8a241b55826ec34b1e",
+      "even-complete_physical_tail": "113106027215e6dfa04041d97b372b17f348e56369a407633e88842dc3a5be18",
+      "even-finite_head": "53f42e67e4e2f34fa1b6024bb323b56879784a47ce3a7aa674edc0dd67059b39",
+      "odd-canonical_residual_model_error": "57704e6d0803231bd21f4e26d8671e7a0d3dd699432ae5e94fb7abd9d7f3ce4e",
+      "odd-combined_paid": "0e7c6db9ace1ea598a209f5dc08134b1dc380b72d6c4b1e856153700725093eb",
+      "odd-complete_physical_tail": "9de587934c46a98878427217c5ed2093d577763cee949854a64452de8fff692b",
+      "odd-finite_head": "a37c8e711e3c278d3e1dfed362b7183de0edae6a4f0d546cb907f73131050cb0",
+      "reference-audit-v1.json": "3cfafc4c5e7db8c0b76e8ada4afe73b34738e4697a3f030d5b6f19b2023c1e34",
+      "reference-v1.json": "5d9f66d2941db36b338fab1c23d06b15a67e0c9452f1678dbaaddbce6c31a0e6",
+      "target-declaration-audit-v2.json": "e098c85af344ee38d9d06e79bd1aafced905b10a5cac4d0ba1b4dbaf476a284b",
+      "target-declaration-v1.json": "ab63147ed5c77b1f0f1c611d5f72a86219932e41c5d5196cf3511654aaa3a898"
+    },
+    "format": "t080-qualification-isolated-replay-v1",
+    "own_isolated_tree_removed": true,
+    "status": "PASS_CAPTURED_QUALIFICATION_REPLAY",
+    "steps": [
+      {
+        "argv": [
+          "-m",
+          "scripts.weil_t080_control_budget",
+          "--inputs",
+          "computations/2026-10-27T050743Z-t080-target-qualification/control-budget-inputs-v1.json",
+          "--output",
+          "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-v1.json"
+        ],
+        "elapsed_seconds": 91.34018620000006,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "even finite_head certified cap 0.4511404796503484\neven complete_physical_tail certified cap 0.3670852684881538\neven canonical_residual_model_error certified cap 0.004950846312567592\neven combined_paid certified cap 0.49478281126357615\nodd finite_head certified cap 0.4324285709299147\nodd complete_physical_tail certified cap 0.3822741883341223\nodd canonical_residual_model_error certified cap 5.346955731511116e-06\nodd combined_paid certified cap 0.4885105136781931\nCONTROL_BUDGET_AND_PHYSICAL_ACCURACY_SCALE_CERTIFIED\n"
+      },
+      {
+        "argv": [
+          "-m",
+          "scripts.verify_t080_control_budget",
+          "--inputs",
+          "computations/2026-10-27T050743Z-t080-target-qualification/control-budget-inputs-v1.json",
+          "--source",
+          "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-v1.json",
+          "--output",
+          "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-audit-v1.json"
+        ],
+        "elapsed_seconds": 121.5873959999999,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"status\": \"PASS\", \"whole_space_caps_checked\": 8, \"target_matrices_computed\": false}\n"
+      },
+      {
+        "argv": [
+          "-m",
+          "scripts.weil_t080_reference_qualification",
+          "--inputs",
+          "computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+          "--output",
+          "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json"
+        ],
+        "elapsed_seconds": 0.7918641000001116,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"status\": \"SCALAR_REFERENCE_QUALIFIED\", \"beta\": \"859/1024\", \"R\": 257, \"N\": 322, \"M\": 644, \"Rc\": 514}\n"
+      },
+      {
+        "argv": [
+          "-m",
+          "scripts.verify_t080_reference_qualification",
+          "--inputs",
+          "computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+          "--source",
+          "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json",
+          "--output",
+          "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json"
+        ],
+        "elapsed_seconds": 1.8569421999998212,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"status\": \"PASS\", \"beta\": \"859/1024\", \"R\": 257, \"N\": 322, \"M\": 644, \"Rc\": 514}\n"
+      },
+      {
+        "argv": [
+          "-m",
+          "scripts.weil_t080_target_declaration",
+          "--inputs",
+          "computations/2026-10-27T050743Z-t080-target-qualification/parameter-selection-inputs-v1.json",
+          "--reference-audit",
+          "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json",
+          "--control-audit",
+          "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-audit-v1.json",
+          "--output",
+          "computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-v1.json"
+        ],
+        "elapsed_seconds": 0.2732358999999178,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"status\": \"QUALIFIED_TARGET_PARAMETERS_NOT_POSITIVITY\", \"N\": 322, \"K\": 76, \"M\": 644, \"source_bits\": 3072, \"independent_bits\": 4096, \"model_error_upper\": 2.969473126902646e-21, \"accuracy_goal\": 3.324789638166813e-21}\n"
+      },
+      {
+        "argv": [
+          "-m",
+          "scripts.verify_t080_target_declaration_v2",
+          "--inputs",
+          "computations/2026-10-27T050743Z-t080-target-qualification/parameter-selection-inputs-v1.json",
+          "--source",
+          "computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-v1.json",
+          "--reference-audit",
+          "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json",
+          "--control-audit",
+          "computations/2026-10-27T050743Z-t080-target-qualification/data/control-budget-audit-v1.json",
+          "--output",
+          "computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-audit-v2.json"
+        ],
+        "elapsed_seconds": 2.3688542000002144,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"status\": \"PASS\", \"verifiedK\": 76, \"N\": 322}\n"
+      }
+    ],
+    "target_low_coupling_matrix_computed": false,
+    "target_positivity_proved": false
+  },
+  "source_sha256": "f50d8a194bf4d13ad4cd65ccbcf5762c403d8f5e26d384cbdb38be5ccb807fe6",
+  "status": "PASS_COMPLETE_CAPTURED_REFERENCE_SOURCE_AND_EXACT_REPLAY",
+  "steps": [
+    {
+      "argv": [
+        "scripts/weil_t080_qualification_replay.py",
+        "--bundle",
+        "computations/2026-10-27T050743Z-t080-target-qualification",
+        "--output",
+        "qualification-replay.json"
+      ],
+      "elapsed_seconds": 218.85656530000006,
+      "exit_code": 0,
+      "name": "complete_reference_and_error_qualification",
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS_CAPTURED_QUALIFICATION_REPLAY\", \"target_low_coupling_matrix_computed\": false, \"target_positivity_proved\": false}\n"
+    },
+    {
+      "argv": [
+        "computations/2026-10-27T061820Z-t080-complete-gram-attempt/build-whole-source-v2.py",
+        "--inputs",
+        "computations/2026-10-27T061820Z-t080-complete-gram-attempt/whole-inputs-v1.json",
+        "--output",
+        "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/replayed/whole-source-v2.json"
+      ],
+      "elapsed_seconds": 231.77638850000017,
+      "exit_code": 0,
+      "name": "fresh_complete_source",
+      "stderr": "",
+      "stdout": "fresh full combined P squared, all translation cells 7\nfresh P low/tail and signed VP 0 2\nfresh P low/tail and signed VP 0 3\nfresh P low/tail and signed VP 0 4\ncomplete full source parity 0\nfresh P low/tail and signed VP 1 2\nfresh P low/tail and signed VP 1 3\nfresh P low/tail and signed VP 1 4\ncomplete full source parity 1\n{\"status\": \"COMPLETE_INTERVAL_MATRICES_NOT_YET_POSITIVITY_VERIFIED\", \"matrix_files\": 6, \"frequency_anchors\": 60, \"kappa\": \"1.1476490844626979\"}\n"
+    },
+    {
+      "argv": [
+        "computations/2026-10-27T061820Z-t080-complete-gram-attempt/verify-whole-source-v2.py",
+        "--inputs",
+        "computations/2026-10-27T061820Z-t080-complete-gram-attempt/whole-inputs-v1.json",
+        "--source",
+        "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/replayed/whole-source-v2.json",
+        "--output",
+        "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/replayed/whole-source-audit-v2.json"
+      ],
+      "elapsed_seconds": 378.6532085000001,
+      "exit_code": 0,
+      "name": "independent_complete_analytic_audit",
+      "stderr": "",
+      "stdout": "{\n  \"N\": 322,\n  \"R76_exterior_zero\": \"exact endpoint primitive polynomial degrees below 644\",\n  \"all_combined_2_3_4_square_products\": true,\n  \"both_signed_VP_orientations\": true,\n  \"both_translation_windows_evaluated\": true,\n  \"checked_matrix_files\": 6,\n  \"checked_triangular_entries\": 78246,\n  \"consumer_sha256\": \"4673ba02681f5faaa40ba2e55b9c9ca6fc17db6431f7ac2b9933b538fc79a9f4\",\n  \"entry_requirement\": \"native endpoints contained in inclusive published dyadic endpoints\",\n  \"first_attempt_seal_sha256\": \"3f9017693e11dc99d523746f9160a27d56ac6aa321ace69db2d9dda22e914fe1\",\n  \"format\": \"t080-complete-gram-source-audit-v1\",\n  \"frequency_anchors\": 60,\n  \"frequency_exterior_paid\": true,\n  \"fresh_arithmetic_fields\": [\n    \"P_low\",\n    \"P_tail\",\n    \"VP\",\n    \"P_squared\",\n    \"GP\"\n  ],\n  \"ignored_producer_metadata\": [\n    \"basis\",\n    \"imported_project_sources\",\n    \"production_admission\",\n    \"retained_residual_helper_sha256\",\n    \"status\"\n  ],\n  \"independent_precision_bits\": 4096,\n  \"inputs\": \"C:\\\\Users\\\\carlo\\\\AppData\\\\Local\\\\Temp\\\\rh_t080_retained_zjtnfltq\\\\computations\\\\2026-10-27T061820Z-t080-complete-gram-attempt\\\\whole-inputs-v1.json\",\n  \"inputs_sha256\": \"fd13c5b0451751c5228efbf719405f8fc7e57174c58f1501822792fcb6443994\",\n  \"order\": 76,\n  \"ordinary_legendre_masses\": \"2/(2n+1)\",\n  \"parity_summary\": [\n    {\n      \"checked_triangular_entries\": 39123,\n      \"dimension\": 161,\n      \"first_head_mode\": 322,\n      \"first_low_mode\": 0,\n      \"last_head_mode\": 642,\n      \"last_low_mode\": 320,\n      \"matrix_entries\": {\n        \"A_model\": 13041,\n        \"weighted_complete_tail\": 13041,\n        \"weighted_head\": 13041\n      },\n      \"parity\": 0,\n      \"status\": \"PASS_NATIVE_CONTAINMENT\"\n    },\n    {\n      \"checked_triangular_entries\": 39123,\n      \"dimension\": 161,\n      \"first_head_mode\": 323,\n      \"first_low_mode\": 1,\n      \"last_head_mode\": 643,\n      \"last_low_mode\": 321,\n      \"matrix_entries\": {\n        \"A_model\": 13041,\n        \"weighted_complete_tail\": 13041,\n        \"weighted_head\": 13041\n      },\n      \"parity\": 1,\n      \"status\": \"PASS_NATIVE_CONTAINMENT\"\n    }\n  ],\n  \"physical_extent\": 644,\n  \"physical_exterior_complete\": true,\n  \"positivity_checked\": false,\n  \"producer_sha256\": \"a67d34f4c8fe464535634a835d52c763b7555a1da35adaf61cfc6c4db95a1ed7\",\n  \"production_admission\": false,\n  \"publication_bits\": 256,\n  \"residual_endpoint_boundaries\": [\n    -1,\n    1\n  ],\n  \"scalar_premise\": \"sealed accepted all-frequency scalar qualification and physical-tail bound\",\n  \"scope\": \"analytic matrix source audit only; no positivity or admission claim\",\n  \"shared_arithmetic_premise\": \"python-flint/Arb rigorous arithmetic and Gauss root/weight enclosures\",\n  \"source\": \"C:\\\\Users\\\\carlo\\\\AppData\\\\Local\\\\Temp\\\\rh_t080_retained_zjtnfltq\\\\computations\\\\2026-10-27T061820Z-t080-complete-gram-attempt\\\\data\\\\replayed\\\\whole-source-v2.json\",\n  \"source_sha256\": \"f50d8a194bf4d13ad4cd65ccbcf5762c403d8f5e26d384cbdb38be5ccb807fe6\",\n  \"status\": \"PASS_COMPLETE_SOURCE\",\n  \"support\": \"4/5\",\n  \"target_declaration_sha256\": \"ab63147ed5c77b1f0f1c611d5f72a86219932e41c5d5196cf3511654aaa3a898\"\n}\n"
+    },
+    {
+      "argv": [
+        "computations/2026-10-27T061820Z-t080-complete-gram-attempt/verify-whole-sign-v1.py",
+        "--inputs",
+        "computations/2026-10-27T061820Z-t080-complete-gram-attempt/whole-inputs-v1.json",
+        "--source",
+        "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/replayed/whole-source-v2.json",
+        "--proposal",
+        "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/whole-proposal-v2.json",
+        "--output",
+        "computations/2026-10-27T061820Z-t080-complete-gram-attempt/data/replayed/whole-exact-sign-v2.json"
+      ],
+      "elapsed_seconds": 5.428382399999919,
+      "exit_code": 0,
+      "name": "zero_float_complete_sign",
+      "stderr": "",
+      "stdout": "even positive complete sign True negative selected lower direction False physical width qualified True\nodd positive complete sign True negative selected lower direction False physical width qualified True\nPASS_COMPLETE_SOURCE_CONDITIONAL_CANDIDATE\n"
+    }
+  ]
+}

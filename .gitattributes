@@ -104,3 +104,4 @@
 /scripts/weil_t080_qualification_replay.py -text
 /computations/2026-10-27T050743Z-t080-target-qualification/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /computations/2026-10-27T061820Z-t080-complete-gram-attempt/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T084414Z-t080-retained-acceptance/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

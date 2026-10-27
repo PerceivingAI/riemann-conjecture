@@ -1,0 +1,191 @@
+{
+  "files": [
+    {
+      "bytes": 3627039,
+      "destination": "computations/2026-10-25T220817Z-post-m4-fourier-sign/data/proof-v1.json.gz",
+      "sha256": "9e7b0e03254261e4a971be192d21c7991faefaf2f71b0cbbfe8faf946b186cef",
+      "stored": "captured-inputs-v1/computations/2026-10-25T220817Z-post-m4-fourier-sign/data/proof-v1.json.gz"
+    },
+    {
+      "bytes": 221789,
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-exact-proof-v1.json",
+      "sha256": "8f294afb944e1e854dd701088e217d05ecc2706b7146ccb08226d1b098994965",
+      "stored": "captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-exact-proof-v1.json"
+    },
+    {
+      "bytes": 510061,
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/A_model-0.json.gz",
+      "sha256": "eb0db1c8255e233130d3ef4a8981d2b7877ed9f2214e6c461ea06db2d5ac76b2",
+      "stored": "captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/A_model-0.json.gz"
+    },
+    {
+      "bytes": 510194,
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/A_model-1.json.gz",
+      "sha256": "e1954bc8f07a6cd2b11701803c6d16c2891c4b6234f7e196d22a04dea407cb6a",
+      "stored": "captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/A_model-1.json.gz"
+    },
+    {
+      "bytes": 507973,
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_complete_tail-0.json.gz",
+      "sha256": "d3f046425810625f9020554d3e6fa5cd57d4382b97a504a19bd4d4a5b2f09da6",
+      "stored": "captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_complete_tail-0.json.gz"
+    },
+    {
+      "bytes": 507985,
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_complete_tail-1.json.gz",
+      "sha256": "5e6068c7fda40c8d8e922dbfad3c24fd726fce6ea83c9631d4271032f6ce5014",
+      "stored": "captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_complete_tail-1.json.gz"
+    },
+    {
+      "bytes": 399680,
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_head-0.json.gz",
+      "sha256": "805164b96d9650ff1e9e1a2fd809de4e6a58f3afabfb832e77d5970d7e6ecc05",
+      "stored": "captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_head-0.json.gz"
+    },
+    {
+      "bytes": 399425,
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_head-1.json.gz",
+      "sha256": "2eeceb1b5f479ea2b83fb583cad93d93836a70953bdd55073278a28059cd9a92",
+      "stored": "captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-matrices-v4/weighted_head-1.json.gz"
+    },
+    {
+      "bytes": 1309395,
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-proposal-v2.json",
+      "sha256": "8c349c3596ee3cc7c9fa91fda4c76c502b75b35255157e2f49b90c5448f118fb",
+      "stored": "captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-proposal-v2.json"
+    },
+    {
+      "bytes": 15478,
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-source-v4.json",
+      "sha256": "20a1e75749d8681af8b191ca017cf8233acd4d76df330d986b311de4034405a4",
+      "stored": "captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/data/whole-source-v4.json"
+    },
+    {
+      "bytes": 27042,
+      "destination": "computations/2026-10-27T003742Z-physical-reference-viability/manifest.json",
+      "sha256": "ecea29f03fd75664e2a39371b47e43fe1f565c4415986d9549c95555d5fb4b66",
+      "stored": "captured-inputs-v1/computations/2026-10-27T003742Z-physical-reference-viability/manifest.json"
+    },
+    {
+      "bytes": 1075,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/control-budget-inputs-v1.json",
+      "sha256": "6ba46b9c2f0fb49742a2b1400fd788c8032ad29362f9a1c52abec8a09a3b2d3f",
+      "stored": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/control-budget-inputs-v1.json"
+    },
+    {
+      "bytes": 1740,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/parameter-selection-inputs-v1.json",
+      "sha256": "84c2b56dfb2780d9b9ca37b0ceed134a1464dc7d5d2311158191b714280f818a",
+      "stored": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/parameter-selection-inputs-v1.json"
+    },
+    {
+      "bytes": 1155,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+      "sha256": "bf840c67beeaf7846dbe6d8c0e43b63fe6a4d2b199e6106fcbc5e7682706ea31",
+      "stored": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json"
+    },
+    {
+      "bytes": 13931,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/reference-contract-v1.md",
+      "sha256": "0368883f144291f22fa1946d95b7bfc66139bdec387661f6a99b5e11c89a2fed",
+      "stored": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/reference-contract-v1.md"
+    },
+    {
+      "bytes": 8328,
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/target-source-error-contract-v1.md",
+      "sha256": "7064da3e67ace119e1c240a052396f2891afa2eb452c20a9b6699d2c80042e58",
+      "stored": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/target-source-error-contract-v1.md"
+    },
+    {
+      "bytes": 1432,
+      "destination": "pyproject.toml",
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf",
+      "stored": "captured-inputs-v1/pyproject.toml"
+    },
+    {
+      "bytes": 412,
+      "destination": "scripts/cert/__init__.py",
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092",
+      "stored": "captured-inputs-v1/scripts/cert/__init__.py"
+    },
+    {
+      "bytes": 5348,
+      "destination": "scripts/cert/constants.py",
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "stored": "captured-inputs-v1/scripts/cert/constants.py"
+    },
+    {
+      "bytes": 21423,
+      "destination": "scripts/cert/prime_power_terms.py",
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+      "stored": "captured-inputs-v1/scripts/cert/prime_power_terms.py"
+    },
+    {
+      "bytes": 6229,
+      "destination": "scripts/cert/quadrature.py",
+      "sha256": "c8bc5bc04655722f394dba6c46655494cd90e5e68117e3361a835ac10e719663",
+      "stored": "captured-inputs-v1/scripts/cert/quadrature.py"
+    },
+    {
+      "bytes": 12441,
+      "destination": "scripts/cert/residual_kernel.py",
+      "sha256": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "stored": "captured-inputs-v1/scripts/cert/residual_kernel.py"
+    },
+    {
+      "bytes": 7139,
+      "destination": "scripts/verify_t080_control_budget.py",
+      "sha256": "6b4a0b35c5afbe9bdf90b26bfab0a35f2c9f22e152db861852cdb5e582e186c7",
+      "stored": "captured-inputs-v1/scripts/verify_t080_control_budget.py"
+    },
+    {
+      "bytes": 17239,
+      "destination": "scripts/verify_t080_reference_qualification.py",
+      "sha256": "332779553723f5e9aead03cb0084f7131e686bd92f0a13a8e2074f2c0ab57a5d",
+      "stored": "captured-inputs-v1/scripts/verify_t080_reference_qualification.py"
+    },
+    {
+      "bytes": 24509,
+      "destination": "scripts/verify_t080_target_declaration.py",
+      "sha256": "d0d614d7fb21a771398c24cfcf319e5e7dc7c9e78f6639dafc6a09876d353ed1",
+      "stored": "captured-inputs-v1/scripts/verify_t080_target_declaration.py"
+    },
+    {
+      "bytes": 25929,
+      "destination": "scripts/verify_t080_target_declaration_v2.py",
+      "sha256": "1a8410cfaf628f59884f8da7a249c6fcdf8a18665f4192e47e24a9113f872e98",
+      "stored": "captured-inputs-v1/scripts/verify_t080_target_declaration_v2.py"
+    },
+    {
+      "bytes": 8462,
+      "destination": "scripts/weil_reference_route_controls.py",
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13",
+      "stored": "captured-inputs-v1/scripts/weil_reference_route_controls.py"
+    },
+    {
+      "bytes": 7841,
+      "destination": "scripts/weil_t080_control_budget.py",
+      "sha256": "db74edddc393735fd28df1130dc3cf28e18ccc0b916ea8a0654533253b625f43",
+      "stored": "captured-inputs-v1/scripts/weil_t080_control_budget.py"
+    },
+    {
+      "bytes": 10360,
+      "destination": "scripts/weil_t080_reference_qualification.py",
+      "sha256": "74736cbd88ab1aaf1f47f71ade83005088470ce380b34d5cd502704c11436bf9",
+      "stored": "captured-inputs-v1/scripts/weil_t080_reference_qualification.py"
+    },
+    {
+      "bytes": 7960,
+      "destination": "scripts/weil_t080_target_declaration.py",
+      "sha256": "901b415fdbdc20ac4b0e4dcdfb4e2aa40a80e84ef7080e755d70cdf5ea7d1a4e",
+      "stored": "captured-inputs-v1/scripts/weil_t080_target_declaration.py"
+    },
+    {
+      "bytes": 210571,
+      "destination": "uv.lock",
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a",
+      "stored": "captured-inputs-v1/uv.lock"
+    }
+  ],
+  "format": "t080-qualification-captured-closure-v1"
+}

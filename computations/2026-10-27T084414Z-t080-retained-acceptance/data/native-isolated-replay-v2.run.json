@@ -1,0 +1,14 @@
+{
+  "started": "2026-10-27T08:56:32.484131+00:00",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "computations/2026-10-27T084414Z-t080-retained-acceptance/replay-acceptance-v2.py",
+    "--output",
+    "computations/2026-10-27T084414Z-t080-retained-acceptance/data/isolated-replay-v2.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 835.2061792000002,
+  "stdout": "{\"status\": \"PASS_COMPLETE_CAPTURED_REFERENCE_SOURCE_AND_EXACT_REPLAY\", \"captured_files\": 84, \"whole_target_checks\": 9, \"qualification_checks\": 14, \"own_isolated_tree_removed\": true}\n",
+  "stderr": ""
+}

@@ -1,10 +1,18 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-27T06:48:04Z`
+- **Last updated:** `2026-10-27T09:14:02Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-27T09:14:02Z: retained acceptance establishes source-conditional full smooth-test positivity at T4/5
+
+[F-20261027-004](../findings/2026-10-27T084414Z-t080-retained-smooth-test-positivity.md) / C-0121 and [X-20261027-004](../computations/2026-10-27T084414Z-t080-retained-acceptance/record.md) accept C-0120's existing complete N322,K76,M644 result. The84-destination capture reproduces14 scalar/reference and9 target checks. Fresh source, all six matrices and zero-float full parity proof are byte-identical; the independently reconstructed78246-entry audit differs only in explicit source/input execution paths. Both outer and nested owned temporary trees are removed. Seven validly encoded analytical/exact countercases reach the correct mathematical outcome, including singularity, synthetic selected-matrix negativity and honest but excessive uncertainty. Exit0 is not substituted for a positive scientific status.
+
+The first outer replay fails before mathematics on a missing outer qualification-input alias. V2 extends the original capture with five aliases of ALREADY captured bytes, preserving the old source, capture and failed receipt without refreshing mathematical inputs. Separate review confirms the common smooth/form domain, ordinary mass/unitary scaling, full remainder and both infinities. Exact weighted-square/Parseval consequence yields gamma approximately1.19898807248e-20 and proves the published FULL source-norm lower10^-20, distinct from low Schur and congruence margins. Original candidate records remain unchanged.
+
+This verifies every nonzero complex admissible smooth test at the fixed support under the stated Suzuki/source and FLINT/Arb premises. No entire-operator-domain equality, external coercivity comparison, priority/novelty/superiority, specified larger support, global support-covering family, production admission or RH conclusion. Production8v1/0v2/1v3 remains unchanged; no root mathematical helper/test/dependency or Rust/Lean layer was modified.
 
 ## 2026-10-27T06:48:04Z: complete T4/5 source/sign candidate positive in both full parity blocks
 

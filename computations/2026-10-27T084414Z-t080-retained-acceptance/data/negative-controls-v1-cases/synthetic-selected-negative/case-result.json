@@ -1,0 +1,16 @@
+{
+  "case": "synthetic-selected-negative",
+  "consumer": "exact",
+  "expected": "SELECTED_CONSERVATIVE_SCHUR_NEGATIVE_NOT_WEIL_NEGATIVITY",
+  "expected_exit_code": 0,
+  "large_required_proof_input": {
+    "bytes": 3315734,
+    "path": "proposal.json",
+    "reason": "Necessary exact full rational witness consumed by unchanged zero-float checker; required proof-artifact exception.",
+    "sha256": "c4c16871aacc53c58ce64265f6990a05c7332f222b0c0ab571b93e16f0c4d040"
+  },
+  "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+  "passed": true,
+  "source_sha256": "ae72cf0899e264b03858b1113acc05c53615c0c483fb2d49fd01d5863736071c",
+  "synthetic_not_analytic_truth": true
+}

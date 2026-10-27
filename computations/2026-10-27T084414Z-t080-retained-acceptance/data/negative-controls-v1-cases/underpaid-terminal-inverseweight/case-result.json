@@ -1,0 +1,11 @@
+{
+  "case": "underpaid-terminal-inverseweight",
+  "consumer": "source",
+  "expected": "inverse weights differ from declaration",
+  "expected_exit_code": 1,
+  "large_required_proof_input": null,
+  "original_proposal_sha256": "09e6509ac3b0a3baf8a8e8522dfb2ae79ab41d376d4a0f31f8dd55aff7726161",
+  "passed": true,
+  "source_sha256": "a54366fb9cf1c4ac520341cc3d300a475270ecaf780164a452cfacb0cd6344cf",
+  "synthetic_not_analytic_truth": false
+}

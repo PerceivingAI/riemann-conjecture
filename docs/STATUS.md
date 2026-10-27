@@ -1,10 +1,12 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-27T06:48:04Z`
+- **Last updated:** `2026-10-27T09:14:02Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
+
+**T4/5 retained smooth-test positivity verified, 2026-10-27T09:14:02Z.** [F-20261027-004](../findings/2026-10-27T084414Z-t080-retained-smooth-test-positivity.md) / C-0121 and [X-20261027-004](../computations/2026-10-27T084414Z-t080-retained-acceptance/record.md) complete C-0120's independent retained acceptance at unchanged N322,K76,M644. An84-destination immutable capture replays14 scalar/reference and9 target checks, including all78246 analytical entries and both full exact parity signs. Source, six matrices and exact sign reproduce byte-identically; native audit excludes only two execution-path fields. All7 substantive adversarial controls behave correctly. The reviewed full-domain implication gives strict positivity for every nonzero complex Suzuki-admissible smooth test at support4/5, with conservative FULL source-norm gap>=10^-20 under documented Suzuki/source and FLINT/Arb premises. This is the verified research support frontier, not production admission, a whole-operator-domain identification, an external-paper audit or RH. Closed production inventory remains8v1/0v2/1v3. The original candidate and every failed/unresolved version remain unchanged.
 
 **Complete T4/5 positive research candidate, 2026-10-27T06:48:04Z; retained acceptance pending.** [F-20261027-003](../findings/2026-10-27T061820Z-t080-complete-supported-gram-candidate.md) / provisional C-0120 and [X-20261027-003](../computations/2026-10-27T061820Z-t080-complete-gram-attempt/record.md) complete the frozen N322,K76,M644 source/sign attempt. Fresh actual low and full signed V/P/R76 Gram retain all2/3/4 mixed squares, both VP orientations and both infinities. Independent4096-bit reconstruction contains all78246 matrix entries; separate zero-float exact nonsingular congruence proves both full161-block paid lowers positive on identical source bytes. Numerical goals pass. Failed native-seed and unresolved old-coordinate versions remain preserved; fully paid midpoint seeds and fresh-A native preconditioning resolve them without changing mathematical controls. Full target false-mathematical-input tests and isolated captured-tree reproduction have NOT run, so this is not yet an accepted new-support release result or production admission. Research acceptance frontier and8v1/0v2/1v3 inventory remain unchanged; RH unresolved.
 

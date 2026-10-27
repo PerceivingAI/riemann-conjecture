@@ -1,0 +1,23 @@
+{
+  "K": 76,
+  "M": 644,
+  "N": 322,
+  "bits": 256,
+  "consumer_precision": 4096,
+  "created": "2026-10-27T06:18:20Z",
+  "first_attempt_seal": "computations/2026-10-27T050743Z-t080-target-qualification/data/first-attempt-seal-v1.json",
+  "first_attempt_seal_sha256": "3f9017693e11dc99d523746f9160a27d56ac6aa321ace69db2d9dda22e914fe1",
+  "format": "t080-complete-gram-inputs-v1",
+  "old_coordinate_proposal": "computations/2026-10-27T003742Z-physical-reference-viability/data/whole-proposal-v2.json",
+  "old_coordinate_proposal_sha256": "8c349c3596ee3cc7c9fa91fda4c76c502b75b35255157e2f49b90c5448f118fb",
+  "old_coordinates_are_only_proposals": true,
+  "old_whole_inputs": "computations/2026-10-27T003742Z-physical-reference-viability/whole-gram-inputs-v2.json",
+  "old_whole_inputs_sha256": "4c8ff1748fb3424e401d753b9be39031965265a41ab71ac564a11a9a8b3324b5",
+  "production_admission": false,
+  "source_helper": "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+  "source_helper_sha256": "2db67f5add9fd164a23a03c33ebe6181cb5f171499adcdfb93d3875eddc7c29f",
+  "source_precision": 3072,
+  "support": "4/5",
+  "target_declaration": "computations/2026-10-27T050743Z-t080-target-qualification/data/target-declaration-v1.json",
+  "target_declaration_sha256": "ab63147ed5c77b1f0f1c611d5f72a86219932e41c5d5196cf3511654aaa3a898"
+}

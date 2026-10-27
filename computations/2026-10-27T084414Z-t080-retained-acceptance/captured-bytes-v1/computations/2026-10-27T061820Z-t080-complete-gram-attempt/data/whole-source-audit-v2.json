@@ -1,0 +1,84 @@
+{
+  "N": 322,
+  "R76_exterior_zero": "exact endpoint primitive polynomial degrees below 644",
+  "all_combined_2_3_4_square_products": true,
+  "both_signed_VP_orientations": true,
+  "both_translation_windows_evaluated": true,
+  "checked_matrix_files": 6,
+  "checked_triangular_entries": 78246,
+  "consumer_sha256": "4673ba02681f5faaa40ba2e55b9c9ca6fc17db6431f7ac2b9933b538fc79a9f4",
+  "entry_requirement": "native endpoints contained in inclusive published dyadic endpoints",
+  "first_attempt_seal_sha256": "3f9017693e11dc99d523746f9160a27d56ac6aa321ace69db2d9dda22e914fe1",
+  "format": "t080-complete-gram-source-audit-v1",
+  "frequency_anchors": 60,
+  "frequency_exterior_paid": true,
+  "fresh_arithmetic_fields": [
+    "P_low",
+    "P_tail",
+    "VP",
+    "P_squared",
+    "GP"
+  ],
+  "ignored_producer_metadata": [
+    "basis",
+    "imported_project_sources",
+    "production_admission",
+    "retained_residual_helper_sha256",
+    "status"
+  ],
+  "independent_precision_bits": 4096,
+  "inputs": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T061820Z-t080-complete-gram-attempt\\whole-inputs-v1.json",
+  "inputs_sha256": "fd13c5b0451751c5228efbf719405f8fc7e57174c58f1501822792fcb6443994",
+  "order": 76,
+  "ordinary_legendre_masses": "2/(2n+1)",
+  "parity_summary": [
+    {
+      "checked_triangular_entries": 39123,
+      "dimension": 161,
+      "first_head_mode": 322,
+      "first_low_mode": 0,
+      "last_head_mode": 642,
+      "last_low_mode": 320,
+      "matrix_entries": {
+        "A_model": 13041,
+        "weighted_complete_tail": 13041,
+        "weighted_head": 13041
+      },
+      "parity": 0,
+      "status": "PASS_NATIVE_CONTAINMENT"
+    },
+    {
+      "checked_triangular_entries": 39123,
+      "dimension": 161,
+      "first_head_mode": 323,
+      "first_low_mode": 1,
+      "last_head_mode": 643,
+      "last_low_mode": 321,
+      "matrix_entries": {
+        "A_model": 13041,
+        "weighted_complete_tail": 13041,
+        "weighted_head": 13041
+      },
+      "parity": 1,
+      "status": "PASS_NATIVE_CONTAINMENT"
+    }
+  ],
+  "physical_extent": 644,
+  "physical_exterior_complete": true,
+  "positivity_checked": false,
+  "producer_sha256": "a67d34f4c8fe464535634a835d52c763b7555a1da35adaf61cfc6c4db95a1ed7",
+  "production_admission": false,
+  "publication_bits": 256,
+  "residual_endpoint_boundaries": [
+    -1,
+    1
+  ],
+  "scalar_premise": "sealed accepted all-frequency scalar qualification and physical-tail bound",
+  "scope": "analytic matrix source audit only; no positivity or admission claim",
+  "shared_arithmetic_premise": "python-flint/Arb rigorous arithmetic and Gauss root/weight enclosures",
+  "source": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T061820Z-t080-complete-gram-attempt\\data\\whole-source-v2.json",
+  "source_sha256": "f50d8a194bf4d13ad4cd65ccbcf5762c403d8f5e26d384cbdb38be5ccb807fe6",
+  "status": "PASS_COMPLETE_SOURCE",
+  "support": "4/5",
+  "target_declaration_sha256": "ab63147ed5c77b1f0f1c611d5f72a86219932e41c5d5196cf3511654aaa3a898"
+}

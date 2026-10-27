@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T061820Z-t080-complete-gram-attempt\\verify-whole-source-v2.py",
+    "--inputs",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T061820Z-t080-complete-gram-attempt\\whole-inputs-v1.json",
+    "--source",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T084414Z-t080-retained-acceptance\\data\\negative-controls-v1-cases\\underpaid-terminal-inverseweight\\source.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T084414Z-t080-retained-acceptance\\data\\negative-controls-v1-cases\\underpaid-terminal-inverseweight\\audit.json"
+  ],
+  "cwd": "D:\\2_Add_Projects\\riemann-conjecture",
+  "elapsed_seconds": 0.2455744000001232,
+  "exit_code": 1,
+  "numerical_threads": 1,
+  "stderr": "",
+  "stdout": "{\r\n  \"consumer_sha256\": \"4673ba02681f5faaa40ba2e55b9c9ca6fc17db6431f7ac2b9933b538fc79a9f4\",\r\n  \"error\": \"inverse weights differ from declaration\",\r\n  \"error_type\": \"ValueError\",\r\n  \"exit_code\": 1,\r\n  \"format\": \"t080-complete-gram-source-audit-v1\",\r\n  \"independent_precision_bits\": 4096,\r\n  \"inputs\": \"D:\\\\2_Add_Projects\\\\riemann-conjecture\\\\computations\\\\2026-10-27T061820Z-t080-complete-gram-attempt\\\\whole-inputs-v1.json\",\r\n  \"positivity_checked\": false,\r\n  \"production_admission\": false,\r\n  \"source\": \"D:\\\\2_Add_Projects\\\\riemann-conjecture\\\\computations\\\\2026-10-27T084414Z-t080-retained-acceptance\\\\data\\\\negative-controls-v1-cases\\\\underpaid-terminal-inverseweight\\\\source.json\",\r\n  \"status\": \"REJECT_COMPLETE_SOURCE\"\r\n}\r\n"
+}

@@ -1,7 +1,7 @@
 # Claim Ledger
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-27T06:48:04Z`
+- **Last updated:** `2026-10-27T09:14:02Z`
 
 This ledger tracks mathematical statements important enough to be reused across attempts.
 
@@ -1336,16 +1336,30 @@ This ledger tracks mathematical statements important enough to be reused across 
 - **Source:** [F-20261027-002](../findings/2026-10-27T050743Z-t080-reference-and-parameter-qualification.md), [X-20261027-002](../computations/2026-10-27T050743Z-t080-target-qualification/record.md).
 - **Verification notes:** Independent512/768-bit full-frequency source acceptance checks1516 intervals, analytic infinity and six scalar N trials. Separate formal quotient/direct-tail512/1024-bit reconstruction checks77 target kernel coefficients,37 preceding orders,2K<N,60 inverse weights and exact starting-precision policies. Exact old-control endpoint audits certify8 whole-space budget caps relative to actual A_model; combined paid caps are below0.494783/0.488511, not sums of separate maxima. The old selected-Schur physical lower is converted by margin/tr(U^TDU), then divided by2^20 as an accuracy choice, never transported as target coercivity. A failed audit-publication composition remains preserved; corrected v2 reruns full native reference acceptance rather than substituting rounded-report containment or overlap. No achieved target matrix-width, low sign, T4/5 positivity theorem, production admission, external proof endorsement, global support family or RH conclusion.
 
-### C-0120 — Complete T4/5 supported weighted-Gram positive research candidate
+### C-0120 — Complete T4/5 supported weighted-Gram positive result, retained-accepted
 
 - **Statement:** At T4/5,N322,K76,M644, fresh actual A_model and complete signed V/P/R76 head plus full Q644(V+P) outside Gram produce positive selected sufficient paid lowers in BOTH full161-dimensional parity blocks after eta, canonical Lambda, both infinities and every transformed matrix radius are paid. Independent4096-bit native reconstruction contains all78246 published triangular entries. Separate zero-float nonsingular congruence on the identical source bytes gives complete margins>0.9999999999999 in selected coordinates. Both physical numerical-radius goals pass. Converted selected LOW Schur physical bounds>1.58e-17 even and>1.50e-14 odd are not full-Weil coercivity constants or original spectral minima.
 - **Type:** `COMPUTATIONAL_OBSERVATION`
-- **Status:** `PROVISIONAL` — complete positive source/sign candidate; full target adversarial and isolated retained-reproduction acceptance pending
+- **Status:** `VERIFIED` source-conditional retained research acceptance, 2026-10-27T09:14:02Z; not production theorem admission
 - **First recorded:** `2026-10-27T06:18:20Z`
-- **Last checked:** `2026-10-27T06:48:04Z`
+- **Last checked:** `2026-10-27T09:14:02Z`
 - **Dependencies:** C-0063 source/domain/masses; C-0085 cross-V bound; C-0104 leakage; C-0110/C-0112 signed reference and complete supported Schur; C-0117 finite residual band and true model remainder; C-0119 accepted target scalar/declaration. C-0118 supplies coordinates ONLY, never target arithmetic or positivity. R-0041 spherical-Bessel integral and locally derived input-radius rule. FLINT/Arb and earlier source premises remain explicit.
 - **Source:** [F-20261027-003](../findings/2026-10-27T061820Z-t080-complete-supported-gram-candidate.md), [X-20261027-003](../computations/2026-10-27T061820Z-t080-complete-gram-attempt/record.md).
+- **Historical stage of the following note:** initial source/sign assessment at2026-10-27T06:48:04Z. Its then-pending retained gates are resolved by the timestamped acceptance addendum below.
 - **Verification notes:** Actual3072-bit source, independent4096-bit analytic consumer, nonproof proposal and zero-float exact sign run successfully; native and exact reports bind SHA256 f50d8a194bf4d13ad4cd65ccbcf5762c403d8f5e26d384cbdb38be5ccb807fe6. Original source seed failure and exactly unresolved coordinate proposal remain. Fully paid midpoint seeds retain the2048 guard; fresh-A native Cholesky precedes all floating conditioning and final80-bit dyadic transforms are proved nonsingular. Separate read-only composition review approves. Eight consumed modules are captured; complete source/input isolated replay and new false-math packets have NOT run. No accepted new-support release, external-proof audit, originality, optimality, production admission, global-support family or RH inference.
+
+- **Retained-acceptance addendum, 2026-10-27T09:14:02Z:** [F-20261027-004](../findings/2026-10-27T084414Z-t080-retained-smooth-test-positivity.md) / [X-20261027-004](../computations/2026-10-27T084414Z-t080-retained-acceptance/record.md) execute the full84-destination captured replay,14 scalar/reference checks,9 full-target checks and7 substantive analytical/exact adversarial cases. Source, six matrices and exact whole sign reproduce byte-identically; native audit excludes only two explicit execution paths. Both owned trees are removed. C-0121 supplies the independently reviewed complete smooth-test and full source-norm consequence. Original candidate/failure records remain unchanged; production inventory is unchanged.
+
+### C-0121 — Retained source-conditional strict smooth-test positivity at T4/5
+
+- **Statement:** Under C-0063's Suzuki/source form agreement and the stated FLINT/Arb premises, every nonzero complex Suzuki-admissible smooth test supported in[-4/5,4/5] has strictly positive localized source form. In the scaled L2(-1,1) source convention, l_(4/5)[u]>=(1/10^20)||u||². Unitary f(t)=T^-1/2u(t/T) preserves the physical L2 norm. The exact complete source-norm bound follows from sigma=min of the two C-0120 physical LOW Schur bounds, b=b_K+delta, and gamma=min(sigma/[1+2b²/(eta²m²)],eta m/2)>=10^-20. This is not an optimal spectrum, a selected-low/congruence margin, an identified entire Suzuki operator domain or an externally normalized coercivity comparison.
+- **Type:** `DERIVED_RESULT`
+- **Status:** `VERIFIED` source-conditional research consequence, not production admission or a Lean-kernel proof of the source identity
+- **First recorded:** `2026-10-27T08:44:14Z`
+- **Last verified:** `2026-10-27T09:14:02Z`
+- **Dependencies:** C-0063 common source/form domain and physical mass, C-0085 bounded V cross, C-0104 leakage, C-0110/C-0112 complete signed reference and weighted Schur completion, C-0117 canonical residual discrepancy, C-0119 full target qualification, retained C-0120 complete finite sign, R-0041 midpoint enclosure.
+- **Source:** [F-20261027-004](../findings/2026-10-27T084414Z-t080-retained-smooth-test-positivity.md), [X-20261027-004](../computations/2026-10-27T084414Z-t080-retained-acceptance/record.md), [full smooth-test proof](../computations/2026-10-27T084414Z-t080-retained-acceptance/smooth-test-consequence-v1.md).
+- **Verification notes:** Actual isolated84-destination source/input replay includes scalar qualification, fresh full source, independent4096-bit all78246-entry analytical reconstruction and zero-float exact full161/161 parity signs. Four source, one singularity, one synthetic selected-negative and one numerical-width controls pass their substantive acceptance conditions. Same-source byte binding and all numerical/model/infinity payments hold. Exact rational final consequence program pins declaration bytes and proves gamma>=1/10^20; separate read-only mathematical/code review approves. Reports are trusted local-driver attestations under recorded runtime/library premises, not arbitrary untrusted process proofs. No production8v1/0v2/1v3 change, external-paper audit, novelty, priority, global support family or RH inference.
 
 ## Entry format
 
