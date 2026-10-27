@@ -1,0 +1,18 @@
+{
+  "started": "2026-10-27T13:36:28.441954+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/qualify-prime-five-topology-v1.py",
+    "--inputs",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/topology-inputs-v1.json",
+    "--output",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/topology-source-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.29261849999966216,
+  "stdout": "{\"status\": \"FOUR_MODE_DIAGNOSTIC_ONLY\", \"active_terms\": [2, 3, 4, 5], \"translation_cells\": 9, \"mixed_prime5_pairs\": 3}\n",
+  "stderr": ""
+}

@@ -1,13 +1,37 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-27T09:14:02Z`
+- **Last updated:** `2026-10-27T18:06:21Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
 ## Byte identity on checkout
 
 The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep pinned sources/configuration in their recorded LF form, and the original SYS-6.4 probe plus the executed T3/4 Fourier producer in their recorded CRLF form. Retained bundles remain verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+
+## Complete fixed T81/100 source/sign research candidate
+
+[X-20261027-006](../computations/2026-10-27T140745Z-t081-complete-gram-attempt/record.md) retains separate `build-whole-source-v1.py`, `verify-whole-source-v1.py`, `propose-whole-v1.py` and `verify-whole-sign-v1.py`. These fixed N826,K86,M1652 operations preserve all accepted earlier source/checker versions. All2/3/4/5 mixed squares, both VP orientations, full canonical model discrepancy and both infinities remain paid.
+
+The actual source4608/independent6144/publication256 chain accepts all512946 triangular inputs and proves both full413-dimensional exact parity lowers positive, with exact nonsingularity and numerical-width goals. The consumer freshly replays the supported-reference qualification. Proposals use native fresh actual-A Cholesky BEFORE floating and store full80-bit dyadic coordinates in deterministic gzip; the exact checker consumes that compressed packet and binds its raw bytes. No old transforms or target arithmetic supply the result.
+
+Use the record's four exact invocations with a NEW output parent directory. The producer refuses an existing fixed matrix directory, so a different source filename under retained `data/` is not sufficient. Require native PASS and complete exact positive status on identical source hashes; exit0 alone is only an executed assessment. Selected LOW physical bounds and near-unit congruence margins are not full source-norm/coercivity constants.
+
+All first-attempt CLIs pass without a parameter/precision refinement. Nine consumed sources/helper files are preserved, but new-target adversarial cases, isolated full source/input replay and reviewed smooth-test/full-norm consequence are not executed. This remains a source-conditional complete research candidate, not retained new-support acceptance or production admission. No root mathematical helper, old test, dependency or Rust/Lean profile is changed.
+
+## Fixed T81/100 prime-five qualification
+
+[X-20261027-005](../computations/2026-10-27T132236Z-t081-prime-five-qualification/record.md) retains separate global/supported reference, target-parameter and four-mode arithmetic source/consumer pairs. They qualify the complete reference/error declaration at N826,K86,M1652; they do not generate the full target low/coupling matrix or check its sign.
+
+The supported transfer explicitly distinguishes a form inequality from the larger whole-line multiplier bound. Canonical generic arithmetic remains unchanged and consumes all2/3/4/5 terms before squaring. Independent consumers check1563 frequency cells and infinity, complete leakage/inverse controls,87 exact coefficients, all42 preceding orders and80 diagnostic entries including ordered VP/PV. Starting source4608/independent6144/publication256 policies are not achieved target-width guarantees.
+
+The repeatable captured operation actually ran with all38 captured destinations and reproduced all8 source/audit outputs byte-identically:
+
+```text
+uv run --locked python computations/2026-10-27T132236Z-t081-prime-five-qualification/exercise-qualification-v1.py --mode replay --capture computations/2026-10-27T132236Z-t081-prime-five-qualification/captured-source-inputs-v1.json --output <fresh-replay.json>
+```
+
+The record retains all exact source/audit invocations, initial failures, corrected declarations and9 substantive native rejection cases. Negative mode is a one-shot historical case writer; repeat it only in a fresh materialization of the captured tree, not by replacing retained cases. Shared installed Python/FLINT and source premises remain explicit. No T81/100 positivity, production profile/admission or RH conclusion follows.
 
 ## Retained full T4/5 smooth-test acceptance
 

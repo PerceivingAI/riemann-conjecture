@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-27T09:14:02Z`
+- **Last updated:** `2026-10-27T18:06:21Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -54,6 +54,8 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [F-20261027-006](../findings/2026-10-27T140745Z-t081-complete-supported-gram-candidate.md) / [X-20261027-006](../computations/2026-10-27T140745Z-t081-complete-gram-attempt/record.md) — provisional C-0123 complete positive prime-five T81/100,N826,K86 candidate. All512946 analytical entries, both exact complete413-block signs, nonsingularity and numerical goals pass on identical source bytes. Retained replay/adversarial/smooth-test consequence gates remain pending; no production admission or RH claim.
+- [F-20261027-005](../findings/2026-10-27T132236Z-t081-prime-five-reference-qualification.md) / [X-20261027-005](../computations/2026-10-27T132236Z-t081-prime-five-qualification/record.md) — C-0122 supported prime-five reference/error qualification at T81/100. A norm1 compressed-shift transfer lowers the sufficient cutoff1188 to826; K86 and complete numerical/exterior controls are independently derived. Nine mathematical rejections and38-destination all8-output byte-identical replay pass. No full target matrix/sign or support-frontier advance.
 - [F-20261027-004](../findings/2026-10-27T084414Z-t080-retained-smooth-test-positivity.md) / [X-20261027-004](../computations/2026-10-27T084414Z-t080-retained-acceptance/record.md) — retained C-0120 and C-0121 strict source-conditional smooth-test positivity at T4/5, full source-norm lower>=10^-20. All78246 analytical entries, full161/161 exact signs,84-destination scalar/source/input replay and7 adversarial controls pass. No production admission, entire-operator-domain equality or RH.
 - [F-20261027-003](../findings/2026-10-27T061820Z-t080-complete-supported-gram-candidate.md) / [X-20261027-003](../computations/2026-10-27T061820Z-t080-complete-gram-attempt/record.md) — provisional C-0120 complete positive T4/5,N322,K76 candidate:78246 independently reconstructed entries and both full paid exact parity signs pass with unchanged controls. Numerical failures/refinements preserved; new target adversarial and isolated retained-replay gates pending. No release theorem or admission yet.
 - [F-20261027-002](../findings/2026-10-27T050743Z-t080-reference-and-parameter-qualification.md) / [X-20261027-002](../computations/2026-10-27T050743Z-t080-target-qualification/record.md) — C-0119 complete T4/5 reference and source/error qualification. Fresh beta859/1024, scalar-policyN322, residualK76 and complete exterior/numerical-control declaration independently accepted. Eight exact T3/4 budget caps distinguish material coupling costs from small residual error. No target low/coupling matrix, T4/5 positivity sign or admission.

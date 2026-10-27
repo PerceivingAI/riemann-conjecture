@@ -1,0 +1,41 @@
+{
+  "RH_status": "UNRESOLVED",
+  "both_exact_nonsingularity_and_numerical_goals": true,
+  "both_full_parity_dimensions": [
+    413,
+    413
+  ],
+  "consumed_project_source_pins_unchanged": {
+    "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py": "2db67f5add9fd164a23a03c33ebe6181cb5f171499adcdfb93d3875eddc7c29f",
+    "scripts/cert/__init__.py": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092",
+    "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+    "scripts/cert/legendre_schur.py": "57c9f0a4d81fc35837bb37bf3c870ec2c13d2d99f599cd54cc5fce0793b76956",
+    "scripts/cert/mixed_gram_research.py": "61c830e808d281e9a0d61ad040f7ffaeaf42821ebf753f977887567a4fdf01f3",
+    "scripts/cert/multi_prime_legendre_schur.py": "341c64284182e774886ff487d3d1107fabe29e86c1bcc3d1782e6d1111103246",
+    "scripts/cert/prime_power_terms.py": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+    "scripts/cert/quadrature.py": "c8bc5bc04655722f394dba6c46655494cd90e5e68117e3361a835ac10e719663",
+    "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1"
+  },
+  "created": "2026-10-27T18:13:37Z",
+  "earlier_research_members_checked": 399,
+  "exact_complete_status": "PASS_COMPLETE_SOURCE_CONDITIONAL_CANDIDATE",
+  "executed_program_and_input_pins_unchanged": {
+    "build-whole-source-v1.py": "0d37cc35a8a777d4a941d206056d28f4e481df347fe46aea68d4bb39c70e97c1",
+    "propose-whole-v1.py": "f936ce0e66a6a38883483575483d62e3ae2a7bca80d2a1f9a8551856d75af0a3",
+    "verify-whole-sign-v1.py": "def3d7d7d242a319c9f93fec39674c2c2cf40796b653ddb44f47df2e8019fd64",
+    "verify-whole-source-v1.py": "4bc4d25db589fe987bb2c7f78f31bd7dc83849666daae82b017295db30d94720",
+    "whole-inputs-v1.json": "19eac80d7869fcc6d6ddd0d33dcb90901b65254b2f076c6964148575019982a1"
+  },
+  "format": "t081-complete-candidate-integrity-check-v1",
+  "local_markdown_links_checked": 883,
+  "new_public_publication_boundary_hits": [],
+  "new_target_adversarial_or_retained_replay_executed": false,
+  "previous_chronological_entries_byte_preserved": true,
+  "production_admission": false,
+  "source_data_whitespace_errors": [],
+  "source_native_entries_checked": 512946,
+  "source_native_status": "PASS_COMPLETE_SOURCE",
+  "source_same_hash_in_native_and_exact_reports": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e",
+  "status": "PASS",
+  "tables_checked": 13
+}

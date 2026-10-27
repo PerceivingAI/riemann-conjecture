@@ -1,0 +1,20 @@
+{
+  "started": "2026-10-27T13:50:10.726032+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/exercise-qualification-v1.py",
+    "--mode",
+    "replay",
+    "--capture",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/captured-source-inputs-v1.json",
+    "--output",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/isolated-replay-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 14.304659299999912,
+  "stdout": "{\"status\": \"PASS\", \"mode\": \"replay\", \"checks\": 8, \"elapsed_seconds\": 14.035015400000702}\n",
+  "stderr": ""
+}

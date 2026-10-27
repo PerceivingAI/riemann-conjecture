@@ -1,0 +1,20 @@
+{
+  "started": "2026-10-27T13:26:40.709394+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/verify-reference-v1.py",
+    "--inputs",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/qualification-inputs-v2.json",
+    "--source",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/reference-source-v2.json",
+    "--output",
+    "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/reference-audit-v2.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 2.474489700001868,
+  "stdout": "{\"status\": \"PASS\", \"beta\": \"1933/1024\", \"R\": 1038, \"N\": 1188, \"M\": 2376, \"Rc\": 2076}\n",
+  "stderr": ""
+}

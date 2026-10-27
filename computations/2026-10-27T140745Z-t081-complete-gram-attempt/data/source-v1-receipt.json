@@ -1,0 +1,19 @@
+{
+  "started": "2026-10-27T14:09:15.850050+00:00",
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+    "--inputs",
+    "computations/2026-10-27T140745Z-t081-complete-gram-attempt/whole-inputs-v1.json",
+    "--output",
+    "computations/2026-10-27T140745Z-t081-complete-gram-attempt/data/source-v1.json"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 4527.8285574,
+  "stdout": "fresh full combined P squared, all translation cells 9\nfresh P low/tail and signed VP 0 2\nfresh P low/tail and signed VP 0 3\nfresh P low/tail and signed VP 0 4\nfresh P low/tail and signed VP 0 5\ncomplete full source parity 0\nfresh P low/tail and signed VP 1 2\nfresh P low/tail and signed VP 1 3\nfresh P low/tail and signed VP 1 4\nfresh P low/tail and signed VP 1 5\ncomplete full source parity 1\n{\"status\": \"COMPLETE_INTERVAL_MATRICES_NOT_YET_POSITIVITY_VERIFIED\", \"matrix_files\": 6, \"frequency_anchors\": 60, \"kappa\": \"1.1509601418724942\"}\n",
+  "stderr": ""
+}

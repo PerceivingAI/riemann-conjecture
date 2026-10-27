@@ -1,0 +1,18 @@
+{
+  "K": 86,
+  "M": 1652,
+  "N": 826,
+  "bits": 256,
+  "consumer_precision": 6144,
+  "created": "2026-10-27T14:07:45Z",
+  "first_attempt_seal": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/first-attempt-seal-v1.json",
+  "first_attempt_seal_sha256": "7b29db1a39707f489de185c48d7b361077686e9713d294397e24466b3f4f0dc3",
+  "format": "t081-complete-gram-inputs-v1",
+  "production_admission": false,
+  "source_helper": "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+  "source_helper_sha256": "2db67f5add9fd164a23a03c33ebe6181cb5f171499adcdfb93d3875eddc7c29f",
+  "source_precision": 4608,
+  "support": "81/100",
+  "target_declaration": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/target-declaration-source-v1.json",
+  "target_declaration_sha256": "026658a580d6ebe2ff8543d9e94ebbd24ea92d13027c5e43714e876cce353341"
+}
