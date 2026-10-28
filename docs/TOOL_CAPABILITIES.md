@@ -3,7 +3,7 @@
 - **Audit:** SYS-1 current-state technical inventory
 - **Audited repository revision:** `20a691105ec808e623faef2fc5bbaf4806a0d352` (`main`, 2026-10-08 commit)
 - **Audit date:** 2026-10-17
-- **Last updated:** `2026-10-28T17:41:03Z` (later factual addenda; original audit identity unchanged)
+- **Last updated:** `2026-10-28T20:02:24Z` (later factual addenda; original audit identity unchanged)
 - **Scope:** Implemented Python/Arb mathematics, Rust, Lean, execution/orchestration, retained evidence and agent navigation
 - **Disposition:** Public technical record of *existing* behavior only; not a research strategy, roadmap, or tooling-upgrade register
 - **Method:** Read current source, tests, schemas, contracts, and retained verification records; independently execute the checks listed in §8
@@ -11,6 +11,12 @@
 This audit describes the source tree at the pinned revision. An implemented function, a prior passing test, a freshly passing test, an external mathematical premise, and an admitted theorem are different forms of evidence. They are not interchangeable.
 
 The audit did **not** edit or regenerate any historical attempt, finding, computation, or retained certificate. It did **not** run a new mathematical qualification sweep.
+
+## 2026-10-28T20:02:24Z: original retained T81/100 consequence accepted
+
+[X-20261028-003](../computations/2026-10-28T183329Z-t081-retained-completion/record.md) executes the original frozen nine-case and conjunctive acceptance programs through `scripts.verify_t081_retained_acceptance`, with qualified neutral resource/progress/owned-cleanup supervision. The original one-thread premise remains truthful. Candidate, qualification, replay, mathematical code and all196 prior files remain unchanged; the successful full replay is reused rather than regenerated.
+
+All nine substantive controls pass, including a fresh positive256473-entry even control before six native subset probes and three complete exact cases. The final gate binds the prior complete512946-entry/both413-parity evidence and proves the full source-norm floor10^-21. Separate full mass-trace/Fraction arithmetic and independent mathematical/execution review agree. This accepts C-0123/C-0124 within the named Suzuki/source and shared arithmetic/enclosure research premises; it does not extend any production certificate profile, whitelist or retained-production registry. No new Rust/Lean acceptance or RH result is claimed.
 
 ## 2026-10-28T17:41:03Z: complete fixed source and independent-consumer resource execution
 

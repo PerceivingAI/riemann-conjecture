@@ -1,10 +1,20 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-28T18:09:07Z`
+- **Last updated:** `2026-10-28T20:02:24Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-28T20:02:24Z: original T81/100 retained gates and full smooth-test consequence pass
+
+[F-20261028-001](../findings/2026-10-28T200224Z-t081-retained-smooth-test-positivity.md) / [X-20261028-003](../computations/2026-10-28T183329Z-t081-retained-completion/record.md) complete original C-0123 retained acceptance and C-0124. The original byte-frozen adversarial/consequence programs execute on source f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e. The already passed full55-destination replay is reused, not rerun or replaced by newer compute-qualified source bytes.
+
+Fresh6144-bit containment of256473 original even entries precedes all six native false-source subset rejections. Three full413-dimensional exact cases correctly handle singularity, synthetic selected-lower negativity and excessive numerical uncertainty. The original final gate verifies the complete512946-entry/both-parity prior replay,33-member candidate and qualification/code/input/control identities, physical numerical goals and full-norm consequence. Actual original-control/final-gate walls are4965.331/1.230s; one native thread preserves the frozen receipt premise. Qualified neutral supervision retains streams, memory and owned cleanup. All196 prior files are unchanged.
+
+The reviewed complete source-norm formula gives gamma approximately2.66949288806e-21 and proves the conservative rational10^-21. A separate stdlib Fraction calculation recomputes BOTH full413x413 mass traces, matches each physical low conversion and agrees exactly with the final gamma. Fresh read-only review confirms that its conditional approval's execution requirements are now met. This yields strict source-conditional positivity for every nonzero admissible complex smooth test at support[-81/100,81/100], not just low vectors. Shared Suzuki/source-form, FLINT/Arb and Gauss premises remain explicit.
+
+No older record, code, format or manifest is rewritten. No external normalization/priority assertion, optimality, global support family, production admission or RH conclusion is made; inventories stay8v1/0v2/1v3.
 
 ## 2026-10-28T18:09:07Z: additive execution measurement-count correction
 

@@ -1,0 +1,677 @@
+{
+  "acceptance_report": "data/run-v1/retained-acceptance-v1.json",
+  "captured_adapter": {
+    "restore_repository_path": "scripts/verify_t081_retained_acceptance.py",
+    "scope": "verbatim executed code; restore its original relative path for reproduction, not standalone execution at the archive path",
+    "sha256": "60e81a70c119b24965691435b378886852d149de82ab732d420b80f642af5911",
+    "stored": "captured-code-v1/scripts/verify_t081_retained_acceptance.py"
+  },
+  "complete_source_replay_reused_not_rerun": true,
+  "completed": "2026-10-28T20:02:24Z",
+  "created": "2026-10-28T18:33:29Z",
+  "execution_receipt": "data/run-v1/milestone3-completion-v1.json",
+  "external_dependencies": [
+    {
+      "path": "findings/2026-10-28T200224Z-t081-retained-smooth-test-positivity.md",
+      "sha256": "53bded5eb094250a9367ba5760a680c259b9beffda0a79322f7458ba4c801cd1",
+      "size": 5735
+    },
+    {
+      "path": "scripts/verify_t081_retained_acceptance.py",
+      "sha256": "60e81a70c119b24965691435b378886852d149de82ab732d420b80f642af5911",
+      "size": 6220
+    },
+    {
+      "path": "scripts/run_observability.py",
+      "sha256": "e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c58a95",
+      "size": 35794
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/manifest.json",
+      "sha256": "edf0d6161bece527745f7df33bd0c946a48bfdb8572d1c5aebf27807be067fed",
+      "size": 14940
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/negative-controls-v1.py",
+      "sha256": "7fed87506ba578df7233bdd0672e41068ee1e3faede0cd9ff9061b8950f97409",
+      "size": 30259
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/accept-retained-v1.py",
+      "sha256": "bf9e9aea87395d991b858a8bd6573b997fc26c548e6b7e97e592e62613556306",
+      "size": 13610
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/smooth-test-consequence-v1.md",
+      "sha256": "0745f682bbba48d2851ab967030e1e7e03269eb01c0ccebcf54ac189575e0ec2",
+      "size": 6741
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/isolated-replay-v1.json",
+      "sha256": "44f8516a60836516849ac3150f243807452c5fa807d6aba8606d92f1f2589445",
+      "size": 16737
+    },
+    {
+      "path": "computations/2026-10-27T140745Z-t081-complete-gram-attempt/manifest.json",
+      "sha256": "b44bdfcb3567e9182b659b0037edc7bdca4fe464dfca6eebd595ac5c93debe24",
+      "size": 5949
+    },
+    {
+      "path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/manifest.json",
+      "sha256": "a1431dac564a4aafa0b2cba5f86ca28f95e12bb63f9b7aa331300a204f1d6da9",
+      "size": 18172
+    },
+    {
+      "path": "computations/2026-10-28T034134Z-t081-resource-execution/manifest-v2.json",
+      "sha256": "5e6757ba2a223661dbe8d3b2831e8236b299db1bb74a35c953bfd144ab102629",
+      "size": 33035
+    },
+    {
+      "path": "computations/2026-10-28T034134Z-t081-resource-execution/execution_resources_v2.py",
+      "sha256": "8f3fc4d3bf0ddbba99ff6686ccb4acbe81ed583f8f3fc0ac6572e4acf473a9e2",
+      "size": 18680
+    },
+    {
+      "path": "computations/2026-10-28T034134Z-t081-resource-execution/execution_supervisor_v1.py",
+      "sha256": "cc1c10f9d54a0cff7250d3a53f72480c5e56a49262176d32d0b1de98090d334c",
+      "size": 12038
+    },
+    {
+      "path": "computations/2026-10-28T034134Z-t081-resource-execution/resource_limits_v1.py",
+      "sha256": "b6258b25377244cf97fb094e20c017dd3438a66c69cc33aeb737f5333b53b717",
+      "size": 20409
+    },
+    {
+      "path": "computations/2026-10-28T034134Z-t081-resource-execution/stage_worker_v1.py",
+      "sha256": "3ecc6c00630b7d7eb2bffd8d544f61f18ade7ec30b9b7fc2348e7274d22faeee",
+      "size": 4071
+    },
+    {
+      "path": "computations/2026-10-28T034134Z-t081-resource-execution/execution_events_v1.py",
+      "sha256": "f89c177e4622b3b939b729d8daa9dd1089942734d5fafe3cbf689ff486c5690f",
+      "size": 2002
+    }
+  ],
+  "format": "t081-original-retained-completion-bundle-v1",
+  "fresh_external_case_outputs": [
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/capture-receipt.json",
+      "sha256": "8eda091316fccff85686cbfa8a867512ddcb58ca12bd34aa8a3eb501b9faa608",
+      "size": 8764
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/native-even-control.json",
+      "sha256": "11594e41728ab5ab73cf336a8e5a1530c87258de4062ec8d683dda673ec3f49f",
+      "size": 100760
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/numerical-width-uncertainty/audit.json",
+      "sha256": "f2ffa60432dc29c4cfe748a44f38c92f3c04a1971687679a3cd66f6ad091b386",
+      "size": 1089324
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/numerical-width-uncertainty/case-result.json",
+      "sha256": "b8f43f46b7d2b92fafda05781d1160992678e6def119b924e6681a1444ae6195",
+      "size": 1975
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/numerical-width-uncertainty/matrices/A_model-0.json.gz",
+      "sha256": "038138f2672137d86234bbf0f3c1254fdc591ec2114457d14551c2a802151b0e",
+      "size": 3780136
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/numerical-width-uncertainty/matrices/A_model-1.json.gz",
+      "sha256": "3d605a4ae49e24548842e968908bdb8566deea2351f79994dd3a2a9f3dbd4540",
+      "size": 3779386
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/numerical-width-uncertainty/matrices/weighted_complete_tail-0.json.gz",
+      "sha256": "85b802528bfee414678327dca90ee3c293ec71cfd7c7e951aa261502cd964601",
+      "size": 3587922
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/numerical-width-uncertainty/matrices/weighted_complete_tail-1.json.gz",
+      "sha256": "e707a3339d4f8310c3a03d4364421ce5229daad9d1319e747c734fd11f79bf64",
+      "size": 3587595
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/numerical-width-uncertainty/matrices/weighted_head-0.json.gz",
+      "sha256": "f82b9c5d344d63610eb031c8d71128748de5ad2220ebd9f945964a2550b7b2dd",
+      "size": 3610918
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/numerical-width-uncertainty/matrices/weighted_head-1.json.gz",
+      "sha256": "5dc0878352456e29d3ab5c778e0dbcd46c74dc596dd0521ce2e32004b549eace",
+      "size": 3610803
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/numerical-width-uncertainty/proposal.json.gz",
+      "sha256": "a4cbd5bc0c60bad618db04b3469fae323f5fcdf89e2a49851766fd53db2c7e43",
+      "size": 4865287
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/numerical-width-uncertainty/receipt.json",
+      "sha256": "41f934d34cd16c9fcf8884e0e0bcd61ab17abfe5a6bf4417d21655c4c87986ab",
+      "size": 1494
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/numerical-width-uncertainty/source.json",
+      "sha256": "5486da12ec204e30ebd4aa683872c5e84e32514330601f99a3efad26c6b3ee86",
+      "size": 17785
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-complete-physicalexterior/case-result.json",
+      "sha256": "68e8db69b9dc3ebc4bef29e87a4d8d7b10c2d471bc07fdcef8ef4200364db1d8",
+      "size": 1397
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-complete-physicalexterior/matrices/A_model-0.json.gz",
+      "sha256": "479fa8ffd000ffb41caf4309fc84a91dfb6db893a2d75f5c83c0cb6e37fee36b",
+      "size": 3639769
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-complete-physicalexterior/matrices/A_model-1.json.gz",
+      "sha256": "1c814c9b8f8f5ff09823c5bde38414e6392c10a73b5b0adc743dade1e9077bad",
+      "size": 3639505
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-complete-physicalexterior/matrices/weighted_complete_tail-0.json.gz",
+      "sha256": "209ab43e4c2cfb8a48269b421d5b46eac2c6648045cac53d93e938846158a226",
+      "size": 3727519
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-complete-physicalexterior/matrices/weighted_complete_tail-1.json.gz",
+      "sha256": "e707a3339d4f8310c3a03d4364421ce5229daad9d1319e747c734fd11f79bf64",
+      "size": 3587595
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-complete-physicalexterior/matrices/weighted_head-0.json.gz",
+      "sha256": "f82b9c5d344d63610eb031c8d71128748de5ad2220ebd9f945964a2550b7b2dd",
+      "size": 3610918
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-complete-physicalexterior/matrices/weighted_head-1.json.gz",
+      "sha256": "5dc0878352456e29d3ab5c778e0dbcd46c74dc596dd0521ce2e32004b549eace",
+      "size": 3610803
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-complete-physicalexterior/receipt.json",
+      "sha256": "972e1da343d0316a5061668283a518b1334ac6525b5d452cef63db85835ba819",
+      "size": 8182
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-complete-physicalexterior/source.json",
+      "sha256": "d511ee2434c8d11659610dd1961067b393d8668b09d1eb66062b31c2dc0121ff",
+      "size": 17785
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-low-term/case-result.json",
+      "sha256": "ef8830a9368fdd5ee1bcb12bc201d719996c4b0775061f6ecc333c6d53bf2795",
+      "size": 1515
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-low-term/matrices/A_model-0.json.gz",
+      "sha256": "980fe273e41bef42ba2bec5a1ac79d08aa1ef06c15d239a2b26057559207f3d0",
+      "size": 3780099
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-low-term/matrices/A_model-1.json.gz",
+      "sha256": "1c814c9b8f8f5ff09823c5bde38414e6392c10a73b5b0adc743dade1e9077bad",
+      "size": 3639505
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-low-term/matrices/weighted_complete_tail-0.json.gz",
+      "sha256": "85b802528bfee414678327dca90ee3c293ec71cfd7c7e951aa261502cd964601",
+      "size": 3587922
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-low-term/matrices/weighted_complete_tail-1.json.gz",
+      "sha256": "e707a3339d4f8310c3a03d4364421ce5229daad9d1319e747c734fd11f79bf64",
+      "size": 3587595
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-low-term/matrices/weighted_head-0.json.gz",
+      "sha256": "f82b9c5d344d63610eb031c8d71128748de5ad2220ebd9f945964a2550b7b2dd",
+      "size": 3610918
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-low-term/matrices/weighted_head-1.json.gz",
+      "sha256": "5dc0878352456e29d3ab5c778e0dbcd46c74dc596dd0521ce2e32004b549eace",
+      "size": 3610803
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-low-term/receipt.json",
+      "sha256": "ed4ff5efa6308356318a083bebf5df22cf20d66e7d69a25f40dadf4917eaaf1b",
+      "size": 8437
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-low-term/source.json",
+      "sha256": "9080cc8e26f51af87f9fa479e217755485075a9d58dfc3d8a0189fff684242c7",
+      "size": 17785
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-mixed-square/case-result.json",
+      "sha256": "392ba28c69308bf731bb23d8050075fd5bab509a2fe223597703dfbd82c67989",
+      "size": 1543
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-mixed-square/matrices/A_model-0.json.gz",
+      "sha256": "479fa8ffd000ffb41caf4309fc84a91dfb6db893a2d75f5c83c0cb6e37fee36b",
+      "size": 3639769
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-mixed-square/matrices/A_model-1.json.gz",
+      "sha256": "1c814c9b8f8f5ff09823c5bde38414e6392c10a73b5b0adc743dade1e9077bad",
+      "size": 3639505
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-mixed-square/matrices/weighted_complete_tail-0.json.gz",
+      "sha256": "8594ea0853ca4ac72a6c7cd66dc479db3a4a067537a6d73dc83cc0fafa5f766d",
+      "size": 3727547
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-mixed-square/matrices/weighted_complete_tail-1.json.gz",
+      "sha256": "e707a3339d4f8310c3a03d4364421ce5229daad9d1319e747c734fd11f79bf64",
+      "size": 3587595
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-mixed-square/matrices/weighted_head-0.json.gz",
+      "sha256": "f82b9c5d344d63610eb031c8d71128748de5ad2220ebd9f945964a2550b7b2dd",
+      "size": 3610918
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-mixed-square/matrices/weighted_head-1.json.gz",
+      "sha256": "5dc0878352456e29d3ab5c778e0dbcd46c74dc596dd0521ce2e32004b549eace",
+      "size": 3610803
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-mixed-square/receipt.json",
+      "sha256": "ce7eecdc20ff825fac243a47eb52232a7dbe4e9b32963b389c5cd31925a5a150",
+      "size": 8492
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/omitted-prime5-mixed-square/source.json",
+      "sha256": "57a9e7f1257049383dcc09ce354099a0246ce52e9ea427861d69bc0a2b631921",
+      "size": 17785
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/singular-fullspace-witness/case-result.json",
+      "sha256": "184fbb642ed3cc78161b793ab855a6e2dad14691608ae3b8cdadd5823bb68dd8",
+      "size": 672
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/singular-fullspace-witness/matrices/A_model-0.json.gz",
+      "sha256": "479fa8ffd000ffb41caf4309fc84a91dfb6db893a2d75f5c83c0cb6e37fee36b",
+      "size": 3639769
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/singular-fullspace-witness/matrices/A_model-1.json.gz",
+      "sha256": "1c814c9b8f8f5ff09823c5bde38414e6392c10a73b5b0adc743dade1e9077bad",
+      "size": 3639505
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/singular-fullspace-witness/matrices/weighted_complete_tail-0.json.gz",
+      "sha256": "85b802528bfee414678327dca90ee3c293ec71cfd7c7e951aa261502cd964601",
+      "size": 3587922
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/singular-fullspace-witness/matrices/weighted_complete_tail-1.json.gz",
+      "sha256": "e707a3339d4f8310c3a03d4364421ce5229daad9d1319e747c734fd11f79bf64",
+      "size": 3587595
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/singular-fullspace-witness/matrices/weighted_head-0.json.gz",
+      "sha256": "f82b9c5d344d63610eb031c8d71128748de5ad2220ebd9f945964a2550b7b2dd",
+      "size": 3610918
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/singular-fullspace-witness/matrices/weighted_head-1.json.gz",
+      "sha256": "5dc0878352456e29d3ab5c778e0dbcd46c74dc596dd0521ce2e32004b549eace",
+      "size": 3610803
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/singular-fullspace-witness/proposal.json.gz",
+      "sha256": "c01b88e2bbf7a7451b60f217259a171436be0f130ee373759d9bb3fa126f6131",
+      "size": 4859326
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/singular-fullspace-witness/receipt.json",
+      "sha256": "bb631dd6231d9c4bc8aea45eb01fc0e3bc9a634b2731a7525df3e6043f93b373",
+      "size": 2164
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/singular-fullspace-witness/source.json",
+      "sha256": "6e0faba1299095ffa9459afb72a8f435217babfae584d14fbb7422d385f6fa6d",
+      "size": 17785
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/synthetic-selected-negative/audit.json",
+      "sha256": "49faf2dcd6252895daf8d3819c4bc6ac4697af1163c7ccc7855169ace72db250",
+      "size": 1141157
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/synthetic-selected-negative/case-result.json",
+      "sha256": "583c69ec38f5538df2b5484230e98ea8ce6e996f485261252ac873e42b10e4ef",
+      "size": 2004
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/synthetic-selected-negative/matrices/A_model-0.json.gz",
+      "sha256": "5138fa43a99a238cd218ae202c68cbf01393c8fd73e90ef84eeb85c54a459699",
+      "size": 31019
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/synthetic-selected-negative/matrices/A_model-1.json.gz",
+      "sha256": "5ec424c62f007fd19f0afa46c0d51ee3d1049ec6bde15e9b960f53b79de0fc0f",
+      "size": 31104
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/synthetic-selected-negative/matrices/weighted_complete_tail-0.json.gz",
+      "sha256": "85b802528bfee414678327dca90ee3c293ec71cfd7c7e951aa261502cd964601",
+      "size": 3587922
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/synthetic-selected-negative/matrices/weighted_complete_tail-1.json.gz",
+      "sha256": "e707a3339d4f8310c3a03d4364421ce5229daad9d1319e747c734fd11f79bf64",
+      "size": 3587595
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/synthetic-selected-negative/matrices/weighted_head-0.json.gz",
+      "sha256": "f82b9c5d344d63610eb031c8d71128748de5ad2220ebd9f945964a2550b7b2dd",
+      "size": 3610918
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/synthetic-selected-negative/matrices/weighted_head-1.json.gz",
+      "sha256": "5dc0878352456e29d3ab5c778e0dbcd46c74dc596dd0521ce2e32004b549eace",
+      "size": 3610803
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/synthetic-selected-negative/proposal.json.gz",
+      "sha256": "044057c2d3b027f0af8533ffb6902a58df81b97dcecd6b8a08d3b04327015457",
+      "size": 4865296
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/synthetic-selected-negative/receipt.json",
+      "sha256": "a09ab1e26de99d918a4925471fb9c75eb9451aaff76b25ec85422b2d4b5f7a57",
+      "size": 1517
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/synthetic-selected-negative/source.json",
+      "sha256": "0ff3e43a7cc7cb478eabc4b7a641eb6b97ac29bf36d37efc4fa67795b2ff4537",
+      "size": 17781
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaid-terminal-inverseweight/case-result.json",
+      "sha256": "f093d251e0157f8752a8acfe2299500db6b4d17eec1b2e899ead2949685171b1",
+      "size": 834
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaid-terminal-inverseweight/matrices/A_model-0.json.gz",
+      "sha256": "479fa8ffd000ffb41caf4309fc84a91dfb6db893a2d75f5c83c0cb6e37fee36b",
+      "size": 3639769
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaid-terminal-inverseweight/matrices/A_model-1.json.gz",
+      "sha256": "1c814c9b8f8f5ff09823c5bde38414e6392c10a73b5b0adc743dade1e9077bad",
+      "size": 3639505
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaid-terminal-inverseweight/matrices/weighted_complete_tail-0.json.gz",
+      "sha256": "85b802528bfee414678327dca90ee3c293ec71cfd7c7e951aa261502cd964601",
+      "size": 3587922
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaid-terminal-inverseweight/matrices/weighted_complete_tail-1.json.gz",
+      "sha256": "e707a3339d4f8310c3a03d4364421ce5229daad9d1319e747c734fd11f79bf64",
+      "size": 3587595
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaid-terminal-inverseweight/matrices/weighted_head-0.json.gz",
+      "sha256": "f82b9c5d344d63610eb031c8d71128748de5ad2220ebd9f945964a2550b7b2dd",
+      "size": 3610918
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaid-terminal-inverseweight/matrices/weighted_head-1.json.gz",
+      "sha256": "5dc0878352456e29d3ab5c778e0dbcd46c74dc596dd0521ce2e32004b549eace",
+      "size": 3610803
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaid-terminal-inverseweight/receipt.json",
+      "sha256": "c64721bbf9aa21f61a59eadb61b702443634fa0b1d28d5dfb6b79eebe858fbcd",
+      "size": 677
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaid-terminal-inverseweight/source.json",
+      "sha256": "5d739593097a1968effceb82e39f424d322869909b6c7afe6abbe2bbe5a22978",
+      "size": 17631
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaidweightedhead/case-result.json",
+      "sha256": "2e45c58ae9024ccafed6f19d279425edf3d4ad5ec1a9382104381940c3fa1527",
+      "size": 1513
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaidweightedhead/matrices/A_model-0.json.gz",
+      "sha256": "479fa8ffd000ffb41caf4309fc84a91dfb6db893a2d75f5c83c0cb6e37fee36b",
+      "size": 3639769
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaidweightedhead/matrices/A_model-1.json.gz",
+      "sha256": "1c814c9b8f8f5ff09823c5bde38414e6392c10a73b5b0adc743dade1e9077bad",
+      "size": 3639505
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaidweightedhead/matrices/weighted_complete_tail-0.json.gz",
+      "sha256": "85b802528bfee414678327dca90ee3c293ec71cfd7c7e951aa261502cd964601",
+      "size": 3587922
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaidweightedhead/matrices/weighted_complete_tail-1.json.gz",
+      "sha256": "e707a3339d4f8310c3a03d4364421ce5229daad9d1319e747c734fd11f79bf64",
+      "size": 3587595
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaidweightedhead/matrices/weighted_head-0.json.gz",
+      "sha256": "3acfe9a4b3d62848f14fcd68dbd1653a381a01d0da8dbc0c2bd13c7d56e7d85d",
+      "size": 3748234
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaidweightedhead/matrices/weighted_head-1.json.gz",
+      "sha256": "5dc0878352456e29d3ab5c778e0dbcd46c74dc596dd0521ce2e32004b549eace",
+      "size": 3610803
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaidweightedhead/receipt.json",
+      "sha256": "1cdb49d7f0f3d6b7ca9285cc8e2054ad607560f2738da4db107d12ffdf914ba5",
+      "size": 8454
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/underpaidweightedhead/source.json",
+      "sha256": "9f78340553179e0132cf85ffe5325798f8e3b2196e0933591800d266efff9a9c",
+      "size": 17785
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/wrongactual-lowconstant/case-result.json",
+      "sha256": "cb91ca10f7d702f69920c0e4ab1a3a06ceab1dc99838f5480db17c1dc906bcd5",
+      "size": 1517
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/wrongactual-lowconstant/matrices/A_model-0.json.gz",
+      "sha256": "02a15ecf56373995c74bdd8fb3f06e1121ad4ef54f3a5d56c2ebd6ccb684b395",
+      "size": 3780096
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/wrongactual-lowconstant/matrices/A_model-1.json.gz",
+      "sha256": "1c814c9b8f8f5ff09823c5bde38414e6392c10a73b5b0adc743dade1e9077bad",
+      "size": 3639505
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/wrongactual-lowconstant/matrices/weighted_complete_tail-0.json.gz",
+      "sha256": "85b802528bfee414678327dca90ee3c293ec71cfd7c7e951aa261502cd964601",
+      "size": 3587922
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/wrongactual-lowconstant/matrices/weighted_complete_tail-1.json.gz",
+      "sha256": "e707a3339d4f8310c3a03d4364421ce5229daad9d1319e747c734fd11f79bf64",
+      "size": 3587595
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/wrongactual-lowconstant/matrices/weighted_head-0.json.gz",
+      "sha256": "f82b9c5d344d63610eb031c8d71128748de5ad2220ebd9f945964a2550b7b2dd",
+      "size": 3610918
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/wrongactual-lowconstant/matrices/weighted_head-1.json.gz",
+      "sha256": "5dc0878352456e29d3ab5c778e0dbcd46c74dc596dd0521ce2e32004b549eace",
+      "size": 3610803
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/wrongactual-lowconstant/receipt.json",
+      "sha256": "f4392c2b4cba1171e736364acc209fab0812b010a6a0ab3ecbb4fdb4130a2237",
+      "size": 8440
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1-cases/wrongactual-lowconstant/source.json",
+      "sha256": "e7d8a3a524d60cf6af04ecfa9e2ee481adc09b858fa2b0da0cae33a19619b744",
+      "size": 17785
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/2026-10-28T183329Z-completion/negative-controls-v1.json",
+      "sha256": "3687cbfeb7eedc78b6d28daebfde93046d263418cbbb136f6a4715b8711c766b",
+      "size": 135281
+    }
+  ],
+  "id": "X-20261028-003",
+  "independent_review_closure": "review-closure-v1.json",
+  "members": [
+    {
+      "path": "captured-code-v1/scripts/verify_t081_retained_acceptance.py",
+      "sha256": "60e81a70c119b24965691435b378886852d149de82ab732d420b80f642af5911",
+      "size": 6220
+    },
+    {
+      "path": "data/cli-preflight-v1.json",
+      "sha256": "2ab066c3dcd5f510700f9b15662ecd2b4dad7c44f2b5e7f1a8471f0ff32d4afe",
+      "size": 2411
+    },
+    {
+      "path": "data/completion-validation-v1.json",
+      "sha256": "e91502826764f48dd251ad6934ec6ac130acdaa632c36dc43584a25f1640cfd0",
+      "size": 735
+    },
+    {
+      "path": "data/preservation-before-v1.json",
+      "sha256": "a2e343be68fb4cf8ba4fb1a2389abe50fdf9f64961e02053434605aca15c4ed8",
+      "size": 39092
+    },
+    {
+      "path": "data/run-v1/.live/events.jsonl",
+      "sha256": "f6f8aa07c26fa4de05f1c91e6ba356582b3614d6ead2dbce287d3053a2c008e7",
+      "size": 6379
+    },
+    {
+      "path": "data/run-v1/.live/run-status.json",
+      "sha256": "28f1c8a2291e063e18f097b1800f00518bcb04662ee77da7971a5805cbb1f05c",
+      "size": 370
+    },
+    {
+      "path": "data/run-v1/.live/run.json",
+      "sha256": "27033fef7b1c4aa98be35b255b75b6626c4a67db91ee3bf2ad939adb47a19f0e",
+      "size": 370
+    },
+    {
+      "path": "data/run-v1/.run.lock",
+      "sha256": "25b40d726861ad0d3a2cd65ab9e23e3ea0251dda836f766c04cfb3027e4229e0",
+      "size": 208
+    },
+    {
+      "path": "data/run-v1/bound-inputs-v1.json",
+      "sha256": "2649acd0a86c60cc2b14f609f0c146957da1c7d78429ddeb7d20a1de35d6887d",
+      "size": 1343
+    },
+    {
+      "path": "data/run-v1/execution-budget.json",
+      "sha256": "0fd877113590ed2193357479716bff0aecab47e78b2bbaf6feb7b6d4763b85a7",
+      "size": 2733
+    },
+    {
+      "path": "data/run-v1/milestone3-completion-v1.json",
+      "sha256": "97946f17f3afcd87299701af7ffaac642db96436c4d15ca85879b24ab18ed119",
+      "size": 16170
+    },
+    {
+      "path": "data/run-v1/original-adversarial/profile.json",
+      "sha256": "71b12fd15db532a4b2e1eeef249215ea646c6a7953b79c3f762320db06c942dd",
+      "size": 697
+    },
+    {
+      "path": "data/run-v1/original-adversarial/receipt.json",
+      "sha256": "28cc1fa08debbebee11b54d3a6756d094b1c842cf93736526e2a141fcb012ba3",
+      "size": 5378
+    },
+    {
+      "path": "data/run-v1/original-adversarial/stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "data/run-v1/original-adversarial/stdout.txt",
+      "sha256": "e9c422485cde18d96b6979048ada724cef1219ec7be262654cb3623c5ee06ae1",
+      "size": 396
+    },
+    {
+      "path": "data/run-v1/original-retained-consequence/profile.json",
+      "sha256": "353be9cd336d2015189dda6144563c1157997838b9917c9db5fcce69865b91b7",
+      "size": 685
+    },
+    {
+      "path": "data/run-v1/original-retained-consequence/receipt.json",
+      "sha256": "8de5203e24311f3d1050915e02f27a57b0dde2f540eda8bf8b49490a29f4cf39",
+      "size": 5730
+    },
+    {
+      "path": "data/run-v1/original-retained-consequence/stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "data/run-v1/original-retained-consequence/stdout.txt",
+      "sha256": "d9d4dec82efb27c0143ee4f9f1a2aee33a7503a2e1743a90caa698ec22c73af6",
+      "size": 632
+    },
+    {
+      "path": "data/run-v1/retained-acceptance-v1.json",
+      "sha256": "3537ac3b419ce9e77241ae278fd1b0ef1301290e9b0e7d3125ccdf985c4474d5",
+      "size": 5381
+    },
+    {
+      "path": "data/source-norm-cross-check-v1.json",
+      "sha256": "e2e92c81dfa6134c94bb046b221921baa518b5e08ca545106f92a9e184bc58c0",
+      "size": 11804
+    },
+    {
+      "path": "independent-review-v1.md",
+      "sha256": "1ad6d13fa42f1ac4b309d4627adb9491013d7073d2cf6cabe53508ccc99bec53",
+      "size": 4191
+    },
+    {
+      "path": "record.md",
+      "sha256": "71b983ebfa99c791d9398c24b2eae46ca0c6544303b5263837a96413fde6e489",
+      "size": 10235
+    },
+    {
+      "path": "review-closure-v1.json",
+      "sha256": "b2522f56874652a1e1f4dd5e913ac78fc65dc3bd6e6f718e13b99197e08c2e76",
+      "size": 1290
+    }
+  ],
+  "original_files_preserved": 196,
+  "preserved_original_inventory": "data/preservation-before-v1.json",
+  "production_admission": false,
+  "published_rational_source_norm_gap_lower": "1/1000000000000000000000",
+  "retained_scope": "source-conditional research smooth-test positivity, not production admission",
+  "rh_status": "UNRESOLVED",
+  "source_norm_cross_check": "data/source-norm-cross-check-v1.json",
+  "source_sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e",
+  "status": "COMPLETE",
+  "validation": "data/completion-validation-v1.json"
+}

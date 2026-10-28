@@ -1,0 +1,4 @@
+T081_READY {"pid": 25916, "config_sha256": "0fd877113590ed2193357479716bff0aecab47e78b2bbaf6feb7b6d4763b85a7"}
+T081_EVENT {"elapsed_seconds": 0.0037691000034101307, "event": "program_started", "kind": "exact", "threads": 1}
+{"status": "PASS_RETAINED_SOURCE_CONDITIONAL_SMOOTH_TEST_POSITIVITY", "source_sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e", "published_rational_source_norm_gap_lower": "1/1000000000000000000000", "production_admission": false}
+T081_EVENT {"elapsed_seconds": 0.47263679999741726, "event": "program_finished", "exit_code": 0, "kind": "exact", "wall_seconds": 0.4640432000014698}

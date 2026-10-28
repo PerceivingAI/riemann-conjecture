@@ -1,0 +1,38 @@
+{
+  "actual_Weil_negativity_claimed": false,
+  "case": "wrongactual-lowconstant",
+  "changed_matrix_cells": [
+    [
+      0,
+      0
+    ]
+  ],
+  "consumer": "source",
+  "consumer_sha256": "4bc4d25db589fe987bb2c7f78f31bd7dc83849666daae82b017295db30d94720",
+  "expected": "source enclosure fails at A_model-0 cell (0, 0)",
+  "expected_exit_code": null,
+  "mathematical_matrix_mutations": [
+    {
+      "family": "A_model-0",
+      "modified_cell_00": [
+        249621983837017263141562944460580333257201633759193668842856407510258033207701,
+        249621983837017263141562944460580333257201633759193668842856407510258033207704
+      ],
+      "modified_sha256": "02a15ecf56373995c74bdd8fb3f06e1121ad4ef54f3a5d56c2ebd6ccb684b395",
+      "original_cell_00": [
+        18037805362384872294420974443204517550661664427912540763941239494431773927829,
+        18037805362384872294420974443204517550661664427912540763941239494431773927832
+      ],
+      "original_sha256": "479fa8ffd000ffb41caf4309fc84a91dfb6db893a2d75f5c83c0cb6e37fee36b"
+    }
+  ],
+  "original_proposal_sha256": "3444b4cd498e16b46d9c10b539285cd5038489976a88b3111bd47364d247c85e",
+  "passed": true,
+  "production_admission": false,
+  "proposal_sha256": null,
+  "scope": "SUBSET parity 0; not a complete source audit",
+  "shared_native_control_receipt": "native-even-control.json",
+  "source_sha256": "e7d8a3a524d60cf6af04ecfa9e2ee481adc09b858fa2b0da0cae33a19619b744",
+  "synthetic_not_analytic_truth": false,
+  "terminal_inverse_weight_set_to_zero": false
+}

@@ -1,0 +1,16 @@
+{
+  "complete_source_audit": false,
+  "consumer_sha256": "4bc4d25db589fe987bb2c7f78f31bd7dc83849666daae82b017295db30d94720",
+  "elapsed_seconds": 0.012722300001769327,
+  "error": "inverse weights differ from declaration",
+  "error_type": "ValueError",
+  "expected": "inverse weights differ from declaration",
+  "family": null,
+  "passed": true,
+  "predicate": "validate_weights",
+  "production_admission": false,
+  "scope": "SUBSET parity 0; shared fresh independent even reconstruction",
+  "shared_control": "../native-even-control.json",
+  "source_sha256": "5d739593097a1968effceb82e39f424d322869909b6c7afe6abbe2bbe5a22978",
+  "status": "REJECT_NATIVE_SUBSET_SOURCE_PROBE"
+}

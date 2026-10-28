@@ -1,7 +1,7 @@
 # Documentation Index
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-28T18:09:07Z`
+- **Last updated:** `2026-10-28T20:02:24Z`
 
 This is the compact index of the Riemann Conjecture research repository.
 
@@ -54,6 +54,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`A-20260826-001`](../attempts/2026-08-26T171400Z-one-prime-support-continuation.md) — continuation inside the one-prime window; moving Legendre dimension yields independently verified theorems at `T=2/5,N=40`, `T=17/40,N=48`, `T=9/20,N=56`, `T=19/40,N=68`, and `T=1/2,N=80`; `PROMISING`.
 
 ## Landmark findings
+- [F-20261028-001](../findings/2026-10-28T200224Z-t081-retained-smooth-test-positivity.md) / [X-20261028-003](../computations/2026-10-28T183329Z-t081-retained-completion/record.md) — retained C-0123 and C-0124 strict source-conditional smooth-test positivity at T81/100, full source-norm lower10^-21. Original nine controls/final gate pass; prior full512946-entry/both413-block captured replay is reused. All196 old files remain unchanged; independent normalization/review and owned cleanup pass. No production admission or RH conclusion.
 - [X-20261027-007](../computations/2026-10-27T182100Z-t081-retained-acceptance/record.md) — C-0123 full captured replay checkpoint:55 destinations,8 scalar and9 target comparisons pass, including all512946 analytical entries and both full413 exact parity signs. Nine adversarial checks and final acceptance remain unexecuted; no new retained theorem or full-norm release.
 - [F-20261027-006](../findings/2026-10-27T140745Z-t081-complete-supported-gram-candidate.md) / [X-20261027-006](../computations/2026-10-27T140745Z-t081-complete-gram-attempt/record.md) — provisional C-0123 complete positive prime-five T81/100,N826,K86 candidate. All512946 analytical entries, both exact complete413-block signs, nonsingularity and numerical goals pass on identical source bytes. Retained replay/adversarial/smooth-test consequence gates remain pending; no production admission or RH claim.
 - [F-20261027-005](../findings/2026-10-27T132236Z-t081-prime-five-reference-qualification.md) / [X-20261027-005](../computations/2026-10-27T132236Z-t081-prime-five-qualification/record.md) — C-0122 supported prime-five reference/error qualification at T81/100. A norm1 compressed-shift transfer lowers the sufficient cutoff1188 to826; K86 and complete numerical/exterior controls are independently derived. Nine mathematical rejections and38-destination all8-output byte-identical replay pass. No full target matrix/sign or support-frontier advance.
@@ -230,6 +231,7 @@ This is the compact index of the Riemann Conjecture research repository.
 - [`X-20261028-001`](../computations/2026-10-28T024305Z-t081-execution-corrections/record.md) — source-only affinity/cgroup, profiler, cleanup and strict comparison corrections;43 regression functions pass. A fresh complete source retains actual CPU/OS-memory/log/code/input evidence, matches all six audited packets byte-for-byte and uses type-sensitive metadata equality. Inclusive phase comparisons are recorded with single-run limits. Earlier evidence, mathematical acceptance and production inventories are unchanged.
 - [`X-20261028-002`](../computations/2026-10-28T034134Z-t081-resource-execution/record.md) — complete source AND independent-audit resource execution qualified: shared CPU/memory budgets, measured native threading, live progress and owned cleanup; all512946 analytical entries, both full exact signs and nine controls pass. Six packets are unchanged;93 focused tests pass with one OS-specific skip. Actual source/audit walls and CPU/memory limits are retained. No new mathematical admission or smooth-test release.
   [Timestamped measurement-count correction](../computations/2026-10-28T034134Z-t081-resource-execution/measurement-correction-v1.md) selects [manifest v2](../computations/2026-10-28T034134Z-t081-resource-execution/manifest-v2.json) and summary v2. Raw JUnit has94 unique cases but an inconsistent96 aggregate; the actual result remains93 passed and one skipped. Original data/seal and all numerical results are unchanged.
+- [`X-20261028-003`](../computations/2026-10-28T183329Z-t081-retained-completion/record.md) — original frozen T81/100 retained-adversarial and exact full-consequence gates pass without repeating the successful full replay. All nine cases, same-source identities, full-norm10^-21 check, independent full mass-trace/Fraction verification, separate review closure and196-file preservation pass. Fresh case outputs are timestamped additive evidence; source/predicates/inventories are unchanged.
 
 
 ## Templates
