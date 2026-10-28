@@ -1,5 +1,7 @@
 # Riemann Conjecture Research Repository
 
+Last updated: `2026-10-28T20:54:15Z`.
+
 This repository is an organized, auditable research record for attempts to understand or prove the Riemann Hypothesis (RH).
 
 The repository is **not** a collection of informal notes. Every substantive research action, derivation, finding, computation, correction, and dead end must be timestamped and recorded so that later work can reconstruct exactly what was tried, what was learned, and why a direction was continued or abandoned.
@@ -10,13 +12,25 @@ Coding or research agents should read [`AGENTS.md`](AGENTS.md) before exploring 
 
 Agents should still treat [`docs/STATUS.md`](docs/STATUS.md), [`docs/PROTOCOL.md`](docs/PROTOCOL.md), and [`docs/CONTRACTS.md`](docs/CONTRACTS.md) as authoritative for current research state, record discipline, and proof-certificate semantics respectively.
 
-## Current research direction and external mathematics (OAI-9)
+## Current research state — 2026-10-28
 
-**RH remains unresolved.** The separate retained proof chains now establish exactly **nine** fixed-support localized Weil positivity theorems: eight frozen one-prime v1 `C-0050..C-0057`, and the single independently accepted v3 combined mixed-Gram test-class theorem `C-0067` at `T=11/20,N=192` ([admission record](findings/2026-10-18T071803Z-v3-fixed-support-theorem-admission.md)). Generic multi-prime v2 continues to have **no** admitted theorem. These finite-support statements do **not** imply RH. At frozen `T=11/20,N=192/196`, the existing factor-3 **sufficient** Schur matrices have independently audited negative directions; this does *not* imply negativity of the full Weil operator.
+**RH remains unresolved.** The latest retained source-conditional research result, **C-0124**, establishes strict localized source-form positivity for **every nonzero complex Suzuki-admissible smooth test supported in [-81/100,81/100]**, with a conservative full source-norm lower bound of **10^-21**. The implemented supported weighted-Gram criterion uses exact **T=81/100,N826,K86,M1652**. Unitary scaling preserves the physical L2 norm; this full-norm bound is not a finite-low matrix margin or an optimal spectral minimum.
 
-The [OAI-8 research-direction decision](research/openai-math/RESEARCH_DIRECTION.md) keeps exact Weil/Legendre–Schur as the **primary** research program, with the next work being a justified new multi-prime positivity criterion rather than repeating the old failed sufficient matrix. Laguerre/phase-aware prime arithmetic is **secondary**; a Weil/phase hybrid is **deferred** until an exact, noncircular bridge is proved.
+[F-20261028-001](findings/2026-10-28T200224Z-t081-retained-smooth-test-positivity.md) and [X-20261028-003](computations/2026-10-28T183329Z-t081-retained-completion/record.md) retain the completed acceptance. It binds **512,946** independently reconstructed analytical entries at **6144 bits**, both complete **413-dimensional** exact parity witnesses, a successful **55-destination** captured replay, all **nine** original adversarial cases and the original final source-norm gate. The full mathematical consequence and its dependencies are registered as [C-0123/C-0124](docs/CLAIMS.md).
 
-**Updated SYS-6 support-continuation conclusion (2026-10-18):** The later [SYS-6.5 final assessment](findings/2026-10-18T092456Z-sys6-support-continuation-final-decision.md) documents why the existing **combined-Schur proof system should not be extended through routine isolated finite certificates as an RH strategy**. SYS-6.4 found a rigorously signed **negative direction for the chosen conservative Schur sufficient matrix** at T=3/5,N=192, not a negative Weil form. The present local residual enclosure requires \(2T<\pi\), and no universal positive low-Schur or global residual argument has been established. This **does not overturn** the admitted T=11/20 theorem, prove that other bounds/dimensions fail, or change the broader historical OAI-8 comparison. The decision is to stop **unjustified certificate proliferation**, not to assert a structural no-go or an RH result. SYS-6 is complete **as a mathematical assessment**; the private research roadmap remains private.
+**Premises and limits:** The result depends on Suzuki/source-form agreement and the documented FLINT/Arb/Gauss enclosure premises. It is not an end-to-end Lean proof, equality of full operator domains, production Rust admission or an all-support result. No literature-priority or largest-support claim follows from this local acceptance.
+
+The **closed production certificate inventory is separate and unchanged**: eight frozen v1 results `C-0050..C-0057` and the single admitted v3 result [C-0067 at T=11/20,N=192](findings/2026-10-18T071803Z-v3-fixed-support-theorem-admission.md). Generic multi-prime v2 has no admitted theorem. Neither production retained-proof gate checks C-0124.
+
+The earlier [OAI-8 route comparison](research/openai-math/RESEARCH_DIRECTION.md) and [SYS-6.5 assessment](findings/2026-10-18T092456Z-sys6-support-continuation-final-decision.md) are historical decisions about earlier sufficient bounds. Exact negative directions in those selected Schur matrices do not imply a negative Weil form or reject the later weighted-Gram criterion. Conversely, isolated finite-support results do not supply the missing globally proved unbounded support-covering family.
+
+### Implemented research execution
+
+[X-20261028-002](computations/2026-10-28T034134Z-t081-resource-execution/record.md) retains the resource-budgeted complete source and independent audit exposed by `scripts.run_t081_resource_execution`, together with a separate final qualifier. CPU and memory policy adapts to visible host limits; the supported execution model is one numerical worker with bounded native threading. Insufficient resources reject without weakening dimensions or precision. Windows limits and cleanup are exercised; live non-Windows qualification and larger-host scaling are not claimed.
+
+`scripts.verify_t081_retained_acceptance` separately executes the original frozen adversarial and consequence gates, reusing their complete captured replay. Its intentional one-thread receipt and original source bindings are not replaced by newer compute artifacts. See [`scripts/README.md`](scripts/README.md) for commands, controls and retained evidence, and [`AGENTS.md`](AGENTS.md) for operational safeguards.
+
+### External mathematical input
 
 This repository uses OpenAI's formal zero-free result `Re(s)>7/8` as an **external, pinned, attributed mathematical input** [`EXT-0001`](references/external-results/EXT-0001-openai-quasi-rh.md) / bibliography `R-0034`. Source identities have been checked; **independent local Comparator replay has not been performed** and is optional for cited mathematical use. The new `C-0060..C-0062` are this project's written mathematical deductions (including `psi(x)-x=O(x^(7/8)log²x)`), **not** locally compiled Lean theorems or newly admitted Weil certificates. See the [external-results guide](references/external-results/README.md) and [trust contract](docs/CONTRACTS.md) §5. No OpenAI code was copied; future imports follow the [OAI-6 reuse decision](references/external-results/EXT-0001-reuse-and-license-decision.md). Our existing code remains dual-licensed **MIT OR Apache-2.0**.
 
@@ -54,7 +68,7 @@ Start here depending on what you need:
 | Lean formalization of interval/LDL/endpoint/Gershgorin soundness | [`formal/`](formal/) |
 | Sources and literature | [`references/BIBLIOGRAPHY.md`](references/BIBLIOGRAPHY.md) |
 | Pinned external OpenAI theorem, exact trust/replay status | [`EXT-0001`](references/external-results/EXT-0001-openai-quasi-rh.md) and [external-results guide](references/external-results/README.md) |
-| Current Weil vs phase-aware vs hybrid decision | [`OAI-8 research direction`](research/openai-math/RESEARCH_DIRECTION.md) |
+| Historical Weil vs phase-aware vs hybrid comparison | [`OAI-8 research direction`](research/openai-math/RESEARCH_DIRECTION.md) |
 | Naming, timestamps, status rules, update procedure | [`docs/PROTOCOL.md`](docs/PROTOCOL.md) |
 | Templates for new records | [`templates/`](templates/) |
 
@@ -195,7 +209,7 @@ environment:
 uv run --locked --extra test python -m pytest
 ```
 
-Routine pytest uses `pytest-xdist` with the repository default `-n 2`. This was chosen empirically on the current 6-core Windows research machine: the 486-test default suite improved from about 559 seconds sequentially to about 378 seconds with two workers, while four workers only improved to about 372 seconds. Use `-n 0` for sequential debugging; do not assume `-n auto` is better for the Arb/NumPy-heavy tail.
+Routine pytest uses `pytest-xdist` with the repository default `-n 2`. An earlier 486-test benchmark on a 6-core Windows machine measured about 559 seconds sequentially, 378 seconds with two workers and 372 seconds with four. Those figures describe that historical suite, not today's collected test count or a general scaling guarantee. Use `-n 0` for sequential debugging; do not assume `-n auto` is better for the Arb/NumPy-heavy tail.
 
 Tests cover:
 - Laguerre polynomial contiguous relations $L_n^{(\alpha)} = L_n^{(\alpha+1)} - L_{n-1}^{(\alpha+1)}$ across randomized $(n, \alpha)$ pairs.
@@ -221,11 +235,19 @@ The exact retained theorem artifacts have a separate first-class acceptance gate
 uv run --locked python -m scripts.cert.verify_retained_proofs
 ```
 
-This command does **not** regenerate certificates. It checks the closed manifest in `computations/retained-proofs.json`, requires every registered certificate SHA-256 to match its raw bytes, and replays each intact artifact through the current `rh_cert` verifier with exact claim/support/dimension/profile/scope agreement. The real seven-certificate pytest wrapper is marked `retained_proofs` and excluded from routine pytest runs; invoke it explicitly with `uv run --locked --extra test python -m pytest -q -m retained_proofs tests/test_retained_proofs_acceptance.py`.
+This command does **not** regenerate certificates. It checks the closed manifest in `computations/retained-proofs.json`, requires every registered certificate SHA-256 to match its raw bytes, and replays each intact artifact through the current `rh_cert` verifier with exact claim/support/dimension/profile/scope agreement. The real eight-certificate pytest wrapper is marked `retained_proofs` and excluded from routine pytest runs; invoke it explicitly with `uv run --locked --extra test python -m pytest -q -m retained_proofs tests/test_retained_proofs_acceptance.py`.
 
-## Rigorous certificate trust chain
+The separately admitted v3 artifact uses `computations/retained-proofs-v3.json` and its own replay command:
 
-Proof-oriented finite-dimensional calculations use a deliberately separated trust chain:
+```text
+uv run --locked python -m scripts.cert.verify_retained_v3 --output <fresh-v3-replay.json>
+```
+
+These production replay gates do not verify the external OpenAI theorem or the later source-conditional C-0124 research consequence.
+
+## Production certificate trust chain
+
+Production certificate calculations use a deliberately separated trust chain:
 
 ```text
 Python + python-flint/Arb
@@ -258,9 +280,9 @@ P7 adds a separate independent Rust v2 verifier in `crates/rh_cert/src/v2.rs` an
 
 P8 adds the pre-continuation adversarial gate. The v2 schema structurally fixes the first window to canonical terms `[2,3]` with exact unit compressed-shift norm bounds; Python semantics and Rust independently prove the strict serialized window and reject threshold overlap, malformed arithmetic intervals, missing/malformed `GP`, wrong parity, wrong factor, and active-set substitution. A shared 10-case structural corpus is replayed independently by JSON Schema, Python semantics, and Rust, while a separate 16-case closed admission grid is independently rejected by schema admission metadata, Python, and Rust. The v2 production whitelist remains empty.
 
-P9 attempted the first non-theorem end-to-end qualification at `T=11/20`. The floating stack worked and found stable-positive behavior beginning at `N=192` with fallback `N=196`, but the generic rigorous assembler did not finish either first 128-bit assembly within a one-hour execution window despite both workers remaining CPU-active. No rigorous cache entry, exact candidate, or reproducibility bundle exists. P9 is therefore **NOT QUALIFIED — rigorous-stage performance blocker**, not a mathematical negative; the v2 theorem whitelist remains empty. A separate performance-hardening slice is required before another qualification.
+**Historical P9 outcome, 2026-10-01:** The first non-theorem qualification at `T=11/20` timed out in the initial 128-bit rigorous assemblies at N=192/196, despite CPU-active workers. No rigorous cache entry or candidate was retained by that run; the timeout itself was not a mathematical negative. Later hardening resolved the original performance blocker and independently audited negative directions in those particular grouped-factor-3 sufficient Schur matrices, as recorded in the [OAI-8/OAI-9 comparison](research/openai-math/RESEARCH_DIRECTION.md). Neither the old timeout nor those matrix signs describe the current weighted-Gram source/audit qualification. The production v2 whitelist remains empty.
 
-Support-continuation tooling may produce generator-side exact candidates, but those candidates do **not** inherit theorem status from earlier results. Both continuation drivers stop at `CANDIDATE_READY`: `weil_continuation_driver.py` is the historical one-prime path, while `weil_multi_prime_continuation_driver.py` is the canonical implementation for future structural windows. A separate human/research decision must admit an exact support/dimension pair to a closed theorem contract before certificate generation and a fresh independent Rust replay can establish theorem status.
+Support-continuation tooling may produce generator-side exact candidates, but those candidates do **not** inherit production theorem status from earlier results. Both continuation drivers stop at `CANDIDATE_READY`: `weil_continuation_driver.py` is the historical one-prime path, while `weil_multi_prime_continuation_driver.py` supports its documented first multi-prime window. Neither is a generic executor for T81/100. Admission of a new production pair still requires a separate decision, closed-contract updates and fresh independent Rust replay; C-0124 instead has the explicitly separate retained research acceptance described above.
 
 Before emitting `CANDIDATE_READY`, the current driver now performs candidate-level precision stability: with `T`, `N`, residual order, matrix rounding bits, and witness bits fixed, it reassembles at higher Arb precision and checks exact margins together with raw and rounded enclosure contraction. This is specifically meant to distinguish monomial-basis/working-precision instability from a stable mathematical sign. It remains pre-theorem diagnostics and does not weaken the independent admission/verifier boundary.
 

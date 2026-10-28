@@ -1,5 +1,7 @@
 # Agent Onboarding and Repository Operating Guide
 
+Last updated: `2026-10-28T20:54:15Z`.
+
 This file is the operational entry point for coding and research agents working in this repository.
 
 `README.md` and `AGENTS.md` are intentionally complementary:
@@ -29,29 +31,46 @@ Do not commit automatically. Leave changes available for review unless the task 
 
 RH is **UNRESOLVED** in this repository. Never describe a numerical result, candidate, finite-support theorem, or equivalent criterion as a proof of RH.
 
-**SYS-6.5 final continuation decision — 2026-10-18:** [`F-20261018-007`](findings/2026-10-18T092456Z-sys6-support-continuation-final-decision.md) closes the SYS-6.1–6.5 **assessment**, not the all-support positivity problem. The local combined-Schur method has one independent v3 admission `C-0067` at T=11/20 and an *unspecified* Suzuki-continuity right neighborhood; source-dependent SYS-6.4 negative odd-sector upper at T=3/5,N=192 rejects **only the existing chosen sufficient Schur matrix** there, despite positive conservative \(\mu\). Within the local \(2T<\pi\) radius, pointwise positive \(\mu_N\) follows from \(H_N\to\infty\) but **not** full mixed-Schur positivity. An unbounded globally proved support-covering family remains missing; no common positive coercivity constant is required. **Methodological NO-GO: do not automatically accumulate isolated finite-support certificates or claim they converge to RH.** This is **not** a mathematical no-go for other dimensions or stronger inequalities. Admission lists remain frozen v1=8, v2=0, v3=1; no code or theorem changes, RH unresolved. Private roadmap is not to be published.
+### Latest retained research result — 2026-10-28
 
-**SYS-6.4 selective larger-support research decision (2026-10-18):** [`F-20261018-006`](findings/2026-10-18T091152Z-sys6-selective-support-decision.md) / [`X-20261018-005`](computations/2026-10-18T090311Z-sys6-selective-support/record.md) document one **T=3/5,N=192** Arb-1024 *research* probe of the full mixed \(V/P/R_K\) Schur sufficient criterion. The conservative high-tail scalar \(\mu\) is positive, but a strict negative exact rational **odd-parity** directional upper proves that **this selected conservative Schur matrix is not positive** (conditional on original generator Arb/source correctness). Only the exact rational sign and source fingerprints were independently replayed, **not** the complete analytic input enclosures. This does **not** imply Weil negativity, a general no-go across dimensions, a new positivity theorem, or RH. **No new v3 support admitted**; retain frozen eight v1 plus one v3 theorem; originals unmodified. Additive `scripts/weil_selective_support_probe.py` and `scripts/verify_selective_support_probe.py` are explicitly **research-only**, not certificate/admission tools. The 31 focused research/mixed-Gram tests passed, and the private roadmap remains unpublished.
+**C-0123 is retained-accepted; C-0124 is VERIFIED, source-conditional research.** At exact **T=81/100,N826,K86,M1652**, the complete supported weighted-Gram criterion establishes strict localized source-form positivity for **every nonzero complex Suzuki-admissible smooth test supported in [-81/100,81/100]**, with conservative full source-norm bound **10^-21**. The unitary scaling f(t)=T^-1/2u(t/T) preserves the physical L2 norm. This bound is not the selected-low Schur margin, an optimal spectral minimum or a comparison with external coercivity constants.
 
-**SYS-6.3 unrestricted mathematical-obligation audit (2026-10-18):** [`F-20261018-005`](findings/2026-10-18T084633Z-sys6-global-support-obligation.md) and [`C-0069/0070/0071`](docs/CLAIMS.md) separate the external RH-equivalent Weil **nonnegative** smooth-test criterion at *all supports* from a **hypothetical, merely sufficient** family of full mixed-Gram Schur positive matrices. A **proved unbounded support-covering family** would suffice; isolated finite certificates do not. The existing rigorous `C-0063` local form argument and `scripts/cert/residual_kernel.py` Taylor-tail enclosure require \(2T<\pi\), and an executed refusal at \(T=2\) confirms the present boundary; Suzuki's Weil form is globally defined, so the cutoff is *not* a no-go for RH or global alternatives. Within each **fixed** \(0<T<\pi/2\), the conservative high-tail scalar bound can always be made strictly positive at some (possibly costly) N by harmonic divergence (`C-0071`), but the low combined-Schur positivity is **not** thereby established. A universally proved complete residual, positive tail **and** positive low combined Schur is missing. No new theorem, code changes, or all-support inference; roadmap remains private.
+Read [F-20261028-001](findings/2026-10-28T200224Z-t081-retained-smooth-test-positivity.md), [X-20261028-003](computations/2026-10-28T183329Z-t081-retained-completion/record.md) and [C-0123/C-0124](docs/CLAIMS.md) before relying on the result. Acceptance binds all **512,946** independently reconstructed analytical entries at **6144 bits**, both complete **413-dimensional** exact parity witnesses, the successful **55-destination** captured replay, all **nine** original adversarial cases and the original final source-norm gate. The replay and new case execution are separate retained evidence; subset rejection checks do not replace the complete positive audit.
 
-**SYS-6.2 support-scaling research closure (2026-10-18):** [`F-20261018-004`](findings/2026-10-18T081419Z-sys6-support-scaling-analysis.md) and [`X-20261018-004`](computations/2026-10-18T080600Z-sys6-support-scaling/record.md) report **exact Arb scalar complement cutoffs** \(N=109,160,238,331,624\) at \(T=0.55,0.60,0.65,0.69,0.70\); these are sufficient-tail bound dimensions, **not** proven minimum Weil-positivity or combined-Schur dimensions. Separate research-only Arb mixed \(V/P/R_K\) profiles \(N=64/128\) identify sign-variable *trace* cross terms, increasing residual norm allowance, and precision-conditioning costs. Larger-support Schur positivity remains unverified. Additive scripts `scripts/weil_support_scaling_scout.py` and `scripts/weil_combined_scaling_profile.py` **do not** export certificates or alter v3 theorem admission; their 6 focused tests pass. The original SHA-pinned SYS-5 proof-generating source was not edited. No RH or negative Weil conclusion; private roadmap remains private.
+**Trust boundary:** Suzuki/source-form agreement and the documented FLINT/Arb/Gauss enclosure premises remain explicit. This is not an end-to-end Lean proof, a production Rust certificate admission, equality of full operator domains, an unbounded support-covering theorem or RH. Do not infer literature priority or a largest external support from this local result.
 
-**SYS-6.1 mathematical baseline closed (2026-10-18):** [`F-20261018-003`](findings/2026-10-18T075359Z-sys6-support-baseline.md) / [`C-0068`](docs/CLAIMS.md) distinguish automatic smaller-support positivity from *external-source* Suzuki lowest-eigenvalue continuity (registered [`EXT-0002`](references/external-results/EXT-0002-suzuki-localized-eigenvalue-continuity.md)), yielding an unspecified positive right neighborhood beyond `T=11/20`. This **does not** certify any selected `T>11/20` or add a production v3 pair. The public finding maps proven parameter dependencies/thresholds only; private continuation plans are not published. All theorem admissions and RH status unchanged.
+### Fixed-case execution and acceptance tools
 
-**Current explicit SYS-5.4 v3 theorem admission (2026-10-18):** [`F-20261018-002`](findings/2026-10-18T071803Z-v3-fixed-support-theorem-admission.md) / [`X-20261018-003`](computations/2026-10-18T071550Z-v3-retained-admission/record.md) independently accepted exactly **C-0067** at **T=11/20,N=192**, by complete Arb-2048 validation of 37,056 analytical entries plus `mu,delta`, and separately compiled zero-float Rust production proof on the exact SHA-pinned clean certificate. The new separate `computations/retained-proofs-v3.json` and `scripts.cert.verify_retained_v3` are the v3 retained-proof replay authority. Production Rust `verify` now accepts **only the approved exact v3 bytes**; altered bytes and additional pairs remain unauthorized. The eight frozen v1 proof artifacts, the separate v1 `8/8` retained replay, and empty v2 theorem list remain unchanged. This is one strict finite-support **Suzuki smooth-test-class positivity** theorem under the documented Suzuki/Arb trust premises, not a Lean proof of the full source identity, full operator-domain equality, or RH. The previous SYS-5.3 historical note below concerns the earlier state and is superseded for admission. Admission changes were committed and pushed to `main` as `97f34152929518ab8a991f7c174a7439b9b6c026` on 2026-10-18; the theorem inventory remains exactly eight frozen v1 plus one retained v3.
+The qualified resource-budgeted source v4 and independent consumer v2 are retained in [X-20261028-002](computations/2026-10-28T034134Z-t081-resource-execution/record.md):
 
-**Historical SYS-5.3 v3 clean proof-bearing state before explicit admission (2026-10-18):** [`F-20261018-001`](findings/2026-10-18T005836Z-clean-combined-schur-proof-bearing-closure.md) / [`X-20261018-002`](computations/2026-10-18T010000Z-v3-clean-proof-candidate/record.md) **close SYS-5.3** for exact `T=11/20,N=192`. The clean-source producer ran from pushed commit `f0350f89ec5189648cfc271c4ddd3a97355a2343`, regenerated the Arb matrix and exact witness byte-identically, independently checked all 37,056 inputs plus \(\mu,\delta\), and generated a genuinely clean v3 proof candidate. A final separate full source + exact Rust replay passed on its own captured bytes with the original exact positive rational margin. **DO NOT AUTO-ADMIT:** production v3 whitelist is EMPTY, and ordinary Rust verify rejects this *clean* candidate. The earlier dated notes below describe previous uncommitted/research-only status and have now been superseded by the clean execution. Frozen v1/v2 semantics and RH status unchanged.
+```text
+uv run --locked python -m scripts.run_t081_resource_execution --output-dir <fresh-directory>
+uv run --locked python -B computations/2026-10-28T034134Z-t081-resource-execution/qualify-execution-v1.py --run-dir <fresh-directory> --output <fresh-qualification.json>
+```
 
-**Later v3 byte-binding hardening (2026-10-18):** [X-20261018-001](computations/2026-10-18T004000Z-v3-gate-hardening-replay/record.md) makes analytic and Rust verification consume one exact v3 candidate byte snapshot and tightens honest clean/research source provenance. All 37,056 intervals and the original exact positive congruence pass again. The production v3 admission list is still empty; the clean-source proof-bearing run remains pending because these changes are uncommitted. Never treat a research-only two-gate PASS as an admitted result.
+The final qualifier is required; an intermediate source-only or runner PASS is not equivalent. CPU allowance derives from visible CPU/affinity/quota/job limits rather than a host-specific core count. Memory admission and Windows job limits, owned-process cleanup, streams, profiles and live progress are implemented. The supported model is **one numerical worker** with bounded native threads, not one full matrix reconstruction per core. Insufficient resources reject without reducing the mathematical workload. Controls and environment precedence are in [`scripts/README.md`](scripts/README.md). Live non-Windows qualification and larger-host scaling are not claimed.
 
-**New v3 pre-admission research proof (2026-10-17):** [F-20261017-016](findings/2026-10-17T224310Z-v3-combined-schur-proof-system-implementation.md) adds rh-weil-certificate-v3 combined-Schur research. Full 37,056-input Arb acceptance and zero-float exact Rust congruence passed at T=11/20,N=192, but NO fresh clean committed proof-bearing candidate was generated. Normal Rust theorem verify REJECTS v3; only verify-candidate-v3 gives a non-theorem result. Never auto-admit based on this evidence. Frozen v1/v2 and RH status unchanged.
+The separate original retained-acceptance adapter is:
 
-**Current independently checked mathematical input closure (2026-10-17):** [\`F-20261017-015\`](findings/2026-10-17T220105Z-complete-independent-analytic-enclosure-closure.md) and [\`X-20261017-006\`](computations/2026-10-17T215700Z-sys5-full-analytic-acceptance/record.md) add a separate 2048-bit Arb verifier for the existing combined-Schur positive candidate at \`T=11/20,N=192\`. It independently reconstructs and strictly contains all **37,056** stored low/Gram analytical intervals plus the full \(\mu,\delta\) scalar bounds; the original exact rational positive congruence separately passes. This closes the **mathematical source-enclosure verification gate at one support** within the explicit Arb/Suzuki trust model. **It does NOT admit a theorem:** the separate proof-bearing Rust/Lean verifier profile, admission decision and retained-proof registration have not occurred. Frozen one-prime v1 and unrelated generic v2 admission semantics are unchanged; RH remains unresolved. Do not rerun a new full dimension or silently add a theorem when reading this research-only result.
+```text
+uv run --locked python -B -m scripts.verify_t081_retained_acceptance --output-dir <fresh-supervision-directory> --negative-output computations/2026-10-27T182100Z-t081-retained-acceptance/data/<fresh-timestamp>/negative-controls-v1.json
+```
+
+It reuses the successful full captured replay and executes the original nine-case and final consequence programs on their original pinned source. **One native thread is intentional for that frozen receipt.** New compute-qualification artifacts do not substitute for the original acceptance bindings. All output locations must be fresh. Inspect retained receipts before deciding a rerun is needed; onboarding or checking status does not require repeating these expensive operations.
+
+Evidence: `scripts/README.md:12-37`, `scripts/verify_t081_retained_acceptance.py:42-58`, and `docs/CLAIMS.md:1389-1400`.
+
+### Closed production admission remains separate
+
+The production inventory remains **eight v1, zero v2, one v3**. [C-0067](findings/2026-10-18T071803Z-v3-fixed-support-theorem-admission.md) at **T=11/20,N=192** is the sole admitted v3 result: complete Arb-2048 validation of 37,056 analytical entries plus mu/delta and independent exact Rust verification of the approved certificate bytes. Its replay authority is `computations/retained-proofs-v3.json` and `scripts.cert.verify_retained_v3`. Altered bytes and additional pairs remain unauthorized. Neither production retained-proof command verifies C-0124.
+
+### Historical sufficient-matrix boundaries
+
+The [SYS-6.5 assessment](findings/2026-10-18T092456Z-sys6-support-continuation-final-decision.md) concerns the earlier combined-Schur criterion, not a general no-go for stronger bounds. Its [T=3/5,N=192 negative direction](findings/2026-10-18T091152Z-sys6-selective-support-decision.md) rejects only the selected sufficient matrix, not the Weil form. [C-0069/C-0070/C-0071](docs/CLAIMS.md) distinguish all-support positivity from isolated finite certificates: positive high-tail mu alone does not prove low-Schur positivity, and the existing local residual Taylor enclosure requires 2T<pi. No globally proved unbounded support-covering family has been established. Later weighted-Gram research must not be described as a mere higher-precision retry of the old failed matrix.
 
 
 
-The current main route is the exact-prime localized Weil / Legendre-Schur continuation route. The maintained frontier and strongest results are in `docs/STATUS.md`; do not treat this summary as a replacement for that file.
+The maintained current state is in `docs/STATUS.md`. The one-prime and first-window multi-prime components below remain supported within their documented contracts; they are not generic executors for the T81/100 research workload.
 
 The closed `exact_prime_legendre_schur` theorem contract currently admits exactly:
 
@@ -66,7 +85,7 @@ The closed `exact_prime_legendre_schur` theorem contract currently admits exactl
 (T,N)=(27/50,104)
 ```
 
-All eight pairs above support registered independently verified finite-support results `C-0050` through `C-0057`. For `(27/50,104)`, historical `X-20260923-001` remains pre-theorem evidence only; the proof-bearing artifact is the separately generated clean-provenance `X-20260924-001`. Its certificate records `git_dirty=false`; independent zero-float `rh_cert` returns exit `0` / `passed=true`; real-certificate attacks correctly separate contract rejection (exit `2`) from a contract-valid theorem failure (exit `1`); and the closed retained-proof chain now passes `8/8`. The current independently verified finite-support frontier is `(27/50,104)` / `C-0057`. RH remains unresolved. Since `T=27/50=0.54` lies close to `(1/2)log 3 ≈ 0.5493`, entry of the `p=3` compressed translation remains the next separate structural boundary rather than something to extrapolate through silently.
+All eight pairs above support registered independently verified finite-support results `C-0050` through `C-0057`. For `(27/50,104)`, historical `X-20260923-001` remains pre-theorem evidence only; the proof-bearing artifact is the separately generated clean-provenance `X-20260924-001`. Its certificate records `git_dirty=false`; independent zero-float `rh_cert` returns exit `0` / `passed=true`; real-certificate attacks distinguish contract rejection (exit `2`) from contract-valid theorem failure (exit `1`); the closed retained replay passed `8/8`. **(27/50,104) is the frozen one-prime v1 frontier, not the current overall research support.** Entry of p=3 at (log 3)/2 is a boundary of that historical one-prime path, not permission to extend its contract.
 
 **One-prime v1 freeze — `2026-10-01T09:46:49Z`.** Multi-prime development must be additive. Do not repurpose or broaden `weil_continuation_driver.py`, `assemble_exact_prime_schur()`, `exact_prime_legendre_schur`, `rh-weil-certificate-v1`, or the existing Rust v1 PASS semantics for the new structural window. The eight admitted v1 pairs and retained `C-0050..C-0057` identities are regression-guarded by `tests/test_one_prime_v1_freeze.py`; the real retained artifacts remain guarded by the canonical byte-hash + independent-verifier `8/8` replay. New prime-power tooling, certificate formats/profiles, and verifier paths must coexist separately.
 
@@ -86,11 +105,11 @@ All eight pairs above support registered independently verified finite-support r
 
 **Multi-prime P8 adversarial gate — `2026-10-01T19:06:42Z`.** Before any real v2 continuation, preserve `tests/data/certificate-v2-cross-layer-v1.json` and `tests/data/multi-prime-admission-v2.json` as test-only acceptance corpora; production code must never load them. First-window v2 certificates must serialize exactly `[2,3]` with exact `b_m=1`. Python semantics and Rust must independently prove strict support using the serialized rational log enclosures and reject equality/overlap. Keep parity and threshold tests in semantic/Rust layers; raw JSON Schema cannot prove those cross-field arithmetic relations. The v2 admission grid currently has zero allowed pairs, so do not add an admitted pair as part of testing/tooling work. A valid negative theorem matrix must remain theorem failure, not contract failure.
 
-**Current multi-prime qualification correction (OAI-9) — `2026-10-08T03:40:31Z`.** Read the original P9 entry below as *historical*. Later `X-20261001-001` fixed the prior assembly/exact-witness performance problem and produced independently audited **negative directions in the grouped factor-3 sufficient Schur matrices** at frozen `T=11/20,N=192/196`. More precision on that same matrix is not the next step. OAI-8 prioritizes a different, sound analytical positivity bound, with no v2 theorem admission yet. See [`RESEARCH_DIRECTION.md`](research/openai-math/RESEARCH_DIRECTION.md). The historical P9 timeout remains a true dated observation.
+**Historical multi-prime qualification correction (OAI-9) — `2026-10-08T03:40:31Z`.** Later `X-20261001-001` resolved the original assembly/exact-witness performance blocker and produced independently audited **negative directions in the grouped factor-3 sufficient Schur matrices** at frozen `T=11/20,N=192/196`. More precision cannot make those same exact matrices positive. See the historical [`RESEARCH_DIRECTION.md`](research/openai-math/RESEARCH_DIRECTION.md). This does not reject the full Weil form or the later weighted-Gram criterion; production v2 remains unadmitted.
 
-**Multi-prime P9 qualification outcome — `2026-10-01T21:04:17Z`.** The first real qualification at `T=11/20` did not reach `CANDIDATE_READY`. The scout found the stable-positive frontier at `N=192` and selected `192/196`, but neither first 128-bit rigorous assembly completed within a one-hour external execution window despite both workers remaining CPU-active. No rigorous cache entry was committed. This is a performance/tooling blocker, not a mathematical negative. Do not extend the P9 grid or admit a v2 pair. Before a new qualification, perform a separate performance-hardening slice on the generic rigorous multi-prime assembler and re-run the full P2/P3/P8 regression gates.
+**Historical multi-prime P9 outcome — `2026-10-01T21:04:17Z`.** The first qualification at `T=11/20` did not reach `CANDIDATE_READY`: neither initial 128-bit assembly at N=192/196 completed within the one-hour execution window, and no rigorous cache entry was committed in that run. That dated timeout was an operational observation, not a mathematical negative. The later correction above supersedes its blocker assessment; it must not be presented as the current state of the fixed-case source and independent-audit tools.
 
-## OpenAI Math dependency and OAI-8 direction (OAI-9 onboarding)
+## OpenAI Math dependency and historical OAI-8 direction
 
 **Read in this order when an OpenAI-related question appears:**
 
@@ -98,9 +117,9 @@ All eight pairs above support registered independently verified finite-support r
 2. [`references/external-results/README.md`](references/external-results/README.md) — source identity checks and the **optional**, not-yet-executed isolated Comparator replay procedure. **Do not** mistake the challenge template with `sorry` for the actual solution module, or treat checkout hashes as a proof.
 3. [`docs/CLAIMS.md`](docs/CLAIMS.md) `C-0060..C-0062`, [`F-20261008-001`](findings/2026-10-08T014258Z-openai-quasi-rh-cayley-consequence.md), [`F-20261008-002`](findings/2026-10-08T024431Z-openai-seven-eighths-prime-distribution.md) — our **written deductions**, conditional on the external theorem, with classical source `R-0035` for prime-error consequences.
 4. [`docs/CONTRACTS.md` §5](docs/CONTRACTS.md) and [`docs/PROTOCOL.md` §7.2](docs/PROTOCOL.md) — distinction between externally sourced, locally derived, Lean kernel checked, and Rust/Arb certificate-accepted evidence. No automatic promotion between categories.
-5. [`research/openai-math/RESEARCH_DIRECTION.md`](research/openai-math/RESEARCH_DIRECTION.md) — **primary:** exact localized Weil/Legendre–Schur with a new sound multi-prime positivity criterion to investigate; **secondary:** phase-aware Laguerre/prime discrepancy; **deferred:** hybrid pending a proved quantified bridge. The frozen `T=11/20,N=192/196` grouped-factor-3 **sufficient** Schur matrices have exact negative directions; do not retry that same inequality with more precision hoping for positivity.
+5. [`research/openai-math/RESEARCH_DIRECTION.md`](research/openai-math/RESEARCH_DIRECTION.md) — historical OAI-8 comparison of exact localized Weil/Legendre-Schur, phase-aware Laguerre/prime discrepancy and a deferred hybrid. Its proposed new positivity criterion was a research decision at that time, not a statement that the later retained weighted-Gram implementation is still missing. The frozen grouped-factor-3 matrices have exact negative directions; do not retry the same inequality with more precision hoping for positivity.
 
-**Trust and tooling policy:** The external result says `Re(s)>7/8 => zeta(s)!=0`, not RH. The external source is reference-only (no vendoring); the OpenAI upstream formal environment is **Lean 4.34.1**, separate from our frozen formal toolchain. An external mathematical result can be cited without independent local Comparator replay, but **no local replay has occurred**, and no CLI in this repository verifies `EXT-0001`. `scripts.cert.verify_retained_proofs` instead checks only the **eight local finite-support Weil certificates**, not OpenAI's theorem. The generic v2 theorem whitelist remains empty. The repo is MIT OR Apache-2.0; imported OpenAI Apache-2.0 code would require independent rights review. Any optional future import follows [`EXT-0001-reuse-and-license-decision.md`](references/external-results/EXT-0001-reuse-and-license-decision.md).
+**Trust and tooling policy:** The external result says `Re(s)>7/8 => zeta(s)!=0`, not RH. The external source is reference-only (no vendoring); the OpenAI upstream formal environment is **Lean 4.34.1**, separate from our frozen formal toolchain. An external result can be cited without independent local Comparator replay, but **no local replay has occurred**, and no CLI here verifies `EXT-0001`. `scripts.cert.verify_retained_proofs` checks only the **eight frozen v1 certificates**, not OpenAI's theorem, the separate v3 artifact or C-0124. The generic v2 theorem whitelist remains empty. The repo is MIT OR Apache-2.0; any import follows [`EXT-0001-reuse-and-license-decision.md`](references/external-results/EXT-0001-reuse-and-license-decision.md).
 
 **History rule:** OAI-9 addenda on earlier August attempts are timestamped *later* context, not corrections of their original conclusions; use `docs/STATUS.md` for current truth. Do not alter their historical status based on OAI-8's route choice.
 
@@ -136,6 +155,8 @@ Use this map before searching broadly.
 | `templates/` | Templates for new attempts, findings, and computation records |
 
 ## 4. Canonical continuation workflow
+
+This section describes the historical **one-prime** workflow. Use the fixed-case tools in §2 for T81/100; do not broaden either continuation driver's support contract to run that workload.
 
 For **ordinary one-prime continuation**, use:
 
@@ -239,7 +260,7 @@ Read `scripts/README.md` for exact arguments and interpretation rules.
 
 ## 6. Proof/certificate tool boundaries
 
-The proof-oriented trust chain is deliberately separated:
+The **production certificate** trust chain is deliberately separated:
 
 ```text
 Python + python-flint/Arb
@@ -249,6 +270,8 @@ Python + python-flint/Arb
 ```
 
 After theorem-bearing artifacts are retained, a separate operational audit layer binds their exact bytes and identities through `computations/retained-proofs.json` and `scripts.cert.verify_retained_proofs`. That retention gate checks continued integrity/replay; it is not a fourth theorem-derivation step and does not promote new claims.
+
+The v3 retained registry and replay authority are separate: `computations/retained-proofs-v3.json` and `scripts.cert.verify_retained_v3`. The later C-0124 source-conditional research result instead uses its explicitly retained independent analytical audit, exact witnesses, adversarial/replay evidence and written full smooth-test consequence. It does not enter either production registry or acquire Lean/Rust proof status from that distinction.
 
 Key locations:
 
@@ -277,9 +300,11 @@ uv run --locked --extra test python -m pytest -q tests/test_v2_adversarial_consi
 
 The continuation driver and `weil_support_candidate_check.py` are **pre-theorem** modules. They must not import/call theorem-admission machinery or grant theorem status.
 
-## 7. Hard stop: no automatic theorem promotion
+## 7. Hard stop: no automatic production theorem promotion
 
 `CANDIDATE_READY` means generator-side evidence only.
+
+This lifecycle governs admission to the closed production certificate contracts. Separately recorded source-conditional research consequences require their own complete acceptance evidence and explicit premises; C-0124's retained gate is not a relaxation of production admission.
 
 The required lifecycle is:
 
@@ -349,7 +374,7 @@ They cover known history including `T=2/5,N=40`, `T=17/40,N=48`, and the low-pre
 uv run --locked --extra test python -m pytest -q
 ```
 
-Important: the default pytest configuration runs with `pytest-xdist -n 2`, **includes integration tests**, and excludes the `slow_acceptance`, `retained_proofs`, and `parallel_acceptance` markers. On the current 6-core Windows research machine, the full 486-test default suite improved from about 559 seconds sequentially to about 378 seconds with two workers; four workers gave only a marginal further improvement (~372 seconds), so `-n 2` is the maintained default rather than `-n auto`. Use `-n 0` when debugging tests sequentially or when a test itself owns process parallelism.
+Important: the default pytest configuration runs with `pytest-xdist -n 2`, **includes integration tests**, and excludes the `slow_acceptance`, `retained_proofs`, and `parallel_acceptance` markers. The earlier 486-test benchmark on a 6-core Windows machine measured about 559 seconds sequentially, 378 seconds with two workers and 372 seconds with four; that is a historical benchmark, not today's collected test count or a scaling guarantee. `-n 2` remains the maintained default rather than `-n auto`. Use `-n 0` when debugging sequentially or when a test owns process parallelism.
 
 ### Slow/manual acceptance
 
@@ -436,6 +461,8 @@ Do not silently rewrite old reasoning to make it look as though the current unde
 Maintained documents such as `docs/STATUS.md`, `docs/INDEX.md`, `docs/CLAIMS.md`, and `scripts/README.md` may be updated to current truth. Follow the timestamp/update rules in `docs/PROTOCOL.md`.
 
 Historical computation commands are provenance. Do not rewrite them merely because a newer canonical tool now exists.
+
+Preserve earlier scientific programs, inputs, tests and schemas when later changes would prevent faithful replay. Retain a new version and a new run for the changed method; a rerun is new evidence, not a replacement for the original result. New record layouts apply prospectively, rather than silently migrating historical bundles.
 
 ## 11. Creating new research artifacts
 
