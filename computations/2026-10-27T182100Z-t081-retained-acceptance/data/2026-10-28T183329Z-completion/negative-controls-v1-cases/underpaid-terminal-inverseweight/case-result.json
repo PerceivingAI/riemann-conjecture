@@ -1,0 +1,19 @@
+{
+  "actual_Weil_negativity_claimed": false,
+  "case": "underpaid-terminal-inverseweight",
+  "changed_matrix_cells": [],
+  "consumer": "source",
+  "consumer_sha256": "4bc4d25db589fe987bb2c7f78f31bd7dc83849666daae82b017295db30d94720",
+  "expected": "inverse weights differ from declaration",
+  "expected_exit_code": null,
+  "mathematical_matrix_mutations": [],
+  "original_proposal_sha256": "3444b4cd498e16b46d9c10b539285cd5038489976a88b3111bd47364d247c85e",
+  "passed": true,
+  "production_admission": false,
+  "proposal_sha256": null,
+  "scope": "SUBSET parity 0; not a complete source audit",
+  "shared_native_control_receipt": "native-even-control.json",
+  "source_sha256": "5d739593097a1968effceb82e39f424d322869909b6c7afe6abbe2bbe5a22978",
+  "synthetic_not_analytic_truth": false,
+  "terminal_inverse_weight_set_to_zero": true
+}

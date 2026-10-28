@@ -1,0 +1,21 @@
+{
+  "complete_source_replay_executed_again": false,
+  "entrypoint_sha256": "60e81a70c119b24965691435b378886852d149de82ab732d420b80f642af5911",
+  "execution_helpers": {
+    "execution_events_v1.py": "f89c177e4622b3b939b729d8daa9dd1089942734d5fafe3cbf689ff486c5690f",
+    "execution_resources_v2.py": "8f3fc4d3bf0ddbba99ff6686ccb4acbe81ed583f8f3fc0ac6572e4acf473a9e2",
+    "execution_supervisor_v1.py": "cc1c10f9d54a0cff7250d3a53f72480c5e56a49262176d32d0b1de98090d334c",
+    "resource_limits_v1.py": "b6258b25377244cf97fb094e20c017dd3438a66c69cc33aeb737f5333b53b717",
+    "stage_worker_v1.py": "3ecc6c00630b7d7eb2bffd8d544f61f18ade7ec30b9b7fc2348e7274d22faeee"
+  },
+  "legacy_programs": {
+    "accept-retained-v1.py": "bf9e9aea87395d991b858a8bd6573b997fc26c548e6b7e97e592e62613556306",
+    "negative-controls-v1.py": "7fed87506ba578df7233bdd0672e41068ee1e3faede0cd9ff9061b8950f97409"
+  },
+  "native_threads": 1,
+  "original_checkpoint_manifest_sha256": "edf0d6161bece527745f7df33bd0c946a48bfdb8572d1c5aebf27807be067fed",
+  "production_admission": false,
+  "qualified_execution_manifest_sha256": "5e6757ba2a223661dbe8d3b2831e8236b299db1bb74a35c953bfd144ab102629",
+  "reused_replay_sha256": "44f8516a60836516849ac3150f243807452c5fa807d6aba8606d92f1f2589445",
+  "source_sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e"
+}

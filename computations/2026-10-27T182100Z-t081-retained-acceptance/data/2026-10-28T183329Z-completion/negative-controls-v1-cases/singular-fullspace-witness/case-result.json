@@ -1,0 +1,15 @@
+{
+  "actual_Weil_negativity_claimed": false,
+  "case": "singular-fullspace-witness",
+  "consumer": "exact",
+  "consumer_sha256": "def3d7d7d242a319c9f93fec39674c2c2cf40796b653ddb44f47df2e8019fd64",
+  "expected": "singular full congruence",
+  "expected_exit_code": 1,
+  "mathematical_matrix_mutations": [],
+  "original_proposal_sha256": "3444b4cd498e16b46d9c10b539285cd5038489976a88b3111bd47364d247c85e",
+  "passed": true,
+  "production_admission": false,
+  "proposal_sha256": "c01b88e2bbf7a7451b60f217259a171436be0f130ee373759d9bb3fa126f6131",
+  "source_sha256": "6e0faba1299095ffa9459afb72a8f435217babfae584d14fbb7422d385f6fa6d",
+  "synthetic_not_analytic_truth": false
+}

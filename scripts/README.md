@@ -1,13 +1,25 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-28T17:41:03Z`
+- **Last updated:** `2026-10-28T20:02:24Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
 ## Byte identity on checkout
 
 The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep pinned sources/configuration in their recorded LF form, and the original SYS-6.4 probe plus the executed T3/4 Fourier producer in their recorded CRLF form. Retained bundles remain verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+
+## Original T81/100 retained-adversarial and smooth-test acceptance
+
+[X-20261028-003](../computations/2026-10-28T183329Z-t081-retained-completion/record.md) completes the ORIGINAL frozen nine-case driver and conjunctive source-norm gate. It reuses the successful full captured replay; it does not regenerate source or substitute newer compute-qualification artifacts.
+
+```text
+uv run --locked python -B -m scripts.verify_t081_retained_acceptance --output-dir <fresh-supervision-directory> --negative-output computations/2026-10-27T182100Z-t081-retained-acceptance/data/<fresh-timestamp>/negative-controls-v1.json
+```
+
+The original output-confinement contract requires a fresh JSON beneath that acceptance data directory. All prior files remain unchanged. --cpus, --memory-mib and --reserve-mib control qualified neutral supervision; one worker/native thread intentionally preserves the old driver receipt. Streams, opaque-stage heartbeat, actual resources and owned cleanup are retained.
+
+Actual execution passes the256473-entry original even control, six native subset rejections, three full exact controls and the original final gate. The reused complete512946-entry/both413-parity replay remains separately bound. C-0124's strict complex smooth-test implication and full source-norm10^-21 floor are source-conditional research results, not production admission or RH. Earlier dated candidate/checkpoint sections below retain their historical scope.
 
 ## Resource-budgeted complete T81/100 source and independent audit
 

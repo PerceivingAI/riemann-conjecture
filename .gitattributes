@@ -122,3 +122,6 @@
 /tests/test_t081_execution_supervisor.py text eol=lf
 /scripts/run_t081_resource_execution.py text eol=lf
 /scripts/run_observability.py text eol=lf
+/scripts/verify_t081_retained_acceptance.py text eol=lf
+/computations/2026-10-28T183329Z-t081-retained-completion/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/findings/2026-10-28T200224Z-t081-retained-smooth-test-positivity.md -text

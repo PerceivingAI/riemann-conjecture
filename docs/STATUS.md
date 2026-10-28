@@ -1,10 +1,14 @@
 # Current Research Status
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-28T17:41:03Z`
+- **Last updated:** `2026-10-28T20:02:24Z`
 - **RH status in this repository:** `UNRESOLVED`
 
 This file is the maintained snapshot of the current research frontier. Historical reasoning belongs in timestamped attempt/finding/computation records and `LOG.md`.
+
+**T81/100 retained smooth-test positivity verified, 2026-10-28T20:02:24Z.** [F-20261028-001](../findings/2026-10-28T200224Z-t081-retained-smooth-test-positivity.md) / [X-20261028-003](../computations/2026-10-28T183329Z-t081-retained-completion/record.md) complete C-0123 retained acceptance and C-0124's full complex smooth-test consequence. The ORIGINAL frozen nine adversarial cases and final exact gate pass on source f69fee0f..., reusing the successful55-destination512946-entry/both-parity replay without regeneration. A fresh256473-entry even control precedes six native subset rejections; three full exact controls pass. All196 pre-existing files remain unchanged, all inventories/streams bind, and no owned processes remain.
+
+The conservative full source-norm lower is10^-21 in scaled L2(-1,1), with unitary physical L2 normalization. Its exact formula is approximately2.66949e-21, not the selected-low4.88e-18 or near-unit congruence margin. Independent full mass-trace/Fraction normalization and fresh mathematical/execution review agree. This establishes the specified source-conditional result across prime5 activation at ONE support, under Suzuki/source and shared arithmetic/enclosure premises. It is not an optimal gap, external spectral comparison, whole-operator-domain identity, global viability result or RH proof. Production admission remains8v1/0v2/1v3.
 
 **Complete source and independent-audit execution qualified, 2026-10-28T17:41:03Z.** [X-20261028-002](../computations/2026-10-28T034134Z-t081-resource-execution/record.md) qualifies the unchanged T81/100,N826,K86,M1652 workload under shared detected CPU/memory limits, native threading, live progress and owned-process cleanup. Fresh independent6144-bit acceptance checks all512946 entries; both complete413-dimensional exact signs/nonsingularity/width goals and all nine substantive countercases pass. All six packets remain byte-identical to the original. The final code/log/budget/source qualifier passes, with93 focused tests passed and one OS-specific skip.
 

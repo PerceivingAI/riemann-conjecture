@@ -1,0 +1,17 @@
+{
+  "all_nine_case_inventories_match": true,
+  "all_original_files_unchanged": true,
+  "all_owned_active_counts_zero": true,
+  "all_stream_hashes_match": true,
+  "complete_positive_replay_reused_not_rerun": true,
+  "created_utc": "2026-10-28T20:06:09.139912+00:00",
+  "format": "t081-retained-completion-validation-v1",
+  "independent_fraction_gamma_matches_exact_gate": true,
+  "independent_review_execution_closure": true,
+  "original_files_checked": 196,
+  "production_admission": false,
+  "published_source_norm_lower": "1/1000000000000000000000",
+  "rh_status": "UNRESOLVED",
+  "source_sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e",
+  "status": "PASS_ORIGINAL_RETAINED_COMPLETION_AND_PRESERVATION"
+}
