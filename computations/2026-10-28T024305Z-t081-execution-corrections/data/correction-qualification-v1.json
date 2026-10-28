@@ -1,0 +1,67 @@
+{
+  "created": "2026-10-28T03:13:23Z",
+  "earlier_checker_limit": "compare-v2-v1.py retained for already executed/pinned steps; Python dict equality does not distinguish equivalent bool/int/float JSON values; final qualification requires v3",
+  "format": "t081-execution-correction-qualification-v1",
+  "full_scientific_benchmark": "separate run receipt required; not claimed by this focused report",
+  "historical_bundle_checks": [
+    {
+      "bundle": "computations/2026-10-27T230830Z-t081-execution-profile",
+      "manifest_sha256": "892f2ce6a254c515bf32cd63702cd2ec589635f7ed6a834c5e994de301e0d32f",
+      "members_verified": 9
+    },
+    {
+      "bundle": "computations/2026-10-27T235900Z-t081-parallel-source",
+      "manifest_sha256": "cdb62dbb0108408d33057995c2258ce22c50fec899b879644f4cf548e1948875",
+      "members_verified": 11
+    },
+    {
+      "bundle": "computations/2026-10-27T140745Z-t081-complete-gram-attempt",
+      "manifest_sha256": "b44bdfcb3567e9182b659b0037edc7bdca4fe464dfca6eebd595ac5c93debe24",
+      "members_verified": 33
+    },
+    {
+      "bundle": "computations/2026-10-27T182100Z-t081-retained-acceptance",
+      "manifest_sha256": "edf0d6161bece527745f7df33bd0c946a48bfdb8572d1c5aebf27807be067fed",
+      "members_verified": 67
+    },
+    {
+      "bundle": "computations/2026-10-27T132236Z-t081-prime-five-qualification",
+      "manifest_sha256": "a1431dac564a4aafa0b2cba5f86ca28f95e12bb63f9b7aa331300a204f1d6da9",
+      "members_verified": 93
+    }
+  ],
+  "historical_local_guard_files_unchanged": true,
+  "linux_quota_cases": "fixture-tested nested v1/v2 ancestors, configured periods, visible mount roots, fractional quotas, malformed quota and overrides",
+  "live_linux_runtime": "NOT_QUALIFIED; installed WSL docker-desktop has no python3 executable",
+  "mathematical_helpers_unchanged": [
+    "pinned",
+    "a",
+    "sym",
+    "diag",
+    "publish",
+    "legendre_values",
+    "residual_matrices",
+    "bessel",
+    "kernel_step",
+    "combined_square",
+    "source"
+  ],
+  "pinned_git_bytes": "scoped -text for both older measured bundles and this bundle; filtered and raw producer Git hashes match without modifying original bytes",
+  "production_admission": false,
+  "python312_runtime_smoke": "data/python312-runtime-smoke-v1.json",
+  "rh_status": "UNRESOLVED",
+  "status": "PASS_FOCUSED_CORRECTIONS_FULL_BENCHMARK_SEPARATE",
+  "strict_identity_checker": "compare-v3-v1.py",
+  "strict_identity_checker_sha256": "074695e79e782e91a62e16693c3e22ba9ab63aa5fb8106fa32737655fe1d2153",
+  "tests": {
+    "collected_functions_and_testcase_elements": 43,
+    "command": "uv run --locked --extra test python -B -m pytest -n 0 -q tests/test_t081_execution_corrections.py tests/test_t081_profile_v2.py tests/test_t081_comparer_v3.py --junitxml=computations/2026-10-28T024305Z-t081-execution-corrections/data/qualification-tests-v1.xml",
+    "console_passed": 43,
+    "count_note": "Console reports43 collected/passed functions and XML contains43 testcase elements; its aggregate tests attribute is45. Raw XML is preserved.",
+    "errors": 0,
+    "failures": 0,
+    "junit_suite_aggregate_tests": 45,
+    "xml_sha256": "ad03ccadc5af9f135738b6b998fe0e3f07c7302123580edca411929ca94b8510"
+  },
+  "windows_actual_affinity_and_overbudget_rejection": true
+}

@@ -111,3 +111,14 @@
 /computations/2026-10-27T132236Z-t081-prime-five-qualification/independent-review-v1.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /computations/2026-10-27T182100Z-t081-retained-acceptance/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /computations/2026-10-27T182100Z-t081-retained-acceptance/independent-review-v1.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T230830Z-t081-execution-profile/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T235900Z-t081-parallel-source/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-28T024305Z-t081-execution-corrections/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/tests/test_t081_execution_corrections.py text eol=lf
+/tests/test_t081_profile_v2.py text eol=lf
+/tests/test_t081_comparer_v3.py text eol=lf
+/computations/2026-10-28T034134Z-t081-resource-execution/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/tests/test_t081_resources_v2.py text eol=lf
+/tests/test_t081_execution_supervisor.py text eol=lf
+/scripts/run_t081_resource_execution.py text eol=lf
+/scripts/run_observability.py text eol=lf

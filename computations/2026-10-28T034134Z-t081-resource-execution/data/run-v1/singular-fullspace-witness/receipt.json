@@ -1,0 +1,154 @@
+{
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+    "-B",
+    "C:\\Users\\carlo\\AppData\\Local\\Temp\\rh_t081_resource_capture_7gkz0ekc\\computations\\2026-10-28T034134Z-t081-resource-execution\\stage_worker_v1.py",
+    "--program",
+    "C:\\Users\\carlo\\AppData\\Local\\Temp\\rh_t081_resource_capture_7gkz0ekc\\computations\\2026-10-28T034134Z-t081-resource-execution\\verify-whole-sign-v1.py",
+    "--program-sha256",
+    "def3d7d7d242a319c9f93fec39674c2c2cf40796b653ddb44f47df2e8019fd64",
+    "--config",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\execution-budget.json",
+    "--config-sha256",
+    "4638ee59101e6c2dd154837af497fb427e704c3ab364588d1b739ce50acc8e4d",
+    "--profile",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\singular-fullspace-witness\\profile.json",
+    "--kind",
+    "exact",
+    "--",
+    "--inputs",
+    "C:\\Users\\carlo\\AppData\\Local\\Temp\\rh_t081_resource_capture_7gkz0ekc\\computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\whole-inputs-v1.json",
+    "--source",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\exact-controls\\singular-fullspace-witness\\source.json",
+    "--proposal",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\exact-controls\\singular-fullspace-witness\\proposal.json.gz",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\exact-controls\\singular-fullspace-witness\\exact.json"
+  ],
+  "budget": {
+    "available_memory_bytes": 14762065920,
+    "cpu_budget": 6,
+    "detection": {
+      "affinity_cpus": 6,
+      "available_memory_bytes": 14762065920,
+      "cpu_detection_complete": true,
+      "cpu_diagnostics": [],
+      "cpu_sources": [],
+      "diagnostics": [],
+      "effective_cpu_budget": 6,
+      "fractional_quota_policy": "floor above one CPU; one throttled native thread below one CPU",
+      "logical_cpus": 6,
+      "memory_detection_complete": true,
+      "memory_diagnostics": [],
+      "memory_sources": [
+        {
+          "available_bytes": 14762065920,
+          "source": "windows.available_physical"
+        },
+        {
+          "available_bytes": 16871096320,
+          "source": "windows.available_commit"
+        },
+        {
+          "available_bytes": 140733061513216,
+          "source": "windows.available_virtual"
+        }
+      ],
+      "platform": "win32",
+      "quota_cpu_limit": null,
+      "visibility": "Linux visible cgroup ancestors only; Windows immediate job only; snapshots are not memory reservations",
+      "windows": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 16871096320,
+          "available_physical_bytes": 14762065920,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 14762065920,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 16871096320,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733061513216,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 17018880,
+          "peak_committed_bytes": 17035264,
+          "peak_working_set_bytes": 25423872,
+          "working_set_bytes": 25137152
+        }
+      }
+    },
+    "diagnostics": [],
+    "execution_mode": "single-process/native-threads",
+    "memory_budget_bytes": 13285859328,
+    "native_threads": 6,
+    "required_bytes": 9663676416,
+    "reserve_bytes": 1476206592,
+    "selection": {
+      "cpus": "detected",
+      "memory_mib": "detected",
+      "reserve_mib": "detected",
+      "threads": "detected",
+      "workers": "detected"
+    },
+    "workers": 1
+  },
+  "config_sha256": "4638ee59101e6c2dd154837af497fb427e704c3ab364588d1b739ce50acc8e4d",
+  "elapsed_seconds": 6.0612020999978995,
+  "error": null,
+  "exit_code": 1,
+  "format": "t081-owned-stage-receipt-v1",
+  "last_metrics": {
+    "active_process_count": 0,
+    "active_process_ids": [],
+    "cpu_budget": 6,
+    "cpu_rate_per_10000": 10000,
+    "cpu_rate_reference": "parent job if rate-controlled, otherwise system",
+    "cpu_seconds": 5.4375,
+    "current_committed_bytes": 155648,
+    "diagnostics": [],
+    "memory_accounting": "JobObjectMemoryUsageInformation",
+    "memory_limit_bytes": 13285859328,
+    "peak_committed_bytes": 455282688,
+    "peak_counter_scope": "raw OS high-water; denied allocation demand may be counted before rollback"
+  },
+  "logs": {
+    "stderr": {
+      "path": "singular-fullspace-witness\\stderr.txt",
+      "sha256": "8eeae4486fa2d6e41dc5ce642310af723dce0844407cf2370713e3ecf6dfc886"
+    },
+    "stdout": {
+      "path": "singular-fullspace-witness\\stdout.txt",
+      "sha256": "7d47495b751a533cf2de7aaef45cd43cf2af0d8626728a73f7a53e0e227d050e"
+    }
+  },
+  "memory_metric": "job committed memory",
+  "peak_budgeted_memory_bytes": 455282688,
+  "program_sha256": "def3d7d7d242a319c9f93fec39674c2c2cf40796b653ddb44f47df2e8019fd64",
+  "stage": "singular-fullspace-witness",
+  "worker_cleanup_verified": true
+}

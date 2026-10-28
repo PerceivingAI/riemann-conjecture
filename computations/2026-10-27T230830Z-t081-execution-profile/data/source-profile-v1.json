@@ -1,0 +1,473 @@
+{
+  "affinity": {
+    "effective_cpus": 6,
+    "process_mask": 63,
+    "system_cpus": 6,
+    "system_mask": 63
+  },
+  "argv": [
+    "C:\\Users\\carlo\\AppData\\Local\\Temp\\rh_t081_profile_xsw5fxjp\\computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\build-whole-source-v1.py",
+    "--inputs",
+    "C:\\Users\\carlo\\AppData\\Local\\Temp\\rh_t081_profile_xsw5fxjp\\computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\whole-inputs-v1.json",
+    "--output",
+    "C:\\Users\\carlo\\AppData\\Local\\Temp\\rh_t081_profile_xsw5fxjp\\computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\data\\profile-v1\\source-v1.json"
+  ],
+  "child_processes": [],
+  "cpu_count": 6,
+  "cpu_over_wall": 0.992,
+  "cpu_seconds": 4389.359375,
+  "ctx_precision": 4608,
+  "ctx_threads": 1,
+  "error": null,
+  "flint_version": "0.9.0",
+  "format": "t081-execution-instrumentation-v1",
+  "harness_sha256": "078928330783801862c6c788637085116cc7f162c1b2568b95646a76a017c266",
+  "memory_series": [
+    [
+      52940.833,
+      34742272,
+      22528000
+    ],
+    [
+      52968.812,
+      422727680,
+      414584832
+    ],
+    [
+      52978.406,
+      901451776,
+      906969088
+    ],
+    [
+      52979.545,
+      949121024,
+      955686912
+    ],
+    [
+      52980.567,
+      981954560,
+      989863936
+    ],
+    [
+      52981.683,
+      1023905792,
+      1032294400
+    ],
+    [
+      52983.139,
+      1090113536,
+      1101213696
+    ],
+    [
+      52984.264,
+      1146089472,
+      1158676480
+    ],
+    [
+      54094.089,
+      4871835648,
+      4992778240
+    ],
+    [
+      54375.531,
+      5763444736,
+      5886881792
+    ],
+    [
+      54422.736,
+      5771501568,
+      5892280320
+    ],
+    [
+      54706.034,
+      5773148160,
+      5898932224
+    ],
+    [
+      54999.147,
+      5779218432,
+      5930262528
+    ],
+    [
+      55462.281,
+      6020964352,
+      6170763264
+    ],
+    [
+      55571.477,
+      2946162688,
+      3010273280
+    ],
+    [
+      55573.602,
+      1507987456,
+      1535418368
+    ],
+    [
+      55574.626,
+      1531068416,
+      1559449600
+    ],
+    [
+      55575.634,
+      1525248000,
+      1553031168
+    ],
+    [
+      55576.65,
+      1541054464,
+      1568878592
+    ],
+    [
+      55577.684,
+      1528410112,
+      1556164608
+    ],
+    [
+      55578.692,
+      1528848384,
+      1556594688
+    ],
+    [
+      55580.088,
+      1624121344,
+      1652060160
+    ],
+    [
+      55582.442,
+      1796415488,
+      1826426880
+    ],
+    [
+      55584.074,
+      1920794624,
+      2007035904
+    ],
+    [
+      55585.881,
+      2088890368,
+      2184200192
+    ],
+    [
+      55587.89,
+      2267205632,
+      2391257088
+    ],
+    [
+      55782.669,
+      4199591936,
+      4374618112
+    ],
+    [
+      56081.797,
+      5095256064,
+      5315649536
+    ],
+    [
+      56377.858,
+      5082828800,
+      5258661888
+    ],
+    [
+      56416.031,
+      5082828800,
+      5258661888
+    ],
+    [
+      56713.015,
+      5071544320,
+      5242621952
+    ],
+    [
+      57225.977,
+      5330305024,
+      5497233408
+    ],
+    [
+      57279.082,
+      5330305024,
+      5497237504
+    ],
+    [
+      57352.583,
+      5831110656,
+      6013243392
+    ],
+    [
+      57353.619,
+      5851217920,
+      6031482880
+    ],
+    [
+      57354.632,
+      5885509632,
+      6068473856
+    ],
+    [
+      57361.426,
+      1599746048,
+      1624711168
+    ],
+    [
+      57362.459,
+      1616191488,
+      1641095168
+    ],
+    [
+      57363.461,
+      1605341184,
+      1630150656
+    ],
+    [
+      57364.484,
+      1608663040,
+      1633533952
+    ]
+  ],
+  "peak_private_bytes": 6170763264,
+  "peak_threads": 5,
+  "peak_working_set_bytes": 6020964352,
+  "physical_memory": {
+    "available_bytes": 14481858560,
+    "total_bytes": 33702076416
+  },
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+  "program": "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+  "program_sha256": "0d37cc35a8a777d4a941d206056d28f4e481df347fe46aea68d4bb39c70e97c1",
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "python_implementation": "CPython",
+  "samples": 243,
+  "stack_samples": [
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        182,
+        "main"
+      ],
+      "samples": 141
+    },
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        183,
+        "main"
+      ],
+      "samples": 56
+    },
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        174,
+        "main"
+      ],
+      "samples": 26
+    },
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        180,
+        "main"
+      ],
+      "samples": 19
+    },
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        184,
+        "main"
+      ],
+      "samples": 1
+    }
+  ],
+  "stage_peak_working_set_bytes": {
+    "<driver>": 5886296064,
+    "combined_square": 1094901760,
+    "kernel_step": 5779218432,
+    "legendre_values": 2088890368,
+    "publish": 6020964352,
+    "source": 5773148160
+  },
+  "stage_stack_samples": [
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        182,
+        "main"
+      ],
+      "samples": 89,
+      "stage": "<driver>"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        183,
+        "main"
+      ],
+      "samples": 56,
+      "stage": "<driver>"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        182,
+        "main"
+      ],
+      "samples": 52,
+      "stage": "publish"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        174,
+        "main"
+      ],
+      "samples": 13,
+      "stage": "combined_square"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        174,
+        "main"
+      ],
+      "samples": 13,
+      "stage": "legendre_values"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        180,
+        "main"
+      ],
+      "samples": 13,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        180,
+        "main"
+      ],
+      "samples": 3,
+      "stage": "kernel_step"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        180,
+        "main"
+      ],
+      "samples": 3,
+      "stage": "legendre_values"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T140745Z-t081-complete-gram-attempt/build-whole-source-v1.py",
+        184,
+        "main"
+      ],
+      "samples": 1,
+      "stage": "<driver>"
+    }
+  ],
+  "stages": [
+    {
+      "calls": 2,
+      "cpu_over_wall": 0.9919,
+      "exclusive_cpu_seconds": 3160.078125,
+      "exclusive_wall_seconds": 3186.119898,
+      "inclusive_cpu_seconds": 3401.125,
+      "inclusive_wall_seconds": 3429.041713,
+      "peak_working_set_bytes": 5773148160,
+      "slowest_call_wall_seconds": 1772.872268,
+      "stage": "source"
+    },
+    {
+      "calls": 1,
+      "cpu_over_wall": 0.9922,
+      "exclusive_cpu_seconds": 884.390625,
+      "exclusive_wall_seconds": 891.945397,
+      "inclusive_cpu_seconds": 936.171875,
+      "inclusive_wall_seconds": 943.49659,
+      "peak_working_set_bytes": 1094901760,
+      "slowest_call_wall_seconds": 943.49659,
+      "stage": "combined_square"
+    },
+    {
+      "calls": 2,
+      "cpu_over_wall": 0.991,
+      "exclusive_cpu_seconds": 157.609375,
+      "exclusive_wall_seconds": 158.973297,
+      "inclusive_cpu_seconds": 159.265625,
+      "inclusive_wall_seconds": 160.718233,
+      "peak_working_set_bytes": 5779218432,
+      "slowest_call_wall_seconds": 82.481402,
+      "stage": "kernel_step"
+    },
+    {
+      "calls": 37996,
+      "cpu_over_wall": 0.9986,
+      "exclusive_cpu_seconds": 133.5625,
+      "exclusive_wall_seconds": 133.754775,
+      "inclusive_cpu_seconds": 133.5625,
+      "inclusive_wall_seconds": 133.754775,
+      "peak_working_set_bytes": 2088890368,
+      "slowest_call_wall_seconds": 0.108358,
+      "stage": "legendre_values"
+    },
+    {
+      "calls": 1,
+      "cpu_over_wall": 0.9809,
+      "exclusive_cpu_seconds": 21.296875,
+      "exclusive_wall_seconds": 21.712522,
+      "inclusive_cpu_seconds": 21.296875,
+      "inclusive_wall_seconds": 21.712522,
+      "peak_working_set_bytes": 0,
+      "slowest_call_wall_seconds": 21.712522,
+      "stage": "residual_matrices"
+    },
+    {
+      "calls": 512946,
+      "cpu_over_wall": 1.1475,
+      "exclusive_cpu_seconds": 7.234375,
+      "exclusive_wall_seconds": 6.304457,
+      "inclusive_cpu_seconds": 7.234375,
+      "inclusive_wall_seconds": 6.304457,
+      "peak_working_set_bytes": 6020964352,
+      "slowest_call_wall_seconds": 0.002021,
+      "stage": "publish"
+    },
+    {
+      "calls": 118,
+      "cpu_over_wall": 0.9492,
+      "exclusive_cpu_seconds": 1.65625,
+      "exclusive_wall_seconds": 1.744936,
+      "inclusive_cpu_seconds": 1.65625,
+      "inclusive_wall_seconds": 1.744936,
+      "peak_working_set_bytes": 0,
+      "slowest_call_wall_seconds": 0.020239,
+      "stage": "bessel"
+    },
+    {
+      "calls": 3,
+      "cpu_over_wall": 0.0,
+      "exclusive_cpu_seconds": 0.0,
+      "exclusive_wall_seconds": 0.010601,
+      "inclusive_cpu_seconds": 0.0,
+      "inclusive_wall_seconds": 0.010601,
+      "peak_working_set_bytes": 0,
+      "slowest_call_wall_seconds": 0.007693,
+      "stage": "pinned"
+    }
+  ],
+  "status": "COMPLETED",
+  "thread_environment": {
+    "FLINT_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "wall_seconds": 4424.637509
+}

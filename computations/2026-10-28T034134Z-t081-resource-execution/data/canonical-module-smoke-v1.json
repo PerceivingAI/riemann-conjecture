@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-10-28T17:45:34.795673+00:00",
+  "entrypoint_sha256": "d883838edc5e7694a5fc077d58a84ccd55ffa552bb94aeb7a082089ba564e17f",
+  "format": "t081-canonical-module-smoke-v1",
+  "help": {
+    "exit": 0,
+    "stderr": "",
+    "stdout": "usage: run-execution-v1.py [-h] --output-dir OUTPUT_DIR [--cpus CPUS]\n                           [--workers WORKERS] [--threads THREADS]\n                           [--memory-mib MEMORY_MIB]\n                           [--reserve-mib RESERVE_MIB]\n\nBudgeted captured source, independent audit, exact sign and nine countercases.\nNo production admission or new smooth-test release. Existing proof artifacts\nand their retained-acceptance procedure are not modified or substituted.\n\noptions:\n  -h, --help            show this help message and exit\n  --output-dir OUTPUT_DIR\n  --cpus CPUS\n  --workers WORKERS\n  --threads THREADS\n  --memory-mib MEMORY_MIB\n  --reserve-mib RESERVE_MIB\n"
+  },
+  "insufficient_memory": {
+    "exit": 1,
+    "output_created": false,
+    "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\run_t081_resource_execution.py\", line 19, in <module>\n    main()\n    ~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\scripts\\run_t081_resource_execution.py\", line 15, in main\n    runpy.run_path(str(BUNDLE / \"run-execution-v1.py\"), run_name=\"__main__\")\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\run-execution-v1.py\", line 157, in <module>\n    if __name__=='__main__':raise SystemExit(main())\n                                             ~~~~^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\run-execution-v1.py\", line 151, in main\n    budget=resolve_resources(cpus=args.cpus,workers=args.workers,threads=args.threads,\n        memory_mib=args.memory_mib,reserve_mib=args.reserve_mib,required_bytes=REQUIRED_BYTES)\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\execution_resources_v2.py\", line 356, in resolve_resources\n    raise ValueError(\"fixed workload requires \" + str(required_bytes)\n                     + \" bytes, exceeding memory budget \" + str(budget)\n                     + \"; N and precision will not be reduced\")\nValueError: fixed workload requires 9663676416 bytes, exceeding memory budget 1048576; N and precision will not be reduced\n",
+    "stdout": ""
+  },
+  "retained_runner_sha256": "66b938544604ffdff4620a23e047cf0abf07f9dbe1c1043e7652f9ce1592bd0e",
+  "scope": "actual module dispatch/help/preflight; full numerical operation was already exercised through the byte-identical retained runner",
+  "status": "PASS_HELP_AND_INSUFFICIENT_MEMORY_REJECTION"
+}

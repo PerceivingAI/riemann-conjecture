@@ -1,0 +1,47 @@
+{
+  "containment": {
+    "mechanism": "owned Windows job installed before GO"
+  },
+  "cpu_seconds": 4191.703125,
+  "error": null,
+  "exit_code": 0,
+  "format": "t081-budgeted-stage-profile-v1",
+  "kind": "source",
+  "native_threads": 6,
+  "phases": {
+    "combined_square": {
+      "calls": 1,
+      "cpu_seconds": 943.0625,
+      "exclusive_wall_seconds": 325.85070039999846,
+      "inclusive_wall_seconds": 325.85070039999846
+    },
+    "kernel_step": {
+      "calls": 2,
+      "cpu_seconds": 160.78125,
+      "exclusive_wall_seconds": 172.64518359999056,
+      "inclusive_wall_seconds": 172.64518359999056
+    },
+    "residual_matrices": {
+      "calls": 1,
+      "cpu_seconds": 21.390625,
+      "exclusive_wall_seconds": 22.328315199993085,
+      "inclusive_wall_seconds": 22.328315199993085
+    },
+    "source": {
+      "calls": 2,
+      "cpu_seconds": 3213.34375,
+      "exclusive_wall_seconds": 1231.0851758000063,
+      "inclusive_wall_seconds": 1403.7303593999968
+    }
+  },
+  "precision": 4608,
+  "process_memory": {
+    "committed_bytes": 577376256,
+    "peak_committed_bytes": 6910521344,
+    "peak_working_set_bytes": 6734856192,
+    "working_set_bytes": 557453312
+  },
+  "program_sha256": "aacfb2d122b2bf62b1cf7940cb4aace764cdb11b413a504c81f15ca7b8427976",
+  "timing_note": "inclusive includes nested calls; exclusive subtracts wrapped children; CPU is current process only",
+  "wall_seconds": 1766.9187626000057
+}

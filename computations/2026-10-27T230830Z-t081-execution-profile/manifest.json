@@ -1,0 +1,51 @@
+{
+  "created": "2026-10-28T02:29:53Z",
+  "format": "t081-execution-profile-bundle-v1",
+  "members": [
+    {
+      "path": "data/native-threading-v1.json",
+      "sha256": "c0984190ff30abc4f4687dc14d7409a7226ff1b333a3120c6e180f7b413a19b4",
+      "size": 7173
+    },
+    {
+      "path": "data/source-profile-v1.json",
+      "sha256": "a469eafe4c41c069265574df0a6564c602cebe62a49a88338f2237ee4ce41c93",
+      "size": 10379
+    },
+    {
+      "path": "data/work-unit-costs-v1.json",
+      "sha256": "4c81efe0bd8e92fd70c08ea1bc808cb58f6c313d7a2429b09fade8f4b90eb8bf",
+      "size": 2463
+    },
+    {
+      "path": "instrument-t081-v1.py",
+      "sha256": "078928330783801862c6c788637085116cc7f162c1b2568b95646a76a017c266",
+      "size": 25585
+    },
+    {
+      "path": "measure-t081-execution-v1.py",
+      "sha256": "d5f860adfb0cdac0eaf7112dcafbb2bf1c901d056693c80c7c5631f8d2aa2766",
+      "size": 8936
+    },
+    {
+      "path": "probe-native-threading-v1.py",
+      "sha256": "ec9c9c182893becad74b20d09b8dbcce73e0d75fb13091bee4aac29ea57d0287",
+      "size": 7069
+    },
+    {
+      "path": "probe-work-unit-costs-v1.py",
+      "sha256": "82bbcd4f245cd808027d4cec9b3df1b0a68154779fe57c146a065a616f4090d6",
+      "size": 6682
+    },
+    {
+      "path": "record.md",
+      "sha256": "55a918f27d91ec73a413058a0efac2ca55ab1083735466523b4b47bb29b0d390",
+      "size": 4147
+    },
+    {
+      "path": "summarize-t081-profile-v1.py",
+      "sha256": "49b2f27748ce6d76b5156eed89dc5e45c65b89e192f46f1d6a6ec0a5d12ede08",
+      "size": 5164
+    }
+  ]
+}

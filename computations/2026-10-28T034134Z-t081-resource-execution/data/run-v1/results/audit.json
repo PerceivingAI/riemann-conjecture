@@ -1,0 +1,110 @@
+{
+  "N": 826,
+  "R86_exterior_zero": "polynomial model only: exact endpoint primitive degrees below 1652",
+  "active_prime_powers": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "all_combined_2_3_4_5_square_products": true,
+  "arithmetic_squared_overlap_cells": 9,
+  "both_signed_VP_orientations": true,
+  "both_translation_windows_evaluated": true,
+  "checked_matrix_files": 6,
+  "checked_triangular_entries": 512946,
+  "consumer_sha256": "59cd5b1e891d84d1fdb6d5849cd6a073d29bd8f49fce171fe6c411fb5cbc45c3",
+  "entry_requirement": "native endpoints contained in inclusive published dyadic endpoints",
+  "first_attempt_seal_sha256": "7b29db1a39707f489de185c48d7b361077686e9713d294397e24466b3f4f0dc3",
+  "format": "t081-complete-gram-source-audit-v1",
+  "frequency_anchors": 60,
+  "frequency_exterior_paid": true,
+  "fresh_arithmetic_fields": [
+    "P_low",
+    "P_tail",
+    "VP",
+    "P_squared",
+    "GP"
+  ],
+  "ignored_producer_metadata": [
+    "basis",
+    "imported_project_sources",
+    "production_admission",
+    "retained_residual_helper_sha256",
+    "status"
+  ],
+  "independent_precision_bits": 6144,
+  "inputs": "C:\\Users\\carlo\\AppData\\Local\\Temp\\rh_t081_resource_capture_7gkz0ekc\\computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\whole-inputs-v1.json",
+  "inputs_sha256": "19eac80d7869fcc6d6ddd0d33dcb90901b65254b2f076c6964148575019982a1",
+  "order": 86,
+  "ordinary_legendre_masses": "2/(2n+1)",
+  "parity_summary": [
+    {
+      "checked_triangular_entries": 256473,
+      "dimension": 413,
+      "first_head_mode": 826,
+      "first_low_mode": 0,
+      "last_head_mode": 1650,
+      "last_low_mode": 824,
+      "matrix_entries": {
+        "A_model": 85491,
+        "weighted_complete_tail": 85491,
+        "weighted_head": 85491
+      },
+      "parity": 0,
+      "status": "PASS_NATIVE_CONTAINMENT"
+    },
+    {
+      "checked_triangular_entries": 256473,
+      "dimension": 413,
+      "first_head_mode": 827,
+      "first_low_mode": 1,
+      "last_head_mode": 1651,
+      "last_low_mode": 825,
+      "matrix_entries": {
+        "A_model": 85491,
+        "weighted_complete_tail": 85491,
+        "weighted_head": 85491
+      },
+      "parity": 1,
+      "status": "PASS_NATIVE_CONTAINMENT"
+    }
+  ],
+  "physical_extent": 1652,
+  "physical_exterior_complete": true,
+  "positivity_checked": false,
+  "producer_sha256": "aacfb2d122b2bf62b1cf7940cb4aace764cdb11b413a504c81f15ca7b8427976",
+  "production_admission": false,
+  "publication_bits": 256,
+  "reference_beta_scope": "supported quadratic-form bound, not a pointwise multiplier bound",
+  "residual_endpoint_boundaries": [
+    -1,
+    1
+  ],
+  "scalar_premise": "fresh native supported-form reference qualification and complete physical-tail inverse bound",
+  "scalar_qualification": {
+    "accepted_declaration_audit_sha256": "a10cf29c29193f6b3a9c981ad07631bced6799b2a4b34efe0cc7f415716f66c7",
+    "declaration_checker_sha256": "a99f306135c88c3a155ebc1cbea30866deac4a71c49d7dde0d6a2bd801edea3f",
+    "positivity_checked": false,
+    "production_admission": false,
+    "reference_audit_sha256": "65f5b7d7ed5996c220e2c87b20770847c35cf73bbc8600b3cf3fe058bf37c569",
+    "reference_native_acceptance_replayed": true,
+    "reference_source_sha256": "52bbb50458c067146af1523a80691223b5eed93abede9c73a917a188ef87d42d",
+    "status": "PASS_FRESH_NATIVE_DECLARATION_REPLAY",
+    "supported_form_beta": "821/512"
+  },
+  "scope": "analytic matrix source audit only; no positivity or admission claim",
+  "shared_arithmetic_premise": "python-flint/Arb rigorous arithmetic and Gauss root/weight enclosures",
+  "source": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\results\\source.json",
+  "source_sha256": "2375a873d638af115312ffb8aaf416a067ccfa9170a96a320254eb121b9d125f",
+  "status": "PASS_COMPLETE_SOURCE",
+  "support": "81/100",
+  "target_declaration_sha256": "026658a580d6ebe2ff8543d9e94ebbd24ea92d13027c5e43714e876cce353341",
+  "true_residual_discrepancy": "paid by the complete declared canonical model allowance",
+  "von_mangoldt_prime_bases": [
+    2,
+    3,
+    2,
+    5
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "affinity_probe": {
+    "affinity_mask": 1,
+    "budget": {
+      "available_memory_bytes": 7094919168,
+      "cpu_budget": 1,
+      "detection": {
+        "affinity_cpus": 1,
+        "available_memory_bytes": 7094919168,
+        "cpu_detection_complete": true,
+        "cpu_diagnostics": [],
+        "cpu_sources": [],
+        "diagnostics": [],
+        "effective_cpu_budget": 1,
+        "fractional_quota_policy": "floor above one CPU; one throttled native thread below one CPU",
+        "logical_cpus": 6,
+        "memory_detection_complete": true,
+        "memory_diagnostics": [],
+        "memory_sources": [
+          {
+            "available_bytes": 8330330112,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 7094919168,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733074812928,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "platform": "win32",
+        "quota_cpu_limit": null,
+        "visibility": "Linux visible cgroup ancestors only; Windows immediate job only; snapshots are not memory reservations",
+        "windows": {
+          "affinity_cpus": 1,
+          "cpu_detection_complete": true,
+          "diagnostics": [
+            "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+          ],
+          "host": {
+            "available_commit_bytes": 7094919168,
+            "available_physical_bytes": 8330330112,
+            "total_commit_bytes": 50345074688,
+            "total_physical_bytes": 33702076416
+          },
+          "job": {
+            "cpu_control_flags": 0,
+            "cpu_rate_raw": 0,
+            "job_memory_limit_bytes": null,
+            "limit_flags": 2048,
+            "process_memory_limit_bytes": null,
+            "visibility": "immediate job only; ancestor handles are not available"
+          },
+          "job_cpu_fraction": null,
+          "logical_cpus": 6,
+          "memory_candidates": [
+            {
+              "available_bytes": 8330330112,
+              "source": "windows.available_physical"
+            },
+            {
+              "available_bytes": 7094919168,
+              "source": "windows.available_commit"
+            },
+            {
+              "available_bytes": 140733074812928,
+              "source": "windows.available_virtual"
+            }
+          ],
+          "memory_detection_complete": true,
+          "process": {
+            "committed_bytes": 10809344,
+            "peak_committed_bytes": 11358208,
+            "peak_working_set_bytes": 17985536,
+            "working_set_bytes": 17518592
+          }
+        }
+      },
+      "diagnostics": [],
+      "execution_mode": "single-process/native-threads",
+      "memory_budget_bytes": 536870912,
+      "native_threads": 1,
+      "required_bytes": 65536,
+      "reserve_bytes": 67108864,
+      "selection": {
+        "cpus": "detected",
+        "memory_mib": "--memory-mib",
+        "reserve_mib": "--reserve-mib",
+        "threads": "detected",
+        "workers": "detected"
+      },
+      "workers": 1
+    },
+    "version": "3.12.13 (main, Jul 18 2026, 17:08:38) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "cli_preflight": {
+    "argv": [
+      "C:\\Users\\carlo\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+      "-B",
+      "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\run-execution-v1.py",
+      "--memory-mib",
+      "1",
+      "--output-dir",
+      "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\python312-insufficient-output"
+    ],
+    "output_created": false,
+    "returncode": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\run-execution-v1.py\", line 157, in <module>\n    if __name__=='__main__':raise SystemExit(main())\n                                             ^^^^^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\run-execution-v1.py\", line 151, in main\n    budget=resolve_resources(cpus=args.cpus,workers=args.workers,threads=args.threads,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\execution_resources_v2.py\", line 356, in resolve_resources\n    raise ValueError(\"fixed workload requires \" + str(required_bytes)\nValueError: fixed workload requires 9663676416 bytes, exceeding memory budget 1048576; N and precision will not be reduced\n",
+    "stdout": ""
+  },
+  "created_utc": "2026-10-28T13:12:18.449712+00:00",
+  "format": "t081-python312-stdlib-execution-smoke-v1",
+  "scope": "actual installed Python3.12 stdlib resource detection and low-memory CLI rejection; no Python3.12 FLINT arithmetic claim",
+  "status": "PASS_BASELINE_AFFINITY_AND_PREFLIGHT"
+}

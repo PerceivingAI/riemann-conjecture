@@ -1,0 +1,60 @@
+{
+  "created": "2026-10-28T03:06:08Z",
+  "format": "t081-python312-runtime-smoke-v1",
+  "limits": "Windows stdlib tools and syntax exercised; no Python3.12 FLINT arithmetic or live Linux runtime qualified",
+  "probes": [
+    {
+      "argv": [
+        "C:\\Users\\carlo\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+        "-B",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T024305Z-t081-execution-corrections\\execution_resources_v1.py",
+        "--threads",
+        "1"
+      ],
+      "exit_code": 0,
+      "probe": "cpu_policy",
+      "stderr": "",
+      "stdout": "{\n  \"affinity_cpus\": 6,\n  \"effective_cpu_budget\": 6,\n  \"fractional_quota_policy\": \"floor above one CPU; one throttled thread below one CPU\",\n  \"limits\": \"Visible affinity and Linux cgroups only; hidden ancestor, Windows job CPU rate and memory limits are not detected\",\n  \"logical_cpus\": 6,\n  \"platform\": \"win32\",\n  \"quota_cpu_limit\": null,\n  \"quota_sources\": [],\n  \"requested_threads\": 1,\n  \"selection\": \"--threads\",\n  \"threads\": 1,\n  \"warnings\": []\n}\n"
+    },
+    {
+      "argv": [
+        "C:\\Users\\carlo\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+        "-B",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T024305Z-t081-execution-corrections\\compare-v3-v1.py",
+        "--source",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T235900Z-t081-parallel-source\\data\\run-v2\\source-v2.json",
+        "--producer",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T235900Z-t081-parallel-source\\build-whole-source-v2.py",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T024305Z-t081-execution-corrections\\data\\preexisting-v2-comparison-py312-v3.json"
+      ],
+      "exit_code": 0,
+      "probe": "strict_identity",
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS_EXACT_RETAINED_PAYLOAD_IDENTITY\", \"matrix_count\": 6}\n"
+    },
+    {
+      "argv": [
+        "C:\\Users\\carlo\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+        "-B",
+        "-c",
+        "from pathlib import Path; p=Path('D:\\\\2_Add_Projects\\\\riemann-conjecture\\\\computations\\\\2026-10-28T024305Z-t081-execution-corrections'); files=list(p.glob('*.py')); [compile(f.read_text(encoding='utf-8'),str(f),'exec') for f in files]; print('compiled',len(files),'files')"
+      ],
+      "exit_code": 0,
+      "probe": "syntax",
+      "stderr": "",
+      "stdout": "compiled 8 files\n"
+    },
+    {
+      "exit_code": 0,
+      "os_peak_working_set_bytes": 54743040,
+      "probe": "actual_profiler_allocation_cli",
+      "python": "3.12.13 (main, Jul 18 2026, 17:08:38) [MSC v.1944 64 bit (AMD64)]",
+      "sampled_peak_working_set_bytes": 21192704,
+      "status": "COMPLETED",
+      "synthetic_target_not_mathematics": true
+    }
+  ],
+  "production_admission": false,
+  "status": "PASS"
+}

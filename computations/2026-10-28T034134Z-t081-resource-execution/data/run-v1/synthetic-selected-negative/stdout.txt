@@ -1,0 +1,6 @@
+T081_READY {"pid": 30324, "config_sha256": "4638ee59101e6c2dd154837af497fb427e704c3ab364588d1b739ce50acc8e4d"}
+T081_EVENT {"elapsed_seconds": 0.006669900001725182, "event": "program_started", "kind": "exact", "threads": 6}
+even positive complete sign False negative selected lower direction True physical width qualified True
+odd positive complete sign False negative selected lower direction True physical width qualified True
+SELECTED_CONSERVATIVE_SCHUR_NEGATIVE_NOT_WEIL_NEGATIVITY
+T081_EVENT {"elapsed_seconds": 26.522949599995627, "event": "program_finished", "exit_code": 0, "kind": "exact", "wall_seconds": 26.515029600006528}

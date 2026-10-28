@@ -1,0 +1,95 @@
+{
+  "cpu_count": 6,
+  "created": "2026-10-27T23:11:54Z",
+  "format": "t081-work-unit-cost-probe-v1",
+  "in_memory_transfer": {
+    "arb_mat_picklable": false,
+    "arb_mat_pickle_error": "no default __reduce__ due to non-trivial __cinit__",
+    "published_dyadic_413": {
+      "dumps": {
+        "max_seconds": 0.045054,
+        "median_seconds": 0.044713,
+        "min_seconds": 0.043394,
+        "repetitions": 3
+      },
+      "encode_and_compress": {
+        "max_seconds": 0.111939,
+        "median_seconds": 0.110566,
+        "min_seconds": 0.110478,
+        "repetitions": 3
+      },
+      "entries": 85491,
+      "gzip_bytes": 98862,
+      "pickle_bytes": 6234909
+    },
+    "published_dyadic_826": {
+      "entries": 341551,
+      "pickle_bytes": 24909415
+    },
+    "rebuild_arb_mat_413_from_dyadic": {
+      "max_seconds": 0.219625,
+      "median_seconds": 0.219152,
+      "min_seconds": 0.218678,
+      "repetitions": 2
+    }
+  },
+  "input_regeneration": {
+    "legendre_roots_826_at_4608": {
+      "count": 826,
+      "seconds": 1.333265
+    },
+    "legendre_roots_826_at_6144": {
+      "count": 826,
+      "seconds": 1.665087
+    }
+  },
+  "module_import": {
+    "frozen_producer": {
+      "max_seconds": 0.022471,
+      "median_seconds": 0.002136,
+      "min_seconds": 0.00159,
+      "repetitions": 3
+    },
+    "producer_sha256": "0d37cc35a8a777d4a941d206056d28f4e481df347fe46aea68d4bb39c70e97c1"
+  },
+  "process_startup": {
+    "bare": {
+      "max_seconds": 0.055072,
+      "median_seconds": 0.04784,
+      "min_seconds": 0.046875,
+      "repetitions": 5
+    },
+    "import_flint": {
+      "max_seconds": 0.101399,
+      "median_seconds": 0.097684,
+      "min_seconds": 0.095591,
+      "repetitions": 5
+    }
+  },
+  "production_admission": false,
+  "publication_transfer": {
+    "encode_and_compress": {
+      "max_seconds": 0.925069,
+      "median_seconds": 0.5767,
+      "min_seconds": 0.560881,
+      "repetitions": 3
+    },
+    "entries": 85491,
+    "file_bytes": 3639769,
+    "gzip_decompress": {
+      "max_seconds": 0.025099,
+      "median_seconds": 0.023919,
+      "min_seconds": 0.022978,
+      "repetitions": 5
+    },
+    "json_loads": {
+      "max_seconds": 0.077467,
+      "median_seconds": 0.076641,
+      "min_seconds": 0.075143,
+      "repetitions": 5
+    },
+    "packet": "A_model-0.json.gz",
+    "uncompressed_bytes": 12940758
+  },
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]"
+}

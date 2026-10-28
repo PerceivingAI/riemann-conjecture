@@ -1,0 +1,13 @@
+{"event": "execution_resources", "policy_sha256": "8ba137c872ce0bf49f8521041a4092e8005cc0be75f0fbd67eb574d3d3e1a9d3", "resources": {"affinity_cpus": 6, "effective_cpu_budget": 6, "fractional_quota_policy": "floor above one CPU; one throttled thread below one CPU", "limits": "Visible affinity and Linux cgroups only; hidden ancestor, Windows job CPU rate and memory limits are not detected", "logical_cpus": 6, "platform": "win32", "quota_cpu_limit": null, "quota_sources": [], "requested_threads": null, "selection": "detected", "threads": 6, "warnings": []}}
+fresh full combined P squared, all translation cells 9
+fresh P low/tail and signed VP 0 2
+fresh P low/tail and signed VP 0 3
+fresh P low/tail and signed VP 0 4
+fresh P low/tail and signed VP 0 5
+complete full source parity 0
+fresh P low/tail and signed VP 1 2
+fresh P low/tail and signed VP 1 3
+fresh P low/tail and signed VP 1 4
+fresh P low/tail and signed VP 1 5
+complete full source parity 1
+{"status": "COMPLETE_INTERVAL_MATRICES_NOT_YET_POSITIVITY_VERIFIED", "matrix_files": 6, "frequency_anchors": 60, "kappa": "1.1509601418724942", "threads": 6, "detected_cpu_budget": 6, "timings": {"quadrature": 4.258, "combined_square": 315.153, "source_parity_0": 715.323, "source_parity_1": 737.583}}

@@ -3,7 +3,7 @@
 - **Audit:** SYS-1 current-state technical inventory
 - **Audited repository revision:** `20a691105ec808e623faef2fc5bbaf4806a0d352` (`main`, 2026-10-08 commit)
 - **Audit date:** 2026-10-17
-- **Last updated:** `2026-10-25T23:08:20Z` (later factual addenda; original audit identity unchanged)
+- **Last updated:** `2026-10-28T17:41:03Z` (later factual addenda; original audit identity unchanged)
 - **Scope:** Implemented Python/Arb mathematics, Rust, Lean, execution/orchestration, retained evidence and agent navigation
 - **Disposition:** Public technical record of *existing* behavior only; not a research strategy, roadmap, or tooling-upgrade register
 - **Method:** Read current source, tests, schemas, contracts, and retained verification records; independently execute the checks listed in §8
@@ -11,6 +11,24 @@
 This audit describes the source tree at the pinned revision. An implemented function, a prior passing test, a freshly passing test, an external mathematical premise, and an admitted theorem are different forms of evidence. They are not interchangeable.
 
 The audit did **not** edit or regenerate any historical attempt, finding, computation, or retained certificate. It did **not** run a new mathematical qualification sweep.
+
+## 2026-10-28T17:41:03Z: complete fixed source and independent-consumer resource execution
+
+[X-20261028-002](../computations/2026-10-28T034134Z-t081-resource-execution/record.md) qualifies `scripts.run_t081_resource_execution` and its separately versioned source v4, independent consumer v2, resource policy and supervisor. It selects one numerical worker with measured native threading rather than duplicating a large reconstruction per core. Visible affinity/quota/job and available-memory limits determine the default; explicit CPU/thread/memory/reserve controls reject inconsistent requests before arithmetic.
+
+On Windows, an owned job enforces process/aggregate allocation caps, CPU rate and kill-on-close. READY/GO attaches the real interpreter as well as any launcher before mathematical imports. Existing atomic live-status, JSONL events and output-lock conventions support current phase, completed work, elapsed CPU/wall and memory observations. Failure/cancellation reaps owned descendants, including children holding inherited pipes after worker exit. The independent consumer shares neutral execution code, not producer mathematics.
+
+The unchanged complete target passes fresh independent6144-bit acceptance of512946 entries, both full413-dimensional exact signs/nonsingularity/width goals, six native false-source subset probes and three exact countercases. Final code/log/budget/source bindings and six original packet identities pass. The focused suite reports93 passed and one OS-specific skip; actual Windows enforcement and Python3.12 one-CPU/std-library preflight are exercised.
+
+The record retains full-target timing/CPU/OS-memory evidence and single-run comparison limits. Other live platforms and larger-core scaling are not qualified. Hidden ancestor limits remain outside detection visibility, and availability snapshots are not reservations. No mathematical profile, production admission or retained smooth-test release changes. The earlier source-only addendum below remains scoped to its older version.
+
+## 2026-10-28T03:25:55Z: fixed complete-source execution corrections
+
+[X-20261028-001](../computations/2026-10-28T024305Z-t081-execution-corrections/record.md) adds separately versioned native-thread selection, profiling, captured-run cleanup and exact retained-payload comparison for the fixed T81/100 source. The new full-source run retains logs, code/input fingerprints, CPU time and OS peak working set. Its six compressed matrices are byte-identical to the independently reconstructed candidate. Mathematical helpers, parameters, precision and prior evidence remain unchanged.
+
+CPU policy respects visible affinity and Linux membership/ancestor quotas with the configured v1 period. Final comparison rejects altered source metadata, packet bytes, fingerprints and equivalent-valued JSON type substitutions. Profiling distinguishes OS high-water counters, sampled private memory and virtual size, explicitly labels GIL-biased stack sampling and checks owned-tree cleanup after context exit.
+
+All43 collected regression functions pass, including actual Windows affinity and short subprocess lifecycle cases. Installed Python3.12 exercises the stdlib CPU policy, strict checker and profiler smoke; no Python3.12 FLINT arithmetic or live Linux run is claimed. Hidden cgroup ancestors, Windows job CPU-rate limits and complete memory budgets are not detected. The analytical consumer, mathematical acceptance and production inventories are unchanged. The original audited-revision statement above is not a claim that the entire repository was re-audited.
 
 ## 2026-10-25T23:08:20Z: complete fixed post-m4 Fourier source and proof
 

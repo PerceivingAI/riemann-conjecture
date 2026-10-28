@@ -1,0 +1,66 @@
+{
+  "audit_comparison_limit": "new audit also executes six false-source subset cases; ratio is not an identical-operation kernel benchmark",
+  "baseline": "retained one-thread replay phase wall times in X-20261027-007; one run per implementation, not a controlled scaling study",
+  "created_utc": "2026-10-28T17:41:03Z",
+  "exact_comparison_limit": "unchanged exact checker; faster single-run observation is not a separate exact-algorithm optimization claim",
+  "format": "t081-qualified-execution-measurements-v1",
+  "new_settings": {
+    "cpu_budget": 6,
+    "memory_budget_bytes": 13285859328,
+    "native_threads": 6,
+    "reserve_bytes": 1476206592,
+    "workers": 1
+  },
+  "production_admission": false,
+  "qualification_sha256": "702f91a94111fdb65331c278f069fe8c6b653e2b90feb8232cbffd371f2c1256",
+  "regressions": {
+    "errors": 0,
+    "failures": 0,
+    "passed": 95,
+    "skipped": 1,
+    "tests": 96
+  },
+  "rh_status": "UNRESOLVED",
+  "stages": [
+    {
+      "baseline_wall_seconds": 4591.961,
+      "main_cpu_per_wall": 2.3723236255819398,
+      "new_main_wall_seconds": 1766.9187626000057,
+      "new_stage_wall_seconds": 1767.8659277999977,
+      "observed_wall_ratio": 2.597459981433331,
+      "process_cpu_seconds": 4191.703125,
+      "process_peak_committed_bytes": 6910521344,
+      "process_peak_working_set_bytes": 6734856192,
+      "raw_os_job_peak_bytes": 6911385600,
+      "stage": "source",
+      "stage_non_main_wall_seconds": 0.9471651999920141
+    },
+    {
+      "baseline_wall_seconds": 9213.553,
+      "main_cpu_per_wall": 3.0934755769388897,
+      "new_main_wall_seconds": 2844.1462219999958,
+      "new_stage_wall_seconds": 2845.0065998999926,
+      "observed_wall_ratio": 3.238499692873779,
+      "process_cpu_seconds": 8798.296875,
+      "process_peak_committed_bytes": 8440590336,
+      "process_peak_working_set_bytes": 8166608896,
+      "raw_os_job_peak_bytes": 8441458688,
+      "stage": "independent-audit",
+      "stage_non_main_wall_seconds": 0.8603778999968199
+    },
+    {
+      "baseline_wall_seconds": 33.565,
+      "main_cpu_per_wall": 1.1949968736201206,
+      "new_main_wall_seconds": 27.01366899999266,
+      "new_stage_wall_seconds": 27.854759800000465,
+      "observed_wall_ratio": 1.2050005184392019,
+      "process_cpu_seconds": 32.28125,
+      "process_peak_committed_bytes": 1065369600,
+      "process_peak_working_set_bytes": 1056202752,
+      "raw_os_job_peak_bytes": 1066262528,
+      "stage": "exact-sign",
+      "stage_non_main_wall_seconds": 0.8410908000078052
+    }
+  ],
+  "status": "PASS_COMPLETE_LOCAL_EXECUTION_QUALIFICATION"
+}

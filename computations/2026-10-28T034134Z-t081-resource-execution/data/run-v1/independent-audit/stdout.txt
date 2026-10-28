@@ -1,0 +1,315 @@
+T081_READY {"pid": 32592, "config_sha256": "4638ee59101e6c2dd154837af497fb427e704c3ab364588d1b739ce50acc8e4d"}
+T081_EVENT {"elapsed_seconds": 0.019918400008464232, "event": "program_started", "kind": "audit", "threads": 6}
+T081_EVENT {"depth": 1, "elapsed_seconds": 0.02136630000313744, "event": "phase_started", "phase": "frozen_inputs"}
+T081_EVENT {"cpu_seconds": 0.015625, "depth": 1, "elapsed_seconds": 0.04632110000238754, "event": "phase_finished", "phase": "frozen_inputs", "wall_seconds": 0.02493399998638779}
+T081_EVENT {"depth": 1, "elapsed_seconds": 0.04641680000349879, "event": "phase_started", "phase": "replay_declaration"}
+T081_EVENT {"cpu_seconds": 0.03125, "depth": 1, "elapsed_seconds": 4.315105200003018, "event": "phase_finished", "phase": "replay_declaration", "wall_seconds": 4.268675200000871}
+T081_EVENT {"depth": 1, "elapsed_seconds": 4.327707200005534, "event": "phase_started", "phase": "residual_kernel"}
+T081_EVENT {"cpu_seconds": 0.015625, "depth": 1, "elapsed_seconds": 4.336359699998866, "event": "phase_finished", "phase": "residual_kernel", "wall_seconds": 0.008662699998239987}
+T081_EVENT {"depth": 1, "elapsed_seconds": 4.3370894999970915, "event": "phase_started", "phase": "validate_model_allowance"}
+T081_EVENT {"cpu_seconds": 0.0, "depth": 1, "elapsed_seconds": 4.339561400003731, "event": "phase_finished", "phase": "validate_model_allowance", "wall_seconds": 0.0024609000101918355}
+T081_EVENT {"depth": 1, "elapsed_seconds": 4.339623499996378, "event": "phase_started", "phase": "validate_weights"}
+T081_EVENT {"cpu_seconds": 0.28125, "depth": 1, "elapsed_seconds": 4.606527500000084, "event": "phase_finished", "phase": "validate_weights", "wall_seconds": 0.2668933999957517}
+T081_EVENT {"depth": 1, "elapsed_seconds": 83.6535811000067, "event": "phase_started", "phase": "residual_outputs"}
+T081_EVENT {"completed": 64, "elapsed_seconds": 83.84356239999761, "event": "work", "phase": "residual_outputs", "total": 826, "unit": "modes"}
+T081_EVENT {"completed": 128, "elapsed_seconds": 84.09978740000224, "event": "work", "phase": "residual_outputs", "total": 826, "unit": "modes"}
+T081_EVENT {"completed": 192, "elapsed_seconds": 84.47082380000211, "event": "work", "phase": "residual_outputs", "total": 826, "unit": "modes"}
+T081_EVENT {"completed": 256, "elapsed_seconds": 84.97031040000729, "event": "work", "phase": "residual_outputs", "total": 826, "unit": "modes"}
+T081_EVENT {"completed": 320, "elapsed_seconds": 85.61835170000268, "event": "work", "phase": "residual_outputs", "total": 826, "unit": "modes"}
+T081_EVENT {"completed": 384, "elapsed_seconds": 86.43250070000067, "event": "work", "phase": "residual_outputs", "total": 826, "unit": "modes"}
+T081_EVENT {"completed": 448, "elapsed_seconds": 87.43786249999539, "event": "work", "phase": "residual_outputs", "total": 826, "unit": "modes"}
+T081_EVENT {"completed": 512, "elapsed_seconds": 88.65724820000469, "event": "work", "phase": "residual_outputs", "total": 826, "unit": "modes"}
+T081_EVENT {"completed": 576, "elapsed_seconds": 90.1029833000066, "event": "work", "phase": "residual_outputs", "total": 826, "unit": "modes"}
+T081_EVENT {"completed": 640, "elapsed_seconds": 91.84519290000026, "event": "work", "phase": "residual_outputs", "total": 826, "unit": "modes"}
+T081_EVENT {"completed": 704, "elapsed_seconds": 93.85827169999538, "event": "work", "phase": "residual_outputs", "total": 826, "unit": "modes"}
+T081_EVENT {"completed": 768, "elapsed_seconds": 96.14252439999836, "event": "work", "phase": "residual_outputs", "total": 826, "unit": "modes"}
+T081_EVENT {"completed": 826, "elapsed_seconds": 98.42163480000454, "event": "work", "phase": "residual_outputs", "total": 826, "unit": "modes"}
+T081_EVENT {"cpu_seconds": 14.671875, "depth": 1, "elapsed_seconds": 98.42172769999888, "event": "phase_finished", "phase": "residual_outputs", "wall_seconds": 14.768149900002754}
+T081_EVENT {"depth": 1, "elapsed_seconds": 98.42174649999652, "event": "phase_started", "phase": "frequency_kernels"}
+T081_EVENT {"completed": 1, "elapsed_seconds": 102.2570235000021, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 2, "elapsed_seconds": 106.25659740000265, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 3, "elapsed_seconds": 110.17780299999868, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 4, "elapsed_seconds": 114.13711150000745, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 5, "elapsed_seconds": 117.96736979999696, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 6, "elapsed_seconds": 121.75194790000387, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 7, "elapsed_seconds": 125.53742520000378, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 8, "elapsed_seconds": 129.29080200000317, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 9, "elapsed_seconds": 133.14912970000296, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 10, "elapsed_seconds": 136.98515740000585, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 11, "elapsed_seconds": 140.81910200000857, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 12, "elapsed_seconds": 144.7181014000089, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 13, "elapsed_seconds": 148.6786390000052, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 14, "elapsed_seconds": 152.5446224000043, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 15, "elapsed_seconds": 156.35823230000096, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 16, "elapsed_seconds": 160.3037966999982, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 17, "elapsed_seconds": 164.20893530000467, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 18, "elapsed_seconds": 168.24007020000136, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 19, "elapsed_seconds": 173.17035820000456, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 20, "elapsed_seconds": 177.42862619999505, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 21, "elapsed_seconds": 181.27528200000233, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 22, "elapsed_seconds": 185.07936730000074, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 23, "elapsed_seconds": 188.9319214999996, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 24, "elapsed_seconds": 192.7458997000067, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 25, "elapsed_seconds": 196.7530104000034, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 26, "elapsed_seconds": 200.66591389999667, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 27, "elapsed_seconds": 204.55779069999699, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 28, "elapsed_seconds": 208.7299328000081, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 29, "elapsed_seconds": 212.6574091000075, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 30, "elapsed_seconds": 216.76453790000232, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 31, "elapsed_seconds": 220.740088999999, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 32, "elapsed_seconds": 224.63211140000203, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 33, "elapsed_seconds": 228.44495659999666, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 34, "elapsed_seconds": 232.49761469999794, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 35, "elapsed_seconds": 236.61994390000473, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 36, "elapsed_seconds": 240.4041794000077, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 37, "elapsed_seconds": 244.2161669000052, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 38, "elapsed_seconds": 248.0392334000062, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 39, "elapsed_seconds": 251.93695210000442, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 40, "elapsed_seconds": 255.73012370000652, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 41, "elapsed_seconds": 259.5365673000051, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 42, "elapsed_seconds": 263.365286500004, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 43, "elapsed_seconds": 267.1453981000086, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 44, "elapsed_seconds": 270.8938449999987, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 45, "elapsed_seconds": 274.655156000008, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 46, "elapsed_seconds": 278.5139649000048, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 47, "elapsed_seconds": 282.3156366000039, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 48, "elapsed_seconds": 286.1304278000025, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 49, "elapsed_seconds": 289.9296456000011, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 50, "elapsed_seconds": 293.7814520999964, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 51, "elapsed_seconds": 297.58729029999813, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 52, "elapsed_seconds": 301.37174960000266, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 53, "elapsed_seconds": 305.15379690000555, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 54, "elapsed_seconds": 309.1360913999961, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 55, "elapsed_seconds": 313.17771849999554, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 56, "elapsed_seconds": 317.0781772000046, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 57, "elapsed_seconds": 321.3732786000037, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 58, "elapsed_seconds": 325.52697449999687, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"completed": 59, "elapsed_seconds": 329.46284860000014, "event": "work", "phase": "frequency_kernels", "total": 59, "unit": "frequency_anchors"}
+T081_EVENT {"cpu_seconds": 224.265625, "depth": 1, "elapsed_seconds": 330.02857769999537, "event": "phase_finished", "phase": "frequency_kernels", "wall_seconds": 231.60680939999293}
+T081_EVENT {"depth": 1, "elapsed_seconds": 331.83681320000323, "event": "phase_started", "phase": "reconstruct"}
+T081_EVENT {"depth": 2, "elapsed_seconds": 332.55810389999533, "event": "phase_started", "phase": "residual_blocks"}
+T081_EVENT {"cpu_seconds": 67.359375, "depth": 2, "elapsed_seconds": 364.2405762999988, "event": "phase_finished", "phase": "residual_blocks", "wall_seconds": 31.682462099997792}
+T081_EVENT {"depth": 2, "elapsed_seconds": 364.2406609000027, "event": "phase_started", "phase": "arithmetic_blocks"}
+T081_EVENT {"completed": 1, "elapsed_seconds": 476.66447340000013, "event": "work", "parity": 0, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 2, "elapsed_seconds": 577.1012043000082, "event": "work", "parity": 0, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 3, "elapsed_seconds": 667.0824533999985, "event": "work", "parity": 0, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 4, "elapsed_seconds": 756.0600570999959, "event": "work", "parity": 0, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 5, "elapsed_seconds": 854.2284695999988, "event": "work", "parity": 0, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 6, "elapsed_seconds": 953.4557656999968, "event": "work", "parity": 0, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 7, "elapsed_seconds": 1057.0278565000044, "event": "work", "parity": 0, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 8, "elapsed_seconds": 1157.073649900005, "event": "work", "parity": 0, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"cpu_seconds": 2873.890625, "depth": 2, "elapsed_seconds": 1159.9103390999953, "event": "phase_finished", "phase": "arithmetic_blocks", "wall_seconds": 795.669650900003}
+T081_EVENT {"depth": 2, "elapsed_seconds": 1159.9104268999945, "event": "phase_started", "phase": "complete_arithmetic_squared"}
+T081_EVENT {"completed": 1, "elapsed_seconds": 1196.172001800005, "event": "work", "parity": 0, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 2, "elapsed_seconds": 1228.7651612000045, "event": "work", "parity": 0, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 3, "elapsed_seconds": 1263.1737295000057, "event": "work", "parity": 0, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 4, "elapsed_seconds": 1291.0477050000045, "event": "work", "parity": 0, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 5, "elapsed_seconds": 1322.6175650000077, "event": "work", "parity": 0, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 6, "elapsed_seconds": 1347.509914299997, "event": "work", "parity": 0, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 7, "elapsed_seconds": 1377.2327472000034, "event": "work", "parity": 0, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 8, "elapsed_seconds": 1412.695405499995, "event": "work", "parity": 0, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 9, "elapsed_seconds": 1450.4588672999962, "event": "work", "parity": 0, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"cpu_seconds": 823.1875, "depth": 2, "elapsed_seconds": 1451.4161964000086, "event": "phase_finished", "phase": "complete_arithmetic_squared", "wall_seconds": 291.50574239999696}
+T081_EVENT {"cpu_seconds": 4217.0, "depth": 1, "elapsed_seconds": 1560.1798012000072, "event": "phase_finished", "phase": "reconstruct", "wall_seconds": 1228.3429613000044}
+T081_EVENT {"depth": 1, "elapsed_seconds": 1560.1799211000034, "event": "phase_started", "phase": "check_matrix"}
+T081_EVENT {"completed": 24416, "elapsed_seconds": 1561.8363390000013, "event": "work", "kind": "A_model", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 44736, "elapsed_seconds": 1563.1222351000033, "event": "work", "kind": "A_model", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 60960, "elapsed_seconds": 1564.1511441000039, "event": "work", "kind": "A_model", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 73088, "elapsed_seconds": 1564.9110233999963, "event": "work", "kind": "A_model", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 81120, "elapsed_seconds": 1565.4221556999983, "event": "work", "kind": "A_model", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 85056, "elapsed_seconds": 1565.6643514000025, "event": "work", "kind": "A_model", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 85491, "elapsed_seconds": 1565.6925671000063, "event": "work", "kind": "A_model", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"cpu_seconds": 5.5, "depth": 1, "elapsed_seconds": 1565.7010679000086, "event": "phase_finished", "phase": "check_matrix", "wall_seconds": 5.521131200002856}
+T081_EVENT {"depth": 1, "elapsed_seconds": 1565.7011689000065, "event": "phase_started", "phase": "check_matrix"}
+T081_EVENT {"completed": 24416, "elapsed_seconds": 1567.342201899999, "event": "work", "kind": "weighted_head", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 44736, "elapsed_seconds": 1568.6118595000007, "event": "work", "kind": "weighted_head", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 60960, "elapsed_seconds": 1569.6251177000086, "event": "work", "kind": "weighted_head", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 73088, "elapsed_seconds": 1570.390414399997, "event": "work", "kind": "weighted_head", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 81120, "elapsed_seconds": 1570.8980704999994, "event": "work", "kind": "weighted_head", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 85056, "elapsed_seconds": 1571.1410872999986, "event": "work", "kind": "weighted_head", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 85491, "elapsed_seconds": 1571.168943800003, "event": "work", "kind": "weighted_head", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"cpu_seconds": 5.46875, "depth": 1, "elapsed_seconds": 1571.177349400008, "event": "phase_finished", "phase": "check_matrix", "wall_seconds": 5.476148699992336}
+T081_EVENT {"depth": 1, "elapsed_seconds": 1571.1774898000003, "event": "phase_started", "phase": "check_matrix"}
+T081_EVENT {"completed": 24416, "elapsed_seconds": 1572.8735376999975, "event": "work", "kind": "weighted_complete_tail", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 44736, "elapsed_seconds": 1574.1454383999953, "event": "work", "kind": "weighted_complete_tail", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 60960, "elapsed_seconds": 1575.1715837999946, "event": "work", "kind": "weighted_complete_tail", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 73088, "elapsed_seconds": 1575.921875, "event": "work", "kind": "weighted_complete_tail", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 81120, "elapsed_seconds": 1576.430770100007, "event": "work", "kind": "weighted_complete_tail", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 85056, "elapsed_seconds": 1576.6798415999947, "event": "work", "kind": "weighted_complete_tail", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 85491, "elapsed_seconds": 1576.706290800008, "event": "work", "kind": "weighted_complete_tail", "parity": 0, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"cpu_seconds": 5.46875, "depth": 1, "elapsed_seconds": 1576.7133007999946, "event": "phase_finished", "phase": "check_matrix", "wall_seconds": 5.535794600000372}
+T081_EVENT {"depth": 1, "elapsed_seconds": 1579.4506966000044, "event": "phase_started", "phase": "check_matrix"}
+T081_EVENT {"cpu_seconds": 0.125, "depth": 1, "elapsed_seconds": 1579.5799084000028, "event": "phase_finished", "phase": "check_matrix", "wall_seconds": 0.12919680000049993}
+T081_EVENT {"depth": 1, "elapsed_seconds": 1581.3698465000052, "event": "phase_started", "phase": "check_matrix"}
+T081_EVENT {"cpu_seconds": 0.15625, "depth": 1, "elapsed_seconds": 1581.5453428000037, "event": "phase_finished", "phase": "check_matrix", "wall_seconds": 0.17548249999526888}
+T081_EVENT {"depth": 1, "elapsed_seconds": 1583.3529182000057, "event": "phase_started", "phase": "check_matrix"}
+T081_EVENT {"cpu_seconds": 0.125, "depth": 1, "elapsed_seconds": 1583.4790531000035, "event": "phase_finished", "phase": "check_matrix", "wall_seconds": 0.1261272999981884}
+T081_EVENT {"depth": 1, "elapsed_seconds": 1584.6361182999972, "event": "phase_started", "phase": "validate_weights"}
+T081_EVENT {"cpu_seconds": 0.0, "depth": 1, "elapsed_seconds": 1584.6384687999962, "event": "phase_finished", "phase": "validate_weights", "wall_seconds": 0.002332599993678741}
+T081_EVENT {"depth": 1, "elapsed_seconds": 1586.4502165000013, "event": "phase_started", "phase": "check_matrix"}
+T081_EVENT {"cpu_seconds": 0.125, "depth": 1, "elapsed_seconds": 1586.581248100003, "event": "phase_finished", "phase": "check_matrix", "wall_seconds": 0.1310172999947099}
+T081_EVENT {"depth": 1, "elapsed_seconds": 1588.384077499999, "event": "phase_started", "phase": "check_matrix"}
+T081_EVENT {"cpu_seconds": 0.109375, "depth": 1, "elapsed_seconds": 1588.5127334999997, "event": "phase_finished", "phase": "check_matrix", "wall_seconds": 0.12867020000703633}
+T081_EVENT {"depth": 1, "elapsed_seconds": 1588.5650967999973, "event": "phase_started", "phase": "reconstruct"}
+T081_EVENT {"depth": 2, "elapsed_seconds": 1589.1473960000003, "event": "phase_started", "phase": "residual_blocks"}
+T081_EVENT {"cpu_seconds": 66.03125, "depth": 2, "elapsed_seconds": 1617.7914355999965, "event": "phase_finished", "phase": "residual_blocks", "wall_seconds": 28.64402120000159}
+T081_EVENT {"depth": 2, "elapsed_seconds": 1617.791561799997, "event": "phase_started", "phase": "arithmetic_blocks"}
+T081_EVENT {"completed": 1, "elapsed_seconds": 1709.2332193000038, "event": "work", "parity": 1, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 2, "elapsed_seconds": 1807.7493950000062, "event": "work", "parity": 1, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 3, "elapsed_seconds": 1902.4744701000018, "event": "work", "parity": 1, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 4, "elapsed_seconds": 1996.8727686000057, "event": "work", "parity": 1, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 5, "elapsed_seconds": 2110.139660400004, "event": "work", "parity": 1, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 6, "elapsed_seconds": 2200.0222128000023, "event": "work", "parity": 1, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 7, "elapsed_seconds": 2300.5837158000068, "event": "work", "parity": 1, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"completed": 8, "elapsed_seconds": 2395.9242824999965, "event": "work", "parity": 1, "phase": "arithmetic_blocks", "total": 8, "unit": "signed_windows"}
+T081_EVENT {"cpu_seconds": 2861.328125, "depth": 2, "elapsed_seconds": 2400.1237627000082, "event": "phase_finished", "phase": "arithmetic_blocks", "wall_seconds": 782.332178800003}
+T081_EVENT {"depth": 2, "elapsed_seconds": 2400.1238548999972, "event": "phase_started", "phase": "complete_arithmetic_squared"}
+T081_EVENT {"completed": 1, "elapsed_seconds": 2436.7069792999973, "event": "work", "parity": 1, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 2, "elapsed_seconds": 2472.3899877000076, "event": "work", "parity": 1, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 3, "elapsed_seconds": 2504.553839, "event": "work", "parity": 1, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 4, "elapsed_seconds": 2534.5454759999993, "event": "work", "parity": 1, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 5, "elapsed_seconds": 2567.9019861999986, "event": "work", "parity": 1, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 6, "elapsed_seconds": 2597.111650599996, "event": "work", "parity": 1, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 7, "elapsed_seconds": 2633.0085747999983, "event": "work", "parity": 1, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 8, "elapsed_seconds": 2672.2722834000015, "event": "work", "parity": 1, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"completed": 9, "elapsed_seconds": 2714.782370400004, "event": "work", "parity": 1, "phase": "complete_arithmetic_squared", "total": 9, "unit": "translation_cells"}
+T081_EVENT {"cpu_seconds": 837.4375, "depth": 2, "elapsed_seconds": 2716.4893440000014, "event": "phase_finished", "phase": "complete_arithmetic_squared", "wall_seconds": 316.365452500002}
+T081_EVENT {"cpu_seconds": 4215.734375, "depth": 1, "elapsed_seconds": 2824.3664238000056, "event": "phase_finished", "phase": "reconstruct", "wall_seconds": 1235.8013071000023}
+T081_EVENT {"depth": 1, "elapsed_seconds": 2825.0805355000048, "event": "phase_started", "phase": "check_matrix"}
+T081_EVENT {"completed": 24416, "elapsed_seconds": 2826.8934321999986, "event": "work", "kind": "A_model", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 44736, "elapsed_seconds": 2828.274805599998, "event": "work", "kind": "A_model", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 60960, "elapsed_seconds": 2829.286312700002, "event": "work", "kind": "A_model", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 73088, "elapsed_seconds": 2830.0541019999946, "event": "work", "kind": "A_model", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 81120, "elapsed_seconds": 2830.6645625999954, "event": "work", "kind": "A_model", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 85056, "elapsed_seconds": 2830.910645199998, "event": "work", "kind": "A_model", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 85491, "elapsed_seconds": 2830.938850300008, "event": "work", "kind": "A_model", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"cpu_seconds": 5.453125, "depth": 1, "elapsed_seconds": 2830.9473620000063, "event": "phase_finished", "phase": "check_matrix", "wall_seconds": 5.866809200000716}
+T081_EVENT {"depth": 1, "elapsed_seconds": 2830.9474666000024, "event": "phase_started", "phase": "check_matrix"}
+T081_EVENT {"completed": 24416, "elapsed_seconds": 2832.690735700002, "event": "work", "kind": "weighted_head", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 44736, "elapsed_seconds": 2833.9676539000066, "event": "work", "kind": "weighted_head", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 60960, "elapsed_seconds": 2835.191065399995, "event": "work", "kind": "weighted_head", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 73088, "elapsed_seconds": 2835.9478286000085, "event": "work", "kind": "weighted_head", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 81120, "elapsed_seconds": 2836.4615745000046, "event": "work", "kind": "weighted_head", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 85056, "elapsed_seconds": 2836.798251100001, "event": "work", "kind": "weighted_head", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 85491, "elapsed_seconds": 2836.826972900002, "event": "work", "kind": "weighted_head", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"cpu_seconds": 5.484375, "depth": 1, "elapsed_seconds": 2836.8350344000064, "event": "phase_finished", "phase": "check_matrix", "wall_seconds": 5.887544800003525}
+T081_EVENT {"depth": 1, "elapsed_seconds": 2836.835170999999, "event": "phase_started", "phase": "check_matrix"}
+T081_EVENT {"completed": 24416, "elapsed_seconds": 2838.6280332000024, "event": "work", "kind": "weighted_complete_tail", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 44736, "elapsed_seconds": 2840.044255200002, "event": "work", "kind": "weighted_complete_tail", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 60960, "elapsed_seconds": 2841.1837647000066, "event": "work", "kind": "weighted_complete_tail", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 73088, "elapsed_seconds": 2842.0454768000054, "event": "work", "kind": "weighted_complete_tail", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 81120, "elapsed_seconds": 2842.550119499996, "event": "work", "kind": "weighted_complete_tail", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 85056, "elapsed_seconds": 2842.8040611000033, "event": "work", "kind": "weighted_complete_tail", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"completed": 85491, "elapsed_seconds": 2842.830897000007, "event": "work", "kind": "weighted_complete_tail", "parity": 1, "phase": "check_matrix", "total": 85491, "unit": "entries"}
+T081_EVENT {"cpu_seconds": 5.5625, "depth": 1, "elapsed_seconds": 2842.838022600001, "event": "phase_finished", "phase": "check_matrix", "wall_seconds": 6.002833799997461}
+{
+  "N": 826,
+  "R86_exterior_zero": "polynomial model only: exact endpoint primitive degrees below 1652",
+  "active_prime_powers": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "all_combined_2_3_4_5_square_products": true,
+  "arithmetic_squared_overlap_cells": 9,
+  "both_signed_VP_orientations": true,
+  "both_translation_windows_evaluated": true,
+  "checked_matrix_files": 6,
+  "checked_triangular_entries": 512946,
+  "consumer_sha256": "59cd5b1e891d84d1fdb6d5849cd6a073d29bd8f49fce171fe6c411fb5cbc45c3",
+  "entry_requirement": "native endpoints contained in inclusive published dyadic endpoints",
+  "first_attempt_seal_sha256": "7b29db1a39707f489de185c48d7b361077686e9713d294397e24466b3f4f0dc3",
+  "format": "t081-complete-gram-source-audit-v1",
+  "frequency_anchors": 60,
+  "frequency_exterior_paid": true,
+  "fresh_arithmetic_fields": [
+    "P_low",
+    "P_tail",
+    "VP",
+    "P_squared",
+    "GP"
+  ],
+  "ignored_producer_metadata": [
+    "basis",
+    "imported_project_sources",
+    "production_admission",
+    "retained_residual_helper_sha256",
+    "status"
+  ],
+  "independent_precision_bits": 6144,
+  "inputs": "C:\\Users\\carlo\\AppData\\Local\\Temp\\rh_t081_resource_capture_7gkz0ekc\\computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\whole-inputs-v1.json",
+  "inputs_sha256": "19eac80d7869fcc6d6ddd0d33dcb90901b65254b2f076c6964148575019982a1",
+  "order": 86,
+  "ordinary_legendre_masses": "2/(2n+1)",
+  "parity_summary": [
+    {
+      "checked_triangular_entries": 256473,
+      "dimension": 413,
+      "first_head_mode": 826,
+      "first_low_mode": 0,
+      "last_head_mode": 1650,
+      "last_low_mode": 824,
+      "matrix_entries": {
+        "A_model": 85491,
+        "weighted_complete_tail": 85491,
+        "weighted_head": 85491
+      },
+      "parity": 0,
+      "status": "PASS_NATIVE_CONTAINMENT"
+    },
+    {
+      "checked_triangular_entries": 256473,
+      "dimension": 413,
+      "first_head_mode": 827,
+      "first_low_mode": 1,
+      "last_head_mode": 1651,
+      "last_low_mode": 825,
+      "matrix_entries": {
+        "A_model": 85491,
+        "weighted_complete_tail": 85491,
+        "weighted_head": 85491
+      },
+      "parity": 1,
+      "status": "PASS_NATIVE_CONTAINMENT"
+    }
+  ],
+  "physical_extent": 1652,
+  "physical_exterior_complete": true,
+  "positivity_checked": false,
+  "producer_sha256": "aacfb2d122b2bf62b1cf7940cb4aace764cdb11b413a504c81f15ca7b8427976",
+  "production_admission": false,
+  "publication_bits": 256,
+  "reference_beta_scope": "supported quadratic-form bound, not a pointwise multiplier bound",
+  "residual_endpoint_boundaries": [
+    -1,
+    1
+  ],
+  "scalar_premise": "fresh native supported-form reference qualification and complete physical-tail inverse bound",
+  "scalar_qualification": {
+    "accepted_declaration_audit_sha256": "a10cf29c29193f6b3a9c981ad07631bced6799b2a4b34efe0cc7f415716f66c7",
+    "declaration_checker_sha256": "a99f306135c88c3a155ebc1cbea30866deac4a71c49d7dde0d6a2bd801edea3f",
+    "positivity_checked": false,
+    "production_admission": false,
+    "reference_audit_sha256": "65f5b7d7ed5996c220e2c87b20770847c35cf73bbc8600b3cf3fe058bf37c569",
+    "reference_native_acceptance_replayed": true,
+    "reference_source_sha256": "52bbb50458c067146af1523a80691223b5eed93abede9c73a917a188ef87d42d",
+    "status": "PASS_FRESH_NATIVE_DECLARATION_REPLAY",
+    "supported_form_beta": "821/512"
+  },
+  "scope": "analytic matrix source audit only; no positivity or admission claim",
+  "shared_arithmetic_premise": "python-flint/Arb rigorous arithmetic and Gauss root/weight enclosures",
+  "source": "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\results\\source.json",
+  "source_sha256": "2375a873d638af115312ffb8aaf416a067ccfa9170a96a320254eb121b9d125f",
+  "status": "PASS_COMPLETE_SOURCE",
+  "support": "81/100",
+  "target_declaration_sha256": "026658a580d6ebe2ff8543d9e94ebbd24ea92d13027c5e43714e876cce353341",
+  "true_residual_discrepancy": "paid by the complete declared canonical model allowance",
+  "von_mangoldt_prime_bases": [
+    2,
+    3,
+    2,
+    5
+  ]
+}
+T081_EVENT {"elapsed_seconds": 2844.1682978000026, "event": "program_finished", "exit_code": 0, "kind": "audit", "wall_seconds": 2844.1462219999958}

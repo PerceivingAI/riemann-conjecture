@@ -1,0 +1,166 @@
+{
+  "all_owned_workers_reaped": true,
+  "analytical_entries": 512946,
+  "budget": {
+    "available_memory_bytes": 14762065920,
+    "cpu_budget": 6,
+    "detection": {
+      "affinity_cpus": 6,
+      "available_memory_bytes": 14762065920,
+      "cpu_detection_complete": true,
+      "cpu_diagnostics": [],
+      "cpu_sources": [],
+      "diagnostics": [],
+      "effective_cpu_budget": 6,
+      "fractional_quota_policy": "floor above one CPU; one throttled native thread below one CPU",
+      "logical_cpus": 6,
+      "memory_detection_complete": true,
+      "memory_diagnostics": [],
+      "memory_sources": [
+        {
+          "available_bytes": 14762065920,
+          "source": "windows.available_physical"
+        },
+        {
+          "available_bytes": 16871096320,
+          "source": "windows.available_commit"
+        },
+        {
+          "available_bytes": 140733061513216,
+          "source": "windows.available_virtual"
+        }
+      ],
+      "platform": "win32",
+      "quota_cpu_limit": null,
+      "visibility": "Linux visible cgroup ancestors only; Windows immediate job only; snapshots are not memory reservations",
+      "windows": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 16871096320,
+          "available_physical_bytes": 14762065920,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 14762065920,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 16871096320,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733061513216,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 17018880,
+          "peak_committed_bytes": 17035264,
+          "peak_working_set_bytes": 25423872,
+          "working_set_bytes": 25137152
+        }
+      }
+    },
+    "diagnostics": [],
+    "execution_mode": "single-process/native-threads",
+    "memory_budget_bytes": 13285859328,
+    "native_threads": 6,
+    "required_bytes": 9663676416,
+    "reserve_bytes": 1476206592,
+    "selection": {
+      "cpus": "detected",
+      "memory_mib": "detected",
+      "reserve_mib": "detected",
+      "threads": "detected",
+      "workers": "detected"
+    },
+    "workers": 1
+  },
+  "captured_tree_removed": true,
+  "exact_countercases": 3,
+  "exact_full_parity_blocks": 2,
+  "format": "t081-complete-execution-upgrade-qualification-v1",
+  "memory_enforcement": "owned Windows allocation limits; raw OS high-water counters are not an allocation-ceiling assertion",
+  "metadata_only_shared_control_derivation": "native-controls\\native-even-control.json",
+  "native_countercases": 6,
+  "production_admission": false,
+  "qualifier_sha256": "88ce5c4f9b0713af9e8ec29b7c3c7931dbf21a2884327f280259a8e939b6063d",
+  "retained_smooth_test_admission_executed": false,
+  "rh_status": "UNRESOLVED",
+  "source_enclosures_independently_reconstructed": true,
+  "source_sha256": "2375a873d638af115312ffb8aaf416a067ccfa9170a96a320254eb121b9d125f",
+  "stages": [
+    {
+      "cpu_seconds": 4191.703125,
+      "elapsed_seconds": 1767.8659277999977,
+      "job_cpu_seconds": 4192.0,
+      "memory_metric": "job committed memory",
+      "raw_os_job_peak_bytes": 6911385600,
+      "stage": "source",
+      "worker_cleanup_verified": true
+    },
+    {
+      "cpu_seconds": 8798.296875,
+      "elapsed_seconds": 2845.0065998999926,
+      "job_cpu_seconds": 8802.515625,
+      "memory_metric": "job committed memory",
+      "raw_os_job_peak_bytes": 8441458688,
+      "stage": "independent-audit",
+      "worker_cleanup_verified": true
+    },
+    {
+      "cpu_seconds": 32.28125,
+      "elapsed_seconds": 27.854759800000465,
+      "job_cpu_seconds": 32.5625,
+      "memory_metric": "job committed memory",
+      "raw_os_job_peak_bytes": 1066262528,
+      "stage": "exact-sign",
+      "worker_cleanup_verified": true
+    },
+    {
+      "cpu_seconds": 5.203125,
+      "elapsed_seconds": 6.0612020999978995,
+      "job_cpu_seconds": 5.4375,
+      "memory_metric": "job committed memory",
+      "raw_os_job_peak_bytes": 455282688,
+      "stage": "singular-fullspace-witness",
+      "worker_cleanup_verified": true
+    },
+    {
+      "cpu_seconds": 31.734375,
+      "elapsed_seconds": 27.359023299999535,
+      "job_cpu_seconds": 31.984375,
+      "memory_metric": "job committed memory",
+      "raw_os_job_peak_bytes": 1041260544,
+      "stage": "synthetic-selected-negative",
+      "worker_cleanup_verified": true
+    },
+    {
+      "cpu_seconds": 33.1875,
+      "elapsed_seconds": 28.37941409999621,
+      "job_cpu_seconds": 33.40625,
+      "memory_metric": "job committed memory",
+      "raw_os_job_peak_bytes": 1069936640,
+      "stage": "numerical-width-uncertainty",
+      "worker_cleanup_verified": true
+    }
+  ],
+  "status": "PASS_COMPLETE_LOCAL_EXECUTION_QUALIFICATION"
+}
