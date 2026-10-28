@@ -1,0 +1,24 @@
+{
+  "executable": "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+  "format": "t081-post-run-environment-observation-v1",
+  "observed_utc": "2026-10-28T17:47:51.480556+00:00",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "python_flint": "0.9.0",
+  "reported_flint_version": "3.6.0",
+  "run_identity": {
+    "dimensions": [
+      826
+    ],
+    "driver": "t081-resource-execution-v1",
+    "driver_version": "t081-resource-execution-v1",
+    "format": "riemann-run-identity-v1",
+    "git_commit": "46aa7c6e3dddb31b2963a1790d01d79a7daacf97",
+    "git_dirty": true,
+    "pid": 32872,
+    "run_id": "20261028T123613Z-f20699b5",
+    "started_at_utc": "2026-10-28T12:36:13Z",
+    "support": "81/100"
+  },
+  "scope": "post-run observation of the locked interpreter used by the module/retained commands, not an extra numerical run"
+}

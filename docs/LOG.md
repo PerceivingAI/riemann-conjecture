@@ -1,10 +1,30 @@
 # Research Log
 
 - **Created:** `2026-08-20T20:33:00Z`
-- **Last updated:** `2026-10-27T22:29:21Z`
+- **Last updated:** `2026-10-28T18:09:07Z`
 - **Policy:** Append-only
 
 This is the chronological master log. Add newest entries at the top, immediately below this introduction. Existing entries must not be silently altered.
+
+## 2026-10-28T18:09:07Z: additive execution measurement-count correction
+
+The [X-20261028-002 metadata correction](../computations/2026-10-28T034134Z-t081-resource-execution/measurement-correction-v1.md) preserves the raw JUnit, original summary and151-member seal. The raw XML has94 unique cases but an aggregate tests attribute of96; the first summary trusted that aggregate and incorrectly derived95 passed. Summary v2 counts the actual cases, agreeing with the observed terminal result93 passed and one skipped. Manifest v2 binds the additive correction and keeps all original evidence byte-unchanged. No command, test, numerical result or performance measurement was rerun or changed.
+
+## 2026-10-28T17:41:03Z: complete source and independent consumer execution qualified
+
+[X-20261028-002](../computations/2026-10-28T034134Z-t081-resource-execution/record.md) adds new source/independent-consumer versions with one CPU/memory policy, measured native threading, Windows allocation/CPU limits, streamed phase/work events and owned-tree cleanup. A READY/GO barrier attaches the actual interpreter and any venv launcher before mathematical imports. Failure/cancellation and inherited-output-pipe cleanup are exercised without terminating unrelated processes.
+
+The fresh captured full target retains unchanged support/dimensions/precision, all2/3/4/5 mixed squares, both VP orientations, residual and both infinities. Independent6144-bit reconstruction accepts all512946 entries; both full413-dimensional exact paid signs, nonsingularity and numerical-width goals pass. Six native false-source subset controls and three complete exact controls pass. The separate final qualifier binds code, logs, budget, source bytes and exact results; all owned workers and the temporary tree are gone. Six packets remain byte-identical to the original independently audited candidate.
+
+Source/audit walls are1767.866/2845.007s versus the earlier one-thread4591.961/9213.553s. The record states single-run limits and the new audit's extra six controls. Maximum raw owned-job committed high-water is7.862GiB within the12.373GiB selected ceiling; raw OS counters are not clamped. The final suite reports93 passed, one OS-specific skip. Actual Python3.12 one-CPU affinity and low-memory CLI rejection pass. No live non-Windows or larger-host scaling qualification, new mathematical result, retained smooth-test release or production admission is claimed. All earlier research/code/results remain preserved.
+
+## 2026-10-28T03:25:55Z: complete-source resource and measurement corrections qualified
+
+[X-20261028-001](../computations/2026-10-28T024305Z-t081-execution-corrections/record.md) preserves the original measured source/profile bundles and supplies new producer, CPU-policy, profiler, captured-driver and comparison versions. Scoped Git attributes preserve pinned bytes. CPU detection uses affinity and actual visible Linux cgroup membership/ancestor quotas with the configured v1 period. The profiler retains OS working-set high-water counters, distinguishes private/virtual memory, labels GIL sampling bias and checks temporary-tree cleanup after context exit.
+
+A fresh full-source run retains stdout/stderr, argv, CPU/resource counters and program/input/log fingerprints. All six compressed packets match the independently audited original byte-for-byte, and final canonical JSON comparison allows only the explicitly supplied producer SHA change, preserving numeric/boolean types. Phase comparisons use inclusive timings on both sides. The record publishes the actual source-only performance and its one-run/instrumentation limits rather than inventing the missing receipt for the earlier reported v2 timing.
+
+All43 collected regression functions pass. Actual Windows one-CPU affinity and installed Python3.12 stdlib-tool smoke pass; Linux hierarchy cases are fixture-tested because the available WSL distribution has no python3. No complete memory-budget enforcement, live-Linux or larger-host scaling qualification, consumer optimization, mathematical gate execution, theorem/admission change or RH result is claimed. All historical candidate/qualification/replay evidence is preserved.
 
 ## 2026-10-27T22:29:21Z: complete T81/100 captured source/input reproduction passes
 

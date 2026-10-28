@@ -1,0 +1,3 @@
+T081_READY {"pid": 17008, "config_sha256": "4638ee59101e6c2dd154837af497fb427e704c3ab364588d1b739ce50acc8e4d"}
+T081_EVENT {"elapsed_seconds": 0.006171500004711561, "event": "program_started", "kind": "exact", "threads": 6}
+T081_EVENT {"elapsed_seconds": 5.285626800003229, "event": "program_finished", "exit_code": 1, "kind": "exact", "wall_seconds": 5.278151099992101}

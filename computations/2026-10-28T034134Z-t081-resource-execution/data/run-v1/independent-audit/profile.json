@@ -1,0 +1,95 @@
+{
+  "containment": {
+    "mechanism": "owned Windows job installed before GO"
+  },
+  "cpu_seconds": 8798.296875,
+  "error": null,
+  "exit_code": 0,
+  "format": "t081-budgeted-stage-profile-v1",
+  "kind": "audit",
+  "native_threads": 6,
+  "phases": {
+    "arithmetic_blocks": {
+      "calls": 2,
+      "cpu_seconds": 5735.21875,
+      "exclusive_wall_seconds": 1578.001829700006,
+      "inclusive_wall_seconds": 1578.001829700006
+    },
+    "check_matrix": {
+      "calls": 11,
+      "cpu_seconds": 33.578125,
+      "exclusive_wall_seconds": 34.98075639999297,
+      "inclusive_wall_seconds": 34.98075639999297
+    },
+    "complete_arithmetic_squared": {
+      "calls": 2,
+      "cpu_seconds": 1660.625,
+      "exclusive_wall_seconds": 607.871194899999,
+      "inclusive_wall_seconds": 607.871194899999
+    },
+    "frequency_kernels": {
+      "calls": 1,
+      "cpu_seconds": 224.265625,
+      "exclusive_wall_seconds": 231.60680939999293,
+      "inclusive_wall_seconds": 231.60680939999293
+    },
+    "frozen_inputs": {
+      "calls": 1,
+      "cpu_seconds": 0.015625,
+      "exclusive_wall_seconds": 0.02493399998638779,
+      "inclusive_wall_seconds": 0.02493399998638779
+    },
+    "reconstruct": {
+      "calls": 2,
+      "cpu_seconds": 8432.734375,
+      "exclusive_wall_seconds": 217.9447605000023,
+      "inclusive_wall_seconds": 2464.1442684000067
+    },
+    "replay_declaration": {
+      "calls": 1,
+      "cpu_seconds": 0.03125,
+      "exclusive_wall_seconds": 4.268675200000871,
+      "inclusive_wall_seconds": 4.268675200000871
+    },
+    "residual_blocks": {
+      "calls": 2,
+      "cpu_seconds": 133.390625,
+      "exclusive_wall_seconds": 60.32648329999938,
+      "inclusive_wall_seconds": 60.32648329999938
+    },
+    "residual_kernel": {
+      "calls": 1,
+      "cpu_seconds": 0.015625,
+      "exclusive_wall_seconds": 0.008662699998239987,
+      "inclusive_wall_seconds": 0.008662699998239987
+    },
+    "residual_outputs": {
+      "calls": 1,
+      "cpu_seconds": 14.671875,
+      "exclusive_wall_seconds": 14.768149900002754,
+      "inclusive_wall_seconds": 14.768149900002754
+    },
+    "validate_model_allowance": {
+      "calls": 1,
+      "cpu_seconds": 0.0,
+      "exclusive_wall_seconds": 0.0024609000101918355,
+      "inclusive_wall_seconds": 0.0024609000101918355
+    },
+    "validate_weights": {
+      "calls": 2,
+      "cpu_seconds": 0.28125,
+      "exclusive_wall_seconds": 0.2692259999894304,
+      "inclusive_wall_seconds": 0.2692259999894304
+    }
+  },
+  "precision": 6144,
+  "process_memory": {
+    "committed_bytes": 527519744,
+    "peak_committed_bytes": 8440590336,
+    "peak_working_set_bytes": 8166608896,
+    "working_set_bytes": 484786176
+  },
+  "program_sha256": "59cd5b1e891d84d1fdb6d5849cd6a073d29bd8f49fce171fe6c411fb5cbc45c3",
+  "timing_note": "inclusive includes nested calls; exclusive subtracts wrapped children; CPU is current process only",
+  "wall_seconds": 2844.1462219999958
+}

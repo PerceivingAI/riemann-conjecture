@@ -1,0 +1,59 @@
+{
+  "baseline_profile_sha256": "a469eafe4c41c069265574df0a6564c602cebe62a49a88338f2237ee4ce41c93",
+  "format": "t081-source-benchmark-summary-v1",
+  "identity_check_sha256": "ddb42d46c4c9edb5c79e0ec5b134f08e68a22015a810b6657cefc0fe3ef38739",
+  "limitations": [
+    "one full run per configuration",
+    "v1 full wrappers versus new coarse wrappers",
+    "uncontrolled thermal, frequency and host background activity",
+    "no live Linux runtime or larger-host scaling qualification",
+    "no full independent analytical audit rerun; exact audited-payload identity only"
+  ],
+  "new_cpu_over_wall": 2.3703348039291994,
+  "new_cpu_seconds": 4276.9375,
+  "new_peak_working_set_bytes": 6621491200,
+  "new_profile_sha256": "766aa81f8462c6630693af8a0b2ef60da9b8fae0b39bd1b57bbc378c2a31305e",
+  "new_sampled_peak_private_bytes": 5416038400,
+  "old_memory_peak_not_comparable": "v1 sampled only current working set; new profile retains OS high-water",
+  "production_admission": false,
+  "resources": {
+    "affinity_cpus": 6,
+    "effective_cpu_budget": 6,
+    "fractional_quota_policy": "floor above one CPU; one throttled thread below one CPU",
+    "limits": "Visible affinity and Linux cgroups only; hidden ancestor, Windows job CPU rate and memory limits are not detected",
+    "logical_cpus": 6,
+    "platform": "win32",
+    "quota_cpu_limit": null,
+    "quota_sources": [],
+    "requested_threads": null,
+    "selection": "detected",
+    "threads": 6,
+    "warnings": []
+  },
+  "rows": [
+    {
+      "baseline_seconds": 943.49659,
+      "calls": 1,
+      "new_seconds": 315.15265070000896,
+      "phase": "combined_square",
+      "timing": "inclusive",
+      "wall_speedup": 2.9937764696071243
+    },
+    {
+      "baseline_seconds": 3429.041713,
+      "calls": 2,
+      "new_seconds": 1452.5900477000105,
+      "phase": "source",
+      "timing": "inclusive",
+      "wall_speedup": 2.3606396852501135
+    },
+    {
+      "baseline_seconds": 4424.637509,
+      "new_seconds": 1804.36008150001,
+      "phase": "program_main",
+      "timing": "main wall including instrumentation finalization",
+      "wall_speedup": 2.4521920842549827
+    }
+  ],
+  "status": "PASS_MEASURED_IDENTICAL_PAYLOAD"
+}

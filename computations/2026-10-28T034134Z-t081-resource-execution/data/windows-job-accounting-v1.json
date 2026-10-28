@@ -1,0 +1,37 @@
+{
+  "format": "t081-windows-job-commit-accounting-probe-v1",
+  "interpretation": "The documented and optional raw OS peak counters include the denied allocation demand on this Windows build; retained current commitment remains below the job cap. Do not clamp raw counters or treat denied allocation attempts as successful retained memory.",
+  "observation": {
+    "api28_current": 63594496,
+    "api28_peak": 130842624,
+    "api9_flags": 8960,
+    "api9_limit": 100663296,
+    "api9_peak": 130842624,
+    "output": [
+      "6708",
+      "DENIED"
+    ],
+    "reported": {
+      "active_process_count": 2,
+      "active_process_ids": [
+        30512,
+        6708
+      ],
+      "cpu_budget": 1,
+      "cpu_rate_per_10000": 1666,
+      "cpu_rate_reference": "parent job if rate-controlled, otherwise system",
+      "cpu_seconds": 0.078125,
+      "current_committed_bytes": 63594496,
+      "diagnostics": [],
+      "memory_accounting": "JobObjectMemoryUsageInformation",
+      "memory_limit_bytes": 100663296,
+      "peak_committed_bytes": 130842624
+    }
+  },
+  "production_admission": false,
+  "sources": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-jobobject_extended_limit_information",
+    "https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-jobobject_basic_limit_information"
+  ],
+  "status": "OBSERVED_AGGREGATE_ALLOCATION_DENIAL"
+}

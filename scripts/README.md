@@ -1,13 +1,39 @@
 # Research scripts
 
 - **Created:** `2026-08-20T20:59:00Z`
-- **Last updated:** `2026-10-27T22:29:21Z`
+- **Last updated:** `2026-10-28T17:41:03Z`
 
 These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
 
 ## Byte identity on checkout
 
 The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep pinned sources/configuration in their recorded LF form, and the original SYS-6.4 probe plus the executed T3/4 Fourier producer in their recorded CRLF form. Retained bundles remain verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+
+## Resource-budgeted complete T81/100 source and independent audit
+
+[X-20261028-002](../computations/2026-10-28T034134Z-t081-resource-execution/record.md) retains the qualified source v4, independent consumer v2, shared resource policy and supervisor. This is the fixed N826,K86,M1652 research operation, not a generic continuation engine or production theorem profile.
+
+```text
+uv run --locked python -m scripts.run_t081_resource_execution --output-dir <fresh-directory>
+uv run --locked python -B computations/2026-10-28T034134Z-t081-resource-execution/qualify-execution-v1.py --run-dir <fresh-directory> --output <fresh-qualification.json>
+```
+
+The second command is the final code/log/budget/source qualifier. A source-only or intermediate runner PASS does not replace it. The full measured run used the same retained runner directly; module help and insufficient-memory rejection were separately exercised.
+
+Defaults use visible CPU/affinity/quota/job and memory availability, one numerical worker and measured native threading. Controls are `--cpus`, `--workers`, `--threads`, `--memory-mib`, `--reserve-mib` and matching `T081_CPUS`, `T081_WORKERS`, `T081_THREADS`, `T081_MEMORY_MIB`, `T081_RESERVE_MIB`. CLI wins. Worker counts above one are unsupported; `--cpus 1 --workers 1 --threads 1` selects bounded serial reproduction. Insufficient fixed-target memory rejects before arithmetic rather than reducing dimensions or precision.
+
+The output retains exact streams, profiles, captured code, job receipts and `.live/run-status.json` plus events. Windows allocation limits and owned-tree failure/cancellation cleanup are exercised. ETA is unavailable inside opaque operations. All512946 independent analytical entries, both full exact blocks, nine controls and six original packet identities pass; the focused suite reports93 passed and one OS-specific skip. Live non-Windows and larger-host scaling are not claimed. Historical programs, mathematical admission and the separate retained smooth-test procedure remain unchanged.
+
+## Complete-source execution and measurement corrections
+
+[X-20261028-001](../computations/2026-10-28T024305Z-t081-execution-corrections/record.md) retains `build-whole-source-v3.py`, affinity/visible-cgroup CPU policy, corrected `instrument-t081-v2.py` and `measure-t081-execution-v2.py`, a full benchmark receipt and a type-sensitive `compare-v3-v1.py`. The mathematical workload and all11 original helpers are unchanged. Actual source outputs match all six independently audited packets byte-for-byte.
+
+Use the record's executed benchmark, final v3 comparison and inclusive-summary commands with fresh output locations. The benchmark's internal earlier comparison is intermediate evidence; final qualification requires v3's JSON-type-sensitive result and the summary that binds it. `--threads` overrides `T081_THREADS`, otherwise affinity/visible quota detection chooses the allowance. Invalid or excessive limits reject before the expensive operation.
+
+The profiler separates OS working-set high-water, sampled private maxima and Linux virtual size, and warns that Python stack sampling is GIL-biased. The captured measurement driver supports `--phase source|audit|both` and verifies cleanup after context exit. Its lifecycle is covered by actual short subprocess fixtures, not a new full analytical-audit run.
+
+All43 focused regression functions and Windows/Python3.12 stdlib-tool smoke pass. Linux quota behavior is fixture-tested only. This is fixed-source execution evidence, not a general memory-budgeted engine, optimized analytical consumer, new mathematical result or production admission.
+
 
 ## Complete T81/100 captured replay checkpoint
 

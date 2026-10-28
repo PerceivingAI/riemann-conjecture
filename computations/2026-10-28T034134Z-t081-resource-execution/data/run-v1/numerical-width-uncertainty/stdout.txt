@@ -1,0 +1,6 @@
+T081_READY {"pid": 23276, "config_sha256": "4638ee59101e6c2dd154837af497fb427e704c3ab364588d1b739ce50acc8e4d"}
+T081_EVENT {"elapsed_seconds": 0.00705839999136515, "event": "program_started", "kind": "exact", "threads": 6}
+even positive complete sign False negative selected lower direction False physical width qualified False
+odd positive complete sign False negative selected lower direction False physical width qualified False
+NUMERICAL_WIDTH_GOAL_FAILED
+T081_EVENT {"elapsed_seconds": 27.558837000004132, "event": "program_finished", "exit_code": 0, "kind": "exact", "wall_seconds": 27.5502267999982}

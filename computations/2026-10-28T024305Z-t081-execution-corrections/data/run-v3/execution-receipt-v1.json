@@ -1,0 +1,117 @@
+{
+  "acceptance_boundary": "exact identity to audited packets; no new theorem admission",
+  "comparison": {
+    "bytes": 1688,
+    "path": "computations/2026-10-28T024305Z-t081-execution-corrections/data/run-v3/comparison-v3-v1.json",
+    "sha256": "b91a53002b2b1ed9b8e94088416fdf725c410df241501c25f381fcd47537cb9a"
+  },
+  "created": "2026-10-28T02:53:17Z",
+  "finished": "2026-10-28T03:23:22Z",
+  "format": "t081-source-benchmark-receipt-v1",
+  "full_analytical_audit_reexecuted": false,
+  "inputs": {
+    "bytes": 894,
+    "path": "computations/2026-10-27T140745Z-t081-complete-gram-attempt/whole-inputs-v1.json",
+    "sha256": "19eac80d7869fcc6d6ddd0d33dcb90901b65254b2f076c6964148575019982a1"
+  },
+  "production_admission": false,
+  "profile": {
+    "bytes": 34737,
+    "path": "computations/2026-10-28T024305Z-t081-execution-corrections/data/run-v3/instrumentation-v2.json",
+    "sha256": "766aa81f8462c6630693af8a0b2ef60da9b8fae0b39bd1b57bbc378c2a31305e"
+  },
+  "programs": {
+    "comparer": {
+      "bytes": 4389,
+      "path": "computations/2026-10-28T024305Z-t081-execution-corrections/compare-v2-v1.py",
+      "sha256": "81093dd36f67b0fd2e786bc64beb5f6e7bb03ca525e243f104730f94de473443"
+    },
+    "instrument": {
+      "bytes": 22631,
+      "path": "computations/2026-10-28T024305Z-t081-execution-corrections/instrument-t081-v2.py",
+      "sha256": "0add18c13f9142dfef4b035f4994aedc90fbe37b1cabe2b6c622ccc5708bfbbe"
+    },
+    "policy": {
+      "bytes": 8804,
+      "path": "computations/2026-10-28T024305Z-t081-execution-corrections/execution_resources_v1.py",
+      "sha256": "8ba137c872ce0bf49f8521041a4092e8005cc0be75f0fbd67eb574d3d3e1a9d3"
+    },
+    "producer": {
+      "bytes": 13813,
+      "path": "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+      "sha256": "4555cd6179ac26b190880790a100c997091996c6d961b97d1dd4860f0e2a8bf7"
+    },
+    "runner": {
+      "bytes": 5375,
+      "path": "computations/2026-10-28T024305Z-t081-execution-corrections/run-source-benchmark-v1.py",
+      "sha256": "5c54b7c2448aa88e345b0291fd68d849b3fa6cdbbf524924c62b032ea7f8eb49"
+    }
+  },
+  "source": {
+    "bytes": 18023,
+    "path": "computations/2026-10-28T024305Z-t081-execution-corrections/data/run-v3/source-v3.json",
+    "sha256": "9bf110dea8a1f74f168fd3362debf2722690e9c66d4bc07f27f170f5aa4c3ad2"
+  },
+  "status": "PASS_MEASURED_SOURCE_AND_EXACT_RETAINED_PAYLOAD_IDENTITY",
+  "steps": [
+    {
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-B",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T024305Z-t081-execution-corrections\\instrument-t081-v2.py",
+        "--program",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T024305Z-t081-execution-corrections\\build-whole-source-v3.py",
+        "--kind",
+        "build",
+        "--level",
+        "coarse",
+        "--report",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T024305Z-t081-execution-corrections\\data\\run-v3\\instrumentation-v2.json",
+        "--",
+        "--inputs",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\whole-inputs-v1.json",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T024305Z-t081-execution-corrections\\data\\run-v3\\source-v3.json"
+      ],
+      "elapsed_seconds": 1804.8610731999943,
+      "exit_code": 0,
+      "name": "source",
+      "stderr": {
+        "bytes": 0,
+        "path": "computations/2026-10-28T024305Z-t081-execution-corrections/data/run-v3/source-stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 1258,
+        "path": "computations/2026-10-28T024305Z-t081-execution-corrections/data/run-v3/source-stdout.txt",
+        "sha256": "bd114a5f5864db90eb2a584d1b48ef4e7cad87c41ca6c21ddd8dd0512ad0b8a5"
+      }
+    },
+    {
+      "argv": [
+        "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+        "-B",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T024305Z-t081-execution-corrections\\compare-v2-v1.py",
+        "--source",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T024305Z-t081-execution-corrections\\data\\run-v3\\source-v3.json",
+        "--producer",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T024305Z-t081-execution-corrections\\build-whole-source-v3.py",
+        "--output",
+        "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T024305Z-t081-execution-corrections\\data\\run-v3\\comparison-v3-v1.json"
+      ],
+      "elapsed_seconds": 0.2962143000040669,
+      "exit_code": 0,
+      "name": "comparison",
+      "stderr": {
+        "bytes": 0,
+        "path": "computations/2026-10-28T024305Z-t081-execution-corrections/data/run-v3/comparison-stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 70,
+        "path": "computations/2026-10-28T024305Z-t081-execution-corrections/data/run-v3/comparison-stdout.txt",
+        "sha256": "8ee9514c60a9ba3047ad4e4910ef1e16ed413a2073cc4ec308462324dd1d178a"
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "all_matrices_identical": true,
+  "analytic_containment": "inherited by exact byte identity, not reexecuted",
+  "comparer_sha256": "074695e79e782e91a62e16693c3e22ba9ab63aa5fb8106fa32737655fe1d2153",
+  "format": "t081-strict-source-comparison-v3",
+  "matrices": [
+    {
+      "bytes": 3639769,
+      "identical": true,
+      "matrix": "A_model-0",
+      "sha256": "479fa8ffd000ffb41caf4309fc84a91dfb6db893a2d75f5c83c0cb6e37fee36b"
+    },
+    {
+      "bytes": 3639505,
+      "identical": true,
+      "matrix": "A_model-1",
+      "sha256": "1c814c9b8f8f5ff09823c5bde38414e6392c10a73b5b0adc743dade1e9077bad"
+    },
+    {
+      "bytes": 3587922,
+      "identical": true,
+      "matrix": "weighted_complete_tail-0",
+      "sha256": "85b802528bfee414678327dca90ee3c293ec71cfd7c7e951aa261502cd964601"
+    },
+    {
+      "bytes": 3587595,
+      "identical": true,
+      "matrix": "weighted_complete_tail-1",
+      "sha256": "e707a3339d4f8310c3a03d4364421ce5229daad9d1319e747c734fd11f79bf64"
+    },
+    {
+      "bytes": 3610918,
+      "identical": true,
+      "matrix": "weighted_head-0",
+      "sha256": "f82b9c5d344d63610eb031c8d71128748de5ad2220ebd9f945964a2550b7b2dd"
+    },
+    {
+      "bytes": 3610803,
+      "identical": true,
+      "matrix": "weighted_head-1",
+      "sha256": "5dc0878352456e29d3ab5c778e0dbcd46c74dc596dd0521ce2e32004b549eace"
+    }
+  ],
+  "producer_sha256": "aacfb2d122b2bf62b1cf7940cb4aace764cdb11b413a504c81f15ca7b8427976",
+  "production_admission": false,
+  "retained_source_sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e",
+  "source_equal_after_only_producer_hash_substitution": true,
+  "source_sha256": "2375a873d638af115312ffb8aaf416a067ccfa9170a96a320254eb121b9d125f",
+  "status": "PASS_EXACT_RETAINED_PAYLOAD_IDENTITY"
+}

@@ -1,0 +1,1818 @@
+{
+  "affinity": {
+    "effective_cpus": 6,
+    "process_mask": 63,
+    "system_cpus": 6,
+    "system_mask": 63
+  },
+  "argv": [
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T024305Z-t081-execution-corrections\\build-whole-source-v3.py",
+    "--inputs",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-27T140745Z-t081-complete-gram-attempt\\whole-inputs-v1.json",
+    "--output",
+    "D:\\2_Add_Projects\\riemann-conjecture\\computations\\2026-10-28T024305Z-t081-execution-corrections\\data\\run-v3\\source-v3.json"
+  ],
+  "child_processes": [],
+  "cpu_count": 6,
+  "cpu_over_wall": 2.3703348039291994,
+  "cpu_seconds": 4276.9375,
+  "ctx_precision": 4608,
+  "ctx_threads": 6,
+  "error": null,
+  "executable": "D:\\2_Add_Projects\\riemann-conjecture\\.venv\\Scripts\\python.exe",
+  "exit_code": 0,
+  "flint_version": "0.9.0",
+  "format": "t081-execution-instrumentation-v2",
+  "harness_sha256": "0add18c13f9142dfef4b035f4994aedc90fbe37b1cabe2b6c622ccc5708bfbbe",
+  "kind": "build",
+  "level": "coarse",
+  "memory_errors": [],
+  "memory_provenance": {
+    "budget_detection_or_enforcement": false,
+    "peak_working_set": "GetProcessMemoryInfo.PeakWorkingSetSize",
+    "private_aggregation": "sampled maximum only; no OS private-memory high-water counter",
+    "private_bytes": "GetProcessMemoryInfo.PrivateUsage",
+    "scope": "current process only; excludes child process memory",
+    "unavailable": "null; Linux virtual size is not private memory",
+    "virtual_bytes": null,
+    "working_set": "GetProcessMemoryInfo.WorkingSetSize"
+  },
+  "memory_series": [
+    [
+      65823.6259127,
+      24203264,
+      15892480,
+      null
+    ],
+    [
+      65824.7299272,
+      37154816,
+      24621056,
+      null
+    ],
+    [
+      65825.8672204,
+      38899712,
+      26165248,
+      null
+    ],
+    [
+      65826.8962541,
+      40763392,
+      27971584,
+      null
+    ],
+    [
+      65827.9641016,
+      42872832,
+      29933568,
+      null
+    ],
+    [
+      65828.9671892,
+      44810240,
+      31760384,
+      null
+    ],
+    [
+      65829.9818789,
+      46583808,
+      34516992,
+      null
+    ],
+    [
+      65830.9850478,
+      48447488,
+      36151296,
+      null
+    ],
+    [
+      65831.997206,
+      50298880,
+      37949440,
+      null
+    ],
+    [
+      65833.1033175,
+      52375552,
+      39837696,
+      null
+    ],
+    [
+      65834.2128917,
+      54046720,
+      41234432,
+      null
+    ],
+    [
+      65835.2574727,
+      56406016,
+      43454464,
+      null
+    ],
+    [
+      65836.309404,
+      58093568,
+      46026752,
+      null
+    ],
+    [
+      65837.3945526,
+      60129280,
+      47767552,
+      null
+    ],
+    [
+      65838.4640824,
+      61792256,
+      49291264,
+      null
+    ],
+    [
+      65869.0560269,
+      1295491072,
+      1311432704,
+      null
+    ],
+    [
+      65898.6329554,
+      1214582784,
+      1237581824,
+      null
+    ],
+    [
+      65904.0859061,
+      1518796800,
+      1549266944,
+      null
+    ],
+    [
+      65905.2854606,
+      1782337536,
+      1820684288,
+      null
+    ],
+    [
+      65926.9722744,
+      2062581760,
+      2087989248,
+      null
+    ],
+    [
+      66028.944479,
+      1054478336,
+      1108475904,
+      null
+    ],
+    [
+      66168.3181085,
+      1729208320,
+      1790685184,
+      null
+    ],
+    [
+      66169.5921232,
+      1730011136,
+      1791733760,
+      null
+    ],
+    [
+      66170.6701781,
+      1739853824,
+      1802223616,
+      null
+    ],
+    [
+      66171.7275368,
+      1750028288,
+      1811660800,
+      null
+    ],
+    [
+      66172.8175952,
+      1761095680,
+      1823199232,
+      null
+    ],
+    [
+      66173.8559209,
+      1771909120,
+      1833684992,
+      null
+    ],
+    [
+      66174.9345611,
+      1782788096,
+      1844170752,
+      null
+    ],
+    [
+      66176.0265921,
+      1793286144,
+      1855705088,
+      null
+    ],
+    [
+      66177.1732403,
+      1845776384,
+      1908555776,
+      null
+    ],
+    [
+      66178.2039004,
+      1954807808,
+      2020806656,
+      null
+    ],
+    [
+      66179.2726914,
+      2072346624,
+      2141794304,
+      null
+    ],
+    [
+      66180.3703502,
+      2191572992,
+      2264457216,
+      null
+    ],
+    [
+      66181.4839427,
+      2520203264,
+      2602274816,
+      null
+    ],
+    [
+      66199.8848099,
+      3152105472,
+      3253047296,
+      null
+    ],
+    [
+      66274.5458601,
+      3628507136,
+      3733393408,
+      null
+    ],
+    [
+      66351.2229022,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66353.291969,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66354.4137158,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66355.4141679,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66356.4943645,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66357.5283405,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66358.5700928,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66359.7066707,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66360.984651,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66362.0852842,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66363.0960328,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66364.1065167,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66365.2006009,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66366.3012796,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66369.4380602,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66370.5134125,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66371.6359357,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66372.7589436,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66373.899379,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66374.9674954,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66376.2408128,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66377.2940314,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66378.3662817,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66379.3716761,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66380.495578,
+      4734599168,
+      4858535936,
+      null
+    ],
+    [
+      66437.7134582,
+      3008245760,
+      3093450752,
+      null
+    ],
+    [
+      66495.9531462,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66502.1779846,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66503.2529745,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66504.3494852,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66505.3657187,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66506.5031639,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66507.6295004,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66508.7026293,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66509.7285265,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66510.7762369,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66521.5972475,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66522.7213421,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66523.7575844,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66524.9131937,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66526.0588806,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66532.1948265,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66533.2408818,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66534.3704706,
+      4589375488,
+      4804444160,
+      null
+    ],
+    [
+      66535.57895,
+      4589379584,
+      4804444160,
+      null
+    ],
+    [
+      66536.6456258,
+      4589379584,
+      4804444160,
+      null
+    ],
+    [
+      66537.7607026,
+      4589379584,
+      4804444160,
+      null
+    ],
+    [
+      66538.7784644,
+      4589379584,
+      4804444160,
+      null
+    ],
+    [
+      66539.8590714,
+      4589379584,
+      4804444160,
+      null
+    ],
+    [
+      66540.8799813,
+      4589379584,
+      4804444160,
+      null
+    ],
+    [
+      66622.503165,
+      4756533248,
+      4937101312,
+      null
+    ],
+    [
+      66639.6150633,
+      4756533248,
+      4937101312,
+      null
+    ],
+    [
+      66655.6267352,
+      4756533248,
+      4937101312,
+      null
+    ],
+    [
+      66796.8239082,
+      5057929216,
+      5225390080,
+      null
+    ],
+    [
+      66835.270522,
+      5058002944,
+      5225422848,
+      null
+    ],
+    [
+      66882.532861,
+      1354084352,
+      1397800960,
+      null
+    ],
+    [
+      66883.5334374,
+      1344700416,
+      1387421696,
+      null
+    ],
+    [
+      66884.6966696,
+      1349148672,
+      1391935488,
+      null
+    ],
+    [
+      66885.7994904,
+      1358749696,
+      1401552896,
+      null
+    ],
+    [
+      66886.9255988,
+      1453830144,
+      1496829952,
+      null
+    ],
+    [
+      66888.0226391,
+      1508614144,
+      1551925248,
+      null
+    ],
+    [
+      66889.1013666,
+      1619574784,
+      1664991232,
+      null
+    ],
+    [
+      66890.2460602,
+      1743552512,
+      1796968448,
+      null
+    ],
+    [
+      66891.3233125,
+      1846300672,
+      1929904128,
+      null
+    ],
+    [
+      66892.4565527,
+      1958805504,
+      2063978496,
+      null
+    ],
+    [
+      66893.5214158,
+      2065776640,
+      2174205952,
+      null
+    ],
+    [
+      66894.5905734,
+      2168553472,
+      2285662208,
+      null
+    ],
+    [
+      66895.6757749,
+      2271219712,
+      2408919040,
+      null
+    ],
+    [
+      66896.7923373,
+      2379296768,
+      2516107264,
+      null
+    ],
+    [
+      66964.0978862,
+      4069449728,
+      4234416128,
+      null
+    ],
+    [
+      66970.9382272,
+      4069449728,
+      4234416128,
+      null
+    ],
+    [
+      66971.9691593,
+      4069449728,
+      4234416128,
+      null
+    ],
+    [
+      66973.0010349,
+      4069449728,
+      4234416128,
+      null
+    ],
+    [
+      66974.0925595,
+      4069449728,
+      4234416128,
+      null
+    ],
+    [
+      66975.1280993,
+      4069449728,
+      4234416128,
+      null
+    ],
+    [
+      66976.1888494,
+      4069449728,
+      4234416128,
+      null
+    ],
+    [
+      66977.2464249,
+      4069449728,
+      4234416128,
+      null
+    ],
+    [
+      66978.255318,
+      4069449728,
+      4234416128,
+      null
+    ],
+    [
+      66979.2591044,
+      4069449728,
+      4234416128,
+      null
+    ],
+    [
+      67036.8771843,
+      3660070912,
+      3802087424,
+      null
+    ],
+    [
+      67096.5656943,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67113.5902849,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67116.689708,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67117.7935056,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67118.8575794,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67119.9698425,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67121.034616,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67122.0429977,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67123.117237,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67124.1319119,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67125.2701186,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67126.4160844,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67127.5314565,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67128.5982956,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67143.528715,
+      4951126016,
+      5157494784,
+      null
+    ],
+    [
+      67194.4268158,
+      4541698048,
+      4754513920,
+      null
+    ],
+    [
+      67243.6015618,
+      5066776576,
+      5265596416,
+      null
+    ],
+    [
+      67260.1870869,
+      5066776576,
+      5265596416,
+      null
+    ],
+    [
+      67273.7515994,
+      5066776576,
+      5265596416,
+      null
+    ],
+    [
+      67274.756316,
+      5066776576,
+      5265596416,
+      null
+    ],
+    [
+      67288.2192335,
+      5066776576,
+      5265596416,
+      null
+    ],
+    [
+      67289.3474279,
+      5067075584,
+      5265600512,
+      null
+    ],
+    [
+      67290.3862505,
+      5068673024,
+      5266616320,
+      null
+    ],
+    [
+      67369.735743,
+      4941664256,
+      5130739712,
+      null
+    ],
+    [
+      67379.8288231,
+      4941664256,
+      5130739712,
+      null
+    ],
+    [
+      67381.0156443,
+      4941664256,
+      5130739712,
+      null
+    ],
+    [
+      67382.0924954,
+      4941664256,
+      5130739712,
+      null
+    ],
+    [
+      67383.1731544,
+      4941664256,
+      5130739712,
+      null
+    ],
+    [
+      67384.2238193,
+      4941664256,
+      5130739712,
+      null
+    ],
+    [
+      67401.868073,
+      4941664256,
+      5130739712,
+      null
+    ],
+    [
+      67417.2139091,
+      4941664256,
+      5130739712,
+      null
+    ],
+    [
+      67528.5105313,
+      5227724800,
+      5416034304,
+      null
+    ],
+    [
+      67547.5243105,
+      5227724800,
+      5416038400,
+      null
+    ],
+    [
+      67560.0964361,
+      5227724800,
+      5416034304,
+      null
+    ],
+    [
+      67561.1399217,
+      5227724800,
+      5416034304,
+      null
+    ],
+    [
+      67562.2415324,
+      5227724800,
+      5416034304,
+      null
+    ],
+    [
+      67582.0195048,
+      5054300160,
+      5416034304,
+      null
+    ],
+    [
+      67600.0415994,
+      5054300160,
+      5416034304,
+      null
+    ],
+    [
+      67624.0956749,
+      1192931328,
+      1410494464,
+      null
+    ],
+    [
+      67625.1950103,
+      1179979776,
+      1396649984,
+      null
+    ],
+    [
+      67626.3402426,
+      1181257728,
+      1397981184,
+      null
+    ],
+    [
+      67628.1162301,
+      423424000,
+      589549568,
+      null
+    ],
+    [
+      67628.1178576,
+      423378944,
+      589475840,
+      null
+    ]
+  ],
+  "memory_series_columns": [
+    "monotonic_seconds",
+    "working_set_bytes",
+    "private_bytes",
+    "virtual_bytes"
+  ],
+  "os_peak_working_set_bytes": 6621491200,
+  "peak_private_bytes": 5416038400,
+  "peak_threads": 10,
+  "peak_working_set_bytes": 6621491200,
+  "physical_memory": {
+    "available_bytes": 14422835200,
+    "total_bytes": 33702076416
+  },
+  "platform": "Windows-11-10.0.26300-SP0",
+  "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+  "program": "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+  "program_sha256": "4555cd6179ac26b190880790a100c997091996c6d961b97d1dd4860f0e2a8bf7",
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "python_implementation": "CPython",
+  "sampled_peak_working_set_bytes": 5227724800,
+  "samples": 863,
+  "stack_samples": [
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        38,
+        "<genexpr>"
+      ],
+      "samples": 201
+    },
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        40,
+        "<genexpr>"
+      ],
+      "samples": 196
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        40,
+        "legendre_values"
+      ],
+      "samples": 139
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        209,
+        "main"
+      ],
+      "samples": 55
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        50,
+        "residual_matrices"
+      ],
+      "samples": 44
+    },
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        28,
+        "<genexpr>"
+      ],
+      "samples": 33
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        38,
+        "primitive_walk"
+      ],
+      "samples": 30
+    },
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        39,
+        "_log_primitive"
+      ],
+      "samples": 21
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        85,
+        "kernel_step"
+      ],
+      "samples": 21
+    },
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        32,
+        "_log_primitive"
+      ],
+      "samples": 17
+    },
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        41,
+        "_log_primitive"
+      ],
+      "samples": 16
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        35,
+        "publish"
+      ],
+      "samples": 16
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        48,
+        "residual_matrices"
+      ],
+      "samples": 14
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        138,
+        "source"
+      ],
+      "samples": 9
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        39,
+        "legendre_values"
+      ],
+      "samples": 7
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        134,
+        "source"
+      ],
+      "samples": 7
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        131,
+        "source"
+      ],
+      "samples": 4
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        27,
+        "exact_residual_head"
+      ],
+      "samples": 3
+    },
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        28,
+        "_log_primitive"
+      ],
+      "samples": 3
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        26,
+        "a"
+      ],
+      "samples": 3
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        112,
+        "combined_square"
+      ],
+      "samples": 2
+    },
+    {
+      "location": [
+        "<frozen importlib._bootstrap_external>",
+        953,
+        "get_data"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        21,
+        "exact_residual_head"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        31,
+        "exact_residual_head"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        14,
+        "exact_residual_head"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        20,
+        "exact_residual_head"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        24,
+        "exact_residual_head"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        15,
+        "exact_residual_head"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        14,
+        "<genexpr>"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        34,
+        "exact_residual_head"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        109,
+        "combined_square"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        110,
+        "combined_square"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        113,
+        "combined_square"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        135,
+        "source"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        122,
+        "v"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        123,
+        "source"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        125,
+        "source"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        127,
+        "source"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        83,
+        "kernel_step"
+      ],
+      "samples": 1
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        79,
+        "kernel_step"
+      ],
+      "samples": 1
+    }
+  ],
+  "stack_sampling": {
+    "bias": "GIL-biased Python thread sampling; native code holding the GIL can starve sampler; sample counts are not time attribution",
+    "boundary_samples": "start and final samples included",
+    "interval_seconds": 0.05,
+    "selection": "innermost matching program frame"
+  },
+  "stage_peak_working_set_bytes": {
+    "<driver>": 1366335488,
+    "combined_square": 2062581760,
+    "kernel_step": 5227724800,
+    "residual_matrices": 62500864,
+    "source": 5099528192
+  },
+  "stage_stack_samples": [
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        38,
+        "<genexpr>"
+      ],
+      "samples": 201,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        40,
+        "<genexpr>"
+      ],
+      "samples": 196,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        40,
+        "legendre_values"
+      ],
+      "samples": 134,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        209,
+        "main"
+      ],
+      "samples": 53,
+      "stage": "<driver>"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        50,
+        "residual_matrices"
+      ],
+      "samples": 44,
+      "stage": "residual_matrices"
+    },
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        28,
+        "<genexpr>"
+      ],
+      "samples": 33,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        38,
+        "primitive_walk"
+      ],
+      "samples": 30,
+      "stage": "residual_matrices"
+    },
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        39,
+        "_log_primitive"
+      ],
+      "samples": 21,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        85,
+        "kernel_step"
+      ],
+      "samples": 19,
+      "stage": "kernel_step"
+    },
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        32,
+        "_log_primitive"
+      ],
+      "samples": 17,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        41,
+        "_log_primitive"
+      ],
+      "samples": 16,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        35,
+        "publish"
+      ],
+      "samples": 16,
+      "stage": "<driver>"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        48,
+        "residual_matrices"
+      ],
+      "samples": 14,
+      "stage": "residual_matrices"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        138,
+        "source"
+      ],
+      "samples": 9,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        134,
+        "source"
+      ],
+      "samples": 7,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        39,
+        "legendre_values"
+      ],
+      "samples": 6,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        40,
+        "legendre_values"
+      ],
+      "samples": 4,
+      "stage": "combined_square"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        131,
+        "source"
+      ],
+      "samples": 4,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        27,
+        "exact_residual_head"
+      ],
+      "samples": 3,
+      "stage": "residual_matrices"
+    },
+    {
+      "location": [
+        "scripts/cert/mixed_gram_research.py",
+        28,
+        "_log_primitive"
+      ],
+      "samples": 3,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        26,
+        "a"
+      ],
+      "samples": 3,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        112,
+        "combined_square"
+      ],
+      "samples": 2,
+      "stage": "combined_square"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        85,
+        "kernel_step"
+      ],
+      "samples": 2,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        209,
+        "main"
+      ],
+      "samples": 2,
+      "stage": "kernel_step"
+    },
+    {
+      "location": [
+        "<frozen importlib._bootstrap_external>",
+        953,
+        "get_data"
+      ],
+      "samples": 1,
+      "stage": "<driver>"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        21,
+        "exact_residual_head"
+      ],
+      "samples": 1,
+      "stage": "residual_matrices"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        31,
+        "exact_residual_head"
+      ],
+      "samples": 1,
+      "stage": "residual_matrices"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        14,
+        "exact_residual_head"
+      ],
+      "samples": 1,
+      "stage": "residual_matrices"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        20,
+        "exact_residual_head"
+      ],
+      "samples": 1,
+      "stage": "residual_matrices"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        24,
+        "exact_residual_head"
+      ],
+      "samples": 1,
+      "stage": "residual_matrices"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        15,
+        "exact_residual_head"
+      ],
+      "samples": 1,
+      "stage": "residual_matrices"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        14,
+        "<genexpr>"
+      ],
+      "samples": 1,
+      "stage": "residual_matrices"
+    },
+    {
+      "location": [
+        "computations/2026-10-27T003742Z-physical-reference-viability/physical_model_v1.py",
+        34,
+        "exact_residual_head"
+      ],
+      "samples": 1,
+      "stage": "residual_matrices"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        40,
+        "legendre_values"
+      ],
+      "samples": 1,
+      "stage": "residual_matrices"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        39,
+        "legendre_values"
+      ],
+      "samples": 1,
+      "stage": "combined_square"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        109,
+        "combined_square"
+      ],
+      "samples": 1,
+      "stage": "combined_square"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        110,
+        "combined_square"
+      ],
+      "samples": 1,
+      "stage": "combined_square"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        113,
+        "combined_square"
+      ],
+      "samples": 1,
+      "stage": "combined_square"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        135,
+        "source"
+      ],
+      "samples": 1,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        122,
+        "v"
+      ],
+      "samples": 1,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        123,
+        "source"
+      ],
+      "samples": 1,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        125,
+        "source"
+      ],
+      "samples": 1,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        127,
+        "source"
+      ],
+      "samples": 1,
+      "stage": "source"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        83,
+        "kernel_step"
+      ],
+      "samples": 1,
+      "stage": "kernel_step"
+    },
+    {
+      "location": [
+        "computations/2026-10-28T024305Z-t081-execution-corrections/build-whole-source-v3.py",
+        79,
+        "kernel_step"
+      ],
+      "samples": 1,
+      "stage": "kernel_step"
+    }
+  ],
+  "stage_timing_note": "inclusive contains nested wrapped calls; exclusive subtracts only nested wrapped calls; process CPU includes sampler",
+  "stages": [
+    {
+      "calls": 2,
+      "cpu_over_wall": 2.268813733935633,
+      "exclusive_cpu_seconds": 3135.28125,
+      "exclusive_wall_seconds": 1290.0114255000226,
+      "inclusive_cpu_seconds": 3295.65625,
+      "inclusive_wall_seconds": 1452.5900477000105,
+      "peak_working_set_bytes": 5099528192,
+      "slowest_call_wall_seconds": 737.2671790000022,
+      "stage": "source"
+    },
+    {
+      "calls": 1,
+      "cpu_over_wall": 3.000777949667974,
+      "exclusive_cpu_seconds": 945.703125,
+      "exclusive_wall_seconds": 315.15265070000896,
+      "inclusive_cpu_seconds": 945.703125,
+      "inclusive_wall_seconds": 315.15265070000896,
+      "peak_working_set_bytes": 2062581760,
+      "slowest_call_wall_seconds": 315.15265070000896,
+      "stage": "combined_square"
+    },
+    {
+      "calls": 2,
+      "cpu_over_wall": 0.9864458059112028,
+      "exclusive_cpu_seconds": 160.375,
+      "exclusive_wall_seconds": 162.57862219998788,
+      "inclusive_cpu_seconds": 160.375,
+      "inclusive_wall_seconds": 162.57862219998788,
+      "peak_working_set_bytes": 5227724800,
+      "slowest_call_wall_seconds": 82.58764149999479,
+      "stage": "kernel_step"
+    },
+    {
+      "calls": 1,
+      "cpu_over_wall": 0.9569204335844707,
+      "exclusive_cpu_seconds": 21.703125,
+      "exclusive_wall_seconds": 22.680177200003527,
+      "inclusive_cpu_seconds": 21.703125,
+      "inclusive_wall_seconds": 22.680177200003527,
+      "peak_working_set_bytes": 62500864,
+      "slowest_call_wall_seconds": 22.680177200003527,
+      "stage": "residual_matrices"
+    }
+  ],
+  "status": "COMPLETED",
+  "sys_platform": "win32",
+  "thread_environment": {
+    "FLINT_NUM_THREADS": null,
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "timing_scope": "program main through final sample; module import excluded on success",
+  "wall_seconds": 1804.36008150001
+}

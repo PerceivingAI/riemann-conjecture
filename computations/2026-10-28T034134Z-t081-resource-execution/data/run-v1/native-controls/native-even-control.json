@@ -1,0 +1,25 @@
+{
+  "complete_audit": "../results/audit.json",
+  "complete_audit_sha256": "8df709a7276397748a9fc173c797a7f4fc0853cf3632bfde37162ef9342decec",
+  "consumer_sha256": "59cd5b1e891d84d1fdb6d5849cd6a073d29bd8f49fce171fe6c411fb5cbc45c3",
+  "format": "t081-even-control-derived-from-full-audit-v1",
+  "parity": {
+    "checked_triangular_entries": 256473,
+    "dimension": 413,
+    "first_head_mode": 826,
+    "first_low_mode": 0,
+    "last_head_mode": 1650,
+    "last_low_mode": 824,
+    "matrix_entries": {
+      "A_model": 85491,
+      "weighted_complete_tail": 85491,
+      "weighted_head": 85491
+    },
+    "parity": 0,
+    "status": "PASS_NATIVE_CONTAINMENT"
+  },
+  "production_admission": false,
+  "scope": "same fresh even reconstruction checked in the full audit before six false-source probes; no second reconstruction",
+  "source_sha256": "2375a873d638af115312ffb8aaf416a067ccfa9170a96a320254eb121b9d125f",
+  "status": "PASS_ORIGINAL_EVEN_CONTROL_FROM_COMPLETE_AUDIT"
+}

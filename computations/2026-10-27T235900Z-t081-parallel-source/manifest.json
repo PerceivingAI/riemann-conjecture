@@ -1,0 +1,61 @@
+{
+  "created": "2026-10-28T02:30:38Z",
+  "format": "t081-parallel-source-bundle-v1",
+  "members": [
+    {
+      "path": "build-whole-source-v2.py",
+      "sha256": "960b9a712a12b041661d7278b23f8888835dc6d2db2b6b1bf1ca78eaa275a158",
+      "size": 15688
+    },
+    {
+      "path": "compare-v2-v1.py",
+      "sha256": "12c804732a8a127fd1411909de43dffdfd554f96b2f5089b089d3e25d7448644",
+      "size": 2812
+    },
+    {
+      "path": "data/comparison-v2-v1.json",
+      "sha256": "bfa1406f4f75769703376538060b7d7ab126f5499b3f04dd3aca1713648919fc",
+      "size": 3011
+    },
+    {
+      "path": "data/run-v2/source-v2.json",
+      "sha256": "998a663e17918b89304eff4b230423dd25e8ad9c40ed5915c816a2d3d9251ff5",
+      "size": 18023
+    },
+    {
+      "path": "data/run-v2/whole-matrices-v1/A_model-0.json.gz",
+      "sha256": "479fa8ffd000ffb41caf4309fc84a91dfb6db893a2d75f5c83c0cb6e37fee36b",
+      "size": 3639769
+    },
+    {
+      "path": "data/run-v2/whole-matrices-v1/A_model-1.json.gz",
+      "sha256": "1c814c9b8f8f5ff09823c5bde38414e6392c10a73b5b0adc743dade1e9077bad",
+      "size": 3639505
+    },
+    {
+      "path": "data/run-v2/whole-matrices-v1/weighted_complete_tail-0.json.gz",
+      "sha256": "85b802528bfee414678327dca90ee3c293ec71cfd7c7e951aa261502cd964601",
+      "size": 3587922
+    },
+    {
+      "path": "data/run-v2/whole-matrices-v1/weighted_complete_tail-1.json.gz",
+      "sha256": "e707a3339d4f8310c3a03d4364421ce5229daad9d1319e747c734fd11f79bf64",
+      "size": 3587595
+    },
+    {
+      "path": "data/run-v2/whole-matrices-v1/weighted_head-0.json.gz",
+      "sha256": "f82b9c5d344d63610eb031c8d71128748de5ad2220ebd9f945964a2550b7b2dd",
+      "size": 3610918
+    },
+    {
+      "path": "data/run-v2/whole-matrices-v1/weighted_head-1.json.gz",
+      "sha256": "5dc0878352456e29d3ab5c778e0dbcd46c74dc596dd0521ce2e32004b549eace",
+      "size": 3610803
+    },
+    {
+      "path": "record.md",
+      "sha256": "56ddc0068e583957d289bc22a489e6cb02684b87fd293ba8e02cebdfce01a80e",
+      "size": 5751
+    }
+  ]
+}
