@@ -15,11 +15,11 @@
     },
     {
       "bundle": "computations/2026-10-26T001954Z-quantitative-reference-cutoff",
-      "manifest_sha256": "df3c3843fefdc96f484ec32ba1c21366e939baa616299e8dab61d7bee476f31c"
+      "manifest_sha256": "b493712b0bf824c7390f283ea645596e3ce089f5d37ea00e30d22b5834e3b1fa"
     },
     {
       "bundle": "computations/2026-10-26T020435Z-variable-fourier-error-work",
-      "manifest_sha256": "a822f4f93b73f9b56d3717cf6877a87c0c3768896a7eb81455f967f85de5efa2"
+      "manifest_sha256": "9c803cea7b8a368e85ddfa6342d876e314da23ddb9ee9d08fb5af26a90259a69"
     }
   ],
   "members": [
@@ -45,8 +45,8 @@
     },
     {
       "path": "data/accepted-case-comparison-isolated.run.json",
-      "bytes": 2058,
-      "sha256": "ce3679bf5006578171028a5cedd03499f5a05de34e153a286f05ddce47268a4c"
+      "bytes": 2048,
+      "sha256": "ae5eaf8a1e802a1e00cb9f90969a339a5afbaf0742cfc8d07cd3dbd7bf9a75d5"
     },
     {
       "path": "data/documentation-check.json",

@@ -502,6 +502,6 @@
   ],
   "format": "t081-retained-complete-source-input-closure-v1",
   "production_admission": false,
-  "qualification_manifest_sha256": "a1431dac564a4aafa0b2cba5f86ca28f95e12bb63f9b7aa331300a204f1d6da9",
+  "qualification_manifest_sha256": "27f6cf712c7327ffde153847bee9ef758f62312b9999c64b4ef3c2c7427699c2",
   "source_sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e"
 }

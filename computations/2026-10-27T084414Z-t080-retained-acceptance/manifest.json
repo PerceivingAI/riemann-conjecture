@@ -490,9 +490,9 @@
       "sha256": "2af8cf9d751678493947534f13b7cff2f14e677212dbaea0f3a6419b654bfc2f"
     },
     {
-      "bytes": 15169,
+      "bytes": 15151,
       "path": "data/isolated-replay-v2.json",
-      "sha256": "fdfe4a1d68d007afcb2cf910572dc8f4bda0f955a3a43724f7944fb4822e8be6"
+      "sha256": "41e71ce5574b78a730bc38a184a3dd96627b08f3033fd346fdbb079b10335437"
     },
     {
       "bytes": 917,
@@ -500,9 +500,9 @@
       "sha256": "027ec73df35a330c2296c02917435c333db73d30a19ec967f6e67ab5c282d410"
     },
     {
-      "bytes": 3783,
+      "bytes": 3749,
       "path": "data/native-isolated-replay-v1.run.json",
-      "sha256": "101325d4246caf83585490af32ab94c563e3820ca7c524887918817424d41b25"
+      "sha256": "141353d82e3c547f8647b6de4363b45506e50fa5f301940b6c681989ed96ee32"
     },
     {
       "bytes": 606,
@@ -927,5 +927,5 @@
   "substantive_adversarial_controls": 7,
   "support": "4/5",
   "target_source_exact_replay_checks": 9,
-  "total_member_bytes": 54178610
+  "total_member_bytes": 54178558
 }

@@ -11,7 +11,7 @@
   "status": "COMPLETE_REVIEWED_SCALAR_EXACT_MAP",
   "new_support_matrix_computed": false,
   "production_admission_changed": false,
-  "source_snapshot_manifest_sha256": "56aa84bbc008724f5b7025cc18666af3aa4b4714fda996899e3d3b399e01b0f3",
+  "source_snapshot_manifest_sha256": "fb9c53c6f24946b63044c968d0cbf861f00775acdd939ff186d7eb8bc109425f",
   "members": [
     {
       "path": "data/controls-v1.json",
@@ -61,7 +61,7 @@
     {
       "path": "input-pins.json",
       "bytes": 2537,
-      "sha256": "88ae360f15be9c9aac2885289ef223e46fdb36023cbd57d5d3a2793b176bac49"
+      "sha256": "e8b5dd4b821dd6129bee7d936f6417c4cbe907b2f8f676c419208fb535d02105"
     },
     {
       "path": "quadrature-source-map-v1.md",
@@ -91,12 +91,12 @@
     {
       "path": "source-v1/computations/2026-10-26T001954Z-quantitative-reference-cutoff/manifest.json",
       "bytes": 5357,
-      "sha256": "df3c3843fefdc96f484ec32ba1c21366e939baa616299e8dab61d7bee476f31c"
+      "sha256": "b493712b0bf824c7390f283ea645596e3ce089f5d37ea00e30d22b5834e3b1fa"
     },
     {
       "path": "source-v1/computations/2026-10-26T020435Z-variable-fourier-error-work/input-pins.json",
       "bytes": 2537,
-      "sha256": "88ae360f15be9c9aac2885289ef223e46fdb36023cbd57d5d3a2793b176bac49"
+      "sha256": "e8b5dd4b821dd6129bee7d936f6417c4cbe907b2f8f676c419208fb535d02105"
     },
     {
       "path": "source-v1/computations/2026-10-26T020435Z-variable-fourier-error-work/variable-controls-v1.py",
@@ -106,7 +106,7 @@
     {
       "path": "source-v1/manifest.json",
       "bytes": 2602,
-      "sha256": "56aa84bbc008724f5b7025cc18666af3aa4b4714fda996899e3d3b399e01b0f3"
+      "sha256": "fb9c53c6f24946b63044c968d0cbf861f00775acdd939ff186d7eb8bc109425f"
     },
     {
       "path": "source-v1/pyproject.toml",

@@ -1075,7 +1075,7 @@
         },
         "stdout": {
           "path": "independent-audit\\stdout.txt",
-          "sha256": "77c315613f586396910c04b1f5ec4bc8fcc0ed88eaa1e0e71bd2f3f1d2a22c4a"
+          "sha256": "44c3ba893551910e61550df45ed70f6883aadf20ec330edb5bd69967843507cb"
         }
       },
       "memory_metric": "job committed memory",

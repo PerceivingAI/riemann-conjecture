@@ -28,7 +28,7 @@
     },
     {
       "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/manifest.json",
-      "sha256": "edf0d6161bece527745f7df33bd0c946a48bfdb8572d1c5aebf27807be067fed",
+      "sha256": "a1b4529a21a9b98adc4cd033872fb44ecaf8989ac56ed851e353a5d33e182931",
       "size": 14940
     },
     {
@@ -38,7 +38,7 @@
     },
     {
       "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/accept-retained-v1.py",
-      "sha256": "bf9e9aea87395d991b858a8bd6573b997fc26c548e6b7e97e592e62613556306",
+      "sha256": "be5b520c8451f473e804440d0b0d9f58c371b7950e23b8e326ada74e78e4faca",
       "size": 13610
     },
     {
@@ -48,8 +48,8 @@
     },
     {
       "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/data/isolated-replay-v1.json",
-      "sha256": "44f8516a60836516849ac3150f243807452c5fa807d6aba8606d92f1f2589445",
-      "size": 16737
+      "sha256": "e056505eaa4f0f68fdb7b179374772e61f8c6e76cd461e8332c89f3021a43782",
+      "size": 16719
     },
     {
       "path": "computations/2026-10-27T140745Z-t081-complete-gram-attempt/manifest.json",
@@ -58,12 +58,12 @@
     },
     {
       "path": "computations/2026-10-27T132236Z-t081-prime-five-qualification/manifest.json",
-      "sha256": "a1431dac564a4aafa0b2cba5f86ca28f95e12bb63f9b7aa331300a204f1d6da9",
+      "sha256": "27f6cf712c7327ffde153847bee9ef758f62312b9999c64b4ef3c2c7427699c2",
       "size": 18172
     },
     {
       "path": "computations/2026-10-28T034134Z-t081-resource-execution/manifest-v2.json",
-      "sha256": "5e6757ba2a223661dbe8d3b2831e8236b299db1bb74a35c953bfd144ab102629",
+      "sha256": "d80f1dc7427ffd63da2464c12f2321aa31b61869ab6192186c5e6c0ff2c81736",
       "size": 33035
     },
     {

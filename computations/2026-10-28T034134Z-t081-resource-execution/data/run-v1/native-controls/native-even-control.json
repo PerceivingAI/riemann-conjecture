@@ -1,6 +1,6 @@
 {
   "complete_audit": "../results/audit.json",
-  "complete_audit_sha256": "8df709a7276397748a9fc173c797a7f4fc0853cf3632bfde37162ef9342decec",
+  "complete_audit_sha256": "c0d8fad7774438329e026155ef618003f37f2e8357f4834b8b9e4397ab47dad0",
   "consumer_sha256": "59cd5b1e891d84d1fdb6d5849cd6a073d29bd8f49fce171fe6c411fb5cbc45c3",
   "format": "t081-even-control-derived-from-full-audit-v1",
   "parity": {

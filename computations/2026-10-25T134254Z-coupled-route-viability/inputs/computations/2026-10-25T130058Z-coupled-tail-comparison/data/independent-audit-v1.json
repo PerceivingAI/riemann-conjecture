@@ -2,11 +2,11 @@
   "format": "research-coupled-tail-comparison-audit-v1",
   "status": "INHERITED_INPUT_CONSEQUENCES_ACCEPTED",
   "selected_status": "BOTH_TRUE_SCHUR_DIRECTIONS_POSITIVE",
-  "report_sha256": "e21b06e294f3a35a3d8870697b297a98551a2bf2d4106ce47bcaa1fbec5c7550",
+  "report_sha256": "cdaf3c7fa7151383d2a2aa17a2d4fb67d1aeefd0e577cc7a9edc924dd118c62d",
   "source_sha256": {
-    "scripts/weil_coupled_tail_comparison.py": "1a1a82207870cb063f213274f2021f27bbde7859f45838103b4220cade0f10ad",
+    "scripts/weil_coupled_tail_comparison.py": "3ef8ba6b140713539a19a42394651bcad5e311ddc6c5f5d1638ed755e49f2ae3",
     "scripts/verify_coupled_tail_comparison.py": "36116eff01132e98516206091880917e9613d6a60c89a9f4a8933131c782c860",
-    "scripts/weil_complete_reprojection.py": "efb9db0d98187d20ddf75a75d2e3de4875c722ae7e7da23a27955a099ade30ef",
+    "scripts/weil_complete_reprojection.py": "cf56e71093e92804f62079b583ade1f77ab7a4bf9f9a0f1ddb1e6f910ef82784",
     "scripts/verify_complete_reprojection.py": "676fa27ecfff79c65c62398ab3e93dd195552aba7559a67f98992472ce1780f5",
     "scripts/verify_weighted_low_space.py": "91f5afcaabff90378de9ece3222115f1262ec4883929d9fa2a79b059e66c2cb1",
     "scripts/verify_weighted_low_space_inputs.py": "ad63fbb5b24a0c4d3f45a98d0731b2b6a64bb1e3d480deac43a02cd972447d64",
@@ -32,10 +32,10 @@
     "computations/2026-10-25T001555Z-coupling-derived-projection/data/projection-v1.json": "74f8cc2e4e62af60392a1a15b02902c8ab461620f778bbd3aa657e4c78357587",
     "computations/2026-10-25T001555Z-coupling-derived-projection/data/projection-audit-v1.json": "7010026f00aa906a02cf3dddf6b69c34fe266865b1178bf10ee0f032eaf87d4c",
     "computations/2026-10-24T231555Z-tail-complement-weighted-reference/data/prior-scalars-v1.json": "65cc22df9e5edfbaebd9b183edbc29b179c7d3474731e24170cc9abc543a0b9a",
-    "computations/2026-10-25T010204Z-complete-retained-reprojection/manifest.json": "6a6fb19db869e6d93a33fa691171571b45aeb23fa31f28a23592363378913bba",
-    "computations/2026-10-25T010204Z-complete-retained-reprojection/data/original-v2-gate-v1.json": "9e7837dceefc3b3b35d0700077aec2157348c3610a07a82ccb9c76d83567ffcf",
-    "computations/2026-10-25T010204Z-complete-retained-reprojection/data/complete-reference-v1.json": "35468a0d04b26d3f94aff718f90009a42f260e7caa80dafbf50e56f71bce37c3",
-    "computations/2026-10-25T010204Z-complete-retained-reprojection/data/independent-audit-v1.json": "6729834e3c35bf85faf735da87865ea7db28636b90c4d8a2b46fbbb1f234920e"
+    "computations/2026-10-25T010204Z-complete-retained-reprojection/manifest.json": "6555a738fb1f79258fd757bd0fb1d95310b802acb12fd387a0ee70a00dff1fad",
+    "computations/2026-10-25T010204Z-complete-retained-reprojection/data/original-v2-gate-v1.json": "c76933ed63c4e1a4fdd6dbdb73933f03d06a45180f2251d9db0bb5ae4cd8f1c8",
+    "computations/2026-10-25T010204Z-complete-retained-reprojection/data/complete-reference-v1.json": "9377692e34444a018f5b510698ecfaa736f1b7ddb96af5ca2a16125d2368e4cb",
+    "computations/2026-10-25T010204Z-complete-retained-reprojection/data/independent-audit-v1.json": "1f676029ac1c60ac10328538da05047dab6a800884ee7fe9fe953bc1d56a0732"
   },
   "support": [
     1353,

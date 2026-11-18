@@ -9,7 +9,7 @@ from flint import fmpq
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 SOURCE_SHA='f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e'
-INPUTS_SHA='bb19e0fbafa6aff30e0eab92de1951b8c54c0cf380ab8681e0e0c098879b757a'
+INPUTS_SHA='c5928669c29fd0623c8313918b778d13218bc0173801292829f3065217788183'
 DECLARATION_SHA='026658a580d6ebe2ff8543d9e94ebbd24ea92d13027c5e43714e876cce353341'
 CASES={'wrongactual-lowconstant','underpaidweightedhead','omitted-complete-physicalexterior','underpaid-terminal-inverseweight','omitted-prime5-low-term','omitted-prime5-mixed-square','singular-fullspace-witness','synthetic-selected-negative','numerical-width-uncertainty'}
 SCALARS={'fresh_global_source':'data/reference-source-v2.json','fresh_global_native_audit':'data/reference-audit-v2.json','supported_reference_source':'data/supported-reference-source-v1.json','supported_reference_native_audit':'data/supported-reference-audit-v1.json','target_declaration':'data/target-declaration-source-v1.json','target_declaration_native_audit':'data/target-declaration-audit-v1.json','four_mode_topology_source':'data/topology-source-v1.json','four_mode_topology_native_audit':'data/topology-audit-v1.json'}

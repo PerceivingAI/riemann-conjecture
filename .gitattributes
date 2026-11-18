@@ -125,3 +125,14 @@
 /scripts/verify_t081_retained_acceptance.py text eol=lf
 /computations/2026-10-28T183329Z-t081-retained-completion/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /findings/2026-10-28T200224Z-t081-retained-smooth-test-positivity.md -text
+
+# Preserve the exact retained v3 certificate and source bytes on checkout.
+/computations/retained-proofs-v3.json -text
+/computations/2026-10-18T010000Z-v3-clean-proof-candidate/data/certificate-v3-clean.json -text
+/scripts/cert/export_combined_schur_v3_clean.py text eol=lf
+/scripts/prove_combined_schur_fast.py text eol=lf
+/scripts/run_combined_schur_experiment.py text eol=lf
+
+# The retained T81 capture compares these canonical files as raw bytes.
+/scripts/cert/__init__.py text eol=lf
+/scripts/cert/quadrature.py text eol=lf

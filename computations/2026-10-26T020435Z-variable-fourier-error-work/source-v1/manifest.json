@@ -21,12 +21,12 @@
     {
       "path": "computations/2026-10-26T001954Z-quantitative-reference-cutoff/manifest.json",
       "bytes": 5357,
-      "sha256": "df3c3843fefdc96f484ec32ba1c21366e939baa616299e8dab61d7bee476f31c"
+      "sha256": "b493712b0bf824c7390f283ea645596e3ce089f5d37ea00e30d22b5834e3b1fa"
     },
     {
       "path": "computations/2026-10-26T020435Z-variable-fourier-error-work/input-pins.json",
       "bytes": 2537,
-      "sha256": "88ae360f15be9c9aac2885289ef223e46fdb36023cbd57d5d3a2793b176bac49"
+      "sha256": "e8b5dd4b821dd6129bee7d936f6417c4cbe907b2f8f676c419208fb535d02105"
     },
     {
       "path": "computations/2026-10-26T020435Z-variable-fourier-error-work/variable-controls-v1.py",

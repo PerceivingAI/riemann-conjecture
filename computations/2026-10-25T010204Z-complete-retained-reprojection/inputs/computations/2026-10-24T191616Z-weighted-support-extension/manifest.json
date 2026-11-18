@@ -3,7 +3,7 @@
   "computation_id": "X-20261024-004",
   "sealed_utc": "2026-10-24T21:05:38Z",
   "member_count": 119,
-  "total_member_bytes": 58073353,
+  "total_member_bytes": 58073312,
   "members": [
     {
       "path": "check-selection-v1.py",
@@ -52,8 +52,8 @@
     },
     {
       "path": "data/archived-replay-v2-run.json",
-      "bytes": 1228,
-      "sha256": "7499c2cfa9d29fb9eb7c37788de8672f7ce02aab3a7a15927c854d23f37fb876"
+      "bytes": 1223,
+      "sha256": "e9895f7e6d085e5170c2451ec597d1402212019cd7d838fe20c2df40d9372a7c"
     },
     {
       "path": "data/archived-replay-v2.stderr.txt",
@@ -62,8 +62,8 @@
     },
     {
       "path": "data/archived-replay-v2.stdout.txt",
-      "bytes": 126,
-      "sha256": "5e42e870727670d5dfc986eae2d137264d2996912054f60c704db85650f3ba14"
+      "bytes": 121,
+      "sha256": "439d79d0504474b4bfb2211b5aef503a16badd16e4463124fc01fe2df0fee1d0"
     },
     {
       "path": "data/archived-source-replay-v2.json",
@@ -102,13 +102,13 @@
     },
     {
       "path": "data/baseline-losses-v1-run.json",
-      "bytes": 2309,
-      "sha256": "7d2337b1fb1b29c3ee85f631c66f7b136a730ac10e2ae707654dbf8e623e7d91"
+      "bytes": 2299,
+      "sha256": "ebf596384627da10497f721c7de91d8e25b463e7aeca7def04f309de7aec5f92"
     },
     {
       "path": "data/baseline-losses-v1.stderr.txt",
-      "bytes": 1738,
-      "sha256": "48ade23c4cc5f8101c5fa35ad9d91c468861a52fced945f3ffe8403dd05593d0"
+      "bytes": 1732,
+      "sha256": "62c87d31b02f443a3753b15c0bd702afb2bb0a65f7f04054dc3daed25f0e3ca6"
     },
     {
       "path": "data/baseline-losses-v1.stdout.txt",
@@ -162,8 +162,8 @@
     },
     {
       "path": "data/execution-ledger.json",
-      "bytes": 26032,
-      "sha256": "cc4aa3fc064eef32a1a45b2163172745a1fa705f5dd9f652a817e06f3217c48c"
+      "bytes": 26017,
+      "sha256": "b8f3f2d9e32a81449165c27458a757b9892827c8bf5c776f65326aaf7668a15f"
     },
     {
       "path": "data/extension-assessment-v1.json",

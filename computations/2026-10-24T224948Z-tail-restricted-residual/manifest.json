@@ -3,7 +3,7 @@
   "computation_id": "X-20261024-005",
   "sealed_utc": "2026-10-24T23:08:15Z",
   "member_count": 55,
-  "total_member_bytes": 513357,
+  "total_member_bytes": 513352,
   "members": [
     {
       "path": "data/archived-replay-v1/audit-v1.json",
@@ -197,8 +197,8 @@
     },
     {
       "path": "independent-review.json",
-      "bytes": 13979,
-      "sha256": "9434ef1f53d884962d63ef2825fc5c053434554c680a699dfb5d2373dce83907"
+      "bytes": 13974,
+      "sha256": "70c7001d873e41f749bd5462277f554bc22aaa8c8ac26f5f9d0841d27df4d92f"
     },
     {
       "path": "record.md",

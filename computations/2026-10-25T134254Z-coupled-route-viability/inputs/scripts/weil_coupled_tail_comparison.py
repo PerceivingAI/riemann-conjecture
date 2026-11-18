@@ -19,10 +19,10 @@ BITS, GRID, N, M = 352, 80, 20, 312
 FORMAT = 'research-coupled-tail-comparison-v1'
 BASE = 'computations/2026-10-25T010204Z-complete-retained-reprojection/'
 PINS = {
-    BASE+'manifest.json': '6a6fb19db869e6d93a33fa691171571b45aeb23fa31f28a23592363378913bba',
-    BASE+'data/original-v2-gate-v1.json': '9e7837dceefc3b3b35d0700077aec2157348c3610a07a82ccb9c76d83567ffcf',
-    BASE+'data/complete-reference-v1.json': '35468a0d04b26d3f94aff718f90009a42f260e7caa80dafbf50e56f71bce37c3',
-    BASE+'data/independent-audit-v1.json': '6729834e3c35bf85faf735da87865ea7db28636b90c4d8a2b46fbbb1f234920e',
+    BASE+'manifest.json': '6555a738fb1f79258fd757bd0fb1d95310b802acb12fd387a0ee70a00dff1fad',
+    BASE+'data/original-v2-gate-v1.json': 'c76933ed63c4e1a4fdd6dbdb73933f03d06a45180f2251d9db0bb5ae4cd8f1c8',
+    BASE+'data/complete-reference-v1.json': '9377692e34444a018f5b510698ecfaa736f1b7ddb96af5ca2a16125d2368e4cb',
+    BASE+'data/independent-audit-v1.json': '1f676029ac1c60ac10328538da05047dab6a800884ee7fe9fe953bc1d56a0732',
 }
 SOURCES = ('scripts/weil_coupled_tail_comparison.py',
            'scripts/verify_coupled_tail_comparison.py', *retained.SOURCE_PATHS)

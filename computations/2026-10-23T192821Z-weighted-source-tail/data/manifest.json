@@ -29,16 +29,16 @@
       "sha256": "4d4e173c1daffdf5b0b1d153fbfbea2c6cb91b748b9fff16582f82daf6053685"
     },
     "data/rational-repro-stderr.txt": {
-      "bytes": 674,
-      "sha256": "4502774339963a5698c55e8789db2d85e0322d9ceafbdd15dec95cda3a6321d5"
+      "bytes": 671,
+      "sha256": "908be382a87753fd2654a622a4c1b032766077e86d681f015a5f4d7481abaec0"
     },
     "data/regression-after.txt": {
       "bytes": 435,
       "sha256": "1bf429d7dbd91e786f1cfe30ff070ddca47f9f1f307d0dd46fb026db1ce86bb0"
     },
     "data/regression-before.txt": {
-      "bytes": 2217,
-      "sha256": "7330c6a032207f605ff9dde52e976d74075894ec1c1030b73f46c1718e4efa16"
+      "bytes": 2211,
+      "sha256": "eff1214b68ec7bf05ebcae24b768a3aaa60acec490c75be534a88cdde43dc61c"
     },
     "data/replay-result.json": {
       "bytes": 774,

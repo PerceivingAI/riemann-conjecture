@@ -3,7 +3,7 @@
   "computation_id": "X-20261024-006",
   "sealed_utc": "2026-10-24T23:38:07Z",
   "member_count": 89,
-  "total_member_bytes": 948071,
+  "total_member_bytes": 948066,
   "members": [
     {
       "path": "data/altered-reference-upper-v1.json",
@@ -312,8 +312,8 @@
     },
     {
       "path": "independent-review.json",
-      "bytes": 2508,
-      "sha256": "7cda554cc0f5f4ba6799bc12e8b9cba5ce7200707f0841836cfe9a8e6422c49d"
+      "bytes": 2503,
+      "sha256": "c0d76f534de11c90487e3234f9ad24d14de596c4cea05937ecfef182733bf8d7"
     },
     {
       "path": "mathematical-qualification.md",

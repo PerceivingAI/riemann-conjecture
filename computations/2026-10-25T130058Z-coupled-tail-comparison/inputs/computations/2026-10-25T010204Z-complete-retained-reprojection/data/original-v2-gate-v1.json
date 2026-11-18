@@ -1,7 +1,7 @@
 {
   "status": "ORIGINAL_V2_ACCEPTANCE_PASS",
   "source_version": "source-v2",
-  "original_manifest_sha256": "28eff565a893a54b5ae111e6b70dd92f46d9440b736aa8ac5469bdf3b487da92",
+  "original_manifest_sha256": "578d3dd919d0ba88d12b826b4824f6398780f235e67b727d57492ded7baeae04",
   "original_inputs_sha256": {
     "computations/2026-10-24T191616Z-weighted-support-extension/data/extension-source-v1.json.gz": "c9790a7b129aae0d410670830e8a472d639105d01884a041165fc119e627671e",
     "computations/2026-10-24T191616Z-weighted-support-extension/data/extension-audit-v1.json.gz": "e23fa00b66d5ebe5ccc261e23b886c10e2e4fdd3f816d9a8a3dcbca38282408e",
@@ -33,7 +33,7 @@
     "uv.lock": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
   },
   "source_sha256": {
-    "scripts/weil_complete_reprojection.py": "efb9db0d98187d20ddf75a75d2e3de4875c722ae7e7da23a27955a099ade30ef",
+    "scripts/weil_complete_reprojection.py": "cf56e71093e92804f62079b583ade1f77ab7a4bf9f9a0f1ddb1e6f910ef82784",
     "scripts/verify_complete_reprojection.py": "676fa27ecfff79c65c62398ab3e93dd195552aba7559a67f98992472ce1780f5",
     "scripts/verify_weighted_low_space.py": "91f5afcaabff90378de9ece3222115f1262ec4883929d9fa2a79b059e66c2cb1",
     "scripts/verify_weighted_low_space_inputs.py": "ad63fbb5b24a0c4d3f45a98d0731b2b6a64bb1e3d480deac43a02cd972447d64",

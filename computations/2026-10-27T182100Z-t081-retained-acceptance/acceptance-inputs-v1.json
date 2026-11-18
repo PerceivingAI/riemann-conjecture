@@ -9,7 +9,7 @@
   "full_source_and_exact_replay_required": true,
   "production_admission": false,
   "qualification_bundle": "computations/2026-10-27T132236Z-t081-prime-five-qualification",
-  "qualification_manifest_sha256": "a1431dac564a4aafa0b2cba5f86ca28f95e12bb63f9b7aa331300a204f1d6da9",
+  "qualification_manifest_sha256": "27f6cf712c7327ffde153847bee9ef758f62312b9999c64b4ef3c2c7427699c2",
   "research_baseline_commit": "268af0c",
   "source_sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e",
   "support": "81/100"

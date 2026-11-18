@@ -49,13 +49,13 @@
     },
     {
       "path": "data/python312-runtime-smoke-v1.json",
-      "sha256": "8fef9297b30d096e6cfbf28a9b632ee39bd3e3b385a3a2e53549fd048f6ee078",
-      "size": 3042
+      "sha256": "3f8579157e62f7b3fd05eee3199d01bc93cd32d0c44a45c634cb67668c35a02c",
+      "size": 3027
     },
     {
       "path": "data/qualification-tests-v1.xml",
-      "sha256": "ad03ccadc5af9f135738b6b998fe0e3f07c7302123580edca411929ca94b8510",
-      "size": 6331
+      "sha256": "9481b3b3d9bf376191672d486f495e2771435f1c9e020829053135a834f0792c",
+      "size": 6304
     },
     {
       "path": "data/run-v3/comparison-stderr.txt",

@@ -24,6 +24,24 @@ def test_closed_v3_manifest_matches_only_approved_artifact():
     assert admission.sha(raw.read_bytes()) == admission.APPROVED_SHA
 
 
+def test_v3_source_guard_uses_exact_bytes_without_git(tmp_path: Path, monkeypatch):
+    originals = {name: (ROOT / name).read_bytes() for name in admission.SOURCES}
+    for name, raw in originals.items():
+        path = tmp_path / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(raw)
+
+    monkeypatch.setattr(admission, "ROOT", tmp_path)
+    admission.verify_committed_sources()
+
+    for name, raw in originals.items():
+        path = tmp_path / name
+        path.write_bytes(raw + b" ")
+        with pytest.raises(ValueError, match="differs from clean committed proof version"):
+            admission.verify_committed_sources()
+        path.write_bytes(raw)
+
+
 @pytest.mark.parametrize("mutation", ["add_claim", "change_hash", "change_scope", "change_path", "extra_field"])
 def test_v3_manifest_rejects_altered_or_extra_proofs(tmp_path: Path, mutation: str):
     original = json.loads(admission.MANIFEST.read_text(encoding="utf8"))

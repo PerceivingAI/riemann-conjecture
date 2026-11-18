@@ -1,7 +1,7 @@
 """Admit and independently REPLAY the *one* closed v3 retained theorem artifact.
 
 The manifest cannot broaden the theorem whitelist. Acceptance always checks
-immutable approved bytes, clean committed mathematical source, complete
+immutable approved bytes, pinned original mathematical source, complete
 independent Arb-2048 analytical enclosures, and separate exact Rust theorem
 replay. Source hashes are provenance controls, NEVER mathematical proofs.
 """
@@ -46,6 +46,13 @@ SOURCES=(
  "scripts/cert/export_combined_schur_v3_clean.py",
  "scripts/verify_combined_schur_analytic_entries.py",
 )
+SOURCE_SHA256={
+ SOURCES[0]:"d1f21f3e4f10e0768b1707e8756d52a2969a67829b7a207ee26d335950d45e15",
+ SOURCES[1]:"61c830e808d281e9a0d61ad040f7ffaeaf42821ebf753f977887567a4fdf01f3",
+ SOURCES[2]:"78469b3523b07541d4911ba13db86f86098a12cb5899124c886764b9850c41a0",
+ SOURCES[3]:"eabb3a27d7917db3ec5b83c6c6ed1413d45ec70121ee4baed2e4470c8ddffa84",
+ SOURCES[4]:AUDITOR_SHA,
+}
 
 
 def checked_manifest(path:Path=MANIFEST)->dict[str,Any]:
@@ -63,23 +70,13 @@ def checked_manifest(path:Path=MANIFEST)->dict[str,Any]:
     return proof
 
 
-def committed_source_sha(path:str)->str:
-    proc=subprocess.run(["git","show",f"{SOURCE_COMMIT}:{path}"],cwd=ROOT,
-                        capture_output=True,check=True,timeout=20)
-    return sha(proc.stdout)
-
-
 def verify_committed_sources()->dict[str,str]:
-    # The immutable certificate's original generator code and the exact
-    # independently audited source expressions are pinned to the CLEAN source
-    # commit. A later modified script cannot silently count as that audit.
-    subprocess.run(["git","cat-file","-e",f"{SOURCE_COMMIT}^{{commit}}"],
-                   cwd=ROOT,capture_output=True,check=True,timeout=20)
+    # SOURCE_COMMIT identifies the producer in the certificate; replay needs
+    # the original source bytes, not the Git object that once contained them.
     found={}
     for item in SOURCES:
         actual=sha((ROOT/item).read_bytes())
-        committed=committed_source_sha(item)
-        if actual!=committed:
+        if actual!=SOURCE_SHA256[item]:
             raise ValueError(f"v3 mathematical source differs from clean committed proof version: {item}")
         found[item]=actual
     if found["scripts/verify_combined_schur_analytic_entries.py"]!=AUDITOR_SHA:

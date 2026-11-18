@@ -108,12 +108,12 @@
     {
       "path": "inputs/computations/2026-10-24T191616Z-weighted-support-extension/manifest.json",
       "bytes": 20680,
-      "sha256": "28eff565a893a54b5ae111e6b70dd92f46d9440b736aa8ac5469bdf3b487da92"
+      "sha256": "578d3dd919d0ba88d12b826b4824f6398780f235e67b727d57492ded7baeae04"
     },
     {
       "path": "inputs/computations/2026-10-25T130058Z-coupled-tail-comparison/data/comparison-v1.json",
       "bytes": 74704,
-      "sha256": "e21b06e294f3a35a3d8870697b297a98551a2bf2d4106ce47bcaa1fbec5c7550"
+      "sha256": "cdaf3c7fa7151383d2a2aa17a2d4fb67d1aeefd0e577cc7a9edc924dd118c62d"
     },
     {
       "path": "inputs/computations/2026-10-25T130058Z-coupled-tail-comparison/data/coupled-comparison.run.json",
@@ -123,17 +123,17 @@
     {
       "path": "inputs/computations/2026-10-25T130058Z-coupled-tail-comparison/data/independent-audit-v1.json",
       "bytes": 8632,
-      "sha256": "7e1eae38096dbf8f6737bb4862f530297f87ab8e1df0ac19b007786135c6b2a1"
+      "sha256": "1f13983c22521e0609c6756a9853e2bba7049955ee59eb288ef2d796b94d131f"
     },
     {
       "path": "inputs/computations/2026-10-25T130058Z-coupled-tail-comparison/manifest.json",
       "bytes": 27522,
-      "sha256": "c50598a28ccc747f36c0842bc4fc39ef0e0accf2eafc85e648c7c2f48d9129a3"
+      "sha256": "7de1e7cd113e8875456e7616d2f3807e1e78a67b657cff654eddbf87ff35e932"
     },
     {
       "path": "inputs/manifest.json",
       "bytes": 2160,
-      "sha256": "580f668d0d2350c7dca8495666c9fdfc9d1d9bd430a30f1cec2b171df37f8fed"
+      "sha256": "b3be0a5fa1f8f8da7e815551dd6d5fbf735be4183d62d3e1f6bc39695171364e"
     },
     {
       "path": "inputs/pyproject.toml",
@@ -143,7 +143,7 @@
     {
       "path": "inputs/scripts/weil_coupled_tail_comparison.py",
       "bytes": 14285,
-      "sha256": "1a1a82207870cb063f213274f2021f27bbde7859f45838103b4220cade0f10ad"
+      "sha256": "3ef8ba6b140713539a19a42394651bcad5e311ddc6c5f5d1638ed755e49f2ae3"
     },
     {
       "path": "inputs/uv.lock",

@@ -54,8 +54,8 @@
     },
     {
       "path": "data/scalar-exact-controls-corrected.run.json",
-      "bytes": 1368,
-      "sha256": "ee25e4662d9bb1fe53ced70a5fc01f552d518fbcd002a7fc7fd5106444b9f389"
+      "bytes": 1363,
+      "sha256": "7bba85e9a1e46a4eede6a28923e35e4e3591b21b1c464b8e8fd91bc12ce78d9b"
     },
     {
       "path": "data/scalar-exact-controls-final.run.json",

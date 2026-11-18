@@ -214,8 +214,8 @@
     },
     {
       "path": "data/isolated-replay-v1.json",
-      "sha256": "f665b432f3f5887e0f51c93d0ba8c32c37cfdd5f1b9cc31b60a4812353675570",
-      "size": 12675
+      "sha256": "64b96f708a09e6395effd7d91edac3f953088c143cf74448c966a79e39a6a08f",
+      "size": 12520
     },
     {
       "path": "data/negative-controls-v1-cases/discard-frequency-infinity.json",
@@ -294,8 +294,8 @@
     },
     {
       "path": "data/reference-source-v1-receipt.json",
-      "sha256": "aa2cf9d378f5ff2df2996fe1ae165e466239b9717d6cc44652a5236e0aa934af",
-      "size": 1498
+      "sha256": "d01e7b073deeee8b8bb875e603cdb67dbe89b56dfbce5b2c072986aafa3238f9",
+      "size": 1493
     },
     {
       "path": "data/reference-source-v1.json",

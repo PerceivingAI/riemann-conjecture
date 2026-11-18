@@ -32,7 +32,7 @@ ORIGINAL = 'computations/2026-10-24T191616Z-weighted-support-extension/'
 OLD_DATA = ORIGINAL+'data/'
 COUPLING = 'computations/2026-10-25T001555Z-coupling-derived-projection/data/'
 SCALARS = 'computations/2026-10-24T231555Z-tail-complement-weighted-reference/data/prior-scalars-v1.json'
-SEAL_SHA = '28eff565a893a54b5ae111e6b70dd92f46d9440b736aa8ac5469bdf3b487da92'
+SEAL_SHA = '578d3dd919d0ba88d12b826b4824f6398780f235e67b727d57492ded7baeae04'
 INPUTS = {
     OLD_DATA+'extension-source-v1.json.gz': 'c9790a7b129aae0d410670830e8a472d639105d01884a041165fc119e627671e',
     OLD_DATA+'extension-audit-v1.json.gz': 'e23fa00b66d5ebe5ccc261e23b886c10e2e4fdd3f816d9a8a3dcbca38282408e',

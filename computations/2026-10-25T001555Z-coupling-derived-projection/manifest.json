@@ -3,7 +3,7 @@
   "computation_id": "X-20261025-001",
   "sealed_utc": "2026-10-25T00:44:34Z",
   "member_count": 85,
-  "total_member_bytes": 2773868,
+  "total_member_bytes": 2773863,
   "members": [
     {
       "path": "data/archived-replay-v1/exact-replay.json",
@@ -257,8 +257,8 @@
     },
     {
       "path": "independent-review.json",
-      "bytes": 1314,
-      "sha256": "10cfb36e285c18f1c9ec9abee262def5bef658b7067e3b0699f737452cb57b11"
+      "bytes": 1309,
+      "sha256": "dc6a66352646c9ab2914e74c0ffb53d9f3a23b16e8166af139643489512d905a"
     },
     {
       "path": "inputs/computations/2026-10-24T191616Z-weighted-support-extension/data/selection-v1.json",

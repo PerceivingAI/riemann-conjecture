@@ -1,9 +1,9 @@
 {
   "format": "research-complete-reprojection-audit-v1",
   "status": "RETAINED_INPUT_CONSEQUENCES_ACCEPTED",
-  "report_sha256": "35468a0d04b26d3f94aff718f90009a42f260e7caa80dafbf50e56f71bce37c3",
+  "report_sha256": "9377692e34444a018f5b510698ecfaa736f1b7ddb96af5ca2a16125d2368e4cb",
   "source_sha256": {
-    "scripts/weil_complete_reprojection.py": "efb9db0d98187d20ddf75a75d2e3de4875c722ae7e7da23a27955a099ade30ef",
+    "scripts/weil_complete_reprojection.py": "cf56e71093e92804f62079b583ade1f77ab7a4bf9f9a0f1ddb1e6f910ef82784",
     "scripts/verify_complete_reprojection.py": "676fa27ecfff79c65c62398ab3e93dd195552aba7559a67f98992472ce1780f5",
     "scripts/verify_weighted_low_space.py": "91f5afcaabff90378de9ece3222115f1262ec4883929d9fa2a79b059e66c2cb1",
     "scripts/verify_weighted_low_space_inputs.py": "ad63fbb5b24a0c4d3f45a98d0731b2b6a64bb1e3d480deac43a02cd972447d64",
@@ -30,7 +30,7 @@
     "computations/2026-10-25T001555Z-coupling-derived-projection/data/projection-audit-v1.json": "7010026f00aa906a02cf3dddf6b69c34fe266865b1178bf10ee0f032eaf87d4c",
     "computations/2026-10-24T231555Z-tail-complement-weighted-reference/data/prior-scalars-v1.json": "65cc22df9e5edfbaebd9b183edbc29b179c7d3474731e24170cc9abc543a0b9a"
   },
-  "origin_sha256": "9e7837dceefc3b3b35d0700077aec2157348c3610a07a82ccb9c76d83567ffcf",
+  "origin_sha256": "c76933ed63c4e1a4fdd6dbdb73933f03d06a45180f2251d9db0bb5ae4cd8f1c8",
   "audit_source_sha256": {
     "scripts/verify_complete_reprojection.py": "676fa27ecfff79c65c62398ab3e93dd195552aba7559a67f98992472ce1780f5",
     "scripts/verify_combined_schur_analytic_entries.py": "15961f4b337e1d26cc63aa41bcb3976fa975636d0b5e006b0f51bd3d625576e4",

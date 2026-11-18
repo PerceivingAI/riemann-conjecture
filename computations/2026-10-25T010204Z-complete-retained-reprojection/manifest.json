@@ -3,7 +3,7 @@
   "computation_id": "X-20261025-002",
   "sealed_utc": "2026-10-25T12:51:31Z",
   "member_count": 119,
-  "total_member_bytes": 48168568,
+  "total_member_bytes": 48168541,
   "members": [
     {
       "path": "data/archived-replay-v1/exact-replay.json",
@@ -37,8 +37,8 @@
     },
     {
       "path": "data/archived-replay-v1/original-version-gate.json",
-      "bytes": 7173,
-      "sha256": "b794010cde0910dbd80dc53fa230dc4c8d63a115fe2298059aaa99d6874b6eff"
+      "bytes": 7164,
+      "sha256": "0b8f7db0ea2176c3fbb8dfefe400c78e9a3e63856abba6aa16889244dfec9641"
     },
     {
       "path": "data/archived-replay-v1/original-version-gate.stderr.txt",
@@ -137,8 +137,8 @@
     },
     {
       "path": "data/attack-rewritten-origin.json",
-      "bytes": 7174,
-      "sha256": "eed3f2fc775d168a1b3f6764a7d41e1e0a7db74c84b5dbc515a343d000bf3983"
+      "bytes": 7165,
+      "sha256": "a0dd66df330190078b975983feb8653c7611d5ef9e58dfdf9d52c06f89ff94ea"
     },
     {
       "path": "data/attack-rewritten-original-source-version.json",
@@ -163,7 +163,7 @@
     {
       "path": "data/complete-reference-v1.json",
       "bytes": 70703,
-      "sha256": "35468a0d04b26d3f94aff718f90009a42f260e7caa80dafbf50e56f71bce37c3"
+      "sha256": "9377692e34444a018f5b510698ecfaa736f1b7ddb96af5ca2a16125d2368e4cb"
     },
     {
       "path": "data/complete-reference.run.json",
@@ -183,7 +183,7 @@
     {
       "path": "data/exact-replay-v1.json",
       "bytes": 232,
-      "sha256": "990d7080cb5e4f3b55b5055f92ccdaef67246d750f729801b5690baab0fb21e2"
+      "sha256": "b2902d8f6b902dddc4bc9b0bc50d0b474e3f614c621f938a4f720c74bdd30732"
     },
     {
       "path": "data/exact-replay.run.json",
@@ -218,7 +218,7 @@
     {
       "path": "data/independent-audit-v1.json",
       "bytes": 29400,
-      "sha256": "6729834e3c35bf85faf735da87865ea7db28636b90c4d8a2b46fbbb1f234920e"
+      "sha256": "1f676029ac1c60ac10328538da05047dab6a800884ee7fe9fe953bc1d56a0732"
     },
     {
       "path": "data/independent-audit.run.json",
@@ -252,8 +252,8 @@
     },
     {
       "path": "data/original-v2-gate-v1.json",
-      "bytes": 7174,
-      "sha256": "9e7837dceefc3b3b35d0700077aec2157348c3610a07a82ccb9c76d83567ffcf"
+      "bytes": 7165,
+      "sha256": "c76933ed63c4e1a4fdd6dbdb73933f03d06a45180f2251d9db0bb5ae4cd8f1c8"
     },
     {
       "path": "data/original-v2-origin-gate.run.json",
@@ -348,7 +348,7 @@
     {
       "path": "inputs/computations/2026-10-24T191616Z-weighted-support-extension/manifest.json",
       "bytes": 20680,
-      "sha256": "28eff565a893a54b5ae111e6b70dd92f46d9440b736aa8ac5469bdf3b487da92"
+      "sha256": "578d3dd919d0ba88d12b826b4824f6398780f235e67b727d57492ded7baeae04"
     },
     {
       "path": "inputs/computations/2026-10-24T191616Z-weighted-support-extension/source-v1/scripts/weil_weighted_extension_diagnostics.py",
@@ -473,7 +473,7 @@
     {
       "path": "inputs/manifest.json",
       "bytes": 5504,
-      "sha256": "870f266d495744731f7de4ff1b19b02770132feeae3a271431ae47381d6eda7b"
+      "sha256": "1657bc91e0aed3f979e90acd1751d0569fe8c1483c57c67dd57db4f5cbcfb3eb"
     },
     {
       "path": "mathematical-review.md",
@@ -498,7 +498,7 @@
     {
       "path": "source-v1/manifest.json",
       "bytes": 2141,
-      "sha256": "cfd5a9da8f9618cd84362bb3c1fb4980fab3e6427910ed68c65478456592b6c1"
+      "sha256": "0a59243b6797ac61074697f783cc2a8f2966d4410c8b48c19680f9f0b6c2e279"
     },
     {
       "path": "source-v1/pyproject.toml",
@@ -573,7 +573,7 @@
     {
       "path": "source-v1/scripts/weil_complete_reprojection.py",
       "bytes": 21710,
-      "sha256": "efb9db0d98187d20ddf75a75d2e3de4875c722ae7e7da23a27955a099ade30ef"
+      "sha256": "cf56e71093e92804f62079b583ade1f77ab7a4bf9f9a0f1ddb1e6f910ef82784"
     },
     {
       "path": "source-v1/scripts/weil_residual_tail_bound.py",

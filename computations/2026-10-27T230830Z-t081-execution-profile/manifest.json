@@ -9,8 +9,8 @@
     },
     {
       "path": "data/source-profile-v1.json",
-      "sha256": "a469eafe4c41c069265574df0a6564c602cebe62a49a88338f2237ee4ce41c93",
-      "size": 10379
+      "sha256": "65d91f242d6d58cdb8646f84d42195f300b42209d48c72c0f2682a8ad7e2f64a",
+      "size": 10364
     },
     {
       "path": "data/work-unit-costs-v1.json",
