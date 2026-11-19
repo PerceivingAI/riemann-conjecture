@@ -139,6 +139,9 @@
 
 # Preserve new whole-source code and exact bound scientific inventory bytes.
 /scripts/whole_source/*.py text eol=lf
+/scripts/whole_source/receipts.py -text !eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/whole_source/reuse.py -text !eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/whole_source/source_dependencies.py -text !eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /scripts/whole_source/runtime/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /scripts/weil_whole_source_split.py text eol=lf
 /scripts/probe_native_checkpoint_v1.py text eol=lf
