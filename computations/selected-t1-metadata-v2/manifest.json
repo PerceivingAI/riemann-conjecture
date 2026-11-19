@@ -1,0 +1,80 @@
+{
+  "format": "selected-t1-scalar-manifest-v2",
+  "status": "QUALIFIED_METADATA_ONLY",
+  "target_matrix_computed": false,
+  "target_positivity_proved": false,
+  "production_admission": false,
+  "execution_authorized": false,
+  "members": [
+    {
+      "path": "captured-scalar-inputs-v2.json",
+      "sha256": "be319d75ec3f13d60d25ca79bd058896245e641042d1c5fc7420cbc709df23e3",
+      "bytes": 4118
+    },
+    {
+      "path": "comparison-manifest-v2.json",
+      "sha256": "1a786a4939347bf79c3bdae8869ab71349ed0372e9a9cd092b7e1e2643901ee9",
+      "bytes": 1049
+    },
+    {
+      "path": "cost-inputs-v2.json",
+      "sha256": "37230c540fb73536d41b554cfe82564305a8a3bb323eb4e443906b92ab079242",
+      "bytes": 1597
+    },
+    {
+      "path": "data/cost-audit-v2.json",
+      "sha256": "ed10ca87eb0a1589c1d0a2d96dda906f0f59a2b2015eed115e8dce3f7d8df1ee",
+      "bytes": 3517
+    },
+    {
+      "path": "data/cost-source-v2.json",
+      "sha256": "fd43ba3bd76ac09718d4a8fa84e64571e2f3e61f711efaac48cf25aaa1c1378f",
+      "bytes": 109928
+    },
+    {
+      "path": "data/direct-audit-v2.json",
+      "sha256": "3b5f4747e25089adcf7a26ae7583d99bf26aa679891106f72f101b3440fd9d9a",
+      "bytes": 6147
+    },
+    {
+      "path": "data/direct-source-v2.json",
+      "sha256": "34a828d4f41da32f8c7d3b6e58e7a0eb2213ed69aa9a88b5cbeb897136b0c4d8",
+      "bytes": 2163186
+    },
+    {
+      "path": "data/qualification-v2.json",
+      "sha256": "34c980ffefbf2a512ea6384b2ae5a50fad966edae66dbb299f171ec487de2c5a",
+      "bytes": 5551
+    },
+    {
+      "path": "direct-inputs-v2.json",
+      "sha256": "2a7d12c0b3e9bc518fa9bfc1dc0a00145c9328eb4a9444e9b113d9f0b775f010",
+      "bytes": 1881
+    },
+    {
+      "path": "qualify-direct-v2.py",
+      "sha256": "52ff1b1854e44ca6c95f0952a06e7bcfff76825ecd7288ccce1d82bff3fd53fc",
+      "bytes": 11821
+    },
+    {
+      "path": "qualify-metadata-v2.py",
+      "sha256": "79abc90e304e64a8e60333ff6a0ecb5f5b23502bd4bec8972c394f88a29e46ee",
+      "bytes": 9135
+    },
+    {
+      "path": "qualify-reference-v2.py",
+      "sha256": "c2a185725799b63dc48f9b2d961e75a2965d49d1b35825b9e4cf439c0f62252a",
+      "bytes": 8744
+    },
+    {
+      "path": "verify-direct-v2.py",
+      "sha256": "113ceaaea42bbd0b336bfb9e90fc865309983f270d779b594ae75ef8d31d2776",
+      "bytes": 39064
+    },
+    {
+      "path": "verify-reference-v3.py",
+      "sha256": "be343a1555e9b64e1678f3a9cbc709b8aae62d1838279db1cb6c15a589730334",
+      "bytes": 26694
+    }
+  ]
+}

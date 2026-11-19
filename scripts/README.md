@@ -9,6 +9,25 @@ These scripts are research instruments for the timestamped RH attempts. The core
 
 The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep pinned sources/configuration in their recorded LF form, and the original SYS-6.4 probe plus the executed T3/4 Fourier producer in their recorded CRLF form. Retained bundles remain verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
 
+Pytest removes the hostname attribute and filters local identity strings before writing JUnit XML, including when xdist sends results to the controller. Test counts, exit status and substantive failure causes remain.
+
+## Whole-source recording and metadata
+
+```text
+uv run --locked python -B -m scripts.weil_whole_source_split inspect --profile retained-t081 --output-dir <fresh-directory>
+uv run --locked python -B -m scripts.weil_whole_source_split inspect --profile selected-t1-metadata-v2 --output-dir <fresh-directory>
+```
+
+`retained-t081` binds the exact reviewed scalar and code files through `scientific-inputs-v2.json`. It does not read the older whole-bundle manifest or operational receipt digests. The inventory changes the problem ID, not the scientific input bytes or arithmetic policy. Do not resume an older collection under the new ID. `selected-t1-metadata-v2` checks the exact scalar, audit and qualification files without the resource-measurement reports. Inspection of either profile does not execute a numerical workload or grant approval.
+
+Current whole-source execution uses fixed artifact roles and exact hashes for stage receipts, recovery journals, source audit, proposal, exact operands, replay, review and assessment. Physical launch paths stay in runtime transport. Replay installs scalar inputs, executable code and the selected proposal without installing expected numerical outputs. Owned jobs still enforce input bytes, coverage, process cleanup and required acceptance checks.
+
+`python -B -m scripts.weil_whole_source_split verify-retained-diagnostics --run-dir <run>` checks the current nested stream, exact preparation and replay diagnostic records separately from the scientific seal. A diagnostic change does not authorize new mathematics or invalidate an otherwise valid scientific result. Legacy receipts and inventories keep their original checks.
+
+Prospective review and assessment use external directories under the code root. Run `prepare-review` before supplying a separately authored independent review decision. Set `RH_WHOLE_SOURCE_REVIEW_DIRECTORY` to the actual review directory and, when resuming with retained external storage, supply `RH_WHOLE_SOURCE_RETAINED_STORAGE_ROOTS` as a JSON array of previously bound directories. These paths are used at launch, not written into scientific records. Use `--exact-operands` for standalone mathematical controls to supply the bound `operands.json`.
+
+For contained resource observations, use `uv run --locked python -B -m scripts.run_bounded_resource_probes_v2 --mode <mode> --inputs <bound-inputs.json> --output-dir <fresh-directory> --memory-mib <budget>`. The input bindings still check exact bytes. `control` uses small synthetic workloads. No observation is a mathematical proof, target run or admission result.
+
 ## Original T81/100 retained-adversarial and smooth-test acceptance
 
 [X-20261028-003](../computations/2026-10-28T183329Z-t081-retained-completion/record.md) completes the ORIGINAL frozen nine-case driver and conjunctive source-norm gate. It reuses the successful full captured replay; it does not regenerate source or substitute newer compute-qualification artifacts.
@@ -17,7 +36,7 @@ The directional research consumers verify raw-byte SHA-256 identities. Scoped ru
 uv run --locked python -B -m scripts.verify_t081_retained_acceptance --output-dir <fresh-supervision-directory> --negative-output computations/2026-10-27T182100Z-t081-retained-acceptance/data/<fresh-timestamp>/negative-controls-v1.json
 ```
 
-The original output-confinement contract requires a fresh JSON beneath that acceptance data directory. All prior files remain unchanged. --cpus, --memory-mib and --reserve-mib control qualified neutral supervision; one worker/native thread intentionally preserves the old driver receipt. Streams, opaque-stage heartbeat, actual resources and owned cleanup are retained.
+The original output-confinement contract requires a fresh JSON beneath that acceptance data directory. All prior files remain unchanged. `--cpus`, `--memory-mib` and `--reserve-mib` control qualified neutral supervision; the original one-worker, one-native-thread policy remains. New invocations write v2 supervision records. The original adapter and receipts are retained with X-20261028-003.
 
 Actual execution passes the256473-entry original even control, six native subset rejections, three full exact controls and the original final gate. The reused complete512946-entry/both413-parity replay remains separately bound. C-0124's strict complex smooth-test implication and full source-norm10^-21 floor are source-conditional research results, not production admission or RH. Earlier dated candidate/checkpoint sections below retain their historical scope.
 
@@ -27,14 +46,14 @@ Actual execution passes the256473-entry original even control, six native subset
 
 ```text
 uv run --locked python -m scripts.run_t081_resource_execution --output-dir <fresh-directory>
-uv run --locked python -B computations/2026-10-28T034134Z-t081-resource-execution/qualify-execution-v1.py --run-dir <fresh-directory> --output <fresh-qualification.json>
+uv run --locked python -B -m scripts.qualify_t081_resource_execution --run-dir <fresh-directory> --output <fresh-qualification.json>
 ```
 
-The second command is the final code/log/budget/source qualifier. A source-only or intermediate runner PASS does not replace it. The full measured run used the same retained runner directly; module help and insufficient-memory rejection were separately exercised.
+The second command is the final code/log/budget/source qualifier for new runs. A source-only or intermediate runner PASS does not replace it. The measured v1 run still uses its own retained `qualify-execution-v1.py`.
 
 Defaults use visible CPU/affinity/quota/job and memory availability, one numerical worker and measured native threading. Controls are `--cpus`, `--workers`, `--threads`, `--memory-mib`, `--reserve-mib` and matching `T081_CPUS`, `T081_WORKERS`, `T081_THREADS`, `T081_MEMORY_MIB`, `T081_RESERVE_MIB`. CLI wins. Worker counts above one are unsupported; `--cpus 1 --workers 1 --threads 1` selects bounded serial reproduction. Insufficient fixed-target memory rejects before arithmetic rather than reducing dimensions or precision.
 
-The output retains exact streams, profiles, captured code, job receipts and `.live/run-status.json` plus events. Windows allocation limits and owned-tree failure/cancellation cleanup are exercised. ETA is unavailable inside opaque operations. All512946 independent analytical entries, both full exact blocks, nine controls and six original packet identities pass; the focused suite reports93 passed and one OS-specific skip. Live non-Windows and larger-host scaling are not claimed. Historical programs, mathematical admission and the separate retained smooth-test procedure remain unchanged.
+New supervision records retain typed progress and error codes in `stdout.jsonl` and `stderr.jsonl`, with exact hashes of the retained bytes. Launch arguments and unstructured child streams are not recorded. Budget, profile, captured program, heartbeat, exit and owned-cleanup checks remain in force. ETA is unavailable inside opaque operations. New full-audit and native-control receipts replace physical paths and raw exception messages with typed fields while retaining exact input, source and program hashes. The v1 measurement exercised all 512,946 independent entries, both full exact blocks, nine controls and all six packet identities; it is not a measured qualification of the new recorder. Neither mode admits a production theorem.
 
 ## Complete-source execution and measurement corrections
 
@@ -84,6 +103,8 @@ The record retains all exact source/audit invocations, initial failures, correct
 ## Retained full T4/5 smooth-test acceptance
 
 [X-20261027-004](../computations/2026-10-27T084414Z-t080-retained-acceptance/record.md) preserves the separate fixed-case source/input replay, seven adversarial mathematical/exact cases and exact full-consequence gate. The interfaces below ran against the recorded native environment. Use fresh output names; the negative runner requires its output under the new bundle data directory and creates a new per-output case directory.
+
+The [control diagnostic inventory](../computations/2026-10-27T003742Z-physical-reference-viability/diagnostic-inventory-v1.json) records the current bytes of four operational reports. The pinned original control `manifest.json` remains the authority for the scientific source, proposal and exact proof. Its four historical diagnostic digests do not describe the current reports.
 
 ```text
 .venv/Scripts/python.exe -B computations/2026-10-27T084414Z-t080-retained-acceptance/replay-acceptance-v2.py --output <fresh-replay.json>
@@ -793,6 +814,8 @@ Treat this as **NOT QUALIFIED**, not as a mathematical negative. Do not keep ext
 ### `profile_multi_prime_assembly.py`
 
 Manual sequential rigorous-assembly timing CLI. It uses no continuation cache or process pool, permits nonpositive diagnostic complement at small dimensions, records source/runtime provenance, and publishes each completed sample. `--mode timing` measures uninstrumented wall/CPU totals; `--mode stages` reports nested inclusive/exclusive stage timings; `--mode cprofile` retains the hottest cumulative call records. Peak memory is a process-lifetime high-water mark. Interrupted output remains marked running, not completed. Diagnostic strings and JSON conversion occur outside the assembly timer.
+
+The `multi-prime-cprofile-frames-v2` rows identify frames by logical source, report-local source instance, function and line. The instance distinguishes files with the same label without recording installation paths. Ranking and call statistics are unchanged. `multi-prime-profile-provenance-v2` records the Python version, OS family and numeric thread settings. JSON failure records keep the exception type and available OS error number; the traceback remains on stderr.
 
 ```text
 uv run --locked python -m scripts.profile_multi_prime_assembly --support 11/20 --dimensions 32,64,96,128 --precision 128 --residual-order 32 --mode timing --output-json computations/.../data/assembly-timings.json

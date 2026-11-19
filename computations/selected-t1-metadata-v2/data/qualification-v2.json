@@ -1,0 +1,157 @@
+{
+  "capture_sha256": "be319d75ec3f13d60d25ca79bd058896245e641042d1c5fc7420cbc709df23e3",
+  "comparisons": [
+    {
+      "artifact": "data/cost-source-v2.json",
+      "byte_identical": true,
+      "sha256": "fd43ba3bd76ac09718d4a8fa84e64571e2f3e61f711efaac48cf25aaa1c1378f"
+    },
+    {
+      "artifact": "data/cost-audit-v2.json",
+      "byte_identical": true,
+      "sha256": "ed10ca87eb0a1589c1d0a2d96dda906f0f59a2b2015eed115e8dce3f7d8df1ee"
+    },
+    {
+      "artifact": "data/direct-source-v2.json",
+      "byte_identical": true,
+      "sha256": "34a828d4f41da32f8c7d3b6e58e7a0eb2213ed69aa9a88b5cbeb897136b0c4d8"
+    },
+    {
+      "artifact": "data/direct-audit-v2.json",
+      "byte_identical": true,
+      "sha256": "3b5f4747e25089adcf7a26ae7583d99bf26aa679891106f72f101b3440fd9d9a"
+    }
+  ],
+  "cost_controls": [
+    {
+      "exit_code": 2,
+      "name": "added-prime-norm",
+      "no_pass_file": true,
+      "rejection": "native containment failed: transfer added_prime_norm",
+      "source_sha256": "b86a9e6ce560c8818682e87229ac6cd7d78cfebe37d211415427f7480713c5b3"
+    },
+    {
+      "exit_code": 2,
+      "name": "complete-leakage",
+      "no_pass_file": true,
+      "rejection": "native containment failed: N=9072 leakage",
+      "source_sha256": "5dc27bbe98535655973dddceb1b1467840ad689d01b120089b907ea8e8429624"
+    },
+    {
+      "exit_code": 2,
+      "name": "canonical-polar",
+      "no_pass_file": true,
+      "rejection": "canonical exact residual coefficients disagree with formal division",
+      "source_sha256": "e1675dd9215527967ccad312daac02c5cf10a9cc04b95d122821f4624f775277"
+    },
+    {
+      "exit_code": 2,
+      "name": "terminal-infinity",
+      "no_pass_file": true,
+      "rejection": "false rational upper: frequency step 59",
+      "source_sha256": "4446a09b982340dc2186992f1167b83f6ede4ada758cdf3b8066b76377686bb7"
+    },
+    {
+      "exit_code": 2,
+      "name": "small-geometric-cutoff",
+      "no_pass_file": true,
+      "rejection": "geometric-invalid leakage cutoff",
+      "source_sha256": "10ce6ecb53bcaf2f0dee06fa37a59e2799355630ab6feb062f183f795fe0b988"
+    },
+    {
+      "exit_code": 2,
+      "name": "model-discrepancy",
+      "no_pass_file": true,
+      "rejection": "incorrect residual Lambda upper",
+      "source_sha256": "72ce0b4e29f6ad69cf6a35b9ab1eb73f4b8311b8782d11bac8e3ead44daef7ab"
+    },
+    {
+      "exit_code": 2,
+      "name": "floating-math",
+      "no_pass_file": true,
+      "rejection": "nonexact JSON number",
+      "source_sha256": "fb7892f8513036998a5ab1f39da1cb87c2b0093248f4f21bda6436d20b207094"
+    }
+  ],
+  "direct_controls": [
+    {
+      "exit_code": 2,
+      "name": "prime7-coefficient",
+      "no_pass_file": true,
+      "rejection": "native containment failed: Lambda/sqrt(m) at 7",
+      "source_sha256": "39a78c0d2c5377007e4e33921dd88f49faf5143987dbace49c261b306320d23b"
+    },
+    {
+      "exit_code": 2,
+      "name": "false-cell-upper",
+      "no_pass_file": true,
+      "rejection": "false direct cell upper at leaf 0",
+      "source_sha256": "ecdc862bbe578cac3ad66652ed3a264cddcbffb58f5c8ad39f0108651295c7d8"
+    },
+    {
+      "exit_code": 2,
+      "name": "frequency-gap",
+      "no_pass_file": true,
+      "rejection": "frequency cover has a gap, overlap, reversed cell or missing endpoint at leaf 0",
+      "source_sha256": "a85190c8418b65d7c2bd231dbea0a125844750b5e6be5f809b4b0367a6ee5356"
+    },
+    {
+      "exit_code": 2,
+      "name": "unpaid-frequency-infinity",
+      "no_pass_file": true,
+      "rejection": "unpaid infinite frequency tail: false analytic infinity cap",
+      "source_sha256": "ced0f374502d40bed29942d181bfe24b72fb2cd8f6ba46c6fb18ce41c0fd81e2"
+    },
+    {
+      "exit_code": 2,
+      "name": "false-finite-witness",
+      "no_pass_file": true,
+      "rejection": "false finite witness lower bound",
+      "source_sha256": "a48a4767493d3f0960d0f7ada6d740063c16ea34956ae798f66f773f4c466e8e"
+    },
+    {
+      "exit_code": 2,
+      "name": "canonical-polar",
+      "no_pass_file": true,
+      "rejection": "canonical exact residual coefficients disagree with formal division",
+      "source_sha256": "64450d3e9fee86b3fb07a08a8a8ee9b51d4de3f85be625acf05df136aa208115"
+    },
+    {
+      "exit_code": 2,
+      "name": "terminal-inverse",
+      "no_pass_file": true,
+      "rejection": "false rational upper: frequency step 59",
+      "source_sha256": "482e0572d0555593985e33388f8dbfa29b03168fa54f848ba950078f8b1dbabb"
+    },
+    {
+      "exit_code": 2,
+      "name": "model-discrepancy",
+      "no_pass_file": true,
+      "rejection": "incorrect residual Lambda upper",
+      "source_sha256": "da0b3c5d6bd3c96c9efa085c9bdc9f91165d84b1f8c5ef8e88659abd0fc052cd"
+    },
+    {
+      "exit_code": 2,
+      "name": "floating-math",
+      "no_pass_file": true,
+      "rejection": "nonexact JSON number",
+      "source_sha256": "25019621d81d82b31f68e274055149409931c703bf02b750a6cc1f2aee59bb06"
+    },
+    {
+      "exit_code": 2,
+      "name": "false-achieved-width",
+      "no_pass_file": true,
+      "rejection": "incorrect unachieved numerical declaration.high_mode_widths_achieved",
+      "source_sha256": "0a591f4043746104cdc59328a57c5fe12642f060cd4b4a036f1877cc292abdc7"
+    }
+  ],
+  "expected_outputs_withheld": true,
+  "format": "selected-t1-scalar-qualification-v2",
+  "input_count": 21,
+  "owned_tree_removed": true,
+  "production_admission": false,
+  "program_sha256": "79abc90e304e64a8e60333ff6a0ecb5f5b23502bd4bec8972c394f88a29e46ee",
+  "status": "PASS",
+  "target_matrix_computed": false,
+  "target_positivity_proved": false
+}

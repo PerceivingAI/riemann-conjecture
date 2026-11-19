@@ -1,0 +1,35 @@
+{
+  "format": "t1-comparison-scalar-manifest-v2",
+  "status": "SCALAR_REFERENCE_AND_DECLARED_SHAPE_ONLY",
+  "production_admission": false,
+  "RH_status": "UNRESOLVED",
+  "target_matrix_computed": false,
+  "target_positivity_proved": false,
+  "members": [
+    {
+      "path": "cost-inputs-v2.json",
+      "sha256": "37230c540fb73536d41b554cfe82564305a8a3bb323eb4e443906b92ab079242",
+      "bytes": 1597
+    },
+    {
+      "path": "data/cost-audit-v2.json",
+      "sha256": "ed10ca87eb0a1589c1d0a2d96dda906f0f59a2b2015eed115e8dce3f7d8df1ee",
+      "bytes": 3517
+    },
+    {
+      "path": "data/cost-source-v2.json",
+      "sha256": "fd43ba3bd76ac09718d4a8fa84e64571e2f3e61f711efaac48cf25aaa1c1378f",
+      "bytes": 109928
+    },
+    {
+      "path": "qualify-reference-v2.py",
+      "sha256": "c2a185725799b63dc48f9b2d961e75a2965d49d1b35825b9e4cf439c0f62252a",
+      "bytes": 8744
+    },
+    {
+      "path": "verify-reference-v3.py",
+      "sha256": "be343a1555e9b64e1678f3a9cbc709b8aae62d1838279db1cb6c15a589730334",
+      "bytes": 26694
+    }
+  ]
+}

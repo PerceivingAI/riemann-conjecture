@@ -1,0 +1,110 @@
+{
+  "format": "selected-t1-scalar-input-capture-v2",
+  "destinations": [
+    {
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json",
+      "sha256": "3cfafc4c5e7db8c0b76e8ada4afe73b34738e4697a3f030d5b6f19b2023c1e34",
+      "bytes": 5306
+    },
+    {
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json",
+      "sha256": "5d9f66d2941db36b338fab1c23d06b15a67e0c9452f1678dbaaddbce6c31a0e6",
+      "bytes": 314708
+    },
+    {
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+      "sha256": "bf840c67beeaf7846dbe6d8c0e43b63fe6a4d2b199e6106fcbc5e7682706ea31",
+      "bytes": 1155
+    },
+    {
+      "destination": "computations/2026-10-28T183329Z-t081-retained-completion/data/run-v1/retained-acceptance-v1.json",
+      "sha256": "3537ac3b419ce9e77241ae278fd1b0ef1301290e9b0e7d3125ccdf985c4474d5",
+      "bytes": 5381
+    },
+    {
+      "destination": "computations/selected-t1-metadata-v2/comparison-manifest-v2.json",
+      "sha256": "1a786a4939347bf79c3bdae8869ab71349ed0372e9a9cd092b7e1e2643901ee9",
+      "bytes": 1049
+    },
+    {
+      "destination": "computations/selected-t1-metadata-v2/cost-inputs-v2.json",
+      "sha256": "37230c540fb73536d41b554cfe82564305a8a3bb323eb4e443906b92ab079242",
+      "bytes": 1597
+    },
+    {
+      "destination": "computations/selected-t1-metadata-v2/direct-inputs-v2.json",
+      "sha256": "2a7d12c0b3e9bc518fa9bfc1dc0a00145c9328eb4a9444e9b113d9f0b775f010",
+      "bytes": 1881
+    },
+    {
+      "destination": "computations/selected-t1-metadata-v2/qualify-direct-v2.py",
+      "sha256": "52ff1b1854e44ca6c95f0952a06e7bcfff76825ecd7288ccce1d82bff3fd53fc",
+      "bytes": 11821
+    },
+    {
+      "destination": "computations/selected-t1-metadata-v2/qualify-reference-v2.py",
+      "sha256": "c2a185725799b63dc48f9b2d961e75a2965d49d1b35825b9e4cf439c0f62252a",
+      "bytes": 8744
+    },
+    {
+      "destination": "computations/selected-t1-metadata-v2/verify-direct-v2.py",
+      "sha256": "113ceaaea42bbd0b336bfb9e90fc865309983f270d779b594ae75ef8d31d2776",
+      "bytes": 39064
+    },
+    {
+      "destination": "computations/selected-t1-metadata-v2/verify-reference-v3.py",
+      "sha256": "be343a1555e9b64e1678f3a9cbc709b8aae62d1838279db1cb6c15a589730334",
+      "bytes": 26694
+    },
+    {
+      "destination": "pyproject.toml",
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf",
+      "bytes": 1432
+    },
+    {
+      "destination": "scripts/cert/__init__.py",
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092",
+      "bytes": 412
+    },
+    {
+      "destination": "scripts/cert/constants.py",
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+      "bytes": 5348
+    },
+    {
+      "destination": "scripts/cert/prime_power_terms.py",
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+      "bytes": 21423
+    },
+    {
+      "destination": "scripts/cert/quadrature.py",
+      "sha256": "c8bc5bc04655722f394dba6c46655494cd90e5e68117e3361a835ac10e719663",
+      "bytes": 6229
+    },
+    {
+      "destination": "scripts/cert/residual_kernel.py",
+      "sha256": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+      "bytes": 12441
+    },
+    {
+      "destination": "scripts/verify_t080_reference_qualification.py",
+      "sha256": "332779553723f5e9aead03cb0084f7131e686bd92f0a13a8e2074f2c0ab57a5d",
+      "bytes": 17239
+    },
+    {
+      "destination": "scripts/weil_reference_route_controls.py",
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13",
+      "bytes": 8462
+    },
+    {
+      "destination": "scripts/weil_t080_reference_qualification.py",
+      "sha256": "74736cbd88ab1aaf1f47f71ade83005088470ce380b34d5cd502704c11436bf9",
+      "bytes": 10360
+    },
+    {
+      "destination": "uv.lock",
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a",
+      "bytes": 210571
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "format": "retained-control-diagnostic-inventory-v1",
+  "members": [
+    {
+      "bytes": 1755,
+      "path": "data/isolated-replay-v1.run.json",
+      "sha256": "9de8bf17c5f0d0f9ed318bc399bad237c928adc1327cf1088e20f0408892c52d"
+    },
+    {
+      "bytes": 12866,
+      "path": "data/isolated-replay-v2.json",
+      "sha256": "d5b7340d68148a0e51912627d3311e04c61bdab9008174735a78075d8e8dda6e"
+    },
+    {
+      "bytes": 12866,
+      "path": "data/isolated-replay-v3.json",
+      "sha256": "04f863e87167f7b21ce32e5b6028140e86625c868ea3910b6739713ce5b29d7d"
+    },
+    {
+      "bytes": 1724,
+      "path": "data/whole-source-v2.run.json",
+      "sha256": "0b3bfd52f7d9c3cf92ea29ef98bcc0a387e235aa9d19280131b343d4fd637347"
+    }
+  ],
+  "scope": "Current diagnostic bytes only. The original control manifest remains the frozen scientific replay seal."
+}

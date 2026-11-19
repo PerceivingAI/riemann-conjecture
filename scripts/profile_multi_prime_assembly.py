@@ -16,8 +16,11 @@ import json
 import os
 import platform
 import pstats
+import re
+import site
 import subprocess
 import sys
+import sysconfig
 import time
 from contextlib import ExitStack
 from datetime import datetime, timezone
@@ -79,17 +82,80 @@ def _provenance() -> dict[str, object]:
         "source_sha256": {
             path: hashlib.sha256((root / path).read_bytes()).hexdigest() for path in SOURCE_PATHS
         },
-        "python": sys.version,
-        "platform": platform.platform(),
-        "processor": platform.processor(),
+        "format": "multi-prime-profile-provenance-v2",
+        "python": platform.python_version(),
+        "platform": sys.platform,
         "cpu_count": os.cpu_count(),
         "versions": {name: importlib.metadata.version(name) for name in ("python-flint", "numpy", "scipy")},
-        "thread_environment": {name: os.environ.get(name) for name in (
+        "thread_environment": {name: _thread_setting(name) for name in (
             "OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "NUMEXPR_NUM_THREADS"
         )},
         "cache_policy": "no continuation cache; sequential assemblies in one process",
         "peak_memory_scope": "process lifetime high-water mark, not per-stage allocation",
     }
+
+
+def _thread_setting(name: str) -> str | None:
+    value = os.environ.get(name)
+    if value is None:
+        return None
+    pattern = r"[1-9][0-9]*"
+    if name == "OMP_NUM_THREADS":
+        pattern += r"(?:[ \t]*,[ \t]*[1-9][0-9]*)*"
+    return value if re.fullmatch(pattern, value) else "unrecognized"
+
+
+def _frame_roots() -> tuple[tuple[str, Path], ...]:
+    paths = sysconfig.get_paths()
+    candidates = (
+        ("dependency", paths.get("purelib")), ("dependency", paths.get("platlib")),
+        ("dependency", site.getusersitepackages()),
+        ("stdlib", paths.get("stdlib")), ("stdlib", paths.get("platstdlib")),
+        ("repo:scripts", Path(__file__).resolve().parent),
+    )
+    return tuple(dict.fromkeys((kind, Path(path).resolve()) for kind, path in candidates if path))
+
+
+def _frame_source(filename: str, roots: tuple[tuple[str, Path], ...]) -> str:
+    if filename == "~":
+        return "builtin"
+    frozen = re.fullmatch(r"<frozen ([a-zA-Z_][a-zA-Z_0-9.]*)>", filename)
+    if frozen:
+        return f"frozen:{frozen[1]}"
+    if filename.startswith("<"):
+        return "unclassified"
+    path = Path(filename)
+    if not path.is_absolute():
+        return "unclassified"
+    path = path.resolve()
+    for kind, root in roots:
+        if path.is_relative_to(root):
+            separator = "/" if kind == "repo:scripts" else ":"
+            return f"{kind}{separator}{path.relative_to(root).as_posix()}"
+    return "unclassified"
+
+
+def _profile_rows(stats, roots: tuple[tuple[str, Path], ...]) -> list[dict[str, object]]:
+    """Keep top-frame order and statistics; number sources that share a label."""
+    sources: dict[str, tuple[str, int]] = {}
+    instances: dict[str, int] = {}
+    rows = []
+    for (filename, line, function), (primitive, calls, exclusive, cumulative, _) in sorted(
+        stats.items(), key=lambda item: item[1][3], reverse=True
+    )[:60]:
+        if filename not in sources:
+            source = _frame_source(filename, roots)
+            instance = instances.get(source, 0) + 1
+            instances[source] = instance
+            sources[filename] = source, instance
+        source, instance = sources[filename]
+        rows.append({
+            "source": source, "source_instance": instance, "line": line, "function": function,
+            "primitive_calls": primitive, "calls": calls,
+            "exclusive_seconds": exclusive, "cumulative_seconds": cumulative,
+        })
+    return rows
+
 
 
 def _stage_wrappers(stack: ExitStack, records: dict[str, dict[str, float]]) -> None:
@@ -171,12 +237,8 @@ def run_sample(n: int, support: Fraction, precision: int, residual_order: int, m
         "theorem_status": False,
     }
     if profiler:
-        stats = pstats.Stats(profiler)
-        row["profile"] = [
-            {"file": key[0], "line": key[1], "function": key[2], "primitive_calls": value[0],
-             "calls": value[1], "exclusive_seconds": value[2], "cumulative_seconds": value[3]}
-            for key, value in sorted(stats.stats.items(), key=lambda item: item[1][3], reverse=True)[:60]
-        ]
+        row["profile_format"] = "multi-prime-cprofile-frames-v2"
+        row["profile"] = _profile_rows(pstats.Stats(profiler).stats, _frame_roots())
     return row
 
 
@@ -217,7 +279,9 @@ def main() -> None:
             row = run_sample(n, args.support, args.precision, args.residual_order, args.mode)
         except Exception as exc:
             payload["status"] = "failed"
-            payload["error"] = {"type": type(exc).__name__, "message": str(exc)}
+            payload["error"] = {"type": type(exc).__name__}
+            if isinstance(exc, OSError) and isinstance(exc.errno, int):
+                payload["error"]["errno"] = exc.errno
             publish()
             raise
         payload["samples"].append(row)

@@ -136,3 +136,10 @@
 # The retained T81 capture compares these canonical files as raw bytes.
 /scripts/cert/__init__.py text eol=lf
 /scripts/cert/quadrature.py text eol=lf
+
+# Preserve new whole-source code and exact bound scientific inventory bytes.
+/scripts/whole_source/*.py text eol=lf
+/scripts/whole_source/runtime/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_whole_source_split.py text eol=lf
+/scripts/probe_native_checkpoint_v1.py text eol=lf
+/computations/selected-t1-metadata-v2/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

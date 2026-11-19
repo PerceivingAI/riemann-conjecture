@@ -18,8 +18,8 @@
     },
     {
       "path": "scripts/verify_t081_retained_acceptance.py",
-      "sha256": "60e81a70c119b24965691435b378886852d149de82ab732d420b80f642af5911",
-      "size": 6220
+      "sha256": "66784a683216c3e8e12128cc17380a3ce4272d0603cccf24cd5d9068689065c8",
+      "size": 6412
     },
     {
       "path": "scripts/run_observability.py",

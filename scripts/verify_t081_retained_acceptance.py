@@ -18,7 +18,7 @@ LEGACY = ROOT / "computations/2026-10-27T182100Z-t081-retained-acceptance"
 QUALIFIED = ROOT / "computations/2026-10-28T034134Z-t081-resource-execution"
 sys.path.insert(0, str(QUALIFIED))
 from execution_resources_v2 import resolve_resources
-from execution_supervisor_v1 import Execution
+from scripts.t081_resource_supervisor import Execution
 
 
 def sha(path: Path) -> str:
@@ -64,28 +64,30 @@ def main() -> None:
                 "original checkpoint bytes changed: " + member["path"])
     qualified = load(QUALIFIED / "manifest-v2.json")
     qualified_members = {member["path"]: member for member in qualified["members"]}
-    helpers = ("execution_resources_v2.py", "execution_supervisor_v1.py",
-               "resource_limits_v1.py", "stage_worker_v1.py", "execution_events_v1.py")
+    helpers = ("execution_resources_v2.py", "resource_limits_v1.py", "execution_events_v1.py")
     for name in helpers:
         require(sha(QUALIFIED / name) == qualified_members[name]["sha256"],
                 "qualified execution helper changed: " + name)
     replay = LEGACY / "data/isolated-replay-v1.json"
     final_output = output / "retained-acceptance-v1.json"
     with Execution(output, budget, root=ROOT) as execution:
-        write(output / "bound-inputs-v1.json", {
+        budget = execution.budget
+        write(output / "bound-inputs-v2.json", {
             "entrypoint_sha256": sha(Path(__file__)),
             "original_checkpoint_manifest_sha256": sha(LEGACY / "manifest.json"),
             "qualified_execution_manifest_sha256": sha(QUALIFIED / "manifest-v2.json"),
             "reused_replay_sha256": sha(replay),
             "source_sha256": "f69fee0feb9c08833ad6a3091718c9a6a301e5b5ddbea96ee5f0f6c0553c8b6e",
-            "legacy_programs": {name: sha(LEGACY / name) for name in
-                                ("negative-controls-v1.py", "accept-retained-v1.py")},
+            "legacy_programs": {"accept-retained-v1.py": sha(LEGACY / "accept-retained-v1.py")},
+            "current_control_recorder_sha256": sha(LEGACY / "negative-controls-v2.py"),
             "execution_helpers": {name: sha(QUALIFIED / name) for name in helpers},
+            "recording_helpers": {name: sha(ROOT / "scripts" / name) for name in (
+                "t081_resource_records.py", "t081_resource_supervisor.py", "t081_resource_worker.py")},
             "native_threads": 1,
             "complete_source_replay_executed_again": False,
             "production_admission": False,
         })
-        execution.run("original-adversarial", LEGACY / "negative-controls-v1.py",
+        execution.run("original-adversarial", LEGACY / "negative-controls-v2.py",
                       ["--output", str(negative)], kind="fixture")
         controls = load(negative)
         require(controls["status"] == "PASS_NEGATIVE_CONTROLS" and
@@ -103,7 +105,7 @@ def main() -> None:
     require(all(stage["worker_cleanup_verified"] for stage in execution.receipts),
             "owned process cleanup was not verified")
     receipt = {
-        "format": "t081-original-retained-gates-execution-v1",
+        "format": "t081-original-retained-gates-execution-v2",
         "status": "PASS_ORIGINAL_ADVERSARIAL_AND_RETAINED_CONSEQUENCE_GATES",
         "entrypoint_sha256": sha(Path(__file__)),
         "reused_replay_sha256": sha(replay),
@@ -118,7 +120,7 @@ def main() -> None:
         "production_admission": False,
         "rh_status": "UNRESOLVED",
     }
-    write(output / "milestone3-completion-v1.json", receipt)
+    write(output / "milestone3-completion-v2.json", receipt)
     print(json.dumps({"status": receipt["status"],
                       "published_source_norm_gap": consequence["published_rational_source_norm_gap_lower"]}),
           flush=True)

@@ -1,0 +1,18 @@
+{
+  "format": "t081-cost-measurement-projection-v3",
+  "memory_budget_bytes": 13285859328,
+  "reserve_bytes": 1476206592,
+  "sanitized_report_sha256": "2756694e14c30269bd1911f4d2e37a4b9da56a2aba345653dd499ddb4a6c4d4d",
+  "stages": [
+    {
+      "new_stage_wall_seconds": "1767.8659277999977",
+      "process_peak_committed_bytes": 6910521344,
+      "stage": "source"
+    },
+    {
+      "new_stage_wall_seconds": "2845.0065998999926",
+      "process_peak_committed_bytes": 8440590336,
+      "stage": "independent-audit"
+    }
+  ]
+}
