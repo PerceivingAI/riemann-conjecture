@@ -1,0 +1,16 @@
+T081_READY {"pid": 30496, "config_sha256": "b3525dfa4420aaa4c893bded228bc551038bb712b5e6b7a17b11fc995070e350"}
+T081_EVENT {"elapsed_seconds": 0.012580000009620562, "event": "program_started", "kind": "fixture", "threads": 1}
+T081_EVENT {"event": "work", "phase": "downward_anchor_1", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "downward_anchor_1", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "downward_anchor_30", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "downward_anchor_30", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "downward_anchor_59", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "downward_anchor_59", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "upward_anchor_1", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "upward_anchor_1", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "upward_anchor_30", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "upward_anchor_30", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "upward_anchor_59", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "upward_anchor_59", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "complete", "mode": "frequency", "wall_seconds": 2.583181499998318}
+T081_EVENT {"elapsed_seconds": 2.603893399995286, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 2.59045829999377}

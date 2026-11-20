@@ -1,0 +1,116 @@
+{
+  "after": {
+    "committed_bytes": 23810048,
+    "peak_committed_bytes": 129138688,
+    "peak_working_set_bytes": 135430144,
+    "working_set_bytes": 36368384
+  },
+  "before": {
+    "committed_bytes": 18587648,
+    "peak_committed_bytes": 20795392,
+    "peak_working_set_bytes": 32792576,
+    "working_set_bytes": 30732288
+  },
+  "cpu_seconds": 1.28125,
+  "details": {
+    "compressed_bytes": 5623497,
+    "corrupt_CRC_rejected": true,
+    "grid": 512,
+    "raw_bytes": 17620194,
+    "reads": [
+      {
+        "compressed_sha256": "d4d339d19a16e31e1c4a330a5586e2ee9b7d242e1338d128a3d93ff4ba720c32",
+        "kind": "first_uncontrolled_cache_read",
+        "records": 65536
+      },
+      {
+        "compressed_sha256": "d4d339d19a16e31e1c4a330a5586e2ee9b7d242e1338d128a3d93ff4ba720c32",
+        "kind": "repeat_warm_read",
+        "records": 65536
+      }
+    ],
+    "records": 65536,
+    "scope": "synthetic high-entropy endpoints with narrow paired widths, not target compression/cold storage",
+    "scratch_removed_after_scope": true
+  },
+  "format": "bounded-native-observations-v1",
+  "full_target_matrices_computed": false,
+  "inputs_sha256": "599d2ff763a3004328aa3abe9fd70f66a5127057b9ad91064a704b7bd34b07c4",
+  "mode": "transport",
+  "native_threads": 1,
+  "phases": [
+    {
+      "after": {
+        "committed_bytes": 60436480,
+        "peak_committed_bytes": 81727488,
+        "peak_working_set_bytes": 93945856,
+        "working_set_bytes": 73404416
+      },
+      "before": {
+        "committed_bytes": 18587648,
+        "peak_committed_bytes": 20795392,
+        "peak_working_set_bytes": 32792576,
+        "working_set_bytes": 31305728
+      },
+      "cpu_seconds": 0.6875,
+      "phase": "encode_compress_fsync_chunk",
+      "wall_seconds": 0.7043491999793332
+    },
+    {
+      "after": {
+        "committed_bytes": 62291968,
+        "peak_committed_bytes": 123215872,
+        "peak_working_set_bytes": 135430144,
+        "working_set_bytes": 74715136
+      },
+      "before": {
+        "committed_bytes": 60436480,
+        "peak_committed_bytes": 81727488,
+        "peak_working_set_bytes": 93945856,
+        "working_set_bytes": 73404416
+      },
+      "cpu_seconds": 0.265625,
+      "phase": "first_uncontrolled_cache_read",
+      "wall_seconds": 0.30103309999685735
+    },
+    {
+      "after": {
+        "committed_bytes": 63344640,
+        "peak_committed_bytes": 123215872,
+        "peak_working_set_bytes": 135430144,
+        "working_set_bytes": 75763712
+      },
+      "before": {
+        "committed_bytes": 62291968,
+        "peak_committed_bytes": 123215872,
+        "peak_working_set_bytes": 135430144,
+        "working_set_bytes": 74715136
+      },
+      "cpu_seconds": 0.28125,
+      "phase": "repeat_warm_read",
+      "wall_seconds": 0.29502550000324845
+    },
+    {
+      "after": {
+        "committed_bytes": 69095424,
+        "peak_committed_bytes": 129138688,
+        "peak_working_set_bytes": 135430144,
+        "working_set_bytes": 81461248
+      },
+      "before": {
+        "committed_bytes": 63344640,
+        "peak_committed_bytes": 123215872,
+        "peak_working_set_bytes": 135430144,
+        "working_set_bytes": 75763712
+      },
+      "cpu_seconds": 0.03125,
+      "phase": "corrupt_transport_control",
+      "wall_seconds": 0.037857200019061565
+    }
+  ],
+  "production_admission": false,
+  "program_sha256": "625ab38881b56b66391436723699da2319cb0fc668b90e89aa048b19be25ef00",
+  "status": "PASS_RESTRICTED_OBSERVATION_ONLY",
+  "target_positivity_proved": false,
+  "wall_seconds": 1.3540066000132356
+}

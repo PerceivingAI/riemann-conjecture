@@ -1,0 +1,176 @@
+{
+  "after": {
+    "committed_bytes": 19664896,
+    "peak_committed_bytes": 20492288,
+    "peak_working_set_bytes": 32612352,
+    "working_set_bytes": 31637504
+  },
+  "before": {
+    "committed_bytes": 18292736,
+    "peak_committed_bytes": 20492288,
+    "peak_working_set_bytes": 32612352,
+    "working_set_bytes": 30568448
+  },
+  "cpu_seconds": 0.03125,
+  "details": {
+    "child_reports": [
+      {
+        "after": {
+          "committed_bytes": 20463616,
+          "peak_committed_bytes": 322879488,
+          "peak_working_set_bytes": 325648384,
+          "working_set_bytes": 32083968
+        },
+        "before": {
+          "committed_bytes": 19648512,
+          "peak_committed_bytes": 21819392,
+          "peak_working_set_bytes": 33513472,
+          "working_set_bytes": 31432704
+        },
+        "cpu_seconds": 0.171875,
+        "details": {
+          "live": {
+            "committed_bytes": 322879488,
+            "peak_committed_bytes": 322879488,
+            "peak_working_set_bytes": 325492736,
+            "working_set_bytes": 325492736
+          },
+          "native_threads": 1,
+          "pid": 33052,
+          "precision": 34304,
+          "row_contains_exact_value": true,
+          "scope": "native copied scalar allocation, not scientific matrix",
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "format": "bounded-native-observations-v1",
+        "full_target_matrices_computed": false,
+        "inputs_sha256": "599d2ff763a3004328aa3abe9fd70f66a5127057b9ad91064a704b7bd34b07c4",
+        "mode": "child",
+        "native_threads": 1,
+        "phases": [],
+        "production_admission": false,
+        "program_sha256": "625ab38881b56b66391436723699da2319cb0fc668b90e89aa048b19be25ef00",
+        "status": "PASS_RESTRICTED_OBSERVATION_ONLY",
+        "target_positivity_proved": false,
+        "wall_seconds": 0.16592090000631288
+      },
+      {
+        "after": {
+          "committed_bytes": 20004864,
+          "peak_committed_bytes": 323026944,
+          "peak_working_set_bytes": 325808128,
+          "working_set_bytes": 32051200
+        },
+        "before": {
+          "committed_bytes": 19800064,
+          "peak_committed_bytes": 21970944,
+          "peak_working_set_bytes": 33673216,
+          "working_set_bytes": 31592448
+        },
+        "cpu_seconds": 0.171875,
+        "details": {
+          "live": {
+            "committed_bytes": 323026944,
+            "peak_committed_bytes": 323026944,
+            "peak_working_set_bytes": 325632000,
+            "working_set_bytes": 325632000
+          },
+          "native_threads": 1,
+          "pid": 1792,
+          "precision": 34304,
+          "row_contains_exact_value": true,
+          "scope": "native copied scalar allocation, not scientific matrix",
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "format": "bounded-native-observations-v1",
+        "full_target_matrices_computed": false,
+        "inputs_sha256": "599d2ff763a3004328aa3abe9fd70f66a5127057b9ad91064a704b7bd34b07c4",
+        "mode": "child",
+        "native_threads": 1,
+        "phases": [],
+        "production_admission": false,
+        "program_sha256": "625ab38881b56b66391436723699da2319cb0fc668b90e89aa048b19be25ef00",
+        "status": "PASS_RESTRICTED_OBSERVATION_ONLY",
+        "target_positivity_proved": false,
+        "wall_seconds": 0.18130279998877086
+      }
+    ],
+    "children": 2,
+    "owned_child_processes_reaped": true,
+    "parent_live": {
+      "committed_bytes": 19771392,
+      "peak_committed_bytes": 20492288,
+      "peak_working_set_bytes": 32612352,
+      "working_set_bytes": 31518720
+    },
+    "ready": [
+      {
+        "before": {
+          "committed_bytes": 19648512,
+          "peak_committed_bytes": 21819392,
+          "peak_working_set_bytes": 33513472,
+          "working_set_bytes": 31449088
+        },
+        "live": {
+          "committed_bytes": 322879488,
+          "peak_committed_bytes": 322879488,
+          "peak_working_set_bytes": 325492736,
+          "working_set_bytes": 325492736
+        },
+        "pid": 33052
+      },
+      {
+        "before": {
+          "committed_bytes": 19800064,
+          "peak_committed_bytes": 21970944,
+          "peak_working_set_bytes": 33673216,
+          "working_set_bytes": 31608832
+        },
+        "live": {
+          "committed_bytes": 323026944,
+          "peak_committed_bytes": 323026944,
+          "peak_working_set_bytes": 325632000,
+          "working_set_bytes": 325632000
+        },
+        "pid": 1792
+      }
+    ],
+    "scope": "one top-level owned stage with inherited numerical descendants, not production multiworker scheduler",
+    "two_child_conclusion_exercised": true
+  },
+  "format": "bounded-native-observations-v1",
+  "full_target_matrices_computed": false,
+  "inputs_sha256": "599d2ff763a3004328aa3abe9fd70f66a5127057b9ad91064a704b7bd34b07c4",
+  "mode": "aggregate",
+  "native_threads": 1,
+  "phases": [
+    {
+      "after": {
+        "committed_bytes": 19664896,
+        "peak_committed_bytes": 20492288,
+        "peak_working_set_bytes": 32612352,
+        "working_set_bytes": 31612928
+      },
+      "before": {
+        "committed_bytes": 18321408,
+        "peak_committed_bytes": 20492288,
+        "peak_working_set_bytes": 32612352,
+        "working_set_bytes": 31178752
+      },
+      "cpu_seconds": 0.015625,
+      "phase": "simultaneous_owned_native_children",
+      "wall_seconds": 0.4763487000018358
+    }
+  ],
+  "production_admission": false,
+  "program_sha256": "625ab38881b56b66391436723699da2319cb0fc668b90e89aa048b19be25ef00",
+  "status": "PASS_RESTRICTED_OBSERVATION_ONLY",
+  "target_positivity_proved": false,
+  "wall_seconds": 0.4814011999987997
+}

@@ -1,0 +1,9 @@
+T081_READY {"pid": 14784, "config_sha256": "4764947b96d083ecf0d46133071f345f822b04e2db5c516ce8dc633eafd3d7bd"}
+T081_EVENT {"elapsed_seconds": 0.011730700003681704, "event": "program_started", "kind": "fixture", "threads": 6}
+T081_EVENT {"event": "phase_started", "phase": "compact_interval_operand_construction"}
+T081_EVENT {"event": "phase_finished", "phase": "compact_interval_operand_construction", "wall_seconds": 1.6402950000192504}
+T081_EVENT {"event": "phase_started", "phase": "native_complete_inner_matrix_product"}
+T081_EVENT {"event": "phase_finished", "phase": "native_complete_inner_matrix_product", "wall_seconds": 0.3816371000139043}
+T081_EVENT {"event": "phase_started", "phase": "independent_all_inner_integer_endpoint_controls"}
+T081_EVENT {"event": "phase_finished", "phase": "independent_all_inner_integer_endpoint_controls", "wall_seconds": 0.1635569000209216}
+T081_EVENT {"elapsed_seconds": 2.2404571999795735, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 2.2277756000112277}

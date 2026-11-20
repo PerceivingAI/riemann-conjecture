@@ -1,0 +1,152 @@
+{
+  "bindings_checked": [
+    "consumer",
+    "declaration",
+    "declaration_audit",
+    "declaration_manifest",
+    "events",
+    "exact_probe",
+    "limits",
+    "native_probe",
+    "observability",
+    "policy",
+    "producer",
+    "retained_probe_runner",
+    "runner",
+    "supervisor",
+    "worker"
+  ],
+  "complete_target_feasibility_established": false,
+  "format": "bounded-resource-observation-qualification-v1",
+  "inputs_sha256": "599d2ff763a3004328aa3abe9fd70f66a5127057b9ad91064a704b7bd34b07c4",
+  "limits": [
+    "Synthetic exact/float matrices are not a target witness or target conditioning.",
+    "Selected nodes/bands are not complete quadrature or kernel acceptance.",
+    "No source/consumer/proposal/exact end-to-end target implementation or run.",
+    "Timing observations are not universal scaling laws or cold-storage benchmarks."
+  ],
+  "observations": [
+    {
+      "cleanup_verified": true,
+      "error": null,
+      "execution_status": "completed",
+      "exit_code": 0,
+      "mode": "exact",
+      "peak_owned_job_committed_bytes": 170549248,
+      "receipt_sha256": "14270a6c991dbe3579b019225e062ff797b6f2ce73e9320e4b65d76a755854c3",
+      "result_present": true,
+      "result_sha256": "c7e52f7c42b1ea846bed5ad7fca078eff831c4d0a14a07aed0bd13afa9dfecd1",
+      "stage_wall_seconds": 9.289017500006594
+    },
+    {
+      "cleanup_verified": true,
+      "error": null,
+      "execution_status": "completed",
+      "exit_code": 0,
+      "mode": "proposal",
+      "peak_owned_job_committed_bytes": 682983424,
+      "receipt_sha256": "4ac71ba0d06b9e0f0d6f5f3026d240728b994a02132d88efa608876c413dc9d9",
+      "result_present": true,
+      "result_sha256": "1ba4e177648b1ea9acb7ae8d78d53a277a1d65d607fd9c22f19a6504240b2b69",
+      "stage_wall_seconds": 5.904726799984928
+    },
+    {
+      "cleanup_verified": true,
+      "error": null,
+      "execution_status": "completed",
+      "exit_code": 0,
+      "mode": "prepare",
+      "peak_owned_job_committed_bytes": 121831424,
+      "receipt_sha256": "27e186a80621a177eab20b8c3859b3f5e783f23f2976656c722a96d4bc1387f1",
+      "result_present": true,
+      "result_sha256": "d866e30026829fde3ef45cfffee831381f80c275bd332c2fd0452a5713c7a73a",
+      "stage_wall_seconds": 215.60718160000397
+    },
+    {
+      "cleanup_verified": true,
+      "error": null,
+      "execution_status": "completed",
+      "exit_code": 0,
+      "mode": "images",
+      "peak_owned_job_committed_bytes": 27238400,
+      "receipt_sha256": "a6fa7e79f4948e16378facb507bf77a6b694bf32428f52c4c88146b69689d06d",
+      "result_present": true,
+      "result_sha256": "bcedba7d1db6212fa56fa15936f1e845a385a13b8819185f187bc86639819489",
+      "stage_wall_seconds": 3.2829988000157755
+    },
+    {
+      "cleanup_verified": true,
+      "error": null,
+      "execution_status": "completed",
+      "exit_code": 0,
+      "mode": "frequency",
+      "peak_owned_job_committed_bytes": 79437824,
+      "receipt_sha256": "6ba4ac78bfadcb713378a03eab1d464873d8dd0a2646eec2b61d83fd764e00ae",
+      "result_present": true,
+      "result_sha256": "76572bb2a72f246aeb8f942c05c0f8d5b2d4141e6fbbafdaaf88dc149cfd3566",
+      "stage_wall_seconds": 3.3700252000126056
+    },
+    {
+      "cleanup_verified": true,
+      "error": null,
+      "execution_status": "completed",
+      "exit_code": 0,
+      "mode": "transport",
+      "peak_owned_job_committed_bytes": 130019328,
+      "receipt_sha256": "24083df1f7f7af3a03e97d0ec1276f2d873248a7dc9efcfc24137796a61e13f0",
+      "result_present": true,
+      "result_sha256": "b50d428f9f3beb9924b1af1a7c4d4f4932170bc1a6ea266d3dd0c47c922c87a9",
+      "stage_wall_seconds": 2.1334477000054903
+    },
+    {
+      "cleanup_verified": true,
+      "error": null,
+      "execution_status": "completed",
+      "exit_code": 0,
+      "mode": "aggregate",
+      "peak_owned_job_committed_bytes": 668446720,
+      "receipt_sha256": "7cacddc0405cee66ce89f8426701fd30dd40e5652744e090461ffdfe6ff5cdb7",
+      "result_present": true,
+      "result_sha256": "d567c5c2087a8945ff82f37c93f7fde4750987105fc2d0fb8e64824ad552936a",
+      "stage_wall_seconds": 1.2499060000118334
+    },
+    {
+      "cleanup_verified": true,
+      "error": null,
+      "execution_status": "completed",
+      "exit_code": 0,
+      "mode": "coefficients",
+      "peak_owned_job_committed_bytes": 149573632,
+      "receipt_sha256": "bc682c7479241b555280a639430b26e54041739cc585de1655bd3d55ccdb6f8c",
+      "result_present": true,
+      "result_sha256": "0e47c44bedc153c9167f1ad985f1a8ace83f5a490681f3e3b1e501e89a9c06c3",
+      "stage_wall_seconds": 37.70875759999035
+    },
+    {
+      "cleanup_verified": true,
+      "error": null,
+      "execution_status": "completed",
+      "exit_code": 0,
+      "mode": "panels",
+      "peak_owned_job_committed_bytes": 97443840,
+      "receipt_sha256": "3476d9bfcadfe5435b2da8d65611d5be96f458a50dfc698681a593ef42bd3a68",
+      "result_present": true,
+      "result_sha256": "069cd3933c79a164d89077210f8871eb1cdfe7d63ca7c15de69295851dc3c98b",
+      "stage_wall_seconds": 2.9996576999838
+    }
+  ],
+  "production_admission": false,
+  "status": "PASS_RETAINED_SCOPED_OBSERVATIONS",
+  "successful_modes": [
+    "aggregate",
+    "coefficients",
+    "exact",
+    "frequency",
+    "images",
+    "panels",
+    "prepare",
+    "proposal",
+    "transport"
+  ],
+  "target_positivity_proved": false
+}

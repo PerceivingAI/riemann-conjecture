@@ -1,0 +1,41 @@
+T081_READY {"pid": 15452, "config_sha256": "746f957f7947a65e3f208ec6947ebedb2b654cc97ed34b3ae98cad11c971f2e3"}
+T081_EVENT {"elapsed_seconds": 0.0020991000055801123, "event": "program_started", "kind": "fixture", "threads": 1}
+T081_EVENT {"event": "phase_started", "phase": "native_exact_0"}
+T081_EVENT {"event": "phase_finished", "phase": "native_exact_0", "wall_seconds": 0.00018179998733103275}
+T081_EVENT {"event": "phase_started", "phase": "integer_ratio_0"}
+T081_EVENT {"event": "phase_finished", "phase": "integer_ratio_0", "wall_seconds": 6.890000076964498e-05}
+T081_EVENT {"event": "phase_started", "phase": "closed_Rodrigues_0"}
+T081_EVENT {"event": "phase_finished", "phase": "closed_Rodrigues_0", "wall_seconds": 6.78999931551516e-05}
+T081_EVENT {"event": "phase_started", "phase": "native_exact_1"}
+T081_EVENT {"event": "phase_finished", "phase": "native_exact_1", "wall_seconds": 3.10999748762697e-05}
+T081_EVENT {"event": "phase_started", "phase": "integer_ratio_1"}
+T081_EVENT {"event": "phase_finished", "phase": "integer_ratio_1", "wall_seconds": 5.139998393133283e-05}
+T081_EVENT {"event": "phase_started", "phase": "closed_Rodrigues_1"}
+T081_EVENT {"event": "phase_finished", "phase": "closed_Rodrigues_1", "wall_seconds": 3.330002073198557e-05}
+T081_EVENT {"event": "phase_started", "phase": "native_exact_2"}
+T081_EVENT {"event": "phase_finished", "phase": "native_exact_2", "wall_seconds": 0.00027550000231713057}
+T081_EVENT {"event": "phase_started", "phase": "integer_ratio_2"}
+T081_EVENT {"event": "phase_finished", "phase": "integer_ratio_2", "wall_seconds": 5.8600009651854634e-05}
+T081_EVENT {"event": "phase_started", "phase": "closed_Rodrigues_2"}
+T081_EVENT {"event": "phase_finished", "phase": "closed_Rodrigues_2", "wall_seconds": 2.8600014047697186e-05}
+T081_EVENT {"event": "phase_started", "phase": "native_exact_132"}
+T081_EVENT {"event": "phase_finished", "phase": "native_exact_132", "wall_seconds": 6.370001938194036e-05}
+T081_EVENT {"event": "phase_started", "phase": "integer_ratio_132"}
+T081_EVENT {"event": "phase_finished", "phase": "integer_ratio_132", "wall_seconds": 0.0001858999894466251}
+T081_EVENT {"event": "phase_started", "phase": "closed_Rodrigues_132"}
+T081_EVENT {"event": "phase_finished", "phase": "closed_Rodrigues_132", "wall_seconds": 0.00037269998574629426}
+T081_EVENT {"event": "phase_started", "phase": "native_exact_5563"}
+T081_EVENT {"event": "phase_finished", "phase": "native_exact_5563", "wall_seconds": 0.0029488999862223864}
+T081_EVENT {"event": "phase_started", "phase": "integer_ratio_5563"}
+T081_EVENT {"event": "phase_finished", "phase": "integer_ratio_5563", "wall_seconds": 0.03356969999731518}
+T081_EVENT {"event": "phase_started", "phase": "closed_Rodrigues_5563"}
+T081_EVENT {"event": "phase_finished", "phase": "closed_Rodrigues_5563", "wall_seconds": 5.557538799999747}
+T081_EVENT {"event": "phase_started", "phase": "native_exact_11127"}
+T081_EVENT {"event": "phase_finished", "phase": "native_exact_11127", "wall_seconds": 0.015773999999510124}
+T081_EVENT {"event": "phase_started", "phase": "integer_ratio_11127"}
+T081_EVENT {"event": "phase_finished", "phase": "integer_ratio_11127", "wall_seconds": 0.15054200001759455}
+T081_EVENT {"event": "phase_started", "phase": "closed_Rodrigues_11127"}
+T081_EVENT {"event": "phase_finished", "phase": "closed_Rodrigues_11127", "wall_seconds": 30.882429699995555}
+T081_EVENT {"event": "phase_started", "phase": "highest_exact_native_conversion"}
+T081_EVENT {"event": "phase_finished", "phase": "highest_exact_native_conversion", "wall_seconds": 0.05928159999893978}
+T081_EVENT {"elapsed_seconds": 36.964041300001554, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 36.96065719999024}

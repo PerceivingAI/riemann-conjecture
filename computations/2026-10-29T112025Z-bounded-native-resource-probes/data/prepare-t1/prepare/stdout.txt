@@ -1,0 +1,10 @@
+T081_READY {"pid": 24548, "config_sha256": "7eccfc54b1f17c311291033af72ac7783a03f57ffc9a428010268448b35e1630"}
+T081_EVENT {"elapsed_seconds": 0.01738659999682568, "event": "program_started", "kind": "fixture", "threads": 1}
+T081_EVENT {"event": "work", "phase": "stream_exact_three_term_basis", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "stream_exact_three_term_basis", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "independent_highest_Rodrigues", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "independent_highest_Rodrigues", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "one_highest_native_coefficient_batch", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "one_highest_native_coefficient_batch", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "complete", "mode": "prepare", "wall_seconds": 214.7694870000123}
+T081_EVENT {"elapsed_seconds": 214.79651840002043, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 214.77795530000003}

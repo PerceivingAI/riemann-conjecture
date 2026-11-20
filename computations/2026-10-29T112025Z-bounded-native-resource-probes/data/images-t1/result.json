@@ -1,0 +1,192 @@
+{
+  "after": {
+    "committed_bytes": 21602304,
+    "peak_committed_bytes": 26349568,
+    "peak_working_set_bytes": 40042496,
+    "working_set_bytes": 35213312
+  },
+  "before": {
+    "committed_bytes": 18706432,
+    "peak_committed_bytes": 20926464,
+    "peak_working_set_bytes": 32792576,
+    "working_set_bytes": 30740480
+  },
+  "cpu_seconds": 2.953125,
+  "details": {
+    "active_powers": [
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "all_native_widths_or_full_target_goal_checked": false,
+    "checked_enclosures": 16,
+    "checkpoint_bits": 512,
+    "checkpoint_only_bound_below_goal": true,
+    "checkpoint_only_full_Psquare_physical_rounding_bound": "1214512734285166946577207144907565252070135069327665311476475937951868290560391963422226551194806961301373041841929549114937904391882614081469377532124400876006297/22471164185778948846616314884862809170224712236778832159178760144716584475687620391588559665300942002640014234983924169707348721101802077811605928829934265547220986678108185659537777450155761764931635369010625721104768835292807860184239138817603404645418813835573287279993405742309964538104419541203028017152",
+    "highest_head_mode": 11127,
+    "inactive_opposite_shifts": 5,
+    "input_modes": [
+      5557,
+      5563
+    ],
+    "native_precisions": [
+      25600,
+      34304
+    ],
+    "node_ids": [
+      0,
+      2782,
+      5563
+    ],
+    "prime7_omission_rejected_nodes": 3,
+    "scope": "last translation cell, three selected q=N nodes, complete active signed image and selected head value; not complete quadrature/Gram",
+    "values": [
+      {
+        "image_pairs_hex": [
+          [
+            "0x2182cb91093541a8b5843bc72e7b36fa9c4bcb4ae006cc2a3c069983c888051343d6b84dece7eb9247fe2612a9f575b563f0534687fe634e960f38a091befa7",
+            "0x2182cb91093541a8b5843bc72e7b36fa9c4bcb4ae006cc2a3c069983c888051343d6b84dece7eb9247fe2612a9f575b563f0534687fe634e960f38a091befaa"
+          ],
+          [
+            "-0x598c20b69fe0cb6385ba903d4109e0b4803960638fb60217c77ae19adf89f70a828b8daeab8c183c1b4f7f400c51d865726580cb809cfa7b571433b9dade869",
+            "-0x598c20b69fe0cb6385ba903d4109e0b4803960638fb60217c77ae19adf89f70a828b8daeab8c183c1b4f7f400c51d865726580cb809cfa7b571433b9dade866"
+          ]
+        ],
+        "node": 0,
+        "partial_Gram_pairs_hex": [
+          [
+            "0x7a1dd5ef8a7995b443275c110150a047dced084ddaa1024b9c80d4",
+            "0x7a1dd5ef8a7995b443275c110150a047dced084ddaa1024b9c80d7"
+          ],
+          [
+            "-0x1465168889569fa489e603a8067d3269463834c32fd075f4fe3eeb6",
+            "-0x1465168889569fa489e603a8067d3269463834c32fd075f4fe3eeb3"
+          ],
+          [
+            "0x367fb68c9e0f93a03eefcec0f05a448008375f44165f8ec58965659",
+            "0x367fb68c9e0f93a03eefcec0f05a448008375f44165f8ec5896565c"
+          ]
+        ]
+      },
+      {
+        "image_pairs_hex": [
+          [
+            "0x7a2e86ebeffcc530fc9adc7ba0a269500f2a794a30fd25162018a1895314de764ab58452545bcf9138342b957e50e74e0ed222630ed80289f4510b9998f609d",
+            "0x7a2e86ebeffcc530fc9adc7ba0a269500f2a794a30fd25162018a1895314de764ab58452545bcf9138342b957e50e74e0ed222630ed80289f4510b9998f60a0"
+          ],
+          [
+            "0x1e84b3bf012d0de63d3e15c2bcea6e33c8e332bf73fd8bfac00a68942a38436f31482161cde60c3685a7a639a32fc2d1de4427785aaa27175d7ef57ca7e07da",
+            "0x1e84b3bf012d0de63d3e15c2bcea6e33c8e332bf73fd8bfac00a68942a38436f31482161cde60c3685a7a639a32fc2d1de4427785aaa27175d7ef57ca7e07dd"
+          ]
+        ],
+        "node": 2782,
+        "partial_Gram_pairs_hex": [
+          [
+            "0x3a5a54c56b85a457b103a48891afe5269f7aef9de77b47452363497233",
+            "0x3a5a54c56b85a457b103a48891afe5269f7aef9de77b47452363497236"
+          ],
+          [
+            "0xe9345f45c398fe833f679815a8c3791036203f2c7617635ae7c967165",
+            "0xe9345f45c398fe833f679815a8c3791036203f2c7617635ae7c967168"
+          ],
+          [
+            "0x3a3fddde4a2ad06ca328b2f750f63c32adce721ca165ea4f411939580",
+            "0x3a3fddde4a2ad06ca328b2f750f63c32adce721ca165ea4f411939583"
+          ]
+        ]
+      },
+      {
+        "image_pairs_hex": [
+          [
+            "0xb25bdc90d0d918ae705f3a327ee2b7454d8448afadf9230687266366d6b0fca1252139009e5842dc2e97288ab3b87c46ca6d51941bd1331407950fc1edc173ac",
+            "0xb25bdc90d0d918ae705f3a327ee2b7454d8448afadf9230687266366d6b0fca1252139009e5842dc2e97288ab3b87c46ca6d51941bd1331407950fc1edc173af"
+          ],
+          [
+            "0xb7fd051e7dc5d2717a9f345b300ff1c96e9623e9d4de0d185091c57fe3100afe480c85099813857782a3bfde91742f30f88130af39fb1ed71d9071ba2f82687e",
+            "0xb7fd051e7dc5d2717a9f345b300ff1c96e9623e9d4de0d185091c57fe3100afe480c85099813857782a3bfde91742f30f88130af39fb1ed71d9071ba2f826881"
+          ]
+        ],
+        "node": 5563,
+        "partial_Gram_pairs_hex": [
+          [
+            "0xd8352a54bc0ae226e49f1bbf471a41eb4592ac009bf4a17c16a7bc3a8",
+            "0xd8352a54bc0ae226e49f1bbf471a41eb4592ac009bf4a17c16a7bc3ab"
+          ],
+          [
+            "0xdf08257e224d6b2b3051586575348053a83451f4bd85c0ff735edd331",
+            "0xdf08257e224d6b2b3051586575348053a83451f4bd85c0ff735edd334"
+          ],
+          [
+            "0xe6124472b7e622482feec7e94f985524be04b6028cd0eac0ee3f6804a",
+            "0xe6124472b7e622482feec7e94f985524be04b6028cd0eac0ee3f6804d"
+          ]
+        ]
+      }
+    ]
+  },
+  "format": "bounded-native-observations-v1",
+  "full_target_matrices_computed": false,
+  "inputs_sha256": "599d2ff763a3004328aa3abe9fd70f66a5127057b9ad91064a704b7bd34b07c4",
+  "mode": "images",
+  "native_threads": 1,
+  "phases": [
+    {
+      "after": {
+        "committed_bytes": 19890176,
+        "peak_committed_bytes": 20926464,
+        "peak_working_set_bytes": 32792576,
+        "working_set_bytes": 32464896
+      },
+      "before": {
+        "committed_bytes": 18968576,
+        "peak_committed_bytes": 20926464,
+        "peak_working_set_bytes": 32792576,
+        "working_set_bytes": 31703040
+      },
+      "cpu_seconds": 2.203125,
+      "phase": "selected_actual_square_roots_and_all_signed_images",
+      "wall_seconds": 2.259121099981712
+    },
+    {
+      "after": {
+        "committed_bytes": 19890176,
+        "peak_committed_bytes": 20926464,
+        "peak_working_set_bytes": 32792576,
+        "working_set_bytes": 32542720
+      },
+      "before": {
+        "committed_bytes": 19890176,
+        "peak_committed_bytes": 20926464,
+        "peak_working_set_bytes": 32792576,
+        "working_set_bytes": 32468992
+      },
+      "cpu_seconds": 0.3125,
+      "phase": "selected_arithmetic_order_root_highest_head",
+      "wall_seconds": 0.3100177999876905
+    },
+    {
+      "after": {
+        "committed_bytes": 20443136,
+        "peak_committed_bytes": 20926464,
+        "peak_working_set_bytes": 33951744,
+        "working_set_bytes": 33951744
+      },
+      "before": {
+        "committed_bytes": 19890176,
+        "peak_committed_bytes": 20926464,
+        "peak_working_set_bytes": 32792576,
+        "working_set_bytes": 32542720
+      },
+      "cpu_seconds": 0.421875,
+      "phase": "independent_selected_images_and_checkpoint_containment",
+      "wall_seconds": 0.4227029999892693
+    }
+  ],
+  "production_admission": false,
+  "program_sha256": "625ab38881b56b66391436723699da2319cb0fc668b90e89aa048b19be25ef00",
+  "status": "PASS_RESTRICTED_OBSERVATION_ONLY",
+  "target_positivity_proved": false,
+  "wall_seconds": 3.009949300001608
+}

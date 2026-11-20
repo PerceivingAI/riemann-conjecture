@@ -1,0 +1,7 @@
+T081_READY {"pid": 28204, "config_sha256": "96c426e7168581cd0d6d494f98bf607d2620cb5554cba6c8e4f052d780ab3df4"}
+T081_EVENT {"elapsed_seconds": 0.012226999999256805, "event": "program_started", "kind": "fixture", "threads": 1}
+T081_EVENT {"event": "work", "phase": "simultaneous_owned_native_children", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "children_live", "children": 2, "parent": {"committed_bytes": 19771392, "working_set_bytes": 31518720, "peak_working_set_bytes": 32612352, "peak_committed_bytes": 20492288}}
+T081_EVENT {"event": "work", "phase": "simultaneous_owned_native_children", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "complete", "mode": "aggregate", "wall_seconds": 0.4814011999987997}
+T081_EVENT {"elapsed_seconds": 0.5005348999984562, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 0.4874464999884367}

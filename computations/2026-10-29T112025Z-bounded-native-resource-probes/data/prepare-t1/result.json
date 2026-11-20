@@ -1,0 +1,93 @@
+{
+  "after": {
+    "committed_bytes": 33013760,
+    "peak_committed_bytes": 120975360,
+    "peak_working_set_bytes": 129495040,
+    "working_set_bytes": 45129728
+  },
+  "before": {
+    "committed_bytes": 18554880,
+    "peak_committed_bytes": 20746240,
+    "peak_working_set_bytes": 32661504,
+    "working_set_bytes": 30601216
+  },
+  "cpu_seconds": 204.125,
+  "details": {
+    "exact_coefficients": 11128,
+    "exact_highest_polynomial_agrees": true,
+    "highest_degree": 11127,
+    "maximum_reduced_numerator_bits": 25248,
+    "native_precision": 34304,
+    "native_row_live": {
+      "committed_bytes": 116256768,
+      "peak_committed_bytes": 120975360,
+      "peak_working_set_bytes": 129495040,
+      "working_set_bytes": 120999936
+    },
+    "nonzero_coefficients": 5564,
+    "scope": "one streamed complete degree range, highest independent polynomial and one coefficient row; not all-M storage"
+  },
+  "format": "bounded-native-observations-v1",
+  "full_target_matrices_computed": false,
+  "inputs_sha256": "599d2ff763a3004328aa3abe9fd70f66a5127057b9ad91064a704b7bd34b07c4",
+  "mode": "prepare",
+  "native_threads": 1,
+  "phases": [
+    {
+      "after": {
+        "committed_bytes": 71163904,
+        "peak_committed_bytes": 120975360,
+        "peak_working_set_bytes": 129495040,
+        "working_set_bytes": 82255872
+      },
+      "before": {
+        "committed_bytes": 19402752,
+        "peak_committed_bytes": 22192128,
+        "peak_working_set_bytes": 34328576,
+        "working_set_bytes": 31735808
+      },
+      "cpu_seconds": 174.828125,
+      "phase": "stream_exact_three_term_basis",
+      "wall_seconds": 184.7992563000007
+    },
+    {
+      "after": {
+        "committed_bytes": 98254848,
+        "peak_committed_bytes": 120975360,
+        "peak_working_set_bytes": 129495040,
+        "working_set_bytes": 104722432
+      },
+      "before": {
+        "committed_bytes": 71163904,
+        "peak_committed_bytes": 120975360,
+        "peak_working_set_bytes": 129495040,
+        "working_set_bytes": 82259968
+      },
+      "cpu_seconds": 29.1875,
+      "phase": "independent_highest_Rodrigues",
+      "wall_seconds": 29.865625900012674
+    },
+    {
+      "after": {
+        "committed_bytes": 116256768,
+        "peak_committed_bytes": 120975360,
+        "peak_working_set_bytes": 129495040,
+        "working_set_bytes": 121028608
+      },
+      "before": {
+        "committed_bytes": 98254848,
+        "peak_committed_bytes": 120975360,
+        "peak_working_set_bytes": 129495040,
+        "working_set_bytes": 104722432
+      },
+      "cpu_seconds": 0.078125,
+      "phase": "one_highest_native_coefficient_batch",
+      "wall_seconds": 0.07257469999603927
+    }
+  ],
+  "production_admission": false,
+  "program_sha256": "625ab38881b56b66391436723699da2319cb0fc668b90e89aa048b19be25ef00",
+  "status": "PASS_RESTRICTED_OBSERVATION_ONLY",
+  "target_positivity_proved": false,
+  "wall_seconds": 214.7694870000123
+}

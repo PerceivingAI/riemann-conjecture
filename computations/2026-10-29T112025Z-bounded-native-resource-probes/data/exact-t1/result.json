@@ -1,0 +1,1038 @@
+{
+  "declaration": {
+    "basis_dimension": 5564,
+    "dimension": 2782,
+    "exact_panel": 16,
+    "extent": 11128,
+    "integer_bits": 512,
+    "proposal_dimension": 65,
+    "proposal_tile": 8,
+    "seed": 8120132,
+    "witness_bits": 107
+  },
+  "exact": {
+    "dimension": 2782,
+    "full_inner_domain": 2782,
+    "independent_expected_determinant": 49071,
+    "integer_operand_bits": {
+      "maximum": 512,
+      "minimum": 512
+    },
+    "integer_result_bits": {
+      "maximum": 626,
+      "minimum": 612
+    },
+    "mass_integer_bits": {
+      "maximum": 10742,
+      "minimum": 10730
+    },
+    "mass_lcm_bits": 10743,
+    "mass_result_bits": {
+      "maximum": 11362,
+      "minimum": 11351
+    },
+    "mass_selected_entry_checks_passed": true,
+    "mass_weighted_operand_bits": {
+      "maximum": 10849,
+      "minimum": 10836
+    },
+    "modulus": 65521,
+    "panel": 16,
+    "prime_trial_division_verified": true,
+    "scope": "synthetic exact native arithmetic; no target witness",
+    "selected_entry_checks": [
+      {
+        "column": 0,
+        "exact_match": true,
+        "omitted_final_inner_differs": true,
+        "row": 0
+      },
+      {
+        "column": 15,
+        "exact_match": true,
+        "omitted_final_inner_differs": true,
+        "row": 0
+      },
+      {
+        "column": 0,
+        "exact_match": true,
+        "omitted_final_inner_differs": true,
+        "row": 15
+      },
+      {
+        "column": 15,
+        "exact_match": true,
+        "omitted_final_inner_differs": true,
+        "row": 15
+      }
+    ],
+    "vandermonde_determinant": 49071,
+    "witness_operand_bits": {
+      "maximum": 107,
+      "minimum": 107
+    }
+  },
+  "final_snapshot": {
+    "affinity_cpus": 6,
+    "cpu_detection_complete": true,
+    "diagnostics": [
+      "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+    ],
+    "host": {
+      "available_commit_bytes": 13190983680,
+      "available_physical_bytes": 13754843136,
+      "total_commit_bytes": 50345074688,
+      "total_physical_bytes": 33702076416
+    },
+    "job": {
+      "cpu_control_flags": 0,
+      "cpu_rate_raw": 0,
+      "job_memory_limit_bytes": null,
+      "limit_flags": 12288,
+      "process_memory_limit_bytes": null,
+      "visibility": "immediate job only; ancestor handles are not available"
+    },
+    "job_cpu_fraction": null,
+    "logical_cpus": 6,
+    "memory_candidates": [
+      {
+        "available_bytes": 13754843136,
+        "source": "windows.available_physical"
+      },
+      {
+        "available_bytes": 13190983680,
+        "source": "windows.available_commit"
+      },
+      {
+        "available_bytes": 140732916428800,
+        "source": "windows.available_virtual"
+      }
+    ],
+    "memory_detection_complete": true,
+    "process": {
+      "committed_bytes": 34463744,
+      "peak_committed_bytes": 169664512,
+      "peak_working_set_bytes": 184963072,
+      "working_set_bytes": 49598464
+    }
+  },
+  "format": "exact-workspace-probe-v1",
+  "full_target_matrices_computed": false,
+  "initial_snapshot": {
+    "affinity_cpus": 6,
+    "cpu_detection_complete": true,
+    "diagnostics": [
+      "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+    ],
+    "host": {
+      "available_commit_bytes": 13206528000,
+      "available_physical_bytes": 13749989376,
+      "total_commit_bytes": 50345074688,
+      "total_physical_bytes": 33702076416
+    },
+    "job": {
+      "cpu_control_flags": 0,
+      "cpu_rate_raw": 0,
+      "job_memory_limit_bytes": null,
+      "limit_flags": 12288,
+      "process_memory_limit_bytes": null,
+      "visibility": "immediate job only; ancestor handles are not available"
+    },
+    "job_cpu_fraction": null,
+    "logical_cpus": 6,
+    "memory_candidates": [
+      {
+        "available_bytes": 13749989376,
+        "source": "windows.available_physical"
+      },
+      {
+        "available_bytes": 13206528000,
+        "source": "windows.available_commit"
+      },
+      {
+        "available_bytes": 140733026414592,
+        "source": "windows.available_virtual"
+      }
+    ],
+    "memory_detection_complete": true,
+    "process": {
+      "committed_bytes": 19267584,
+      "peak_committed_bytes": 19877888,
+      "peak_working_set_bytes": 35872768,
+      "working_set_bytes": 34979840
+    }
+  },
+  "inputs": {
+    "path": "[REPO_ROOT]\\computations\\2026-10-29T112025Z-bounded-native-resource-probes\\inputs-v1.json",
+    "sha256": "599d2ff763a3004328aa3abe9fd70f66a5127057b9ad91064a704b7bd34b07c4"
+  },
+  "mode": "exact",
+  "phases": [
+    {
+      "after": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13205123072,
+          "available_physical_bytes": 13748420608,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13748420608,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13205123072,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733026414592,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 20140032,
+          "peak_committed_bytes": 22269952,
+          "peak_working_set_bytes": 37175296,
+          "working_set_bytes": 35078144
+        }
+      },
+      "before": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13206528000,
+          "available_physical_bytes": 13749989376,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13749989376,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13206528000,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733026414592,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 19267584,
+          "peak_committed_bytes": 19877888,
+          "peak_working_set_bytes": 35872768,
+          "working_set_bytes": 35061760
+        }
+      },
+      "cpu_seconds": 0.015625,
+      "name": "input_binding_validation",
+      "wall_seconds": 0.017058600002201274
+    },
+    {
+      "after": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13243252736,
+          "available_physical_bytes": 13783883776,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13783883776,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13243252736,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733026414592,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 20140032,
+          "peak_committed_bytes": 22269952,
+          "peak_working_set_bytes": 37175296,
+          "working_set_bytes": 35086336
+        }
+      },
+      "before": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13205123072,
+          "available_physical_bytes": 13748420608,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13748420608,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13205123072,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733026414592,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 20140032,
+          "peak_committed_bytes": 22269952,
+          "peak_working_set_bytes": 37175296,
+          "working_set_bytes": 35078144
+        }
+      },
+      "cpu_seconds": 0.328125,
+      "name": "modular_prime_and_expected_determinant",
+      "wall_seconds": 0.3262574000109453
+    },
+    {
+      "after": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13173714944,
+          "available_physical_bytes": 13722140672,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13722140672,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13173714944,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140732964429824,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 82182144,
+          "peak_committed_bytes": 82247680,
+          "peak_working_set_bytes": 97075200,
+          "working_set_bytes": 97075200
+        }
+      },
+      "allocated": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13173714944,
+          "available_physical_bytes": 13722140672,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13722140672,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13173714944,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140732964429824,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 82182144,
+          "peak_committed_bytes": 82247680,
+          "peak_working_set_bytes": 97075200,
+          "working_set_bytes": 97075200
+        }
+      },
+      "before": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13243252736,
+          "available_physical_bytes": 13783883776,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13783883776,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13243252736,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733026414592,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 20140032,
+          "peak_committed_bytes": 22269952,
+          "peak_working_set_bytes": 37175296,
+          "working_set_bytes": 35086336
+        }
+      },
+      "cpu_seconds": 1.53125,
+      "name": "native_modular_allocation_and_fill",
+      "wall_seconds": 1.6483173000160605
+    },
+    {
+      "after": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13161885696,
+          "available_physical_bytes": 13713145856,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13713145856,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13161885696,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140732956041216,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 81801216,
+          "peak_committed_bytes": 169664512,
+          "peak_working_set_bytes": 184963072,
+          "working_set_bytes": 97763328
+        }
+      },
+      "before": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13173714944,
+          "available_physical_bytes": 13722140672,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13722140672,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13173714944,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140732964429824,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 82182144,
+          "peak_committed_bytes": 82247680,
+          "peak_working_set_bytes": 97079296,
+          "working_set_bytes": 97079296
+        }
+      },
+      "cpu_seconds": 3.03125,
+      "name": "native_modular_full_determinant",
+      "wall_seconds": 3.2229266999929678
+    },
+    {
+      "after": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13173391360,
+          "available_physical_bytes": 13771509760,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13771509760,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13173391360,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733018025984,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 26705920,
+          "peak_committed_bytes": 169664512,
+          "peak_working_set_bytes": 184963072,
+          "working_set_bytes": 42766336
+        }
+      },
+      "before": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13223804928,
+          "available_physical_bytes": 13775183872,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13775183872,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13223804928,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733018025984,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 19759104,
+          "peak_committed_bytes": 169664512,
+          "peak_working_set_bytes": 184963072,
+          "working_set_bytes": 35844096
+        }
+      },
+      "cpu_seconds": 0.140625,
+      "name": "native_integer_panel_fill",
+      "wall_seconds": 0.16932729998370633
+    },
+    {
+      "after": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13208678400,
+          "available_physical_bytes": 13762899968,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13762899968,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13208678400,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733018025984,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 27066368,
+          "peak_committed_bytes": 169664512,
+          "peak_working_set_bytes": 184963072,
+          "working_set_bytes": 43171840
+        }
+      },
+      "before": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13173391360,
+          "available_physical_bytes": 13771509760,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13771509760,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13173391360,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733018025984,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 26705920,
+          "peak_committed_bytes": 169664512,
+          "peak_working_set_bytes": 184963072,
+          "working_set_bytes": 42766336
+        }
+      },
+      "cpu_seconds": 0.0625,
+      "name": "native_integer_full_inner_product",
+      "wall_seconds": 0.10938480001641437
+    },
+    {
+      "after": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13139173376,
+          "available_physical_bytes": 13703348224,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13703348224,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13139173376,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140732951703552,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 92971008,
+          "peak_committed_bytes": 169664512,
+          "peak_working_set_bytes": 184963072,
+          "working_set_bytes": 107835392
+        }
+      },
+      "before": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13208678400,
+          "available_physical_bytes": 13762899968,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13762899968,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13208678400,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733018025984,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 27066368,
+          "peak_committed_bytes": 169664512,
+          "peak_working_set_bytes": 184963072,
+          "working_set_bytes": 43175936
+        }
+      },
+      "cpu_seconds": 0.28125,
+      "name": "native_mass_weighted_panel_fill",
+      "wall_seconds": 0.3156775999814272
+    },
+    {
+      "after": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13124624384,
+          "available_physical_bytes": 13701394432,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13701394432,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13124624384,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140732918542336,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 100872192,
+          "peak_committed_bytes": 169664512,
+          "peak_working_set_bytes": 184963072,
+          "working_set_bytes": 115818496
+        }
+      },
+      "before": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13139173376,
+          "available_physical_bytes": 13703278592,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13703278592,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13139173376,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140732951703552,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 92971008,
+          "peak_committed_bytes": 169664512,
+          "peak_working_set_bytes": 184963072,
+          "working_set_bytes": 107868160
+        }
+      },
+      "cpu_seconds": 0.78125,
+      "name": "native_mass_weighted_full_inner_product",
+      "wall_seconds": 0.8139519999967888
+    }
+  ],
+  "production_admission": false,
+  "scope": "contained synthetic nonproof measurements",
+  "script": {
+    "path": "[REPO_ROOT]\\scripts\\probe_exact_workspace_v1.py",
+    "sha256": "266770d2a58f2ffff8cb5c61f6565541ab7c3f541ca34287353a323f000b7b9c"
+  },
+  "software": {
+    "executable": "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "final_precision_bits": 53,
+    "flint_threads": 1,
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "python_flint": "0.9.0"
+  },
+  "status": "passed",
+  "target_positivity_proved": false,
+  "validated_bindings": {
+    "consumer": {
+      "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\verify-whole-source-v2.py",
+      "sha256": "59cd5b1e891d84d1fdb6d5849cd6a073d29bd8f49fce171fe6c411fb5cbc45c3"
+    },
+    "declaration": {
+      "path": "[REPO_ROOT]\\computations\\2026-10-29T004611Z-t1-direct-reference\\data\\source-v1.json",
+      "sha256": "50a16676a7fb36999485c712c76e9d416eada395b92649f0f6a479e8a6b2dfb6"
+    },
+    "declaration_audit": {
+      "path": "[REPO_ROOT]\\computations\\2026-10-29T004611Z-t1-direct-reference\\data\\audit-v1.json",
+      "sha256": "aecbeec9a8bfb2cbef31dc4c461e34451c02c0720c1e1e53d24df7b39f53126e"
+    },
+    "declaration_manifest": {
+      "path": "[REPO_ROOT]\\computations\\2026-10-29T004611Z-t1-direct-reference\\manifest.json",
+      "sha256": "a219367eb15c168b92aef9f32a5ecb43ea5e7e1539b9b847aa9bc5b6d3a5ebab"
+    },
+    "events": {
+      "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\execution_events_v1.py",
+      "sha256": "f89c177e4622b3b939b729d8daa9dd1089942734d5fafe3cbf689ff486c5690f"
+    },
+    "exact_probe": {
+      "path": "[REPO_ROOT]\\scripts\\probe_exact_workspace_v1.py",
+      "sha256": "266770d2a58f2ffff8cb5c61f6565541ab7c3f541ca34287353a323f000b7b9c"
+    },
+    "limits": {
+      "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\resource_limits_v1.py",
+      "sha256": "b6258b25377244cf97fb094e20c017dd3438a66c69cc33aeb737f5333b53b717"
+    },
+    "native_probe": {
+      "path": "[REPO_ROOT]\\scripts\\probe_native_checkpoint_v1.py",
+      "sha256": "625ab38881b56b66391436723699da2319cb0fc668b90e89aa048b19be25ef00"
+    },
+    "observability": {
+      "path": "[REPO_ROOT]\\scripts\\run_observability.py",
+      "sha256": "e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c58a95"
+    },
+    "policy": {
+      "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\execution_resources_v2.py",
+      "sha256": "8f3fc4d3bf0ddbba99ff6686ccb4acbe81ed583f8f3fc0ac6572e4acf473a9e2"
+    },
+    "producer": {
+      "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\build-whole-source-v4.py",
+      "sha256": "aacfb2d122b2bf62b1cf7940cb4aace764cdb11b413a504c81f15ca7b8427976"
+    },
+    "retained_probe_runner": {
+      "path": "[REPO_ROOT]\\computations\\2026-10-29T013929Z-t1-execution-allocation\\run-probes-v1.py",
+      "sha256": "a730b859bcb4c228553b4d39f097905ee05861038b90846ea4515a609dec84ef"
+    },
+    "runner": {
+      "path": "[REPO_ROOT]\\scripts\\run_bounded_resource_probes_v1.py",
+      "sha256": "d879e53a9e1b56ce53d3f5f1eaa0440b6dfd17534d44ca95030a83fe5a5844d2"
+    },
+    "supervisor": {
+      "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\execution_supervisor_v1.py",
+      "sha256": "cc1c10f9d54a0cff7250d3a53f72480c5e56a49262176d32d0b1de98090d334c"
+    },
+    "worker": {
+      "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\stage_worker_v1.py",
+      "sha256": "3ecc6c00630b7d7eb2bffd8d544f61f18ade7ec30b9b7fc2348e7274d22faeee"
+    }
+  }
+}

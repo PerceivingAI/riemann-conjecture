@@ -1,0 +1,30 @@
+T081_READY {"pid": 22652, "config_sha256": "b3b922bb789fe9fc5e6677dad687c110148ca26efcd528d220bb8963e2e02d29"}
+T081_EVENT {"elapsed_seconds": 0.015438600006746128, "event": "program_started", "kind": "fixture", "threads": 1}
+T081_EVENT {"event": "phase_started", "phase": "input_binding_validation"}
+T081_EVENT {"cpu_seconds": 0.015625, "event": "phase_finished", "phase": "input_binding_validation", "wall_seconds": 0.017058600002201274}
+T081_EVENT {"event": "phase_started", "phase": "modular_prime_and_expected_determinant"}
+T081_EVENT {"cpu_seconds": 0.328125, "event": "phase_finished", "phase": "modular_prime_and_expected_determinant", "wall_seconds": 0.3262574000109453}
+T081_EVENT {"event": "phase_started", "phase": "native_modular_allocation_and_fill"}
+T081_EVENT {"event": "fill_rows", "phase": "native_modular_allocation_and_fill", "rows": 256, "total": 2782}
+T081_EVENT {"event": "fill_rows", "phase": "native_modular_allocation_and_fill", "rows": 512, "total": 2782}
+T081_EVENT {"event": "fill_rows", "phase": "native_modular_allocation_and_fill", "rows": 768, "total": 2782}
+T081_EVENT {"event": "fill_rows", "phase": "native_modular_allocation_and_fill", "rows": 1024, "total": 2782}
+T081_EVENT {"event": "fill_rows", "phase": "native_modular_allocation_and_fill", "rows": 1280, "total": 2782}
+T081_EVENT {"event": "fill_rows", "phase": "native_modular_allocation_and_fill", "rows": 1536, "total": 2782}
+T081_EVENT {"event": "fill_rows", "phase": "native_modular_allocation_and_fill", "rows": 1792, "total": 2782}
+T081_EVENT {"event": "fill_rows", "phase": "native_modular_allocation_and_fill", "rows": 2048, "total": 2782}
+T081_EVENT {"event": "fill_rows", "phase": "native_modular_allocation_and_fill", "rows": 2304, "total": 2782}
+T081_EVENT {"event": "fill_rows", "phase": "native_modular_allocation_and_fill", "rows": 2560, "total": 2782}
+T081_EVENT {"cpu_seconds": 1.53125, "event": "phase_finished", "phase": "native_modular_allocation_and_fill", "wall_seconds": 1.6483173000160605}
+T081_EVENT {"event": "phase_started", "phase": "native_modular_full_determinant"}
+T081_EVENT {"cpu_seconds": 3.03125, "event": "phase_finished", "phase": "native_modular_full_determinant", "wall_seconds": 3.2229266999929678}
+T081_EVENT {"event": "phase_started", "phase": "native_integer_panel_fill"}
+T081_EVENT {"cpu_seconds": 0.140625, "event": "phase_finished", "phase": "native_integer_panel_fill", "wall_seconds": 0.16932729998370633}
+T081_EVENT {"event": "phase_started", "phase": "native_integer_full_inner_product"}
+T081_EVENT {"cpu_seconds": 0.0625, "event": "phase_finished", "phase": "native_integer_full_inner_product", "wall_seconds": 0.10938480001641437}
+T081_EVENT {"event": "phase_started", "phase": "native_mass_weighted_panel_fill"}
+T081_EVENT {"cpu_seconds": 0.28125, "event": "phase_finished", "phase": "native_mass_weighted_panel_fill", "wall_seconds": 0.3156775999814272}
+T081_EVENT {"event": "phase_started", "phase": "native_mass_weighted_full_inner_product"}
+T081_EVENT {"cpu_seconds": 0.78125, "event": "phase_finished", "phase": "native_mass_weighted_full_inner_product", "wall_seconds": 0.8139519999967888}
+T081_EVENT {"event": "program_finished", "mode": "exact", "status": "passed"}
+T081_EVENT {"elapsed_seconds": 8.440352100005839, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 8.42407949999324}

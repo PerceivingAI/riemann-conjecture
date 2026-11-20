@@ -1,0 +1,12 @@
+T081_READY {"pid": 12800, "config_sha256": "45929d77388d9758078563389c2bdc4640447bb557de0797ae6bd6a1a16b3d83"}
+T081_EVENT {"elapsed_seconds": 0.012866699980804697, "event": "program_started", "kind": "fixture", "threads": 1}
+T081_EVENT {"event": "work", "phase": "encode_compress_fsync_chunk", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "encode_compress_fsync_chunk", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "first_uncontrolled_cache_read", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "first_uncontrolled_cache_read", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "repeat_warm_read", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "repeat_warm_read", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "corrupt_transport_control", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "corrupt_transport_control", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "complete", "mode": "transport", "wall_seconds": 1.3540066000132356}
+T081_EVENT {"elapsed_seconds": 1.3744136999885086, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.3604839000036009}

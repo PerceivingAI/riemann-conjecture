@@ -1,0 +1,10 @@
+T081_READY {"pid": 2824, "config_sha256": "25d1de2ed8cd5dffde7c9376c229cc8a17f226f2a38513314c3ad8a58c7f411d"}
+T081_EVENT {"elapsed_seconds": 0.012982400017790496, "event": "program_started", "kind": "fixture", "threads": 1}
+T081_EVENT {"event": "work", "phase": "selected_actual_square_roots_and_all_signed_images", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "selected_actual_square_roots_and_all_signed_images", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "selected_arithmetic_order_root_highest_head", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "selected_arithmetic_order_root_highest_head", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "independent_selected_images_and_checkpoint_containment", "completed": 0, "total": 1}
+T081_EVENT {"event": "work", "phase": "independent_selected_images_and_checkpoint_containment", "completed": 1, "total": 1}
+T081_EVENT {"event": "work", "phase": "complete", "mode": "images", "wall_seconds": 3.009949300001608}
+T081_EVENT {"elapsed_seconds": 3.030478300002869, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 3.016625100019155}

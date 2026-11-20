@@ -1,0 +1,152 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\stage_worker_v1.py",
+    "--program",
+    "[REPO_ROOT]\\scripts\\probe_exact_workspace_v1.py",
+    "--program-sha256",
+    "266770d2a58f2ffff8cb5c61f6565541ab7c3f541ca34287353a323f000b7b9c",
+    "--config",
+    "[REPO_ROOT]\\computations\\2026-10-29T112025Z-bounded-native-resource-probes\\data\\proposal-t1\\execution-budget.json",
+    "--config-sha256",
+    "1b086fd4893a9cec5ab78efdef2858427ce2f43ffd47c42034968e29ab7588b0",
+    "--profile",
+    "[REPO_ROOT]\\computations\\2026-10-29T112025Z-bounded-native-resource-probes\\data\\proposal-t1\\proposal\\profile.json",
+    "--kind",
+    "fixture",
+    "--",
+    "--mode",
+    "proposal",
+    "--inputs",
+    "[REPO_ROOT]\\computations\\2026-10-29T112025Z-bounded-native-resource-probes\\inputs-v1.json",
+    "--output",
+    "[REPO_ROOT]\\computations\\2026-10-29T112025Z-bounded-native-resource-probes\\data\\proposal-t1\\result.json"
+  ],
+  "budget": {
+    "available_memory_bytes": 13278732288,
+    "cpu_budget": 6,
+    "detection": {
+      "affinity_cpus": 6,
+      "available_memory_bytes": 13278732288,
+      "cpu_detection_complete": true,
+      "cpu_diagnostics": [],
+      "cpu_sources": [],
+      "diagnostics": [],
+      "effective_cpu_budget": 6,
+      "fractional_quota_policy": "floor above one CPU; one throttled native thread below one CPU",
+      "logical_cpus": 6,
+      "memory_detection_complete": true,
+      "memory_diagnostics": [],
+      "memory_sources": [
+        {
+          "available_bytes": 13841395712,
+          "source": "windows.available_physical"
+        },
+        {
+          "available_bytes": 13278732288,
+          "source": "windows.available_commit"
+        },
+        {
+          "available_bytes": 140733062561792,
+          "source": "windows.available_virtual"
+        }
+      ],
+      "platform": "win32",
+      "quota_cpu_limit": null,
+      "visibility": "Linux visible cgroup ancestors only; Windows immediate job only; snapshots are not memory reservations",
+      "windows": {
+        "affinity_cpus": 6,
+        "cpu_detection_complete": true,
+        "diagnostics": [
+          "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+        ],
+        "host": {
+          "available_commit_bytes": 13278732288,
+          "available_physical_bytes": 13841395712,
+          "total_commit_bytes": 50345074688,
+          "total_physical_bytes": 33702076416
+        },
+        "job": {
+          "cpu_control_flags": 0,
+          "cpu_rate_raw": 0,
+          "job_memory_limit_bytes": null,
+          "limit_flags": 12288,
+          "process_memory_limit_bytes": null,
+          "visibility": "immediate job only; ancestor handles are not available"
+        },
+        "job_cpu_fraction": null,
+        "logical_cpus": 6,
+        "memory_candidates": [
+          {
+            "available_bytes": 13841395712,
+            "source": "windows.available_physical"
+          },
+          {
+            "available_bytes": 13278732288,
+            "source": "windows.available_commit"
+          },
+          {
+            "available_bytes": 140733062561792,
+            "source": "windows.available_virtual"
+          }
+        ],
+        "memory_detection_complete": true,
+        "process": {
+          "committed_bytes": 14831616,
+          "peak_committed_bytes": 14831616,
+          "peak_working_set_bytes": 23781376,
+          "working_set_bytes": 23781376
+        }
+      }
+    },
+    "diagnostics": [],
+    "execution_mode": "single-process/native-threads",
+    "memory_budget_bytes": 2147483648,
+    "native_threads": 1,
+    "required_bytes": 536870912,
+    "reserve_bytes": 1327873228,
+    "selection": {
+      "cpus": "detected",
+      "memory_mib": "--memory-mib",
+      "reserve_mib": "detected",
+      "threads": "--threads",
+      "workers": "detected"
+    },
+    "workers": 1
+  },
+  "config_sha256": "1b086fd4893a9cec5ab78efdef2858427ce2f43ffd47c42034968e29ab7588b0",
+  "elapsed_seconds": 5.904726799984928,
+  "error": null,
+  "exit_code": 0,
+  "format": "t081-owned-stage-receipt-v1",
+  "last_metrics": {
+    "active_process_count": 0,
+    "active_process_ids": [],
+    "cpu_budget": 6,
+    "cpu_rate_per_10000": 10000,
+    "cpu_rate_reference": "parent job if rate-controlled, otherwise system",
+    "cpu_seconds": 4.953125,
+    "current_committed_bytes": 151552,
+    "diagnostics": [],
+    "memory_accounting": "JobObjectMemoryUsageInformation",
+    "memory_limit_bytes": 2147483648,
+    "peak_committed_bytes": 682983424,
+    "peak_counter_scope": "raw OS high-water; denied allocation demand may be counted before rollback"
+  },
+  "logs": {
+    "stderr": {
+      "path": "proposal\\stderr.txt",
+      "sha256": "2913a98e617e070f51d2723ca74a88f229e272af09f07f0a08edd8aee37da588"
+    },
+    "stdout": {
+      "path": "proposal\\stdout.txt",
+      "sha256": "26ec15d9f292f6dc22e372491d572d927f3a2ab09374405e67bec5a6411f9362"
+    }
+  },
+  "memory_metric": "job committed memory",
+  "peak_budgeted_memory_bytes": 682983424,
+  "program_sha256": "266770d2a58f2ffff8cb5c61f6565541ab7c3f541ca34287353a323f000b7b9c",
+  "stage": "proposal",
+  "worker_cleanup_verified": true
+}

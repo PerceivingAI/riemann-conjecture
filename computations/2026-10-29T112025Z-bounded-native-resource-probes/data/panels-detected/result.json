@@ -1,0 +1,109 @@
+{
+  "checkpoint_grid": 512,
+  "checks": [
+    {
+      "column": 0,
+      "complete_endpoint_range_contained": true,
+      "midpoint_exponent": -535,
+      "midpoint_mantissa_bits": 541,
+      "omitted_final_inner_rejected": true,
+      "row": 0
+    },
+    {
+      "column": 31,
+      "complete_endpoint_range_contained": true,
+      "midpoint_exponent": -539,
+      "midpoint_mantissa_bits": 541,
+      "omitted_final_inner_rejected": true,
+      "row": 0
+    },
+    {
+      "column": 0,
+      "complete_endpoint_range_contained": true,
+      "midpoint_exponent": -536,
+      "midpoint_mantissa_bits": 541,
+      "omitted_final_inner_rejected": true,
+      "row": 31
+    },
+    {
+      "column": 31,
+      "complete_endpoint_range_contained": true,
+      "midpoint_exponent": -535,
+      "midpoint_mantissa_bits": 541,
+      "omitted_final_inner_rejected": true,
+      "row": 31
+    }
+  ],
+  "format": "compact-operand-native-observation-v1",
+  "full_inner_count": 8346,
+  "full_target_matrices_computed": false,
+  "inputs_sha256": "599d2ff763a3004328aa3abe9fd70f66a5127057b9ad91064a704b7bd34b07c4",
+  "left_shape": [
+    32,
+    8346
+  ],
+  "native_precision": 34304,
+  "native_threads": 6,
+  "phases": [
+    {
+      "after": {
+        "committed_bytes": 95367168,
+        "peak_committed_bytes": 95367168,
+        "peak_working_set_bytes": 106668032,
+        "working_set_bytes": 106668032
+      },
+      "before": {
+        "committed_bytes": 18542592,
+        "peak_committed_bytes": 20762624,
+        "peak_working_set_bytes": 32251904,
+        "working_set_bytes": 30179328
+      },
+      "cpu_seconds": 1.640625,
+      "phase": "compact_interval_operand_construction",
+      "wall_seconds": 1.6402950000192504
+    },
+    {
+      "after": {
+        "committed_bytes": 96423936,
+        "peak_committed_bytes": 96423936,
+        "peak_working_set_bytes": 106856448,
+        "working_set_bytes": 106856448
+      },
+      "before": {
+        "committed_bytes": 96419840,
+        "peak_committed_bytes": 96419840,
+        "peak_working_set_bytes": 106680320,
+        "working_set_bytes": 106680320
+      },
+      "cpu_seconds": 1.5625,
+      "phase": "native_complete_inner_matrix_product",
+      "wall_seconds": 0.3816371000139043
+    },
+    {
+      "after": {
+        "committed_bytes": 96423936,
+        "peak_committed_bytes": 96423936,
+        "peak_working_set_bytes": 107057152,
+        "working_set_bytes": 107057152
+      },
+      "before": {
+        "committed_bytes": 96423936,
+        "peak_committed_bytes": 96423936,
+        "peak_working_set_bytes": 106864640,
+        "working_set_bytes": 106864640
+      },
+      "cpu_seconds": 0.171875,
+      "phase": "independent_all_inner_integer_endpoint_controls",
+      "wall_seconds": 0.1635569000209216
+    }
+  ],
+  "production_admission": false,
+  "program_sha256": "11e321cd161c0a3daa49c18629f92076b5195acf94ec029439f59a251034eef4",
+  "right_shape": [
+    8346,
+    32
+  ],
+  "scope": "synthetic completed-operand intervals, not source or target conditioning",
+  "status": "PASS_COMPLETE_SYNTHETIC_INNER_PRODUCT",
+  "target_positivity_proved": false
+}

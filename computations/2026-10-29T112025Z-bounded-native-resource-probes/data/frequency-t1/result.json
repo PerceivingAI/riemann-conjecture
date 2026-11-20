@@ -1,0 +1,175 @@
+{
+  "after": {
+    "committed_bytes": 24686592,
+    "peak_committed_bytes": 78557184,
+    "peak_working_set_bytes": 90034176,
+    "working_set_bytes": 37191680
+  },
+  "before": {
+    "committed_bytes": 18608128,
+    "peak_committed_bytes": 20779008,
+    "peak_working_set_bytes": 32673792,
+    "working_set_bytes": 30617600
+  },
+  "cpu_seconds": 2.515625,
+  "details": {
+    "anchors": [
+      {
+        "anchor_index": 1,
+        "checkpoint_grid_width": 3,
+        "checkpoint_pair_hex": [
+          "-0x2",
+          "0x1"
+        ],
+        "omega": "4060"
+      },
+      {
+        "anchor_index": 30,
+        "checkpoint_grid_width": 3,
+        "checkpoint_pair_hex": [
+          "-0x6b7a2257601c004f73adef740ac137946fb3dccc4d5f93ae26caaeda00ffa2482c699d145707a9af8bb4541567dfd35b22df696d58031697da173980568",
+          "-0x6b7a2257601c004f73adef740ac137946fb3dccc4d5f93ae26caaeda00ffa2482c699d145707a9af8bb4541567dfd35b22df696d58031697da173980565"
+        ],
+        "omega": "489198100688352178817783002601417772455/20769187434139310514121985316880384"
+      },
+      {
+        "anchor_index": 59,
+        "checkpoint_grid_width": 3,
+        "checkpoint_pair_hex": [
+          "-0x12609ef26250a40af9a9339ae598696743eccdfdb57ee276277f1d7c9b4006585777417c7720b0a176f4c2ccee15f7e23be65dc06472b70a7d17857a37",
+          "-0x12609ef26250a40af9a9339ae598696743eccdfdb57ee276277f1d7c9b4006585777417c7720b0a176f4c2ccee15f7e23be65dc06472b70a7d17857a34"
+        ],
+        "omega": "129920"
+      }
+    ],
+    "checked_enclosures": 4,
+    "complete_frequency_domain_checked": false,
+    "modes": [
+      11125,
+      11127
+    ],
+    "native_precisions": [
+      25600,
+      34304
+    ],
+    "prefix_publication_hex": [
+      "-0x6ca02c4686410a90234882adb91abe2ae3f2a9ac28b781d58942a0b1cad",
+      "-0x6ca02c4686410a90234882adb91abe2ae3f2a9ac28b781d58942a0b1caa"
+    ],
+    "scope": "three actual anchors, full M recurrence, one highest offdiagonal band entry; not full kernel/59-anchor sum/diagonal/terminal check"
+  },
+  "format": "bounded-native-observations-v1",
+  "full_target_matrices_computed": false,
+  "inputs_sha256": "599d2ff763a3004328aa3abe9fd70f66a5127057b9ad91064a704b7bd34b07c4",
+  "mode": "frequency",
+  "native_threads": 1,
+  "phases": [
+    {
+      "after": {
+        "committed_bytes": 25632768,
+        "peak_committed_bytes": 63107072,
+        "peak_working_set_bytes": 74833920,
+        "working_set_bytes": 38572032
+      },
+      "before": {
+        "committed_bytes": 25067520,
+        "peak_committed_bytes": 27234304,
+        "peak_working_set_bytes": 38486016,
+        "working_set_bytes": 36564992
+      },
+      "cpu_seconds": 0.3125,
+      "phase": "downward_anchor_1",
+      "wall_seconds": 0.32027160000870936
+    },
+    {
+      "after": {
+        "committed_bytes": 26652672,
+        "peak_committed_bytes": 63434752,
+        "peak_working_set_bytes": 75190272,
+        "working_set_bytes": 39510016
+      },
+      "before": {
+        "committed_bytes": 25632768,
+        "peak_committed_bytes": 63107072,
+        "peak_working_set_bytes": 74833920,
+        "working_set_bytes": 38584320
+      },
+      "cpu_seconds": 0.40625,
+      "phase": "downward_anchor_30",
+      "wall_seconds": 0.41870639999979176
+    },
+    {
+      "after": {
+        "committed_bytes": 27181056,
+        "peak_committed_bytes": 63655936,
+        "peak_working_set_bytes": 75235328,
+        "working_set_bytes": 40083456
+      },
+      "before": {
+        "committed_bytes": 26652672,
+        "peak_committed_bytes": 63434752,
+        "peak_working_set_bytes": 75190272,
+        "working_set_bytes": 39514112
+      },
+      "cpu_seconds": 0.328125,
+      "phase": "downward_anchor_59",
+      "wall_seconds": 0.33333589998073876
+    },
+    {
+      "after": {
+        "committed_bytes": 28520448,
+        "peak_committed_bytes": 78413824,
+        "peak_working_set_bytes": 89513984,
+        "working_set_bytes": 40230912
+      },
+      "before": {
+        "committed_bytes": 27185152,
+        "peak_committed_bytes": 63655936,
+        "peak_working_set_bytes": 75235328,
+        "working_set_bytes": 40087552
+      },
+      "cpu_seconds": 0.46875,
+      "phase": "upward_anchor_1",
+      "wall_seconds": 0.48436360000050627
+    },
+    {
+      "after": {
+        "committed_bytes": 29495296,
+        "peak_committed_bytes": 78557184,
+        "peak_working_set_bytes": 89513984,
+        "working_set_bytes": 40775680
+      },
+      "before": {
+        "committed_bytes": 28520448,
+        "peak_committed_bytes": 78413824,
+        "peak_working_set_bytes": 89513984,
+        "working_set_bytes": 40235008
+      },
+      "cpu_seconds": 0.5,
+      "phase": "upward_anchor_30",
+      "wall_seconds": 0.5029614999948535
+    },
+    {
+      "after": {
+        "committed_bytes": 29892608,
+        "peak_committed_bytes": 78557184,
+        "peak_working_set_bytes": 90034176,
+        "working_set_bytes": 41091072
+      },
+      "before": {
+        "committed_bytes": 29495296,
+        "peak_committed_bytes": 78557184,
+        "peak_working_set_bytes": 89513984,
+        "working_set_bytes": 40779776
+      },
+      "cpu_seconds": 0.484375,
+      "phase": "upward_anchor_59",
+      "wall_seconds": 0.47851929999887943
+    }
+  ],
+  "production_admission": false,
+  "program_sha256": "625ab38881b56b66391436723699da2319cb0fc668b90e89aa048b19be25ef00",
+  "status": "PASS_RESTRICTED_OBSERVATION_ONLY",
+  "target_positivity_proved": false,
+  "wall_seconds": 2.583181499998318
+}
