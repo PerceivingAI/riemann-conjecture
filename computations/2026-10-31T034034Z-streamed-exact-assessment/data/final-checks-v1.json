@@ -1,0 +1,19 @@
+{
+  "compiled_lf_whitespace_files": 27,
+  "current_executed_script_bindings": 13,
+  "format": "streamed-exact-final-checks-v1",
+  "git_diff_whitespace": "pass; existing checkout LF/CRLF warnings only",
+  "junit": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 215
+  },
+  "new_public_link_targets": 5,
+  "preserved_test_modules": 9,
+  "private_handoffs_ignored": 4,
+  "public_private_disclosure_scan": "no matches; excludes Windows service-pack suffix",
+  "scope": "STATIC_AND_RETAINED_BINDINGS_ONLY",
+  "status": "PASS_EXECUTED_SOURCE_TEST_AND_PUBLIC_SCOPE_CHECKS",
+  "unrelated_deletions": false
+}

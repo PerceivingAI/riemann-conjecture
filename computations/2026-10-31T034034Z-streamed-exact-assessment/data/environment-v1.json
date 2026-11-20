@@ -1,0 +1,14 @@
+{
+  "packages": {
+    "hypothesis": "6.165.10",
+    "numpy": "2.5.2",
+    "pytest": "9.1.1",
+    "pytest-xdist": "3.8.0",
+    "python-flint": "0.9.0",
+    "scipy": "1.18.0"
+  },
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python_executable": "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+  "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "scope": "EXECUTED_WINDOWS_CPU_EXACT_ARITHMETIC_ONLY"
+}

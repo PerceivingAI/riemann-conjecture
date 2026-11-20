@@ -1,0 +1,1 @@
+{"execution_id":"e64b484bedbb927d1d3e2e3efd3bf405834ca1331d3a90c13fc96424b9597217","format":"whole-source-task-stage-completion-v1","inventory_sha256":"683dceca9ef53f9b4d2b4d3b34f90ba3bb9ca6daf21c03dfdd456040cf33f993","mathematical_verification":false,"peak_inflight":1,"positivity_proved":false,"scope":"OPERATIONAL_CONTROL_ONLY","task_count":1,"worker_pids":[15904]}
