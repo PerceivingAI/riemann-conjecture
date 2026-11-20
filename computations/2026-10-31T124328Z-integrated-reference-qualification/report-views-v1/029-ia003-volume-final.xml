@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="2.500" timestamp="2026-11-11T17:01:11.280482-05:00"><testcase classname="tests.test_whole_source_execution" name="test_bad_resource_plan_refuses_before_attempt[volume]" time="2.216" /></testsuite></testsuites>

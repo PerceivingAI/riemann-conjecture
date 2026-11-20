@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="6" time="6.358" timestamp="2026-11-13T08:29:00.047183-05:00"><testcase classname="tests.test_whole_source_producer_reuse" name="test_row_basis_reuse_invalidation_and_exact_results" time="0.124"><failure message="assert [0, 2, 2, 0, 2, 4] == [0, 2, 4]&#10;  &#10;  At index 2 diff: 2 != 4&#10;  Left contains 3 more items, first extra item: 0&#10;  &#10;  Full diff:&#10;    [&#10;  +     0,&#10;  +     2,&#10;  +     2,&#10;        0,&#10;        2,&#10;        4,&#10;    ]">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B184A8AEA0&gt;
+
+    def test_row_basis_reuse_invalidation_and_exact_results(monkeypatch):
+        problem = model()
+        cache = WorkingSet(PREPARED_BYTES)
+        monkeypatch.setattr(producer, '_ROW_BASES', cache)
+        original = producer.basis
+        calls = []
+        def counted(n):
+            calls.append(n)
+            return original(n)
+        monkeypatch.setattr(producer, 'basis', counted)
+    
+    
+        with ctx.workprec(160):
+            columns = producer.operator_columns(problem, (0, 2))
+            columns.update(producer.operator_columns(problem, (4,)))
+            first = producer.assemble_tile(problem, (0, 2), (2,), columns)
+            producer.assemble_tile(problem, (0, 2), (4,), columns)
+&gt;           assert calls == [0, 2, 4]
+E           assert [0, 2, 2, 0, 2, 4] == [0, 2, 4]
+E             
+E             At index 2 diff: 2 != 4
+E             Left contains 3 more items, first extra item: 0
+E             
+E             Full diff:
+E               [
+E             +     0,
+E             +     2,
+E             +     2,
+E                   0,
+E                   2,
+E                   4,
+E               ]
+
+tests\test_whole_source_producer_reuse.py:109: AssertionError</failure></testcase><testcase classname="tests.test_whole_source_producer_reuse" name="test_basis_reservation_precedes_construction" time="0.122" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_row_cache_reuses_only_anchor_rows_and_invalidates" time="0.125" /><testcase classname="tests.test_whole_source_tiles" name="test_resource_account_prices_declared_tiles_before_native_work[scripts.whole_source.producer]" time="0.113" /><testcase classname="tests.test_whole_source_tiles" name="test_resource_account_prices_declared_tiles_before_native_work[scripts.whole_source.analytic]" time="0.110" /><testcase classname="tests.test_whole_source_source_dependencies" name="test_entire_selected_stage_must_remain_verified[unselected-result]" time="5.429" /></testsuite></testsuites>

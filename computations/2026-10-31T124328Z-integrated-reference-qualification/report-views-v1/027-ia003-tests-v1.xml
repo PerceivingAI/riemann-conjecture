@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="19" failures="1" skipped="0" tests="122" time="135.614" timestamp="2026-11-11T16:46:30.237499-05:00"><testcase classname="tests.test_whole_source_retention" name="test_full_norm_uses_worse_parity_and_complete_physical_trace" time="0.011" /><testcase classname="tests.test_whole_source_retention" name="test_incomplete_global_evidence_cannot_release_norm[missing-row]" time="0.006" /><testcase classname="tests.test_whole_source_retention" name="test_incomplete_global_evidence_cannot_release_norm[missing-parity]" time="0.003" /><testcase classname="tests.test_whole_source_retention" name="test_incomplete_global_evidence_cannot_release_norm[local-determinant]" time="0.007" /><testcase classname="tests.test_whole_source_retention" name="test_incomplete_global_evidence_cannot_release_norm[zero-residue]" time="0.006" /><testcase classname="tests.test_whole_source_retention" name="test_incomplete_global_evidence_cannot_release_norm[reference-scope]" time="0.005" /><testcase classname="tests.test_whole_source_retention" name="test_incomplete_global_evidence_cannot_release_norm[last-row]" time="0.006" /><testcase classname="tests.test_whole_source_retention" name="test_width_boundary_is_inclusive_but_over_goal_prevents_release" time="0.010" /><testcase classname="tests.test_whole_source_retention" name="test_retained_endpoint_change_invalidates_the_sealed_scientific_inventory" time="0.039" /><testcase classname="tests.test_whole_source_retention" name="test_valid_nonproof_proposal_advances_to_scalar_premise_gate" time="0.335" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change0]" time="0.260" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change1]" time="0.264" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change2]" time="0.266" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change3]" time="0.263" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change4]" time="0.256" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change5]" time="0.257" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change6]" time="0.269" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change7]" time="0.269" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change8]" time="0.261" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change9]" time="0.265" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change10]" time="0.256" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change11]" time="0.270" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change12]" time="0.259" /><testcase classname="tests.test_whole_source_retention" name="test_invalid_proposal_or_exact_binding_cannot_advance[change13]" time="0.269" /><testcase classname="tests.test_whole_source_retention" name="test_empty_legacy_review_cannot_pass_actual_final_gate" time="0.330" /><testcase classname="tests.test_whole_source_retention" name="test_complete_review_advances_through_actual_gate_without_accepting_science" time="0.994"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_complete_review_advances_0')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_incomplete_or_changed_review_cannot_release_execution[empty]" time="0.985"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_incomplete_or_changed_rev0')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_incomplete_or_changed_review_cannot_release_execution[subset]" time="0.973"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_incomplete_or_changed_rev1')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_incomplete_or_changed_review_cannot_release_execution[duplicate]" time="0.997"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_incomplete_or_changed_rev2')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_incomplete_or_changed_review_cannot_release_execution[unrelated]" time="1.316"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_incomplete_or_changed_rev3')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_incomplete_or_changed_review_cannot_release_execution[assessor]" time="0.978"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_incomplete_or_changed_rev4')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_incomplete_or_changed_review_cannot_release_execution[runtime]" time="1.134"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_incomplete_or_changed_rev5')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_incomplete_or_changed_review_cannot_release_execution[inherited]" time="0.954"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_incomplete_or_changed_rev6')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_incomplete_or_changed_review_cannot_release_execution[wrong-hash]" time="0.991"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_incomplete_or_changed_rev7')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_incomplete_or_changed_review_cannot_release_execution[wrong-size]" time="0.990"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_incomplete_or_changed_rev8')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_incomplete_or_changed_review_cannot_release_execution[old-contract]" time="0.997"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_incomplete_or_changed_rev9')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_incomplete_or_changed_review_cannot_release_execution[wrong-disposition]" time="0.963"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_incomplete_or_changed_rev10')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_changed_execution_evidence_cannot_satisfy_review[origin]" time="1.050"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_changed_execution_evidenc0')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_changed_execution_evidence_cannot_satisfy_review[runtime]" time="1.318"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_changed_execution_evidenc1')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_changed_execution_evidence_cannot_satisfy_review[extra-runtime-file]" time="0.979"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_changed_execution_evidenc2')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_changed_execution_evidence_cannot_satisfy_review[coordinator]" time="0.999"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_changed_execution_evidenc3')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_changed_execution_evidence_cannot_satisfy_review[manifest]" time="1.172"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_changed_execution_evidenc4')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_changed_execution_evidence_cannot_satisfy_review[missing-stage]" time="0.993"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_changed_execution_evidenc5')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_retention" name="test_review_preparation_refuses_output_inside_run_before_writing" time="0.004" /><testcase classname="tests.test_whole_source_retention" name="test_current_review_cannot_cover_self_consistent_different_executed_revision" time="0.973"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic&quot;">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_current_review_cannot_cov0')
+
+    @pytest.fixture
+    def complete_review(tmp_path):
+        """Complete review metadata only; never a mathematical qualification."""
+        from dataclasses import asdict, replace
+        import hashlib
+        from scripts.whole_source.contract import ArtifactRef
+        from scripts.whole_source.execution import BUNDLE, _HELPERS, _RUNTIME
+        from scripts.whole_source.controls import SOURCE_CASES, EXACT_CASES
+        from tests.test_whole_source_execution import case
+        root = Path(__file__).resolve().parents[1]
+        bound = retention.bind_problem('retained-t081', root=root)
+        pid = retention.problem_id(bound)
+&gt;       captured, spec, base_plan = case(tmp_path, bound, backend='python-flint-exact')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_retention.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_execution.py:107: in case
+    plan = ExecutionPlan(problem_id(problem), spec.collection_id, "producer", max(1, workers), workers, 1,
+&lt;string&gt;:35: in __init__
+    ???
+scripts\whole_source\execution.py:228: in __post_init__
+    _require(self.role == "exact" and self.backend == "python-flint-exact" and
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'exact assessment requires integer-only arithmetic'
+
+    def _require(condition, message):
+        if not condition:
+&gt;           raise ContractError(message)
+E           scripts.whole_source.contract.ContractError: exact assessment requires integer-only arithmetic
+
+scripts\whole_source\execution.py:60: ContractError</error></testcase><testcase classname="tests.test_whole_source_proposal" name="test_row_scaled_ragged_factor_reconstructs_every_cross_update[1]" time="0.237" /><testcase classname="tests.test_whole_source_proposal" name="test_row_scaled_ragged_factor_reconstructs_every_cross_update[2]" time="0.083" /><testcase classname="tests.test_whole_source_proposal" name="test_row_scaled_ragged_factor_reconstructs_every_cross_update[4]" time="0.042" /><testcase classname="tests.test_whole_source_proposal" name="test_full_forward_and_back_solve_pay_all_previous_panels[False-2]" time="0.195" /><testcase classname="tests.test_whole_source_proposal" name="test_full_forward_and_back_solve_pay_all_previous_panels[False-3]" time="0.091" /><testcase classname="tests.test_whole_source_proposal" name="test_full_forward_and_back_solve_pay_all_previous_panels[True-2]" time="0.202" /><testcase classname="tests.test_whole_source_proposal" name="test_full_forward_and_back_solve_pay_all_previous_panels[True-3]" time="0.098" /><testcase classname="tests.test_whole_source_proposal" name="test_two_sided_whitening_is_not_one_sided_or_an_inverse_transpose_mixup[2]" time="0.357" /><testcase classname="tests.test_whole_source_proposal" name="test_two_sided_whitening_is_not_one_sided_or_an_inverse_transpose_mixup[4]" time="0.156" /><testcase classname="tests.test_whole_source_proposal" name="test_nonpositive_pivot_never_becomes_a_fallback_factor[0]" time="0.018" /><testcase classname="tests.test_whole_source_proposal" name="test_nonpositive_pivot_never_becomes_a_fallback_factor[-1]" time="0.020" /><testcase classname="tests.test_whole_source_proposal" name="test_full_dyadic_transform_reader_checks_all_rows_and_both_parities" time="0.268" /><testcase classname="tests.test_whole_source_proposal" name="test_declared_smaller_transform_cannot_replace_bound_physical_dimension" time="0.159" /><testcase classname="tests.test_whole_source_execution" name="test_native_task_and_t1_identity_in_captured_root_without_git" time="5.341" /><testcase classname="tests.test_whole_source_execution" name="test_legacy_environment_cannot_select_resource_policy" time="1.123" /><testcase classname="tests.test_whole_source_execution" name="test_job_cap_and_future_increment_are_separate" time="0.921" /><testcase classname="tests.test_whole_source_execution" name="test_bad_resource_plan_refuses_before_attempt[memory]" time="1.593" /><testcase classname="tests.test_whole_source_execution" name="test_bad_resource_plan_refuses_before_attempt[threads]" time="0.908" /><testcase classname="tests.test_whole_source_execution" name="test_bad_resource_plan_refuses_before_attempt[volume]" time="1.932" /><testcase classname="tests.test_whole_source_execution" name="test_bad_resource_plan_refuses_before_attempt[pool]" time="1.834" /><testcase classname="tests.test_whole_source_execution" name="test_actual_resource_inspection_cli_and_low_cap_refusal" time="1.372" /><testcase classname="tests.test_whole_source_execution" name="test_real_worker_failure_never_publishes_stage_success[memory_error-75]" time="4.838" /><testcase classname="tests.test_whole_source_execution" name="test_real_worker_failure_never_publishes_stage_success[native_exit-None]" time="5.685" /><testcase classname="tests.test_whole_source_execution" name="test_real_worker_failure_never_publishes_stage_success[native_denied-None]" time="4.983" /><testcase classname="tests.test_whole_source_execution" name="test_reduced_task_resources_reject_before_callback" time="1.289" /><testcase classname="tests.test_whole_source_execution" name="test_attach_failure_prevents_program_import" time="3.611" /><testcase classname="tests.test_whole_source_execution" name="test_cancellation_reaps_only_owned_tree" time="4.648" /><testcase classname="tests.test_whole_source_execution" name="test_descendant_holding_pipe_is_reaped_before_eof" time="5.356" /><testcase classname="tests.test_whole_source_execution" name="test_unbounded_stdout_is_refused_without_reader_deadlock" time="4.708" /><testcase classname="tests.test_whole_source_execution" name="test_real_two_worker_pool_requires_and_records_aggregate_observation" time="5.693" /><testcase classname="tests.test_whole_source_execution" name="test_actual_owned_worker_stages_and_reduces_nonzero_quantity" time="8.160" /><testcase classname="tests.test_whole_source_execution" name="test_only_exact_owned_windows_rate_rounding_is_eligible[6]" time="0.939" /><testcase classname="tests.test_whole_source_execution" name="test_only_exact_owned_windows_rate_rounding_is_eligible[12]" time="0.947" /><testcase classname="tests.test_whole_source_execution" name="test_only_exact_owned_windows_rate_rounding_is_eligible[128]" time="1.020" /><testcase classname="tests.test_whole_source_execution" name="test_scheduler_budget_alone_cannot_launch_uncontained_workers" time="2.199" /><testcase classname="tests.test_whole_source_execution" name="test_native_owned_stage_imports_bound_helpers_beyond_windows_max_path" time="5.407" /><testcase classname="tests.test_whole_source_execution" name="test_review_identity_matches_real_owned_runtime_and_rejects_version_drift" time="5.096"><failure message="scripts.whole_source.contract.ContractError: nonexact execution number: 1.8149746999988565">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-3/test_review_identity_matches_r0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_review_identity_matches_real_owned_runtime_and_rejects_version_drift(tmp_path, problems):
+        from scripts.whole_source import retention
+        captured, spec, plan = case(tmp_path, problems["retained-t081"])
+        with CollectionLock.acquire(tmp_path / "reviewed-collection", spec) as lock:
+            with WorkloadExecution(lock, spec, plan, code_root=captured) as execution:
+                execution.run_stage("review-control", [task(x=-3)])
+                rows = list(execution.read_results("review-control"))
+                assert rows[0]["result"]["polynomial"] == "0x22"
+                assert execution.receipts[-1]["worker_cleanup_verified"]
+            code, _, locations = retention._implementation_code(ROOT)
+            code.append({"kind": "current", "artifact": asdict(plan.task_program)})
+            receipts = retention._verify_receipts(lock.root)
+&gt;           bound = retention._stage_implementation(receipts[0], code, locations)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_execution.py:441: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\retention.py:648: in _stage_implementation
+    receipt = _document(receipt_record)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:49: in _document
+    return _json(_raw(Path(record['directory']),ArtifactRef(**record['artifact']),8*MIB))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\execution.py:81: in _json
+    result = json.loads(raw, object_pairs_hook=pairs, parse_float=reject, parse_constant=reject)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;USER_HOME&gt;\AppData\Local\Programs\Python\Python314\Lib\json\__init__.py:359: in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+&lt;USER_HOME&gt;\AppData\Local\Programs\Python\Python314\Lib\json\decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;USER_HOME&gt;\AppData\Local\Programs\Python\Python314\Lib\json\decoder.py:361: in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = '1.8149746999988565'
+
+    def reject(value):
+&gt;       raise ContractError("nonexact execution number: " + value)
+E       scripts.whole_source.contract.ContractError: nonexact execution number: 1.8149746999988565
+
+scripts\whole_source\execution.py:80: ContractError</failure></testcase><testcase classname="tests.test_whole_source_resources" name="test_legacy_plan_serialization_and_identity_are_unchanged" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_all_effective_cpus_and_capacity_derived_cap_without_environment" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_affinity_quota_and_effective_allowance_are_upper_bounds[evidence0-3]" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_affinity_quota_and_effective_allowance_are_upper_bounds[evidence1-2]" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_affinity_quota_and_effective_allowance_are_upper_bounds[evidence2-4]" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_affinity_quota_and_effective_allowance_are_upper_bounds[evidence3-2]" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_aggregate_ram_preserves_independent_workers_then_fills_threads[800-2-3]" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_aggregate_ram_preserves_independent_workers_then_fills_threads[500-1-4]" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_aggregate_ram_preserves_independent_workers_then_fills_threads[1200-4-1]" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_memory_capacity_and_no_feasible_working_set_reject" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_codec_and_queue_cover_all_resized_workers" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_derived_singleton_reuses_per_worker_costs_and_refreshes_host_reserve" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_incomplete_discovery_requires_relevant_explicit_limit[cpu_detection_complete-override0]" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_incomplete_discovery_requires_relevant_explicit_limit[memory_detection_complete-override1]" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_explicit_cpu_limit_can_replace_incomplete_discovery_fallback" time="0.020" /><testcase classname="tests.test_whole_source_resources" name="test_unknown_memory_requires_explicit_cap_and_retains_known_constraints" time="0.001" /><testcase classname="tests.test_whole_source_resources" name="test_policy_is_closed_and_cannot_be_used_as_an_unvalidated_pool_bypass" time="0.004" /><testcase classname="tests.test_whole_source_resources" name="test_current_admission_counts_only_future_growth_and_external_increment_once" time="0.005" /><testcase classname="tests.test_whole_source_resources" name="test_worker_admission_rechecks_current_cpu_memory_and_discovery" time="0.083" /><testcase classname="tests.test_whole_source_resources" name="test_worker_reserve_stays_outside_owned_job_cap_and_preserves_host_headroom" time="0.060" /><testcase classname="tests.test_whole_source_resources" name="test_readiness_requires_owned_concurrent_pids_and_aggregate_memory" time="0.033" /><testcase classname="tests.test_whole_source_resources" name="test_real_automatic_stage_qualifies_its_actual_pool_before_publishing_completion[1]" time="5.387" /><testcase classname="tests.test_whole_source_resources" name="test_real_automatic_stage_qualifies_its_actual_pool_before_publishing_completion[2]" time="6.715" /><testcase classname="tests.test_whole_source_resources" name="test_real_automatic_stage_qualifies_its_actual_pool_before_publishing_completion[5]" time="4.889" /><testcase classname="tests.test_whole_source_resources" name="test_owned_work_completes_while_live_status_snapshot_is_locked" time="6.660" /><testcase classname="tests.test_whole_source_retention_controls" name="test_native_inclusive_containment_rejects_wrong_raw_enclosures" time="0.001" /><testcase classname="tests.test_whole_source_retention_controls" name="test_prime5_omissions_have_independently_derived_signed_effects" time="1.229" /><testcase classname="tests.test_whole_source_retention_controls" name="test_rehashed_false_tiles_reach_native_consumer_and_reuse_unchanged_payloads[wrong-low-constant-A_model]" time="0.077" /><testcase classname="tests.test_whole_source_retention_controls" name="test_rehashed_false_tiles_reach_native_consumer_and_reuse_unchanged_payloads[underpaid-weighted-head-weighted_head]" time="0.028" /><testcase classname="tests.test_whole_source_retention_controls" name="test_rehashed_false_tiles_reach_native_consumer_and_reuse_unchanged_payloads[omitted-complete-physical-exterior-weighted_complete_tail]" time="0.030" /><testcase classname="tests.test_whole_source_retention_controls" name="test_rehashed_false_tiles_reach_native_consumer_and_reuse_unchanged_payloads[omitted-prime5-low-term-A_model]" time="0.028" /><testcase classname="tests.test_whole_source_retention_controls" name="test_rehashed_false_tiles_reach_native_consumer_and_reuse_unchanged_payloads[omitted-prime5-mixed-square-weighted_complete_tail]" time="0.028" /><testcase classname="tests.test_whole_source_retention_controls" name="test_terminal_weight_control_retains_false_declaration_without_matrix_mutation" time="0.029" /><testcase classname="tests.test_whole_source_retention_controls" name="test_native_inverse_weight_predicate_accepts_only_complete_ordered_positive_declaration" time="0.005" /><testcase classname="tests.test_whole_source_retention_controls" name="test_selected_negative_changes_actual_source_diagonals_not_just_report_status" time="0.042" /><testcase classname="tests.test_whole_source_retention_controls" name="test_reduced_model_cannot_obtain_required_controls_pass" time="0.488" /><testcase classname="tests.test_whole_source_retention_controls" name="test_full_413_transform_zero_column_is_rejected_by_global_native_check" time="0.110" /><testcase classname="tests.test_whole_source_retention_controls" name="test_exact_outcomes_come_from_actual_congruence_arithmetic[False-SELECTED_PAID_LOWER_NEGATIVE_NOT_WEIL_NEGATIVITY]" time="0.053" /><testcase classname="tests.test_whole_source_retention_controls" name="test_exact_outcomes_come_from_actual_congruence_arithmetic[True-WIDTH_GOAL_FAILED]" time="0.039" /><testcase classname="tests.test_whole_source_retention_controls" name="test_singular_proposal_rebinds_every_integer_panel_and_passes_real_consumer" time="0.282" /></testsuite></testsuites>

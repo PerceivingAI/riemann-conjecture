@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.440" timestamp="2026-11-15T09:19:43.153633-05:00"><testcase classname="tests.test_whole_source_supervision" name="test_capacity_ceiling_rounds_down_before_os_installation" time="0.217"><failure message="AssertionError: assert 'REFUSED' == 'COMPLETED'&#10;  &#10;  - COMPLETED&#10;  + REFUSED">owned = WindowsPath('[REPO_ROOT]/.pytest_cache/lifecycle-control-85s1mx9x')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002172BC4AEA0&gt;
+
+    def test_capacity_ceiling_rounds_down_before_os_installation(owned, monkeypatch):
+        from scripts.whole_source.execution import neutral_helpers
+        helper = neutral_helpers(ROOT)[0]
+        original = helper.detect_resources
+        available = 512*s.MIB-17
+        def detected():
+            value = original()
+            if min(row['available_bytes'] for row in value['memory_sources']) &lt; available:
+                pytest.skip('live capacity is below the bounded rounding control')
+            return {**value, 'available_memory_bytes': available,
+                    'memory_sources': [*value['memory_sources'],
+                        {'source': 'declared-software-control', 'available_bytes': available}]}
+        monkeypatch.setattr(helper, 'detect_resources', detected)
+        result, _ = run(owned, 'from scripts.whole_source.supervision import require_current\nrequire_current()\n',
+                        config=settings(memory_mib=None))
+&gt;       assert result['status'] == 'COMPLETED'
+E       AssertionError: assert 'REFUSED' == 'COMPLETED'
+E         
+E         - COMPLETED
+E         + REFUSED
+
+tests\test_whole_source_supervision.py:191: AssertionError</failure></testcase></testsuite></testsuites>

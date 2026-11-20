@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="4" failures="2" skipped="0" tests="70" time="28.390" timestamp="2026-10-30T13:31:08.527003-05:00"><testcase classname="tests.test_whole_source_head" name="test_complete_frequency_projectors_and_both_halves[0-0]" time="0.133" /><testcase classname="tests.test_whole_source_head" name="test_complete_frequency_projectors_and_both_halves[0-1]" time="0.001" /><testcase classname="tests.test_whole_source_head" name="test_complete_frequency_projectors_and_both_halves[1-0]" time="0.002" /><testcase classname="tests.test_whole_source_head" name="test_complete_frequency_projectors_and_both_halves[1-1]" time="0.001" /><testcase classname="tests.test_whole_source_head" name="test_complete_frequency_projectors_and_both_halves[30-0]" time="0.001" /><testcase classname="tests.test_whole_source_head" name="test_complete_frequency_projectors_and_both_halves[30-1]" time="0.001" /><testcase classname="tests.test_whole_source_head" name="test_complete_frequency_projectors_and_both_halves[-1-0]" time="0.002" /><testcase classname="tests.test_whole_source_head" name="test_complete_frequency_projectors_and_both_halves[-1-1]" time="0.002" /><testcase classname="tests.test_whole_source_head" name="test_nonexact_bessel_seed_pays_actual_argument_uncertainty" time="0.001" /><testcase classname="tests.test_whole_source_head" name="test_ragged_full_head_product_keeps_both_cross_block_orientations[0]" time="0.001" /><testcase classname="tests.test_whole_source_head" name="test_ragged_full_head_product_keeps_both_cross_block_orientations[1]" time="0.001" /><testcase classname="tests.test_whole_source_head" name="test_signed_residual_head_uses_output_expansion_mass[4]" time="0.005" /><testcase classname="tests.test_whole_source_head" name="test_signed_residual_head_uses_output_expansion_mass[5]" time="0.004" /><testcase classname="tests.test_whole_source_head" name="test_constant_frequency_majorant_retains_positive_terminal_full_mass[0]" time="0.001"><failure message="TypeError: unsupported operand type(s) for *: 'Fraction' and 'flint.types.arb.arb'">problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+parity = 0
+
+    @pytest.mark.parametrize('parity', [0, 1])
+    def test_constant_frequency_majorant_retains_positive_terminal_full_mass(problem, parity):
+        model = math_problem(problem, True)
+        weight = Fraction(7, 3)
+        weights = [weight]*len(problem.frequency_edges)
+        with ctx.workprec(512):
+            for n in range(6+parity, 12, 2):
+                total = arb(fmpq(weight.numerator, weight.denominator))*fmpq(2, 2*n+1)
+                for k, omega in enumerate(problem.frequency_edges[1:]):
+&gt;                   total += (weights[k]-weights[k+1])*producer.frequency_anchor(model, omega)(n, n)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E                   TypeError: unsupported operand type(s) for *: 'Fraction' and 'flint.types.arb.arb'
+
+tests\test_whole_source_head.py:93: TypeError</failure></testcase><testcase classname="tests.test_whole_source_head" name="test_constant_frequency_majorant_retains_positive_terminal_full_mass[1]" time="0.001"><failure message="TypeError: unsupported operand type(s) for *: 'Fraction' and 'flint.types.arb.arb'">problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+parity = 1
+
+    @pytest.mark.parametrize('parity', [0, 1])
+    def test_constant_frequency_majorant_retains_positive_terminal_full_mass(problem, parity):
+        model = math_problem(problem, True)
+        weight = Fraction(7, 3)
+        weights = [weight]*len(problem.frequency_edges)
+        with ctx.workprec(512):
+            for n in range(6+parity, 12, 2):
+                total = arb(fmpq(weight.numerator, weight.denominator))*fmpq(2, 2*n+1)
+                for k, omega in enumerate(problem.frequency_edges[1:]):
+&gt;                   total += (weights[k]-weights[k+1])*producer.frequency_anchor(model, omega)(n, n)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E                   TypeError: unsupported operand type(s) for *: 'Fraction' and 'flint.types.arb.arb'
+
+tests\test_whole_source_head.py:93: TypeError</failure></testcase><testcase classname="tests.test_whole_source_pipeline" name="test_whole_dependency_column_and_ragged_square_tiles_keep_distinct_partitions" time="2.410" /><testcase classname="tests.test_whole_source_pipeline" name="test_actual_kernel_cache_keeps_terminal_full_mass_with_zero_weight_jumps[0]" time="6.361" /><testcase classname="tests.test_whole_source_pipeline" name="test_actual_kernel_cache_keeps_terminal_full_mass_with_zero_weight_jumps[1]" time="6.972" /><testcase classname="tests.test_whole_source_pipeline" name="test_publication_is_outward_on_actual_256_bit_grid_and_covers_both_parities" time="0.837"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: dyadic endpoints required&quot;">bound = (WindowsPath('[REPO_ROOT]/.pytest_cache/source-contract-ju_z9t59'), ProblemSpec(profile='reta...12f242bccff84cafb87bd1e0019009280f735aa1888de08a9a2c054', size=1458), pool_measurement=None, scope='SELECTION_ONLY'))})
+
+    @pytest.fixture(scope='module')
+    def publications(bound):
+        with collection(bound, 'publication') as (lock, store, spec):
+            tiles = []
+            for family, name in FAMILIES.items():
+                for parity in (0, 1):
+                    for task in _tiles(spec, QuantityKey(name, parity)):
+                        records = (IntervalRecord(m, n, (0,), Fraction(m-n+1, 3), Fraction(m-n+1, 3))
+                                   for m, n in _coordinates(task, True))
+&gt;                       staged = stage_publication(store.staging_context(), task, records)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_pipeline.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\artifacts.py:1641: in stage_publication
+    lo, hi = _round(record.lower, record.upper, bits)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:919: in _round
+    _require(endpoint.denominator &amp; (endpoint.denominator - 1) == 0, "dyadic endpoints required")
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'dyadic endpoints required'
+
+    def _require(condition: bool, message: str) -&gt; None:
+        if not condition:
+&gt;           raise ArtifactError(message)
+E           scripts.whole_source.artifacts.ArtifactError: dyadic endpoints required
+
+scripts\whole_source\artifacts.py:37: ArtifactError</error></testcase><testcase classname="tests.test_whole_source_pipeline" name="test_source_reader_requires_exact_complete_coordinate_cover[missing_last_tile]" time="0.001"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: dyadic endpoints required&quot;">bound = (WindowsPath('[REPO_ROOT]/.pytest_cache/source-contract-ju_z9t59'), ProblemSpec(profile='reta...12f242bccff84cafb87bd1e0019009280f735aa1888de08a9a2c054', size=1458), pool_measurement=None, scope='SELECTION_ONLY'))})
+
+    @pytest.fixture(scope='module')
+    def publications(bound):
+        with collection(bound, 'publication') as (lock, store, spec):
+            tiles = []
+            for family, name in FAMILIES.items():
+                for parity in (0, 1):
+                    for task in _tiles(spec, QuantityKey(name, parity)):
+                        records = (IntervalRecord(m, n, (0,), Fraction(m-n+1, 3), Fraction(m-n+1, 3))
+                                   for m, n in _coordinates(task, True))
+&gt;                       staged = stage_publication(store.staging_context(), task, records)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_pipeline.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\artifacts.py:1641: in stage_publication
+    lo, hi = _round(record.lower, record.upper, bits)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:919: in _round
+    _require(endpoint.denominator &amp; (endpoint.denominator - 1) == 0, "dyadic endpoints required")
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'dyadic endpoints required'
+
+    def _require(condition: bool, message: str) -&gt; None:
+        if not condition:
+&gt;           raise ArtifactError(message)
+E           scripts.whole_source.artifacts.ArtifactError: dyadic endpoints required
+
+scripts\whole_source\artifacts.py:37: ArtifactError</error></testcase><testcase classname="tests.test_whole_source_pipeline" name="test_source_reader_requires_exact_complete_coordinate_cover[repeated_tile]" time="0.001"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: dyadic endpoints required&quot;">bound = (WindowsPath('[REPO_ROOT]/.pytest_cache/source-contract-ju_z9t59'), ProblemSpec(profile='reta...12f242bccff84cafb87bd1e0019009280f735aa1888de08a9a2c054', size=1458), pool_measurement=None, scope='SELECTION_ONLY'))})
+
+    @pytest.fixture(scope='module')
+    def publications(bound):
+        with collection(bound, 'publication') as (lock, store, spec):
+            tiles = []
+            for family, name in FAMILIES.items():
+                for parity in (0, 1):
+                    for task in _tiles(spec, QuantityKey(name, parity)):
+                        records = (IntervalRecord(m, n, (0,), Fraction(m-n+1, 3), Fraction(m-n+1, 3))
+                                   for m, n in _coordinates(task, True))
+&gt;                       staged = stage_publication(store.staging_context(), task, records)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_pipeline.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\artifacts.py:1641: in stage_publication
+    lo, hi = _round(record.lower, record.upper, bits)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:919: in _round
+    _require(endpoint.denominator &amp; (endpoint.denominator - 1) == 0, "dyadic endpoints required")
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'dyadic endpoints required'
+
+    def _require(condition: bool, message: str) -&gt; None:
+        if not condition:
+&gt;           raise ArtifactError(message)
+E           scripts.whole_source.artifacts.ArtifactError: dyadic endpoints required
+
+scripts\whole_source\artifacts.py:37: ArtifactError</error></testcase><testcase classname="tests.test_whole_source_pipeline" name="test_source_reader_requires_exact_complete_coordinate_cover[wrong_parity]" time="0.048"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: dyadic endpoints required&quot;">bound = (WindowsPath('[REPO_ROOT]/.pytest_cache/source-contract-ju_z9t59'), ProblemSpec(profile='reta...12f242bccff84cafb87bd1e0019009280f735aa1888de08a9a2c054', size=1458), pool_measurement=None, scope='SELECTION_ONLY'))})
+
+    @pytest.fixture(scope='module')
+    def publications(bound):
+        with collection(bound, 'publication') as (lock, store, spec):
+            tiles = []
+            for family, name in FAMILIES.items():
+                for parity in (0, 1):
+                    for task in _tiles(spec, QuantityKey(name, parity)):
+                        records = (IntervalRecord(m, n, (0,), Fraction(m-n+1, 3), Fraction(m-n+1, 3))
+                                   for m, n in _coordinates(task, True))
+&gt;                       staged = stage_publication(store.staging_context(), task, records)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_pipeline.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\artifacts.py:1641: in stage_publication
+    lo, hi = _round(record.lower, record.upper, bits)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:919: in _round
+    _require(endpoint.denominator &amp; (endpoint.denominator - 1) == 0, "dyadic endpoints required")
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+condition = False, message = 'dyadic endpoints required'
+
+    def _require(condition: bool, message: str) -&gt; None:
+        if not condition:
+&gt;           raise ArtifactError(message)
+E           scripts.whole_source.artifacts.ArtifactError: dyadic endpoints required
+
+scripts\whole_source\artifacts.py:37: ArtifactError</error></testcase><testcase classname="tests.test_whole_source_gram" name="test_full_residual_endpoint_low_and_band_agree[0-0]" time="0.135" /><testcase classname="tests.test_whole_source_gram" name="test_full_residual_endpoint_low_and_band_agree[2-0]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_full_residual_endpoint_low_and_band_agree[2-2]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_full_residual_endpoint_low_and_band_agree[4-2]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_full_residual_endpoint_low_and_band_agree[3-3]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_full_residual_endpoint_low_and_band_agree[6-4]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_full_residual_endpoint_low_and_band_agree[7-5]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_full_residual_endpoint_low_and_band_agree[8-4]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_full_residual_endpoint_low_and_band_agree[10-4]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_logarithmic_potential_and_complete_square_agree[0-0]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_logarithmic_potential_and_complete_square_agree[1-1]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_logarithmic_potential_and_complete_square_agree[0-4]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_logarithmic_potential_and_complete_square_agree[4-0]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_logarithmic_potential_and_complete_square_agree[4-4]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_logarithmic_potential_and_complete_square_agree[5-5]" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_constant_logarithmic_integrals_have_closed_values" time="0.000" /><testcase classname="tests.test_whole_source_gram" name="test_complete_signed_square_and_ordered_log_windows[0-0]" time="0.002" /><testcase classname="tests.test_whole_source_gram" name="test_complete_signed_square_and_ordered_log_windows[1-1]" time="0.002" /><testcase classname="tests.test_whole_source_gram" name="test_complete_signed_square_and_ordered_log_windows[0-4]" time="0.005" /><testcase classname="tests.test_whole_source_gram" name="test_complete_signed_square_and_ordered_log_windows[4-0]" time="0.005" /><testcase classname="tests.test_whole_source_gram" name="test_complete_signed_square_and_ordered_log_windows[4-4]" time="0.004" /><testcase classname="tests.test_whole_source_gram" name="test_complete_signed_square_and_ordered_log_windows[5-5]" time="0.004" /><testcase classname="tests.test_whole_source_gram" name="test_ordered_vp_is_not_replaced_by_its_transpose" time="0.002" /><testcase classname="tests.test_whole_source_gram" name="test_full_physical_column_includes_head_and_correct_masses[0]" time="0.010" /><testcase classname="tests.test_whole_source_gram" name="test_full_physical_column_includes_head_and_correct_masses[1]" time="0.009" /><testcase classname="tests.test_whole_source_gram" name="test_full_physical_column_includes_head_and_correct_masses[4]" time="0.013" /><testcase classname="tests.test_whole_source_gram" name="test_full_physical_column_includes_head_and_correct_masses[5]" time="0.011" /><testcase classname="tests.test_whole_source_gram" name="test_full_exterior_pays_low_and_head_projection" time="0.009" /><testcase classname="tests.test_whole_source_gram" name="test_selected_component_domains_preserve_order_and_projection_extent" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_full_kernel_constant_integral_includes_every_endpoint_and_polar_term" time="0.022" /><testcase classname="tests.test_whole_source_gram" name="test_declared_residual_boundary_and_exact_band[86-86]" time="0.033" /><testcase classname="tests.test_whole_source_gram" name="test_declared_residual_boundary_and_exact_band[88-86]" time="0.031" /><testcase classname="tests.test_whole_source_gram" name="test_declared_residual_boundary_and_exact_band[87-87]" time="0.014" /><testcase classname="tests.test_whole_source_gram" name="test_declared_residual_boundary_and_exact_band[826-738]" time="0.049" /><testcase classname="tests.test_whole_source_gram" name="test_declared_residual_boundary_and_exact_band[826-740]" time="0.058" /><testcase classname="tests.test_whole_source_gram" name="test_declared_residual_boundary_and_exact_band[826-824]" time="0.068" /><testcase classname="tests.test_whole_source_gram" name="test_declared_residual_boundary_and_exact_band[827-825]" time="0.065" /><testcase classname="tests.test_whole_source_gram" name="test_declared_residual_boundary_and_exact_band[910-824]" time="0.066" /><testcase classname="tests.test_whole_source_gram" name="test_declared_residual_boundary_and_exact_band[912-824]" time="0.056" /><testcase classname="tests.test_whole_source_gram" name="test_declared_residual_boundary_and_exact_band[1650-824]" time="0.074" /><testcase classname="tests.test_whole_source_gram" name="test_constant_combined_square_matches_all_ordered_signed_intersections" time="0.001" /><testcase classname="tests.test_whole_source_gram" name="test_incomplete_expression_fails_after_structural_publication[mixed_power]" time="1.340" /><testcase classname="tests.test_whole_source_gram" name="test_incomplete_expression_fails_after_structural_publication[vp_orientation]" time="1.456" /><testcase classname="tests.test_whole_source_gram" name="test_incomplete_expression_fails_after_structural_publication[low_projection]" time="2.096" /><testcase classname="tests.test_whole_source_gram" name="test_incomplete_expression_fails_after_structural_publication[head_projection]" time="1.139" /><testcase classname="tests.test_whole_source_gram" name="test_incomplete_expression_fails_after_structural_publication[inverse_mass]" time="1.136" /><testcase classname="tests.test_whole_source_gram" name="test_incomplete_expression_fails_after_structural_publication[low_endpoint]" time="1.364" /><testcase classname="tests.test_whole_source_gram" name="test_incomplete_expression_fails_after_structural_publication[band_terminal]" time="1.219" /></testsuite></testsuites>

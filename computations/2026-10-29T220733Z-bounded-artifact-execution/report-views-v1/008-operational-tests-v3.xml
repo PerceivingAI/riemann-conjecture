@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="7" skipped="0" tests="127" time="290.367" timestamp="2026-10-29T17:30:41.515674-05:00"><testcase classname="tests.test_whole_source_contract" name="test_reviewed_profiles_have_exact_physical_and_arithmetic_parameters[retained-t081]" time="0.126" /><testcase classname="tests.test_whole_source_contract" name="test_canonical_serialization_is_exact_detached_and_non_proving[retained-t081]" time="0.337" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[retained-t081-active_terms]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[retained-t081-kernel_coefficients]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[retained-t081-frequency_edges]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[retained-t081-inverse_weights]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[retained-t081-evidence]" time="0.003" /><testcase classname="tests.test_whole_source_contract" name="test_every_bound_scalar_and_derived_arithmetic_change_is_rejected[retained-t081]" time="1.092" /><testcase classname="tests.test_whole_source_contract" name="test_relocated_evidence_preserves_identity_and_explicit_manifest_binding[retained-t081]" time="0.960" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[retained-t081-manifest]" time="0.102" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[retained-t081-source]" time="0.120" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[retained-t081-audit]" time="0.107" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[retained-t081-code]" time="0.216" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[retained-t081-dependency]" time="0.131" /><testcase classname="tests.test_whole_source_contract" name="test_false_historical_proof_metadata_cannot_be_rebound[retained-t081]" time="0.107" /><testcase classname="tests.test_whole_source_contract" name="test_domains_separate_low_head_and_finite_cross_band[retained-t081-0]" time="0.283" /><testcase classname="tests.test_whole_source_contract" name="test_domains_separate_low_head_and_finite_cross_band[retained-t081-1]" time="0.292" /><testcase classname="tests.test_whole_source_contract" name="test_problem_and_collection_identities_have_distinct_context[retained-t081]" time="1.412" /><testcase classname="tests.test_whole_source_contract" name="test_complete_and_ragged_output_tiles_obey_physical_parity_and_triangle[retained-t081-0]" time="9.148" /><testcase classname="tests.test_whole_source_contract" name="test_complete_and_ragged_output_tiles_obey_physical_parity_and_triangle[retained-t081-1]" time="9.468" /><testcase classname="tests.test_whole_source_contract" name="test_task_roles_are_explicit_distinct_request_metadata[retained-t081]" time="1.561" /><testcase classname="tests.test_whole_source_contract" name="test_fresh_inspection_writes_bound_documents_and_non_proving_receipt[retained-t081]" time="1.225" /><testcase classname="tests.test_whole_source_contract" name="test_file_sync_failure_cannot_publish_success[retained-t081]" time="0.864" /><testcase classname="tests.test_whole_source_contract" name="test_bad_binding_retains_only_failure_and_existing_output_is_untouched[retained-t081]" time="0.022" /><testcase classname="tests.test_whole_source_contract" name="test_successful_inspection_cannot_be_resumed_or_overwritten[retained-t081]" time="0.882" /><testcase classname="tests.test_whole_source_contract" name="test_actual_implementation_bytes_change_collection_not_problem_identity[retained-t081]" time="0.846" /><testcase classname="tests.test_whole_source_contract" name="test_reviewed_profiles_have_exact_physical_and_arithmetic_parameters[selected-t1]" time="0.183" /><testcase classname="tests.test_whole_source_contract" name="test_canonical_serialization_is_exact_detached_and_non_proving[selected-t1]" time="0.719" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[selected-t1-active_terms]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[selected-t1-kernel_coefficients]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[selected-t1-frequency_edges]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[selected-t1-inverse_weights]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[selected-t1-evidence]" time="0.003" /><testcase classname="tests.test_whole_source_contract" name="test_every_bound_scalar_and_derived_arithmetic_change_is_rejected[selected-t1]" time="2.398" /><testcase classname="tests.test_whole_source_contract" name="test_relocated_evidence_preserves_identity_and_explicit_manifest_binding[selected-t1]" time="1.074" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[selected-t1-manifest]" time="0.086" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[selected-t1-source]" time="0.108" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[selected-t1-audit]" time="0.096" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[selected-t1-code]" time="0.190" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[selected-t1-dependency]" time="0.125" /><testcase classname="tests.test_whole_source_contract" name="test_false_historical_proof_metadata_cannot_be_rebound[selected-t1]" time="0.093" /><testcase classname="tests.test_whole_source_contract" name="test_domains_separate_low_head_and_finite_cross_band[selected-t1-0]" time="0.622" /><testcase classname="tests.test_whole_source_contract" name="test_domains_separate_low_head_and_finite_cross_band[selected-t1-1]" time="0.622" /><testcase classname="tests.test_whole_source_contract" name="test_problem_and_collection_identities_have_distinct_context[selected-t1]" time="2.959" /><testcase classname="tests.test_whole_source_contract" name="test_complete_and_ragged_output_tiles_obey_physical_parity_and_triangle[selected-t1-0]" time="19.390" /><testcase classname="tests.test_whole_source_contract" name="test_complete_and_ragged_output_tiles_obey_physical_parity_and_triangle[selected-t1-1]" time="19.363" /><testcase classname="tests.test_whole_source_contract" name="test_task_roles_are_explicit_distinct_request_metadata[selected-t1]" time="3.261" /><testcase classname="tests.test_whole_source_contract" name="test_fresh_inspection_writes_bound_documents_and_non_proving_receipt[selected-t1]" time="2.517" /><testcase classname="tests.test_whole_source_contract" name="test_file_sync_failure_cannot_publish_success[selected-t1]" time="1.781" /><testcase classname="tests.test_whole_source_contract" name="test_bad_binding_retains_only_failure_and_existing_output_is_untouched[selected-t1]" time="0.019" /><testcase classname="tests.test_whole_source_contract" name="test_successful_inspection_cannot_be_resumed_or_overwritten[selected-t1]" time="1.791" /><testcase classname="tests.test_whole_source_contract" name="test_actual_implementation_bytes_change_collection_not_problem_identity[selected-t1]" time="1.476" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[ModeRange-args0]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[ModeRange-args1]" time="0.000" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[ModeRange-args2]" time="0.000" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[QuantityKey-args3]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[QuantityKey-args4]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[QuantityKey-args5]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[PartitionSpec-args6]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[ArithmeticPolicy-args7]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[ArtifactRef-args8]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_cli_exposes_only_reviewed_profile_inspection[arguments0]" time="0.003" /><testcase classname="tests.test_whole_source_contract" name="test_cli_exposes_only_reviewed_profile_inspection[arguments1]" time="0.003" /><testcase classname="tests.test_whole_source_contract" name="test_cli_exposes_only_reviewed_profile_inspection[arguments2]" time="0.002" /><testcase classname="tests.test_whole_source_contract" name="test_cli_exposes_only_reviewed_profile_inspection[arguments3]" time="0.002" /><testcase classname="tests.test_whole_source_contract" name="test_cli_exposes_only_reviewed_profile_inspection[arguments4]" time="0.002" /><testcase classname="tests.test_whole_source_contract" name="test_cli_inspection_runs_without_site_packages_or_numerical_imports" time="1.927" /><testcase classname="tests.test_whole_source_artifacts" name="test_bound_identity_and_explicit_scientific_policy" time="2.884" /><testcase classname="tests.test_whole_source_artifacts" name="test_wire_factory_rebinds_captured_tree_and_rejects_changed_policy" time="3.064" /><testcase classname="tests.test_whole_source_artifacts" name="test_full_head_axes_and_physical_mode_identity" time="1.998" /><testcase classname="tests.test_whole_source_artifacts" name="test_real_two_process_exclusion_and_stable_inode" time="1.997" /><testcase classname="tests.test_whole_source_artifacts" name="test_fresh_unrelated_and_resume_incompatible_refused" time="1.600" /><testcase classname="tests.test_whole_source_artifacts" name="test_attempt_registration_worker_staging_and_late_result" time="1.840" /><testcase classname="tests.test_whole_source_artifacts" name="test_identical_retry_conflict_stale_context_and_semantic_partition" time="3.020" /><testcase classname="tests.test_whole_source_artifacts" name="test_actual_nonzero_prefix_exact_rounding_ragged_cover_and_slice_seal" time="21.784" /><testcase classname="tests.test_whole_source_artifacts" name="test_resume_consumes_same_canonical_nonzero_prefix_and_scientific_seal" time="67.932" /><testcase classname="tests.test_whole_source_artifacts" name="test_missing_coordinate_cannot_seal_by_count" time="4.347" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[0X1]" time="0.001" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[+0x1]" time="0.000" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[0x01]" time="0.000" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[-0x0]" time="0.000" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[0xA]" time="0.001" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[1]" time="0.000" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[0x]" time="0.000" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[ 0x1]" time="0.001" /><testcase classname="tests.test_whole_source_artifacts" name="test_actual_maximum_declared_endpoint_bits_and_rationals" time="1.609" /><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[duplicate]" time="1.523" /><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[reversed]" time="1.555" /><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[order]" time="1.579" /><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[zero-denominator]" time="1.570" /><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[oversized]" time="1.634" /><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[truncated]" time="1.566" /><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[extra]" time="1.603" /><testcase classname="tests.test_whole_source_artifacts" name="test_snapshot_bytes_survive_path_replacement_and_hash_mismatch_rejects" time="1.576" /><testcase classname="tests.test_whole_source_artifacts" name="test_confinement_alias_escape_and_symlink_refused" time="1.570" /><testcase classname="tests.test_whole_source_artifacts" name="test_real_caps_never_publish_success[max_compressed_bytes]" time="1.345" /><testcase classname="tests.test_whole_source_artifacts" name="test_real_caps_never_publish_success[max_decoded_bytes]" time="1.356" /><testcase classname="tests.test_whole_source_artifacts" name="test_real_caps_never_publish_success[max_records]" time="1.301" /><testcase classname="tests.test_whole_source_artifacts" name="test_real_caps_never_publish_success[max_temporary_bytes]" time="0.335" /><testcase classname="tests.test_whole_source_artifacts" name="test_real_caps_never_publish_success[max_total_bytes]" time="0.347" /><testcase classname="tests.test_whole_source_artifacts" name="test_fsync_refusal_keeps_manifest_before_uncommitted_chunk" time="2.018" /><testcase classname="tests.test_whole_source_artifacts" name="test_rename_refusal_manifest_last_and_identical_retry" time="3.426" /><testcase classname="tests.test_whole_source_artifacts" name="test_real_short_write_and_quota_refusal_do_not_advance_manifest" time="1.993" /><testcase classname="tests.test_whole_source_artifacts" name="test_stage_capability_rejects_released_owner_without_replacement" time="1.309" /><testcase classname="tests.test_whole_source_artifacts" name="test_staged_prefix_cannot_cross_intervening_index_commit" time="2.234" /><testcase classname="tests.test_whole_source_execution" name="test_native_task_and_t1_identity_in_captured_root_without_git" time="4.108"><failure message="RuntimeError: control exited 1; inspect retained stderr and profile">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-6/test_native_task_and_t1_identi0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_native_task_and_t1_identity_in_captured_root_without_git(tmp_path, problems):
+        captured, spec, plan = case(tmp_path, problems["selected-t1"])
+        assert not (captured / ".git").exists()
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            with WorkloadExecution(lock, spec, plan, code_root=captured) as execution:
+&gt;               complete = execution.run_stage("control", [task(mode="native", x=-3)])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_execution.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\execution.py:609: in run_stage
+    receipt = self.backend.run(name, self.runtime_root / "scripts/whole_source/execution.py",
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;whole_source_supervisor.Execution object at 0x000001536E93F0E0&gt;
+name = 'control'
+program = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-6/test_native_task_and_t1_identi0/collection/attempts/393f39785b6a416bb588f8599488c66f/runtime/scripts/whole_source/execution.py')
+arguments = ['--stage', '&lt;USER_HOME&gt;\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-6\\test_native_task_and_t1_identi0\\colle...8599488c66f\\control-stage.json', '--stage-sha256', 'c16496bfcb259dd0ed7a6a4f711e076f9f2d669112606805e6b90f961ce70052']
+kind = 'fixture', environment = None, expected_codes = (0,)
+
+    def run(self,name,program,arguments,*,kind,environment=None,expected_codes=(0,)):
+        folder=self.output/name;folder.mkdir()
+        program=Path(program).resolve()
+        command=[sys.executable,'-B',str(self.worker),'--program',str(program),
+            '--program-sha256',sha(program.read_bytes()),'--config',str(self.config),
+            '--config-sha256',self.config_sha,'--profile',str(folder/'profile.json'),
+            '--kind',kind,'--',*map(str,arguments)]
+        env=os.environ.copy();env.pop('PYTHONPATH',None);env['PYTHONDONTWRITEBYTECODE']='1'
+        for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS','FLINT_NUM_THREADS'):
+            env[key]='1'
+        if environment:env.update(environment)
+        messages=queue.Queue();readers=[];job=None;process=None
+        started=time.monotonic();metrics={};peak=0;cleanup=False;error=None;history={}
+        self.writer.event('STAGE_STARTED',stage=name,argv=command)
+        self.writer.update(workflow_state='RUNNING',current_operation={'stage':name,'phase':'initializing','budget':self.budget})
+        logs={channel:(folder/(channel+'.txt')).open('x',encoding='utf-8',newline='\n') for channel in ('stdout','stderr')}
+        def read(channel,stream):
+            try:
+                for line in stream:messages.put((channel,line))
+            finally:messages.put((channel,None))
+        try:
+            process=subprocess.Popen(command,cwd=self.root,env=env,stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf-8',start_new_session=os.name=='posix')
+            if os.name=='nt':
+                job=WindowsJob(self.budget['memory_budget_bytes'],self.budget['cpu_budget']);job.attach(process)
+            for channel in ('stdout','stderr'):
+                reader=threading.Thread(target=read,args=(channel,getattr(process,channel)),daemon=True)
+                reader.start();readers.append(reader)
+            # The actual interpreter can differ from Popen.pid on Windows venvs.
+            deadline=time.monotonic()+15;worker_pid=None
+            while worker_pid is None:
+                channel,line=messages.get(timeout=max(.01,deadline-time.monotonic()))
+                if line is None:raise RuntimeError('worker exited before READY')
+                logs[channel].write(line);logs[channel].flush()
+                if channel=='stdout' and line.startswith('T081_READY '):
+                    ready=json.loads(line[len('T081_READY '):])
+                    if ready['config_sha256']!=self.config_sha:raise ValueError('worker READY identity mismatch')
+                    worker_pid=ready['pid']
+                if time.monotonic()&gt;deadline:raise TimeoutError('worker READY deadline exceeded')
+            if job:job.attach_worker_pid(worker_pid)
+            process.stdin.write('GO\n');process.stdin.flush();process.stdin.close()
+            completed_streams=set();operation={'stage':name,'phase':'program','budget':self.budget}
+            next_sample=0.0
+            while process.poll() is None or len(completed_streams)&lt;2:
+                if self.cancelled.is_set():raise KeyboardInterrupt('owned execution cancelled')
+                # Reap descendants before waiting on inherited stdout/stderr EOF.
+                if process.poll() is not None:
+                    if job and job.usage()['active_process_count']:
+                        job.terminate()
+                    elif os.name=='posix' and _posix_metrics(process.pid)['active_process_ids']:
+                        os.killpg(process.pid,signal.SIGKILL)
+                try:channel,line=messages.get(timeout=.5)
+                except queue.Empty:channel=line=None
+                if channel is not None:
+                    if line is None:completed_streams.add(channel)
+                    else:
+                        logs[channel].write(line);logs[channel].flush()
+                        if line.startswith('T081_EVENT '):
+                            event=json.loads(line[len('T081_EVENT '):]);self.writer.event('STAGE_PROGRESS',stage=name,detail=event)
+                            operation={'stage':name,**event,'budget':self.budget,'remaining_estimate_seconds':None}
+                            if event['event']=='work' and 'completed' in event and 'total' in event:
+                                key=tuple(event.get(k) for k in ('phase','parity','kind','unit'))
+                                old=history.get(key);now=time.monotonic();done=event['completed']
+                                if old and done&gt;old[0]:
+                                    operation['remaining_estimate_seconds']=(now-old[1])/(done-old[0])*(event['total']-done)
+                                    operation['estimate_basis']='last comparable observed work-unit interval, not wall-time percentage'
+                                history[key]=(done,now)
+                            print(name+': '+json.dumps(event,sort_keys=True),flush=True)
+                        else:print(name+': '+line,end='',flush=True)
+                now=time.monotonic()
+                if now&gt;=next_sample:
+                    next_sample=now+1
+                    if job:
+                        metrics=job.usage();peak=max(peak,metrics['peak_committed_bytes'])
+                    else:
+                        # RLIMIT_AS is inherited; the aggregate is monitored separately.
+                        metrics=_posix_metrics(process.pid);rss=metrics['aggregate_rss_bytes']
+                        peak=max(peak,rss)
+                        if rss&gt;self.budget['memory_budget_bytes']:raise MemoryError('owned stage aggregate RSS exceeded memory budget')
+                    operation.update({'stage_elapsed_seconds':now-started,'resources':metrics})
+                    self.writer.update(current_operation=operation)
+            process.wait()
+            if job:
+                metrics=job.usage();peak=max(peak,metrics['peak_committed_bytes'])
+                if metrics['active_process_count']:
+                    job.terminate()
+                    deadline=time.monotonic()+10
+                    while job.usage()['active_process_count'] and time.monotonic()&lt;deadline:time.sleep(.05)
+                cleanup=job.usage()['active_process_count']==0
+            else:
+                metrics=_posix_metrics(process.pid)
+                if metrics['active_process_ids']:
+                    os.killpg(process.pid,signal.SIGKILL)
+                    deadline=time.monotonic()+10
+                    while _posix_metrics(process.pid)['active_process_ids'] and time.monotonic()&lt;deadline:time.sleep(.05)
+                cleanup=not _posix_metrics(process.pid)['active_process_ids']
+            if not cleanup:raise RuntimeError('owned numerical descendants remain after stage exit')
+&gt;           if process.returncode not in expected_codes:raise RuntimeError(name+' exited '+str(process.returncode)+'; inspect retained stderr and profile')
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: control exited 1; inspect retained stderr and profile
+
+&lt;USER_HOME&gt;\AppData\Local\Temp\pytest-of-USER\pytest-6\test_native_task_and_t1_identi0\captured\computations\2026-10-28T034134Z-t081-resource-execution\execution_supervisor_v1.py:159: RuntimeError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_legacy_environment_cannot_select_resource_policy" time="1.205" /><testcase classname="tests.test_whole_source_execution" name="test_job_cap_and_future_increment_are_separate" time="1.132" /><testcase classname="tests.test_whole_source_execution" name="test_bad_resource_plan_refuses_before_attempt[memory]" time="2.035" /><testcase classname="tests.test_whole_source_execution" name="test_bad_resource_plan_refuses_before_attempt[threads]" time="1.045" /><testcase classname="tests.test_whole_source_execution" name="test_bad_resource_plan_refuses_before_attempt[volume]" time="2.071" /><testcase classname="tests.test_whole_source_execution" name="test_bad_resource_plan_refuses_before_attempt[pool]" time="2.087" /><testcase classname="tests.test_whole_source_execution" name="test_actual_resource_inspection_cli_and_low_cap_refusal" time="3.839" /><testcase classname="tests.test_whole_source_execution" name="test_real_worker_failure_never_publishes_stage_success[memory_error-75]" time="3.825"><failure message="assert 1 == 75">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-6/test_real_worker_failure_never0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+mode = 'memory_error', code = 75
+
+    @pytest.mark.parametrize("mode,code", [("memory_error", 75), ("native_exit", None), ("native_denied", None)])
+    def test_real_worker_failure_never_publishes_stage_success(tmp_path, problems, mode, code):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"])
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            execution = WorkloadExecution(lock, spec, plan, code_root=captured)
+            with pytest.raises((RuntimeError, MemoryError)):
+                with execution:
+                    execution.run_stage("control", [task(mode=mode)])
+            receipt = json.loads((execution.output / "control/receipt.json").read_bytes())
+            assert receipt["worker_cleanup_verified"] and receipt["exit_code"] != 0
+            if code is not None:
+&gt;               assert receipt["exit_code"] == code
+E               assert 1 == 75
+
+tests\test_whole_source_execution.py:226: AssertionError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_real_worker_failure_never_publishes_stage_success[native_exit-None]" time="3.792" /><testcase classname="tests.test_whole_source_execution" name="test_real_worker_failure_never_publishes_stage_success[native_denied-None]" time="3.275" /><testcase classname="tests.test_whole_source_execution" name="test_reduced_task_resources_reject_before_callback" time="1.128" /><testcase classname="tests.test_whole_source_execution" name="test_attach_failure_prevents_program_import" time="2.923" /><testcase classname="tests.test_whole_source_execution" name="test_cancellation_reaps_only_owned_tree" time="3.850"><failure message="AssertionError: {'error': RuntimeError('control exited 1; inspect retained stderr and profile')}&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-6/test_cancellation_reaps_only_o0/ready').exists">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-6/test_cancellation_reaps_only_o0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_cancellation_reaps_only_owned_tree(tmp_path, problems):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"])
+        unrelated = subprocess.Popen([getattr(sys, "_base_executable", sys.executable), "-B", "-c", "import time;time.sleep(120)"])
+        ready, release = tmp_path / "ready", tmp_path / "release"
+        outcomes = {}
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            execution = WorkloadExecution(lock, spec, plan, code_root=captured)
+            def run():
+                try:
+                    with execution:
+                        execution.run_stage("control", [task(mode="wait", ready=str(ready), release=str(release))])
+                except BaseException as exc:
+                    outcomes["error"] = exc
+            thread = threading.Thread(target=run)
+            thread.start()
+            try:
+                wait_for(lambda: ready.exists() or outcomes)
+&gt;               assert ready.exists(), outcomes
+E               AssertionError: {'error': RuntimeError('control exited 1; inspect retained stderr and profile')}
+E               assert False
+E                +  where False = exists()
+E                +    where exists = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-6/test_cancellation_reaps_only_o0/ready').exists
+
+tests\test_whole_source_execution.py:273: AssertionError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_descendant_holding_pipe_is_reaped_before_eof" time="3.711"><failure message="RuntimeError: control exited 1; inspect retained stderr and profile">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-6/test_descendant_holding_pipe_i0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_descendant_holding_pipe_is_reaped_before_eof(tmp_path, problems):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"])
+        ready = tmp_path / "descendant"
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            with WorkloadExecution(lock, spec, plan, code_root=captured) as execution:
+&gt;               execution.run_stage("control", [task(mode="descendant", ready=str(ready))])
+
+tests\test_whole_source_execution.py:294: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\execution.py:609: in run_stage
+    receipt = self.backend.run(name, self.runtime_root / "scripts/whole_source/execution.py",
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;whole_source_supervisor.Execution object at 0x000001536E93ECF0&gt;
+name = 'control'
+program = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-6/test_descendant_holding_pipe_i0/collection/attempts/4b299ecf033d4f919f6a92286eeafa4b/runtime/scripts/whole_source/execution.py')
+arguments = ['--stage', '&lt;USER_HOME&gt;\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-6\\test_descendant_holding_pipe_i0\\colle...2286eeafa4b\\control-stage.json', '--stage-sha256', '431d39f24072e84a6951b3c42d2dac4e277bc74efad27dd5a2cdbff457036099']
+kind = 'fixture', environment = None, expected_codes = (0,)
+
+    def run(self,name,program,arguments,*,kind,environment=None,expected_codes=(0,)):
+        folder=self.output/name;folder.mkdir()
+        program=Path(program).resolve()
+        command=[sys.executable,'-B',str(self.worker),'--program',str(program),
+            '--program-sha256',sha(program.read_bytes()),'--config',str(self.config),
+            '--config-sha256',self.config_sha,'--profile',str(folder/'profile.json'),
+            '--kind',kind,'--',*map(str,arguments)]
+        env=os.environ.copy();env.pop('PYTHONPATH',None);env['PYTHONDONTWRITEBYTECODE']='1'
+        for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS','FLINT_NUM_THREADS'):
+            env[key]='1'
+        if environment:env.update(environment)
+        messages=queue.Queue();readers=[];job=None;process=None
+        started=time.monotonic();metrics={};peak=0;cleanup=False;error=None;history={}
+        self.writer.event('STAGE_STARTED',stage=name,argv=command)
+        self.writer.update(workflow_state='RUNNING',current_operation={'stage':name,'phase':'initializing','budget':self.budget})
+        logs={channel:(folder/(channel+'.txt')).open('x',encoding='utf-8',newline='\n') for channel in ('stdout','stderr')}
+        def read(channel,stream):
+            try:
+                for line in stream:messages.put((channel,line))
+            finally:messages.put((channel,None))
+        try:
+            process=subprocess.Popen(command,cwd=self.root,env=env,stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf-8',start_new_session=os.name=='posix')
+            if os.name=='nt':
+                job=WindowsJob(self.budget['memory_budget_bytes'],self.budget['cpu_budget']);job.attach(process)
+            for channel in ('stdout','stderr'):
+                reader=threading.Thread(target=read,args=(channel,getattr(process,channel)),daemon=True)
+                reader.start();readers.append(reader)
+            # The actual interpreter can differ from Popen.pid on Windows venvs.
+            deadline=time.monotonic()+15;worker_pid=None
+            while worker_pid is None:
+                channel,line=messages.get(timeout=max(.01,deadline-time.monotonic()))
+                if line is None:raise RuntimeError('worker exited before READY')
+                logs[channel].write(line);logs[channel].flush()
+                if channel=='stdout' and line.startswith('T081_READY '):
+                    ready=json.loads(line[len('T081_READY '):])
+                    if ready['config_sha256']!=self.config_sha:raise ValueError('worker READY identity mismatch')
+                    worker_pid=ready['pid']
+                if time.monotonic()&gt;deadline:raise TimeoutError('worker READY deadline exceeded')
+            if job:job.attach_worker_pid(worker_pid)
+            process.stdin.write('GO\n');process.stdin.flush();process.stdin.close()
+            completed_streams=set();operation={'stage':name,'phase':'program','budget':self.budget}
+            next_sample=0.0
+            while process.poll() is None or len(completed_streams)&lt;2:
+                if self.cancelled.is_set():raise KeyboardInterrupt('owned execution cancelled')
+                # Reap descendants before waiting on inherited stdout/stderr EOF.
+                if process.poll() is not None:
+                    if job and job.usage()['active_process_count']:
+                        job.terminate()
+                    elif os.name=='posix' and _posix_metrics(process.pid)['active_process_ids']:
+                        os.killpg(process.pid,signal.SIGKILL)
+                try:channel,line=messages.get(timeout=.5)
+                except queue.Empty:channel=line=None
+                if channel is not None:
+                    if line is None:completed_streams.add(channel)
+                    else:
+                        logs[channel].write(line);logs[channel].flush()
+                        if line.startswith('T081_EVENT '):
+                            event=json.loads(line[len('T081_EVENT '):]);self.writer.event('STAGE_PROGRESS',stage=name,detail=event)
+                            operation={'stage':name,**event,'budget':self.budget,'remaining_estimate_seconds':None}
+                            if event['event']=='work' and 'completed' in event and 'total' in event:
+                                key=tuple(event.get(k) for k in ('phase','parity','kind','unit'))
+                                old=history.get(key);now=time.monotonic();done=event['completed']
+                                if old and done&gt;old[0]:
+                                    operation['remaining_estimate_seconds']=(now-old[1])/(done-old[0])*(event['total']-done)
+                                    operation['estimate_basis']='last comparable observed work-unit interval, not wall-time percentage'
+                                history[key]=(done,now)
+                            print(name+': '+json.dumps(event,sort_keys=True),flush=True)
+                        else:print(name+': '+line,end='',flush=True)
+                now=time.monotonic()
+                if now&gt;=next_sample:
+                    next_sample=now+1
+                    if job:
+                        metrics=job.usage();peak=max(peak,metrics['peak_committed_bytes'])
+                    else:
+                        # RLIMIT_AS is inherited; the aggregate is monitored separately.
+                        metrics=_posix_metrics(process.pid);rss=metrics['aggregate_rss_bytes']
+                        peak=max(peak,rss)
+                        if rss&gt;self.budget['memory_budget_bytes']:raise MemoryError('owned stage aggregate RSS exceeded memory budget')
+                    operation.update({'stage_elapsed_seconds':now-started,'resources':metrics})
+                    self.writer.update(current_operation=operation)
+            process.wait()
+            if job:
+                metrics=job.usage();peak=max(peak,metrics['peak_committed_bytes'])
+                if metrics['active_process_count']:
+                    job.terminate()
+                    deadline=time.monotonic()+10
+                    while job.usage()['active_process_count'] and time.monotonic()&lt;deadline:time.sleep(.05)
+                cleanup=job.usage()['active_process_count']==0
+            else:
+                metrics=_posix_metrics(process.pid)
+                if metrics['active_process_ids']:
+                    os.killpg(process.pid,signal.SIGKILL)
+                    deadline=time.monotonic()+10
+                    while _posix_metrics(process.pid)['active_process_ids'] and time.monotonic()&lt;deadline:time.sleep(.05)
+                cleanup=not _posix_metrics(process.pid)['active_process_ids']
+            if not cleanup:raise RuntimeError('owned numerical descendants remain after stage exit')
+&gt;           if process.returncode not in expected_codes:raise RuntimeError(name+' exited '+str(process.returncode)+'; inspect retained stderr and profile')
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: control exited 1; inspect retained stderr and profile
+
+&lt;USER_HOME&gt;\AppData\Local\Temp\pytest-of-USER\pytest-6\test_descendant_holding_pipe_i0\captured\computations\2026-10-28T034134Z-t081-resource-execution\execution_supervisor_v1.py:159: RuntimeError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_unbounded_stdout_is_refused_without_reader_deadlock" time="3.853"><failure message="AssertionError: Regex pattern did not match.&#10;  Expected regex: 'line/log allowance'&#10;  Actual message: 'control exited 1; inspect retained stderr and profile'">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-6/test_unbounded_stdout_is_refus0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_unbounded_stdout_is_refused_without_reader_deadlock(tmp_path, problems):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"])
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            with WorkloadExecution(lock, spec, plan, code_root=captured) as execution:
+&gt;               with pytest.raises(RuntimeError, match="line/log allowance"):
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AssertionError: Regex pattern did not match.
+E                 Expected regex: 'line/log allowance'
+E                 Actual message: 'control exited 1; inspect retained stderr and profile'
+
+tests\test_whole_source_execution.py:302: AssertionError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_real_two_worker_pool_requires_and_records_aggregate_observation" time="3.773"><failure message="AssertionError: {'error': RuntimeError('control exited 1; inspect retained stderr and profile')}&#10;assert False&#10; +  where False = all(&lt;generator object test_real_two_worker_pool_requires_and_records_aggregate_observation.&lt;locals&gt;.&lt;genexpr&gt; at 0x000001536FE60790&gt;)">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-6/test_real_two_worker_pool_requ0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_real_two_worker_pool_requires_and_records_aggregate_observation(tmp_path, problems):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"], workers=2)
+        allowed = detect_budget(replace(plan, cpus=1, workers=1), repository=tmp_path, temporary=tmp_path, helper_root=captured)
+        if allowed.detected["effective_cpu_budget"] &lt; 2:
+            pytest.skip("host exposes fewer than two CPU slots")
+        release = tmp_path / "release"
+        ready = [tmp_path / ("ready"+str(i)) for i in range(2)]
+        result = {}
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            execution = WorkloadExecution(lock, spec, plan, code_root=captured, qualify_pool=True)
+            def run():
+                try:
+                    with execution:
+                        result["complete"] = execution.run_stage("control", [task(i, mode="native_wait", ready=str(path), release=str(release)) for i, path in enumerate(ready)])
+                except BaseException as exc:
+                    result["error"] = exc
+            thread = threading.Thread(target=run)
+            thread.start()
+            try:
+                wait_for(lambda: all(p.exists() for p in ready) or result)
+&gt;               assert all(p.exists() for p in ready), result
+E               AssertionError: {'error': RuntimeError('control exited 1; inspect retained stderr and profile')}
+E               assert False
+E                +  where False = all(&lt;generator object test_real_two_worker_pool_requires_and_records_aggregate_observation.&lt;locals&gt;.&lt;genexpr&gt; at 0x000001536FE60790&gt;)
+
+tests\test_whole_source_execution.py:328: AssertionError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_actual_owned_worker_stages_and_reduces_nonzero_quantity" time="3.847"><failure message="RuntimeError: images exited 1; inspect retained stderr and profile">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-6/test_actual_owned_worker_stage0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_actual_owned_worker_stages_and_reduces_nonzero_quantity(tmp_path, problems):
+        from scripts.whole_source.artifacts import ChunkStore, ContributionTask, StagedChunk
+        captured, spec, plan = case(tmp_path, problems["retained-t081"])
+        full = ContributionTask(QuantityKey("F_H", 0), ModeRange(spec.problem.N, spec.problem.N+4),
+                                ModeRange(0, 4), (Axis("node", 0, 3),))
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            with WorkloadExecution(lock, spec, plan, code_root=captured) as execution:
+                store = ChunkStore(lock, spec, attempt_id=execution.attempt_id)
+&gt;               execution.run_stage("images", [task(c, mode="stage", contribution=c, row=spec.problem.N)
+                                              for c in (2, 0, 1)])
+
+tests\test_whole_source_execution.py:357: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\execution.py:609: in run_stage
+    receipt = self.backend.run(name, self.runtime_root / "scripts/whole_source/execution.py",
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;whole_source_supervisor.Execution object at 0x000001536E93ECF0&gt;
+name = 'images'
+program = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-6/test_actual_owned_worker_stage0/collection/attempts/bc2da87513b44bd88e814f7983916f5e/runtime/scripts/whole_source/execution.py')
+arguments = ['--stage', '&lt;USER_HOME&gt;\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-6\\test_actual_owned_worker_stage0\\colle...4f7983916f5e\\images-stage.json', '--stage-sha256', 'a092103089b689a0d2c46b22948598dfd1b22c32de1e7892b187f7aa049370bd']
+kind = 'fixture', environment = None, expected_codes = (0,)
+
+    def run(self,name,program,arguments,*,kind,environment=None,expected_codes=(0,)):
+        folder=self.output/name;folder.mkdir()
+        program=Path(program).resolve()
+        command=[sys.executable,'-B',str(self.worker),'--program',str(program),
+            '--program-sha256',sha(program.read_bytes()),'--config',str(self.config),
+            '--config-sha256',self.config_sha,'--profile',str(folder/'profile.json'),
+            '--kind',kind,'--',*map(str,arguments)]
+        env=os.environ.copy();env.pop('PYTHONPATH',None);env['PYTHONDONTWRITEBYTECODE']='1'
+        for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS','FLINT_NUM_THREADS'):
+            env[key]='1'
+        if environment:env.update(environment)
+        messages=queue.Queue();readers=[];job=None;process=None
+        started=time.monotonic();metrics={};peak=0;cleanup=False;error=None;history={}
+        self.writer.event('STAGE_STARTED',stage=name,argv=command)
+        self.writer.update(workflow_state='RUNNING',current_operation={'stage':name,'phase':'initializing','budget':self.budget})
+        logs={channel:(folder/(channel+'.txt')).open('x',encoding='utf-8',newline='\n') for channel in ('stdout','stderr')}
+        def read(channel,stream):
+            try:
+                for line in stream:messages.put((channel,line))
+            finally:messages.put((channel,None))
+        try:
+            process=subprocess.Popen(command,cwd=self.root,env=env,stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf-8',start_new_session=os.name=='posix')
+            if os.name=='nt':
+                job=WindowsJob(self.budget['memory_budget_bytes'],self.budget['cpu_budget']);job.attach(process)
+            for channel in ('stdout','stderr'):
+                reader=threading.Thread(target=read,args=(channel,getattr(process,channel)),daemon=True)
+                reader.start();readers.append(reader)
+            # The actual interpreter can differ from Popen.pid on Windows venvs.
+            deadline=time.monotonic()+15;worker_pid=None
+            while worker_pid is None:
+                channel,line=messages.get(timeout=max(.01,deadline-time.monotonic()))
+                if line is None:raise RuntimeError('worker exited before READY')
+                logs[channel].write(line);logs[channel].flush()
+                if channel=='stdout' and line.startswith('T081_READY '):
+                    ready=json.loads(line[len('T081_READY '):])
+                    if ready['config_sha256']!=self.config_sha:raise ValueError('worker READY identity mismatch')
+                    worker_pid=ready['pid']
+                if time.monotonic()&gt;deadline:raise TimeoutError('worker READY deadline exceeded')
+            if job:job.attach_worker_pid(worker_pid)
+            process.stdin.write('GO\n');process.stdin.flush();process.stdin.close()
+            completed_streams=set();operation={'stage':name,'phase':'program','budget':self.budget}
+            next_sample=0.0
+            while process.poll() is None or len(completed_streams)&lt;2:
+                if self.cancelled.is_set():raise KeyboardInterrupt('owned execution cancelled')
+                # Reap descendants before waiting on inherited stdout/stderr EOF.
+                if process.poll() is not None:
+                    if job and job.usage()['active_process_count']:
+                        job.terminate()
+                    elif os.name=='posix' and _posix_metrics(process.pid)['active_process_ids']:
+                        os.killpg(process.pid,signal.SIGKILL)
+                try:channel,line=messages.get(timeout=.5)
+                except queue.Empty:channel=line=None
+                if channel is not None:
+                    if line is None:completed_streams.add(channel)
+                    else:
+                        logs[channel].write(line);logs[channel].flush()
+                        if line.startswith('T081_EVENT '):
+                            event=json.loads(line[len('T081_EVENT '):]);self.writer.event('STAGE_PROGRESS',stage=name,detail=event)
+                            operation={'stage':name,**event,'budget':self.budget,'remaining_estimate_seconds':None}
+                            if event['event']=='work' and 'completed' in event and 'total' in event:
+                                key=tuple(event.get(k) for k in ('phase','parity','kind','unit'))
+                                old=history.get(key);now=time.monotonic();done=event['completed']
+                                if old and done&gt;old[0]:
+                                    operation['remaining_estimate_seconds']=(now-old[1])/(done-old[0])*(event['total']-done)
+                                    operation['estimate_basis']='last comparable observed work-unit interval, not wall-time percentage'
+                                history[key]=(done,now)
+                            print(name+': '+json.dumps(event,sort_keys=True),flush=True)
+                        else:print(name+': '+line,end='',flush=True)
+                now=time.monotonic()
+                if now&gt;=next_sample:
+                    next_sample=now+1
+                    if job:
+                        metrics=job.usage();peak=max(peak,metrics['peak_committed_bytes'])
+                    else:
+                        # RLIMIT_AS is inherited; the aggregate is monitored separately.
+                        metrics=_posix_metrics(process.pid);rss=metrics['aggregate_rss_bytes']
+                        peak=max(peak,rss)
+                        if rss&gt;self.budget['memory_budget_bytes']:raise MemoryError('owned stage aggregate RSS exceeded memory budget')
+                    operation.update({'stage_elapsed_seconds':now-started,'resources':metrics})
+                    self.writer.update(current_operation=operation)
+            process.wait()
+            if job:
+                metrics=job.usage();peak=max(peak,metrics['peak_committed_bytes'])
+                if metrics['active_process_count']:
+                    job.terminate()
+                    deadline=time.monotonic()+10
+                    while job.usage()['active_process_count'] and time.monotonic()&lt;deadline:time.sleep(.05)
+                cleanup=job.usage()['active_process_count']==0
+            else:
+                metrics=_posix_metrics(process.pid)
+                if metrics['active_process_ids']:
+                    os.killpg(process.pid,signal.SIGKILL)
+                    deadline=time.monotonic()+10
+                    while _posix_metrics(process.pid)['active_process_ids'] and time.monotonic()&lt;deadline:time.sleep(.05)
+                cleanup=not _posix_metrics(process.pid)['active_process_ids']
+            if not cleanup:raise RuntimeError('owned numerical descendants remain after stage exit')
+&gt;           if process.returncode not in expected_codes:raise RuntimeError(name+' exited '+str(process.returncode)+'; inspect retained stderr and profile')
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: images exited 1; inspect retained stderr and profile
+
+&lt;USER_HOME&gt;\AppData\Local\Temp\pytest-of-USER\pytest-6\test_actual_owned_worker_stage0\captured\computations\2026-10-28T034134Z-t081-resource-execution\execution_supervisor_v1.py:159: RuntimeError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_only_exact_owned_windows_rate_rounding_is_eligible[6]" time="1.187" /><testcase classname="tests.test_whole_source_execution" name="test_only_exact_owned_windows_rate_rounding_is_eligible[12]" time="1.151" /><testcase classname="tests.test_whole_source_execution" name="test_only_exact_owned_windows_rate_rounding_is_eligible[128]" time="1.166" /><testcase classname="tests.test_whole_source_execution" name="test_scheduler_budget_alone_cannot_launch_uncontained_workers" time="2.706" /></testsuite></testsuites>

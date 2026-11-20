@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="6" skipped="0" tests="117" time="95.098" timestamp="2026-11-13T08:26:01.323952-05:00"><testcase classname="tests.test_whole_source_producer_reuse" name="test_columns_preserve_scalar_midpoints_and_radii[False-0]" time="0.138" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_columns_preserve_scalar_midpoints_and_radii[False-1]" time="0.123" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_columns_preserve_scalar_midpoints_and_radii[True-0]" time="0.230" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_columns_preserve_scalar_midpoints_and_radii[True-1]" time="0.221" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_columns_reject_invalid_panels[inputs0]" time="0.113" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_columns_reject_invalid_panels[inputs1]" time="0.111" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_columns_reject_invalid_panels[inputs2]" time="0.120" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_columns_reject_invalid_panels[inputs3]" time="0.115" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_columns_reject_invalid_panels[inputs4]" time="0.109" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_columns_reject_invalid_panels[inputs5]" time="0.115" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_columns_reject_invalid_panels[inputs6]" time="0.121" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_columns_reject_invalid_panels[inputs7]" time="0.107" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_operator_panel_shares_each_recurrence" time="0.112" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_head_images_consume_ragged_tiles_once_and_reflect[0]" time="0.110" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_head_images_consume_ragged_tiles_once_and_reflect[1]" time="0.109" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_row_basis_reuse_invalidation_and_exact_results" time="0.125"><failure message="AttributeError: 'types.SimpleNamespace' object has no attribute 'kappa'">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000283A246C2B0&gt;
+
+    def test_row_basis_reuse_invalidation_and_exact_results(monkeypatch):
+        problem = model()
+        cache = WorkingSet(PREPARED_BYTES)
+        monkeypatch.setattr(producer, '_ROW_BASES', cache)
+        original = producer.basis
+        calls = []
+        def counted(n):
+            calls.append(n)
+            return original(n)
+        monkeypatch.setattr(producer, 'basis', counted)
+    
+    
+        with ctx.workprec(160):
+            columns = producer.operator_columns(problem, (0, 2))
+            columns.update(producer.operator_columns(problem, (4,)))
+&gt;           first = producer.assemble_tile(problem, (0, 2), (2,), columns)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_producer_reuse.py:107: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\producer.py:579: in assemble_tile
+    result[m, n] = assemble_entry(problem, m, n, full_F_columns, _parts=(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+problem = namespace(N=6, M=12, K=2, support=Fraction(81, 100), kernel_coefficients=(Fraction(567, 400), Fraction(2187, 160000), ...935695465113851474459883542659, 25108406941546723055343157692830665664409421777856138051584)),), source_gauss_order=35)
+m = 0, n = 2
+columns = {0: [[-0.507967230320998 +/- 4.72e-16], [0.402569153077191 +/- 1.50e-16], [0.0505947412585570 +/- 3.55e-17], [0.085611...+/- 4.06e-16], [0.117238711775464 +/- 3.20e-16], [0.0165589745067686 +/- 3.64e-17], [0.0370131824936753 +/- 1.26e-17]]}
+_parts = ([0.333333333333333 +/- 3.34e-16], [0.426790768515592 +/- 1.60e-17], [0.0504640429987264 +/- 4.96e-17], [0.134912317202888 +/- 4.96e-16], [-0.163138810073856 +/- 1.59e-16], 1667223/20000000)
+_projection = [0.431531838934946 +/- 2.64e-16]
+
+    def assemble_entry(problem, m, n, columns, *, _parts=None, _projection=None):
+        """Complete low/J/exterior entries, with every physical projection row."""
+        from flint import arb_mat
+        if _parts is None:
+            v = potential_bilinear(m, n)
+            vv = potential_square(m, n)
+            p2 = combined_square_entry(problem, m, n)
+            vp = ordered_vp(problem, m, n)
+            pv = vp if m == n else ordered_vp(problem, n, m)
+            residual = residual_bilinear(problem, m, n)
+        else:
+            v, vv, p2, vp, pv, residual = _parts
+        joint = vv+p2+vp+pv
+        if _projection is None:
+            modes = range(m % 2, problem.M, 2)
+            left = arb_mat([[columns[m][i]*arb(fmpq(2*k+1, 2)) for i, k in enumerate(modes)]])
+            right = arb_mat([[value] for value in columns[n]])
+            _projection = (left*right)[0, 0]
+        exterior = joint-_projection
+        actual = columns[n][m//2]+arb(residual)
+        if m == n:
+            harmonic, _ = _harmonics(m)
+            support = arb(fmpq(problem.support.numerator, problem.support.denominator))
+            actual += arb(fmpq(2, 2*m+1))*(arb(harmonic[m])-arb.const_euler()
+                                                 -(2*arb.pi()*support).log())
+        result = {("V", m, n): v, ("VV", m, n): vv, ("P_squared", m, n): p2,
+                  ("VP", m, n): vp, ("J_F", m, n): joint, ("A_model", m, n): actual,
+                  ("P_L", m, n): columns[n][m//2]-v, ("G_exterior", m, n): exterior,
+                  ("weighted_complete_tail", m, n): exterior*arb(fmpq(
+&gt;                     problem.kappa.numerator, problem.kappa.denominator))}
+                      ^^^^^^^^^^^^^
+E       AttributeError: 'types.SimpleNamespace' object has no attribute 'kappa'
+
+scripts\whole_source\producer.py:614: AttributeError</failure></testcase><testcase classname="tests.test_whole_source_producer_reuse" name="test_head_images_preserve_full_physical_boundary[0]" time="0.112" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_head_images_preserve_full_physical_boundary[1]" time="0.112" /><testcase classname="tests.test_whole_source_producer_reuse" name="test_basis_reservation_precedes_construction" time="0.123"><failure message="AttributeError: 'types.SimpleNamespace' object has no attribute 'kappa'">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000283A241DB50&gt;
+
+    def test_basis_reservation_precedes_construction(monkeypatch):
+        problem = model()
+        cache = WorkingSet(4096)
+        monkeypatch.setattr(producer, '_ROW_BASES', cache)
+        original = producer.basis
+        reservations = []
+        reserve = cache.reserve
+        def admitted(key, size):
+            reservations.append(key)
+            return reserve(key, size)
+        def constructed(n):
+            if n == 4:
+                assert reservations == [4]
+                assert cache.resident == 4096
+            return original(n)
+        monkeypatch.setattr(cache, 'reserve', admitted)
+        monkeypatch.setattr(producer, 'basis', constructed)
+        with ctx.workprec(160):
+            columns = producer.operator_columns(problem, (4,))
+&gt;           producer.assemble_tile(problem, (4,), (4,), columns)
+
+tests\test_whole_source_producer_reuse.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\producer.py:579: in assemble_tile
+    result[m, n] = assemble_entry(problem, m, n, full_F_columns, _parts=(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+problem = namespace(N=6, M=12, K=2, support=Fraction(81, 100), kernel_coefficients=(Fraction(567, 400), Fraction(2187, 160000), ...935695465113851474459883542659, 25108406941546723055343157692830665664409421777856138051584)),), source_gauss_order=35)
+m = 4, n = 4
+columns = {4: [[0.0505947412585570 +/- 3.55e-17], [0.0515650635833841 +/- 1.43e-17], [0.160331475652626 +/- 4.06e-16], [0.117238711775464 +/- 3.20e-16], [0.0165589745067686 +/- 3.64e-17], [0.0370131824936753 +/- 1.26e-17]]}
+_parts = ([0.152669233244174 +/- 4.11e-16], [0.241216583551437 +/- 1.53e-16], [0.0425489632670877 +/- 2.47e-17], [-0.0191103276160403 +/- 7.35e-18], [-0.0191103276160403 +/- 7.35e-18], -243/1540000)
+_projection = [0.229662515296023 +/- 2.43e-16]
+
+    def assemble_entry(problem, m, n, columns, *, _parts=None, _projection=None):
+        """Complete low/J/exterior entries, with every physical projection row."""
+        from flint import arb_mat
+        if _parts is None:
+            v = potential_bilinear(m, n)
+            vv = potential_square(m, n)
+            p2 = combined_square_entry(problem, m, n)
+            vp = ordered_vp(problem, m, n)
+            pv = vp if m == n else ordered_vp(problem, n, m)
+            residual = residual_bilinear(problem, m, n)
+        else:
+            v, vv, p2, vp, pv, residual = _parts
+        joint = vv+p2+vp+pv
+        if _projection is None:
+            modes = range(m % 2, problem.M, 2)
+            left = arb_mat([[columns[m][i]*arb(fmpq(2*k+1, 2)) for i, k in enumerate(modes)]])
+            right = arb_mat([[value] for value in columns[n]])
+            _projection = (left*right)[0, 0]
+        exterior = joint-_projection
+        actual = columns[n][m//2]+arb(residual)
+        if m == n:
+            harmonic, _ = _harmonics(m)
+            support = arb(fmpq(problem.support.numerator, problem.support.denominator))
+            actual += arb(fmpq(2, 2*m+1))*(arb(harmonic[m])-arb.const_euler()
+                                                 -(2*arb.pi()*support).log())
+        result = {("V", m, n): v, ("VV", m, n): vv, ("P_squared", m, n): p2,
+                  ("VP", m, n): vp, ("J_F", m, n): joint, ("A_model", m, n): actual,
+                  ("P_L", m, n): columns[n][m//2]-v, ("G_exterior", m, n): exterior,
+                  ("weighted_complete_tail", m, n): exterior*arb(fmpq(
+&gt;                     problem.kappa.numerator, problem.kappa.denominator))}
+                      ^^^^^^^^^^^^^
+E       AttributeError: 'types.SimpleNamespace' object has no attribute 'kappa'
+
+scripts\whole_source\producer.py:614: AttributeError</failure></testcase><testcase classname="tests.test_whole_source_producer_reuse" name="test_runtime_account_includes_catalog_and_all_reuse" time="0.117" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_columns_match_independent_scalar[1-0]" time="0.311" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_columns_match_independent_scalar[1-1]" time="0.130" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_columns_match_independent_scalar[2-0]" time="0.114" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_columns_match_independent_scalar[2-1]" time="0.115" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_invalid_panels[inputs0]" time="0.115" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_invalid_panels[inputs1]" time="0.321" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_invalid_panels[inputs2]" time="0.121" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_invalid_panels[inputs3]" time="0.116" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_invalid_panels[inputs4]" time="0.119" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_invalid_panels[inputs5]" time="0.121" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_invalid_panels[inputs6]" time="0.112" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_outside_panel_domain" time="0.109" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_each_physical_rodrigues_row_is_shared" time="0.110" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_ragged_head_tiles_read_once_with_both_reflections[0]" time="0.109" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_ragged_head_tiles_read_once_with_both_reflections[1]" time="0.106" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_row_cache_reuses_only_anchor_rows_and_invalidates" time="0.126"><failure message="AttributeError: 'dict' object has no attribute 'mid'">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000283A23B7850&gt;
+
+    def test_row_cache_reuses_only_anchor_rows_and_invalidates(monkeypatch):
+        problem = model()
+        cache = WorkingSet(PREPARED_BYTES)
+        monkeypatch.setattr(analytic, '_ROW_BASES', cache)
+        original = analytic.rodrigues_ratio
+        calls = []
+        def counted(n):
+            calls.append(n)
+            return original(n)
+        with ctx.workprec(160):
+            columns = analytic.operator_columns(problem, (0, 2))
+            columns.update(analytic.operator_columns(problem, (4,)))
+            monkeypatch.setattr(analytic, 'rodrigues_ratio', counted)
+            first = analytic.assemble_tile(problem, (0, 2), (2,), columns)
+            bases = {n: entry[0] for n, entry in cache.values.items()}
+            snapshots = {n: str(value) for n, value in bases.items()}
+            analytic.assemble_tile(problem, (0, 2), (4,), columns)
+            assert set(cache.values) == {0, 2}
+            assert all(cache.values[n][0] is bases[n] for n in bases)
+            assert snapshots == {n: str(value) for n, value in bases.items()}
+            repeated = analytic.assemble_tile(problem, (0, 2), (2,), columns)
+            for key in first:
+&gt;               same([first[key]], [repeated[key]])
+
+tests\test_whole_source_analytic_reuse.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+left = [{('V', 0, 2): [0.333333333333333 +/- 3.34e-16], ('VV', 0, 2): [0.426790768515592 +/- 1.60e-17], ('P_squared', 0, 2): [0.262722317159648 +/- 2.12e-16], ('VP', 0, 2): [0.0280875255141465 +/- 4.11e-17], ...}]
+right = [{('V', 0, 2): [0.333333333333333 +/- 3.34e-16], ('VV', 0, 2): [0.426790768515592 +/- 1.60e-17], ('P_squared', 0, 2): [0.262722317159648 +/- 2.12e-16], ('VP', 0, 2): [0.0280875255141465 +/- 4.11e-17], ...}]
+
+    def same(left, right):
+        assert len(left) == len(right)
+        for x, y in zip(left, right):
+&gt;           assert x.mid() == y.mid()
+                   ^^^^^
+E           AttributeError: 'dict' object has no attribute 'mid'
+
+tests\test_whole_source_analytic_reuse.py:21: AttributeError</failure></testcase><testcase classname="tests.test_whole_source_analytic_reuse" name="test_reservation_precedes_real_construction" time="0.118" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_account_includes_reuse_and_catalog" time="0.118" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_fullmode_head_boundary_uses_bounded_sparse_tiles[0]" time="0.109" /><testcase classname="tests.test_whole_source_analytic_reuse" name="test_fullmode_head_boundary_uses_bounded_sparse_tiles[1]" time="0.110" /><testcase classname="tests.test_whole_source_reuse" name="test_eviction_retains_the_current_value_without_exceeding_allowance" time="0.001" /><testcase classname="tests.test_whole_source_reuse" name="test_overlarge_value_is_returned_but_never_retained" time="0.000" /><testcase classname="tests.test_whole_source_reuse" name="test_cached_source_column_still_hashes_bytes_and_checks_domain" time="1.965" /><testcase classname="tests.test_whole_source_tiles" name="test_complete_tiles_match_both_scalar_references[diagonal-0]" time="0.155" /><testcase classname="tests.test_whole_source_tiles" name="test_complete_tiles_match_both_scalar_references[diagonal-1]" time="0.051" /><testcase classname="tests.test_whole_source_tiles" name="test_complete_tiles_match_both_scalar_references[ragged-0]" time="0.077" /><testcase classname="tests.test_whole_source_tiles" name="test_complete_tiles_match_both_scalar_references[ragged-1]" time="0.089" /><testcase classname="tests.test_whole_source_tiles" name="test_complete_tiles_match_both_scalar_references[terminal-0]" time="0.040" /><testcase classname="tests.test_whole_source_tiles" name="test_complete_tiles_match_both_scalar_references[terminal-1]" time="0.041" /><testcase classname="tests.test_whole_source_tiles" name="test_tile_pays_mixed_terms_both_vp_orders_and_full_projection[scripts.whole_source.producer]" time="0.016" /><testcase classname="tests.test_whole_source_tiles" name="test_tile_pays_mixed_terms_both_vp_orders_and_full_projection[scripts.whole_source.analytic]" time="0.006" /><testcase classname="tests.test_whole_source_tiles" name="test_constant_tile_retains_cross_power_square_terms" time="0.007" /><testcase classname="tests.test_whole_source_tiles" name="test_current_recurrence_and_exact_walk_include_declared_last_modes[0]" time="0.306" /><testcase classname="tests.test_whole_source_tiles" name="test_current_recurrence_and_exact_walk_include_declared_last_modes[1]" time="0.298" /><testcase classname="tests.test_whole_source_tiles" name="test_resource_account_prices_declared_tiles_before_native_work[scripts.whole_source.producer]" time="0.121"><failure message="MemoryError: source tile exceeds declared private/native allowance">role = &lt;module 'scripts.whole_source.producer' from '[REPO_ROOT]\\scripts\\whole_source\\producer.py'&gt;
+
+    @pytest.mark.parametrize("role", [producer, analytic])
+    def test_resource_account_prices_declared_tiles_before_native_work(role):
+        problem = bind_problem("retained-t081")
+        with ctx.workprec(problem.arithmetic.audit_bits):
+&gt;           account = role.tile_account(problem, tuple(range(762, 794, 2)), tuple(range(794, 826, 2)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_tiles.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+rows = (762, 764, 766, 768, 770, 772, ...)
+columns = (794, 796, 798, 800, 802, 804, ...)
+
+    def tile_account(problem, rows, columns):
+        """Admit one current panel, including live F/C/Y and native work space."""
+        from scripts.whole_source import execution
+        from scripts.whole_source.pipeline import _producer_tile_requirements
+        account = _producer_tile_requirements(problem, rows, columns, precision_bits=ctx.prec)
+        account = dict(account)
+        account["private_bytes"] += PREPARED_BYTES+SOURCE_DECODED_BYTES+8*1024**2
+        worker = execution._WORKER
+        private_limit = worker[0].worker_private_mib if worker else 128
+        native_limit = worker[0].native_workspace_mib if worker else 128
+        if account["private_bytes"] &gt; private_limit*1024**2 or account["native_bytes"] &gt; native_limit*1024**2:
+&gt;           raise MemoryError("source tile exceeds declared private/native allowance")
+E           MemoryError: source tile exceeds declared private/native allowance
+
+scripts\whole_source\producer.py:420: MemoryError</failure></testcase><testcase classname="tests.test_whole_source_tiles" name="test_resource_account_prices_declared_tiles_before_native_work[scripts.whole_source.analytic]" time="0.109"><failure message="MemoryError: independent tile exceeds declared private/native allowance">role = &lt;module 'scripts.whole_source.analytic' from '[REPO_ROOT]\\scripts\\whole_source\\analytic.py'&gt;
+
+    @pytest.mark.parametrize("role", [producer, analytic])
+    def test_resource_account_prices_declared_tiles_before_native_work(role):
+        problem = bind_problem("retained-t081")
+        with ctx.workprec(problem.arithmetic.audit_bits):
+&gt;           account = role.tile_account(problem, tuple(range(762, 794, 2)), tuple(range(794, 826, 2)))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_tiles.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+rows = (762, 764, 766, 768, 770, 772, ...)
+columns = (794, 796, 798, 800, 802, 804, ...)
+
+    def tile_account(problem, rows, columns):
+        """Price the independent current images and all live physical columns."""
+        from scripts.whole_source import execution
+        from scripts.whole_source.pipeline import _analytic_tile_requirements
+        account = _analytic_tile_requirements(problem, rows, columns, precision_bits=ctx.prec)
+        account["private_bytes"] += PREPARED_BYTES + SOURCE_DECODED_BYTES + 8*1024**2
+        worker = execution._WORKER
+        private_limit = worker[0].worker_private_mib if worker else 128
+        native_limit = worker[0].native_workspace_mib if worker else 128
+        if account["private_bytes"] &gt; private_limit*1024**2 or account["native_bytes"] &gt; native_limit*1024**2:
+&gt;           raise MemoryError("independent tile exceeds declared private/native allowance")
+E           MemoryError: independent tile exceeds declared private/native allowance
+
+scripts\whole_source\analytic.py:432: MemoryError</failure></testcase><testcase classname="tests.test_whole_source_pipeline" name="test_whole_dependency_column_and_ragged_square_tiles_keep_distinct_partitions" time="1.780" /><testcase classname="tests.test_whole_source_pipeline" name="test_actual_kernel_cache_keeps_terminal_full_mass_with_zero_weight_jumps[1-0]" time="0.875" /><testcase classname="tests.test_whole_source_pipeline" name="test_actual_kernel_cache_keeps_terminal_full_mass_with_zero_weight_jumps[1-1]" time="0.860" /><testcase classname="tests.test_whole_source_pipeline" name="test_actual_kernel_cache_keeps_terminal_full_mass_with_zero_weight_jumps[3-0]" time="1.031" /><testcase classname="tests.test_whole_source_pipeline" name="test_actual_kernel_cache_keeps_terminal_full_mass_with_zero_weight_jumps[3-1]" time="0.986" /><testcase classname="tests.test_whole_source_pipeline" name="test_grouped_kernel_keeps_nonzero_frequency_jumps_against_independent_formula[0]" time="0.937" /><testcase classname="tests.test_whole_source_pipeline" name="test_grouped_kernel_keeps_nonzero_frequency_jumps_against_independent_formula[1]" time="0.921" /><testcase classname="tests.test_whole_source_pipeline" name="test_publication_is_outward_on_actual_256_bit_grid_and_covers_both_parities" time="1.162" /><testcase classname="tests.test_whole_source_pipeline" name="test_source_reader_requires_exact_complete_coordinate_cover[missing_last_tile]" time="0.020" /><testcase classname="tests.test_whole_source_pipeline" name="test_source_reader_requires_exact_complete_coordinate_cover[repeated_tile]" time="0.018" /><testcase classname="tests.test_whole_source_pipeline" name="test_source_reader_requires_exact_complete_coordinate_cover[wrong_parity]" time="0.018" /><testcase classname="tests.test_whole_source_pipeline" name="test_full_source_rejects_geometry_that_cannot_fit_complete_inventory[1]" time="0.001" /><testcase classname="tests.test_whole_source_pipeline" name="test_full_source_rejects_geometry_that_cannot_fit_complete_inventory[2]" time="0.001" /><testcase classname="tests.test_whole_source_pipeline" name="test_full_source_rejects_geometry_that_cannot_fit_complete_inventory[4]" time="0.001" /><testcase classname="tests.test_whole_source_pipeline" name="test_full_source_rejects_geometry_that_cannot_fit_complete_inventory[8]" time="0.000" /><testcase classname="tests.test_whole_source_pipeline" name="test_fixed_point_cache_matches_exact_endpoint_conversion[zero-4608]" time="0.001" /><testcase classname="tests.test_whole_source_pipeline" name="test_fixed_point_cache_matches_exact_endpoint_conversion[zero-6144]" time="0.001" /><testcase classname="tests.test_whole_source_pipeline" name="test_fixed_point_cache_matches_exact_endpoint_conversion[positive-4608]" time="0.001" /><testcase classname="tests.test_whole_source_pipeline" name="test_fixed_point_cache_matches_exact_endpoint_conversion[positive-6144]" time="0.001" /><testcase classname="tests.test_whole_source_pipeline" name="test_fixed_point_cache_matches_exact_endpoint_conversion[negative-4608]" time="0.001" /><testcase classname="tests.test_whole_source_pipeline" name="test_fixed_point_cache_matches_exact_endpoint_conversion[negative-6144]" time="0.001" /><testcase classname="tests.test_whole_source_pipeline" name="test_fixed_point_cache_matches_exact_endpoint_conversion[microscopic-4608]" time="0.001" /><testcase classname="tests.test_whole_source_pipeline" name="test_fixed_point_cache_matches_exact_endpoint_conversion[microscopic-6144]" time="0.001" /><testcase classname="tests.test_whole_source_pipeline" name="test_fixed_point_cache_matches_exact_endpoint_conversion[ball-4608]" time="0.001" /><testcase classname="tests.test_whole_source_pipeline" name="test_fixed_point_cache_matches_exact_endpoint_conversion[ball-6144]" time="0.001" /><testcase classname="tests.test_whole_source_pipeline" name="test_full_profile_worker_budget_changes_only_operational_identity" time="1.959" /><testcase classname="tests.test_whole_source_pipeline" name="test_factory_producer_budget_admits_every_runtime_tile[False-32]" time="1.018" /><testcase classname="tests.test_whole_source_pipeline" name="test_factory_producer_budget_admits_every_runtime_tile[False-16]" time="1.049" /><testcase classname="tests.test_whole_source_pipeline" name="test_factory_producer_budget_admits_every_runtime_tile[True-2]" time="1.288" /><testcase classname="tests.test_whole_source_pipeline" name="test_undersized_producer_plan_rejects_before_output[worker_private_mib-1-private allowance]" time="1.286" /><testcase classname="tests.test_whole_source_pipeline" name="test_undersized_producer_plan_rejects_before_output[native_workspace_mib-1-native allowance]" time="0.819" /><testcase classname="tests.test_whole_source_pipeline" name="test_undersized_producer_plan_rejects_before_output[precision_bits-4096-precision]" time="0.794" /><testcase classname="tests.test_whole_source_pipeline" name="test_producer_budget_rounds_up_and_accepts_extra_headroom" time="1.859" /><testcase classname="tests.test_whole_source_pipeline" name="test_derived_private_cost_reduces_workers_and_refuses_infeasible_capacity" time="1.208" /><testcase classname="tests.test_whole_source_pipeline" name="test_factory_analytic_budget_admits_every_runtime_tile[False-32]" time="1.010" /><testcase classname="tests.test_whole_source_pipeline" name="test_factory_analytic_budget_admits_every_runtime_tile[False-16]" time="1.035" /><testcase classname="tests.test_whole_source_pipeline" name="test_factory_analytic_budget_admits_every_runtime_tile[True-2]" time="0.976" /><testcase classname="tests.test_whole_source_pipeline" name="test_invalid_analytic_plan_rejects_before_audit_output[worker_private_mib-1-private allowance]" time="1.000" /><testcase classname="tests.test_whole_source_pipeline" name="test_invalid_analytic_plan_rejects_before_audit_output[native_workspace_mib-1-native allowance]" time="1.743" /><testcase classname="tests.test_whole_source_pipeline" name="test_invalid_analytic_plan_rejects_before_audit_output[precision_bits-4096-precision]" time="1.015" /><testcase classname="tests.test_whole_source_pipeline" name="test_analytic_requirement_ceiling_and_extra_headroom[private_bytes-worker_private_mib]" time="2.596" /><testcase classname="tests.test_whole_source_pipeline" name="test_analytic_requirement_ceiling_and_extra_headroom[native_bytes-native_workspace_mib]" time="2.594" /><testcase classname="tests.test_whole_source_pipeline" name="test_analytic_private_requirement_changes_affordable_concurrency" time="0.997" /><testcase classname="tests.test_whole_source_pipeline" name="test_full_source_preparation_does_not_import_numerical_backends" time="2.323" /><testcase classname="tests.test_whole_source_pipeline" name="test_source_reader_rejects_missing_or_changed_execution_binding[missing]" time="0.018" /><testcase classname="tests.test_whole_source_pipeline" name="test_source_reader_rejects_missing_or_changed_execution_binding[source-hash]" time="0.034" /><testcase classname="tests.test_whole_source_pipeline" name="test_source_reader_rejects_missing_or_changed_execution_binding[collection-hash]" time="0.035" /><testcase classname="tests.test_whole_source_pipeline" name="test_source_reader_rejects_missing_or_changed_execution_binding[scientific-id]" time="0.304" /><testcase classname="tests.test_whole_source_pipeline" name="test_declared_control_cannot_supply_owned_source_acceptance" time="0.114" /><testcase classname="tests.test_whole_source_source_dependencies" name="test_dependencies_cross_attempts_and_retain_cleaned_failure" time="5.056" /><testcase classname="tests.test_whole_source_source_dependencies" name="test_missing_transitive_producer_or_artifact_rejects[binding]" time="4.228" /><testcase classname="tests.test_whole_source_source_dependencies" name="test_missing_transitive_producer_or_artifact_rejects[input]" time="4.093" /><testcase classname="tests.test_whole_source_source_dependencies" name="test_entire_selected_stage_must_remain_verified[failed]" time="3.754" /><testcase classname="tests.test_whole_source_source_dependencies" name="test_entire_selected_stage_must_remain_verified[cleanup]" time="4.375" /><testcase classname="tests.test_whole_source_source_dependencies" name="test_entire_selected_stage_must_remain_verified[unselected-result]" time="3.860"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '&lt;USER_HOME&gt;\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-4\\test_entire_selected_stage_mus2\\collection\\attempts\\old\\leaves-results\\column-1.json'">graph = {'root': WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-4/test_entire_selected_stage_mus2/colle...d14dbf58c7fe9e025e9', 'sha256': '6f9585cecc8400df51c28a2af1d7923148ff33a27453dd14dbf58c7fe9e025e9', 'size': 612}}, ...}
+mutation = 'unselected-result'
+
+    @pytest.mark.parametrize('mutation', ['failed', 'cleanup', 'unselected-result', 'runtime', 'log'])
+    def test_entire_selected_stage_must_remain_verified(graph, mutation):
+        _select(graph)
+        receipt = graph['leaf_receipt']
+        attempt = receipt.parent.parent
+        if mutation == 'failed':
+            _change(receipt, lambda value: value.update(exit_code=9, error='failed'))
+        elif mutation == 'cleanup':
+            _change(receipt, lambda value: value.update(worker_cleanup_verified=False))
+        elif mutation == 'unselected-result':
+&gt;           _change(attempt/'leaves-results/column-1.json', lambda value: value.update(task_id='foreign'))
+
+tests\test_whole_source_source_dependencies.py:270: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_source_dependencies.py:47: in _change
+    value = json.loads(path.read_bytes())
+                       ^^^^^^^^^^^^^^^^^
+&lt;USER_HOME&gt;\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:782: in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-4/test_entire_selected_stage_mus2/collection/attempts/old/leaves-results/column-1.json')
+mode = 'rb', buffering = 0, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '&lt;USER_HOME&gt;\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-4\\test_entire_selected_stage_mus2\\collection\\attempts\\old\\leaves-results\\column-1.json'
+
+&lt;USER_HOME&gt;\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:776: FileNotFoundError</failure></testcase><testcase classname="tests.test_whole_source_source_dependencies" name="test_entire_selected_stage_must_remain_verified[runtime]" time="4.348" /><testcase classname="tests.test_whole_source_source_dependencies" name="test_entire_selected_stage_must_remain_verified[log]" time="3.857" /><testcase classname="tests.test_whole_source_source_dependencies" name="test_binding_cannot_change_domain_inputs_or_producer_reference[domain]" time="3.809" /><testcase classname="tests.test_whole_source_source_dependencies" name="test_binding_cannot_change_domain_inputs_or_producer_reference[input]" time="4.305" /><testcase classname="tests.test_whole_source_source_dependencies" name="test_binding_cannot_change_domain_inputs_or_producer_reference[ref]" time="3.769" /><testcase classname="tests.test_whole_source_source_dependencies" name="test_uncontained_noncontributing_history_rejects_selection_and_history" time="4.464" /></testsuite></testsuites>

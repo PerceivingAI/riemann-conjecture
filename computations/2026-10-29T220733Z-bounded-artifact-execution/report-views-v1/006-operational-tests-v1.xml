@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="28" skipped="0" tests="120" time="180.074" timestamp="2026-10-29T17:08:22.770584-05:00"><testcase classname="tests.test_whole_source_contract" name="test_reviewed_profiles_have_exact_physical_and_arithmetic_parameters[retained-t081]" time="0.124" /><testcase classname="tests.test_whole_source_contract" name="test_canonical_serialization_is_exact_detached_and_non_proving[retained-t081]" time="0.330" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[retained-t081-active_terms]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[retained-t081-kernel_coefficients]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[retained-t081-frequency_edges]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[retained-t081-inverse_weights]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[retained-t081-evidence]" time="0.003" /><testcase classname="tests.test_whole_source_contract" name="test_every_bound_scalar_and_derived_arithmetic_change_is_rejected[retained-t081]" time="1.151" /><testcase classname="tests.test_whole_source_contract" name="test_relocated_evidence_preserves_identity_and_explicit_manifest_binding[retained-t081]" time="1.108" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[retained-t081-manifest]" time="0.123" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[retained-t081-source]" time="0.125" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[retained-t081-audit]" time="0.145" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[retained-t081-code]" time="0.259" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[retained-t081-dependency]" time="0.159" /><testcase classname="tests.test_whole_source_contract" name="test_false_historical_proof_metadata_cannot_be_rebound[retained-t081]" time="0.139" /><testcase classname="tests.test_whole_source_contract" name="test_domains_separate_low_head_and_finite_cross_band[retained-t081-0]" time="0.320" /><testcase classname="tests.test_whole_source_contract" name="test_domains_separate_low_head_and_finite_cross_band[retained-t081-1]" time="0.306" /><testcase classname="tests.test_whole_source_contract" name="test_problem_and_collection_identities_have_distinct_context[retained-t081]" time="2.018" /><testcase classname="tests.test_whole_source_contract" name="test_complete_and_ragged_output_tiles_obey_physical_parity_and_triangle[retained-t081-0]" time="9.481" /><testcase classname="tests.test_whole_source_contract" name="test_complete_and_ragged_output_tiles_obey_physical_parity_and_triangle[retained-t081-1]" time="9.634" /><testcase classname="tests.test_whole_source_contract" name="test_task_roles_are_explicit_distinct_request_metadata[retained-t081]" time="1.576" /><testcase classname="tests.test_whole_source_contract" name="test_fresh_inspection_writes_bound_documents_and_non_proving_receipt[retained-t081]" time="1.262" /><testcase classname="tests.test_whole_source_contract" name="test_file_sync_failure_cannot_publish_success[retained-t081]" time="0.895" /><testcase classname="tests.test_whole_source_contract" name="test_bad_binding_retains_only_failure_and_existing_output_is_untouched[retained-t081]" time="0.024" /><testcase classname="tests.test_whole_source_contract" name="test_successful_inspection_cannot_be_resumed_or_overwritten[retained-t081]" time="0.896" /><testcase classname="tests.test_whole_source_contract" name="test_actual_implementation_bytes_change_collection_not_problem_identity[retained-t081]" time="0.855" /><testcase classname="tests.test_whole_source_contract" name="test_reviewed_profiles_have_exact_physical_and_arithmetic_parameters[selected-t1]" time="0.190" /><testcase classname="tests.test_whole_source_contract" name="test_canonical_serialization_is_exact_detached_and_non_proving[selected-t1]" time="0.743" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[selected-t1-active_terms]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[selected-t1-kernel_coefficients]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[selected-t1-frequency_edges]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[selected-t1-inverse_weights]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_mutable_sequences_cannot_enter_bound_problem[selected-t1-evidence]" time="0.004" /><testcase classname="tests.test_whole_source_contract" name="test_every_bound_scalar_and_derived_arithmetic_change_is_rejected[selected-t1]" time="2.431" /><testcase classname="tests.test_whole_source_contract" name="test_relocated_evidence_preserves_identity_and_explicit_manifest_binding[selected-t1]" time="1.147" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[selected-t1-manifest]" time="0.095" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[selected-t1-source]" time="0.112" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[selected-t1-audit]" time="0.117" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[selected-t1-code]" time="0.218" /><testcase classname="tests.test_whole_source_contract" name="test_changed_evidence_and_historical_code_are_rejected[selected-t1-dependency]" time="0.150" /><testcase classname="tests.test_whole_source_contract" name="test_false_historical_proof_metadata_cannot_be_rebound[selected-t1]" time="0.122" /><testcase classname="tests.test_whole_source_contract" name="test_domains_separate_low_head_and_finite_cross_band[selected-t1-0]" time="0.636" /><testcase classname="tests.test_whole_source_contract" name="test_domains_separate_low_head_and_finite_cross_band[selected-t1-1]" time="0.636" /><testcase classname="tests.test_whole_source_contract" name="test_problem_and_collection_identities_have_distinct_context[selected-t1]" time="3.088" /><testcase classname="tests.test_whole_source_contract" name="test_complete_and_ragged_output_tiles_obey_physical_parity_and_triangle[selected-t1-0]" time="19.652" /><testcase classname="tests.test_whole_source_contract" name="test_complete_and_ragged_output_tiles_obey_physical_parity_and_triangle[selected-t1-1]" time="20.769" /><testcase classname="tests.test_whole_source_contract" name="test_task_roles_are_explicit_distinct_request_metadata[selected-t1]" time="3.269" /><testcase classname="tests.test_whole_source_contract" name="test_fresh_inspection_writes_bound_documents_and_non_proving_receipt[selected-t1]" time="2.508" /><testcase classname="tests.test_whole_source_contract" name="test_file_sync_failure_cannot_publish_success[selected-t1]" time="1.779" /><testcase classname="tests.test_whole_source_contract" name="test_bad_binding_retains_only_failure_and_existing_output_is_untouched[selected-t1]" time="0.020" /><testcase classname="tests.test_whole_source_contract" name="test_successful_inspection_cannot_be_resumed_or_overwritten[selected-t1]" time="1.754" /><testcase classname="tests.test_whole_source_contract" name="test_actual_implementation_bytes_change_collection_not_problem_identity[selected-t1]" time="1.496" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[ModeRange-args0]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[ModeRange-args1]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[ModeRange-args2]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[QuantityKey-args3]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[QuantityKey-args4]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[QuantityKey-args5]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[PartitionSpec-args6]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[ArithmeticPolicy-args7]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_invalid_contract_values_are_rejected[ArtifactRef-args8]" time="0.001" /><testcase classname="tests.test_whole_source_contract" name="test_cli_exposes_only_reviewed_profile_inspection[arguments0]" time="0.004" /><testcase classname="tests.test_whole_source_contract" name="test_cli_exposes_only_reviewed_profile_inspection[arguments1]" time="0.003" /><testcase classname="tests.test_whole_source_contract" name="test_cli_exposes_only_reviewed_profile_inspection[arguments2]" time="0.003" /><testcase classname="tests.test_whole_source_contract" name="test_cli_exposes_only_reviewed_profile_inspection[arguments3]" time="0.003" /><testcase classname="tests.test_whole_source_contract" name="test_cli_exposes_only_reviewed_profile_inspection[arguments4]" time="0.003" /><testcase classname="tests.test_whole_source_contract" name="test_cli_inspection_runs_without_site_packages_or_numerical_imports" time="1.951" /><testcase classname="tests.test_whole_source_artifacts" name="test_bound_identity_and_explicit_scientific_policy" time="3.218"><failure message="TypeError: collection() got multiple values for argument 'code_refs'">problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+
+    def test_bound_identity_and_explicit_scientific_policy(problem, code_refs):
+        spec = collection(problem, code_refs)
+        assert spec.problem is problem and spec.role == "producer"
+        assert spec.native_threads == 1
+        assert spec.collection_id == collection(problem, code_refs).collection_id
+        for changes in (dict(role="analytic"), dict(native_threads=2), dict(backend_version="2"),
+                        dict(partition=(("cell", 1), ("columns", 1), ("rows", 2))),
+                        dict(bounds=limits(max_records=513)), dict(grid_bits=511)):
+            assert collection(problem, code_refs, **changes).collection_id != spec.collection_id
+        document = spec.to_dict()
+        assert document["scope"] == "STRUCTURAL_ONLY"
+        assert not document["analytical_acceptance"] and not document["matrix_positivity"]
+        assert not document["production_admission"]
+        with pytest.raises(FrozenInstanceError):
+            spec.native_threads = 2
+        with pytest.raises(ArtifactError):
+            CollectionLock.acquire(Path("unused-inspection-output"), inspection_plan(problem))
+        with pytest.raises(ArtifactError):
+&gt;           collection(problem, code_refs, code_refs=())
+E           TypeError: collection() got multiple values for argument 'code_refs'
+
+tests\test_whole_source_artifacts.py:150: TypeError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_wire_factory_rebinds_captured_tree_and_rejects_changed_policy" time="3.481" /><testcase classname="tests.test_whole_source_artifacts" name="test_full_head_axes_and_physical_mode_identity" time="2.070" /><testcase classname="tests.test_whole_source_artifacts" name="test_real_two_process_exclusion_and_stable_inode" time="2.159" /><testcase classname="tests.test_whole_source_artifacts" name="test_fresh_unrelated_and_resume_incompatible_refused" time="1.729" /><testcase classname="tests.test_whole_source_artifacts" name="test_attempt_registration_worker_staging_and_late_result" time="1.803"><failure message="AssertionError: ('PermissionError', '[Errno 13] Permission denied')&#10;assert (0 == 0 and False)&#10; +  where 0 = &lt;SpawnProcess name='SpawnProcess-2' pid=53780 parent=55100 stopped exitcode=0&gt;.exitcode&#10; +  and   False = isinstance(('PermissionError', '[Errno 13] Permission denied'), StagedChunk)">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_attempt_registration_work0')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+
+    def test_attempt_registration_worker_staging_and_late_result(tmp_path, problem, code_refs):
+        spec = collection(problem, code_refs)
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            with pytest.raises(ArtifactError, match="registered"):
+                ChunkStore(lock, spec, attempt_id="not-created")
+            with pytest.raises((ArtifactError, FileNotFoundError)):
+                lock.register_attempt("not-created")
+            store = attempt(lock)
+            task = partial(next(output_tasks(spec)), 0)
+            context = multiprocessing.get_context("spawn")
+            receiver, sender = context.Pipe(duplex=False)
+            child = context.Process(target=worker_stage, args=(store.staging_context(), task, sender))
+            child.start()
+            sender.close()
+            try:
+                assert receiver.poll(30), "staging worker did not return"
+                staged = receiver.recv()
+            finally:
+                child.join(30)
+                if child.is_alive():
+                    child.kill()
+                    child.join()
+                receiver.close()
+&gt;           assert child.exitcode == 0 and isinstance(staged, StagedChunk), staged
+E           AssertionError: ('PermissionError', '[Errno 13] Permission denied')
+E           assert (0 == 0 and False)
+E            +  where 0 = &lt;SpawnProcess name='SpawnProcess-2' pid=53780 parent=55100 stopped exitcode=0&gt;.exitcode
+E            +  and   False = isinstance(('PermissionError', '[Errno 13] Permission denied'), StagedChunk)
+
+tests\test_whole_source_artifacts.py:275: AssertionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_identical_retry_conflict_stale_context_and_semantic_partition" time="1.321"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_identical_retry_conflict_0')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+
+    def test_identical_retry_conflict_stale_context_and_semantic_partition(tmp_path, problem, code_refs):
+        spec = collection(problem, code_refs)
+        root = tmp_path / "collection"
+        with CollectionLock.acquire(root, spec) as lock:
+            store = attempt(lock)
+            full = next(output_tasks(spec))
+            task = partial(full, 0)
+&gt;           ref = publish(store, task)
+                  ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:295: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_identical_retry_confl...act-owner.json', sha256='512cac0d07cb66d6d35206d4ec03c4e5ebfa6e3a5d7ac978aa417d0965bc9d14', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_actual_nonzero_prefix_exact_rounding_ragged_cover_and_slice_seal" time="1.292"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_nonzero_prefix_exa0')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+
+    def test_actual_nonzero_prefix_exact_rounding_ragged_cover_and_slice_seal(tmp_path, problem, code_refs):
+        spec = collection(problem, code_refs)
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            store = attempt(lock)
+            for full in output_tasks(spec):
+&gt;               refs = {cell: publish(store, partial(full, cell)) for cell in (2, 0, 1)}
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:328: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_nonzero_prefix...act-owner.json', sha256='02865d5fb88d5ca277ab8cf0b2edeff0163d834fa246317f23ed889152e3a9b2', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_resume_consumes_same_canonical_nonzero_prefix_and_scientific_seal" time="1.285"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_resume_consumes_same_cano0')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+
+    def test_resume_consumes_same_canonical_nonzero_prefix_and_scientific_seal(tmp_path, problem, code_refs):
+        spec = collection(problem, code_refs)
+        tasks = list(output_tasks(spec))
+        expected = {}
+        roots = [tmp_path / "uninterrupted", tmp_path / "resumed"]
+        with CollectionLock.acquire(roots[0], spec) as lock:
+            store = attempt(lock)
+            for full in tasks:
+&gt;               complete_tile(store, full)
+
+tests\test_whole_source_artifacts.py:358: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:316: in complete_tile
+    refs = {cell: publish(store, partial(full, cell)) for cell in (2, 0, 1)}
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_resume_consumes_same_...act-owner.json', sha256='759ff300d33ca0910d03c7cf20148043b931613242cd4371174893e6e6c6cfb4', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_missing_coordinate_cannot_seal_by_count" time="1.348"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_missing_coordinate_cannot0')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+
+    def test_missing_coordinate_cannot_seal_by_count(tmp_path, problem, code_refs):
+        spec = collection(problem, code_refs)
+        tasks = list(output_tasks(spec))
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            store = attempt(lock)
+&gt;           complete_tile(store, tasks[0])
+
+tests\test_whole_source_artifacts.py:390: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:316: in complete_tile
+    refs = {cell: publish(store, partial(full, cell)) for cell in (2, 0, 1)}
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_missing_coordinate_ca...act-owner.json', sha256='ef6f73f9d6a8f1a7865d64e705e528bcec931119103c648ccff18a8954f628bd', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[0X1]" time="0.001" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[+0x1]" time="0.000" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[0x01]" time="0.000" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[-0x0]" time="0.001" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[0xA]" time="0.000" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[1]" time="0.000" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[0x]" time="0.001" /><testcase classname="tests.test_whole_source_artifacts" name="test_noncanonical_signed_hex_refused[ 0x1]" time="0.000" /><testcase classname="tests.test_whole_source_artifacts" name="test_actual_maximum_declared_endpoint_bits_and_rationals" time="1.318"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_maximum_declared_e0')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+
+    def test_actual_maximum_declared_endpoint_bits_and_rationals(tmp_path, problem, code_refs):
+        spec = collection(problem, code_refs)
+        bits = spec.bounds.max_endpoint_bits
+        maximum = (1 &lt;&lt; bits)-1
+        assert decode_integer(encode_integer(maximum, bits), bits) == maximum
+        assert decode_integer(encode_integer(-maximum, bits), bits) == -maximum
+        rational = Fraction(-(1 &lt;&lt; (bits-1))+1, (1 &lt;&lt; (bits-2))+1)
+        assert decode_rational(encode_rational(rational, bits), bits) == rational
+        for value in ({"numerator": "0x1", "denominator": "0x0"},
+                      {"numerator": "0x2", "denominator": "0x2"},
+                      {"numerator": "0x1", "denominator": "-0x1"}):
+            with pytest.raises(ArtifactError):
+                decode_rational(value, bits)
+        with pytest.raises(ArtifactError):
+            decode_integer(hex(1 &lt;&lt; bits), bits)
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            store = attempt(lock)
+            full = next(output_tasks(spec))
+            task = partial(full, 0)
+            value = Fraction((1 &lt;&lt; bits)-2, 1 &lt;&lt; spec.grid_bits)
+            records = [replace(r, lower=-value, upper=value) for r in polynomial_records(task)]
+&gt;           ref = store.publish_chunk(task, store.stage_chunk(task, records))
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:426: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_maximum_declar...act-owner.json', sha256='e7de094c86f7e3468c9c2dfa6cfd117ef5a9acaaf094215243159fb4efbde1eb', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[duplicate]" time="1.293"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_compress0')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+mutation = 'duplicate'
+
+    @pytest.mark.parametrize("mutation", ["duplicate", "reversed", "order", "zero-denominator", "oversized", "truncated", "extra"])
+    def test_actual_malformed_compressed_payloads_refused(tmp_path, problem, code_refs, mutation):
+        spec = collection(problem, code_refs)
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            store = attempt(lock)
+            task = partial(next(output_tasks(spec)), 0)
+&gt;           ref = publish(store, task)
+                  ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:449: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_comp...act-owner.json', sha256='167f6fc18fb22166ddaad10b8a4ab4d8f2eb4f27ec5335ad50c82ce61fc69e98', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[reversed]" time="1.310"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_compress1')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+mutation = 'reversed'
+
+    @pytest.mark.parametrize("mutation", ["duplicate", "reversed", "order", "zero-denominator", "oversized", "truncated", "extra"])
+    def test_actual_malformed_compressed_payloads_refused(tmp_path, problem, code_refs, mutation):
+        spec = collection(problem, code_refs)
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            store = attempt(lock)
+            task = partial(next(output_tasks(spec)), 0)
+&gt;           ref = publish(store, task)
+                  ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:449: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_comp...act-owner.json', sha256='78a28da9fdb15c0af18eab3a813ab4e23b2e078031863d874fa20a455d36365a', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[order]" time="1.303"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_compress2')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+mutation = 'order'
+
+    @pytest.mark.parametrize("mutation", ["duplicate", "reversed", "order", "zero-denominator", "oversized", "truncated", "extra"])
+    def test_actual_malformed_compressed_payloads_refused(tmp_path, problem, code_refs, mutation):
+        spec = collection(problem, code_refs)
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            store = attempt(lock)
+            task = partial(next(output_tasks(spec)), 0)
+&gt;           ref = publish(store, task)
+                  ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:449: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_comp...act-owner.json', sha256='633eaa5ffa5cf0830be475b85673801ac33ba1ffe269d46dc515f82ac1284458', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[zero-denominator]" time="1.389"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_compress3')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+mutation = 'zero-denominator'
+
+    @pytest.mark.parametrize("mutation", ["duplicate", "reversed", "order", "zero-denominator", "oversized", "truncated", "extra"])
+    def test_actual_malformed_compressed_payloads_refused(tmp_path, problem, code_refs, mutation):
+        spec = collection(problem, code_refs)
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            store = attempt(lock)
+            task = partial(next(output_tasks(spec)), 0)
+&gt;           ref = publish(store, task)
+                  ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:449: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_comp...act-owner.json', sha256='4f5041b181d3973c0782548d8a3750e24b8d5f82d3f0b9c9a1ca2c890c215844', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[oversized]" time="1.383"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_compress4')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+mutation = 'oversized'
+
+    @pytest.mark.parametrize("mutation", ["duplicate", "reversed", "order", "zero-denominator", "oversized", "truncated", "extra"])
+    def test_actual_malformed_compressed_payloads_refused(tmp_path, problem, code_refs, mutation):
+        spec = collection(problem, code_refs)
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            store = attempt(lock)
+            task = partial(next(output_tasks(spec)), 0)
+&gt;           ref = publish(store, task)
+                  ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:449: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_comp...act-owner.json', sha256='314d2529190f97d82433dc563e5e65dd3c9c909fdcc5a15f99fee81b5080942f', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[truncated]" time="1.420"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_compress5')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+mutation = 'truncated'
+
+    @pytest.mark.parametrize("mutation", ["duplicate", "reversed", "order", "zero-denominator", "oversized", "truncated", "extra"])
+    def test_actual_malformed_compressed_payloads_refused(tmp_path, problem, code_refs, mutation):
+        spec = collection(problem, code_refs)
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            store = attempt(lock)
+            task = partial(next(output_tasks(spec)), 0)
+&gt;           ref = publish(store, task)
+                  ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:449: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_comp...act-owner.json', sha256='3225f08d7bcb3d833077165911388f3730cb6516375c78c90219e3046cd6a398', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_actual_malformed_compressed_payloads_refused[extra]" time="1.428"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_compress6')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+mutation = 'extra'
+
+    @pytest.mark.parametrize("mutation", ["duplicate", "reversed", "order", "zero-denominator", "oversized", "truncated", "extra"])
+    def test_actual_malformed_compressed_payloads_refused(tmp_path, problem, code_refs, mutation):
+        spec = collection(problem, code_refs)
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            store = attempt(lock)
+            task = partial(next(output_tasks(spec)), 0)
+&gt;           ref = publish(store, task)
+                  ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:449: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_actual_malformed_comp...act-owner.json', sha256='d120e9524dea2e11d8b8db3d9cc389835515d669513c2122c65da4a81eb9a598', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_snapshot_bytes_survive_path_replacement_and_hash_mismatch_rejects" time="1.481"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_snapshot_bytes_survive_pa0')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+
+    def test_snapshot_bytes_survive_path_replacement_and_hash_mismatch_rejects(tmp_path, problem, code_refs):
+        spec = collection(problem, code_refs)
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            store = attempt(lock)
+            task = partial(next(output_tasks(spec)), 0)
+&gt;           ref = publish(store, task)
+                  ^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:485: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_snapshot_bytes_surviv...act-owner.json', sha256='a59488cab94cd5d6009b5e1fcfe4e4b7020a940c16c58f70f7229261c4bd0742', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_confinement_alias_escape_and_symlink_refused" time="1.345"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_confinement_alias_escape_0')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+
+    def test_confinement_alias_escape_and_symlink_refused(tmp_path, problem, code_refs):
+        spec = collection(problem, code_refs)
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            store = attempt(lock)
+&gt;           ref = publish(store, partial(next(output_tasks(spec)), 0))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:498: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_confinement_alias_esc...act-owner.json', sha256='a8cb41ee4f886820309cae8b630c0b540bc939070bf4b1309d1f08ea3a39937e', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_real_caps_never_publish_success[max_compressed_bytes]" time="1.381" /><testcase classname="tests.test_whole_source_artifacts" name="test_real_caps_never_publish_success[max_decoded_bytes]" time="1.651" /><testcase classname="tests.test_whole_source_artifacts" name="test_real_caps_never_publish_success[max_records]" time="1.419" /><testcase classname="tests.test_whole_source_artifacts" name="test_real_caps_never_publish_success[max_temporary_bytes]" time="0.390" /><testcase classname="tests.test_whole_source_artifacts" name="test_real_caps_never_publish_success[max_total_bytes]" time="0.360" /><testcase classname="tests.test_whole_source_artifacts" name="test_fsync_refusal_keeps_manifest_before_uncommitted_chunk" time="1.410"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_fsync_refusal_keeps_manif0')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000277D3B6B2F0&gt;
+
+    def test_fsync_refusal_keeps_manifest_before_uncommitted_chunk(tmp_path, problem, code_refs, monkeypatch):
+        spec = collection(problem, code_refs)
+        root = tmp_path / "collection"
+        with CollectionLock.acquire(root, spec) as lock:
+            store = attempt(lock)
+            task = partial(next(output_tasks(spec)), 0)
+&gt;           staged = store.stage_chunk(task, polynomial_records(task))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:538: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_fsync_refusal_keeps_m...act-owner.json', sha256='edecba84ace7f7a96cae8b84490495f55fd3f1b6bce5cc08d7bb5ddab5e0c29e', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_rename_refusal_manifest_last_and_identical_retry" time="1.271"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_rename_refusal_manifest_l0')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000277D3C0B350&gt;
+
+    def test_rename_refusal_manifest_last_and_identical_retry(tmp_path, problem, code_refs, monkeypatch):
+        spec = collection(problem, code_refs)
+        root = tmp_path / "collection"
+        with CollectionLock.acquire(root, spec) as lock:
+            store = attempt(lock)
+            full = next(output_tasks(spec))
+&gt;           ref = publish(store, partial(full, 0))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:558: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_whole_source_artifacts.py:102: in publish
+    staged = store.stage_chunk(task, polynomial_records(task, **kwargs))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_rename_refusal_manife...act-owner.json', sha256='723dfb4e09351cd9710d063d830a85fd7b1dcfef571a019da0801a2acc3d34a0', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_artifacts" name="test_real_short_write_and_quota_refusal_do_not_advance_manifest" time="1.329"><failure message="PermissionError: [Errno 13] Permission denied">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_real_short_write_and_quot0')
+problem = ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420, alpha=Fraction(1,..., ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))
+code_refs = (ArtifactRef(path='scripts/run_observability.py', sha256='e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c5...ipts/whole_source/contract.py', sha256='b63a7041bc1532f7a1628d8084e282f1a53861a9844245003c0447a403189ef6', size=33384))
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000277D3C09590&gt;
+
+    def test_real_short_write_and_quota_refusal_do_not_advance_manifest(tmp_path, problem, code_refs, monkeypatch):
+        spec = collection(problem, code_refs)
+        root = tmp_path / "collection"
+        with CollectionLock.acquire(root, spec) as lock:
+            store = attempt(lock)
+            task = partial(next(output_tasks(spec)), 0)
+&gt;           staged = store.stage_chunk(task, polynomial_records(task))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_artifacts.py:580: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\artifacts.py:1102: in stage_chunk
+    return self.staging_context().stage_chunk(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1030: in stage_chunk
+    return self._write(task, records)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:1033: in _write
+    self._check()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = StagingContext(root=WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_real_short_write_and_...act-owner.json', sha256='9f943441bcc2707f0ec5cdb12f3ac88e14c29c2742a84b1247d19c852780d198', size=235), index_head=None)
+
+    def _check(self) -&gt; None:
+        _raw(self.root, self.receipt, self.spec.bounds.max_header_bytes)
+        _require(not (self.root / "attempts" / self.attempt_id / "artifact-invalidated").exists(),
+                 "attempt invalidated")
+        path = _safe(self.root, ".collection.lock")
+        with path.open("rb") as stream:
+&gt;           metadata = _json(stream.readline(4096), 4096)
+                             ^^^^^^^^^^^^^^^^^^^^^
+E           PermissionError: [Errno 13] Permission denied
+
+scripts\whole_source\artifacts.py:1024: PermissionError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_native_task_and_t1_identity_in_captured_root_without_git" time="3.496"><failure message="AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_native_task_and_t1_identi0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_native_task_and_t1_identity_in_captured_root_without_git(tmp_path, problems):
+        captured, spec, plan = case(tmp_path, problems["selected-t1"])
+        assert not (captured / ".git").exists()
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            with WorkloadExecution(lock, spec, plan, code_root=captured) as execution:
+&gt;               complete = execution.run_stage("control", [task(mode="native", x=-3)])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_execution.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\execution.py:575: in run_stage
+    receipt = self.backend.run(name, self.runtime_root / "scripts/whole_source/execution.py",
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;whole_source_supervisor.Execution object at 0x00000277D3A58590&gt;
+name = 'control'
+program = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_native_task_and_t1_identi0/collection/attempts/ed689ffebbce4446bb3d101cf207b60c/runtime/scripts/whole_source/execution.py')
+arguments = ['--stage', '&lt;USER_HOME&gt;\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-2\\test_native_task_and_t1_identi0\\colle...01cf207b60c\\control-stage.json', '--stage-sha256', 'bb62da0013b5a0c2ecb0f211f213c045fc02d42fe3ecfc0dcc350fe7c75e7bc1']
+kind = 'fixture', environment = None, expected_codes = (0,)
+
+    def run(self,name,program,arguments,*,kind,environment=None,expected_codes=(0,)):
+        folder=self.output/name;folder.mkdir()
+        program=Path(program).resolve()
+        command=[sys.executable,'-B',str(self.worker),'--program',str(program),
+            '--program-sha256',sha(program.read_bytes()),'--config',str(self.config),
+            '--config-sha256',self.config_sha,'--profile',str(folder/'profile.json'),
+            '--kind',kind,'--',*map(str,arguments)]
+        env=os.environ.copy();env.pop('PYTHONPATH',None);env['PYTHONDONTWRITEBYTECODE']='1'
+        for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS','FLINT_NUM_THREADS'):
+            env[key]='1'
+        if environment:env.update(environment)
+        messages=queue.Queue();readers=[];job=None;process=None
+        started=time.monotonic();metrics={};peak=0;cleanup=False;error=None;history={}
+        self.writer.event('STAGE_STARTED',stage=name,argv=command)
+        self.writer.update(workflow_state='RUNNING',current_operation={'stage':name,'phase':'initializing','budget':self.budget})
+        logs={channel:(folder/(channel+'.txt')).open('x',encoding='utf-8',newline='\n') for channel in ('stdout','stderr')}
+        def read(channel,stream):
+            try:
+                for line in stream:messages.put((channel,line))
+            finally:messages.put((channel,None))
+        try:
+&gt;           process=subprocess.Popen(command,cwd=self.root,env=env,stdin=subprocess.PIPE,
+                                                                         ^^^^^^^^^^^^^^^
+                stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf-8',start_new_session=os.name=='posix')
+E               AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'
+
+&lt;USER_HOME&gt;\AppData\Local\Temp\pytest-of-USER\pytest-2\test_native_task_and_t1_identi0\captured\computations\2026-10-28T034134Z-t081-resource-execution\execution_supervisor_v1.py:83: AttributeError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_legacy_environment_cannot_select_resource_policy" time="1.194" /><testcase classname="tests.test_whole_source_execution" name="test_job_cap_and_future_increment_are_separate" time="1.335" /><testcase classname="tests.test_whole_source_execution" name="test_bad_resource_plan_refuses_before_attempt[memory]" time="2.059" /><testcase classname="tests.test_whole_source_execution" name="test_bad_resource_plan_refuses_before_attempt[threads]" time="1.040" /><testcase classname="tests.test_whole_source_execution" name="test_bad_resource_plan_refuses_before_attempt[volume]" time="2.027" /><testcase classname="tests.test_whole_source_execution" name="test_bad_resource_plan_refuses_before_attempt[pool]" time="1.973" /><testcase classname="tests.test_whole_source_execution" name="test_actual_resource_inspection_cli_and_low_cap_refusal" time="3.784" /><testcase classname="tests.test_whole_source_execution" name="test_real_worker_failure_never_publishes_stage_success[memory_error-75]" time="2.782"><failure message="AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_real_worker_failure_never0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+mode = 'memory_error', code = 75
+
+    @pytest.mark.parametrize("mode,code", [("memory_error", 75), ("native_exit", None), ("native_denied", None)])
+    def test_real_worker_failure_never_publishes_stage_success(tmp_path, problems, mode, code):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"])
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            execution = WorkloadExecution(lock, spec, plan, code_root=captured)
+            with pytest.raises((RuntimeError, MemoryError)):
+                with execution:
+&gt;                   execution.run_stage("control", [task(mode=mode)])
+
+tests\test_whole_source_execution.py:222: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\execution.py:575: in run_stage
+    receipt = self.backend.run(name, self.runtime_root / "scripts/whole_source/execution.py",
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;whole_source_supervisor.Execution object at 0x00000277D3A58590&gt;
+name = 'control'
+program = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_real_worker_failure_never0/collection/attempts/70bb769a91614293a8f5002e2eec40ff/runtime/scripts/whole_source/execution.py')
+arguments = ['--stage', '&lt;USER_HOME&gt;\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-2\\test_real_worker_failure_never0\\colle...02e2eec40ff\\control-stage.json', '--stage-sha256', '5f196bb4967df1a62b6d7891fd7a4e66b4bcdbd2d0dd224a9b008b43f880a06c']
+kind = 'fixture', environment = None, expected_codes = (0,)
+
+    def run(self,name,program,arguments,*,kind,environment=None,expected_codes=(0,)):
+        folder=self.output/name;folder.mkdir()
+        program=Path(program).resolve()
+        command=[sys.executable,'-B',str(self.worker),'--program',str(program),
+            '--program-sha256',sha(program.read_bytes()),'--config',str(self.config),
+            '--config-sha256',self.config_sha,'--profile',str(folder/'profile.json'),
+            '--kind',kind,'--',*map(str,arguments)]
+        env=os.environ.copy();env.pop('PYTHONPATH',None);env['PYTHONDONTWRITEBYTECODE']='1'
+        for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS','FLINT_NUM_THREADS'):
+            env[key]='1'
+        if environment:env.update(environment)
+        messages=queue.Queue();readers=[];job=None;process=None
+        started=time.monotonic();metrics={};peak=0;cleanup=False;error=None;history={}
+        self.writer.event('STAGE_STARTED',stage=name,argv=command)
+        self.writer.update(workflow_state='RUNNING',current_operation={'stage':name,'phase':'initializing','budget':self.budget})
+        logs={channel:(folder/(channel+'.txt')).open('x',encoding='utf-8',newline='\n') for channel in ('stdout','stderr')}
+        def read(channel,stream):
+            try:
+                for line in stream:messages.put((channel,line))
+            finally:messages.put((channel,None))
+        try:
+&gt;           process=subprocess.Popen(command,cwd=self.root,env=env,stdin=subprocess.PIPE,
+                                                                         ^^^^^^^^^^^^^^^
+                stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf-8',start_new_session=os.name=='posix')
+E               AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'
+
+&lt;USER_HOME&gt;\AppData\Local\Temp\pytest-of-USER\pytest-2\test_real_worker_failure_never0\captured\computations\2026-10-28T034134Z-t081-resource-execution\execution_supervisor_v1.py:83: AttributeError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_real_worker_failure_never_publishes_stage_success[native_exit-None]" time="2.800"><failure message="AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_real_worker_failure_never1')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+mode = 'native_exit', code = None
+
+    @pytest.mark.parametrize("mode,code", [("memory_error", 75), ("native_exit", None), ("native_denied", None)])
+    def test_real_worker_failure_never_publishes_stage_success(tmp_path, problems, mode, code):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"])
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            execution = WorkloadExecution(lock, spec, plan, code_root=captured)
+            with pytest.raises((RuntimeError, MemoryError)):
+                with execution:
+&gt;                   execution.run_stage("control", [task(mode=mode)])
+
+tests\test_whole_source_execution.py:222: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\execution.py:575: in run_stage
+    receipt = self.backend.run(name, self.runtime_root / "scripts/whole_source/execution.py",
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;whole_source_supervisor.Execution object at 0x00000277D3E670E0&gt;
+name = 'control'
+program = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_real_worker_failure_never1/collection/attempts/b752dfd15a0942ec8fbdf1c2da2c97dd/runtime/scripts/whole_source/execution.py')
+arguments = ['--stage', '&lt;USER_HOME&gt;\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-2\\test_real_worker_failure_never1\\colle...1c2da2c97dd\\control-stage.json', '--stage-sha256', '33393da6d9b54f6d4b87a44b1a93d6fe36ce9e9828b8fa153efabc46403dcd12']
+kind = 'fixture', environment = None, expected_codes = (0,)
+
+    def run(self,name,program,arguments,*,kind,environment=None,expected_codes=(0,)):
+        folder=self.output/name;folder.mkdir()
+        program=Path(program).resolve()
+        command=[sys.executable,'-B',str(self.worker),'--program',str(program),
+            '--program-sha256',sha(program.read_bytes()),'--config',str(self.config),
+            '--config-sha256',self.config_sha,'--profile',str(folder/'profile.json'),
+            '--kind',kind,'--',*map(str,arguments)]
+        env=os.environ.copy();env.pop('PYTHONPATH',None);env['PYTHONDONTWRITEBYTECODE']='1'
+        for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS','FLINT_NUM_THREADS'):
+            env[key]='1'
+        if environment:env.update(environment)
+        messages=queue.Queue();readers=[];job=None;process=None
+        started=time.monotonic();metrics={};peak=0;cleanup=False;error=None;history={}
+        self.writer.event('STAGE_STARTED',stage=name,argv=command)
+        self.writer.update(workflow_state='RUNNING',current_operation={'stage':name,'phase':'initializing','budget':self.budget})
+        logs={channel:(folder/(channel+'.txt')).open('x',encoding='utf-8',newline='\n') for channel in ('stdout','stderr')}
+        def read(channel,stream):
+            try:
+                for line in stream:messages.put((channel,line))
+            finally:messages.put((channel,None))
+        try:
+&gt;           process=subprocess.Popen(command,cwd=self.root,env=env,stdin=subprocess.PIPE,
+                                                                         ^^^^^^^^^^^^^^^
+                stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf-8',start_new_session=os.name=='posix')
+E               AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'
+
+&lt;USER_HOME&gt;\AppData\Local\Temp\pytest-of-USER\pytest-2\test_real_worker_failure_never1\captured\computations\2026-10-28T034134Z-t081-resource-execution\execution_supervisor_v1.py:83: AttributeError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_real_worker_failure_never_publishes_stage_success[native_denied-None]" time="2.795"><failure message="AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_real_worker_failure_never2')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+mode = 'native_denied', code = None
+
+    @pytest.mark.parametrize("mode,code", [("memory_error", 75), ("native_exit", None), ("native_denied", None)])
+    def test_real_worker_failure_never_publishes_stage_success(tmp_path, problems, mode, code):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"])
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            execution = WorkloadExecution(lock, spec, plan, code_root=captured)
+            with pytest.raises((RuntimeError, MemoryError)):
+                with execution:
+&gt;                   execution.run_stage("control", [task(mode=mode)])
+
+tests\test_whole_source_execution.py:222: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\execution.py:575: in run_stage
+    receipt = self.backend.run(name, self.runtime_root / "scripts/whole_source/execution.py",
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;whole_source_supervisor.Execution object at 0x00000277D3C8C050&gt;
+name = 'control'
+program = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_real_worker_failure_never2/collection/attempts/3663561e923c44f8a9c1bd07ea102337/runtime/scripts/whole_source/execution.py')
+arguments = ['--stage', '&lt;USER_HOME&gt;\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-2\\test_real_worker_failure_never2\\colle...d07ea102337\\control-stage.json', '--stage-sha256', '5fd57458bd7e721c1dec4b7d919d96b1e61b6de0233be80daabad4c7584baea5']
+kind = 'fixture', environment = None, expected_codes = (0,)
+
+    def run(self,name,program,arguments,*,kind,environment=None,expected_codes=(0,)):
+        folder=self.output/name;folder.mkdir()
+        program=Path(program).resolve()
+        command=[sys.executable,'-B',str(self.worker),'--program',str(program),
+            '--program-sha256',sha(program.read_bytes()),'--config',str(self.config),
+            '--config-sha256',self.config_sha,'--profile',str(folder/'profile.json'),
+            '--kind',kind,'--',*map(str,arguments)]
+        env=os.environ.copy();env.pop('PYTHONPATH',None);env['PYTHONDONTWRITEBYTECODE']='1'
+        for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS','FLINT_NUM_THREADS'):
+            env[key]='1'
+        if environment:env.update(environment)
+        messages=queue.Queue();readers=[];job=None;process=None
+        started=time.monotonic();metrics={};peak=0;cleanup=False;error=None;history={}
+        self.writer.event('STAGE_STARTED',stage=name,argv=command)
+        self.writer.update(workflow_state='RUNNING',current_operation={'stage':name,'phase':'initializing','budget':self.budget})
+        logs={channel:(folder/(channel+'.txt')).open('x',encoding='utf-8',newline='\n') for channel in ('stdout','stderr')}
+        def read(channel,stream):
+            try:
+                for line in stream:messages.put((channel,line))
+            finally:messages.put((channel,None))
+        try:
+&gt;           process=subprocess.Popen(command,cwd=self.root,env=env,stdin=subprocess.PIPE,
+                                                                         ^^^^^^^^^^^^^^^
+                stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf-8',start_new_session=os.name=='posix')
+E               AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'
+
+&lt;USER_HOME&gt;\AppData\Local\Temp\pytest-of-USER\pytest-2\test_real_worker_failure_never2\captured\computations\2026-10-28T034134Z-t081-resource-execution\execution_supervisor_v1.py:83: AttributeError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_reduced_task_resources_reject_before_callback" time="1.109" /><testcase classname="tests.test_whole_source_execution" name="test_attach_failure_prevents_program_import" time="2.771"><failure message="AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_attach_failure_prevents_p0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000277D3C5EE50&gt;
+
+    @pytest.mark.skipif(sys.platform != "win32", reason="actual Windows job attachment failure")
+    def test_attach_failure_prevents_program_import(tmp_path, problems, monkeypatch):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"])
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            with WorkloadExecution(lock, spec, plan, code_root=captured) as execution:
+                job = execution.backend.run.__func__.__globals__["WindowsJob"]
+                def denied(self, pid):
+                    raise RuntimeError("deliberate owned attachment refusal")
+                monkeypatch.setattr(job, "attach_worker_pid", denied)
+                with pytest.raises(RuntimeError, match="attachment refusal"):
+&gt;                   execution.run_stage("control", [task(mode="native")])
+
+tests\test_whole_source_execution.py:249: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\execution.py:575: in run_stage
+    receipt = self.backend.run(name, self.runtime_root / "scripts/whole_source/execution.py",
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;whole_source_supervisor.Execution object at 0x00000277D3A58830&gt;
+name = 'control'
+program = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_attach_failure_prevents_p0/collection/attempts/ab68281871cd4de38d10bfe9c98ef022/runtime/scripts/whole_source/execution.py')
+arguments = ['--stage', '&lt;USER_HOME&gt;\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-2\\test_attach_failure_prevents_p0\\colle...fe9c98ef022\\control-stage.json', '--stage-sha256', '140fb9725d9223b3f11917d7fd7b6feca7efab62c4ab44eea85887ad5d29dbd7']
+kind = 'fixture', environment = None, expected_codes = (0,)
+
+    def run(self,name,program,arguments,*,kind,environment=None,expected_codes=(0,)):
+        folder=self.output/name;folder.mkdir()
+        program=Path(program).resolve()
+        command=[sys.executable,'-B',str(self.worker),'--program',str(program),
+            '--program-sha256',sha(program.read_bytes()),'--config',str(self.config),
+            '--config-sha256',self.config_sha,'--profile',str(folder/'profile.json'),
+            '--kind',kind,'--',*map(str,arguments)]
+        env=os.environ.copy();env.pop('PYTHONPATH',None);env['PYTHONDONTWRITEBYTECODE']='1'
+        for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS','FLINT_NUM_THREADS'):
+            env[key]='1'
+        if environment:env.update(environment)
+        messages=queue.Queue();readers=[];job=None;process=None
+        started=time.monotonic();metrics={};peak=0;cleanup=False;error=None;history={}
+        self.writer.event('STAGE_STARTED',stage=name,argv=command)
+        self.writer.update(workflow_state='RUNNING',current_operation={'stage':name,'phase':'initializing','budget':self.budget})
+        logs={channel:(folder/(channel+'.txt')).open('x',encoding='utf-8',newline='\n') for channel in ('stdout','stderr')}
+        def read(channel,stream):
+            try:
+                for line in stream:messages.put((channel,line))
+            finally:messages.put((channel,None))
+        try:
+&gt;           process=subprocess.Popen(command,cwd=self.root,env=env,stdin=subprocess.PIPE,
+                                                                         ^^^^^^^^^^^^^^^
+                stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf-8',start_new_session=os.name=='posix')
+E               AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'
+
+&lt;USER_HOME&gt;\AppData\Local\Temp\pytest-of-USER\pytest-2\test_attach_failure_prevents_p0\captured\computations\2026-10-28T034134Z-t081-resource-execution\execution_supervisor_v1.py:83: AttributeError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_cancellation_reaps_only_owned_tree" time="2.752"><failure message="AssertionError: {'error': AttributeError(&quot;'types.SimpleNamespace' object has no attribute 'PIPE'&quot;)}&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_cancellation_reaps_only_o0/ready').exists">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_cancellation_reaps_only_o0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_cancellation_reaps_only_owned_tree(tmp_path, problems):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"])
+        unrelated = subprocess.Popen([getattr(sys, "_base_executable", sys.executable), "-B", "-c", "import time;time.sleep(120)"])
+        ready, release = tmp_path / "ready", tmp_path / "release"
+        outcomes = {}
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            execution = WorkloadExecution(lock, spec, plan, code_root=captured)
+            def run():
+                try:
+                    with execution:
+                        execution.run_stage("control", [task(mode="wait", ready=str(ready), release=str(release))])
+                except BaseException as exc:
+                    outcomes["error"] = exc
+            thread = threading.Thread(target=run)
+            thread.start()
+            try:
+                wait_for(lambda: ready.exists() or outcomes)
+&gt;               assert ready.exists(), outcomes
+E               AssertionError: {'error': AttributeError("'types.SimpleNamespace' object has no attribute 'PIPE'")}
+E               assert False
+E                +  where False = exists()
+E                +    where exists = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_cancellation_reaps_only_o0/ready').exists
+
+tests\test_whole_source_execution.py:273: AssertionError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_descendant_holding_pipe_is_reaped_before_eof" time="2.781"><failure message="AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_descendant_holding_pipe_i0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_descendant_holding_pipe_is_reaped_before_eof(tmp_path, problems):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"])
+        ready = tmp_path / "descendant"
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            with WorkloadExecution(lock, spec, plan, code_root=captured) as execution:
+&gt;               execution.run_stage("control", [task(mode="descendant", ready=str(ready))])
+
+tests\test_whole_source_execution.py:294: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\execution.py:575: in run_stage
+    receipt = self.backend.run(name, self.runtime_root / "scripts/whole_source/execution.py",
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;whole_source_supervisor.Execution object at 0x00000277D3A58590&gt;
+name = 'control'
+program = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_descendant_holding_pipe_i0/collection/attempts/f94d26f310a84aceb25aaecad03077a7/runtime/scripts/whole_source/execution.py')
+arguments = ['--stage', '&lt;USER_HOME&gt;\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-2\\test_descendant_holding_pipe_i0\\colle...ecad03077a7\\control-stage.json', '--stage-sha256', '7995e34e5d33d90fd4ed4047dd991148d6e6b877a581abba4c673d56c8147ffa']
+kind = 'fixture', environment = None, expected_codes = (0,)
+
+    def run(self,name,program,arguments,*,kind,environment=None,expected_codes=(0,)):
+        folder=self.output/name;folder.mkdir()
+        program=Path(program).resolve()
+        command=[sys.executable,'-B',str(self.worker),'--program',str(program),
+            '--program-sha256',sha(program.read_bytes()),'--config',str(self.config),
+            '--config-sha256',self.config_sha,'--profile',str(folder/'profile.json'),
+            '--kind',kind,'--',*map(str,arguments)]
+        env=os.environ.copy();env.pop('PYTHONPATH',None);env['PYTHONDONTWRITEBYTECODE']='1'
+        for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS','FLINT_NUM_THREADS'):
+            env[key]='1'
+        if environment:env.update(environment)
+        messages=queue.Queue();readers=[];job=None;process=None
+        started=time.monotonic();metrics={};peak=0;cleanup=False;error=None;history={}
+        self.writer.event('STAGE_STARTED',stage=name,argv=command)
+        self.writer.update(workflow_state='RUNNING',current_operation={'stage':name,'phase':'initializing','budget':self.budget})
+        logs={channel:(folder/(channel+'.txt')).open('x',encoding='utf-8',newline='\n') for channel in ('stdout','stderr')}
+        def read(channel,stream):
+            try:
+                for line in stream:messages.put((channel,line))
+            finally:messages.put((channel,None))
+        try:
+&gt;           process=subprocess.Popen(command,cwd=self.root,env=env,stdin=subprocess.PIPE,
+                                                                         ^^^^^^^^^^^^^^^
+                stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf-8',start_new_session=os.name=='posix')
+E               AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'
+
+&lt;USER_HOME&gt;\AppData\Local\Temp\pytest-of-USER\pytest-2\test_descendant_holding_pipe_i0\captured\computations\2026-10-28T034134Z-t081-resource-execution\execution_supervisor_v1.py:83: AttributeError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_unbounded_stdout_is_refused_without_reader_deadlock" time="2.973"><failure message="AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_unbounded_stdout_is_refus0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_unbounded_stdout_is_refused_without_reader_deadlock(tmp_path, problems):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"])
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            with WorkloadExecution(lock, spec, plan, code_root=captured) as execution:
+                with pytest.raises(RuntimeError, match="line/log allowance"):
+&gt;                   execution.run_stage("control", [task(mode="flood")])
+
+tests\test_whole_source_execution.py:303: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\execution.py:575: in run_stage
+    receipt = self.backend.run(name, self.runtime_root / "scripts/whole_source/execution.py",
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;whole_source_supervisor.Execution object at 0x00000277D3E66E40&gt;
+name = 'control'
+program = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_unbounded_stdout_is_refus0/collection/attempts/69d047ff981f4e0c86c5185bbd389d96/runtime/scripts/whole_source/execution.py')
+arguments = ['--stage', '&lt;USER_HOME&gt;\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-2\\test_unbounded_stdout_is_refus0\\colle...85bbd389d96\\control-stage.json', '--stage-sha256', '4f7f4c09f83a5da5afa4e8bfc4afddd75b0bbd49f22c1134f8278a8cf8d5f331']
+kind = 'fixture', environment = None, expected_codes = (0,)
+
+    def run(self,name,program,arguments,*,kind,environment=None,expected_codes=(0,)):
+        folder=self.output/name;folder.mkdir()
+        program=Path(program).resolve()
+        command=[sys.executable,'-B',str(self.worker),'--program',str(program),
+            '--program-sha256',sha(program.read_bytes()),'--config',str(self.config),
+            '--config-sha256',self.config_sha,'--profile',str(folder/'profile.json'),
+            '--kind',kind,'--',*map(str,arguments)]
+        env=os.environ.copy();env.pop('PYTHONPATH',None);env['PYTHONDONTWRITEBYTECODE']='1'
+        for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS','FLINT_NUM_THREADS'):
+            env[key]='1'
+        if environment:env.update(environment)
+        messages=queue.Queue();readers=[];job=None;process=None
+        started=time.monotonic();metrics={};peak=0;cleanup=False;error=None;history={}
+        self.writer.event('STAGE_STARTED',stage=name,argv=command)
+        self.writer.update(workflow_state='RUNNING',current_operation={'stage':name,'phase':'initializing','budget':self.budget})
+        logs={channel:(folder/(channel+'.txt')).open('x',encoding='utf-8',newline='\n') for channel in ('stdout','stderr')}
+        def read(channel,stream):
+            try:
+                for line in stream:messages.put((channel,line))
+            finally:messages.put((channel,None))
+        try:
+&gt;           process=subprocess.Popen(command,cwd=self.root,env=env,stdin=subprocess.PIPE,
+                                                                         ^^^^^^^^^^^^^^^
+                stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf-8',start_new_session=os.name=='posix')
+E               AttributeError: 'types.SimpleNamespace' object has no attribute 'PIPE'
+
+&lt;USER_HOME&gt;\AppData\Local\Temp\pytest-of-USER\pytest-2\test_unbounded_stdout_is_refus0\captured\computations\2026-10-28T034134Z-t081-resource-execution\execution_supervisor_v1.py:83: AttributeError</failure></testcase><testcase classname="tests.test_whole_source_execution" name="test_real_two_worker_pool_requires_and_records_aggregate_observation" time="2.909"><failure message="AssertionError: {'error': AttributeError(&quot;'types.SimpleNamespace' object has no attribute 'PIPE'&quot;)}&#10;assert False&#10; +  where False = all(&lt;generator object test_real_two_worker_pool_requires_and_records_aggregate_observation.&lt;locals&gt;.&lt;genexpr&gt; at 0x00000277D4FADE50&gt;)">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-2/test_real_two_worker_pool_requ0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_real_two_worker_pool_requires_and_records_aggregate_observation(tmp_path, problems):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"], workers=2)
+        allowed = detect_budget(replace(plan, cpus=1, workers=1), repository=tmp_path, temporary=tmp_path, helper_root=captured)
+        if allowed.detected["effective_cpu_budget"] &lt; 2:
+            pytest.skip("host exposes fewer than two CPU slots")
+        release = tmp_path / "release"
+        ready = [tmp_path / ("ready"+str(i)) for i in range(2)]
+        result = {}
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            execution = WorkloadExecution(lock, spec, plan, code_root=captured, qualify_pool=True)
+            def run():
+                try:
+                    with execution:
+                        result["complete"] = execution.run_stage("control", [task(i, mode="native_wait", ready=str(path), release=str(release)) for i, path in enumerate(ready)])
+                except BaseException as exc:
+                    result["error"] = exc
+            thread = threading.Thread(target=run)
+            thread.start()
+            try:
+                wait_for(lambda: all(p.exists() for p in ready) or result)
+&gt;               assert all(p.exists() for p in ready), result
+E               AssertionError: {'error': AttributeError("'types.SimpleNamespace' object has no attribute 'PIPE'")}
+E               assert False
+E                +  where False = all(&lt;generator object test_real_two_worker_pool_requires_and_records_aggregate_observation.&lt;locals&gt;.&lt;genexpr&gt; at 0x00000277D4FADE50&gt;)
+
+tests\test_whole_source_execution.py:328: AssertionError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.456" timestamp="2026-11-12T00:41:05.150414-05:00"><testcase classname="tests.test_whole_source_retention_paths" name="test_rejected_output_preserves_membership_before_lock_or_publication[prepare_review-other-sealed]" time="0.051"><failure message="Failed: DID NOT RAISE ContractError">tmp_path = WindowsPath('&lt;USER_HOME&gt;/AppData/Local/Temp/pytest-of-USER/pytest-11/test_rejected_output_preserves0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000221F3179F30&gt;
+operation = &lt;function prepare_review at 0x00000221F3192E50&gt;
+kind = 'other-sealed'
+
+    @pytest.mark.parametrize('kind', ['same-run', 'other-sealed', 'enclosing-sealed',
+        'normalized', 'root-sealed', 'sealed-destination', 'malformed', 'directory-marker'])
+    def test_rejected_output_preserves_membership_before_lock_or_publication(tmp_path, monkeypatch, operation, kind):
+        root = tmp_path
+        run = root/'retained'/'run' if kind == 'enclosing-sealed' else root/'run'
+        run.mkdir(parents=True)
+        prerequisites(monkeypatch, run)
+        protected = root/'retained'
+        protected.mkdir(exist_ok=True)
+        output = protected/'new'/'assessment'
+        valid_seal = True
+        if kind == 'same-run':
+            protected, output = run, run/'assessment'
+        elif kind == 'enclosing-sealed':
+            output = protected/'results'/'assessment'
+        elif kind == 'normalized':
+            output = protected/'unused'/'..'/'assessment'
+        elif kind == 'root-sealed':
+            protected, output = root, root/'assessment'
+        elif kind == 'sealed-destination':
+            output = protected
+        elif kind in ('malformed', 'directory-marker'):
+            valid_seal = False
+            marker = protected/'retained-manifest.json'
+            if kind == 'malformed':
+                marker.write_bytes(b'not json')
+            else:
+                marker.mkdir()
+        if valid_seal:
+            retention._seal(protected)
+        before = snapshot(root)
+&gt;       with pytest.raises(ContractError, match='outside|sealed'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ContractError
+
+tests\test_whole_source_retention_paths.py:62: Failed</failure></testcase></testsuite></testsuites>
