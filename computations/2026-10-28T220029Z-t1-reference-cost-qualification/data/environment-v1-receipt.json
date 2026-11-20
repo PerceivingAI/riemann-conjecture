@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-c",
+    "import json,platform,sys,flint; print(json.dumps({'python':sys.version,'platform':platform.platform(),'python_flint':flint.__version__,'flint':getattr(flint,'__FLINT_VERSION__',None),'native_threads':flint.ctx.threads},sort_keys=True))"
+  ],
+  "started_utc": "2026-10-28T22:49:19Z",
+  "elapsed_seconds": 0.278795500023989,
+  "exit_code": 0
+}

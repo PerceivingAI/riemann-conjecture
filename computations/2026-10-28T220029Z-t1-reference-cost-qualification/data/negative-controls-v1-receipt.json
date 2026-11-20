@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-28T220029Z-t1-reference-cost-qualification/exercise-scalar-v1.py",
+    "--mode",
+    "controls",
+    "--output",
+    "computations/2026-10-28T220029Z-t1-reference-cost-qualification/data/negative-controls-v1.json"
+  ],
+  "started_utc": "2026-10-28T22:47:22Z",
+  "elapsed_seconds": 15.351090699987253,
+  "exit_code": 0
+}

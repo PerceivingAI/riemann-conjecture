@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-28T220029Z-t1-reference-cost-qualification/exercise-scalar-v1.py",
+    "--mode",
+    "replay",
+    "--capture",
+    "computations/2026-10-28T220029Z-t1-reference-cost-qualification/captured-source-inputs-v1.json",
+    "--output",
+    "computations/2026-10-28T220029Z-t1-reference-cost-qualification/data/isolated-replay-v1.json"
+  ],
+  "started_utc": "2026-10-28T22:48:32Z",
+  "elapsed_seconds": 6.91331849998096,
+  "exit_code": 0
+}

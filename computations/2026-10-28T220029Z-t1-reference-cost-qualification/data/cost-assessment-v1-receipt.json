@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-28T220029Z-t1-reference-cost-qualification/assess-cost-v1.py",
+    "--inputs",
+    "computations/2026-10-28T220029Z-t1-reference-cost-qualification/inputs-v1.json",
+    "--source",
+    "computations/2026-10-28T220029Z-t1-reference-cost-qualification/data/source-v1.json",
+    "--audit",
+    "computations/2026-10-28T220029Z-t1-reference-cost-qualification/data/audit-v2.json",
+    "--output",
+    "computations/2026-10-28T220029Z-t1-reference-cost-qualification/data/cost-assessment-v1.json"
+  ],
+  "started_utc": "2026-10-28T22:10:47Z",
+  "elapsed_seconds": 0.22202920002746396,
+  "exit_code": 0
+}

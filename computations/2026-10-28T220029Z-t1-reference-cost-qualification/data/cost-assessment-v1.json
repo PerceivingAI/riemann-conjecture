@@ -1,0 +1,56 @@
+{
+  "K": 132,
+  "M": 18144,
+  "N": 9072,
+  "RH_status": "UNRESOLVED",
+  "audit_sha256": "53fe8418ee5e5e6fce981f24dd704593a52e9f1646ce860966511cf8cba9f2e4",
+  "baseline_reserve_bytes": 1476206592,
+  "conditional_memory_scenarios": [
+    {
+      "baseline_precision_bits": 4608,
+      "measured_baseline_peak_committed_bytes": 6910521344,
+      "measured_baseline_wall_seconds": "1767.8659277999977",
+      "quadratic_only_scenario_bytes": "2901755554430976/3481",
+      "quadratic_times_precision_scenario_bytes": "25793382706053120/3481",
+      "scenario_assumptions": "same live allocation count per matrix shape; latter additionally assumes linear mantissa storage in working precision",
+      "scenario_is_not_measured_target_peak_or_admission_bound": true,
+      "stage": "source",
+      "target_starting_precision_bits": 40960
+    },
+    {
+      "baseline_precision_bits": 6144,
+      "measured_baseline_peak_committed_bytes": 8440590336,
+      "measured_baseline_wall_seconds": "2845.0065998999926",
+      "quadratic_only_scenario_bytes": "3544237644447744/3481",
+      "quadratic_times_precision_scenario_bytes": "31898138800029696/3481",
+      "scenario_assumptions": "same live allocation count per matrix shape; latter additionally assumes linear mantissa storage in working precision",
+      "scenario_is_not_measured_target_peak_or_admission_bound": true,
+      "stage": "independent-audit",
+      "target_starting_precision_bits": 55296
+    }
+  ],
+  "exact_shape": {
+    "N_ratio": "648/59",
+    "cell_times_dense_cubic_work_index": "332563968/205379",
+    "dense_cubic_ratio": "272097792/205379",
+    "dense_square_ratio": "419904/3481",
+    "first_even_N_with_geometric_ratio_below_one": 3320,
+    "six_triangular_entry_ratio": "163332/1357",
+    "translation_cell_ratio": "11/9"
+  },
+  "format": "t1-qualified-shape-and-conditional-cost-v1",
+  "interpretation": "The inherited sufficient reference policy forces a much larger declared shape. These scenarios flag a planning obstacle; they do not prove that every implementation exceeds host RAM, that the selected matrix is negative, or that another reference or parameter policy fails.",
+  "measured_baseline_memory_ceiling_bytes": 13285859328,
+  "measurements_sha256": "4dc11cefaf4b7458837daeccf32408f84393727a9f4879c88bb0227a1579c354",
+  "production_admission": false,
+  "program_sha256": "fd888afd9fc4f7202689a3cc46df0d9884552faf9a22891e88d964f4da5596e3",
+  "source_sha256": "7238a102652c3c1519eca2555d8b167735452697c068a4aa9b76aca7d3ce997a",
+  "status": "QUANTIFIED_REFERENCE_POLICY_OBSTACLE_WITH_UNVALIDATED_RESOURCE_SCENARIOS",
+  "support": "1",
+  "target_matrix_computed": false,
+  "target_memory_measured": false,
+  "target_positivity_proved": false,
+  "target_runtime_measured": false,
+  "target_wall_time_prediction": null,
+  "validated_peak_memory_estimator": false
+}

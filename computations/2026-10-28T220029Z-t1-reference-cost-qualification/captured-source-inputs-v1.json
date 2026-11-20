@@ -1,0 +1,132 @@
+{
+  "destinations": [
+    {
+      "bytes": 5306,
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json",
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-audit-v1.json",
+      "sha256": "3cfafc4c5e7db8c0b76e8ada4afe73b34738e4697a3f030d5b6f19b2023c1e34"
+    },
+    {
+      "bytes": 314708,
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json",
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/data/reference-v1.json",
+      "sha256": "5d9f66d2941db36b338fab1c23d06b15a67e0c9452f1678dbaaddbce6c31a0e6"
+    },
+    {
+      "bytes": 1155,
+      "captured_path": "captured-inputs-v1/computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+      "destination": "computations/2026-10-27T050743Z-t080-target-qualification/qualification-inputs-v1.json",
+      "sha256": "bf840c67beeaf7846dbe6d8c0e43b63fe6a4d2b199e6106fcbc5e7682706ea31"
+    },
+    {
+      "bytes": 3390,
+      "captured_path": "captured-inputs-v1/computations/2026-10-28T034134Z-t081-resource-execution/data/measured-summary-v2.json",
+      "destination": "computations/2026-10-28T034134Z-t081-resource-execution/data/measured-summary-v2.json",
+      "sha256": "4dc11cefaf4b7458837daeccf32408f84393727a9f4879c88bb0227a1579c354"
+    },
+    {
+      "bytes": 5381,
+      "captured_path": "captured-inputs-v1/computations/2026-10-28T183329Z-t081-retained-completion/data/run-v1/retained-acceptance-v1.json",
+      "destination": "computations/2026-10-28T183329Z-t081-retained-completion/data/run-v1/retained-acceptance-v1.json",
+      "sha256": "3537ac3b419ce9e77241ae278fd1b0ef1301290e9b0e7d3125ccdf985c4474d5"
+    },
+    {
+      "bytes": 4854,
+      "captured_path": "captured-inputs-v1/computations/2026-10-28T220029Z-t1-reference-cost-qualification/assess-cost-v1.py",
+      "destination": "computations/2026-10-28T220029Z-t1-reference-cost-qualification/assess-cost-v1.py",
+      "sha256": "fd888afd9fc4f7202689a3cc46df0d9884552faf9a22891e88d964f4da5596e3"
+    },
+    {
+      "bytes": 7319,
+      "captured_path": "captured-inputs-v1/computations/2026-10-28T220029Z-t1-reference-cost-qualification/exercise-scalar-v1.py",
+      "destination": "computations/2026-10-28T220029Z-t1-reference-cost-qualification/exercise-scalar-v1.py",
+      "sha256": "2f865dd019124bc36ea64a9797a39ee8a118cd6f0677059bea8fdaace9940b69"
+    },
+    {
+      "bytes": 1859,
+      "captured_path": "captured-inputs-v1/computations/2026-10-28T220029Z-t1-reference-cost-qualification/inputs-v1.json",
+      "destination": "computations/2026-10-28T220029Z-t1-reference-cost-qualification/inputs-v1.json",
+      "sha256": "59a067a652d4ac7b13add553116d092a3a8e492a2cacca6b1bc92d2554d9bde7"
+    },
+    {
+      "bytes": 8751,
+      "captured_path": "captured-inputs-v1/computations/2026-10-28T220029Z-t1-reference-cost-qualification/qualify-reference-v1.py",
+      "destination": "computations/2026-10-28T220029Z-t1-reference-cost-qualification/qualify-reference-v1.py",
+      "sha256": "238df05f6f56d66fc5ccf09832eb6d851f37525508f5755cef0bf27ace4dd8d2"
+    },
+    {
+      "bytes": 27004,
+      "captured_path": "captured-inputs-v1/computations/2026-10-28T220029Z-t1-reference-cost-qualification/verify-reference-v2.py",
+      "destination": "computations/2026-10-28T220029Z-t1-reference-cost-qualification/verify-reference-v2.py",
+      "sha256": "0606800c3df24fe47474e0e75810d6d6bc25ece82274c753227d4fee34a516df"
+    },
+    {
+      "bytes": 1432,
+      "captured_path": "captured-inputs-v1/pyproject.toml",
+      "destination": "pyproject.toml",
+      "sha256": "04746ae24843592f1acee4bf069f6ef64d6c0c4b578d16c50bcbf0d69c2baebf"
+    },
+    {
+      "bytes": 412,
+      "captured_path": "captured-inputs-v1/scripts/cert/__init__.py",
+      "destination": "scripts/cert/__init__.py",
+      "sha256": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092"
+    },
+    {
+      "bytes": 5348,
+      "captured_path": "captured-inputs-v1/scripts/cert/constants.py",
+      "destination": "scripts/cert/constants.py",
+      "sha256": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb"
+    },
+    {
+      "bytes": 21423,
+      "captured_path": "captured-inputs-v1/scripts/cert/prime_power_terms.py",
+      "destination": "scripts/cert/prime_power_terms.py",
+      "sha256": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357"
+    },
+    {
+      "bytes": 6229,
+      "captured_path": "captured-inputs-v1/scripts/cert/quadrature.py",
+      "destination": "scripts/cert/quadrature.py",
+      "sha256": "c8bc5bc04655722f394dba6c46655494cd90e5e68117e3361a835ac10e719663"
+    },
+    {
+      "bytes": 12441,
+      "captured_path": "captured-inputs-v1/scripts/cert/residual_kernel.py",
+      "destination": "scripts/cert/residual_kernel.py",
+      "sha256": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1"
+    },
+    {
+      "bytes": 17239,
+      "captured_path": "captured-inputs-v1/scripts/verify_t080_reference_qualification.py",
+      "destination": "scripts/verify_t080_reference_qualification.py",
+      "sha256": "332779553723f5e9aead03cb0084f7131e686bd92f0a13a8e2074f2c0ab57a5d"
+    },
+    {
+      "bytes": 8462,
+      "captured_path": "captured-inputs-v1/scripts/weil_reference_route_controls.py",
+      "destination": "scripts/weil_reference_route_controls.py",
+      "sha256": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13"
+    },
+    {
+      "bytes": 10360,
+      "captured_path": "captured-inputs-v1/scripts/weil_t080_reference_qualification.py",
+      "destination": "scripts/weil_t080_reference_qualification.py",
+      "sha256": "74736cbd88ab1aaf1f47f71ade83005088470ce380b34d5cd502704c11436bf9"
+    },
+    {
+      "bytes": 210571,
+      "captured_path": "captured-inputs-v1/uv.lock",
+      "destination": "uv.lock",
+      "sha256": "0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a"
+    }
+  ],
+  "expected_scientific_outputs_withheld": [
+    "source-v1.json",
+    "audit-v2.json",
+    "cost-assessment-v1.json"
+  ],
+  "format": "t1-scalar-source-input-capture-v1",
+  "full_target_matrices_captured": false,
+  "trust": "shared installed Python/FLINT; source/input isolation, not an OS sandbox"
+}

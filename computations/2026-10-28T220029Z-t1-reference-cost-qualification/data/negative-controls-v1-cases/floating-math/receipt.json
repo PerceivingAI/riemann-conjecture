@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "[REPO_ROOT]\\computations\\2026-10-28T220029Z-t1-reference-cost-qualification\\verify-reference-v2.py",
+    "--inputs",
+    "[REPO_ROOT]\\computations\\2026-10-28T220029Z-t1-reference-cost-qualification\\inputs-v1.json",
+    "--source",
+    "computations\\2026-10-28T220029Z-t1-reference-cost-qualification\\data\\negative-controls-v1-cases\\floating-math\\source.json",
+    "--output",
+    "computations\\2026-10-28T220029Z-t1-reference-cost-qualification\\data\\negative-controls-v1-cases\\floating-math\\audit.json"
+  ],
+  "elapsed_seconds": 0.23171170000568964,
+  "exit_code": 2,
+  "stderr": "",
+  "stdout": "{\"status\": \"REJECTED\", \"error\": \"nonexact JSON number\"}\n"
+}

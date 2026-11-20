@@ -1,0 +1,72 @@
+{
+  "case_count": 7,
+  "cases": [
+    {
+      "exit_code": 2,
+      "expected": "native containment failed: transfer added_prime_norm",
+      "name": "added-prime-norm",
+      "no_pass_file": true,
+      "observed": "native containment failed: transfer added_prime_norm",
+      "receipt_sha256": "e3305e76596043c682d721d765a313efca20da1733d08175e83af56f6ed9b463",
+      "source_sha256": "21e91ab8e456408f8e51d9d4ba4d5075ff04f298866507d1f014a5436ddf71ac"
+    },
+    {
+      "exit_code": 2,
+      "expected": "native containment failed: N=9072 leakage",
+      "name": "complete-leakage",
+      "no_pass_file": true,
+      "observed": "native containment failed: N=9072 leakage",
+      "receipt_sha256": "9f3bde02496312bcaff35c02d897ef801453ac5d7dd70afc22d79f25537c6149",
+      "source_sha256": "96a461c032b70ab5b22b765b93385132cdf2a5baddd0d420edd03ab3860b7c15"
+    },
+    {
+      "exit_code": 2,
+      "expected": "canonical exact residual coefficients disagree",
+      "name": "canonical-polar",
+      "no_pass_file": true,
+      "observed": "canonical exact residual coefficients disagree with formal division",
+      "receipt_sha256": "bcdb2f4393be3b00b4d8594d460a7cae9215c979bc4607f677a38844b6d7784f",
+      "source_sha256": "2cf20d30a6c1a198e6547394c2989f1fa8c059d4c372aa2337b111adb3c2d28a"
+    },
+    {
+      "exit_code": 2,
+      "expected": "false rational upper: frequency step 59",
+      "name": "terminal-infinity",
+      "no_pass_file": true,
+      "observed": "false rational upper: frequency step 59",
+      "receipt_sha256": "5faa003d581d3fa35c82e57e907b9941221903df718c6e10c9ce0da8e63f38df",
+      "source_sha256": "68389695097714bc1aaba1bd67007407963eb6810163536f1855d7fdba4ce746"
+    },
+    {
+      "exit_code": 2,
+      "expected": "geometric-invalid leakage cutoff",
+      "name": "small-geometric-cutoff",
+      "no_pass_file": true,
+      "observed": "geometric-invalid leakage cutoff",
+      "receipt_sha256": "f22c9f7c3ac64689b97fd5f73b67c0209cd603184cea800546bd52827be591f5",
+      "source_sha256": "75748745c1e9816c631f56299438bf493548c8ea10cc7df971c65430653e16fb"
+    },
+    {
+      "exit_code": 2,
+      "expected": "incorrect residual Lambda upper",
+      "name": "model-discrepancy",
+      "no_pass_file": true,
+      "observed": "incorrect residual Lambda upper",
+      "receipt_sha256": "2e1691b67e8f3d09714939c7ac6ea3ca4ab81f5d08b786c6963af0c24184a743",
+      "source_sha256": "33e56dd7a4cfe075978a55a45567903afd28b0eb934a0747113d446368077cce"
+    },
+    {
+      "exit_code": 2,
+      "expected": "nonexact JSON number",
+      "name": "floating-math",
+      "no_pass_file": true,
+      "observed": "nonexact JSON number",
+      "receipt_sha256": "b33bad526f0997b877f9395b9369669c868f6e612c1aab25fba7e265274ac531",
+      "source_sha256": "cacc2df781a32559dfee6c33d4bc148b42e933124d7a5be5e29a13847487ce9c"
+    }
+  ],
+  "format": "t1-scalar-mathematical-controls-v1",
+  "positive_control_audit_sha256": "53fe8418ee5e5e6fce981f24dd704593a52e9f1646ce860966511cf8cba9f2e4",
+  "status": "PASS",
+  "target_matrix_computed": false
+}
