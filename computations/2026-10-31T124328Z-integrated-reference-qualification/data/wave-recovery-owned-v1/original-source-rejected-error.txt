@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 192, in invoke
+    result = function()
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 361, in <lambda>
+    invoke(target+'-rejected', lambda: control_run(True), expect_failure=True,
+                                       ~~~~~~~~~~~^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 348, in control_run
+    return exact.run_exact(cin['problem'], cs.path, ci, cin['execution'], destination,
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           code_root=root, resume=resume)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 735, in run_exact
+    return _run_bound_exact(root,Path(output_dir).absolute(),bound,resume=resume)
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 666, in _run_bound_exact
+    reports,report_refs,products,groups = run_waves(
+                                          ~~~~~~~~~^
+        lock,execution,descriptor,config['operands'],journal=journal)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\exact_tasks.py", line 342, in run_waves
+    execution.run_stage(operation, tasks)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 157, in stage
+    result = run_stage(owner, name, tasks)
+  File "[REPO_ROOT]\scripts\whole_source\execution.py", line 683, in run_stage
+    return self._run_stage(name, tasks)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\execution.py", line 759, in _run_stage
+    receipt = self.backend.run(name, self.runtime_root / "scripts/whole_source/execution.py",
+        ["--stage", str(config_path), "--stage-sha256", _sha(canonical_bytes(config))], kind="fixture",
+        # Windows can omit sys.path[0] for a script beyond MAX_PATH.
+        # Supply only the raw-bound helper directory, never ambient code.
+        environment={"PYTHONPATH": str(self.runtime_root / BUNDLE)})
+  File "[REPO_ROOT]\computations\2026-10-28T034134Z-t081-resource-execution\execution_supervisor_v1.py", line 159, in run
+    if process.returncode not in expected_codes:raise RuntimeError(name+' exited '+str(process.returncode)+'; inspect retained stderr and profile')
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: first exited 1; inspect retained stderr and profile

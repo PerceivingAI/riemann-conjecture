@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\compare-execution-v2.py", line 223, in <module>
+    main()
+    ~~~~^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\compare-execution-v2.py", line 199, in main
+    'new':resources(run), 'baseline':_inherited['baseline'](old),
+          ~~~~~~~~~^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\compare-execution-v2.py", line 100, in resources
+    verified = _verify_receipts(directory)
+  File "[REPO_ROOT]\scripts\whole_source\retention.py", line 320, in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ~~~~~~~~~~~~^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\receipts.py", line 46, in verify_stage
+    _require(value['exit_code']==0 and value['error'] is None and
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             value['worker_cleanup_verified'] is True and
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             value['last_metrics']['active_process_count']==0,'failed/uncontained owned scientific stage')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\receipts.py", line 17, in _require
+    raise ContractError(message)
+scripts.whole_source.contract.ContractError: failed/uncontained owned scientific stage

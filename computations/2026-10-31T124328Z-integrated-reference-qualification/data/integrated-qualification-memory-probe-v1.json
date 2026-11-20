@@ -1,0 +1,23 @@
+{
+  "scope": "EMPTY_JOB_DIAGNOSTIC_NOT_QUALIFICATION",
+  "rows": [
+    {
+      "requested_bytes": 134217728,
+      "installed_process_bytes": 134217728,
+      "installed_job_bytes": 134217728,
+      "flags": 8960,
+      "cpu_flags": 0,
+      "cpu_rate": 0,
+      "handle_flags": 0
+    },
+    {
+      "requested_bytes": 134217745,
+      "installed_process_bytes": 134217728,
+      "installed_job_bytes": 134217728,
+      "flags": 8960,
+      "cpu_flags": 0,
+      "cpu_rate": 0,
+      "handle_flags": 0
+    }
+  ]
+}

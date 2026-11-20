@@ -1,0 +1,22 @@
+Source operation rejected: kernel-groups-0 exited 1; inspect retained stderr and profile
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "[REPO_ROOT]\scripts\whole_source\supervision.py", line 653, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "[REPO_ROOT]\scripts\whole_source\supervision.py", line 648, in main
+    return _child(args.child)
+  File "[REPO_ROOT]\scripts\whole_source\supervision.py", line 638, in _child
+    runpy.run_path(str(path), run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\data\integrated-qualification-owned-v3\source-child.py", line 5, in <module>
+    runpy.run_path(str(p))["child"]('source','[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v3\\operation')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\integrated-qualification-owned-v2.py", line 82, in child
+    assert result == 0
+           ^^^^^^^^^^^
+AssertionError

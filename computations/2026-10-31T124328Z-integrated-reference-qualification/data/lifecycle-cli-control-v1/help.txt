@@ -1,0 +1,27 @@
+usage: python.exe -m scripts.weil_whole_source_split run [-h]
+                                                         --problem PROBLEM
+                                                         --execution EXECUTION
+                                                         --output-dir OUTPUT_DIR
+                                                         [--source-root SOURCE_ROOT]
+                                                         [--through {prepare,source,audit,proposal,exact-inputs,exact,controls,replay}]
+                                                         [--resume]
+                                                         [--lifecycle-policy LIFECYCLE_POLICY]
+                                                         [--supervision-dir SUPERVISION_DIR]
+
+options:
+  -h, --help            show this help message and exit
+  --problem PROBLEM
+  --execution EXECUTION
+  --output-dir OUTPUT_DIR
+  --source-root SOURCE_ROOT
+  --through {prepare,source,audit,proposal,exact-inputs,exact,controls,replay}
+                        Return after this verified phase, before starting the
+                        next
+  --resume              Continue this same bound operation and validate
+                        committed phases
+  --lifecycle-policy LIFECYCLE_POLICY
+                        Explicit windows-lifecycle-v1
+                        wall/active/cancellation/observation policy
+  --supervision-dir SUPERVISION_DIR
+                        Separate persistent observation root for this
+                        operation

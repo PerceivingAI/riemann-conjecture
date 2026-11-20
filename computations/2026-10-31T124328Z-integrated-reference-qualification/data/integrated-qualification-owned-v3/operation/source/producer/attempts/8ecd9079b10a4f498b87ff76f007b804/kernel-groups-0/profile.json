@@ -1,0 +1,22 @@
+{
+  "containment": {
+    "mechanism": "owned Windows job installed before GO"
+  },
+  "cpu_seconds": 0.171875,
+  "error": "FileNotFoundError: [Errno 2] The system cannot find the file specified: '[REPO_ROOT]\\\\computations\\\\2026-10-31T124328Z-integrated-reference-qualification\\\\data\\\\integrated-qualification-owned-v3\\\\operation\\\\source\\\\producer\\\\attempts\\\\8ecd9079b10a4f498b87ff76f007b804\\\\runtime\\\\scripts\\\\whole_source\\\\retention.py'",
+  "exit_code": 1,
+  "format": "t081-budgeted-stage-profile-v1",
+  "kind": "fixture",
+  "native_threads": 1,
+  "phases": {},
+  "precision": 53,
+  "process_memory": {
+    "committed_bytes": 25006080,
+    "peak_committed_bytes": 34312192,
+    "peak_working_set_bytes": 45674496,
+    "working_set_bytes": 37240832
+  },
+  "program_sha256": "45a4f7c92a1a725fd2c5bc0a19a000d03de5faf7624a83e4f7a870fe7556aa3a",
+  "timing_note": "inclusive includes nested calls; exclusive subtracts wrapped children; CPU is current process only",
+  "wall_seconds": 2.353192999988096
+}

@@ -1,0 +1,17 @@
+{
+  "format": "diagnostic-report-privacy-closeout-v1",
+  "scope": "CURRENT_REPOSITORY_PYTEST_OUTPUT_AND_CURRENT_SESSION_UNTRACKED_JUNIT",
+  "current_complete_reports_checked": 10,
+  "current_session_reports_redacted": 8,
+  "current_host_attributes_or_known_identity_values_remaining": 0,
+  "final_affected_tests_passed": 41,
+  "privacy_regressions_in_final_selection": 3,
+  "controlled_child_failure_preserved": true,
+  "earlier_tracked_junit_reports_with_host_attributes": 76,
+  "earlier_tracked_report_bytes_unchanged": true,
+  "historical_redaction_requires_owner_authorization": true,
+  "general_secret_scanner": false,
+  "repository_wide_privacy_clearance": false,
+  "previous_transcript_content_retracted": false,
+  "scientific_acceptance": false
+}

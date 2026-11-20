@@ -1,0 +1,35 @@
+{
+  "format": "wave-recovery-storage-summary-v1",
+  "source_census": "wave-recovery-closeout-v1/storage-census.json",
+  "comparison": [
+    {
+      "operation": "proposal-fresh",
+      "files": 2053,
+      "logical_bytes": 103896219,
+      "retained_attempts": 6
+    },
+    {
+      "operation": "proposal-retry",
+      "files": 2557,
+      "logical_bytes": 129683006,
+      "retained_attempts": 8
+    },
+    {
+      "operation": "exact-fresh",
+      "files": 429,
+      "logical_bytes": 17102983,
+      "retained_attempts": 1
+    },
+    {
+      "operation": "exact-retry",
+      "files": 933,
+      "logical_bytes": 43070100,
+      "retained_attempts": 3
+    }
+  ],
+  "logical_total_bytes": 695699248,
+  "unique_identity_logical_bytes": 695693079,
+  "allocated_bytes": null,
+  "external_metadata_census": "wave-recovery-assessment-cli-storage-v1.json",
+  "scope": "Bounded manufactured controls; retries retain more evidence. Not a storage-reduction or full-reference forecast."
+}

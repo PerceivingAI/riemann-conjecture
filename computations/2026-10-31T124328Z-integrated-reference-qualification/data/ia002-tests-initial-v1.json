@@ -1,0 +1,11 @@
+{
+  "command": "uv run --locked --extra test python -m pytest -n 0 -q tests/test_whole_source_artifacts.py tests/test_whole_source_pipeline.py tests/test_whole_source_proposal.py tests/test_whole_source_exact.py tests/test_whole_source_retention.py tests/test_whole_source_retention_controls.py tests/test_whole_source_resources.py tests/test_whole_source_execution.py",
+  "exit_code": 1,
+  "passed": 213,
+  "failed": 1,
+  "seconds": "280.30",
+  "failure": "test_publication_operational_caps_still_refuse_output[max_records]",
+  "cause": "The new fixture used ModeRange(0,2), which contains only physical mode 0. A max_records cap of 1 correctly admitted its single coordinate.",
+  "correction": "Changed the finite publication fixture to ModeRange(0,4) on both axes: two physical modes and three symmetric coordinates. Production quota code was unchanged.",
+  "follow_up": "ia002-focused-final-v1.xml: 20 passed, 117 deselected in 57.00s, including the corrected publication cases and ten additional source/review binding regressions."
+}

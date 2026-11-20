@@ -1,0 +1,68 @@
+{
+  "status": "PASS_CONTROL_ONLY_INVENTORY_STREAMING",
+  "code_root": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\metadata-pre-fix-v1\\runtime",
+  "results": [
+    {
+      "members": 8,
+      "member_payload_digest": "dababfe02d8dbe17d1854bea0eb0a89b8f324895f3469f3379af64b094aa22e4",
+      "original_member_hash_calls": 24,
+      "original_logical_bytes_hashed": 456,
+      "original_member_hash_passes": 3,
+      "candidate_and_postpublication_checks": 2,
+      "member_hashes_before_first_snapshot_row_encoding": 8,
+      "max_decoded_shard_rows_ahead_of_member_verification": 8,
+      "decoded_shard_row_counts": [
+        8,
+        8
+      ],
+      "python_traced_current_bytes": 12456,
+      "python_traced_peak_bytes": 8551102,
+      "wall_seconds": 0.20073359999878448,
+      "already_sealed_tree_unchanged": true
+    },
+    {
+      "members": 64,
+      "member_payload_digest": "97d13d22250cb60d079316c43ce404a20401cefeda07e7ab6004bced1cc5d9be",
+      "original_member_hash_calls": 192,
+      "original_logical_bytes_hashed": 3810,
+      "original_member_hash_passes": 3,
+      "candidate_and_postpublication_checks": 2,
+      "member_hashes_before_first_snapshot_row_encoding": 64,
+      "max_decoded_shard_rows_ahead_of_member_verification": 64,
+      "decoded_shard_row_counts": [
+        64,
+        64
+      ],
+      "python_traced_current_bytes": 34121,
+      "python_traced_peak_bytes": 8582596,
+      "wall_seconds": 0.9620333000002574,
+      "already_sealed_tree_unchanged": true
+    },
+    {
+      "members": 4097,
+      "member_payload_digest": "5158fdbc37e5f2e22eb91f39e9428912f6d676087d8d111e23a34a6f6ee88f47",
+      "original_member_hash_calls": 12291,
+      "original_logical_bytes_hashed": 267072,
+      "original_member_hash_passes": 3,
+      "candidate_and_postpublication_checks": 2,
+      "member_hashes_before_first_snapshot_row_encoding": 4097,
+      "max_decoded_shard_rows_ahead_of_member_verification": 4097,
+      "decoded_shard_row_counts": [
+        4096,
+        1,
+        4096,
+        1
+      ],
+      "python_traced_current_bytes": 67440,
+      "python_traced_peak_bytes": 11531652,
+      "wall_seconds": 79.4930129000004,
+      "already_sealed_tree_unchanged": true
+    }
+  ],
+  "retention_program_sha256": "574a83f5c5e155f4da7386cd3e0be1363a06cc9f2af4c49df17d6338e473837e",
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "memory_scope": "Python-traced complete seal; excludes interpreter/native/RSS and fixture creation.",
+  "io_scope": "Logical original-member bytes and metadata-consumer progress, not physical device traffic.",
+  "scope": "DISPOSABLE_METADATA_ONLY_NO_SCIENTIFIC_REVIEW_OR_ACCEPTANCE",
+  "production_admission": false
+}

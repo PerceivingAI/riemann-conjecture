@@ -1,0 +1,3 @@
+kernel-groups-0: {"elapsed_seconds": 0.1310005999985151, "event": "program_started", "kind": "fixture", "threads": 1}
+kernel-groups-0: ContractError: invalid source parity
+kernel-groups-0: {"elapsed_seconds": 2.480321000010008, "event": "program_finished", "exit_code": 1, "kind": "fixture", "wall_seconds": 2.347474800015334}

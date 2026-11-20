@@ -1,0 +1,705 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="pytest tests"><testsuite name="pytest" errors="37" failures="0" skipped="0" tests="53" time="419.744" timestamp="2026-11-15T09:46:41.602948-05:00"><testcase classname="tests.test_whole_source_retention_recovery" name="test_retention_only_recovers_unfinished_publication_without_scientific_execution" time="43.659"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_missing_conflicting_or_foreign_assessment_cannot_seal[published-report]" time="10.099"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_missing_conflicting_or_foreign_assessment_cannot_seal[missing-report]" time="9.716"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_missing_conflicting_or_foreign_assessment_cannot_seal[missing-receipt]" time="9.551"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_missing_conflicting_or_foreign_assessment_cannot_seal[failed-receipt]" time="9.547"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_missing_conflicting_or_foreign_assessment_cannot_seal[uncontained]" time="9.915"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_missing_conflicting_or_foreign_assessment_cannot_seal[foreign-run]" time="9.039"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_missing_conflicting_or_foreign_assessment_cannot_seal[wrong-function]" time="10.449"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_missing_conflicting_or_foreign_assessment_cannot_seal[negative-result]" time="9.189"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_missing_conflicting_or_foreign_assessment_cannot_seal[changed-source]" time="9.409"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_missing_conflicting_or_foreign_assessment_cannot_seal[changed-runtime]" time="8.814"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_missing_conflicting_or_foreign_assessment_cannot_seal[changed-supervisor]" time="8.601"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_retention_cannot_mutate_a_separately_sealed_ancestor" time="0.069" /><testcase classname="tests.test_whole_source_retention_recovery" name="test_missing_assessment_publication_recovers_exact_owned_bytes" time="8.999"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[historical]" time="9.354"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[foreign-run]" time="7.711"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[foreign-output]" time="10.408"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[context-revision]" time="11.302"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[context-config]" time="10.937"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[no-approval]" time="10.009"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[receipt]" time="10.310"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[cleanup]" time="11.073"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[result]" time="8.772"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[runtime]" time="11.418"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[source]" time="10.486"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[stream]" time="9.917"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[profile]" time="9.787"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[conflict]" time="8.822"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[noncanonical-conflict]" time="12.262"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[sealed-output]" time="12.226"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_prospective_assessment_recovery_rejects_missing_or_changed_authority[sealed-run]" time="11.977"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_assessment_publication_lock_exclusion[science]" time="9.805"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_assessment_publication_lock_exclusion[assessment]" time="9.336"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_assessment_publication_interruption_is_recoverable_without_new_math[intent]" time="7.879"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_assessment_publication_interruption_is_recoverable_without_new_math[report]" time="7.309"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_assessment_publication_interruption_is_recoverable_without_new_math[seal]" time="7.610"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_assessment_terminal_intent_tampering_refuses_report" time="7.245"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_retention_recovery" name="test_retention_selects_recovery_producers_not_failed_later_history" time="7.991"><error message="failed on setup with &quot;scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap&quot;">tests\test_whole_source_retention_recovery.py:111: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:88: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1426: in _completed_assessment
+    records = _verify_receipts(output/'collection',code_root=root)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:353: in _verify_receipts
+    rows.append(verify_stage(path)['record'])
+                ^^^^^^^^^^^^^^^^^^
+scripts\whole_source\receipts.py:92: in verify_stage
+    payload = _json(_raw(result_dir,ref,plan.result_bytes))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\artifacts.py:103: in _raw
+    _require(type(ref) is ArtifactRef and ref.size &lt;= cap, "raw artifact exceeds cap")
+scripts\whole_source\artifacts.py:40: in _require
+    raise ArtifactError(message)
+E   scripts.whole_source.artifacts.ArtifactError: raw artifact exceeds cap</error></testcase><testcase classname="tests.test_whole_source_qualification_boundaries" name="test_incomplete_selected_science_refuses_before_downstream_work[0]" time="0.061" /><testcase classname="tests.test_whole_source_qualification_boundaries" name="test_incomplete_selected_science_refuses_before_downstream_work[1]" time="0.174" /><testcase classname="tests.test_whole_source_qualification_boundaries" name="test_incomplete_selected_science_refuses_before_downstream_work[2]" time="0.327" /><testcase classname="tests.test_whole_source_qualification_boundaries" name="test_incomplete_selected_science_refuses_before_downstream_work[3]" time="0.529" /><testcase classname="tests.test_whole_source_qualification_boundaries" name="test_incomplete_selected_science_refuses_before_downstream_work[4]" time="0.759" /><testcase classname="tests.test_whole_source_qualification_boundaries" name="test_incomplete_selected_science_refuses_before_downstream_work[5]" time="1.153" /><testcase classname="tests.test_whole_source_qualification_boundaries" name="test_selected_pipeline_refuses_changed_runtime_without_writes[python]" time="1.430" /><testcase classname="tests.test_whole_source_qualification_boundaries" name="test_selected_pipeline_refuses_changed_runtime_without_writes[python-flint]" time="1.774" /><testcase classname="tests.test_whole_source_qualification_boundaries" name="test_real_input_capture_refuses_expected_output_inventory[expected-output-claim]" time="4.630" /><testcase classname="tests.test_whole_source_qualification_boundaries" name="test_real_input_capture_refuses_expected_output_inventory[unexpected-inventory-output]" time="4.016" /><testcase classname="tests.test_whole_source_qualification_boundaries" name="test_public_cli_pause_names_verified_phase_and_next_action[prepare-source]" time="0.880" /><testcase classname="tests.test_whole_source_qualification_boundaries" name="test_public_cli_pause_names_verified_phase_and_next_action[source-audit]" time="1.191" /><testcase classname="tests.test_whole_source_contract" name="test_actual_implementation_bytes_change_collection_not_problem_identity[retained-t081]" time="0.935" /><testcase classname="tests.test_whole_source_contract" name="test_actual_implementation_bytes_change_collection_not_problem_identity[selected-t1]" time="1.203" /><testcase classname="tests.test_whole_source_contract" name="test_cli_inspection_runs_without_site_packages_or_numerical_imports" time="0.519" /></testsuite></testsuites>

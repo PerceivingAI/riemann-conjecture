@@ -1,0 +1,12 @@
+{
+  "format": "whole-source-lifecycle-closeout-v1",
+  "scope": "LOCAL_SOFTWARE_VERIFICATION_AND_CODE_PRESERVATION_ONLY",
+  "latest_distinct_test_outcomes": {"passed": 273, "skipped": 1, "failed": 0},
+  "retained_software_controls": {"cases": 4, "status": "PASS_SOFTWARE_CONTROLS_ONLY", "directory": "lifecycle-supervision-owned-v3"},
+  "final_snapshot": {"directory": "lifecycle-supervision-code-v2", "captured_files": 159, "extra_files": 107},
+  "prior_snapshot_references_verified": {"resource-admission-code-v1": 251, "lifecycle-supervision-code-v1": 263},
+  "historical_byte_mismatches": 0,
+  "full_case_feasibility_established": false,
+  "scientific_acceptance": false,
+  "production_admission": false
+}

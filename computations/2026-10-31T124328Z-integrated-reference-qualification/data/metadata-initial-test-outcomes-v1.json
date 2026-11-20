@@ -1,0 +1,23 @@
+{
+  "format": "metadata-initial-test-outcomes-v1",
+  "recorded_utc": "2026-11-13T12:49:44Z",
+  "evidence_kind": "Observed terminal output retained after commands completed; no rerun to manufacture JUnit output",
+  "runtime": "Windows x64, Python 3.14.0, pytest 9.1.1",
+  "source_capture": "data/metadata-corrected-v1/preservation.json",
+  "commands": [
+    {
+      "argv": "uv run --locked --extra test python -m pytest -n 0 -q tests/test_whole_source_artifacts.py tests/test_whole_source_execution.py tests/test_whole_source_resources.py",
+      "result": "133 passed in 288.90s",
+      "exit_code": 0,
+      "wrapper_wall_seconds": 290.75
+    },
+    {
+      "argv": "uv run --locked --extra test python -m pytest -n 0 -q tests/test_whole_source_inventory.py",
+      "result": "32 passed in 269.50s",
+      "exit_code": 0,
+      "wrapper_wall_seconds": 271.23,
+      "scope": "Before five later-added inventory cases, executed in the separately retained panel/recovery selection"
+    }
+  ],
+  "production_admission": false
+}

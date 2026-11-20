@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 192, in invoke
+    result = function()
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 361, in <lambda>
+    invoke(target+'-rejected', lambda: control_run(True), expect_failure=True,
+                                       ~~~~~~~~~~~^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 348, in control_run
+    return exact.run_exact(cin['problem'], cs.path, ci, cin['execution'], destination,
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           code_root=root, resume=resume)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 729, in run_exact
+    bound = _bind_exact(problem_path,execution_path,root)
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 610, in _bind_exact
+    spec = CollectionSpec.from_dict(problem,config['collection'],code_root=root)
+  File "[REPO_ROOT]\scripts\whole_source\artifacts.py", line 312, in from_dict
+    result = cls.create(
+        problem, role=document["role"], quantities=tuple(quantities),
+    ...<3 lines>...
+        code_refs=tuple(_ref(ref) for ref in document["code_refs"]),
+        bounds=CodecBounds(**document["bounds"]), grid_bits=document["grid_bits"], code_root=code_root)
+  File "[REPO_ROOT]\scripts\whole_source\artifacts.py", line 290, in create
+    frozen = tuple((ref, _raw(root, ref, 8*1024*1024)) for ref in sorted(refs.values(), key=lambda r: r.path))
+             ^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\artifacts.py", line 290, in <genexpr>
+    frozen = tuple((ref, _raw(root, ref, 8*1024*1024)) for ref in sorted(refs.values(), key=lambda r: r.path))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\artifacts.py", line 105, in _raw
+    _require(stat.S_ISREG(before.st_mode) and before.st_size == ref.size, "invalid regular artifact")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\artifacts.py", line 39, in _require
+    raise ArtifactError(message)
+scripts.whole_source.artifacts.ArtifactError: invalid regular artifact

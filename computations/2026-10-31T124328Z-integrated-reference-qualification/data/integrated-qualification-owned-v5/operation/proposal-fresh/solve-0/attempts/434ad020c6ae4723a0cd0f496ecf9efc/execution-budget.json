@@ -1,0 +1,1 @@
+{"cpu_budget":2,"descendant_pool_workers":2,"execution_mode":"one owned root plus bounded spawn descendants","memory_budget_bytes":7242514432,"native_threads":1,"required_bytes":1518338048,"reserve_bytes":835715072,"workers":1}

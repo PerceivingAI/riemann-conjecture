@@ -1,0 +1,4 @@
+global: {"elapsed_seconds": 0.7484935000247788, "event": "program_started", "kind": "fixture", "threads": 1}
+global: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 2, "unit": "bounded task"}
+global: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 2, "unit": "bounded task"}
+global: {"elapsed_seconds": 4.721310300024925, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 3.971960399998352}

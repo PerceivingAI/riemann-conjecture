@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 192, in invoke
+    result = function()
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 331, in <lambda>
+    invoke('relocated-output-rejected', lambda: assess(relocated, True), expect_failure=True, zero=True)
+                                                ~~~~~~^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 251, in assess
+    return exact.run_exact(inputs['problem'], source.path, retry/'proposal.json', inputs['execution'],
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           destination, code_root=root, resume=resume)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 735, in run_exact
+    return _run_bound_exact(root,Path(output_dir).absolute(),bound,resume=resume)
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 657, in _run_bound_exact
+    journal = RecoveryJournal(lock,operation_context('exact',output,config),resume=resume)
+  File "[REPO_ROOT]\scripts\whole_source\recovery.py", line 173, in __init__
+    _require(resume and _context_document(self.root) == expected, 'incompatible recovery resume context')
+                        ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\recovery.py", line 65, in _context_document
+    _require(set(document) == {'format', 'root', 'collection_id', 'context'} and
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             document['format'] == RECOVERY_POLICY and document['root'] == str(root) and
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             document['context'].get('format') == RECOVERY_POLICY and
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             document['context'].get('python') == sys.version, 'changed recovery journal context')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\recovery.py", line 28, in _require
+    raise ContractError(message)
+scripts.whole_source.contract.ContractError: changed recovery journal context

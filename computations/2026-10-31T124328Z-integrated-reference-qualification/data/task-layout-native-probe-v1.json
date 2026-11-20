@@ -1,0 +1,165 @@
+{
+  "status": "PASS_CONTROL_ONLY_NATIVE_CANDIDATE_COMPARISON",
+  "rows": [
+    {
+      "dimension": 3,
+      "transpose": false,
+      "methods": [
+        {
+          "method": "scalar",
+          "four_calls_ns": 140300,
+          "digest": "ccb8bb5f22226fcd871e01de923c6484561f194bb7e5143c07efc2742697d8b4",
+          "contains_exact_reference": true
+        },
+        {
+          "method": "native-lu",
+          "four_calls_ns": 305700,
+          "digest": "6906f3e744f2072f3ca989574029dc8c18875279c3702482e630f844d31aa7ac",
+          "contains_exact_reference": true
+        }
+      ],
+      "identical_enclosures": false
+    },
+    {
+      "dimension": 3,
+      "transpose": true,
+      "methods": [
+        {
+          "method": "scalar",
+          "four_calls_ns": 82500,
+          "digest": "94ff424a0b634b81144fa5aaaae87e87bd8a2f1a182f2dc3ad6db92841485af7",
+          "contains_exact_reference": true
+        },
+        {
+          "method": "native-lu",
+          "four_calls_ns": 17200,
+          "digest": "c251a74b074864f98414b6149274582aab56d6b07ffd5ad5f07a409035b6c117",
+          "contains_exact_reference": true
+        }
+      ],
+      "identical_enclosures": false
+    },
+    {
+      "dimension": 8,
+      "transpose": false,
+      "methods": [
+        {
+          "method": "scalar",
+          "four_calls_ns": 895500,
+          "digest": "e7ef05c2cfdec7b6e1a7c4404a357f9e98363e39a2514140182859f1efe5513f",
+          "contains_exact_reference": true
+        },
+        {
+          "method": "native-lu",
+          "four_calls_ns": 156800,
+          "digest": "2199ad4b8703db5062709a60e046b7a4902cbe9dcfb4478abc8690ba263cde56",
+          "contains_exact_reference": true
+        }
+      ],
+      "identical_enclosures": false
+    },
+    {
+      "dimension": 8,
+      "transpose": true,
+      "methods": [
+        {
+          "method": "scalar",
+          "four_calls_ns": 395100,
+          "digest": "77cc31f9f045548d0d56df1a622924beb571a2859d644402c2ed4699290d7879",
+          "contains_exact_reference": true
+        },
+        {
+          "method": "native-lu",
+          "four_calls_ns": 111300,
+          "digest": "e21619bc9e9e31d77db53eb93ca720b59bb7d345df042d63f637a936caae699a",
+          "contains_exact_reference": true
+        }
+      ],
+      "identical_enclosures": false
+    },
+    {
+      "dimension": 16,
+      "transpose": false,
+      "methods": [
+        {
+          "method": "scalar",
+          "four_calls_ns": 1497000,
+          "digest": "5d0e1fb09d725fc4b12634c3019edca0561f24f54896bfd399110e6a45f21f3a",
+          "contains_exact_reference": true
+        },
+        {
+          "method": "native-lu",
+          "four_calls_ns": 491400,
+          "digest": "84f55d958a27a6b3a27691206a308cb07c4daa5c4db2722ff8080d8cf957636b",
+          "contains_exact_reference": true
+        }
+      ],
+      "identical_enclosures": false
+    },
+    {
+      "dimension": 16,
+      "transpose": true,
+      "methods": [
+        {
+          "method": "scalar",
+          "four_calls_ns": 1435200,
+          "digest": "891014bda012c9d93a273f00f1adca8b168fb8250691990f53505ac81ce8b19b",
+          "contains_exact_reference": true
+        },
+        {
+          "method": "native-lu",
+          "four_calls_ns": 375900,
+          "digest": "9f5ce2dd27a56b20190d87a63eea4a623e32f015c3bf11e805fabc64e47084e3",
+          "contains_exact_reference": true
+        }
+      ],
+      "identical_enclosures": false
+    },
+    {
+      "dimension": 32,
+      "transpose": false,
+      "methods": [
+        {
+          "method": "scalar",
+          "four_calls_ns": 5526700,
+          "digest": "1096cea824a880f72881b3028c41f585249bebc531dbed7cdc2c943eabdb241b",
+          "contains_exact_reference": true
+        },
+        {
+          "method": "native-lu",
+          "four_calls_ns": 1831100,
+          "digest": "663afae8bbf55f4bef83892f6e81e9d873e8aa82dd451474e595c899cd0a275d",
+          "contains_exact_reference": true
+        }
+      ],
+      "identical_enclosures": false
+    },
+    {
+      "dimension": 32,
+      "transpose": true,
+      "methods": [
+        {
+          "method": "scalar",
+          "four_calls_ns": 5523700,
+          "digest": "6cf985569000ca5d85c919c94c14f7b8c2760241ac99e4d3de633edb6e5f52db",
+          "contains_exact_reference": true
+        },
+        {
+          "method": "native-lu",
+          "four_calls_ns": 2441900,
+          "digest": "07b16ad2fce226dab7ef7f2ff35f02db781e68d4b8a2d30b887fd44701ffec19",
+          "contains_exact_reference": true
+        }
+      ],
+      "identical_enclosures": false
+    }
+  ],
+  "installed_solve_interfaces": [
+    "solve"
+  ],
+  "source_documentation": "https://python-flint.readthedocs.io/en/latest/arb_mat.html",
+  "candidate": "rigorous general solve algorithm=lu, never approx",
+  "uncertain_pivot_refusal": "ContractError: NONPROOF_PROPOSAL_UNRESOLVED: uncertain triangular pivot",
+  "production_arithmetic_changed": false,
+  "full_qualification": false
+}

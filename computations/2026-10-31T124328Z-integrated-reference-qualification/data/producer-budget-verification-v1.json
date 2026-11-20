@@ -1,0 +1,72 @@
+{
+  "format": "producer-budget-correction-verification-v1",
+  "verified_utc": "2026-11-12T17:58:18Z",
+  "status": "PASS_LOCAL_PRODUCER_BUDGET_CORRECTION",
+  "tests_passed": 113,
+  "owned_stages_verified": 21,
+  "reduced_entries_audited": 36,
+  "full_profile_owned_guard_tiles": 182,
+  "pre_change_files_verified": 155,
+  "corrected_files_verified": 157,
+  "source_compile_and_whitespace_checks": true,
+  "full_qualification_executed": false,
+  "production_admission": false,
+  "references": [
+    {
+      "path": "scripts/whole_source/pipeline.py",
+      "size": 55505,
+      "sha256": "76825a2d8778f0e7e9f7546f86c45f80adc61922a7971097b341d16d2897aef1"
+    },
+    {
+      "path": "scripts/whole_source/producer.py",
+      "size": 32874,
+      "sha256": "9ae915810090247f396d9947cd58fb4b702983bd559b7ac27a739d618eef785d"
+    },
+    {
+      "path": "tests/test_whole_source_pipeline.py",
+      "size": 20284,
+      "sha256": "bd01de9072379ebecf2058553e4db92d04f40425916e5e3e859f56405ebe8861"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/producer-budget-guard-v1.py",
+      "size": 1424,
+      "sha256": "6d8bd1b742137f2d532afe9d435225553e4e35dba36931760dda52c249df7a43"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/verify-producer-budget-v1.py",
+      "size": 5930,
+      "sha256": "3823f0a88f50f322bf92eb3b9aabc7c77fc966964fbca6b0e753e0cfd27b1a59"
+    },
+    {
+      "path": "scripts/README.md",
+      "size": 163453,
+      "sha256": "04040faa6f918200c56e8e63fb94728e2fd90d4a79237793d5742fed86e348e4"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/record.md",
+      "size": 59814,
+      "sha256": "37e4e952f204f165fc25a57c7887fb584545ce3bb78b8cc48f5e8e463069c47c"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/producer-budget-pre-fix-20261112T174802Z/preservation.json",
+      "size": 38824,
+      "sha256": "c9aa4c00421dfddbd5d800ed96c58e9c15640e27947cf37789ecd767d018118e"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/producer-budget-tested-source-v1/preservation.json",
+      "size": 39346,
+      "sha256": "a8ef99691b19a33142d087d82e776150d8faf249efa062ed345183377f265853"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/producer-budget-tests-v1.xml",
+      "size": 16431,
+      "sha256": "bfda631d7fe6aa2eba35fea91fb946ad3246e2a28bd3a5d6b9e94a1e557f1bcb"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/producer-budget-smoke-v1/verification.json",
+      "size": 3461,
+      "sha256": "8bdd33aa00177bfa3716c697b16ea7a6115260765cc545cdb0c3ec5a2a173da7"
+    }
+  ],
+  "limits": "Full-shape admission control evaluates no full-profile source entries. Reduced source/audit is CONTROL_ONLY. No full numerical, analytical resource, sign/norm or speedup qualification."
+}

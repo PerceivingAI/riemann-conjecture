@@ -1,0 +1,80 @@
+{
+  "status": "PASS_FINITE_CONTROL_ATTRIBUTION",
+  "exclusive_timings": {
+    "proposal._raw": {
+      "calls": 408,
+      "exclusive_ns": 1333515900,
+      "inclusive_ns": 1333515900
+    },
+    "proposal._json": {
+      "calls": 160,
+      "exclusive_ns": 7675200,
+      "inclusive_ns": 7675200
+    },
+    "proposal._dense_solve": {
+      "calls": 76,
+      "exclusive_ns": 2098000,
+      "inclusive_ns": 2098000
+    },
+    "proposal.blocked_cholesky": {
+      "calls": 2,
+      "exclusive_ns": 75079200,
+      "inclusive_ns": 246643400
+    },
+    "proposal.triangular_solve": {
+      "calls": 4,
+      "exclusive_ns": 322342000,
+      "inclusive_ns": 1302245600
+    },
+    "exact._raw": {
+      "calls": 512,
+      "exclusive_ns": 1485205500,
+      "inclusive_ns": 1485205500
+    },
+    "exact._json": {
+      "calls": 96,
+      "exclusive_ns": 3560500,
+      "inclusive_ns": 3560500
+    },
+    "exact_global.mass_trace": {
+      "calls": 2,
+      "exclusive_ns": 23520800,
+      "inclusive_ns": 185057900
+    },
+    "exact_global.full_modular_nonsingularity": {
+      "calls": 2,
+      "exclusive_ns": 14875700,
+      "inclusive_ns": 78040700
+    },
+    "exact.paid_integer_tiles": {
+      "calls": 32,
+      "exclusive_ns": 643100,
+      "inclusive_ns": 643100
+    },
+    "exact.integer_congruence": {
+      "calls": 2,
+      "exclusive_ns": 397578300,
+      "inclusive_ns": 1662285300
+    }
+  },
+  "wall_ns": 3805730000,
+  "process_cpu_ns": 2500000000,
+  "candidate_geometry_per_parity": {
+    "factor_diagonal_tasks": 4,
+    "factor_offdiagonal_tasks": 6,
+    "solve_column_tasks_per_pass": 4,
+    "first_contraction_row_tasks": 4,
+    "upper_output_tasks": 10,
+    "upper_adjacent_pair_batches": 6
+  },
+  "dimension": 7,
+  "panel_size": 2,
+  "parities": [
+    0,
+    1
+  ],
+  "worker_startup_measured": false,
+  "physical_io_measured": false,
+  "source": "MANUFACTURED_FINITE_CONTROL",
+  "full_qualification": false
+}

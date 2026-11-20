@@ -1,0 +1,23 @@
+{
+  "format": "whole-source-integrated-qualification-test-commands-v1",
+  "scope": "EXECUTED_FOCUSED_SOFTWARE_CHECKS_NOT_FULL_SCIENTIFIC_ACCEPTANCE",
+  "commands": [
+    "uv run --locked --extra test python -B -m pytest -n 0 -q --junitxml=computations/2026-10-31T124328Z-integrated-reference-qualification/data/integrated-qualification-rounding-red-v1.xml tests/test_whole_source_supervision.py::test_capacity_ceiling_rounds_down_before_os_installation",
+    "uv run --locked --extra test python -B -m pytest -n 0 -q --junitxml=computations/2026-10-31T124328Z-integrated-reference-qualification/data/integrated-qualification-supervision-v1.xml tests/test_whole_source_supervision.py",
+    "uv run --locked --extra test python -B -m pytest -n 0 -q --junitxml=computations/2026-10-31T124328Z-integrated-reference-qualification/data/integrated-qualification-snapshot-red-v1.xml tests/test_whole_source_resource_snapshot.py",
+    "uv run --locked --extra test python -B -m pytest -n 0 -q --junitxml=computations/2026-10-31T124328Z-integrated-reference-qualification/data/integrated-qualification-resource-checks-v2.xml tests/test_whole_source_resource_snapshot.py tests/test_whole_source_resources.py tests/test_whole_source_supervision.py::test_capacity_ceiling_rounds_down_before_os_installation",
+    "uv run --locked --extra test python -B -m pytest -n 0 -q --junitxml=computations/2026-10-31T124328Z-integrated-reference-qualification/data/integrated-qualification-consumers-v1.xml tests/test_whole_source_coordinator.py tests/test_whole_source_phase_selection.py tests/test_whole_source_phase_run.py tests/test_whole_source_phase_supervision.py tests/test_whole_source_retention.py tests/test_whole_source_retention_recovery.py tests/test_whole_source_receipts.py tests/test_whole_source_contract.py",
+    "uv run --locked --extra test python -B -m pytest -n 0 -q --junitxml=computations/2026-10-31T124328Z-integrated-reference-qualification/data/integrated-qualification-consumers-v2.xml tests/test_whole_source_retention_recovery.py tests/test_whole_source_qualification_boundaries.py tests/test_whole_source_contract.py::test_actual_implementation_bytes_change_collection_not_problem_identity tests/test_whole_source_contract.py::test_cli_inspection_runs_without_site_packages_or_numerical_imports -k \"not test_real_public_cli_negative_and_completed_seal_evidence\"",
+    "uv run --locked --extra test python -B -m pytest -n 0 -q -x --tb=short --junitxml=computations/2026-10-31T124328Z-integrated-reference-qualification/data/integrated-qualification-recovery-diagnostic-v1.xml tests/test_whole_source_retention_recovery.py::test_retention_only_recovers_unfinished_publication_without_scientific_execution",
+    "uv run --locked --extra test python -B -m pytest -n 0 -q --tb=short --junitxml=computations/2026-10-31T124328Z-integrated-reference-qualification/data/integrated-qualification-consumers-v3.xml tests/test_whole_source_retention_recovery.py tests/test_whole_source_qualification_boundaries.py tests/test_whole_source_contract.py::test_actual_implementation_bytes_change_collection_not_problem_identity tests/test_whole_source_contract.py::test_cli_inspection_runs_without_site_packages_or_numerical_imports -k \"not test_real_public_cli_negative_and_completed_seal_evidence\"",
+    "uv run --locked --extra test python -B -m pytest -n 0 -q -x --tb=short --junitxml=computations/2026-10-31T124328Z-integrated-reference-qualification/data/integrated-qualification-recovery-diagnostic-v2.xml tests/test_whole_source_retention_recovery.py::test_retention_only_recovers_unfinished_publication_without_scientific_execution \"tests/test_whole_source_retention_recovery.py::test_missing_conflicting_or_foreign_assessment_cannot_seal[changed-supervisor]\"",
+    "uv run --locked --extra test python -B -m pytest -n 0 -q --junitxml=computations/2026-10-31T124328Z-integrated-reference-qualification/data/integrated-qualification-report-privacy-v1.xml tests/test_report_privacy.py",
+    "uv run --locked --extra test python -B -m pytest -n 0 -q --tb=short --junitxml=computations/2026-10-31T124328Z-integrated-reference-qualification/data/integrated-qualification-recovery-final-v1.xml tests/test_whole_source_retention_recovery.py tests/test_report_privacy.py"
+  ],
+  "limitations": [
+    "The consumers-v2 command reached its 240-second invocation limit without a complete JUnit verdict.",
+    "Commands describe their executed historical selection; changed fixture names/contracts require the corresponding preserved method or recorded correction.",
+    "Current-session report redaction changes identifying metadata, not test outcomes. Earlier tracked report bytes remain untouched."
+  ],
+  "scientific_acceptance": false
+}

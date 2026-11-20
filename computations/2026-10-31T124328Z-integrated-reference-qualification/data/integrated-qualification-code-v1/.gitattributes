@@ -1,0 +1,214 @@
+# Preserve the byte formats used by the directional research evidence.
+# Keep these rules scoped: other historical artifacts retain their existing policy.
+/pyproject.toml text eol=lf
+/uv.lock text eol=lf
+/scripts/cert/constants.py text eol=lf
+/scripts/cert/legendre_schur.py text eol=lf
+/scripts/cert/mixed_gram_research.py text eol=lf
+/scripts/cert/multi_prime_legendre_schur.py text eol=lf
+/scripts/cert/prime_power_terms.py text eol=lf
+/scripts/cert/residual_kernel.py text eol=lf
+/scripts/verify_combined_schur_analytic_entries.py text eol=lf
+/scripts/weil_selective_support_probe.py text eol=lf
+/scripts/weil_directional_source_validation.py text eol=lf
+/scripts/weil_directional_exact_screen.py text eol=lf
+/scripts/weil_directional_loss_audit.py text eol=lf
+/scripts/weil_jump_refinement_check.py text eol=lf
+/scripts/weil_joint_source_tail.py text eol=lf
+/scripts/weil_weighted_source_tail.py text eol=lf
+/tests/test_directional_source_validation.py text eol=lf
+/tests/test_directional_exact_screen.py text eol=lf
+/tests/test_weighted_source_tail.py text eol=lf
+
+# This original input was fingerprinted from CRLF bytes; preserve that checkout.
+/computations/2026-10-18T090311Z-sys6-selective-support/data/T-3-5-N192-probe.json text eol=crlf
+
+# Retain mixed LF/CRLF artifact bytes; recognize CRLF as an actual line ending.
+# Keep normal trailing-blank, blank-at-EOF and space-before-tab checks enabled.
+/computations/2026-10-22T185054Z-directional-source-validation/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-22T190532Z-directional-exact-screen/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-23T105408Z-directional-loss-review/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-23T174341Z-jump-refinement-controls/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-23T185253Z-joint-source-tail/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-23T192821Z-weighted-source-tail/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-24T021044Z-uniform-matrix-contract/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_weighted_low_space.py text eol=lf
+/scripts/verify_weighted_low_space_inputs.py text eol=lf
+/scripts/verify_weighted_low_space.py text eol=lf
+/tests/test_weighted_low_space.py text eol=lf
+/computations/2026-10-24T124142Z-weighted-low-space/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-24T153012Z-weighted-reference-continuation/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_weighted_extension_diagnostics.py text eol=lf
+/scripts/weil_weighted_dimension_cost.py text eol=lf
+/scripts/weil_weighted_support_extension.py text eol=lf
+/scripts/verify_weighted_support_extension_inputs.py text eol=lf
+/tests/test_weighted_support_extension.py text eol=lf
+/computations/2026-10-24T191616Z-weighted-support-extension/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_residual_tail_bound.py text eol=lf
+/scripts/verify_residual_tail_bound.py text eol=lf
+/tests/test_residual_tail_bound.py text eol=lf
+/computations/2026-10-24T224948Z-tail-restricted-residual/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_tail_complement_assessment.py text eol=lf
+/scripts/verify_tail_complement_inputs.py text eol=lf
+/tests/test_tail_complement_assessment.py text eol=lf
+/computations/2026-10-24T231555Z-tail-complement-weighted-reference/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_coupling_projection.py text eol=lf
+/scripts/verify_coupling_projection.py text eol=lf
+/tests/test_coupling_projection.py text eol=lf
+/computations/2026-10-25T001555Z-coupling-derived-projection/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_complete_reprojection.py text eol=lf
+/scripts/verify_complete_reprojection.py text eol=lf
+/tests/test_complete_reprojection.py text eol=lf
+/computations/2026-10-25T010204Z-complete-retained-reprojection/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_coupled_tail_comparison.py text eol=lf
+/scripts/verify_coupled_tail_comparison.py text eol=lf
+/tests/test_coupled_tail_comparison.py text eol=lf
+/computations/2026-10-25T130058Z-coupled-tail-comparison/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-25T134254Z-coupled-route-viability/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_reference_route_controls.py text eol=lf
+/computations/2026-10-25T142424Z-reference-route-selection/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_fourier_minorant_scout.py text eol=lf
+/scripts/weil_fourier_minorant_matrix.py text eol=lf
+/scripts/verify_fourier_minorant_matrix.py text eol=lf
+/tests/test_fourier_minorant_matrix.py text eol=lf
+/computations/2026-10-25T155033Z-fourier-minorant-sign/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_m4_fourier_qualification.py text eol=lf
+/scripts/weil_m4_geometry_controls.py text eol=lf
+/computations/2026-10-25T203013Z-m4-fourier-qualification/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-25T211305Z-post-m4-scalar-cost-assessment/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_m4_fourier_matrix.py text eol=crlf
+/scripts/verify_m4_fourier_matrix.py text eol=lf
+/tests/test_m4_fourier_matrix.py text eol=lf
+/tests/test_m4_fourier_audit.py text eol=lf
+/computations/2026-10-25T220817Z-post-m4-fourier-sign/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-25T232320Z-fourier-structural-assessment/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T001954Z-quantitative-reference-cutoff/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T020435Z-variable-fourier-error-work/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T040651Z-fourier-reference-viability/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T044551Z-energy-reference-qualification/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T114258Z-signed-logarithmic-discrepancy/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T125036Z-energy-aware-schur-contract/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T133105Z-energy-aware-dual-assessment/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T141704Z-supported-coupling-qualification/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T171755Z-supported-penalty-comparison/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T181554Z-full-coupling-viability/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-26T191941Z-structured-residual-coupling/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T003742Z-physical-reference-viability/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/weil_t080_control_budget.py -text
+/scripts/verify_t080_control_budget.py -text
+/scripts/weil_t080_reference_qualification.py -text
+/scripts/verify_t080_reference_qualification.py -text
+/scripts/weil_t080_target_declaration.py -text
+/scripts/verify_t080_target_declaration.py -text
+/scripts/verify_t080_target_declaration_v2.py -text
+/scripts/weil_t080_qualification_replay.py -text
+/computations/2026-10-27T050743Z-t080-target-qualification/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T061820Z-t080-complete-gram-attempt/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T084414Z-t080-retained-acceptance/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T132236Z-t081-prime-five-qualification/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T140745Z-t081-complete-gram-attempt/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the pinned review's intentional Markdown hard line break.
+/computations/2026-10-27T132236Z-t081-prime-five-qualification/independent-review-v1.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T182100Z-t081-retained-acceptance/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T182100Z-t081-retained-acceptance/independent-review-v1.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T230830Z-t081-execution-profile/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-27T235900Z-t081-parallel-source/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/computations/2026-10-28T024305Z-t081-execution-corrections/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/tests/test_t081_execution_corrections.py text eol=lf
+/tests/test_t081_profile_v2.py text eol=lf
+/tests/test_t081_comparer_v3.py text eol=lf
+/computations/2026-10-28T034134Z-t081-resource-execution/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/tests/test_t081_resources_v2.py text eol=lf
+/tests/test_t081_execution_supervisor.py text eol=lf
+/scripts/run_t081_resource_execution.py text eol=lf
+/scripts/run_observability.py text eol=lf
+/scripts/verify_t081_retained_acceptance.py text eol=lf
+/computations/2026-10-28T183329Z-t081-retained-completion/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/findings/2026-10-28T200224Z-t081-retained-smooth-test-positivity.md -text
+/computations/2026-10-28T220029Z-t1-reference-cost-qualification/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/findings/2026-10-28T224920Z-t1-supported-reference-cost-obstacle.md -text
+/computations/2026-10-29T004611Z-t1-direct-reference/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/findings/2026-10-29T010501Z-t1-direct-reference-improvement.md -text
+/computations/2026-10-29T013929Z-t1-execution-allocation/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/findings/2026-10-29T020119Z-t1-dense-layout-obstruction.md -text
+
+# Preserve the executed bounded-observation sources and raw measurement bytes.
+/scripts/probe_exact_workspace_v1.py text eol=lf
+/scripts/probe_native_checkpoint_v1.py text eol=lf
+/scripts/run_bounded_resource_probes_v1.py text eol=lf
+/scripts/probe_coefficient_reuse_v1.py text eol=lf
+/scripts/probe_compact_native_panels_v1.py text eol=lf
+/scripts/verify_bounded_resource_observations_v1.py text eol=lf
+/computations/2026-10-29T112025Z-bounded-native-resource-probes/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve the executed exact metadata inspection code and evidence.
+/scripts/whole_source/__init__.py text eol=lf
+/scripts/whole_source/contract.py text eol=lf
+/scripts/weil_whole_source_split.py text eol=lf
+/tests/test_whole_source_contract.py text eol=lf
+/computations/2026-10-29T175545Z-whole-source-profile-binding/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve executed bounded-artifact/runtime sources and raw operational evidence.
+/scripts/whole_source/artifacts.py text eol=lf
+/scripts/whole_source/execution.py text eol=lf
+/tests/test_whole_source_artifacts.py text eol=lf
+/tests/test_whole_source_execution.py text eol=lf
+/computations/2026-10-29T220733Z-bounded-artifact-execution/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve executed selected-arithmetic programs, tests and retained raw evidence.
+/scripts/whole_source/producer.py text eol=lf
+/scripts/whole_source/analytic.py text eol=lf
+/scripts/whole_source/slice.py text eol=lf
+/tests/test_whole_source_arithmetic.py text eol=lf
+/tests/test_whole_source_analytic.py text eol=lf
+/computations/2026-10-30T023721Z-selected-linear-arithmetic/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/tests/test_whole_source_review.py text eol=lf
+/computations/2026-10-30T124835Z-selected-arithmetic-review/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve executed signed low/exterior quantities and their independent checks.
+/scripts/whole_source/gram.py text eol=lf
+/tests/test_whole_source_gram.py text eol=lf
+/computations/2026-10-30T165153Z-selected-signed-quantities/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve executed frequency/head programs, ordinary checks and raw source evidence.
+/scripts/whole_source/pipeline.py text eol=lf
+/tests/test_whole_source_head.py text eol=lf
+/tests/test_whole_source_pipeline.py text eol=lf
+/computations/2026-10-30T181819Z-bounded-frequency-head-source/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve executed nonproof proposal programs, checks and retained raw evidence.
+/scripts/whole_source/proposal.py text eol=lf
+/scripts/whole_source/proposal_float.py text eol=lf
+/tests/test_whole_source_proposal.py text eol=lf
+/tests/test_whole_source_proposal_float.py text eol=lf
+/computations/2026-10-31T025401Z-blocked-nonproof-proposal/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve executed streamed exact programs, tests and raw proof-control evidence.
+/scripts/whole_source/exact.py text eol=lf
+/scripts/whole_source/exact_global.py text eol=lf
+/tests/test_whole_source_exact.py text eol=lf
+/tests/test_whole_source_exact_global.py text eol=lf
+/computations/2026-10-31T034034Z-streamed-exact-assessment/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve executed integration/resource sources and the interrupted raw run.
+/scripts/whole_source/resources.py text eol=lf
+/scripts/whole_source/retention.py text eol=lf
+/scripts/whole_source/controls.py text eol=lf
+/tests/test_whole_source_resources.py text eol=lf
+/tests/test_whole_source_retention.py text eol=lf
+/tests/test_whole_source_retention_controls.py text eol=lf
+/tests/test_whole_source_tiles.py text eol=lf
+/computations/2026-10-31T124328Z-integrated-reference-qualification/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve current phase/resource code and checksum-pinned runtime helper bytes.
+/scripts/whole_source/admission.py text eol=lf
+/scripts/whole_source/coordinator.py text eol=lf
+/scripts/whole_source/exact_tasks.py text eol=lf
+/scripts/whole_source/recovery.py text eol=lf
+/scripts/whole_source/selection.py text eol=lf
+/scripts/whole_source/storage.py text eol=lf
+/scripts/whole_source/task_groups.py text eol=lf
+/scripts/whole_source/runtime/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/scripts/whole_source/supervision.py text eol=lf
+/scripts/whole_source/lifecycle_windows.py text eol=lf
+/scripts/whole_source/lifecycle_observations.py text eol=lf

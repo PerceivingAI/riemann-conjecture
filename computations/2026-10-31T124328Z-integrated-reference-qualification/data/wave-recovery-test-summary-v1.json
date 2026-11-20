@@ -1,0 +1,88 @@
+{
+  "format": "wave-recovery-focused-test-summary-v1",
+  "full_qualification": false,
+  "inputs": [
+    {
+      "counts": {
+        "error": 0,
+        "failed": 9,
+        "passed": 427,
+        "skipped": 0
+      },
+      "path": "computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\wave-recovery-tests-v1.xml",
+      "sha256": "9296be27c1bf881c27a441df513207239e4ce2aeb68c5aa3d95d51ee71b12f45"
+    },
+    {
+      "counts": {
+        "error": 0,
+        "failed": 0,
+        "passed": 9,
+        "skipped": 0
+      },
+      "path": "computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\wave-recovery-tests-v2.xml",
+      "sha256": "40273a3d73cf274e5732ed557e984be21f60bb464fe2e0b687857345e3048c38"
+    },
+    {
+      "counts": {
+        "error": 0,
+        "failed": 0,
+        "passed": 24,
+        "skipped": 0
+      },
+      "path": "computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\wave-recovery-shared-tests-v1.xml",
+      "sha256": "e463c85871b443b072ba883ae88e7924f4be5bc4f2b7342323e48fcb9312f0bc"
+    },
+    {
+      "counts": {
+        "error": 0,
+        "failed": 0,
+        "passed": 73,
+        "skipped": 0
+      },
+      "path": "computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\wave-recovery-runtime-tests-v1.xml",
+      "sha256": "bdf8427db697ab18b6aecf7b7e18fa1c276fe7d965a77fda81cf803039c4d9e3"
+    }
+  ],
+  "original_failed_cases": [
+    {
+      "case": "test_complete_retry_preserves_ragged_signed_reports_and_product_bytes",
+      "module": "tests.test_whole_source_exact_recovery"
+    },
+    {
+      "case": "test_only_missing_complete_waves_execute[global]",
+      "module": "tests.test_whole_source_exact_recovery"
+    },
+    {
+      "case": "test_only_missing_complete_waves_execute[first]",
+      "module": "tests.test_whole_source_exact_recovery"
+    },
+    {
+      "case": "test_only_missing_complete_waves_execute[second]",
+      "module": "tests.test_whole_source_exact_recovery"
+    },
+    {
+      "case": "test_only_missing_complete_waves_execute[reduce]",
+      "module": "tests.test_whole_source_exact_recovery"
+    },
+    {
+      "case": "test_assessment_publication_lock_exclusion[science]",
+      "module": "tests.test_whole_source_retention_recovery"
+    },
+    {
+      "case": "test_assessment_publication_lock_exclusion[assessment]",
+      "module": "tests.test_whole_source_retention_recovery"
+    },
+    {
+      "case": "test_failed_stage_dependency_is_not_consumed",
+      "module": "tests.test_whole_source_proposal_tasks"
+    },
+    {
+      "case": "test_native_account_equality_and_overrun_precede_source_validation",
+      "module": "tests.test_whole_source_proposal_tasks"
+    }
+  ],
+  "production_admission": false,
+  "rerun_policy": "Only nine previously failing cases rerun; all earlier passing outcomes retained.",
+  "status": "PASS_ALL_CURRENT_FOCUSED_CASES",
+  "unique_current_passed": 533
+}

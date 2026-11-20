@@ -1,0 +1,1 @@
+{"budget":{"memory_budget_bytes":4096},"elapsed_seconds":2,"exit_code":0,"fixture":"METADATA_ONLY_NOT_AN_EXECUTED_BASELINE","last_metrics":{"cpu_seconds":1},"peak_budgeted_memory_bytes":1024,"worker_cleanup_verified":true}

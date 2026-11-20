@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="2" time="89.363" timestamp="2026-11-15T09:55:27.738348-05:00"><testcase classname="tests.test_whole_source_retention_recovery" name="test_retention_only_recovers_unfinished_publication_without_scientific_execution" time="69.475" /><testcase classname="tests.test_whole_source_retention_recovery" name="test_missing_conflicting_or_foreign_assessment_cannot_seal[changed-supervisor]" time="19.632" /></testsuite></testsuites>

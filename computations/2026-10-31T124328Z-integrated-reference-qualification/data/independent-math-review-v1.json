@@ -1,0 +1,58 @@
+{
+  "code": [
+    {
+      "path": "scripts/whole_source/producer.py",
+      "sha256": "9b9d16606dc145b7b408132b8856f7776a34710f109a28423e1c5079299fbc06",
+      "size": 33634
+    },
+    {
+      "path": "scripts/whole_source/analytic.py",
+      "sha256": "b5816fe12c16f72d91292713b36645f3488a31116ea17a45fc3f7a94082a586f",
+      "size": 37645
+    },
+    {
+      "path": "scripts/whole_source/pipeline.py",
+      "sha256": "b24167c4b418c1b8aee984d702bfe8b4ccd9e3ab50786338e94f24706d7b2110",
+      "size": 32490
+    },
+    {
+      "path": "scripts/whole_source/retention.py",
+      "sha256": "1fb21544457babb563846920fe8bae995527e46b8d57c881e6c443ce0e69a05e",
+      "size": 42311
+    },
+    {
+      "path": "scripts/whole_source/exact.py",
+      "sha256": "0cb35cbc7e5906d63f659d84aa2b0fb41fd4c85afae3858bbd25d79ef23f12e4",
+      "size": 39799
+    },
+    {
+      "path": "scripts/whole_source/exact_global.py",
+      "sha256": "83d6328be6cdcdf5cf56ee7899fe494691d3f6fbae1a8b770ed71303f58c1e35",
+      "size": 7860
+    },
+    {
+      "path": "computations/2026-10-27T182100Z-t081-retained-acceptance/smooth-test-consequence-v1.md",
+      "sha256": "0745f682bbba48d2851ab967030e1e7e03269eb01c0ccebcf54ac189575e0ec2",
+      "size": 6741
+    }
+  ],
+  "created_utc": "2026-10-31T13:39:54Z",
+  "disposition": "NO_CONCRETE_FINDING_WITHIN_STATIC_SCOPE",
+  "findings": [],
+  "format": "whole-source-static-mathematical-review-v1",
+  "limitations": [
+    "Static review is not observed full reconstruction or measured peak memory",
+    "Fresh full run remains pending",
+    "Shared source-form and installed arithmetic/enclosure premises remain explicit"
+  ],
+  "production_admission": false,
+  "review_method": "Separate read-only reviewer agent; no checks or edits",
+  "scope": [
+    "bounded independent source/analytic tile formulas",
+    "complete physical index/parity/projection domains",
+    "endpoint and residual terms",
+    "once-only model discrepancy",
+    "component lifetime/resource accounts by inspection",
+    "full source-norm square-completion implication"
+  ]
+}

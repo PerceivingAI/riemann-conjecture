@@ -1,0 +1,1 @@
+{"error":"CONTROL immutable journal record before atomic head","error_type":"KeyboardInterrupt","production_admission":false,"status":"EXACT_INTERRUPTED"}

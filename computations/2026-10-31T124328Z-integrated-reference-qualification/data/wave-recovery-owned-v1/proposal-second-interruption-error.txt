@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 192, in invoke
+    result = function()
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 226, in <lambda>
+    _, second = invoke('proposal-second-interruption', lambda: propose(retry, True),
+                                                               ~~~~~~~^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 216, in propose
+    return proposal.run_proposal(pinputs['problem'], source.path, pinputs['execution'], destination,
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                 code_root=root, resume=resume)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\proposal.py", line 1032, in run_proposal
+    native = _run_native_graph(output/('native-'+str(parity)),*bound['native'],base,
+        code_root=root,recovery_context=recovery_context,resume=resume)
+  File "[REPO_ROOT]\scripts\whole_source\proposal.py", line 1003, in _run_native_graph
+    below = waves.wave(tasks,'factor-below',j)
+  File "[REPO_ROOT]\scripts\whole_source\proposal.py", line 982, in wave
+    return _run_wave(self.lock,self.execution,tasks,operation,column,journal=self.journal)
+  File "[REPO_ROOT]\scripts\whole_source\proposal.py", line 895, in _run_wave
+    journal.commit(stage,record,report)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 178, in checkpoint
+    raise KeyboardInterrupt('CONTROL after complete committed wave')
+KeyboardInterrupt: CONTROL after complete committed wave

@@ -1,0 +1,8 @@
+{
+  "format": "riemann-output-lock-v1",
+  "run_id": "20261031T173344Z-24bf4f26",
+  "command": "whole-source-owned-execution-v1",
+  "support": "81/100",
+  "pid": 13656,
+  "started_at_utc": "2026-10-31T17:33:44Z"
+}

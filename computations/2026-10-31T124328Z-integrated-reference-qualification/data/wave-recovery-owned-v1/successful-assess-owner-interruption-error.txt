@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 192, in invoke
+    result = function()
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 286, in <lambda>
+    invoke('successful-assess-owner-interruption', lambda: assess(final_destination),
+                                                           ~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 251, in assess
+    return exact.run_exact(inputs['problem'], source.path, retry/'proposal.json', inputs['execution'],
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           destination, code_root=root, resume=resume)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 735, in run_exact
+    return _run_bound_exact(root,Path(output_dir).absolute(),bound,resume=resume)
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 671, in _run_bound_exact
+    execution.run_stage('assess',[task])
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 160, in stage
+    raise KeyboardInterrupt('CONTROL successful assess before parent publication')
+KeyboardInterrupt: CONTROL successful assess before parent publication

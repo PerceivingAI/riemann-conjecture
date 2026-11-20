@@ -1,0 +1,84 @@
+{
+  "format": "variant-snapshots-closeout-v1",
+  "completed_utc": "2026-11-13T07:15:04Z",
+  "status": "CORRECTED_LOCAL_SCOPE",
+  "origin_git_commit": "16e93322ff34570bf912276acba28bb0b84c861d",
+  "origin_git_dirty": true,
+  "code": [
+    {
+      "path": "scripts/whole_source/controls.py",
+      "size": 29515,
+      "sha256": "561481003e1daa91595d9c903d84b22e8eb0e13d001453aa591179b0d408451d"
+    },
+    {
+      "path": "scripts/whole_source/exact.py",
+      "size": 40584,
+      "sha256": "753a0ba270a00e767d5b20bec053202255e27eab053da1e02374f40ca732c561"
+    },
+    {
+      "path": "tests/test_whole_source_retention_controls.py",
+      "size": 21379,
+      "sha256": "9991d491e85f89856a185f1de6211ce7850b64b6b67a6c317827d5d5c974829c"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/verify-variant-snapshots-v1.py",
+      "size": 10757,
+      "sha256": "4428dce4b7b8336d94dcab811703baf2f2954a73d605f33af731b9be3364909f"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/verify-variant-snapshots-v2.py",
+      "size": 8523,
+      "sha256": "62db3e68bdd21a69a2e46c3fd4f79c72e22a47dc1c75996a57dd669b10a469b9"
+    }
+  ],
+  "captures": [
+    {
+      "path": "computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\variant-snapshots-pre-fix-20261113T070229Z",
+      "files": 154,
+      "manifest_sha256": "1dcee892541a07b6defcdc59587c82368c60b74cabb54930478c54e1e3aa1959"
+    },
+    {
+      "path": "computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\variant-snapshots-tested-source-v1",
+      "files": 155,
+      "manifest_sha256": "080ba4b8c022cdf5249b4fb33a27fc75c6478a2f4b37a2e7b4040d585eda03c3"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/variant-snapshots-tested-source-v2",
+      "files": 156,
+      "manifest_sha256": "e344a99ee565dbfc58c7af544b1151b7c7fba92790c8e4658a882f118e6bdac9"
+    }
+  ],
+  "tests": [
+    {
+      "artifact": "data/variant-snapshots-tests-v1.xml",
+      "name": "pytest",
+      "errors": "0",
+      "failures": "1",
+      "skipped": "0",
+      "tests": "94",
+      "time": "65.748",
+      "timestamp": "2026-11-13T02:08:10.927391-05:00",
+      "hostname": "[HOST]"
+    },
+    {
+      "artifact": "data/variant-snapshots-tests-v2.xml",
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "1",
+      "time": "2.388",
+      "timestamp": "2026-11-13T02:13:56.864988-05:00",
+      "hostname": "[HOST]"
+    }
+  ],
+  "test_development_failure": "Initial run: 93 passed, one NameError from the moved fixture import. Only the missing TRANSFORM_BITS test import changed; the failing test then passed. Both JUnit versions and tested source versions are retained.",
+  "coordinator_development_failure": "v1 completed and verified all nine owned exact stages and checked original inputs unchanged, then failed final canonical report serialization on wall_seconds float. v1, its 1589-file input/output inventory and captured executable remain unchanged. v2 independently verifies the existing owned outputs read-only, binds report mathematics to actual owned payloads, and publishes a separate report. No numerical stages were repeated.",
+  "qualified_report": {
+    "path": "data/variant-snapshots-verification-v2.json",
+    "sha256": "8156647b02f892634b7228da3010c1483c19f1319bccc1892a9daeede8e2fb1d"
+  },
+  "exact_consumer_unchanged": true,
+  "full_qualification_executed": false,
+  "production_admission": false
+}

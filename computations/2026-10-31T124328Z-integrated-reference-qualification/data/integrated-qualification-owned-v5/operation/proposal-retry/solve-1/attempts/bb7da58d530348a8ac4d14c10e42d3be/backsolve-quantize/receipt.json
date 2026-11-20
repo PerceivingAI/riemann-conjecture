@@ -1,0 +1,70 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v5\\operation\\proposal-retry\\solve-1\\attempts\\bb7da58d530348a8ac4d14c10e42d3be\\runtime\\scripts\\whole_source\\runtime\\stage_worker_v2.py",
+    "--program",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v5\\operation\\proposal-retry\\solve-1\\attempts\\bb7da58d530348a8ac4d14c10e42d3be\\runtime\\scripts\\whole_source\\execution.py",
+    "--program-sha256",
+    "2393af41ad3160186647d9fa6498b1a82148b3c180b7650395f6a0bd98c2e462",
+    "--config",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v5\\operation\\proposal-retry\\solve-1\\attempts\\bb7da58d530348a8ac4d14c10e42d3be\\execution-budget.json",
+    "--config-sha256",
+    "c811b039bb4c5f198929d08f27032394035c3e55b9f1c2baa5a1530ab851a438",
+    "--profile",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v5\\operation\\proposal-retry\\solve-1\\attempts\\bb7da58d530348a8ac4d14c10e42d3be\\backsolve-quantize\\profile.json",
+    "--kind",
+    "fixture",
+    "--",
+    "--stage",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v5\\operation\\proposal-retry\\solve-1\\attempts\\bb7da58d530348a8ac4d14c10e42d3be\\backsolve-quantize-stage.json",
+    "--stage-sha256",
+    "8cea58c8b1307a9e49c1920af1a33c07fc0f97386a720652050f56392da27969"
+  ],
+  "budget": {
+    "cpu_budget": 2,
+    "descendant_pool_workers": 2,
+    "execution_mode": "one owned root plus bounded spawn descendants",
+    "memory_budget_bytes": 7242514432,
+    "native_threads": 1,
+    "required_bytes": 1518338048,
+    "reserve_bytes": 835715072,
+    "workers": 1
+  },
+  "config_sha256": "c811b039bb4c5f198929d08f27032394035c3e55b9f1c2baa5a1530ab851a438",
+  "elapsed_seconds": 6.748684000020148,
+  "error": null,
+  "exit_code": 0,
+  "format": "t081-owned-stage-receipt-v1",
+  "last_metrics": {
+    "active_process_count": 0,
+    "active_process_ids": [],
+    "cpu_budget": 2,
+    "cpu_rate_per_10000": 3333,
+    "cpu_rate_reference": "parent job if rate-controlled, otherwise system",
+    "cpu_seconds": 5.4375,
+    "current_committed_bytes": 77824,
+    "diagnostics": [],
+    "memory_accounting": "JobObjectMemoryUsageInformation",
+    "memory_limit_bytes": 7242514432,
+    "owned_cpu_rate_denominator": 10000,
+    "owned_cpu_rate_units": 3333,
+    "peak_committed_bytes": 154734592,
+    "peak_counter_scope": "raw OS high-water; denied allocation demand may be counted before rollback"
+  },
+  "logs": {
+    "stderr": {
+      "path": "backsolve-quantize\\stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "path": "backsolve-quantize\\stdout.txt",
+      "sha256": "dd7ff0707556399972f4fea76e0ac316dbcfb98578de12af8956c92f1802acd6"
+    }
+  },
+  "memory_metric": "job committed memory",
+  "peak_budgeted_memory_bytes": 154734592,
+  "program_sha256": "2393af41ad3160186647d9fa6498b1a82148b3c180b7650395f6a0bd98c2e462",
+  "stage": "backsolve-quantize",
+  "worker_cleanup_verified": true
+}

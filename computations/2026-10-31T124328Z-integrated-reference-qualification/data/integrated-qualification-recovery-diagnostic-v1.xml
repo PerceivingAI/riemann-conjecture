@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="46.784" timestamp="2026-11-15T09:42:43.191401-05:00"><testcase classname="tests.test_whole_source_retention_recovery" name="test_retention_only_recovers_unfinished_publication_without_scientific_execution" time="46.285"><error message="failed on setup with &quot;scripts.whole_source.contract.ContractError: completed assessment supervisor authority changed&quot;">tests\test_whole_source_retention_recovery.py:110: in recovery
+    case = assessment_fixture(recovery_template, Path(temp))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_whole_source_retention_recovery.py:87: in assessment_fixture
+    expected = retention._completed_assessment(run, output, root)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\whole_source\retention.py:1458: in _completed_assessment
+    _require(report.get('supervisor_receipts') ==
+scripts\whole_source\retention.py:45: in _require
+    raise ContractError(message)
+E   scripts.whole_source.contract.ContractError: completed assessment supervisor authority changed</error></testcase></testsuite></testsuites>

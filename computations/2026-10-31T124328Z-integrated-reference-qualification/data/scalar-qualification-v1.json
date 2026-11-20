@@ -1,0 +1,13 @@
+{
+  "all_active_owned_process_counts_zero": true,
+  "all_cleanup_verified": true,
+  "format": "whole-source-executed-scalar-summary-v1",
+  "full_source_qualified": false,
+  "maximum_owned_peak_bytes": 122040320,
+  "outputs_checked": 8,
+  "owned_stages": 8,
+  "production_admission": false,
+  "scope": "SCALAR_PREMISES_ONLY",
+  "status": "VERIFIED_EIGHT_ORIGINAL_SCALAR_PREMISES_AND_OWNED_BINDINGS",
+  "wrapper_wall_nanoseconds": 54641977000
+}

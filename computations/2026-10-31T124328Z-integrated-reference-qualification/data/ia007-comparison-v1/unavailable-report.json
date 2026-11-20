@@ -1,0 +1,368 @@
+{
+  "baseline": {
+    "qualification": {
+      "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\baseline-fixture\\qualification.json",
+      "sha256": "9ceaa79f9b702577845ca0ebf51231c3a76cfd027bc190b2206c095075d30eed",
+      "size": 139
+    },
+    "scope": {
+      "exact-sign": "Both413-dimensional signs/widths/nonsingularity using the retained untrusted proposal.",
+      "independent-audit": "All512946 entries plus six native false-source subset probes and scalar/declaration checks.",
+      "not_in_three_phase_total": [
+        "fresh proposal construction",
+        "new workflow scalar reconstruction",
+        "all separate exact controls",
+        "second scientific replay",
+        "reviewed final acceptance"
+      ],
+      "source": "All six source matrices; no fresh proposal search."
+    },
+    "stages": [
+      {
+        "aggregate_owned_cpu_seconds": 1,
+        "memory_limit_bytes": 4096,
+        "native_threads": 1,
+        "numerical_process_cpu_seconds": 1,
+        "peak_owned_committed_bytes": 1024,
+        "phase": "source",
+        "profile": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\baseline-fixture\\source\\profile.json",
+          "sha256": "6a0bb442a1e58e5b55e2e64780970ee226de958ec2afeaae44c8da903fe6fb44",
+          "size": 37
+        },
+        "receipt": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\baseline-fixture\\source\\receipt.json",
+          "sha256": "84dedb3c6731253871d827069bd2daeace25cf6e842b58e2477a6e713e154bcd",
+          "size": 223
+        },
+        "stage_elapsed_seconds": 2
+      },
+      {
+        "aggregate_owned_cpu_seconds": 1,
+        "memory_limit_bytes": 4096,
+        "native_threads": 1,
+        "numerical_process_cpu_seconds": 1,
+        "peak_owned_committed_bytes": 1024,
+        "phase": "independent-audit",
+        "profile": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\baseline-fixture\\independent-audit\\profile.json",
+          "sha256": "6a0bb442a1e58e5b55e2e64780970ee226de958ec2afeaae44c8da903fe6fb44",
+          "size": 37
+        },
+        "receipt": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\baseline-fixture\\independent-audit\\receipt.json",
+          "sha256": "84dedb3c6731253871d827069bd2daeace25cf6e842b58e2477a6e713e154bcd",
+          "size": 223
+        },
+        "stage_elapsed_seconds": 2
+      },
+      {
+        "aggregate_owned_cpu_seconds": 1,
+        "memory_limit_bytes": 4096,
+        "native_threads": 1,
+        "numerical_process_cpu_seconds": 1,
+        "peak_owned_committed_bytes": 1024,
+        "phase": "exact-sign",
+        "profile": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\baseline-fixture\\exact-sign\\profile.json",
+          "sha256": "6a0bb442a1e58e5b55e2e64780970ee226de958ec2afeaae44c8da903fe6fb44",
+          "size": 37
+        },
+        "receipt": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\baseline-fixture\\exact-sign\\receipt.json",
+          "sha256": "84dedb3c6731253871d827069bd2daeace25cf6e842b58e2477a6e713e154bcd",
+          "size": 223
+        },
+        "stage_elapsed_seconds": 2
+      }
+    ]
+  },
+  "created_utc": "2026-11-12T10:13:48Z",
+  "disk": {
+    "baseline": {
+      "controls": {
+        "limit": null,
+        "max_depth": null,
+        "path_mode": "relative"
+      },
+      "extensions": [
+        {
+          "extension": "json",
+          "file_count": 7,
+          "size_bytes": 919
+        }
+      ],
+      "largest_directory": {
+        "file_count": 2,
+        "path": "exact-sign",
+        "size_bytes": 260
+      },
+      "largest_file": {
+        "path": "exact-sign\\receipt.json",
+        "size_bytes": 223
+      },
+      "root": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\baseline-fixture",
+      "schema_version": 1,
+      "stats": {
+        "directories_seen": 4,
+        "elapsed_ms": 10,
+        "extensions_returned": 1,
+        "extensions_total": 1,
+        "extensions_truncated": false,
+        "files_seen": 7,
+        "total_file_bytes": 919,
+        "warning_count": 0
+      },
+      "type": "info",
+      "warnings": {
+        "count": 0,
+        "samples": [],
+        "samples_truncated": false
+      }
+    },
+    "new": {
+      "controls": {
+        "limit": null,
+        "max_depth": null,
+        "path_mode": "relative"
+      },
+      "extensions": [
+        {
+          "extension": "json",
+          "file_count": 28,
+          "size_bytes": 12451
+        },
+        {
+          "extension": "jsonl",
+          "file_count": 6,
+          "size_bytes": 381
+        },
+        {
+          "extension": "py",
+          "file_count": 6,
+          "size_bytes": 153
+        },
+        {
+          "extension": "txt",
+          "file_count": 6,
+          "size_bytes": 0
+        }
+      ],
+      "largest_directory": {
+        "file_count": 46,
+        "path": "source",
+        "size_bytes": 12985
+      },
+      "largest_file": {
+        "path": "source\\failed-owner\\attempt\\fixture\\receipt.json",
+        "size_bytes": 1628
+      },
+      "root": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable",
+      "schema_version": 1,
+      "stats": {
+        "directories_seen": 25,
+        "elapsed_ms": 163,
+        "extensions_returned": 4,
+        "extensions_total": 4,
+        "extensions_truncated": false,
+        "files_seen": 46,
+        "total_file_bytes": 12985,
+        "warning_count": 0
+      },
+      "type": "info",
+      "warnings": {
+        "count": 0,
+        "samples": [],
+        "samples_truncated": false
+      }
+    }
+  },
+  "format": "whole-source-retained-execution-comparison-v2",
+  "inherited_program": {
+    "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\compare-execution-v1.py",
+    "sha256": "dc65b70d78a6ece1d6f78fbabc60f2bf054065782b2523ea3ac8d26e8d6d8bdb",
+    "size": 14657
+  },
+  "limits": [
+    "Verified selected stages do not establish whole-source/pipeline completion or scientific acceptance.",
+    "Live status is optional advisory timing only; missing owner totals and ratios remain null, never partial or substituted.",
+    "No matched full-pipeline speedup: baseline reuses a proposal and stage/control/replay boundaries differ.",
+    "Native stage sums exclude inter-stage owner work; owner wall excludes final caller read-through.",
+    "Unowned supervisor CPU is not captured by job CPU counters.",
+    "Disk census is retained logical file bytes, not transient write traffic or physical device I/O; OS I/O counters were not retained.",
+    "One execution per implementation is not a statistical scaling study."
+  ],
+  "new": {
+    "all_owned_cleanup_verified": true,
+    "completion": {
+      "scientific_acceptance_asserted": false,
+      "scope": "SELECTED_SUCCESSFUL_OWNED_STAGES_ONLY",
+      "whole_pipeline_completion_asserted": false,
+      "whole_source_completion_asserted": false
+    },
+    "counter_scope": "Owned job CPU includes descendants. Optional owner timing is advisory monotonic writer lifetime, including inter-stage work and possibly failed noncontributing work; it excludes final caller read-through and unowned CPU. It is not completion authority.",
+    "owned_receipts_verified": 3,
+    "phases": {
+      "source": {
+        "aggregate_cpu_per_owner_wall": null,
+        "aggregate_cpu_per_owner_wall_unavailable_reason": "OWNER_TIMING_UNAVAILABLE",
+        "collection_owner_elapsed_available": false,
+        "collection_owner_elapsed_seconds": null,
+        "collection_owner_elapsed_unavailable_reason": "ONE_OR_MORE_OWNER_TIMINGS_UNAVAILABLE",
+        "collection_owners": 3,
+        "configured_cpu_budgets": [
+          1
+        ],
+        "configured_native_threads_per_worker": [
+          1
+        ],
+        "configured_worker_budgets": [
+          1
+        ],
+        "cpu_counter_missing": 0,
+        "max_concurrently_observed_workers": 1,
+        "owned_cpu_seconds": 3.0,
+        "owner_timings": [
+          {
+            "attempt": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\failed-owner\\attempt",
+            "availability": "AVAILABLE",
+            "elapsed_seconds": 10,
+            "identity": {
+              "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\failed-owner\\attempt\\.live\\run.json",
+              "sha256": "4d1ca856b3ff11d960d26206045f0746424fab4ed61a23655002c0ee6c6ff4e6",
+              "size": 181
+            },
+            "reason": null,
+            "snapshot": {
+              "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\failed-owner\\attempt\\.live\\run-status.json",
+              "sha256": "68449d1a885c1032060c326fce3d52ccd3d4fa728156661ac54bc33ca3f4efe4",
+              "size": 245
+            },
+            "workflow_state": "RUN_FAILED"
+          },
+          {
+            "attempt": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\missing\\attempt",
+            "availability": "UNAVAILABLE",
+            "elapsed_seconds": null,
+            "identity": null,
+            "reason": "SNAPSHOT_MISSING",
+            "snapshot": null,
+            "workflow_state": null
+          },
+          {
+            "attempt": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\stale\\attempt",
+            "availability": "UNAVAILABLE",
+            "elapsed_seconds": null,
+            "identity": null,
+            "reason": "SNAPSHOT_NOT_TERMINAL",
+            "snapshot": {
+              "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\stale\\attempt\\.live\\run-status.json",
+              "sha256": "8c99c84a460b16e8581683fb09afeb75b72801982a4d0b76af4dcf695c581814",
+              "size": 235
+            },
+            "workflow_state": "RUNNING"
+          }
+        ],
+        "peak_owned_committed_bytes": 1024,
+        "peak_sampled_external_increment_bytes": 64,
+        "stage_elapsed_seconds": 6.0,
+        "stages": 3
+      }
+    },
+    "source_logical_operand_passes": {},
+    "source_read_scope": "Derived from executed task references and callback read loops; excludes metadata, proposal/exact operand passes, writes and physical OS/device traffic.",
+    "stages": [
+      {
+        "aggregate_owned_cpu_seconds": 1,
+        "cleanup_verified": true,
+        "completed_results": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\failed-owner\\attempt\\fixture-results\\completed.jsonl",
+          "sha256": "c748246bb30a4ec298f20f11ff32b18354f9b98a1db9c9bdf005275a488f0d88",
+          "size": 108
+        },
+        "completion": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\failed-owner\\attempt\\fixture-results\\complete.json",
+          "sha256": "f14042f1dc9534f556af224ae5a2b80816ec04af2f335bd53535f47164f293ac",
+          "size": 185
+        },
+        "elapsed_seconds": 2,
+        "peak_owned_committed_bytes": 1024,
+        "phase": "source",
+        "receipt": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\failed-owner\\attempt\\fixture\\receipt.json",
+          "sha256": "92cbebdceffa45c6a14c429496f516d24974994725912c3ae571e943062e7647",
+          "size": 1628
+        },
+        "sampled_external_increment_bytes": 64,
+        "stage_descriptor": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\failed-owner\\attempt\\fixture-stage.json",
+          "sha256": "4897d6f0dc7386e9215350695d7c74214f9941bce92e65e57bbb642650ed7476",
+          "size": 1557
+        }
+      },
+      {
+        "aggregate_owned_cpu_seconds": 1,
+        "cleanup_verified": true,
+        "completed_results": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\missing\\attempt\\fixture-results\\completed.jsonl",
+          "sha256": "c748246bb30a4ec298f20f11ff32b18354f9b98a1db9c9bdf005275a488f0d88",
+          "size": 108
+        },
+        "completion": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\missing\\attempt\\fixture-results\\complete.json",
+          "sha256": "f14042f1dc9534f556af224ae5a2b80816ec04af2f335bd53535f47164f293ac",
+          "size": 185
+        },
+        "elapsed_seconds": 2,
+        "peak_owned_committed_bytes": 1024,
+        "phase": "source",
+        "receipt": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\missing\\attempt\\fixture\\receipt.json",
+          "sha256": "3a8690cf2bac0120bf6d96f4384fe63b8d42846dd4c4b9e765ebcfc197ca0671",
+          "size": 1608
+        },
+        "sampled_external_increment_bytes": 64,
+        "stage_descriptor": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\missing\\attempt\\fixture-stage.json",
+          "sha256": "7dd6e1258199aa56feb7c3f04c21634c5a0b02904049e4d12dc080e4fca02c6b",
+          "size": 1547
+        }
+      },
+      {
+        "aggregate_owned_cpu_seconds": 1,
+        "cleanup_verified": true,
+        "completed_results": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\stale\\attempt\\fixture-results\\completed.jsonl",
+          "sha256": "c748246bb30a4ec298f20f11ff32b18354f9b98a1db9c9bdf005275a488f0d88",
+          "size": 108
+        },
+        "completion": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\stale\\attempt\\fixture-results\\complete.json",
+          "sha256": "f14042f1dc9534f556af224ae5a2b80816ec04af2f335bd53535f47164f293ac",
+          "size": 185
+        },
+        "elapsed_seconds": 2,
+        "peak_owned_committed_bytes": 1024,
+        "phase": "source",
+        "receipt": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\stale\\attempt\\fixture\\receipt.json",
+          "sha256": "ad788e021ac14c5d82585ca43e75ff1e7514155cb34762f5ef172466bc052b2a",
+          "size": 1600
+        },
+        "sampled_external_increment_bytes": 64,
+        "stage_descriptor": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\ia007-comparison-v1\\run-unavailable\\source\\stale\\attempt\\fixture-stage.json",
+          "sha256": "f9dd4118fe70800462cd5128af51cc7f2d5fdc4695454c76891a578e05a8f3f5",
+          "size": 1543
+        }
+      }
+    ]
+  },
+  "production_admission": false,
+  "program": {
+    "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\compare-execution-v2.py",
+    "sha256": "6defd149e080bfe17d1f722fba3b6a7f1611d9f7c9472f4ac44e5181b352b003",
+    "size": 11997
+  },
+  "status": "OPERATIONAL_AND_DIAGNOSTIC_COMPARISON_ONLY"
+}

@@ -1,0 +1,8 @@
+{
+  "format": "riemann-run-failure-v1",
+  "run_id": "20261114T020933Z-75c7f16a",
+  "state": "RUN_INTERRUPTED",
+  "time_utc": "2026-11-14T02:09:45Z",
+  "error_type": "KeyboardInterrupt",
+  "error": "CONTROL after complete committed wave"
+}

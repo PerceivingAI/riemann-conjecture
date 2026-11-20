@@ -1,0 +1,17 @@
+{
+  "all_owned_cleanup_verified": true,
+  "cpu_budget": 6,
+  "created_utc": "2026-10-31T17:34:38.249311+00:00",
+  "directory": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3",
+  "full_reference_restarted": false,
+  "maximum_concurrent_workers_observed": 6,
+  "native_singleton_threads": 6,
+  "owned_stages": 29,
+  "peak_owned_bytes": 469979136,
+  "production_admission": false,
+  "scope": "REDUCED_MODEL_RESOURCE_SMOKE_ONLY",
+  "source_memory_cap_mib": 16807,
+  "source_required_bytes": 4275044352,
+  "source_threads_per_worker": 1,
+  "source_workers": 6
+}

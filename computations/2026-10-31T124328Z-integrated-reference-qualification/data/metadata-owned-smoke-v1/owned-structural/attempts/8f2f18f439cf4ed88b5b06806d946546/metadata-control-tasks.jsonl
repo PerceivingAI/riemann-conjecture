@@ -1,0 +1,2 @@
+{"domain":{"axes":[{"name":"complete","start":0,"step":1,"stop":1}],"columns":{"start":0,"step":2,"stop":4},"quantity":{"name":"A_model","parity":0},"rows":{"start":0,"step":2,"stop":4}},"task_id":"71dfbe6b3e29bde01f64df07ec67ed0cb91ac0c83064beec08510996bcd02840"}
+{"domain":{"axes":[{"name":"complete","start":0,"step":1,"stop":1}],"columns":{"start":4,"step":2,"stop":6},"quantity":{"name":"A_model","parity":0},"rows":{"start":0,"step":2,"stop":4}},"task_id":"7e0b11b949d4412e6b90691c342cf515edd7fe4a76d10a55d7737a74c235e1a4"}

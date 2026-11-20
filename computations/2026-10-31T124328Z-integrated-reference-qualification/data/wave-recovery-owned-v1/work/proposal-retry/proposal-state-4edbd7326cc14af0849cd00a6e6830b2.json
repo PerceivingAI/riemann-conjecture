@@ -1,0 +1,1 @@
+{"error":"factor-below_0 exited 1; inspect retained stderr and profile","error_type":"RuntimeError","matrix_positivity":false,"production_admission":false,"scope":"NONPROOF_PROPOSAL_ONLY","status":"NONPROOF_PROPOSAL_UNRESOLVED"}

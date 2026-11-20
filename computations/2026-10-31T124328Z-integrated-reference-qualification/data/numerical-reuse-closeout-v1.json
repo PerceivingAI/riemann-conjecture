@@ -1,0 +1,168 @@
+{
+  "format": "numerical-reuse-closeout-v1",
+  "created_utc": "2026-11-13T19:36:20Z",
+  "status": "CORRECTED_LOCAL_SCOPE",
+  "origin_git_commit": "cf1e25303b290448aac968eb9527fa327e496f02",
+  "verification_status": "PASS_CONTROL_ONLY_NUMERICAL_REUSE",
+  "final_successful_test_case_outcomes": 349,
+  "staged_xml_results": {
+    "numerical-reuse-head-tests-v1.xml": {
+      "tests": 39,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "numerical-reuse-source-tests-v1.xml": {
+      "tests": 117,
+      "failures": 6,
+      "errors": 0,
+      "skipped": 0
+    },
+    "numerical-reuse-source-tests-v2.xml": {
+      "tests": 6,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    "numerical-reuse-source-tests-v3.xml": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "numerical-reuse-operands-tests-v1.xml": {
+      "tests": 120,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "numerical-reuse-runtime-tests-v1.xml": {
+      "tests": 73,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "successful_owned_stages": 39,
+  "deliberate_failed_owned_stages": 1,
+  "source_entries_checked": 36,
+  "exact_parent_bindings": 1,
+  "raw_read_counts_unchanged": true,
+  "mathematical_digests_agree": true,
+  "max_selected_owned_budgeted_memory_bytes": 167100416,
+  "files": [
+    {
+      "path": "data/numerical-reuse-head-tests-v1.xml",
+      "size": 5616,
+      "sha256": "d0bee5bf2168882c1ce634a9ea9ffa6706c4c87360bc7f402eff05ea5637cc67"
+    },
+    {
+      "path": "data/numerical-reuse-source-tests-v1.xml",
+      "size": 34324,
+      "sha256": "66ba4cd48d51da95645f2d7acb32057c78849744c917fc799c43d5c1d1436424"
+    },
+    {
+      "path": "data/numerical-reuse-source-tests-v2.xml",
+      "size": 2759,
+      "sha256": "d1e7e0534ac31acc93c1bfef67c611a7e77f144220291a4d7ad364c71267fb7b"
+    },
+    {
+      "path": "data/numerical-reuse-source-tests-v3.xml",
+      "size": 386,
+      "sha256": "e00283a3103747852ab629d307337954da489d9171f274af62b9a78edfb2cb96"
+    },
+    {
+      "path": "data/numerical-reuse-operands-tests-v1.xml",
+      "size": 17324,
+      "sha256": "2daca3f5c600b920f9bfcc9d7e9476b68d77abd66717a5c1945a2c01255346d0"
+    },
+    {
+      "path": "data/numerical-reuse-runtime-tests-v1.xml",
+      "size": 11409,
+      "sha256": "ee617e6f8c8a78a698d4b46bf1090d70231a2da9922538894bae7f747aeb7aee"
+    },
+    {
+      "path": "data/numerical-reuse-owned-v1/verification.json",
+      "size": 7660,
+      "sha256": "760e55d66dedf7639f7efa1838e1fe42c30808b5f8bd804a1c0a017ea445eec5"
+    },
+    {
+      "path": "data/numerical-reuse-owned-v1-inventory.json",
+      "size": 1591610,
+      "sha256": "7dd84016966cacf309ec262687c72e3b081a8aa77609439ede358d8befd7af4e"
+    },
+    {
+      "path": "data/numerical-reuse-accounts-v1/result.json",
+      "size": 1196,
+      "sha256": "92ac091f0664ef5fed292def2588f5dc4cb0b68a00b594a9296da50080e97933"
+    },
+    {
+      "path": "data/numerical-reuse-final-source-v1/preservation.json",
+      "size": 45591,
+      "sha256": "5dba77b73f2c39cda6ae20818c066ba0838bac24c70a761a1f282128c05f7c28"
+    },
+    {
+      "path": "data/numerical-reuse-final-source-v2/preservation.json",
+      "size": 45838,
+      "sha256": "aefc2c71b8dba3aad5536c17c2b5fdfda549ece0e546ccd7c22c49714a822c8a"
+    },
+    {
+      "path": "data/operand-reuse-baseline-v1/result.json",
+      "size": 979,
+      "sha256": "317d7ad4b06ca15817b06cfe8e19dfa719ba6237062afaeecada3c3d71e53ead"
+    },
+    {
+      "path": "data/operand-reuse-corrected-v1/result.json",
+      "size": 979,
+      "sha256": "f65c31683ed04cceebb6f5bbee3e483e94027f4022565b2ee903394e8a36bbb3"
+    },
+    {
+      "path": "numerical-reuse-control-v1.py",
+      "size": 6962,
+      "sha256": "f400724ef28d9681d1238f106a932807c259ffb43853758f55402eaf27493e1b"
+    },
+    {
+      "path": "operand-reuse-control-v1.py",
+      "size": 5823,
+      "sha256": "baa5a09bccc428ab966193f5b8d75f9aebbed11ac3c557927fa3e76b039a5def"
+    },
+    {
+      "path": "verify-numerical-reuse-v1.py",
+      "size": 10526,
+      "sha256": "dff2a86609169cfb76b5193eb3ccd2d0f93f256778cfdfef2eef507355b26d63"
+    },
+    {
+      "path": "numerical-reuse-accounts-v1.py",
+      "size": 2432,
+      "sha256": "d709718ce366ebbbee1b0f3ca4b2d9f55d1c604faaf7e56bb1495dae3717ad35"
+    },
+    {
+      "path": "record.md",
+      "size": 99449,
+      "sha256": "dded9836d132bde2f916e1d6a592ed642d4edf532d4854b6e829709430f1fe33"
+    },
+    {
+      "path": "data/numerical-reuse-producer-baseline-v1.json",
+      "size": 1084,
+      "sha256": "d42e87eee754ba228a08f49089db4d38eb37a8c0b5f7f4ea3f8730785ab4a3b4"
+    },
+    {
+      "path": "data/numerical-reuse-producer-corrected-v1.json",
+      "size": 1086,
+      "sha256": "c187d06f0a5e6bc71fc97bb6053fcdc9b9a4317d43c03e6765b9fa0d7a6c888d"
+    },
+    {
+      "path": "data/numerical-reuse-analytic-baseline-v1.json",
+      "size": 982,
+      "sha256": "1d1d6fdeb63d29411eb2f9505949ae4cfc3e5c4fa4f5e40eae23277a4f0fb54c"
+    },
+    {
+      "path": "data/numerical-reuse-analytic-corrected-v1.json",
+      "size": 985,
+      "sha256": "93db30c1287c1ef4effad9a80dc650689547872d944e70c6ab612ed7b4c4010b"
+    }
+  ],
+  "full_qualification_executed": false,
+  "whole_pipeline_speedup_demonstrated": false,
+  "production_admission": false
+}

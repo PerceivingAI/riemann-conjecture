@@ -1,0 +1,23 @@
+Executed command:
+uv run --locked --extra test python -B -m pytest -n 0 -q tests/test_whole_source_coordinator.py tests/test_whole_source_phase_selection.py tests/test_whole_source_phase_run.py tests/test_whole_source_retention.py tests/test_whole_source_retention_recovery.py tests/test_whole_source_retention_paths.py tests/test_whole_source_comparison.py
+
+Observed output excerpt:
+[Command timed out after 300 seconds]
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0
+rootdir: [REPO_ROOT]
+configfile: pyproject.toml
+plugins: hypothesis-6.165.10, xdist-3.8.0
+collected 259 items
+
+tests\test_whole_source_coordinator.py .............................     [ 11%]
+tests\test_whole_source_phase_selection.py ............................. [ 22%]
+..............                                                           [ 27%]
+tests\test_whole_source_phase_run.py EEEEEE                              [ 30%]
+tests\test_whole_source_retention.py ................................... [ 43%]
+...................                                                      [ 50%]
+tests\test_whole_source_retention_recovery.py .......
+
+Wall time: 300.06 seconds
+
+Interpretation: incomplete development check, not a passing suite or scientific qualification. Phase-run fixture setup used an output path outside the code root required by prepare_inputs(). The fixture was corrected to use its own TemporaryDirectory beneath .pytest_cache. Later targeted checks are separate evidence. The timeout ended this command before final traceback/summary publication.

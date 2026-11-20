@@ -1,0 +1,70 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\task-layout-owned-serial-v1\\work\\exact\\collection\\attempts\\0e09e5da51254878a463c41f2a6bac14\\runtime\\computations\\2026-10-28T034134Z-t081-resource-execution\\stage_worker_v1.py",
+    "--program",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\task-layout-owned-serial-v1\\work\\exact\\collection\\attempts\\0e09e5da51254878a463c41f2a6bac14\\runtime\\scripts\\whole_source\\execution.py",
+    "--program-sha256",
+    "3b1a8ecb4d1e3f1e1ee6d5fb5ea73be8968e7bbc17823f60dafa5eaf367d441d",
+    "--config",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\task-layout-owned-serial-v1\\work\\exact\\collection\\attempts\\0e09e5da51254878a463c41f2a6bac14\\execution-budget.json",
+    "--config-sha256",
+    "251f24acfcea78810b2db36d0b5a65bf10320a57d2de02eed5bddd9bd49cb57e",
+    "--profile",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\task-layout-owned-serial-v1\\work\\exact\\collection\\attempts\\0e09e5da51254878a463c41f2a6bac14\\global\\profile.json",
+    "--kind",
+    "fixture",
+    "--",
+    "--stage",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\task-layout-owned-serial-v1\\work\\exact\\collection\\attempts\\0e09e5da51254878a463c41f2a6bac14\\global-stage.json",
+    "--stage-sha256",
+    "098b57347970ecc6cc31088e7cfe7d73ffc6f0e32d3978d3b27f06ba158623ad"
+  ],
+  "budget": {
+    "cpu_budget": 1,
+    "descendant_pool_workers": 1,
+    "execution_mode": "one owned root plus bounded spawn descendants",
+    "memory_budget_bytes": 2147483648,
+    "native_threads": 1,
+    "required_bytes": 838860800,
+    "reserve_bytes": 1639972864,
+    "workers": 1
+  },
+  "config_sha256": "251f24acfcea78810b2db36d0b5a65bf10320a57d2de02eed5bddd9bd49cb57e",
+  "elapsed_seconds": 3.4080287000033422,
+  "error": null,
+  "exit_code": 0,
+  "format": "t081-owned-stage-receipt-v1",
+  "last_metrics": {
+    "active_process_count": 0,
+    "active_process_ids": [],
+    "cpu_budget": 1,
+    "cpu_rate_per_10000": 1666,
+    "cpu_rate_reference": "parent job if rate-controlled, otherwise system",
+    "cpu_seconds": 2.671875,
+    "current_committed_bytes": 77824,
+    "diagnostics": [],
+    "memory_accounting": "JobObjectMemoryUsageInformation",
+    "memory_limit_bytes": 2147483648,
+    "owned_cpu_rate_denominator": 10000,
+    "owned_cpu_rate_units": 1666,
+    "peak_committed_bytes": 91045888,
+    "peak_counter_scope": "raw OS high-water; denied allocation demand may be counted before rollback"
+  },
+  "logs": {
+    "stderr": {
+      "path": "global\\stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "path": "global\\stdout.txt",
+      "sha256": "a00bff0f15e203cf13695fec1b3794ca7e8b507209044b3d0dd35c9b951839ce"
+    }
+  },
+  "memory_metric": "job committed memory",
+  "peak_budgeted_memory_bytes": 91045888,
+  "program_sha256": "3b1a8ecb4d1e3f1e1ee6d5fb5ea73be8968e7bbc17823f60dafa5eaf367d441d",
+  "stage": "global",
+  "worker_cleanup_verified": true
+}

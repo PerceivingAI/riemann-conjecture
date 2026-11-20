@@ -1,0 +1,4 @@
+T081_READY {"pid": 35816, "config_sha256": "af9910f594c2577b624e3bc79f6b5e8cd46044d1d60c5d9cf0c93fe556c86b37"}
+T081_EVENT {"elapsed_seconds": 0.1203313000005437, "event": "program_started", "kind": "fixture", "threads": 6}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 1, "total": 1, "unit": "bounded task"}
+T081_EVENT {"elapsed_seconds": 2.7032580000013695, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 2.581677400004992}

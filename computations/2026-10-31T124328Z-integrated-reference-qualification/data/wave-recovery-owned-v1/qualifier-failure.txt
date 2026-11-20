@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 447, in main
+    verified = verify_stage(path)
+  File "[REPO_ROOT]\scripts\whole_source\receipts.py", line 56, in verify_stage
+    _require(stage_path==attempt/(name+'-stage.json') and
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             _hash_file(stage_path)['sha256']==argv[argv.index('--stage-sha256')+1],
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             'receipt does not bind this stage descriptor')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\receipts.py", line 17, in _require
+    raise ContractError(message)
+scripts.whole_source.contract.ContractError: receipt does not bind this stage descriptor

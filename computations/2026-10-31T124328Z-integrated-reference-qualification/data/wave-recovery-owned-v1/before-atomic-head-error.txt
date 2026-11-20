@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 192, in invoke
+    result = function()
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 307, in <lambda>
+    invoke(edge, lambda: assess(destination), orphan='first' if edge == 'before-atomic-head' else None,
+                         ~~~~~~^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 251, in assess
+    return exact.run_exact(inputs['problem'], source.path, retry/'proposal.json', inputs['execution'],
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           destination, code_root=root, resume=resume)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 735, in run_exact
+    return _run_bound_exact(root,Path(output_dir).absolute(),bound,resume=resume)
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 666, in _run_bound_exact
+    reports,report_refs,products,groups = run_waves(
+                                          ~~~~~~~~~^
+        lock,execution,descriptor,config['operands'],journal=journal)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\exact_tasks.py", line 399, in run_waves
+    journal.commit(operation, groups[operation], {'outputs': outputs})
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 172, in checkpoint
+    return commit(journal, key, group, value)
+  File "[REPO_ROOT]\scripts\whole_source\recovery.py", line 253, in commit
+    ref = self._append('wave', key, {'group': group, 'value': value})
+  File "[REPO_ROOT]\scripts\whole_source\recovery.py", line 220, in _append
+    self._replace('recovery/head.json', canonical_bytes(head))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 169, in interrupted_head
+    raise KeyboardInterrupt('CONTROL immutable journal record before atomic head')
+KeyboardInterrupt: CONTROL immutable journal record before atomic head

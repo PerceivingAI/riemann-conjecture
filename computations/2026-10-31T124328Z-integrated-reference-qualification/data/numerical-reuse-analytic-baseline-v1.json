@@ -1,0 +1,29 @@
+{
+  "status": "PASS_CONTROL_ONLY_NUMERICAL_REUSE",
+  "role": "analytic",
+  "implementation": "scalar",
+  "code_root": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\numerical-reuse-pre-a-v1\\runtime",
+  "mathematical_digest": "cb0eb7fe42c66efb1a4b2a1ff9fb62cc152fd2504b6690d579b0f151b2c7d6c7",
+  "counters": {
+    "basis_constructions": 86,
+    "recurrence_walks": 0,
+    "kernel_tiles_consumed": 18
+  },
+  "phase_wall_ns": {
+    "columns-0": 6375500,
+    "head-0": 293500,
+    "final-0": 21774700,
+    "columns-1": 6405300,
+    "head-1": 214100,
+    "final-1": 21777100
+  },
+  "total_wall_ns": 331714200,
+  "precision_bits": 6144,
+  "native_threads": 1,
+  "complete_reduced_inputs": 6,
+  "fullmode_head_inputs": [],
+  "fullmode_F": "MANUFACTURED_NONZERO_NOT_EVALUATED_SOURCE",
+  "opposite_evaluator_blocked": true,
+  "full_source_evaluated": false,
+  "production_admission": false
+}

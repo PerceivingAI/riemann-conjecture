@@ -1,0 +1,22 @@
+{
+  "containment": {
+    "mechanism": "owned Windows job installed before GO"
+  },
+  "cpu_seconds": 0.046875,
+  "error": "ValueError: '[REPO_ROOT]\\\\computations\\\\2026-10-31T124328Z-integrated-reference-qualification\\\\data\\\\scalar-v3\\\\premises\\\\collection\\\\attempts\\\\52dd6424c29c441aad5bc3c9174b3b2a\\\\runtime\\\\scripts' is not in the subpath of '[REPO_ROOT]\\\\computations\\\\2026-10-31T124328Z-integrated-reference-qualification\\\\data\\\\scalar-v3\\\\premises\\\\collection\\\\attempts\\\\52dd6424c29c441aad5bc3c9174b3b2a\\\\runtime\\\\computations\\\\2026-10-31T124328Z-integrated-reference-qualification\\\\data\\\\scalar-v3\\\\premises\\\\installed'",
+  "exit_code": 1,
+  "format": "t081-budgeted-stage-profile-v1",
+  "kind": "fixture",
+  "native_threads": 1,
+  "phases": {},
+  "precision": 53,
+  "process_memory": {
+    "committed_bytes": 26066944,
+    "peak_committed_bytes": 35303424,
+    "peak_working_set_bytes": 45215744,
+    "working_set_bytes": 37552128
+  },
+  "program_sha256": "3f2d9d730eb214e45a8e44a3695917d29483644f26997c2f3a8c55981eac4e9f",
+  "timing_note": "inclusive includes nested calls; exclusive subtracts wrapped children; CPU is current process only",
+  "wall_seconds": 2.9881183999968925
+}

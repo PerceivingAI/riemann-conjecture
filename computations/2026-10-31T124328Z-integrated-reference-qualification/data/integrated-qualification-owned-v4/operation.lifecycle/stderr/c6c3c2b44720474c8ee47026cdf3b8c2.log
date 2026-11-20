@@ -1,0 +1,40 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "[REPO_ROOT]\scripts\whole_source\supervision.py", line 653, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "[REPO_ROOT]\scripts\whole_source\supervision.py", line 648, in main
+    return _child(args.child)
+  File "[REPO_ROOT]\scripts\whole_source\supervision.py", line 638, in _child
+    runpy.run_path(str(path), run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\data\integrated-qualification-owned-v4\prepare-source-child.py", line 5, in <module>
+    runpy.run_path(str(p))["child"]('prepare-source','[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v4\\operation')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\integrated-qualification-owned-v2.py", line 76, in child
+    pipeline.prepare_source_inputs(bind_problem('retained-t081'), source_inputs,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        control=True, tile_modes=2, **origin)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\pipeline.py", line 218, in prepare_source_inputs
+    spec = CollectionSpec.create(problem, role=role, quantities=_quantities(problem, control),
+        partition=_partition(problem, control, tile_modes),
+        backend="python-flint", backend_version=importlib.metadata.version("python-flint"),
+        native_threads=1, code_refs=refs, bounds=bounds, code_root=root)
+  File "[REPO_ROOT]\scripts\whole_source\artifacts.py", line 297, in create
+    result._validate()
+    ~~~~~~~~~~~~~~~~^^
+  File "[REPO_ROOT]\scripts\whole_source\artifacts.py", line 344, in _validate
+    _require(type(self.code_refs) is tuple and self.code_refs and
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             tuple(sorted(self.code_refs, key=lambda r: r.path)) == self.code_refs and
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             len({r.path for r in self.code_refs}) == len(self.code_refs), "invalid code closure")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\artifacts.py", line 40, in _require
+    raise ArtifactError(message)
+scripts.whole_source.artifacts.ArtifactError: invalid code closure

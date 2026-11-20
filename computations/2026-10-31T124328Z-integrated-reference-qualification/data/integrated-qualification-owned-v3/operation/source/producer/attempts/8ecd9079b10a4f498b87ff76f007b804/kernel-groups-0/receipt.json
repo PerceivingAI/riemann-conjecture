@@ -1,0 +1,70 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v3\\operation\\source\\producer\\attempts\\8ecd9079b10a4f498b87ff76f007b804\\runtime\\scripts\\whole_source\\runtime\\stage_worker_v2.py",
+    "--program",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v3\\operation\\source\\producer\\attempts\\8ecd9079b10a4f498b87ff76f007b804\\runtime\\scripts\\whole_source\\execution.py",
+    "--program-sha256",
+    "45a4f7c92a1a725fd2c5bc0a19a000d03de5faf7624a83e4f7a870fe7556aa3a",
+    "--config",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v3\\operation\\source\\producer\\attempts\\8ecd9079b10a4f498b87ff76f007b804\\execution-budget.json",
+    "--config-sha256",
+    "81f90dde9a9163a471a96087c757c2a3d1fa24cd4ac5a858e785f82e1d5ffef4",
+    "--profile",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v3\\operation\\source\\producer\\attempts\\8ecd9079b10a4f498b87ff76f007b804\\kernel-groups-0\\profile.json",
+    "--kind",
+    "fixture",
+    "--",
+    "--stage",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v3\\operation\\source\\producer\\attempts\\8ecd9079b10a4f498b87ff76f007b804\\kernel-groups-0-stage.json",
+    "--stage-sha256",
+    "7f50ce035aa264c485dc3053be71e4d2d2dce89259c2fe6c30769bd93135871a"
+  ],
+  "budget": {
+    "cpu_budget": 2,
+    "descendant_pool_workers": 2,
+    "execution_mode": "one owned root plus bounded spawn descendants",
+    "memory_budget_bytes": 2399141888,
+    "native_threads": 1,
+    "required_bytes": 1518338048,
+    "reserve_bytes": 296747008,
+    "workers": 1
+  },
+  "config_sha256": "81f90dde9a9163a471a96087c757c2a3d1fa24cd4ac5a858e785f82e1d5ffef4",
+  "elapsed_seconds": 3.2528753000078723,
+  "error": "RuntimeError: kernel-groups-0 exited 1; inspect retained stderr and profile",
+  "exit_code": 1,
+  "format": "t081-owned-stage-receipt-v1",
+  "last_metrics": {
+    "active_process_count": 0,
+    "active_process_ids": [],
+    "cpu_budget": 2,
+    "cpu_rate_per_10000": 3333,
+    "cpu_rate_reference": "parent job if rate-controlled, otherwise system",
+    "cpu_seconds": 2.390625,
+    "current_committed_bytes": 77824,
+    "diagnostics": [],
+    "memory_accounting": "JobObjectMemoryUsageInformation",
+    "memory_limit_bytes": 2399141888,
+    "owned_cpu_rate_denominator": 10000,
+    "owned_cpu_rate_units": 3333,
+    "peak_committed_bytes": 119795712,
+    "peak_counter_scope": "raw OS high-water; denied allocation demand may be counted before rollback"
+  },
+  "logs": {
+    "stderr": {
+      "path": "kernel-groups-0\\stderr.txt",
+      "sha256": "f9185d38f3c6e3b8fb383de5901ef07ffda65ca5ac16be8b650e104da51b5eb0"
+    },
+    "stdout": {
+      "path": "kernel-groups-0\\stdout.txt",
+      "sha256": "076d62f8081fb39f6f5123de984779a21bda3ae368d603da005fef0087e656c3"
+    }
+  },
+  "memory_metric": "job committed memory",
+  "peak_budgeted_memory_bytes": 119795712,
+  "program_sha256": "45a4f7c92a1a725fd2c5bc0a19a000d03de5faf7624a83e4f7a870fe7556aa3a",
+  "stage": "kernel-groups-0",
+  "worker_cleanup_verified": true
+}

@@ -1,0 +1,70 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\wave-recovery-owned-v1\\work\\singular-full-U\\run\\collection\\attempts\\917a2e5228ae4dfd9dd91e53ceccfe58\\runtime\\computations\\2026-10-28T034134Z-t081-resource-execution\\stage_worker_v1.py",
+    "--program",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\wave-recovery-owned-v1\\work\\singular-full-U\\run\\collection\\attempts\\917a2e5228ae4dfd9dd91e53ceccfe58\\runtime\\scripts\\whole_source\\execution.py",
+    "--program-sha256",
+    "bb8025202c9483bb1df7ea1c3ad582156712b242aa6d7ac7a93d51d39427fe66",
+    "--config",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\wave-recovery-owned-v1\\work\\singular-full-U\\run\\collection\\attempts\\917a2e5228ae4dfd9dd91e53ceccfe58\\execution-budget.json",
+    "--config-sha256",
+    "7b46fa3ea0c43b5e22c4c9f2a390505b787de9e5bfffbe50bbd1d1942ebdf28d",
+    "--profile",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\wave-recovery-owned-v1\\work\\singular-full-U\\run\\collection\\attempts\\917a2e5228ae4dfd9dd91e53ceccfe58\\reduce\\profile.json",
+    "--kind",
+    "fixture",
+    "--",
+    "--stage",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\wave-recovery-owned-v1\\work\\singular-full-U\\run\\collection\\attempts\\917a2e5228ae4dfd9dd91e53ceccfe58\\reduce-stage.json",
+    "--stage-sha256",
+    "ca22badfd88628521d3f732b798a63963a72ab77693ba7e878db04589478482c"
+  ],
+  "budget": {
+    "cpu_budget": 2,
+    "descendant_pool_workers": 2,
+    "execution_mode": "one owned root plus bounded spawn descendants",
+    "memory_budget_bytes": 2147483648,
+    "native_threads": 1,
+    "required_bytes": 1544552448,
+    "reserve_bytes": 458227712,
+    "workers": 1
+  },
+  "config_sha256": "7b46fa3ea0c43b5e22c4c9f2a390505b787de9e5bfffbe50bbd1d1942ebdf28d",
+  "elapsed_seconds": 6.0644523999944795,
+  "error": null,
+  "exit_code": 0,
+  "format": "t081-owned-stage-receipt-v1",
+  "last_metrics": {
+    "active_process_count": 0,
+    "active_process_ids": [],
+    "cpu_budget": 2,
+    "cpu_rate_per_10000": 3333,
+    "cpu_rate_reference": "parent job if rate-controlled, otherwise system",
+    "cpu_seconds": 8.8125,
+    "current_committed_bytes": 77824,
+    "diagnostics": [],
+    "memory_accounting": "JobObjectMemoryUsageInformation",
+    "memory_limit_bytes": 2147483648,
+    "owned_cpu_rate_denominator": 10000,
+    "owned_cpu_rate_units": 3333,
+    "peak_committed_bytes": 154935296,
+    "peak_counter_scope": "raw OS high-water; denied allocation demand may be counted before rollback"
+  },
+  "logs": {
+    "stderr": {
+      "path": "reduce\\stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "path": "reduce\\stdout.txt",
+      "sha256": "d67e716364a9a917616c522fc2bf5f32a607cac42cc31f13ebcfb34f735463d7"
+    }
+  },
+  "memory_metric": "job committed memory",
+  "peak_budgeted_memory_bytes": 154935296,
+  "program_sha256": "bb8025202c9483bb1df7ea1c3ad582156712b242aa6d7ac7a93d51d39427fe66",
+  "stage": "reduce",
+  "worker_cleanup_verified": true
+}

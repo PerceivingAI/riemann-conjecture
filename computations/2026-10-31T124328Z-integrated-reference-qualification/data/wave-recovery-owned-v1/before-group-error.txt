@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 192, in invoke
+    result = function()
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 307, in <lambda>
+    invoke(edge, lambda: assess(destination), orphan='first' if edge == 'before-atomic-head' else None,
+                         ~~~~~~^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 251, in assess
+    return exact.run_exact(inputs['problem'], source.path, retry/'proposal.json', inputs['execution'],
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           destination, code_root=root, resume=resume)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 735, in run_exact
+    return _run_bound_exact(root,Path(output_dir).absolute(),bound,resume=resume)
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 666, in _run_bound_exact
+    reports,report_refs,products,groups = run_waves(
+                                          ~~~~~~~~~^
+        lock,execution,descriptor,config['operands'],journal=journal)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\exact_tasks.py", line 397, in run_waves
+    groups[operation] = seal_group(lock, execution, operation, _context(descriptor, operands, operation), outputs)
+                        ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 185, in before_group
+    raise KeyboardInterrupt('CONTROL complete owned stage before group publication')
+KeyboardInterrupt: CONTROL complete owned stage before group publication

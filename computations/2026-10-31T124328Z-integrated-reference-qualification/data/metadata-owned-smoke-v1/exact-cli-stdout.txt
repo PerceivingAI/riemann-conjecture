@@ -1,0 +1,10 @@
+parity-0: {"elapsed_seconds": 0.11584769999899436, "event": "program_started", "kind": "fixture", "threads": 2}
+parity-0: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+parity-0: {"elapsed_seconds": 3.331130900000062, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 3.2143598000002385}
+parity-1: {"elapsed_seconds": 0.11450360000162618, "event": "program_started", "kind": "fixture", "threads": 2}
+parity-1: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+parity-1: {"elapsed_seconds": 3.2926428000009764, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 3.1766552000008232}
+assess: {"elapsed_seconds": 0.30587539999942237, "event": "program_started", "kind": "fixture", "threads": 2}
+assess: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+assess: {"elapsed_seconds": 2.8217879999992874, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 2.5151250999988406}
+PASS_EXACT_PAID_LOWER_SOURCE_CONDITIONAL: scope=CONTROL_ONLY

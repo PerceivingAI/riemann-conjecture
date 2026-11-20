@@ -1,0 +1,61 @@
+{
+  "K": 86,
+  "M": 1652,
+  "N": 826,
+  "RH_status": "UNRESOLVED",
+  "acceptance_boundary": "complete reference/error and execution-parameter declaration only; not target positivity",
+  "created": "2026-10-27T13:49:47Z",
+  "first_attempt": {
+    "core_symmetric_source_entries": 512946,
+    "independent_combined_square_Gauss_order": 826,
+    "initial_low_dimension": 826,
+    "initial_residual_order": 86,
+    "model_error_goal": "accepted old selected-S physical lower /2^20; accuracy policy, never a target positive-gap premise",
+    "parity_dimensions": [
+      413,
+      413
+    ],
+    "refinement_policy": "Keep T81/100 fixed. Diagnose numerical width vs analytic loss vs real negative upper. If width fails, increase native precision by1024 and publication by64 only as implicated, retaining versions. If canonical model allowance dominates sensitive directions, increase evenK by2 and recheck2K<N. Alter N/reference/physical split only from a recorded coupled obstruction or complete error requirement, never blind grids. No automatic admission.",
+    "source_arithmetic_Gauss_order": 1239
+  },
+  "format": "t081-first-attempt-declaration-seal-v1",
+  "independent_review_sha256": "282a69d42a829c230f3dadcaa57766999fb18eb091ab35bf8dd162ba1edb9d58",
+  "negative_controls_sha256": "a117536e45e64a650c3bf4ba2fe54ed480ade5c9af1e0b4ed7bcb0c90b63d255",
+  "precision": {
+    "guarantees_target_gap_false": true,
+    "independent_bits": 6144,
+    "independent_coefficient_amplification_bits": 4933,
+    "matrix_publication_bits": 256,
+    "numerical_error_physical_norm_goal": "2533489398532385610854799768096650063002201401135607291525077968539424879603474352628883648108145534171618054833455756036242476182310380834355655935213896802485325329844121759218946659871829261457825903087717729868340267736357750933363233712869077256077111951421825573859953072699551259503947453917353242576314929711690952341960287622283351890618611263986031682865672782911036305156895529837746143901/672079259860533598043587331807400046117962690362193047510316993098456681263049520620061922441369785284915326721907807433095736781364858843936645658282130125724683999799063418317192083626447315799225061414839259543978292959827089191357440354484077585650750016046025721115566559289328281916193801190364948914790306621199305260200687029802786308360990376756094472709037456105861844795454662452316376664488490161135576024088576",
+    "scalar_bits": 768,
+    "scalar_publication_bits": 192,
+    "source_bits": 4608,
+    "source_coefficient_amplification_bits": 3624,
+    "upward_Bessel_amplification_bits": 2972
+  },
+  "prime5_topology_audit_sha256": "4a71562fda4908d68e7267057251d3fd50788207288ab2569332640f3595ea87",
+  "prime5_topology_source_sha256": "595c9950e61b58480d79e6b6344d6dc6713bfe0a0b14ec8174057dc08de0b617",
+  "production_admission": false,
+  "reference_error_contract_sha256": "6ac3e241aa4406132080cce2a4da029136bdb8cfc986943a4e78709fa8d4b863",
+  "refinement_policy": "Keep T81/100 and the complete criterion fixed. Run source and audit sequentially, one numerical-library thread each. First classify numerical width, conditioning, analytic overestimate, or a strict negative upper of the selected lower. Raise native precision/publication only from failed width/seed evidence; raise evenK only when its fully paid canonical allowance is the implicated loss, rechecking2K<N. Change N/reference/physical split only from a recorded coupled obstruction or complete error requirement. Any changed source/declaration/run receives a new version. Resource interruption is not a mathematical sign.",
+  "resource_facts_sha256": "051e34131ba92d1b7e03a0806b8b2040ec45a6a5f7844f79b057f126571b9f21",
+  "scalar_reference": {
+    "R": 710,
+    "Rc": 1420,
+    "alpha": "1/4",
+    "beta": "821/512",
+    "eta": "340282366920938463463374607431768211455/340282366920938463463374607431768211456",
+    "m": "1/3"
+  },
+  "source_mass": "ordinary mapped Legendre D_n=2/(2n+1), unitary physical L2 convention",
+  "source_norm_or_positive_gap_at_target_assumed": false,
+  "support": "81/100",
+  "supported_reference_audit_sha256": "65f5b7d7ed5996c220e2c87b20770847c35cf73bbc8600b3cf3fe058bf37c569",
+  "supported_reference_source_sha256": "52bbb50458c067146af1523a80691223b5eed93abede9c73a917a188ef87d42d",
+  "target_declaration": "computations/2026-10-27T132236Z-t081-prime-five-qualification/data/target-declaration-source-v1.json",
+  "target_declaration_audit_sha256": "a10cf29c29193f6b3a9c981ad07631bced6799b2a4b34efe0cc7f415716f66c7",
+  "target_declaration_sha256": "026658a580d6ebe2ff8543d9e94ebbd24ea92d13027c5e43714e876cce353341",
+  "target_full_source_generation_started": false,
+  "target_low_or_coupling_sign_checked": false,
+  "theta_policy": "Choose an exact positive Young parameter from fresh target head/tail data and retain its proposal before the exact sign. A floating proposal never supplies analytic truth or nonsingularity."
+}

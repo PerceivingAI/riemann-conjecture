@@ -1,0 +1,110 @@
+{
+  "format": "residual-reuse-verification-v1",
+  "created_utc": "2026-11-12T19:22:35Z",
+  "origin_git_commit": "16e93322ff34570bf912276acba28bb0b84c861d",
+  "origin_git_dirty": true,
+  "status": "PASS_CONTROL_ONLY_RESIDUAL_REUSE_CORRECTION",
+  "environment": {
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "python-flint": "0.9.0",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "pytest": "9.1.1"
+    }
+  },
+  "tests": {
+    "passed": 90,
+    "failed": 0,
+    "skipped": 0,
+    "pytest_reported_seconds": "13.49"
+  },
+  "qualifier_wrapper_wall_seconds": "217.78",
+  "science": {
+    "exact_residual_digest": "689114fb1c63ef17f38088e5d36c746110b63da64b475f5672d3fae70025e1af",
+    "exact_residual_pairs": 60,
+    "manufactured_full_head_digest": "a72d1ee218d77480b88e9dfc02104897084319daa8dac606911304f3e9dc36c7",
+    "manufactured_full_head_values": 826,
+    "reduced_head_digest": "99302b5f359f455ac9ef4c382c6b22f23bacdba4b41e7cc2fd3a6bbca9ab5700",
+    "reduced_head_values": 18
+  },
+  "baseline_image_constructions": {
+    "full": 826,
+    "reduced": 18
+  },
+  "corrected_image_constructions": {
+    "full": 2,
+    "reduced": 6
+  },
+  "owned_control_peak_bytes": 82903040,
+  "reduced_entries_checked": 36,
+  "verified_owned_stages": 21,
+  "pre_change_files_verified": 155,
+  "corrected_files_verified": 157,
+  "historical_record_prefix_preserved": true,
+  "full_reference_status": "FAILED_FULL_V2_NO_ACCEPTANCE",
+  "full_qualification_executed": false,
+  "production_admission": false,
+  "files": [
+    {
+      "path": "scripts/whole_source/analytic.py",
+      "size": 36959,
+      "sha256": "6d99858b245b8812da1ce5fb42b11b563d100c04650e2f810e9d16d15aaf68b2"
+    },
+    {
+      "path": "tests/test_whole_source_head.py",
+      "size": 5090,
+      "sha256": "b7018486584e170eb6c2c6edf43a1c7793d3717d5cbe9520d0b01c6614b7f042"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/residual-reuse-control-v1.py",
+      "size": 5984,
+      "sha256": "9aa33bad3cb1c6e0f19debe600cdc019fab3e4916e133263e8a724a789711a1f"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/verify-residual-reuse-v1.py",
+      "size": 6457,
+      "sha256": "c53fb0c384ecf8eaf0bf998c39e607dd3272313d1b833c3f8c2451a5f7c447ee"
+    },
+    {
+      "path": "scripts/README.md",
+      "size": 164252,
+      "sha256": "14517fa375e6c9752f48af4cfaf9bd3fce3669b74a657af14986711d3d55e95b"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/record.md",
+      "size": 71177,
+      "sha256": "2205622a1e16977a8c02212045c27933d26ad747e5b89a28c8102373c17d03a3"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/residual-reuse-pre-fix-20261112T191546Z/preservation.json",
+      "size": 39666,
+      "sha256": "521be4ae6b08baa74ef6eabf3c1cff1623002b30810d25ef5fed39c0f1ec5c1a"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/residual-reuse-tested-source-v1/preservation.json",
+      "size": 40120,
+      "sha256": "2d1ef60d0ca683058cde2c49788f6d3cd9b72d0cc511999411b50639abd35839"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/residual-reuse-tests-v1.xml",
+      "size": 12434,
+      "sha256": "e21fe54e23b81d6cef792ef24ff5996c81bcc5a93850df726f862310ea2a246f"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/residual-reuse-smoke-v1/verification.json",
+      "size": 5813,
+      "sha256": "36afbc0a93af08c52ebf83390f2df8a7f84f64ff8f292fbac118a1b0bb4bedf9"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/residual-reuse-smoke-v1/baseline.json",
+      "size": 3266,
+      "sha256": "78d53dcd63107ff7c26d8ea975ae6c99f8ed865f037552ec031a407ccb598c0a"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/residual-reuse-smoke-v1/corrected.json",
+      "size": 3263,
+      "sha256": "7c899bc5e9f31f889406d7d24ec27fc10ae125640499789f2bd020e82a5722b0"
+    }
+  ]
+}

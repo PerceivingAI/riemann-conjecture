@@ -1,0 +1,3 @@
+kernel-groups-0: {"elapsed_seconds": 0.12009500002022833, "event": "program_started", "kind": "fixture", "threads": 1}
+kernel-groups-0: FileNotFoundError: [Errno 2] The system cannot find the file specified: '[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v3\\operation\\source\\producer\\attempts\\8ecd9079b10a4f498b87ff76f007b804\\runtime\\scripts\\whole_source\\retention.py'
+kernel-groups-0: {"elapsed_seconds": 2.4743067000235897, "event": "program_finished", "exit_code": 1, "kind": "fixture", "wall_seconds": 2.353192999988096}

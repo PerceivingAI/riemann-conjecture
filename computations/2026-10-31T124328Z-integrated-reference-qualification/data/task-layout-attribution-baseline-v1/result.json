@@ -1,0 +1,32 @@
+{
+  "status": "PASS_CONTROL_ONLY_OPERAND_REUSE",
+  "mathematical_digest": "a78a70cdf00b9b2ae8c0d9ecec5942e92be8e39ca5a86eb6dca2886950852510",
+  "counters": {
+    "proposal": {
+      "json_parses": 160,
+      "integer_decodes": 460,
+      "raw_reads": 408,
+      "logical_bytes_read": 763144
+    },
+    "exact": {
+      "json_parses": 96,
+      "integer_decodes": 294,
+      "raw_reads": 512,
+      "logical_bytes_read": 264812
+    }
+  },
+  "code_root": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\task-layout-pre-v1",
+  "dimension": 7,
+  "panel_size": 2,
+  "parities": [
+    0,
+    1
+  ],
+  "native_precision_bits": 1024,
+  "native_threads": 1,
+  "source": "MANUFACTURED_INTEGER_AND_RATIONAL_CONTROL",
+  "complete_global_inner_sums_and_mass": true,
+  "physical_device_io_measured": false,
+  "full_source_evaluated": false,
+  "production_admission": false
+}

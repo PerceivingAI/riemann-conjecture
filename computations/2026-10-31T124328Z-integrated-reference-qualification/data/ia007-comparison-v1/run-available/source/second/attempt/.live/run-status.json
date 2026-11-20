@@ -1,0 +1,1 @@
+{"command":"whole-source-owned-execution-v1","elapsed_seconds":20,"format":"riemann-live-run-v1","pid":123,"run_id":"fixture-second","started_at_utc":"2026-11-12T00:00:00Z","support":"81/100","terminal":true,"workflow_state":"RUN_INTERRUPTED"}

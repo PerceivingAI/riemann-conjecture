@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 192, in invoke
+    result = function()
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 221, in <lambda>
+    _, failed = invoke('proposal-owned-failure', lambda: propose(retry),
+                                                         ~~~~~~~^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 216, in propose
+    return proposal.run_proposal(pinputs['problem'], source.path, pinputs['execution'], destination,
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                 code_root=root, resume=resume)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\proposal.py", line 1032, in run_proposal
+    native = _run_native_graph(output/('native-'+str(parity)),*bound['native'],base,
+        code_root=root,recovery_context=recovery_context,resume=resume)
+  File "[REPO_ROOT]\scripts\whole_source\proposal.py", line 1003, in _run_native_graph
+    below = waves.wave(tasks,'factor-below',j)
+  File "[REPO_ROOT]\scripts\whole_source\proposal.py", line 982, in wave
+    return _run_wave(self.lock,self.execution,tasks,operation,column,journal=self.journal)
+  File "[REPO_ROOT]\scripts\whole_source\proposal.py", line 872, in _run_wave
+    execution.run_stage(stage,tasks)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 157, in stage
+    result = run_stage(owner, name, tasks)
+  File "[REPO_ROOT]\scripts\whole_source\execution.py", line 683, in run_stage
+    return self._run_stage(name, tasks)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\execution.py", line 759, in _run_stage
+    receipt = self.backend.run(name, self.runtime_root / "scripts/whole_source/execution.py",
+        ["--stage", str(config_path), "--stage-sha256", _sha(canonical_bytes(config))], kind="fixture",
+        # Windows can omit sys.path[0] for a script beyond MAX_PATH.
+        # Supply only the raw-bound helper directory, never ambient code.
+        environment={"PYTHONPATH": str(self.runtime_root / BUNDLE)})
+  File "[REPO_ROOT]\computations\2026-10-28T034134Z-t081-resource-execution\execution_supervisor_v1.py", line 159, in run
+    if process.returncode not in expected_codes:raise RuntimeError(name+' exited '+str(process.returncode)+'; inspect retained stderr and profile')
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: factor-below_0 exited 1; inspect retained stderr and profile

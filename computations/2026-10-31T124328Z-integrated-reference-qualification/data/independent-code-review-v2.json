@@ -1,0 +1,116 @@
+{
+  "code": [
+    {
+      "path": "scripts/whole_source/producer.py",
+      "sha256": "9b9d16606dc145b7b408132b8856f7776a34710f109a28423e1c5079299fbc06",
+      "size": 33634
+    },
+    {
+      "path": "scripts/whole_source/analytic.py",
+      "sha256": "b5816fe12c16f72d91292713b36645f3488a31116ea17a45fc3f7a94082a586f",
+      "size": 37645
+    },
+    {
+      "path": "scripts/whole_source/pipeline.py",
+      "sha256": "a4c6be2fba4e5d600fd52a4f703a8b7bc0d0a072b93ec8f03de2cb1692e5f73d",
+      "size": 41549
+    },
+    {
+      "path": "scripts/whole_source/proposal.py",
+      "sha256": "c5222963c2a04bee5ed26b7b153b50fb8ed2c9207ef6543557a83d4476789382",
+      "size": 38929
+    },
+    {
+      "path": "scripts/whole_source/proposal_float.py",
+      "sha256": "97e21ed74c751205886cdc943c316c3159f3e0d4f20112ac2b6961b66d396d70",
+      "size": 5747
+    },
+    {
+      "path": "scripts/whole_source/exact.py",
+      "sha256": "4fdf4f309d8dc275b6405a04325a05db63f156020ef40a4ca40948277d67b17b",
+      "size": 40150
+    },
+    {
+      "path": "scripts/whole_source/exact_global.py",
+      "sha256": "83d6328be6cdcdf5cf56ee7899fe494691d3f6fbae1a8b770ed71303f58c1e35",
+      "size": 7860
+    },
+    {
+      "path": "scripts/whole_source/controls.py",
+      "sha256": "f067804c3457250a405d26c5530409bb5acd9acb24e0a4abf744d03ff13f1b6d",
+      "size": 27694
+    },
+    {
+      "path": "scripts/whole_source/retention.py",
+      "sha256": "9414e7de004f5bba801452520df15339f8b20aa0e0f9a4b40509729ba2e1c9c4",
+      "size": 43084
+    },
+    {
+      "path": "scripts/whole_source/resources.py",
+      "sha256": "5efce00fbee1e16e079f20339f7150e14e8020190cc6142909b12ee304fcd3b4",
+      "size": 10784
+    },
+    {
+      "path": "scripts/whole_source/execution.py",
+      "sha256": "b6cf38055e29271438c77e35bef7deeb1050a6d7d3868384db096c6ae93c50ea",
+      "size": 65999
+    },
+    {
+      "path": "scripts/whole_source/artifacts.py",
+      "sha256": "db52e87296462e0e87c3ef232eefdcacb759f5df9670457d1e1493bc131a04e4",
+      "size": 87246
+    },
+    {
+      "path": "scripts/whole_source/contract.py",
+      "sha256": "d249f79cade97c604563b4a7c2066bb7ddc5d5933f83e5c87c968fb5e3e5edda",
+      "size": 36768
+    },
+    {
+      "path": "scripts/whole_source/slice.py",
+      "sha256": "7526522c9c15240140a4c4e0d04302fe3ba4e16b9180b5443eb83c4fff0a8ff6",
+      "size": 22640
+    },
+    {
+      "path": "scripts/whole_source/gram.py",
+      "sha256": "fb6f2e94092133a7eec07c0b91b9595b0ef8ece72132d0569a962a7cbd529b6c",
+      "size": 23620
+    }
+  ],
+  "created_utc": "2026-10-31T18:07:08Z",
+  "disposition": "ACCEPTANCE_CORRECTION_REQUIRED_PENDING_FULL_EVIDENCE",
+  "findings": [
+    {
+      "blocks": "final acceptance only; coordinator stops before this gate",
+      "file": "scripts/whole_source/retention.py",
+      "lines": [
+        557,
+        562
+      ],
+      "message": "Final conjunction compares proposal scope to its status NONPROOF_ONLY; actual scope is NONPROOF_PROPOSAL_ONLY",
+      "severity": "P1",
+      "status": "OPEN_PENDING_POST_NUMERICAL_RUN_CORRECTION"
+    }
+  ],
+  "format": "whole-source-initial-independent-code-review-v1",
+  "hash_authority": "Parent freshly recomputed current bytes; all match reviewer-reported recorded bindings",
+  "limitations": [
+    "No actual full run accepted",
+    "Static code review only",
+    "Terminal inverse-weight case changes declaration, not source matrix bytes",
+    "Installed arithmetic and Suzuki/source-form/Gauss premises remain explicit"
+  ],
+  "numerical_code_frozen": true,
+  "other_confirmed_findings": [],
+  "production_admission": false,
+  "reviewed_contracts": [
+    "complete independent source domains and mixed products",
+    "exact anchor cover and grouping-independent q512 reduction",
+    "complete head/exterior and physical masses",
+    "fresh full nonproof proposal",
+    "exact all-inner congruence/radii/once-only model error/global nonsingularity/width/norm",
+    "nine mathematical control classifications",
+    "oracle-separated scientific replay",
+    "owned aggregate admission and raw retention"
+  ],
+  "reviewer": "QualificationReview read-only reviewer agent"
+}

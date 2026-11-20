@@ -1,0 +1,1 @@
+ContractError: scalar premise program rejected

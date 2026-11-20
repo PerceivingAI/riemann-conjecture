@@ -1,0 +1,8 @@
+{
+  "format": "riemann-run-failure-v1",
+  "run_id": "20261113T204416Z-75347fb9",
+  "state": "RUN_FAILED",
+  "time_utc": "2026-11-13T20:44:41Z",
+  "error_type": "RuntimeError",
+  "error": "second exited 1; inspect retained stderr and profile"
+}

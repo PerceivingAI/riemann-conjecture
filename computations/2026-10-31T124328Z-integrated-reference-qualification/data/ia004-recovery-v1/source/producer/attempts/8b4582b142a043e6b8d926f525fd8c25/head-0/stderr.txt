@@ -1,0 +1,1 @@
+ContractError: foreign head column

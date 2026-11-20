@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 192, in invoke
+    result = function()
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 327, in <lambda>
+    invoke('corrupt-operand-rejected', lambda: assess(corrupt, True), expect_failure=True, zero=True)
+                                               ~~~~~~^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\wave-recovery-qualify-v1.py", line 251, in assess
+    return exact.run_exact(inputs['problem'], source.path, retry/'proposal.json', inputs['execution'],
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           destination, code_root=root, resume=resume)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 735, in run_exact
+    return _run_bound_exact(root,Path(output_dir).absolute(),bound,resume=resume)
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 661, in _run_bound_exact
+    missing = any(journal.get(name) is None for name in ('global','first','second','reduce'))
+              ^^^
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 661, in <genexpr>
+    missing = any(journal.get(name) is None for name in ('global','first','second','reduce'))
+                  ~~~~~~~~~~~^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\recovery.py", line 243, in get
+    root, _, stage = _validate_group(payload['group'])
+                     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\recovery.py", line 112, in _validate_group
+    return _read_group(record, document['context'])
+  File "[REPO_ROOT]\scripts\whole_source\task_groups.py", line 98, in _read_group
+    _verify_outputs(root, document['outputs'], _result_authority(descriptor))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\task_groups.py", line 52, in _verify_outputs
+    _raw(root, ref, 8*MIB)
+    ~~~~^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\artifacts.py", line 105, in _raw
+    _require(stat.S_ISREG(before.st_mode) and before.st_size == ref.size, "invalid regular artifact")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\artifacts.py", line 39, in _require
+    raise ArtifactError(message)
+scripts.whole_source.artifacts.ArtifactError: invalid regular artifact

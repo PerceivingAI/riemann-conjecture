@@ -1,0 +1,34 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "[REPO_ROOT]\scripts\whole_source\supervision.py", line 653, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "[REPO_ROOT]\scripts\whole_source\supervision.py", line 648, in main
+    return _child(args.child)
+  File "[REPO_ROOT]\scripts\whole_source\supervision.py", line 638, in _child
+    runpy.run_path(str(path), run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\data\integrated-qualification-owned-v6\exact-stop-child.py", line 5, in <module>
+    runpy.run_path(str(p))["child"]('exact-stop','[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\integrated-qualification-owned-v5\\operation')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\integrated-qualification-owned-v3.py", line 114, in child
+    result = cli(argv)
+  File "[REPO_ROOT]\scripts\weil_whole_source_split.py", line 268, in main
+    report = run_exact(args.problem, args.source, args.proposal, args.execution, args.output_dir, resume=args.resume, **kwargs)
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 921, in run_exact
+    return _run_bound_exact(root,Path(output_dir).absolute(),bound,resume=resume)
+  File "[REPO_ROOT]\scripts\whole_source\exact.py", line 852, in _run_bound_exact
+    reports,report_refs,products,groups = run_waves(
+                                          ~~~~~~~~~^
+        lock,execution,descriptor,config['operands'],journal=journal)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\exact_tasks.py", line 399, in run_waves
+    journal.commit(operation, groups[operation], {'outputs': outputs})
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\integrated-qualification-owned-v3.py", line 66, in commit
+    raise KeyboardInterrupt('CONTROL stop after committed '+key)
+KeyboardInterrupt: CONTROL stop after committed global

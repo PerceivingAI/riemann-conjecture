@@ -1,0 +1,1206 @@
+# Research scripts
+
+- **Created:** `2026-08-20T20:59:00Z`
+- **Last updated:** `2026-11-15T08:06:53Z`
+
+These scripts are research instruments for the timestamped RH attempts. The core prime/Laguerre routines remain standard-library based where practical, while selected helpers use the scientific packages pinned by `pyproject.toml` and the project lockfiles. Every retained computation must record the environment actually used.
+
+## Byte identity on checkout
+
+The directional research consumers verify raw-byte SHA-256 identities. Scoped rules in [`.gitattributes`](../.gitattributes) keep pinned sources/configuration in their recorded LF form, and the original SYS-6.4 probe plus the executed T3/4 Fourier producer in their recorded CRLF form. Retained bundles remain verbatim. This avoids platform-default line-ending conversion invalidating evidence on a fresh checkout. The rules do not rewrite historical working artifacts, broaden theorem admission, or impose a new format on unrelated records.
+
+## Exact whole-source profile metadata inspection
+
+The stdlib-only `scripts.weil_whole_source_split inspect` command binds the original reviewed scalar declarations/audits and captured code/input identities for two closed research profiles. It validates exact parameters, prime-power bases, residual coefficients, frequency partitions/terminal weights, physical domains and source/audit precision declarations. It does not import numerical packages or execute the archived verifiers.
+
+```text
+uv run --locked python -B -m scripts.weil_whole_source_split inspect --profile retained-t081 --output-dir <fresh-reference-directory>
+uv run --locked python -B -m scripts.weil_whole_source_split inspect --profile selected-t1 --output-dir <fresh-target-directory>
+```
+
+The output directory must not exist. Outputs are `problem.json`, `inspection-plan.json` and final `inspection.json`. Exact rationals use canonical signed-hex numerator/positive-denominator pairs. Input roles and raw-byte fingerprints are explicit. The problem ID identifies the normalized reviewed profile; the descriptive collection ID also binds the arithmetic declaration, logical partition and actual inspection implementation bytes. A logical full-domain partition is metadata, not an allocation or resource-admission decision. Task descriptors accept bounded output tiles with explicit producer/analytic/exact roles; they are not computed chunks or partial-sum receipts.
+
+`retained-t081` preserves its original exact numerical goal and supported-form reference. `selected-t1` preserves the selected whole-line declaration and explicitly records2^-80 as inspection-contract numerical policy, not a field added to the historical source or an achieved width. Native coefficients remain scalar premise enclosures, not matrix-quality input substitutes.
+
+Exit0 means `BOUND_RETAINED_PROFILE_METADATA` only. All fresh native-verification, matrix, positivity, production-admission and execution-authorization flags remain false. Binding errors return exit2 and retain `failure.json` where writable; an existing directory is refused untouched. Files are published from owned flushed temporary files; this is not a scientific checkpoint/recovery protocol. Mathematical execution uses the separately bound `slice` command below.
+
+Executed inspections, isolated no-site-packages checks, regression evidence and preserved development versions are in [X-20261029-004](../computations/2026-10-29T175545Z-whole-source-profile-binding/record.md). The original fixed-support mathematical workflows and theorem inventories are unchanged.
+
+## Bounded exact artifacts and owned research tasks
+
+`scripts/whole_source/artifacts.py` implements a separate scientific collection specification, bounded exact snapshots, signed-hex integer/rational primitives, compressed dyadic interval chunks and semantic physical/contribution coverage. It does not reinterpret the inspection-only `PlanSpec` or output-tile keys as scientific execution. `CollectionLock` uses real OS ownership and permits explicit compatible nonempty resume; each runtime attempt still uses a fresh directory. Writable collection locks must be regular, single-link files whose descriptor and pathname identify the same inode.
+
+Workers stage closed payloads. The sole collection owner publishes immutable chunks, closed-payload completion receipts, indexes/prefixes and the collection manifest last. Prefix sums follow fixed contribution order and pay outward rounding after every contribution. Final endpoint/tile/quantity identities exclude attempt identity and checkpoint grouping. Structural resume does not establish analytical correctness or authenticate an external self-consistent cache.
+
+Committed chunk/prefix metadata uses an ephemeral collection/head/generation-bound catalog. Exact aligned partition keys replace repeated overlap scans; prefix predecessors and pinned read-only worker heads remain explicit. Each view is limited by the existing decoded-byte allowance, with geometry and object/container pricing. Root, worker-private and external-committer admission account for it before owned work. Capacity exhaustion rejects rather than enlarging a cap. Cold acquisition/resume, selected dependency consumption and terminal scientific publication retain raw index/receipt/payload integrity checks.
+
+Each quota check calculates total and temporary logical bytes in one fresh safe filesystem census under the existing volume lock. Independent admission points remain independent, and externally added retained bytes still count. This is not a persistent byte ledger or constant-time publication. The metadata correction addendum in [X-20261031-003](../computations/2026-10-31T124328Z-integrated-reference-qualification/record.md) retains exact-content comparisons, refusal/recovery tests and actual two-worker staging.
+
+`scripts/whole_source/execution.py` implements one owned stage root and a bounded spawn pool inside it. `resources.auto_plan()` selects detected affinity/quota-limited CPU capacity and available RAM rather than fixed one-worker/1536MiB defaults. The memory cap excludes the larger of the declared reserve,64MiB and ten percent of measured availability, plus the separately accounted external-supervisor increment. Aggregate worker/private/native buffers, per-thread workspace, codecs, bounded queues and repository/temporary volume are admitted before work. Unneeded RAM is not allocated merely to fill the allowance.
+
+Independent work uses the largest affordable worker count, then spare native threads without reducing that count; singleton native/BLAS phases can use the detected CPU budget. `workers*threads<=cpus` remains mandatory. Windows' process-pool limit is61 workers. Each automatic stage starts at most its actual task count, waits for actual owned worker PID/memory observations before task GO, and retains its aggregate observation. Completion is published only after successful owned receipts and cleanup. Manually bound pool plans still require their matching prior aggregate qualification.
+
+The pinned neutral supervisor installs the owned job before its private READY/GO release. Attachment receipts bind the actual root, stage, attempt and installed caps against the supervisor-held job handle. A worker's NULL-handle job query can expose an inherited job instead. The captured task tree needs no `.git`; legacy Git fields describe raw-bound origin claims, not current checkout cleanliness. Fresh live status, logs, stage profiles, owned cleanup and bounded transport remain separate from deterministic scientific artifacts.
+
+Resource inspection starts no worker:
+
+```text
+uv run --locked python -B -m scripts.weil_whole_source_split inspect --resources --problem <bound-problem.json> --execution <owned-execution-plan.json> --output-dir <fresh-inspection-directory>
+```
+
+For manually bound plans, `--cpus`, `--workers`, `--threads`, `--memory-mib` and `--reserve-mib` override execution-file fields for inspection. Capacity-derived plans also bind the allocation decision; editing one selected field without regenerating that decision is rejected. The old `T081_*` variables do not select this policy. Exit0 means an inspected operational envelope only; `execution_authorized`, fresh mathematical verification, positivity and production admission remain false. Resource refusal returns2 before output creation. Actual execution additionally requires compatible scientific collection, code/backend/arithmetic bindings and installed ownership.
+
+[X-20261029-005](../computations/2026-10-29T220733Z-bounded-artifact-execution/record.md) retains actual signed-polynomial persistence/continuation/resume, native2x2 controls, source versions, failure corrections and operational tests. Its versioned control runner is not a Weil evaluator. Windows process/file observations are not a power-loss guarantee, live Linux qualification or target peak forecast. Original mathematical programs and historical artifacts remain unchanged.
+
+## Complete selected arithmetic with independent checking
+
+[X-20261030-001](../computations/2026-10-30T023721Z-selected-linear-arithmetic/record.md) retains the executed `slice` path on Python3.14/Windows for six complete physical P_L/P_H entries of the closed T81/100 profile. It uses all four prime powers, both signed windows, all1239 Gauss nodes and the complete826-position input recurrence. Separate6144-bit analytical reconstruction checks the4608-bit producer after512-bit persisted checkpoints and owned exact reduction; physical Legendre masses and the final256-bit endpoint/error payment are checked exactly.
+
+```text
+uv run --locked --python 3.14 python -B -m scripts.weil_whole_source_split slice --problem <problem.json> --cases <cases.json> --execution <execution.json> --output-dir <fresh-directory>
+```
+
+The three input files must match the bound selected-entry contract and current captured code. Add `--resume` only for the same compatible collection; a changed role, precision, code, partition, grid or scalar context rejects. One OS-backed slice lock covers context/status updates, both role collections and final acceptance publication. Workers stage chunks; the sole owner publishes them. Resume revalidates consumed bytes and exact prefixes, then freshly reconstructs every analytical signed-window contribution, even when analytical chunks are cached. Fresh chunks must match any cached analytical content before acceptance; structural cache validity alone is insufficient.
+
+The record supplies exact executed inputs, a frozen input-only replay, a read-only retained-data verifier, all13 real recovery/boundary controls, complete false-cache rejection and190 passing affected tests. Observed final peak owned memory94167040 bytes is selected-entry evidence, not a full-target estimate. This is not a full source/matrix, positivity result, T1 execution, production admission, GPU implementation or non-Windows qualification.
+
+## Complete selected signed low and exterior quantities
+
+[X-20261030-002](../computations/2026-10-30T165153Z-selected-signed-quantities/record.md) extends the actual `slice` path to complete residual low/band terms, `V/VV`, the full combined signed `P_squared`, both ordered `VP` orientations, `J_F`, `A_model` and the complete projection-subtracted physical exterior. At unchanged T81/100,N826,K86,M1652, the producer and separate analytical implementation agree on **68 selected scalar quantities** and **3,304 full low/head dependency-column entries**. Every required prime power, signed window, overlap cell, prescribed Gauss node and physical projection row is included.
+
+The record's `run-signed-v1.py` prepares the exact bound problem/cases/execution files and invokes the same `slice` command above. It supports only this closed .81 selection, not arbitrary target execution. Completed producer expressions may be reused on compatible `--resume`; analytical expressions are freshly reconstructed. Checkpoints are complete expressions/columns, not resumable inner subtotals. No new process-interruption qualification is claimed.
+
+Actual native execution and read-only retained/reference checking pass; **48 mathematical and 11 affected ordinary tests** pass. All six fresh owned stages clean up, with observed peak132792320 bytes under the explicit1536MiB cap. The independent implementation retains bounded small coefficient-polynomial batches, not full node-by-mode image tables; the record separates their representation account from measured total memory and workspace budgets. Source4608/audit6144/checkpoint512/publication256 and the original exact error goal remain fixed.
+
+The residual discrepancy is still a bound to charge once in a later full-space argument. These selected quantities do not seal a full source, establish a matrix sign/positivity, qualify full T1 execution or change theorem admission. Earlier arithmetic/recovery artifacts remain separate and unchanged.
+
+The actual compatible resume also passes: producer work is reused, all22 analytical tasks are freshly reconstructed, and scalar endpoints/publications plus all full-column chunk references agree exactly with the fresh run. All three resumed stages clean up; the resumed read-only retained verifier also passes.
+
+## Complete frequency/head expressions and streamed source publication
+
+[X-20261030-003](../computations/2026-10-30T181819Z-bounded-frequency-head-source/record.md) implements separate producer/analytical frequency kernels, full coupled head contractions, and actual `source`/`audit` commands for the retained .81 profile. Source4608/audit6144/checkpoint512/publication256 and the original scalar/error declarations remain fixed. T1 source execution is not enabled.
+
+The full-line kernel includes every finite frequency anchor and the strictly positive terminal full Legendre mass. Disjoint anchor groups run concurrently, each retaining one bounded compact integer accumulator and only its current high-precision anchor vectors. Explicitly partial row-wide integer pages are reduced over the complete ordered anchor cover before complete kernel cache tiles are published. Exact integer addition preserves the original per-anchor fixed-grid rounding. There is no full high-precision native kernel or all-anchor native cache. Signed head columns use physical output mass. Every head image includes all head rows and both reflected off-diagonal block actions; final contraction retains all413 physical head directions per parity.
+
+```text
+uv run --locked --python 3.14 python -B -m scripts.weil_whole_source_split source --problem <bound-problem.json> --execution <bound-execution.json> --output-dir <fresh-source-directory>
+uv run --locked --python 3.14 python -B -m scripts.weil_whole_source_split audit --problem <bound-problem.json> --execution <bound-execution.json> --source <source-directory>/producer/source-manifest.json --output-dir <fresh-audit-directory>
+```
+
+`prepare_source_inputs()` in `scripts/whole_source/pipeline.py` creates code-bound inputs. Full-profile output tiles are restricted to16 or32 modes, with whole physical F/C/Y columns separately declared. Transport inventories are checked before native arithmetic. The source publishes immutable256-bit exact tiles and then its six-family `source-manifest.json`; the top-level `source-state.json` gives its relative locator and raw SHA. The new manifest covers A_model, complete weighted head and complete physical exterior for both parities. It does not change the older sixteen-quantity scientific seal contract.
+
+Producer and analytical preparation independently price final tiles and two-input source panels before selecting workers. Current legal16-mode private accounts are196MiB producer and227MiB analytical;32-mode accounts are290MiB and345MiB. These include bounded32MiB prepared-row and64MiB decoded-source working sets plus the existing8MiB committed catalog. Native floors remain128MiB. Overall detected memory caps are unchanged; larger component accounts can reduce affordable concurrency. Insufficient private/native allowance or wrong role precision rejects before collection creation, and workers repeat the guards. These are derived accounts, not measured full-stage peaks. [X-20261031-003](../computations/2026-10-31T124328Z-integrated-reference-qualification/record.md) preserves earlier account versions and separately dated correction evidence.
+
+The independent analytical head path constructs one complete exact endpoint residual image per input and contracts every same-parity head row against it. It shares no producer images, retains coefficient validation and physical output masses, and keeps the separate scalar residual evaluator. The final-tile path uses the same analytical image constructor. [X-20261031-003](../computations/2026-10-31T124328Z-integrated-reference-qualification/record.md) records90 passing affected tests, preserved-versus-corrected exact/enclosure agreement, actual reduced source/audit containment and bounded owned memory observations. This removes repeated preparation without qualifying full-stage performance or changing memory allowances.
+
+Current source tasks group at most two ordered same-parity inputs, with a one-input tail. Producer F columns share the current32-node recurrence panel while retaining separate one-column native products. The analytical role separately shares its Rodrigues row preparation. Head panels consume each K tile once and preserve both reflected block actions. Producer residual heads reuse the existing exact multi-row primitive walk and scalar zero condition. Individual F/C/Y chunks, final tile shapes, domains, precision and rounding remain unchanged.
+
+Prepared reuse retains only the current output-row basis, not all shifted/window images or full native families. Decoded F/C/Y reuse is restricted to that output row and verifies current raw bytes before every hit. Source dependency binding recognizes the complete ordered panel outputs and successful containing-stage evidence. Compatible producer resume handles a partly published panel; analytical reconstruction remains fresh. Changed code requires fresh configurations; earlier task packets remain reproducible through their captured implementations.
+
+Proposal/exact stores retain byte-bounded immutable Python integer interpretations, not mutable native matrices. Logical reads still verify their bound paths/raw fingerprints; native matrices are reconstructed for each caller, and proposal factors still come from their paid persisted bytes. Component accounts include simultaneous caches and decode scratch. The exact entry points share one same-invocation parent binding; every independent owned callback retains its operand validation. The numerical-reuse addendum in X-20261031-003 records the earlier349 passing case outcomes and39 successful owned stages. The later dependency-wave correction below increases callback granularity without trusting a cached validation verdict. No whole-pipeline speedup or new full-reference acceptance is established.
+
+The audit reads and hashes the exact source snapshot/tiles, reconstructs every expression independently at6144 bits, and requires producer256-bit containment of analytical512-bit enclosures. A source artifact alone is not analytical acceptance. The final audit receipt binds the consumed manifest and tile digest. Compatible source `--resume` reuses completed producer work; analytical reconstruction remains fresh even when its own prior chunks exist. Committed staging payloads are removed by their single publishing owner.
+
+Executed qualification is deliberately narrower than the full supported source: all **170,982 real kernel entries**, six complete selected head contractions, and an explicitly non-admissible N6/M12/K2 model through the actual source/audit CLI. The head selection reuses previously qualified, role-specific complete F columns; it does not claim fresh F reconstruction. All60 frequency terms and full413-direction head contractions are unchanged. The affected ordinary/mathematical suite passes **93/93**.
+
+Full16/32-mode logical-domain inspection covers all512946 final coordinates and reports derived traversal counts without native imports. Neither it nor the reduced control qualifies a new full supported-source run, full physical row-width acceptance, proposal/exact sign, target practicality, T1 execution, production admission or positivity. The retained record separates actual resource receipts, development failures, measured single-stage timing and unmeasured full-run costs.
+
+The later full fresh integration attempt in [X-20261031-003](../computations/2026-10-31T124328Z-integrated-reference-qualification/record.md) was stopped by the owner before acceptance. Its original fixed resource policy was corrected to capacity-derived scheduling; the full run remains stopped. Focused reduced source/audit execution observes6 concurrently owned workers and all36 containments. Current integrated input format `whole-source-integrated-execution-v4` retains `detected-capacity-v1`, phase coordination and the bounded resource admission below. Historical v2/v3 inputs require their preserved implementation. These checks do not close the full supported-reference acceptance gate.
+
+Mathematical-control source variants copy the complete verified local dependency closure from the original source before manifest publication. Snapshot metadata uses independent copies with content-hash deduplication; unchanged scientific tiles retain hardlinks. Missing/corrupt stored dependencies reject without a checkout fallback or relaxed exact-consumer limits. The later variant-dependency addendum in [X-20261031-003](../computations/2026-10-31T124328Z-integrated-reference-qualification/record.md) records focused regressions and all three real reduced exact-control outcomes, with nine verified owned stages. Its initial coordinator report failure and separate read-only closeout remain retained. These controls do not qualify the full-source nine-case gate or full scientific replay.
+
+### Scientific publication and operational provenance
+
+New complete-source publications use `whole-source-publication-tile-v2` and `whole-source-scientific-manifest-v2`. Their cached scientific ID binds the problem, code/backend, role, quantities/domains, layout, arithmetic/native-thread policy, encoding and rounding. Operational volume/transport allowances do not enter it. The full operational `CollectionSpec.collection_id`, quota enforcement, ownership, partial chunks and strict local resume identity remain unchanged.
+
+Each source publishes a separate immutable `source-execution.json`, binding the exact scientific manifest to its actual operational collection, plan and owned completion receipts. Current `whole-source-publication-execution-v2` records also bind the complete artifact dependency selection and noncontributing receipt history. Readers reject absent or inconsistent bindings. Declared finite controls and mathematical variants cannot supply owned-source acceptance.
+
+The v2 analytical receipt compares scientific IDs. Its separate `audit-execution.json` binds both actual source/analytic executions. Replay validates each execution independently and requires identical canonical source manifests, final tiles and scientific audit content. Full-reference comparison still requires512946 entries and two413-dimensional parity blocks; reduced controls receive a separate control-only result.
+
+Proposal/exact preparation freezes the actual source execution companion and reader snapshots separately. Original proposal/source raw hashes and complete transform coordinates remain strict; replay does not rewrite the proposal to accommodate a different resource envelope. Pipeline-result v3, review-manifest v4 and reviewed-acceptance v5 bind the committed phase selection as well as operational companions and selected source-stage evidence. Older publications/configurations remain historical and require their preserved implementation, not an active compatibility path.
+
+`source_dependencies.py` records immutable producer bindings under each collection's `dependencies/` directory before the owner publishes kernel pages, cache chunks or final tiles. Selection starts at all final tiles and follows the actual bound task inputs through complete kernel reductions, F columns and head C/Y chunks. Every selected task requires successful, complete containing-stage evidence from `receipts.verify_stage()`. A later failure in the same attempt does not invalidate an earlier committed successful stage.
+
+Source audit, replay, review and final receipt verification use this same source selection. Noncontributing failed attempts remain in place and retained inventories; they do not need mathematical success. Their owned cleanup must still be verified. A failed receipt's `last_metrics` may precede cleanup and is not treated as its final process state; selected successful stages retain the existing zero-active-process check. Missing producers, altered inputs/results/runtime, wrong domains and unresolved cleanup reject. Other owned stages retain strict receipt verification.
+
+The reduced recovery control in [X-20261031-003](../computations/2026-10-31T124328Z-integrated-reference-qualification/record.md) reuses three successful stages from an attempt whose later head stage deliberately failed, preserves the failed receipt, completes the remaining source and independently audits all36 entries. The affected suite passes233 tests;12 dependency-selection tests pass separately. This does not add integrated coordinator resume or complete a full supported-reference qualification.
+
+
+Final reference assessment requires proposal `status=NONPROOF_ONLY` and `scope=NONPROOF_PROPOSAL_ONLY`, separately from the exact report's `SOURCE_CONDITIONAL` proof scope. The 2026-11-11 correction removes a scope/status mismatch that rejected valid proposals. Missing or invalid values reject; freshness and source/proposal/exact byte bindings remain required. Focused proposal/retention checks pass37/37. This is acceptance-boundary verification, not a completed full-reference qualification; see the timestamped addendum in X-20261031-003.
+
+### Provenance-bound phase stops
+
+New integrated operations use one immutable context and a bounded phase journal in `coordinator/`. The public `run` command accepts `--through prepare|source|audit|proposal|exact-inputs|exact|controls|replay`, defaulting to replay, and `--resume` for the same operation:
+
+```text
+uv run --locked python -B -m scripts.weil_whole_source_split run --problem <new-bound-problem.json> --execution <new-v4-execution.json> --output-dir <fresh-run> --through proposal
+uv run --locked python -B -m scripts.weil_whole_source_split run --problem <same-problem.json> --execution <same-execution.json> --output-dir <same-run> --resume --through exact
+```
+
+`prepare` constructs source inputs and reconstructs the eight scalar premises. `exact-inputs` performs the existing actual-operand preparation/admission; stopping through proposal does not begin it. `PAUSED_AFTER_VERIFIED_PHASE` means only the requested operational stop, never reference acceptance. No pipeline or science-coordinator completion is published until complete exact science passes.
+
+Completed phases retain their original producer records and stable attempt paths. Continue verifies their context, raw dependencies, code/runtime identities and original owned authority before dispatching missing work. Source and proposal/exact retain their scoped internal recovery. Audit, controls and replay retries use fresh attempts under their phase slot; failures and unresolved cleanup cannot be silently discarded or relabeled. Whole-phase retry is not internal audit/per-case checkpointing.
+
+Review, replay comparison, final assessment and retained receipt selection consume only the committed role-to-attempt mapping. Captured replay has its own phase chain, reconstructs the required science and installs only the original bound NONPROOF proposal. Old-format operations cannot be migrated with `--resume`. Standalone role success cannot be manually substituted for coordinator authority.
+
+The journal is bounded to4096 nodes and16MiB decoded metadata. New integrated operations also require the phase resource admission below. This interface does not provide an overall timeout, hard caller-process containment, arbitrary cross-revision recovery, power-loss guarantees or full-reference qualification. Cancellation remains an interruption, not a planned stop. Required genuine independent review and every mathematical acceptance gate remain separate.
+
+### Bounded phase resource admission
+
+Integrated v4 uses `bounded-phase-resources-v1`. Bootstrap and each next phase require complete live CPU/memory discovery and a bounded caller account before decoding large metadata. Owned numerical planning charges the caller's remaining growth as well as its own job; captured replay also charges its waiting ancestor without charging the same supervisor allowance twice. Existing worker/native-thread selection is retained. Caller accounts are conservative allocation models, not measured peaks or OS-enforced caller limits.
+
+Exact preparation inspects all actual source endpoints, transform coordinates and Young parameters before normalization. Its separate preparation account covers original/raw/decoded views and integer scratch; owned execution admission precedes normalized output publication. Programmatic `preparation_mib` limits preparation separately from the existing numerical-job `memory_mib`. Unknown discovery, oversized operands or insufficient resources refuse without reducing the mathematical workload.
+
+Each phase records immutable resource/storage admission evidence under `admission/`. Storage forecasts include existing attempts, temporary/replacement overlap, captured/replay copies and registered external review/assessment outputs. Only the next phase's allowed growth is admitted against current free space on its actual volumes; prior retained bytes remain charged to bounded logical lifetime usage. Ceilings are permitted growth, not predictions of physical consumption. Hardlinked pathnames receive no quota discount. At most two fresh attempts per phase/external operation are admitted; compatible internal recovery retains its original rules and history.
+
+Cooperating publication paths enforce logical byte/file/path ceilings before writes, copies, links and streams, including owned logs/profiles, observability and scoped inherited scalar-program outputs. Compressed staging batches bounded compressed bytes without changing gzip packets or flushing the compressor at diagnostic barriers; the additional buffer is priced in codec residency. Numerical helpers now live under `scripts/whole_source/runtime/`: three original helper files remain byte-identical, while separately named supervisor/worker v2 files add guarded publication. Historical helper/program bytes are not changed.
+
+These checks do not reserve disk space exclusively, measure physical I/O, enforce a whole-lifecycle wall deadline or qualify full-case feasibility. Fresh exact demand still requires fresh source/proposal operands. Standalone roles retain their separate local contracts; they cannot replace the integrated selected-chain/review gates.
+
+
+## Frozen implementation review for integrated acceptance
+
+New qualifications retain coordinator code snapshots under each science, controls and replay directory's `implementation/` tree. `start.json` records the current implementation and inherited executable dependency identities before work; `complete.json` binds that start record to the resulting pipeline or receipt. Owned stages use `whole-source-task-stage-v2` and bind an immutable `code-origin.json` alongside the captured runtime.
+Coordinator records also retain Python, python-flint, NumPy and SciPy versions. Stage descriptors bind the actual Python version; the gate checks each stage's declared arithmetic backend version against the frozen installed environment. These remain version/trust declarations, not proofs of the installed libraries. Proposal/exact origins explicitly declare their reader-only source-context namespaces.
+
+Prepare review evidence after the complete integrated execution and scientific replay, without granting approval:
+
+```text
+uv run --locked python -B -m scripts.weil_whole_source_split prepare-review --run-dir <completed-run> --output-dir <fresh-review-preparation>
+```
+
+The output must be outside the scientific run and beneath the code root. `implementation-manifest.json` is published only after coordinator snapshots, successful owned receipts, stage origins, captured code and all required execution groups validate. Current implementation paths must have one frozen digest/size across the original run, mathematical controls, scientific replay and final assessor. Inherited scalar Python programs and pinned neutral helpers require direct exact-byte review coverage. Source-context snapshots remain bound input data rather than being relabeled as the current executable implementation.
+
+A separately supplied `<run>/review-decision.json` must use `whole-source-independent-review-v3`. Its required fields are `format`, `disposition`, `pipeline_result`, `controls`, `replay`, `implementation` and `code`. `implementation` binds the phase-aware preparation's artifact record; `code` exactly matches its ordered `{kind, artifact}` inventory. The three result/receipt records must bind the same committed execution, and an actual independent review must supply `NO_UNRESOLVED_CORRECTNESS_FINDINGS`. Preparation never writes this decision or authenticates a reviewer.
+
+`assess` verifies the complete review contract before starting owned work and repeats it inside the exact assessor. The assessment output must be outside the reviewed scientific run. After successful owned completion, the parent verifies and records the actual final-assessor origin/runtime bindings before publishing `assessment.json`. Empty, partial, duplicate, unrelated or wrong-version review lists do not satisfy the contract. All scientific, scalar, controls, replay, source-norm and receipt checks remain required.
+
+Assessment and review-preparation destinations must also be outside every existing retained seal, including other bundles and enclosing ancestors. Both commands resolve paths and check for `retained-manifest.json` before acquiring the run lock, then recheck before output creation. Any marker type or content blocks output; seal-inspection errors reject. Rejected preflight paths create no output or run lock. Existing inventories are not rewritten or resealed. These checks do not promise protection against concurrent external filesystem replacement.
+
+The focused retention selection passes93 tests, including24 output-boundary cases. A disposable metadata publication probe rejects direct/normalized same-run output and another sealed destination, preserves both inventories, and still reaches real `assessment-origin.json` publication at a fresh sibling. Synthetic upstream metadata and an explicit stop before workers mean this is path/publication verification, not scientific acceptance. Evidence and the executable probe are retained in [X-20261031-003](../computations/2026-10-31T124328Z-integrated-reference-qualification/record.md).
+
+### Retention-only publication recovery
+
+New inventory seals use `whole-source-retained-inventory-v2`. Each attempt writes a fresh `inventory/<generation>/` with an immutable member snapshot, hash-bound intent and numbered shards, then commits the final manifest last. Retry verifies committed pending snapshots and member bytes. Earlier unfinished generations, legacy shards and temporary files remain hash-bound retained history. Active metadata alone is excluded from ordinary inventory membership. Completed v1 seals keep their original verification rules and are never migrated or rewritten.
+
+The current v2 writer captures sorted member names before creating its generation, then atomically publishes a flushed/fsynced JSONL snapshot one row at a time. It rereads that bound snapshot in4096-row shard batches. Verification compares one decoded shard against snapshot rows and hashes members before consuming the next shard. Pending verification keeps one4096-row batch and accepts matching noncontiguous unfinished shard subsets. Sorted file-name lists remain O(file count), and raw-member integrity passes remain unchanged. Existing accepted shard shapes retain their verifier semantics within the8MiB shard cap; the4096-row bound describes the writer and pending batches, not a new legacy-format restriction.
+
+After an assessment report was published but final sealing failed:
+
+```text
+uv run --locked python -B -m scripts.weil_whole_source_split finalize-retention --run-dir <run> --assessment <external-assessment-directory>/assessment.json
+```
+
+For an unsealed run, this command requires the same frozen implementation/review identities, successful owned exact-assessment evidence and exact agreement between its retained result and published report. It repeats raw receipt/task/result/runtime and scientific artifact bindings, not numerical source/proposal/exact execution. Missing or conflicting evidence rejects; report existence alone is insufficient. An enclosing separately sealed bundle blocks retention mutation.
+
+The result is `PASS_RETAINED_INVENTORY`, not a new mathematical approval. An already completed seal is verification-only and does not require repeating assessment. Historical wrong-revision assessments cannot approve a new implementation through recovery; their captured implementations remain the reproduction authority.
+
+Publication-failure tests include snapshot/intent boundaries, partial shard sets, final-manifest failure, conflicting pending shards, changed members and preserved orphan files. The final affected selection has40 passing cases, with its one incomplete sealed-ancestor fixture corrected and verified separately. Earlier broad focused verification passed134 cases and exposed two subsequently corrected recovery checks. Exact commands, original failures, JUnit reports and the real metadata publication/CLI probe are recorded in X-20261031-003. No full numerical qualification is implied.
+
+The older review contract cannot approve a new qualification. Existing historical runs and reviews remain unchanged and reproduce through their original captured implementation. The new evidence records do not retrofit execution identity into older runs, complete an unfinished full reference qualification, prove installed arithmetic libraries or establish a mathematical result.
+
+
+Verification is retained in the 2026-11-11 addendum to [X-20261031-003](../computations/2026-10-31T124328Z-integrated-reference-qualification/record.md): 137 focused tests passed, followed by a final origin-file volume-accounting check and a three-task owned execution-identity smoke. The latter retains exact polynomial results, successful cleanup and rejection of a wrong reviewed runtime version. It is an artificial operational control, not a full review approval or mathematical acceptance.
+
+
+## Operational comparison of verified owned stages
+
+Use the prospective v3 comparison consumer for new reports. Original v1/v2 programs and reports remain unchanged.
+
+```text
+uv run --locked python -B computations/2026-10-31T124328Z-integrated-reference-qualification/compare-execution-v3.py --run-dir <run> --baseline-dir <retained-baseline> --output <fresh-report-outside-input-trees.json>
+```
+
+The report uses `whole-source-retained-execution-comparison-v3` and remains `OPERATIONAL_AND_DIAGNOSTIC_COMPARISON_ONLY`. It verifies committed-phase selected owned receipts, task/result inventories, captured runtime and cleanup before summarizing stages, including scalar-premise work beneath the preparation phase. Its completion scope is `SELECTED_SUCCESSFUL_OWNED_STAGES_ONLY`; it does not assert whole-source/pipeline completion or scientific acceptance. Source artifact-derived selection remains the shared retention verifier's responsibility.
+
+Per-attempt `owner_timings` are optional advisory observations with availability, reason and same-byte snapshot/identity bindings. Missing, unreadable, malformed, stale, identity-mismatched or invalid numeric telemetry leaves the owner metric unavailable without hiding failed owned evidence. Available timing requires a consistent terminal snapshot, finite nonnegative nonboolean elapsed seconds and matching immutable owner identity. Terminal failed/interrupted owners may supply timing for their earlier successful contributing stages.
+
+If any owner duration is unavailable, the complete owner total and CPU/owner-wall ratio are null. Zero owner duration or missing CPU also leaves the ratio undefined with a reason. Stage wall/CPU/resource summaries remain independent; stage sums, coordinator time, timestamps and partial owner sums are never substitutes. The ratio uses selected successful stage CPU over complete contributing-owner lifetimes, potentially including failed noncontributing owner work; it is not whole-attempt CPU utilization.
+
+Inherited baseline, logical source-operand and optional `--compare-source` methods remain bound to the unchanged v1 helper. Disk census uses installed `dirrake`; it measures retained logical file bytes, not physical I/O. Reports must be fresh and outside input/sealed trees. No matched full-pipeline speedup or statistical scaling claim follows from this comparison.
+
+Verification retained in [X-20261031-003](../computations/2026-10-31T124328Z-integrated-reference-qualification/record.md):69 focused tests passed, and the actual CLI published bounded metadata reports with unavailable timing, accepted terminal failed/interrupted owner timing for successful stages, and rejected invalid owned evidence without a report. Synthetic fixture counters/baseline prerequisites are not measured scientific performance or qualification. Full supported-source endpoint comparison was not rerun.
+
+
+## Fresh blocked nonproof congruence proposal
+
+[X-20261031-001](../computations/2026-10-31T025401Z-blocked-nonproof-proposal/record.md) implements `scripts/whole_source/proposal.py` and the actual `propose` command. Native1024-bit blocked Cholesky conditions A_model-Lambda D using physical masses and every previous factor panel. Complete triangular solves whiten A/H/E on both sides, without a dense native inverse. A separately owned NumPy/SciPy process optimizes logtheta on[-20,20], rounds positive theta to a40-bit dyadic, re-evaluates it and constructs the complete eigensystem. Positive spectra select column scaling; otherwise the full signed eigenbasis is retained. A fresh native process solves L^T W=V and quantizes every coordinate onto a common80-bit grid.
+
+```text
+uv run --locked --python 3.14 python -B -m scripts.weil_whole_source_split propose --problem <bound-problem.json> --source <source-manifest.json> --execution <proposal-execution.json> --output-dir <fresh-proposal-directory>
+```
+
+`prepare_proposal_inputs()` binds the original problem, source bytes, frozen source snapshots, proposal code/backend versions and resource policy. Old source code is rebound from its content-addressed snapshots in a separate data namespace, not overwritten or executed as proposal mathematics. The new proposal role/scope cannot use floating backends as producer, analytical or exact proof arithmetic. Numerical imports follow the owned-job and BLAS configuration gates; native and floating pools are released before the next numerical phase.
+
+Closed bounded disk panels retain the factor, full solve/whitened intermediates and full transform. Complete stage scratch and repository accounts include their accumulated lifetime, not just the current panel. Dense float arrays/eigensolver workspace are a separately admitted exception. The current v4 execution contract retains the dependency-task layout: ordered factor diagonals and below-column waves, independent complete whitening column chains, one global floating task and independent backsolve/quantization columns. A successful-wave group binds raw tasks/results, named panel attribution and complete owned receipt/cleanup evidence. Native waves use affordable task pools; floating work stays separately admitted and isolated. The v4 recovery policy adds committed-wave resume described below.
+
+Per-task transport accounts replace the old complete-native-inventory result bound. Derived full413-dimensional16/32-mode proposal layouts fit those transport limits; complete private, scratch, retained-graph and repository allowances still apply independently. Earlier configurations use their preserved implementation, not a current compatibility mode. Scalar factor/solve arithmetic,1024-bit paid grids and80-bit quantization are unchanged. Global eigensystems and dependent pivots remain global/sequential work. Smaller tasks do not establish optimal scheduling or speedup.
+
+`proposal.json` is published only after full integer-coordinate read-through. It binds both parity transforms, exact theta/u, source/problem/code/backend identity and separate non-pickle diagnostics. It remains **NONPROOF_ONLY**, with analytical acceptance, matrix positivity and production admission false. Failed/uncertain pivots, optimization or resources retain NONPROOF_PROPOSAL_UNRESOLVED; there is no identity transform or old-witness fallback. Recovery preserves original diagnostic and producer identities; retry telemetry is separate.
+
+Actual CLI qualification uses explicitly manufactured positive and signed finite matrix controls with known row-scaled rational factors, not newly evaluated supported Weil matrices. Independent exact checks verify all36 transform coordinates,72 source enclosures, full backsolve/congruence residuals and both eigenvector branches. All12 successful controlled owned stages and the correctly refused reduced-source stage verify cleanup. The latter has a strictly negative even third leading minor and publishes no proposal. All149 affected ordinary/mathematical tests pass. No old adversarial or interruption programs ran.
+
+The complete fresh supported .81 proposal/source/audit/exact chain, full physical row widths, exact sign and T1 usefulness remain unqualified by these controls. Observed control resource figures, derived full-layout accounts, failures and executed reproduction commands are retained in the record.
+
+## Streamed exact paid-lower assessment
+
+[X-20261031-002](../computations/2026-10-31T034034Z-streamed-exact-assessment/record.md) implements the actual `exact` command in `scripts/whole_source/exact.py` and the global checks in `exact_global.py`. The currently closed execution profile is retained T81/100; manufactured controls remain explicitly `CONTROL_ONLY`.
+
+```text
+uv run --locked --python 3.14 python -B -m scripts.weil_whole_source_split exact --problem <bound-problem.json> --source <source-manifest.json> --proposal <proposal.json> --execution <exact-execution.json> --output-dir <fresh-exact-directory>
+```
+
+`prepare_exact_inputs()` binds the new-format source, original NONPROOF proposal bytes, every integer transform panel, problem/scalars, code/backend and derived resource policy. Normalized integer panels are compared against the original proposal again inside the owned exact worker. The production reader does not import historical matrix packets; a separate retained control transcribes old endpoints and coordinates without rerounding.
+
+All mathematical arithmetic is exact integer/rational. Young subtraction reverses source interval endpoints and forms a positive common denominator, including nondyadic reciprocal factors. The checker pays Lambda D exactly once, streams complete J=Cint Z and S=Rint absZ panels, then contracts every transformed upper tile over every original index. Both global rows receive every upper off-diagonal center/radius contribution. Physical numerical width, strict Gershgorin margins, full physical mass trace, sigma and the complete source-norm gamma are assessed separately.
+
+Nonsingularity uses the determinant of the entire integer transform at the verified single prime65521, not diagonal blocks. A zero residue is unresolved, without a prime sweep or a claim of singularity. One full native modular word matrix plus admitted determinant workspace is the explicit exception; no full native C/R/B or mass-expanded family is constructed. The dependency graph persists exact paid transformed center/radius upper blocks for canonical final reduction. Actual endpoint/transform/denominator/LCM bit lengths price row panels, native products, J/S and transformed-block publication overlap, bounded metadata and task/result transport before allocation. `precision_bits` on this backend is an integer-size cap, not Arb precision; the generic worker profile's unused default ball precision is not proof arithmetic.
+
+The current `whole-source-exact-execution-v4` contract binds complete global checks, first-contraction rows, upper output blocks, parity reducers and final consequence assessment. Independent work from both parities shares one admitted owned stage budget; canonical report order remains0,1. Every callback revalidates original/normalized operands. Committed groups bind exact task coverage and named outputs to successful owned evidence. Cross-attempt reuse requires an explicit current-owner adoption wrapper over the verified original producer; arbitrary foreign roots/attempts reject. The reducer reads actual transformed entries in canonical order, reproduces the original digest, sums all row contributions and requires complete source consumption. A partial block sign cannot release positivity. The last report binds original runtime receipts and product inventories. Exit0 means positive exact paid-lower assessment; exit1 means a completed width-failed, unresolved or strict selected-paid-lower negative assessment; exit2 is a contract/operational failure. Width failure takes precedence. Selected-paid-lower negativity is not Weil-form negativity. Positive arithmetic remains source-conditional, not independent analytical-source acceptance, production admission or RH.
+
+The actual positive/signed finite-control CLIs return0/1 with the intended distinct arithmetic outcomes. All215 affected mathematical and ordinary codec/runtime tests pass, including complete literal rational products, every bounded interval vertex, global singular/modular-zero cases, off-diagonal row losses, physical masses and width equality/just-above. No old adversarial or interruption programs ran. The complete fresh supported-source/audit/proposal/exact integration remains unqualified by these controls.
+
+The separate full retained-reference fixture transcribes all512946 source endpoint pairs and341138 transform coordinates unchanged. Both complete413-dimensional parity checks pass; all826 row margins, exact physical widths, sigma and full gamma agree with the original arithmetic. All9 controlled/reference owned stages verify cleanup; maximum observed owned peak116838400 bytes and sampled external increment2125824 bytes. The full reference's278.756299s exact-run timer excludes transcription/normalization. This qualifies the new exact arithmetic on retained operands, not fresh supported-source reconstruction, a fresh full proposal, target readiness or a matched performance improvement.
+
+The dependency-wave addendum in [X-20261031-003](../computations/2026-10-31T124328Z-integrated-reference-qualification/record.md) records preserved-versus-corrected finite proposal/exact equality, actual multiworker execution, all three reduced exact-control outcomes,36 fresh source/audit containments and publication/intermediate-corruption rejection. That earlier execution did not implement cross-invocation resume. The prospective v4 implementation below adds recovery; full supported-reference qualification, full-stage resource feasibility and theorem admission remain separate.
+
+## Committed-wave and terminal publication recovery
+
+New proposal/exact v4 configurations bind `whole-source-wave-recovery-v1`. Repeat the same command and output directory with `--resume` only under unchanged input, code, backend, geometry, arithmetic and execution configuration. No v3 migration or arbitrary integrated-coordinator restart is provided.
+
+Each collection has an immutable recovery context and bounded append-only journal with an atomic head committed last. Reuse revalidates original successful stage/task/result/output authority and records fresh owner/adoption lineage. Only missing waves start actual execution attempts. A later failed wave does not invalidate an earlier committed wave, but missing/corrupt dependencies, conflicting context, unresolved cleanup and incomplete ownership evidence reject. Partial/orphan waves are not general recovery authority.
+
+Terminal intent binds exact report bytes before fixed-name publication. Proposal theta, coordinates and diagnostics retain original producer bindings; unique recovery/failure companions do not replace them. Exact final assessment has a separate prelaunch intent: a complete successful owned result can be recovered after owner failure without repeating its mathematics. No arbitrary orphan task can supply that result.
+
+Disposable new panel staging is retired only after its identical immutable replacement, complete group and journal checkpoint are durable. Original receipts/results, prior attempts, failed evidence and required intermediates remain retained. Journal metadata, publication companions and overlap are charged under bounded allowances; exhaustion rejects. This is not historical cleanup, automatic deletion of required dependencies or a power-loss guarantee.
+
+For a prospective reviewed assessment whose owned result completed before `assessment.json` publication:
+
+```text
+uv run --locked python -B -m scripts.weil_whole_source_split recover-assessment-publication --run-dir <run> --assessment-dir <original-external-assessment-directory>
+```
+
+This requires the original prospective publication context, unchanged frozen implementation/review/runtime identities, complete successful owned evidence and all existing scientific/control/replay/consequence checks. Scientific-run then assessment-output locks serialize recovery. Missing or conflicting authority and sealed destinations reject. Existing `finalize-retention` keeps its separate contract for an already published assessment report. Neither command executes new source/proposal/exact mathematics or supplies independent review.
+
+The recovery addendum in [X-20261031-003](../computations/2026-10-31T124328Z-integrated-reference-qualification/record.md) binds533 focused passing cases,91 successful original owned stages,3 failed stages with cleanup, multi-retry/multiworker recovery and a one-worker mathematical replay. Six deliberately relocated receipt copies remain negative evidence, not new executions. A separate read-only closeout corrects the qualifier's late copy classification without repeating mathematics. Actual completed resume CLIs execute no numerical stages. Synthetic reviewed-publication CLI controls and36 fresh source/audit containments pass separately. Retried controls retain more evidence; allocated physical bytes and full-reference resource feasibility remain unknown.
+
+## Bounded native resource observations
+
+[X-20261029-003](../computations/2026-10-29T112025Z-bounded-native-resource-probes/record.md) retains nine executed nonproof measurements: exact modular/integer products, reduced proposal algebra and full synthetic float workspace, highest-degree coefficient construction, selected actual high-mode image/frequency enclosures, complete-inner compact interval multiplication, hex/gzip transport and simultaneous owned descendants. New programs are isolated research probes, not a complete T=1 runner or theorem verifier.
+
+Check the retained measurements without repeating numerical work:
+
+```text
+uv run --locked python -B scripts/verify_bounded_resource_observations_v1.py --bundle computations/2026-10-29T112025Z-bounded-native-resource-probes --output <fresh-qualification.json>
+```
+
+This command was exercised. It binds raw streams, program/input identities, mathematical controls and all nine owned cleanups. It does not reconstruct a complete target source or establish target feasibility/positivity. The record gives actual parameters and fresh-output reproduction commands for `run_bounded_resource_probes_v1.py`, `probe_coefficient_reuse_v1.py` and `probe_compact_native_panels_v1.py`. Caps and CPU allowances are explicit/detected, not fixed to one host. No old guard or historical implementation is broadened.
+
+The retained-observation verifier binds each mode's receipt and available worker profile to the expected probe program. Failed supervisor receipts may lack a worker profile after a native abort; successful observations still require one. This reads prior evidence and does not rerun numerical probes or rejection controls.
+
+## T=1 resource/layout measurement, not a full target runner
+
+[X-20261029-002](../computations/2026-10-29T013929Z-t1-execution-allocation/record.md) gives separate contained commands for the complete moment-vector/native-copy census, restricted dense/blocked contractions and preserved failed convolution attempts. These hold target precision and all selected inner powers fixed; they neither bypass the fixed .81 guards nor compute target positivity.
+
+Check retained evidence without repeating the numerical work:
+
+```text
+uv run --locked python -B computations/2026-10-29T013929Z-t1-execution-allocation/qualify-measurements-v2.py --output <fresh-qualification.json>
+```
+
+The scoped gate passes five completed numerical runs and preserves two native allocation failures as failures. All seven owned trees clean up. One declared dense audit table exceeds observed host total commit, while selected blocking reduces live storage. Complete target adaptation/resources/widths/sign remain unqualified; full T1 execution is NOT_ADMITTED.
+
+## Direct signed whole-frequency T=1 reference
+
+[X-20261029-001](../computations/2026-10-29T004611Z-t1-direct-reference/record.md) retains separately versioned source/independent audit of the direct signed discrepancy. All9916 dyadic leaves and analytic infinity are checked. Controlled scalar requirements improve to N5564,K132,M11128 with25600/34304 starting bits, not achieved target widths or positivity. No matrix or execution benchmark is run.
+
+```text
+uv run --locked python -B computations/2026-10-29T004611Z-t1-direct-reference/exercise-direct-v1.py --mode replay --capture computations/2026-10-29T004611Z-t1-direct-reference/captured-source-inputs-v1.json --output <fresh-replay.json>
+uv run --locked python -B computations/2026-10-29T004611Z-t1-direct-reference/exercise-direct-v1.py --mode controls --output <fresh-controls.json>
+```
+
+The record gives separate source/audit commands. The replay reproduces both new scientific outputs from27 captured destinations;10 substantive mathematical/scope controls reject at their intended conditions. This does not make the fixed0.81 full-matrix runner an arbitrary-support operation.
+
+## T=1 supported scalar reference and declared-cost assessment
+
+[X-20261028-004](../computations/2026-10-28T220029Z-t1-reference-cost-qualification/record.md) retains a fixed scalar producer, standalone independent consumer v2 and measured-baseline cost assessment. Actual512/1024-bit native acceptance, seven mathematical controls and20-destination replay pass. These operations produce no full target matrix or positivity sign. Conditional memory scenarios are not measured target peaks or validated admission limits.
+
+The complete scalar-only reproduction uses fresh outputs:
+
+```text
+uv run --locked python -B computations/2026-10-28T220029Z-t1-reference-cost-qualification/exercise-scalar-v1.py --mode replay --capture computations/2026-10-28T220029Z-t1-reference-cost-qualification/captured-source-inputs-v1.json --output <fresh-replay.json>
+uv run --locked python -B computations/2026-10-28T220029Z-t1-reference-cost-qualification/exercise-scalar-v1.py --mode controls --output <fresh-controls.json>
+```
+
+The record provides separate source/audit/cost commands. Retained consumer v1 failed on floating historical measurement metadata; corrected v2 preserves exact parsing for all mathematical inputs. The existing fixed0.81 matrix runner and its resource admission are unchanged and do not execute this new target.
+
+## Original T81/100 retained-adversarial and smooth-test acceptance
+
+[X-20261028-003](../computations/2026-10-28T183329Z-t081-retained-completion/record.md) completes the ORIGINAL frozen nine-case driver and conjunctive source-norm gate. It reuses the successful full captured replay; it does not regenerate source or substitute newer compute-qualification artifacts.
+
+```text
+uv run --locked python -B -m scripts.verify_t081_retained_acceptance --output-dir <fresh-supervision-directory> --negative-output computations/2026-10-27T182100Z-t081-retained-acceptance/data/<fresh-timestamp>/negative-controls-v1.json
+```
+
+The original output-confinement contract requires a fresh JSON beneath that acceptance data directory. All prior files remain unchanged. --cpus, --memory-mib and --reserve-mib control qualified neutral supervision; one worker/native thread intentionally preserves the old driver receipt. Streams, opaque-stage heartbeat, actual resources and owned cleanup are retained.
+
+Actual execution passes the256473-entry original even control, six native subset rejections, three full exact controls and the original final gate. The reused complete512946-entry/both413-parity replay remains separately bound. C-0124's strict complex smooth-test implication and full source-norm10^-21 floor are source-conditional research results, not production admission or RH. Earlier dated candidate/checkpoint sections below retain their historical scope.
+
+## Resource-budgeted complete T81/100 source and independent audit
+
+[X-20261028-002](../computations/2026-10-28T034134Z-t081-resource-execution/record.md) retains the qualified source v4, independent consumer v2, shared resource policy and supervisor. This is the fixed N826,K86,M1652 research operation, not a generic continuation engine or production theorem profile.
+
+```text
+uv run --locked python -m scripts.run_t081_resource_execution --output-dir <fresh-directory>
+uv run --locked python -B computations/2026-10-28T034134Z-t081-resource-execution/qualify-execution-v1.py --run-dir <fresh-directory> --output <fresh-qualification.json>
+```
+
+The second command is the final code/log/budget/source qualifier. A source-only or intermediate runner PASS does not replace it. The full measured run used the same retained runner directly; module help and insufficient-memory rejection were separately exercised.
+
+Defaults use visible CPU/affinity/quota/job and memory availability, one numerical worker and measured native threading. Controls are `--cpus`, `--workers`, `--threads`, `--memory-mib`, `--reserve-mib` and matching `T081_CPUS`, `T081_WORKERS`, `T081_THREADS`, `T081_MEMORY_MIB`, `T081_RESERVE_MIB`. CLI wins. Worker counts above one are unsupported; `--cpus 1 --workers 1 --threads 1` selects bounded serial reproduction. Insufficient fixed-target memory rejects before arithmetic rather than reducing dimensions or precision.
+
+The output retains exact streams, profiles, captured code, job receipts and `.live/run-status.json` plus events. Windows allocation limits and owned-tree failure/cancellation cleanup are exercised. ETA is unavailable inside opaque operations. All512946 independent analytical entries, both full exact blocks, nine controls and six original packet identities pass; the focused suite reports93 passed and one OS-specific skip. Live non-Windows and larger-host scaling are not claimed. Historical programs, mathematical admission and the separate retained smooth-test procedure remain unchanged.
+
+## Complete-source execution and measurement corrections
+
+[X-20261028-001](../computations/2026-10-28T024305Z-t081-execution-corrections/record.md) retains `build-whole-source-v3.py`, affinity/visible-cgroup CPU policy, corrected `instrument-t081-v2.py` and `measure-t081-execution-v2.py`, a full benchmark receipt and a type-sensitive `compare-v3-v1.py`. The mathematical workload and all11 original helpers are unchanged. Actual source outputs match all six independently audited packets byte-for-byte.
+
+Use the record's executed benchmark, final v3 comparison and inclusive-summary commands with fresh output locations. The benchmark's internal earlier comparison is intermediate evidence; final qualification requires v3's JSON-type-sensitive result and the summary that binds it. `--threads` overrides `T081_THREADS`, otherwise affinity/visible quota detection chooses the allowance. Invalid or excessive limits reject before the expensive operation.
+
+The profiler separates OS working-set high-water, sampled private maxima and Linux virtual size, and warns that Python stack sampling is GIL-biased. The captured measurement driver supports `--phase source|audit|both` and verifies cleanup after context exit. Its lifecycle is covered by actual short subprocess fixtures, not a new full analytical-audit run.
+
+All43 focused regression functions and Windows/Python3.12 stdlib-tool smoke pass. Linux quota behavior is fixture-tested only. This is fixed-source execution evidence, not a general memory-budgeted engine, optimized analytical consumer, new mathematical result or production admission.
+
+
+## Complete T81/100 captured replay checkpoint
+
+[X-20261027-007](../computations/2026-10-27T182100Z-t081-retained-acceptance/record.md) retains the actually executed full55-destination source/input reproduction. Expected target outputs are withheld from the scientific child tree. All8 scalar/reference outputs and9 target comparisons pass, including all512946 analytical entries and both complete exact signs/numerical goals. Source, six matrices and exact report are byte-identical; native equality excludes only source/input execution paths. The owned tree is removed.
+
+```text
+uv run --locked python -B computations/2026-10-27T182100Z-t081-retained-acceptance/replay-acceptance-v1.py --output <fresh-replay.json>
+```
+
+The same bundle contains implemented, conditionally reviewed `negative-controls-v1.py` and `accept-retained-v1.py`, but neither target execution has run at this checkpoint. The native countercase driver explicitly uses an independently reconstructed original-even subset for six false-source probes, separate from the complete positive replay; three exact cases use the unchanged full checker. No adversarial PASS, retained smooth-test release, accepted full-norm constant or production admission is claimed. The dated earlier candidate section below predates this successful replay.
+
+## Complete fixed T81/100 source/sign research candidate
+
+[X-20261027-006](../computations/2026-10-27T140745Z-t081-complete-gram-attempt/record.md) retains separate `build-whole-source-v1.py`, `verify-whole-source-v1.py`, `propose-whole-v1.py` and `verify-whole-sign-v1.py`. These fixed N826,K86,M1652 operations preserve all accepted earlier source/checker versions. All2/3/4/5 mixed squares, both VP orientations, full canonical model discrepancy and both infinities remain paid.
+
+The actual source4608/independent6144/publication256 chain accepts all512946 triangular inputs and proves both full413-dimensional exact parity lowers positive, with exact nonsingularity and numerical-width goals. The consumer freshly replays the supported-reference qualification. Proposals use native fresh actual-A Cholesky BEFORE floating and store full80-bit dyadic coordinates in deterministic gzip; the exact checker consumes that compressed packet and binds its raw bytes. No old transforms or target arithmetic supply the result.
+
+Use the record's four exact invocations with a NEW output parent directory. The producer refuses an existing fixed matrix directory, so a different source filename under retained `data/` is not sufficient. Require native PASS and complete exact positive status on identical source hashes; exit0 alone is only an executed assessment. Selected LOW physical bounds and near-unit congruence margins are not full source-norm/coercivity constants.
+
+All first-attempt CLIs pass without a parameter/precision refinement. Nine consumed sources/helper files are preserved, but new-target adversarial cases, isolated full source/input replay and reviewed smooth-test/full-norm consequence are not executed. This remains a source-conditional complete research candidate, not retained new-support acceptance or production admission. No root mathematical helper, old test, dependency or Rust/Lean profile is changed.
+
+## Fixed T81/100 prime-five qualification
+
+[X-20261027-005](../computations/2026-10-27T132236Z-t081-prime-five-qualification/record.md) retains separate global/supported reference, target-parameter and four-mode arithmetic source/consumer pairs. They qualify the complete reference/error declaration at N826,K86,M1652; they do not generate the full target low/coupling matrix or check its sign.
+
+The supported transfer explicitly distinguishes a form inequality from the larger whole-line multiplier bound. Canonical generic arithmetic remains unchanged and consumes all2/3/4/5 terms before squaring. Independent consumers check1563 frequency cells and infinity, complete leakage/inverse controls,87 exact coefficients, all42 preceding orders and80 diagnostic entries including ordered VP/PV. Starting source4608/independent6144/publication256 policies are not achieved target-width guarantees.
+
+The repeatable captured operation actually ran with all38 captured destinations and reproduced all8 source/audit outputs byte-identically:
+
+```text
+uv run --locked python computations/2026-10-27T132236Z-t081-prime-five-qualification/exercise-qualification-v1.py --mode replay --capture computations/2026-10-27T132236Z-t081-prime-five-qualification/captured-source-inputs-v1.json --output <fresh-replay.json>
+```
+
+The record retains all exact source/audit invocations, initial failures, corrected declarations and9 substantive native rejection cases. Negative mode is a one-shot historical case writer; repeat it only in a fresh materialization of the captured tree, not by replacing retained cases. Shared installed Python/FLINT and source premises remain explicit. No T81/100 positivity, production profile/admission or RH conclusion follows.
+
+## Retained full T4/5 smooth-test acceptance
+
+[X-20261027-004](../computations/2026-10-27T084414Z-t080-retained-acceptance/record.md) preserves the separate fixed-case source/input replay, seven adversarial mathematical/exact cases and exact full-consequence gate. The interfaces below ran against the recorded native environment. Use fresh output names; the negative runner requires its output under the new bundle data directory and creates a new per-output case directory.
+
+```text
+.venv/Scripts/python.exe -B computations/2026-10-27T084414Z-t080-retained-acceptance/replay-acceptance-v2.py --output <fresh-replay.json>
+.venv/Scripts/python.exe -B computations/2026-10-27T084414Z-t080-retained-acceptance/negative-controls-v1.py --output computations/2026-10-27T084414Z-t080-retained-acceptance/data/<fresh-negatives.json>
+.venv/Scripts/python.exe -B computations/2026-10-27T084414Z-t080-retained-acceptance/accept-retained-v1.py --replay <fresh-replay.json> --negative-controls computations/2026-10-27T084414Z-t080-retained-acceptance/data/<fresh-negatives.json> --output <fresh-acceptance.json>
+```
+
+The84-destination capture reuses immutable bytes rather than silently recapture root helpers. It replays14 scalar/reference and9 target checks, all78246 analytical entries and both full exact parity signs. Source, six matrices and exact report are byte-identical; native audit excludes only the two explicit execution-path fields. Seven controls distinguish mathematical enclosure, singularity, finite selected-negative and uncertainty outcomes. The final gate requires scientific statuses and matching source hashes, not exit0 alone, and derives the full source-norm lower10^-20 exactly.
+
+These reviewed local-driver reports establish C-0121 within recorded source/Arb premises, not arbitrary untrusted-report verification, OS/library isolation, a new production certificate or RH. Earlier first-replay installation failure and capture remain; v2 adds five aliases of already-captured files. Original source/helper/test/profile files are unchanged. The candidate section below records its earlier stage, now completed by this retained gate.
+
+## Complete fixed T4/5 source/sign research candidate
+
+[X-20261027-003](../computations/2026-10-27T061820Z-t080-complete-gram-attempt/record.md) retains separate `build-whole-source-v2.py`, `verify-whole-source-v2.py`, `propose-whole-v2.py` and `verify-whole-sign-v1.py` alongside the executed earlier versions. The record gives exact native invocations and fresh-output-parent reproduction commands. This is a fixed research operation at N322,K76,M644, not a generic continuation driver or production certificate profile.
+
+Source3072/independent4096-bit reconstruction and zero-float sign pass for all78246 matrix entries and both full parity blocks. The complete signed arithmetic/mixed/residual source and both infinities are retained. Native midpoint seeds pay full argument uncertainty; fresh-A native Cholesky prevents ill-conditioned floating proposals. Exact acceptance still checks full nonsingularity and every transformed radius. Exit0 means a completed sign assessment, including unresolved/negative cases: inspect the mathematical status and require a matching successful analytical audit on identical source bytes. Never route on process exit alone.
+
+The consumed project modules are captured verbatim. Full target adversarial mathematical inputs and isolated source/input replay are NOT yet executed; the result remains a provisional candidate, not an accepted new-support release or theorem admission. Earlier helpers/tests, v1/v2/v3 production admission and previous research artifacts are unchanged.
+
+## Fixed T4/5 reference and source/error qualification
+
+[X-20261027-002](../computations/2026-10-27T050743Z-t080-target-qualification/record.md) retains the scalar/reference and exact accepted-control budget operations. These qualify N322,K76,M644 and complete error controls; they do not construct the T4/5 low/coupling matrix or prove its positivity. They change no existing producer, checker or admission rule.
+
+The repeatable capture/replay operation executes all three source/independent-consumer pairs from immutable captured code and inputs:
+
+```text
+uv run --locked python -m scripts.weil_t080_qualification_replay --bundle computations/2026-10-27T050743Z-t080-target-qualification --output <fresh-replay.json>
+uv run --locked python -m scripts.weil_t080_qualification_replay --bundle computations/2026-10-27T050743Z-t080-target-qualification --negative-controls --output computations/2026-10-27T050743Z-t080-target-qualification/data/<fresh-negative-controls.json>
+```
+
+The three pairs are `weil_t080_control_budget` / `verify_t080_control_budget`, `weil_t080_reference_qualification` / `verify_t080_reference_qualification`, and `weil_t080_target_declaration` / `verify_t080_target_declaration_v2`. Their exact inputs, commands and output pins are in the computation record. The failed first declaration consumer remains unchanged as historical evidence. V2 replays native reference containment rather than compare separately rounded audit reports as if they were native intervals. All output names must be fresh; negative-control cases must remain inside the computation bundle.
+
+## Complete fixed post-m4 bounded Fourier minorant
+
+The separate research-only T3/4 operation in [X-20261025-009](../computations/2026-10-25T220817Z-post-m4-fourier-sign/record.md) generates and independently accepts all complete2/3/4 source matrices and exact positive parity proofs:
+
+```text
+uv run --locked python -m scripts.weil_m4_fourier_matrix source --output <fresh-source.json.gz>
+uv run --locked python -m scripts.weil_m4_fourier_matrix prove --source <fresh-source.json.gz> --output <fresh-proof.json.gz>
+uv run --locked python -m scripts.verify_m4_fourier_matrix <fresh-proof.json.gz> --source <fresh-source.json.gz> --output <fresh-audit.json>
+uv run --locked python -m scripts.verify_m4_fourier_matrix <fresh-proof.json.gz> --source <fresh-source.json.gz> --exact-only --output <fresh-exact.json>
+uv run --locked python -m scripts.verify_m4_fourier_matrix <fresh-source.json.gz> --source <fresh-source.json.gz> --source-only --output <fresh-source-audit.json>
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_fourier_minorant_matrix.py tests/test_m4_fourier_matrix.py tests/test_m4_fourier_audit.py
+```
+
+PASS covers fresh complete source plus exact positive consequences. EXACT_ONLY_PASS is exact replay without analytical reconstruction. ANALYTICAL_SOURCE_PASS rebuilds the full source but makes no positive claim alone. Source/proof/exact-receipt regeneration is byte-identical under captured-source isolation; a fresh isolated analytical source audit also passes. These programs preserve the earlier fixed consumers below unchanged. The research packet is not a production Weil certificate and admits no theorem.
+
+## Post-m4 mathematical qualification controls
+
+The research-only controls in [X-20261025-007](../computations/2026-10-25T203013Z-m4-fourier-qualification/record.md) evaluate whole-window scalar bounds and exact toy geometry:
+
+```text
+uv run --locked python -m scripts.weil_m4_fourier_qualification --output <fresh-scalar.json>
+uv run --locked python -m scripts.weil_m4_geometry_controls --output <fresh-geometry.json>
+```
+
+Neither command selects a support, builds a low positivity matrix or admits a theorem. The toy rational shifts detect missing signed intersections and wrong mass; they are not an arithmetic support. Canonical outputs and isolated captured-source reproductions agree byte-for-byte. The independent full extension contract does not change the closed matrix workflow below.
+
+## Complete fixed bounded Fourier minorant
+
+The research-only fixed-case workflow in [X-20261025-006](../computations/2026-10-25T155033Z-fourier-minorant-sign/record.md) separately generates sources, proposes exact witnesses and independently accepts all source entries:
+
+```text
+uv run --locked python -m scripts.weil_fourier_minorant_scout --order 64 --output <fresh-scout.json>
+uv run --locked python -m scripts.weil_fourier_minorant_matrix source --output <fresh-source.json.gz>
+uv run --locked python -m scripts.weil_fourier_minorant_matrix prove --source <fresh-source.json.gz> --output <fresh-proof.json.gz>
+uv run --locked python -m scripts.verify_fourier_minorant_matrix <fresh-proof.json.gz> --source <fresh-source.json.gz> --output <fresh-audit.json>
+uv run --locked python -m scripts.verify_fourier_minorant_matrix <fresh-proof.json.gz> --source <fresh-source.json.gz> --exact-only --output <fresh-exact-replay.json>
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_fourier_minorant_matrix.py
+```
+
+The accepted packet is research format `research-fourier-minorant-matrix-v2`, not production certificate-v2. Parameters are closed at T1353/2048,a7/2,Omega256,N312. The full audit checks292968 entries and both exact sufficient parity blocks with the complete C-0094 outside allowance. Exact-only replay never rebuilds analytical inputs. All outputs require fresh paths. The original defective coefficient consumer and its failed version remain reproducible in the bundle; no frozen historical arithmetic code changed. No new support, production profile, Rust/Lean verification or theorem admission is implied.
+
+## Quantitative reference and global-residual scalar controls
+
+`scripts.weil_reference_route_controls` is a research-only scalar procedure for the executed [X-20261025-005 comparison](../computations/2026-10-25T142424Z-reference-route-selection/record.md):
+
+```text
+uv run --locked python -m scripts.weil_reference_route_controls --input computations/2026-10-25T142424Z-reference-route-selection/data/matched-local-input-v1.json --output <fresh-output.json>
+```
+
+It evaluates rigorous exterior and compact-complement constants, exact bump upper obstructions, global real-residual tails and direct/partial-fraction corroborations. Canonical and isolated captured-source outputs are byte-identical. The complete inequalities, sources and limits are in [F-20261025-005](../findings/2026-10-25T142424Z-reference-route-selection.md). It does not generate a low Fourier matrix, certify its sign, prove a concentration lower gap, broaden old local-kernel acceptance, export certificates or change admissions. Use a fresh output path to preserve earlier records.
+
+## Matched coupled-tail criterion assessment
+
+The versioned [X-20261025-004 procedure](../computations/2026-10-25T134254Z-coupled-route-viability/assess-v1.py) checks exact finite algebra and retained data/work accounting without generating a new positivity matrix:
+
+```text
+uv run --locked python computations/2026-10-25T134254Z-coupled-route-viability/assess-v1.py --output <fresh-output.json>
+uv run --locked python -I computations/2026-10-25T134254Z-coupled-route-viability/assess-v1.py --root computations/2026-10-25T134254Z-coupled-route-viability/inputs --output <another-fresh-output.json>
+```
+
+Both executions pass and their reports are byte-identical. The [record](../computations/2026-10-25T134254Z-coupled-route-viability/record.md) distinguishes matched-reference equivalence, dense accounting identities, inherited diagnostic timings and fresh analytical workloads. This is an assessment artifact, not a new coupled solver, a complexity lower bound or an external benchmark.
+
+## Retained coupled-tail directional comparison
+
+`scripts.weil_coupled_tail_comparison` compares the exact C-0091 negative harmonic-reference trials with the retained coupled block20..311. The complete accepted K312 pays the entire outside tail. A finite inverse is separately bounded and is never used as the full inverse; solve proposals are certified by exact physical residuals.
+
+```text
+uv run --locked python -m scripts.weil_coupled_tail_comparison analyze --output computations/<fresh-bundle>/data/comparison.json
+uv run --locked python -m scripts.verify_coupled_tail_comparison computations/<fresh-bundle>/data/comparison.json --output computations/<fresh-bundle>/data/audit.json
+uv run --locked python -m scripts.weil_coupled_tail_comparison replay --result computations/<fresh-bundle>/data/comparison.json --output computations/<fresh-bundle>/data/replay.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_coupled_tail_comparison.py
+```
+
+Use an existing output directory and fresh filenames. [X-20261025-003](../computations/2026-10-25T130058Z-coupled-tail-comparison/record.md) retains positive true-Schur bounds on both preserved trials, quantitative diagonal-reference loss, full outside-response bounds, independent46-scalar/1752-coordinate checks,2 regressions,5 rejections and isolated replay. The operation inherits original analytical evidence and common legacy K reconstruction. It does not certify a new uniform P20 reference, choose a new projection, establish a smaller-data proof or grant admission.
+
+## Complete retained-source reprojection
+
+`scripts.weil_complete_reprojection` and `scripts.verify_complete_reprojection` assess all20 low directions at fixed T=1353/2048,K38 using the accepted original-v2 M312 tensors. The exact Gram identity restores rows20..311; the unknown infinite tail and full residual/cross error stay paid. The original old-version checker/replay runs before the new consequence, without weakening the current version3 validator.
+
+With an existing output directory and fresh filenames:
+
+```text
+uv run --locked python -m scripts.weil_complete_reprojection origin --output computations/<fresh-bundle>/data/origin.json
+uv run --locked python -m scripts.weil_complete_reprojection analyze --origin computations/<fresh-bundle>/data/origin.json --output computations/<fresh-bundle>/data/reference.json
+uv run --locked python -m scripts.verify_complete_reprojection computations/<fresh-bundle>/data/reference.json --origin computations/<fresh-bundle>/data/origin.json --output computations/<fresh-bundle>/data/audit.json
+uv run --locked python -m scripts.weil_complete_reprojection replay --origin computations/<fresh-bundle>/data/origin.json --result computations/<fresh-bundle>/data/reference.json --output computations/<fresh-bundle>/data/replay.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_complete_reprojection.py
+```
+
+[X-20261025-002](../computations/2026-10-25T010204Z-complete-retained-reprojection/record.md) records negative full-reference upper directions in both10-dimensional parity blocks, native512/Arb1536 consequence checks,2 regressions,5 rejected alterations and isolated replay. The analytical evidence is inherited, not freshly generated. Old-subspace witnesses cannot certify new low coordinates; neither this negative reference nor its exact replay grants a production admission or proves Weil negativity.
+
+## Retained-data coupled modes and projection selection
+
+`scripts.weil_coupling_projection` diagnoses the accepted C-0089 source by signed V/P/RK mode energy, then tests changed projections on the original P16 space. It uses the complete Gram-prefix identity, physical masses, the correct H_L reference and full tail/residual allowances. It does not silently reuse G16 after deleting head rows.
+
+```text
+uv run --locked python -m scripts.weil_coupling_projection analyze --output computations/<fresh-bundle>/data/projection.json
+uv run --locked python -m scripts.verify_coupling_projection computations/<fresh-bundle>/data/projection.json --output computations/<fresh-bundle>/data/audit.json
+uv run --locked python -m scripts.weil_coupling_projection replay --result computations/<fresh-bundle>/data/projection.json --output computations/<fresh-bundle>/data/replay.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_coupling_projection.py
+```
+
+Use an existing output directory and fresh filenames. The source pins its historical input bytes and replays the original result. The independent auditor uses narrower native512 inputs and separately organized Arb1536 consequences. Neither reruns analytical source generation.
+
+[X-20261025-001](../computations/2026-10-25T001555Z-coupling-derived-projection/record.md) retains mode16/17 attribution, the first certified projection20 under the whole-known-space rule,2 regressions,5 rejected altered reports and isolated replay. The certificates cover only the original16 low coordinates. They do not test the added directions16..19 or establish full P20 positivity, a minimum dimension, new support or theorem admission.
+
+## Complete reference with the tail-restricted complement
+
+`scripts.weil_tail_complement_assessment` and `scripts.verify_tail_complement_inputs` are a separate research pair at T=1353/2048,N16,K38. They apply C-0088's sharper tail-to-tail norm, preserve the full cross-block residual allowance and independently reconstruct every low/Gram/head entry. They do not modify historical source formats or production admission.
+
+With a fresh, existing output directory:
+
+```text
+uv run --locked python -m scripts.weil_tail_complement_assessment generate --boundary 54 --output computations/<fresh-bundle>/data/source.json.gz
+uv run --locked python -m scripts.verify_tail_complement_inputs computations/<fresh-bundle>/data/source.json.gz --output computations/<fresh-bundle>/data/audit.json.gz
+uv run --locked python -m scripts.weil_tail_complement_assessment assess --packet computations/<fresh-bundle>/data/source.json.gz --audit computations/<fresh-bundle>/data/audit.json.gz --output computations/<fresh-bundle>/data/result.json
+uv run --locked python -m scripts.weil_tail_complement_assessment replay --packet computations/<fresh-bundle>/data/source.json.gz --audit computations/<fresh-bundle>/data/audit.json.gz --result computations/<fresh-bundle>/data/result.json --output computations/<fresh-bundle>/data/replay.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_tail_complement_assessment.py
+```
+
+`select` records the initial inverse-weight-cap choice. `refine` is allowed only after replaying an `INCONCLUSIVE_LOWER` result and doubles retained tail-row count; it does not promise a halved error. All outputs refuse overwrite. A genuine negative reference upper stops that fixed-reference refinement.
+
+[X-20261024-006](../computations/2026-10-24T231555Z-tail-complement-weighted-reference/record.md) retains the actual m54 operation, all2099 accepted inputs, exact negative directions in both parity sectors,4 regressions, rejected altered inputs and isolated source regeneration/replay. Its separate `residual-only-limit-v1.py` diagnostic evaluates an optimistic reference while keeping the full source and error; even zero residual norm charge cannot rescue this fixed N16 scalar-reference family. This is not a positivity certificate, Weil negativity or production theorem admission.
+
+## Residual-tail scalar bound at the controlled support
+
+`scripts.weil_residual_tail_bound` evaluates [C-0088](../findings/2026-10-24T224948Z-tail-restricted-residual-bound.md) at the pinned T=1353/2048,K=38 baseline. It removes only even polynomial degrees below2N from the double-compressed residual, bounds the remaining operator by delta+M_N/[N(N+1)], and compares exact scalar positivity/reserve cutoffs. The full residual remainder is retained.
+
+```text
+uv run --locked python -m scripts.weil_residual_tail_bound --output computations/<fresh-bundle>/data/scalars.json
+uv run --locked python -m scripts.verify_residual_tail_bound computations/<fresh-bundle>/data/scalars.json --output computations/<fresh-bundle>/data/audit.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_residual_tail_bound.py
+```
+
+The first command creates its parent directory; both refuse to overwrite output files. The independent auditor uses separate coefficient/remainder formulas and higher precision, verifies source fingerprints and every reported cutoff/row, and executes exact cusp, polynomial-boundary and signed-image controls. [X-20261024-005](../computations/2026-10-24T224948Z-tail-restricted-residual/record.md) retains the successful commands,4 regressions, actual rejected alterations and an isolated byte-identical replay launcher.
+
+These are separate research scalar consumers. N=16 preserves the old scalar reserve; it is not a new low Schur certificate. The bound does not control Q_N R_T P_N, does not replace the full cross-block residual allowance and is not accepted as an alternative complement by existing production contracts or historical matrix tools.
+
+## Controlled weighted support extension
+
+`scripts.weil_weighted_extension_diagnostics` decomposes exact retained316/626 directional losses and selects a new support by nearly doubling the prime3 translation overlap. The source selection preserves the original exact positive reference mu, an accepted full residual budget and an omitted inverse-weight cap before new matrix signs. Matching this cap does not match omitted mass or prove positivity.
+
+`scripts.weil_weighted_support_extension` generates a new parameter-bearing research packet with fresh complete A_K/G_K and signed V/P/RK heads. `scripts.verify_weighted_support_extension_inputs` reconstructs all low/Gram entries, every head component, the complement, full residual and uniform cross-norm bound using separately organized global moments and Taylor transforms. It has no inherited-low option. Physical Legendre masses, both parity blocks, full mixed terms and infinite residual/tail errors are retained.
+
+```text
+uv run --locked python -m scripts.weil_weighted_extension_diagnostics select --output computations/<new-bundle>/data/selection.json
+uv run --locked python -m scripts.weil_weighted_support_extension generate --selection computations/<new-bundle>/data/selection.json --output computations/<new-bundle>/data/source.json.gz
+uv run --locked python -m scripts.verify_weighted_support_extension_inputs --packet computations/<new-bundle>/data/source.json.gz --output computations/<new-bundle>/data/audit.json.gz
+uv run --locked python -m scripts.weil_weighted_support_extension assess --packet computations/<new-bundle>/data/source.json.gz --audit computations/<new-bundle>/data/audit.json.gz --output computations/<new-bundle>/data/result.json
+uv run --locked python -m scripts.weil_weighted_support_extension replay --packet computations/<new-bundle>/data/source.json.gz --audit computations/<new-bundle>/data/audit.json.gz --result computations/<new-bundle>/data/result.json --output computations/<new-bundle>/data/replay.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_weighted_support_extension.py
+```
+
+Selection creates its parent directory; later outputs refuse overwrite. Use a fresh selection from the source version being executed, not edited budget/parameter metadata. Historical replay restores captured source versions in an isolated repository copy, retaining the original inputs and hashes rather than relabeling old output as current.
+
+[X-20261024-004](../computations/2026-10-24T191616Z-weighted-support-extension/record.md) retains the actual selected T=1353/2048,N=312,K=38,m=1018 operation, source versions, status, controls and corrections. [C-0085's finding](../findings/2026-10-24T193421Z-cross-cut-norm-controlled-continuation.md) proves the uniform cross-cut potential norm and complete dimension-independent residual allowance. `scripts.weil_weighted_dimension_cost` implements [C-0086's conditional completeness/cost calculation](../findings/2026-10-24T194945Z-conditional-schur-completeness-cost.md) from an already known gap, not a new-support positivity premise.
+
+The selected operation completed with all758475 inputs freshly accepted and both156-dimensional parity lowers positive. Separate exact replay, real altered-witness/source-byte rejection and an isolated replay from archived numerical version2 pass. [C-0087's finding](../findings/2026-10-24T202855Z-controlled-weighted-support-positivity.md) gives the precise source-conditional implication and reference bounds. Current version3 additionally enforces complete typed selection/budget/provenance and input serialization;4 focused controls and actual pre-generation rejection pass. Historical numerical arrays are not relabeled as outputs of that later correction.
+
+These are research consumers, not new certificate profiles or admission tools. The existing fixed3/5 procedures below remain unchanged. A failed lower is inconclusive unless a separate negative actual-reference upper is verified; no finite successful operation proves RH.
+
+## Fixed weighted low-space research
+
+`scripts.weil_weighted_low_space` generates raw A_K, the complete Q192 mixed-image Gram and signed rectangular V/P/R32 pairings at T=3/5,N=192,K=32, keeping the original exact reference mu. It uses ordinary Legendre coordinates and records source fingerprints. The boundary must be even in [224,1024]; its degree-based head precision is separate from the 1024-bit low/Gram construction. `--base` reuses unchanged low/Gram source bytes, not a previously accepted matrix sign.
+
+`scripts.verify_weighted_low_space_inputs` independently reconstructs every low/Gram entry at 2048 bits and every head component at twice its generator precision. It requires strict containment, exact residual polynomial agreement, source identity, certified geometry and validity of the original chosen mu. Per-column residual-degree orthogonality is enforced only after the computed interval contains the proved zero. A global degree cutoff alone is insufficient. Optional `--reuse-accepted-low` reuses only the exact retained224 source/audit pinned in the implementation, requiring unchanged low definitions, payload and source fingerprints. It rechecks every inherited reference enclosure and freshly rebuilds all residual polynomials and requested heads; provenance distinguishes reuse from fresh reconstruction.
+
+`scripts.verify_weighted_low_space` checks all serialized reference containments and constructs the complete weighted matrix lower, uniform tail trace and full residual cross allowance with directed dyadic/native integer center-radius contractions. These retain signed off-diagonal terms and pay coefficient/weight uncertainty before Loewner conversion. Floating candidates are accepted only through exact rational congruence on both blocks or a verified negative directional upper for the actual reference. A failed lower is inconclusive, not reference or Weil negativity.
+
+```text
+uv run --locked python -m scripts.weil_weighted_low_space --boundary 224 --output computations/<new-bundle>/data/source.json.gz
+uv run --locked python -m scripts.verify_weighted_low_space_inputs --packet computations/<new-bundle>/data/source.json.gz --output computations/<new-bundle>/data/audit.json.gz
+uv run --locked python -m scripts.verify_weighted_low_space --packet computations/<new-bundle>/data/source.json.gz --audit computations/<new-bundle>/data/audit.json.gz --output computations/<new-bundle>/data/result.json
+uv run --locked python -m scripts.verify_weighted_low_space --packet computations/<new-bundle>/data/source.json.gz --audit computations/<new-bundle>/data/audit.json.gz --result computations/<new-bundle>/data/result.json --output computations/<new-bundle>/data/replay.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_weighted_low_space.py
+```
+
+Create the output directory before analytical auditing. All outputs refuse overwrite. These are research procedures, not certificate profiles, theorem admission or evaluation of the true inverse. [C-0082's finding](../findings/2026-10-24T021044Z-uniform-harmonic-reference-matrix-bound.md) gives the conditional source, mass, domain and complete-error implications. Existing directional consumers and historical methods remain unchanged.
+
+[X-20261024-002](../computations/2026-10-24T124142Z-weighted-low-space/record.md) retains the actual implementation, seven controls, full source audits, exact replay, rejected attacks and failed/corrected versions. At316, the even reference lower is rigorously positive; the odd sign remains unresolved. Source generation at the next accuracy-selected626 boundary timed out before publication. [F-20261024-002](../findings/2026-10-24T140543Z-weighted-even-reference-block.md) gives C-0083, its exact mass-normalized gap and explicit partial scope. No whole-reference or Weil positivity is claimed.
+
+The separate [m626 continuation, X-20261024-003](../computations/2026-10-24T153012Z-weighted-reference-continuation/record.md), completes with `POSITIVE_REFERENCE_LOWER` on both parity blocks and `EXACT_REPLAY_PASS`, without changing the scientific implementations. All287042 analytical slots are accepted with37056 low/Gram entries and2 scalars inherited from pinned independent evidence,249984 heads reconstructed afresh. Exact mass-gap calculation and an altered odd-witness rejection also pass. [C-0084's finding](../findings/2026-10-24T154006Z-positive-whole-harmonic-reference.md) gives the whole-reference and source-conditional smooth-test implication. This supersedes the earlier unresolved run's current-state limitation, not its historical record. No clean-source production theorem, Rust/Lean acceptance or admission is added.
+
+## Fixed weighted source-tail direction
+
+`scripts.weil_weighted_source_tail` evaluates the original T=3/5,N=192,K=32 trial with the unchanged exact mu. Its one accuracy-selected boundary B=874 pays the complete inverse-weighted omitted tail; it does not construct a new finite sufficient matrix or search cutoffs. Fixed generator/reference precisions are 4096/8192 bits. Signed source components, the residual polynomial through degree 223, the full residual norm and a newly enclosed physical low-form scalar supply both directional endpoints.
+
+```text
+uv run --locked python -m scripts.weil_weighted_source_tail
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_weighted_source_tail.py
+```
+
+The exercised result is `POSITIVE_DIAGONAL_REFERENCE_DIRECTION`, with a strict bracket inside (3/5,9/10). This is one trial, not a positive reference/Schur matrix or a support theorem. C-0072 separately transfers its lower to the true Schur direction; the true inverse is not evaluated. The producer's undetermined true-Schur/Weil field refers to the overall form/operator sign.
+
+All 1330 source containments, independent exact consequence replay, 2/2 regressions and changed-input rejection passed. V2 outward dyadic accumulation fixes a preserved v1 exact-rational serialization failure without relaxing Python's integer guard. The CLI has no numerical options, prints JSON to stdout, rejects changed/missing/rejected inputs at exit 2 and does not overwrite retained outputs. Capture replays separately.
+
+[F-20261023-006](../findings/2026-10-23T192821Z-weighted-source-tail-reference.md) / C-0080/C-0081 state the mathematics and limitations. [X-20261023-004](../computations/2026-10-23T192821Z-weighted-source-tail/record.md) retains both implementation versions, failure/regression evidence, corrected source enclosures and bounded execution history. Existing source modules, older consumers and theorem admissions are unchanged.
+
+## Fixed complete joint-source tail
+
+`scripts.weil_joint_source_tail` encloses the complete source tail at the original T=3/5,N=192,K=32,L=224, retaining signed jump/remainder correlations and restoring the full residual collectively. It uses whole image norms minus 112 odd head projections, not a truncated high-tail sum. The fixed 1536-bit generator and separately organized 3072-bit reconstruction publish outward 352-bit intervals; there are no parameter or precision options.
+
+```text
+uv run --locked python -m scripts.weil_joint_source_tail
+```
+
+The actual run passed all 351 scalar/head containments and accepted-prefix/model compatibility checks. The resulting directional upper is `INCONCLUSIVE`, not reference positivity. Changed/missing/rejected inputs return exit 2; an altered-byte smoke rejected before numerical construction. The command prints to stdout and never overwrites a retained output itself. Replays should be captured separately.
+
+[F-20261023-005](../findings/2026-10-23T185253Z-joint-source-tail-enclosure.md) / C-0079 state the signed formulas, complete residual, fixed-index limitation and trust boundary. [X-20261023-003](../computations/2026-10-23T185253Z-joint-source-tail/record.md) retains the exact executed source, raw reconstruction endpoints, output, separate rational replay and receipts. Existing mathematical primitives and older consumers are unchanged. This is a fixed research calculation, not a generalized evaluator, certificate path or theorem admission.
+
+## Fixed jump-refinement model/control replay
+
+`scripts/weil_jump_refinement_check.py` replays the original T=3/5,N=192,K=32 arithmetic jump model at L=224 using accepted constants and fixed 512-bit interval arithmetic. It verifies immutable inputs/source identities, retains mixed step products, reports an arithmetic mixed-tail upper and a separate retained-norm full-source control. It has no support, dimension or precision options.
+
+```text
+uv run --locked python -m scripts.weil_jump_refinement_check
+```
+
+`SIGNED_CANCELLATION_CERTIFIED` refers only to the arithmetic mixed-tail comparison, not Weil/reference positivity or negativity. The command does not assemble source images, new full-source moments, matrices or the full joint-correlation bound. Exit 2 rejects changed/missing/malformed inputs; altered-byte rejection and the actual canonical replay were exercised.
+
+[F-20261023-004](../findings/2026-10-23T174341Z-jump-resolved-tail-correlation.md) gives the reviewed mathematics and limitations. [X-20261023-002](../computations/2026-10-23T174341Z-jump-refinement-controls/record.md) retains exact outputs, historical control versions and the canonical source snapshot. This is a research reproducibility consumer, not a certificate/export/admission path.
+
+## Existing-data directional loss audit
+
+`scripts/weil_directional_loss_audit.py` performs exact rational bookkeeping on the same pinned original/accepted packets, reusing the existing rational input validator. It reports known mass and inverse-cost intervals, the physical omitted-mass lower and the prefix-only exact-reference upper. It does not call the decisive screen, regenerate sources, evaluate another cutoff or implement an analytical upgrade.
+
+```text
+uv run --locked python -m scripts.weil_directional_loss_audit --output computations/<new-bundle>/data/loss-audit.json
+```
+
+[X-20261023-001](../computations/2026-10-23T105408Z-directional-loss-review/record.md) records the executed audit; [F-20261023-001](../findings/2026-10-23T105526Z-directional-cutoff-and-reference-loss-separation.md) / C-0074 separates finite-cutoff loss from inverse-reference loss. The actual exact-reference sign remains undetermined. Existing outputs are preserved; this is a small reproducibility procedure, not a certificate or source evaluator.
+
+## Fixed exact directional screen
+
+`scripts/weil_directional_exact_screen.py` consumes the approved original trial and accepted directional-source packet by exact raw-byte SHA-256 identity. It audits physical norm, coordinate/configuration, all accepted component intervals and full residual enlargement, then evaluates the fixed C-0072 rational predicate for T=3/5,N=192,M=211,K=32. It imports no analytical module and does not regenerate moments.
+
+```text
+uv run --locked python -m scripts.weil_directional_exact_screen --output computations/<new-bundle>/data/exact-screen.json
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_directional_exact_screen.py
+```
+
+A completed screen exits 0 with `NEGATIVE_SUFFICIENT_CRITERION` or `INCONCLUSIVE`; rejected input exits 2 with `SOURCE_PROOF_GAP`. Existing outputs are preserved. A negative result concerns only finite A-U_211, not the exact inverse reference or Weil form. There is no positive-theorem outcome.
+
+Executed [X-20261022-002](../computations/2026-10-22T190532Z-directional-exact-screen/record.md) obtained an exact upper below -6/5, independently replayed the rational consequence, and passed 12 behavioral tests. [F-20261022-002](../findings/2026-10-22T190730Z-fixed-harmonic-majorant-negative-direction.md) / C-0073 state the source-qualified scope. No new support or theorem was admitted.
+
+## Fixed directional source validation
+
+`scripts/weil_directional_source_validation.py` is a research-only consumer of the existing sparse polynomial assemblers. It validates normalized high-mode V/P2/P3/R32 moments for the pinned SYS-6.4 odd trial at T=3/5, N=192, K=32 and k=193,195,...,209. Independent monomial/cell/split-residual reconstruction must be contained in outward 352-bit component and signed-sum intervals. Full residual uncertainty is restored separately. Sparse-subspace Gram outputs are never used as the original Q_192 Gram.
+
+```text
+uv run --locked python -m scripts.weil_directional_source_validation --precision 1024 --output computations/<new-bundle>/data/source-validation.json
+```
+
+The input byte hash and original source fingerprints are mandatory. The CLI preserves existing outputs and has no automatic retry. Exit 0 means `SOURCE_INPUTS_ACCEPTED`; a rejected or unresolved source packet returns exit 2. This is not a certificate, a Schur sign test or theorem admission. Original A/G enclosures retain their earlier generator-source trust.
+
+Executed evidence: [X-20261022-001](../computations/2026-10-22T185054Z-directional-source-validation/record.md), 45/45 new component/sum enclosures accepted at 1024/2048 bits, whole-process wall time 5.675 seconds, no sign evaluated. Focused checks:
+
+```text
+uv run --locked --extra test python -m pytest -n 0 -q tests/test_directional_source_validation.py tests/test_prime_power_local_legendre.py tests/test_combined_analytic_entries.py
+```
+
+## SYS-6.4 — One selective larger-support Schur-sign research check (NO ADMISSION)
+
+The **research-only** `scripts/weil_selective_support_probe.py` evaluates the unchanged complete \(V/P/R_K\) low block and mixed-image Gram at exactly \(T=3/5,N=192,K=32\) with Arb-1024, maintaining \(\eta=2^{-24}\), a strictly positive conservative full-tail \(\underline\mu\), and the complete Suzuki residual norm correction. A floating eigenvector is merely a direction **selector**. The script rounds it to a dyadic **odd-parity** vector and uses outward Arb intervals plus exact rational arithmetic to obtain an **upper** Rayleigh bound for the chosen Schur sufficient matrix. At the tested support, this upper is strictly **negative**, so **this sufficient matrix** cannot be positive. It says nothing negative about the actual Weil quadratic form or a changed N/stronger complement.
+
+`scripts/verify_selective_support_probe.py` rechecks the strict rational sign and original source SHA-256 fingerprints without trusting the research sign label; it **does not independently rederive** the full transcendental Arb source entries or admit any theorem. [`X-20261018-005`](../computations/2026-10-18T090311Z-sys6-selective-support/record.md) retains the scoped original inputs and exact arithmetic replay; [`F-20261018-006`](../findings/2026-10-18T091152Z-sys6-selective-support-decision.md) records the **no-admission** outcome. Focused checks: `uv run --locked --extra test python -m pytest -q tests/test_selective_support_probe.py tests/test_support_scaling_scout.py tests/test_mixed_gram_research.py` (**31/31 PASS**). The closed proof-bearing v1/v3 systems and independent full source theorem verification remain separate and unchanged.
+
+**SYS-6.3 verified applicability limit (2026-10-18):** The current `_suzuki_residual_tail_radius` and its `_residual_rho` wrapper explicitly require the full scaled kernel arguments \(|T(x-y)|<\pi\) throughout \([-1,1]^2\), i.e. \(2T<\pi\). Directly using them for \(T=2\) correctly fails closed. **This is not a limitation of Suzuki's globally defined Weil quadratic form.** Separately, the conservative scalar \(\mu_N(T)>0\) eventually holds at **each fixed T** within that local range as N increases (C-0071), but that does **not** establish the complete Schur matrix sign or any global positivity. [F-20261018-005](../findings/2026-10-18T084633Z-sys6-global-support-obligation.md) records the exact source and quantifier checks, with no changes to source or theorem admissions.
+
+## SYS-6.2 — Support-scaling research tools (NOT theorem admission)
+
+Two additive small-scope CLI tools complement the existing **unaltered** mathematical mixed-Gram source:
+
+- `scripts/weil_support_scaling_scout.py`: for a list of exact rational supports, compute certified Arb outward intervals for the existing conservative tail-complement scalar \(H_N-c_T-\sum c_mb_m-\rho_R\), exact prime-power activation, and the first \(N\) where the *bound* is rigorously positive. It does **not** compute or certify the full combined Schur matrix.
+- `scripts/weil_combined_scaling_profile.py`: rerun `assemble_truncated_mixed_gram` at a small requested \(N\) with rigorous Arb source inputs, report widths, signed mixed trace displays, elapsed time and truncation residual bound. Traces/ratios are **floating displays** of source balls, **not** eigenvalue lower bounds, full-residual Schur signs or theorem claims. The original proof-bearing source modules remain unchanged.
+
+The completed reproducible support/\(N\)/precision comparison and commands are [`X-20261018-004`](../computations/2026-10-18T080600Z-sys6-support-scaling/record.md); classification [`F-20261018-004`](../findings/2026-10-18T081419Z-sys6-support-scaling-analysis.md). Focused checks: `uv run --locked --extra test python -m pytest -q tests/test_support_scaling_scout.py` (**6/6 PASS**). The tool output must **never** be interpreted as a separate admission under `rh-weil-certificate-v3`; there is still exactly one v3 retained support pair \(T=11/20,N=192\).
+
+## SYS-5.4 — One admitted v3 finite-support theorem: canonical replay
+
+`rh-weil-certificate-v3` now has exactly **one** separately admitted theorem, `C-0067` at `T=11/20,N=192`, from a previously clean-source regenerated certificate, and **no further inferred support**. Its canonical complete retained-proof replay (source/analytical Arb-2048 plus exact Rust production verification) is:
+
+```text
+cargo build -p rh_cert --locked
+uv run --locked --extra test python -m scripts.cert.verify_retained_v3 --output computations/2026-10-18T071550Z-v3-retained-admission/data/replay.json --rust-binary target/debug/rh_cert.exe
+```
+
+The implementation `scripts/cert/verify_retained_v3.py` binds an exact approved byte-hash certificate and separately pinned committed source, rejects altered or expanded `computations/retained-proofs-v3.json`, independently rigorously reconstructs all **37,056** source intervals plus `mu,delta`, then invokes zero-float Rust `verify` on a private immutable byte snapshot; output is published atomically only after all checks pass. The fully executed reference replay and detailed trust boundary are [`X-20261018-003`](../computations/2026-10-18T071550Z-v3-retained-admission/record.md). For cheap manifest/adversarial controls run `uv run --locked --extra test python -m pytest -n 0 tests/test_retained_v3_admission.py`. The **separate historical v1 replay** remains `uv run --locked python -m scripts.cert.verify_retained_proofs` (eight claims only). The v3 `verify-candidate-v3` research command **still never admits a theorem**, even for a positive rational matrix. The full v3 theorem depends on the distinct independently checked Suzuki/Arb analytical source trust layer; Rust/Lean do not independently prove that source identity or all-support RH.
+
+## OAI-9: External OpenAI theorem is not a local verification CLI
+
+The pinned `EXT-0001` theorem is a **cited external Lean result**, not a theorem exported or independently replayed by this repository. For source identity and optional independent Comparator replay **status/checklist**, use [`references/external-results/README.md`](../references/external-results/README.md) and [`EXT-0001`](../references/external-results/EXT-0001-openai-quasi-rh.md). Its upstream solution uses **Lean 4.34.1**, distinct from our local soundness layer. No `scripts/` command builds or verifies the upstream theorem, and source-hash checks do not prove it.
+
+**Do not confuse verification workflows:**
+- `uv run --locked python -m scripts.cert.verify_retained_proofs` checks the closed **eight local finite-support** `C-0050..C-0057` artifacts by byte hash and independent Rust exact replay. It does **not** replay `EXT-0001`.
+- `scripts/weil_continuation_driver.py` is the **frozen one-prime** continuation workflow; `scripts/weil_multi_prime_continuation_driver.py` is the **separate generic multi-prime** workflow with no admitted v2 theorems. `CANDIDATE_READY` is not an admission.
+- OAI-8 identifies rigorously negative factor-3 *sufficient* Schur matrices at `T=11/20,N=192/196`. Before another post-`p=3` qualification, the mathematical bound itself needs a separately justified improvement. Repeating the same negative matrix with more precision does not help.
+
+See [`research/openai-math/RESEARCH_DIRECTION.md`](../research/openai-math/RESEARCH_DIRECTION.md), [`docs/CONTRACTS.md` §5](../docs/CONTRACTS.md) and [`docs/PROTOCOL.md` §7.2](../docs/PROTOCOL.md). Mathematical external-dependent deductions `C-0060..C-0062` introduce no new CLI, code dependency, certificate format, or theorem admission.
+
+## Research-only combined mixed-Gram diagnostic
+
+`scripts/cert/mixed_gram_research.py` constructs a rigorously enclosed **truncated** combined low-to-tail Gram from all ordered `V/P/R_K` image cross terms and the correct Legendre `D_N^-1` projection. Its separate `rigorous_full_gram_upper` applies the rigorous Suzuki residual norm bound as a **matrix-order** exact rational upper enclosure; `rigorous_combined_schur_lower` constructs a lower form matrix **only** with a certified positive complement. Neither claims positive definiteness or issues a certificate. The narrowly scoped `scripts/profile_mixed_gram_research.py` measures actual Arb enclosure widths/timing. Reproduction, precision requirements and explicit inconclusive mathematical status are documented in [`X-20261017-002`](../computations/2026-10-17T142253Z-mixed-gram-implementation/record.md) and [`F-20261017-009`](../findings/2026-10-17T142253Z-combined-mixed-gram-implementation-and-validation.md). Existing one-prime and generic multi-prime continuation drivers remain canonical for their respective frozen research/certificate paths.
+
+**Independent validation / trust update (2026-10-17):** [\`F-20261017-010\`](../findings/2026-10-17T144247Z-independent-mixed-gram-verification-and-tooling-closure.md) independently checked the mixed analytical formulas, matrix-order and residual normalization, and fail-closed input contracts; **40/40** focused current tests pass. The full-residual Young parameter must be an exact positive \`Fraction\`; malformed nonsquare/contradictory asymmetric Gram intervals are rejected. Previously reported \`N=192/196\` Arb-1024 interval widths are retained *as-run* measurements; the modified source was not re-executed at those dimensions merely for documentation closure. The generated matrices remain **research evidence, not independently admitted theorems**.
+
+## Bounded combined-Schur research experiment — pre-theorem
+
+\`scripts/run_combined_schur_experiment.py\` evaluates one fixed combined \(V+P+R\) low-to-tail Gram configuration rigorously with Arb, writes a **complete** compressed 352-bit outward-dyadic rational low-form/Gram input packet, and rejects failed active-term/complement/interval-width gates. The independent-exact-research layer is separated from the analytical generator: \`scripts/inspect_combined_schur_packet.py\` makes explicitly nonproof float diagnostics and checks exact candidate Rayleigh directions; \`scripts/prove_combined_schur_fast.py\` uses a float Cholesky factor **only to propose** an invertible dyadic congruence matrix, then checks strict positive exact rational Gershgorin margins; \`scripts/verify_combined_schur_research.py\` independently reconstructs the rational Schur lower matrix and congruence from **the saved input packet and witness** without trusting any generator sign flag. Neither this path nor its exact checker is a v1/v2 certificate/verifier or theorem admission.
+
+The **executed** \`T=11/20,N=192\`, Arb-1024 positive **pre-theorem candidate** with full rational evidence, source and artifact hashes, bounded termination record, and precise analytical-trust boundary is [\`X-20261017-003\`](../computations/2026-10-17T150153Z-combined-schur-bounded-test/record.md) / [\`F-20261017-011\`](../findings/2026-10-17T151010Z-positive-combined-schur-pretheorem-candidate.md). Follow that evidence rather than repeating full-size support/dimension experiments automatically. **N=196 was not executed** because the exact rational lower bound at N=192 was positively confirmed. Existing canonical frozen one-prime and multi-prime v2 paths remain separate.
+
+**Independent analytical research audit (2026-10-17):** \`scripts/audit_combined_schur_analytic_inputs.py\` audits the existing \(T=11/20,N=192\) rational packet against the independent older low \(A\)/complement assembler, high-degree direct \`mpmath\` quadrature for the new \(VP\) cell (diagnostic, **not a proof**) and an exact rational comparison with the previous finite-tail Gram lower bound. See [\`X-20261017-004\`](../computations/2026-10-17T153222Z-analytic-source-review/record.md) / [\`F-20261017-012\`](../findings/2026-10-17T153222Z-independent-analytic-audit-positive-combined-schur.md). The separate research exact-rational checker now fails closed for noncanonical dyadic precision and reversed/invalid complement/residual intervals, and correctly reverified the **original unchanged** matrix and witness. These are source-level and mathematical controls, **not** a new proof profile, theorem admission or second all-entry Arb reconstruction.
+
+**Source-level finite-support proof audit (2026-10-17):** \`scripts/audit_suzuki_math_closure.py\` independently checks 81 exact rational \(|x-y|^d\) kernel-polynomial actions and compares whole-interval \(V,V^2\) moments at degrees \(0,2,20,190\) to separate high-precision numerical references (**nonproof**). Its result is [\`X-20261017-005\`](../computations/2026-10-17T214044Z-sys5-analytic-proof-audit/record.md); the exact mathematical implication and unclosed analytical trust boundary are documented in [\`F-20261017-014\`](../findings/2026-10-17T214129Z-finite-support-theorem-analytic-proof-obligations.md). This **does not** independently certify all 37,056 archived Arb input interval contents, and is **not** a new theorem verifier or admitted finite-support claim.
+
+**Complete mathematical source-input acceptance (2026-10-17):** \`scripts/verify_combined_schur_analytic_entries.py\` separately reconstructs the fixed \(T=11/20,N=192\) low-form and **full combined** truncated mixed Gram from exact Legendre/Bernoulli polynomials, alternate translated-cell affine Legendre contraction, beta/logarithmic moments and uniform Suzuki residual formulas. The 2048-bit independent reference checks **full exact rational interval containment** against the archived 352-bit dyadic packet (not just overlap); all **37,056 entries** plus \(\mu,\delta\) passed. See [\`X-20261017-006\`](../computations/2026-10-17T215700Z-sys5-full-analytic-acceptance/record.md) and [\`F-20261017-015\`](../findings/2026-10-17T220105Z-complete-independent-analytic-enclosure-closure.md). The original exact rational positive congruence was separately replayed. New \`tests/test_combined_analytic_entries.py\` checks fail-closed interval/domain/header inputs and the small complete mixed Gram. **Trust:** rigorous Arb primitive arithmetic and Suzuki's original analytical identity; this independently certifies the mathematical source packet **but is not a new Rust/Lean certificate profile or automatically admitted theorem**. Frozen one-prime and unrelated v2 semantics stay unchanged.
+
+**Clean v3 proof-bearing reproduction completed (2026-10-18):** `uv run --locked python -m scripts.cert.export_combined_schur_v3_clean --output computations/2026-10-18T010000Z-v3-clean-proof-candidate/data/certificate-v3-clean.json` was successfully run from **clean committed** `f0350f89ec5189648cfc271c4ddd3a97355a2343`. It recomputed the full Arb-1024 input and exact congruence witness, matched both original SHA-256 byte-for-byte, and ran a fresh complete Arb-2048 containment audit. The generated clean certificate was then independently replayed using `scripts.verify_combined_schur_v3_bundle` and Rust `verify-candidate-v3` against the exact same certificate bytes. All 37,056 entries plus two scalar bounds passed and the original **exact** positive congruence margin was recovered. See [`X-20261018-002`](../computations/2026-10-18T010000Z-v3-clean-proof-candidate/record.md). This is a **clean, verified pre-admission candidate**; production theorem `verify` continues to reject because v3 admission remains empty.
+
+## v3 full combined-Schur research acceptance (pre-admission)
+
+The distinct rh-weil-certificate-v3 / combined_multi_prime_legendre_schur path applies to executed T=11/20,N=192. scripts/cert/export_combined_schur_v3.py creates the honestly dirty research candidate; scripts/cert/export_combined_schur_v3_clean.py implements fresh clean-source packet, witness and independent analytical reconstruction but correctly refuses the current uncommitted tree. scripts/verify_combined_schur_v3_bundle.py reruns the independent rigorous Arb-2048 37,056-entry analytical containment and scalar bounds from the actual serialized v3 input, then invokes a separate zero-float exact Rust proof. Both gates passed and produced the original exact positive margin. The Rust verify-candidate-v3 command is PRE-THEOREM ONLY; ordinary verify rejects v3 due to empty production admission. [X-20261017-007](../computations/2026-10-17T222400Z-v3-research-bundle/record.md) / [F-20261017-016](../findings/2026-10-17T224310Z-v3-combined-schur-proof-system-implementation.md). Python 34/34, Rust 73/73, strict Clippy and full Lean lake build Cert passed. Clean proof-bearing generation/acceptance and theorem admission were NOT performed.
+
+**v3 acceptance hardening (2026-10-18):** The later [X-20261018-001](../computations/2026-10-18T004000Z-v3-gate-hardening-replay/record.md) records independent Arb-2048 and exact Rust replay against one immutable v3 certificate byte snapshot, after fixing input reopening and strengthening clean-source/provenance cross-checks. All 37,056 entries and both scalar bounds were contained; the exact minimum margin is unchanged. Python 37/37, Rust 73/73, plus a full 192-dimensional **synthetic, analytically invalid but structurally valid** exact negative control passed (mathematical exit 1). Clean-source generation and theorem admission remain unperformed.
+
+## SYS-2.5: finite-tail projected research diagnostic (non-production)
+
+`scripts/weil_projected_mixed_schur_check.py` is a scoped, reproducible mathematical diagnostic. It reuses the existing rigorous assembler and immutable exact vectors solely to test whether finite additional Legendre tail modes **disprove** the new combined Schur sufficient condition. Its output is pre-theorem research evidence, not a combined-Gram certificate or theorem admission. The exact two runs, source fingerprint, and inconclusive evidence are in [`X-20261017-001`](../computations/2026-10-17T124000Z-sys2-projected-obstruction/record.md). It is not a replacement for the canonical v1/v2 drivers.
+
+## Scripts
+
+### `verify_identities.py`
+
+Exact rational checks of the algebra used by `A-20260820-002`.
+
+```text
+python scripts/verify_identities.py --max-n 40
+```
+
+### `prime_trace.py`
+
+High-precision `decimal.Decimal` cutoff study of the prime-Laguerre sequence.
+
+```text
+python scripts/prime_trace.py --s0 3 --n-max 16 --cutoffs 10000,100000,1000000 --precision 60
+```
+
+`S_n(X)` is a cutoff diagnostic, not the exact infinite `S_n` unless convergence is independently established.
+
+### `kernel_scan.py`
+
+Scans the smooth-density Laguerre kernel in `u=t/(4n)` and compares its sampled maximum with the analytic post-turning saddle.
+
+```text
+python scripts/kernel_scan.py --s0 3 --n 8,16,32,64 --u-max 1.6
+```
+
+### `prime_range_decomposition.py`
+
+Breaks the truncated prime-power trace into `u=t/(4n)` bins and compares discrete prime contribution with continuous density.
+
+```text
+python scripts/prime_range_decomposition.py --s0 3 --n 8,12,16 --max-m 2000000
+```
+
+### `window_diagnostics.py`
+
+Supports `A-20260820-004`. It reports:
+
+- the post-turning smooth-density saddle and its Gaussian width;
+- the post-turning root-one crossing;
+- pre-turning absolute-envelope root rates;
+- beta-only envelope rates versus exact complex Cayley rates.
+
+```text
+python scripts/window_diagnostics.py --s0 3 --n 64,128,256 --betas 0.5,0.6,0.9,1.0 --gammas 0,5,15
+```
+
+### `zero_mode_bins.py`
+
+Numerically decomposes one exact complex zero-mode Laplace transform into `u` bins and compares the truncated integral with the analytic value `z_rho^(-n)-1`.
+
+```text
+python scripts/zero_mode_bins.py --s0 3 --beta 0.6 --gamma 5 --n 16,32,64 --steps-per-bin 5000
+```
+
+Synthetic beta/gamma inputs are diagnostics only and are not asserted to be actual zeta zeros.
+
+### `uniform_phase_diagnostics.py`
+
+Supports `A-20260820-005`. It evaluates the exact uniform pre-turning stationary map
+
+```text
+u_gamma=A^2/(A^2+4gamma^2)
+```
+
+against the older small-`u` approximation, checks the critical Cayley phase identity and unit stationary normalization, and can save JSON plus a static SVG plot.
+
+```text
+python scripts/uniform_phase_diagnostics.py --s0 3 --zeros 8 --dps 40 --output-json computations/.../data/s0-3.json --plot computations/.../plots/stationary-map-s0-3.svg
+```
+
+The zero ordinates are numerical `mpmath.zetazero` evaluations, not certificates.
+
+### `chirp_window_diagnostics.py`
+
+Supports `A-20260820-006`. It records the first-prime coordinate/frequency cap, the local chirp curvature and linearization width, and the exponential root base left by a generic Montgomery-Vaughan Dirichlet-polynomial length term.
+
+```text
+python scripts/chirp_window_diagnostics.py --s0 3 --n 1024 --output-json computations/.../data/s0-3-n1024.json
+```
+
+The script does not enumerate primes; it checks deterministic scale formulas only.
+
+### `bilinear_chirp_geometry.py`
+
+Supports `A-20260821-001`. It computes the four-corner nonseparability defect for `F(r,s)=Phi_n(r+s)`, checks its `1/n` decay on dyadic logarithmic boxes, records the balanced `sqrt(n)` log-width needed for unit cross phase, and verifies the formal pre-turning phase excursion `pi n`.
+
+```text
+python scripts/bilinear_chirp_geometry.py --s0 3 --n 1024 --output-json computations/.../data/s0-3-n1024.json
+```
+
+The script is deterministic phase geometry only; it does not enumerate primes or test arithmetic cancellation.
+
+### `positivity_kernel_diagnostics.py`
+
+Supports `A-20260821-002`. It checks synthetic Li Gram and Schoenberg matrices and the deterministic negative-diagonal structure of generalized prime-atom Gram contributions.
+
+```text
+python scripts/positivity_kernel_diagnostics.py --n-dim 8 --theta 0.7 --r 1.2 --search-n 100 --t 0.5 --x 0,1,5,10 --output-json computations/.../data/kernel-diagnostics.json
+```
+
+The zero orbits are synthetic diagnostics only.
+
+### `weil_support_geometry.py`
+
+Supports `A-20260821-002`. It records the half-log prime-power support thresholds and the exact path-graph norm of symmetrized compressed translations on `L2([-T,T])`. The later `A-20260821-003` work adds the exact finite-support normalization and residual-term requirements.
+
+```text
+python scripts/weil_support_geometry.py --T 0.45 --max-m 20 --output-json computations/.../data/support-T045.json
+```
+
+It does not approximate the archimedean Weil operator.
+
+### `weil_endpoint_absorption_certificate.py`
+
+Supports `A-20260821-003`. It proves the `T=7/20` first-prime endpoint absorption inequality using exact `Fraction` arithmetic, including certified rational logarithm bounds derived from the atanh series:
+
+```text
+V + P_2 >= (69/100) V >= 0.
+```
+
+```text
+python scripts/weil_endpoint_absorption_certificate.py --output-json computations/.../data/endpoint-absorption-rational.json
+```
+
+### `weil_exact_constants.py`
+
+Supports `A-20260821-003`. It uses python-flint/Arb to enclose the exact transcendental constants needed by future interval certificates, including `tau=log(2)/T`, `c_2=log(2)/sqrt(2)`, and `c_T=log(2*pi*T)+EulerGamma` at `T=7/20`.
+
+```text
+python scripts/weil_exact_constants.py --prec 256 --output-json computations/.../data/exact-constants-arb.json
+```
+
+### `weil_exact_prime_complement_certificate.py`
+
+Supports `A-20260821-004`. This is a proof-path Arb script with exact rational inputs. It certifies that the globally absorbed `0.69V` residual target is negative on `P_0-P_2`, verifies the exact-prime value is positive on that same test, and derives the crude rigorous Legendre-complement bound `mu_N=H_N-c_T-c_2-rho_R`.
+
+```text
+python -m scripts.weil_exact_prime_complement_certificate --prec 224 --max-n 30 --residual-order 32 --output-json computations/.../data/certified-complement.json
+```
+
+Its retained JSON uses exact rational interval endpoints for proof quantities. It does not prove full first-prime positivity.
+
+## Canonical one-prime continuation workflow
+
+For ordinary one-prime continuation research, use `scripts.weil_continuation_driver`. It is the canonical pre-theorem workflow and owns reconnaissance, convergence classification, dimension selection, rigorous precision escalation, conditioning-incident handling, exact candidate construction, candidate-level cross-precision stability confirmation, and the self-contained continuation bundle.
+
+The standalone continuation scripts remain supported research instruments and implementation components. Use them for isolated diagnostics, debugging, or historical reproduction; do **not** manually chain them as the ordinary continuation workflow.
+
+### `weil_continuation_driver.py`
+
+Canonical pre-theorem continuation driver. It accepts an exact rational support and an explicit dimension list or range. The p17 canonical scout runs eight increasing reconnaissance resolutions derived from the requested maximum dimension, retains all eight runs for audit, and applies the existing sign/convergence classifier to the highest three levels. The 1% relative Schur-movement tolerance is unchanged. This lets coarse under-resolution wash out without weakening the rigorous gate; `--scout-resolutions` may still be set explicitly for historical reproduction or diagnostics, and when fewer than three levels are supplied the classifier necessarily uses all supplied levels. The driver then rigorously screens only the smallest stable-positive dimension and its next larger fallback. Rigorous screening and candidate checks use the persistent cache `.cache/continuation-driver` by default; cache keys include support, dimension, precision, residual order, witness/rounding parameters, and a fingerprint of the continuation source files plus `uv.lock`. It accepts only the strict `log(2)/2 < T < log(3)/2` p=2-only support window. It never extrapolates dimensions, invokes the theorem exporter, edits the closed contract, or grants theorem status.
+
+The current canonical workflow version is `continuation-driver-p17-v1`; the cache contract remains `continuation-driver-v6`. `driver_version` identifies the complete canonical workflow/provenance contract, including scout selection semantics, lifecycle, observability, cleanup, and finalization as well as mathematical orchestration. It must advance when those semantics materially change, even if the cached mathematical payload format is unchanged. `cache_version` is narrower: it advances when cached mathematical payload/key semantics change. P17 changes the canonical reconnaissance policy but not the cache payload/key contract, so cache v6 remains correct; cache keys also include a fingerprint of the continuation sources (including this driver) and `uv.lock`, isolating changed implementations automatically. Historical bundles keep the driver/cache versions they were actually produced with.
+
+```text
+uv run --locked python -m scripts.weil_continuation_driver \
+  --support 19/40 \
+  --n-min 48 \
+  --n-max 80 \
+  --n-step 4 \
+  --output-dir computations/.../data/continuation-T019-040
+```
+
+An explicit dimension list can be supplied instead:
+
+```text
+uv run --locked python -m scripts.weil_continuation_driver \
+  --support 19/40 \
+  --n 48,52,56,60,64,68,72 \
+  --output-dir computations/.../data/continuation-T019-040
+```
+
+The default final stdout output is a concise human summary; pass `--json` when the full result object is needed on stdout. During the run, the CLI emits short elapsed-time progress lines to **stderr** and flushes every line immediately, keeping stdout reserved for the final human or JSON result. Live messages cover stage starts/completions, scout resolution completion, stable-positive selection, rigorous targets, per-precision Arb attempts (including from spawned rigorous workers), candidate rounding/confirmation, bundle writing, and the final terminal state. Stderr is advisory: a closed or broken stderr stream cannot invalidate computation/finalization because `.live/` remains the durable operational channel. Pass `--quiet` to suppress these live stderr messages without changing final stdout or the `.live/` observability files. The bundle remains the durable audit artifact.
+
+Before creating live state or doing scout/Arb work, the CLI acquires an exclusive OS-backed lock at `<output-dir>/.run.lock`. Windows uses a nonblocking `msvcrt` byte-range lock and POSIX uses `flock`; the JSON file carries the owning `run_id`, parent PID, command, support, and start time for diagnostics, but the kernel lock—not the PID metadata—decides whether the directory is active. If another process targets the same directory while the lock is held, it exits immediately with the active run ID/PID/start time before any expensive work begins. If a process crashes, the OS releases ownership automatically; a stale `.run.lock` file alone therefore does not block a later run and is overwritten after successful reacquisition. The lock pathname is intentionally never unlinked as part of release/rejection, because deleting a shared lock path after releasing the OS lock can race with a new POSIX owner and create two lock inodes; an unlocked stale file is harmless. The lock file is operational metadata and is excluded from the continuation manifest just like `.live/`.
+
+Immediately after lock acquisition, the CLI captures one start-of-run provenance snapshot and writes `<output-dir>/.live/run.json` before status/events or mathematical computation begin. `run.json` is immutable for the lifetime of the directory and records the shared `run_id`, driver and driver version, exact support, requested dimensions, parent PID, start time, Git commit, and Git dirty flag. When the output directory is inside the repository, the owned output directory itself is excluded from the Git status query so `.run.lock`/`.live` do not make a clean checkout appear dirty; source-tree changes elsewhere still set `git_dirty=true`. The same provenance object is reused for the final bundle rather than queried again. A surviving `run.json` therefore identifies an interrupted/prior run and causes ordinary fresh-run reuse to fail closed even after the OS lock has disappeared.
+
+Finalization is transactional. Reaching a mathematical terminal state does not by itself create a completed bundle. The driver first exits every process-pool context, requires access to the spawned-worker registry, verifies that each captured worker process is no longer alive and has an exit code, verifies that no executor remains active, and only then freezes the final result through JSON and records its SHA-256. The bundle boundary independently validates the complete cleanup-report shape, requires a known pre-theorem terminal state, rejects theorem/admission flags, and recomputes the frozen-result digest rather than trusting the caller. Stage artifacts are written first, `summary.json` is written after them, and `run-manifest.json` is written **last** as the bundle completion seal; artifact writes are flushed/fsynced before publication, with directory metadata fsynced on POSIX. The manifest also records a top-level `process_lifecycle` summary derived from that already-validated cleanup report: the parent PID, canonical `spawn` worker model, `worker_cleanup_verified=true`, `active_children_after_cleanup=0`, and executor/reaped-worker counts. Canonical finalization cross-checks that parent PID against immutable `.live/run.json`, while tests also require it to agree with `.run.lock` and `run-status.json`. Here `active_children_after_cleanup` is deliberately scoped to driver-managed process-pool workers observed by Python; it is not an OS-wide descendant-process claim, which remains Portus's responsibility. After the manifest write, the heartbeat supervisor must stop and join cleanly. Only then is `BUNDLE_FINALIZATION_COMPLETED` appended, live status set `terminal=true`, and `RUN_COMPLETED` appended. A heartbeat I/O failure therefore rolls the manifest back instead of allowing a completed run after supervision was lost. The output-directory lock is then released before final stdout is emitted. Therefore a valid `run-manifest.json` means the mathematical result had already been reached, parallel worker cleanup had been verified, the frozen payload matched its recorded digest, and live supervision survived through bundle finalization—not merely that computation stopped producing output.
+
+Executor cleanup has an explicit defense-in-depth recovery path without replacing the existing `with ProcessPoolExecutor(...)` architecture. After normal pool shutdown returns, the driver checks the exact captured executor `Process` objects and cross-checks them against `multiprocessing.active_children()`. If an owned worker is still alive or unreaped, cleanup escalates through a short join (`0.5s`), `terminate()` plus join (`1.0s`), then `kill()` where available plus join (`1.0s`). Only the captured executor workers are eligible for those actions; unrelated children returned by `active_children()` are recorded diagnostically and never terminated by the continuation driver. Successful recovery is recorded in `.live/events.jsonl` and aggregated into the manifest cleanup fields. Any owned worker still unresolved after the final check fails the run and prevents a completed manifest. This does not solve a Python executor whose own `shutdown(wait=True)` never returns; Portus remains responsible for stronger OS-level process-tree containment, and bounded cancellation of a truly wedged executor is a separate later concern.
+
+If execution raises after live state has started, the CLI does not leave a completed manifest. Runtime/finalization errors produce `<output-dir>/.live/failure.json` with operational state `RUN_FAILED`; `KeyboardInterrupt` produces `RUN_INTERRUPTED`. The same state is written to `run-status.json` with `terminal=true` and appended to `events.jsonl`. If a failure occurs after a manifest was tentatively written but before completion status/events finish, the manifest is removed. Partial scout/rigorous/candidate/summary files may remain for diagnosis, but without `run-manifest.json` they are explicitly incomplete and must not be treated as a finalized continuation bundle.
+
+While the CLI is running, it maintains `<output-dir>/.live/run-status.json` as a tiny atomically replaced operational snapshot. The file records the same stable run ID, command, support, parent PID, start/update timestamps, elapsed time, current workflow state, a bounded current-operation payload, and whether final bundle writing has completed. In addition to milestone-driven updates, a parent-owned heartbeat thread refreshes `last_heartbeat_utc` and `elapsed_seconds` every 12 seconds by default. A heartbeat claims only that the parent process and its heartbeat supervision are alive: it does not change the workflow state/current operation and does not claim mathematical progress. The heartbeat thread is explicitly stopped and joined on every CLI exit path covered by the driver lifecycle.
+
+The live-status snapshot is advisory, not a computation or acceptance gate. Each update attempts one atomic replacement without waiting through the critical-artifact retry budget. If snapshot I/O fails, progress continues in memory; `LIVE_STATUS_UNAVAILABLE` reports the error to stderr and, where writable, the event journal. Repeated failures are reported once per outage. A later successful update publishes current state and emits `LIVE_STATUS_RECOVERED`. A stale or missing snapshot is not proof that the mathematical run failed. Serialization errors, immutable run identity, ownership, scientific outputs, receipts and verification retain their existing failure semantics.
+
+
+The same run also maintains `<output-dir>/.live/events.jsonl` as an append-only structured event journal. Each flushed/fsynced JSON line carries a monotonically increasing sequence number, timestamp, run ID, event name, and only small event-specific fields. Canonical driver event/status payloads bound long strings and replace oversized lists with count/preview/truncated summaries, so a large requested dimension range cannot silently turn operational telemetry into multi-kilobyte state; retained mathematical results are not changed by this live-only bounding. The journal records run start/completion, workflow transitions, scout stage/resolution milestones, rigorous dimension milestones, candidate construction/confirmation milestones, bounded failure diagnostics, and bundle finalization. The parent process remains the sole journal writer, so parallel child processes never race on the JSONL file. R4's exact in-child rigorous precision messages are intentionally stderr-only; adding those child details to the durable parent-owned event chronology still belongs to the later worker-observability hardening. All `.live/` files are operational metadata rather than mathematical evidence and are intentionally excluded from `run-manifest.json` artifact hashes.
+
+The CLI uses bounded spawn-based process parallelism by default: up to three workers for the independent floating-scout resolutions and up to two workers for the independent primary/fallback rigorous screens. Parallel futures are observed with completion-order semantics, so `.live/events.jsonl`, live status, and stderr report a completed/failed scout resolution or rigorous dimension as soon as the parent can consume that future; they do not wait for an earlier-submitted job. Completion chronology is operational only. Successful/failed outcomes are buffered by stable resolution level or dimension and then materialized into `scout_runs`, per-dimension scout series, `scout_failures`, `rigorous_screening`, `rigorous_failures`, and survivor/candidate priority in canonical resolution/dimension order. Worker timing therefore cannot change reconnaissance sample order, retained bundle ordering, or which surviving dimension is tried first. Each worker defaults BLAS/OpenMP-style thread counts to one unless explicitly overridden, preventing process-level parallelism from multiplying hidden library threads. The precision ladder inside each rigorous screen, exact candidate construction, and candidate cross-precision confirmation remain sequential by design.
+
+For deterministic sequential reproduction or debugging:
+
+```text
+uv run --locked python -m scripts.weil_continuation_driver \
+  ... \
+  --scout-workers 1 \
+  --rigorous-workers 1
+```
+
+Programmatic `run_driver()` callers remain sequential by default; the CLI owns the bounded parallel defaults. Cache writes use process-unique temporary files followed by atomic replacement so parallel jobs cannot collide on one generic `.tmp` path. Critical bundle/cache publication retains bounded permission-error retries and fails closed when publication remains impossible. Advisory live-status snapshots use the nonfatal behavior described above; they cannot abort the calculation solely because their temporary file cannot replace a reader-held snapshot.
+
+The CLI rejects a `--cache-dir` located inside its `--output-dir` before acquiring the run lock. Cache files are operational reuse data rather than bundle artifacts; allowing them inside the output directory would otherwise guarantee a late finalization failure after expensive work.
+
+`CANDIDATE_READY` is generator-side evidence only and does **not** authorize theorem admission. The driver stops there. A separate human/research decision must first admit the exact support/dimension pair to the closed theorem contract; only after that separate change may a fresh independent Rust replay establish theorem status.
+
+The driver escalates matrix rounding bits and witness bits independently when candidate construction fails. Once an exact positive candidate exists, it freezes `T`, `N`, residual order, matrix bits, and witness bits and reassembles at `p+128`; if that comparison is not stable it tries `p+256` before stopping. Candidate confirmation compares exact `mu_N`/even/odd margins, raw Arb enclosure contraction, exact rounded interval widths, and widest-entry conditioning diagnostics. A higher-precision contradiction or unresolved movement ends fail-closed as `PRECISION_LIMIT_REACHED`, not `CANDIDATE_READY`. The defaults are configurable with `--candidate-precision-step` and `--candidate-precision-extra-steps`. Rounding, witness, mathematical-negative, and insufficient-precision outcomes remain distinct.
+
+### `weil_legendre_schur_scout.py`
+
+**Diagnostic/component tool.** Use this directly for isolated floating reconnaissance or historical reproduction, not as the first manual step of the ordinary continuation workflow.
+
+```text
+python -m scripts.weil_legendre_schur_scout --support 2/5 --max-mode 120 --quadrature-order 700 --shift-order 350 --n 32,40,48,56,64,72 --output-json computations/.../data/dimension-scout-T040.json
+```
+
+This script is reconnaissance only. Its finite tail truncation is not an infinite-dimensional bound and cannot certify positivity.
+
+### `weil_support_continuation_scout.py`
+
+**Diagnostic/component tool.** Use this directly for isolated rigorous full-tail diagnostics or historical reproduction; ordinary continuation precision search is owned by the canonical driver.
+
+Supports `A-20260826-001`. It reuses the exact-polynomial/Arb full-tail assembler at exact rational support values, then converts only normalized matrix midpoints to NumPy/SciPy for support-margin reconnaissance. It reports `mu_N`, finite-block midpoint minima, Schur midpoint minima, and component penalty scales. Positive rows are not theorem certificates.
+
+```text
+python -m scripts.weil_support_continuation_scout --supports 7/20,3/8,2/5,17/40,9/20 --dimension 32 --prec 112 --output-json computations/.../data/support-scan.json
+```
+
+### `weil_support_candidate_check.py`
+
+**Diagnostic/component tool.** Generator-side exact candidate checker for a deliberately selected continuation point. It performs rigorous Arb assembly, outward dyadic rational rounding, exact rational Schur construction, and exact rational congruence/Gershgorin checks. Ordinary continuation candidate search is owned by the canonical driver. This standalone checker deliberately does **not** emit a theorem certificate, modify the closed contract, authorize admission, or invoke the independent verifier.
+
+```text
+python -m scripts.weil_support_candidate_check --support 2/5 --dimension 40 --prec 256 --matrix-bits 72 --witness-bits 40 --output-json computations/.../data/candidate-T040-N40.json
+```
+
+### `cert/exact_prime_schur_certificate.py`
+
+Proof-path exporter for the closed `exact_prime_legendre_schur` whitelist. It assembles rigorous exact-prime Legendre-Schur certificates, outward-rounds Arb matrices to exact dyadic rational intervals, derives exact rational parity congruence witnesses from rational midpoint `LDL^T`, and exports only explicitly admitted support/dimension pairs.
+
+Current admitted examples:
+
+```text
+python -m scripts.cert.exact_prime_schur_certificate --claim C-0050 --support 7/20 --dimension 32 --prec 160 --matrix-bits 64 --witness-bits 32 --output-json computations/.../data/certificate.json
+
+python -m scripts.cert.exact_prime_schur_certificate --claim C-0051 --support 2/5 --dimension 40 --prec 256 --matrix-bits 72 --witness-bits 40 --output-json computations/.../data/certificate-T040-N40.json
+
+python -m scripts.cert.exact_prime_schur_certificate --claim C-0052 --support 17/40 --dimension 48 --prec 384 --matrix-bits 88 --witness-bits 48 --output-json computations/.../data/certificate.json
+
+python -m scripts.cert.exact_prime_schur_certificate --claim C-0053 --support 9/20 --dimension 56 --prec 512 --matrix-bits 104 --witness-bits 56 --output-json computations/.../data/certificate.json
+
+python -m scripts.cert.exact_prime_schur_certificate --claim C-0054 --support 19/40 --dimension 68 --prec 384 --matrix-bits 64 --witness-bits 32 --output-json computations/.../data/certificate.json
+
+python -m scripts.cert.exact_prime_schur_certificate --claim C-0055 --support 1/2 --dimension 80 --prec 512 --matrix-bits 64 --witness-bits 32 --output-json computations/.../data/certificate.json
+
+python -m scripts.cert.exact_prime_schur_certificate --claim C-0056 --support 21/40 --dimension 96 --prec 512 --matrix-bits 64 --witness-bits 32 --output-json computations/.../data/certificate.json
+
+python -m scripts.cert.exact_prime_schur_certificate --claim C-0057 --support 27/50 --dimension 104 --prec 512 --matrix-bits 64 --witness-bits 32 --output-json computations/.../data/certificate.json
+```
+
+`(27/50,104)` is contract-admitted and theorem-bearing as `C-0057`. `X-20260924-001` executed the command above from clean committed provenance, received independent zero-float Rust exit `0` / `passed=true`, passed real-certificate adversarial checks, and is explicitly registered in the retained-proof manifest.
+
+The generator does not decide the theorem. `crates/rh_cert` independently validates the whitelisted pair, reconstructs the complement lower bound and factor-3 Schur matrix, and proves the parity blocks positive using exact rational interval congruence/Gershgorin checks. The retained theorem runs are `X-20260821-005`, `X-20260826-001`, `X-20260826-002`, `X-20260826-003`, `X-20260827-002`, `X-20260827-004`, `X-20260828-001`, and `X-20260924-001`.
+
+### `cert/verify_retained_proofs.py`
+
+Canonical retained-theorem artifact acceptance gate. It loads the closed manifest at `computations/retained-proofs.json`, validates its eight registered proof identities, hashes the exact certificate bytes, and replays every hash-valid artifact through the current independent zero-float `rh_cert` verifier.
+
+```text
+uv run --locked python -m scripts.cert.verify_retained_proofs
+```
+
+A successful run ends with `RETAINED PROOF CHAIN: PASS - 8/8`. The command is fail-closed and reports `MISSING`, `HASH_MISMATCH`, `VERIFIER_ERROR`, `THEOREM_FAILURE`, or `SEMANTIC_MISMATCH` per theorem while continuing through the full manifest. It **does not regenerate certificates** and it does not grant theorem status to a new support/dimension pair. It answers the narrower audit question: are the exact proof artifacts currently cited by the repository still byte-intact and accepted by the current independent verifier?
+
+Fast manifest-only validation remains available as:
+
+```text
+uv run --locked python -m scripts.cert.verify_retained_proofs --manifest-only
+```
+
+The real eight-artifact pytest acceptance is deliberately excluded from ordinary test runs and can be invoked explicitly with:
+
+```text
+uv run --locked --extra test python -m pytest -q -m retained_proofs tests/test_retained_proofs_acceptance.py
+```
+
+### `cert/legendre_schur.py`
+
+Rigorous shared assembly for the exact-prime Legendre-Schur proof and continuation work. It uses exact rational polynomial algebra for Legendre actions and overlap identities, Arb only for transcendental enclosures, closed logarithmic/log-squared moments for `G_V`, exact edge-overlap geometry for `G_2`, and the canonical Suzuki residual series plus rigorous remainder for `G_R`. The reusable assembler accepts an exact rational one-prime support `T`; theorem-specific certificate wrappers remain responsible for locking allowed supports/dimensions.
+
+### `cert/prime_power_terms.py`
+
+Additive multi-prime arithmetic operator core. Unlike the frozen one-prime edge-overlap implementation, this module is generic in the active prime powers and translation geometry. It recognizes `m=p^k` with exact integer arithmetic; rigorously constructs `log(m)`, `tau_m`, `Lambda(m)`, and `c_m` using Arb; enumerates the strict active set `log(m)<2T` and fails closed when a requested precision cannot settle a threshold; constructs the left/right translated polynomial pieces on `[-1,1]`; globally partitions by every translation breakpoint; sums all active signed arithmetic images on each cell; and integrates those combined images to obtain `P`, `P^2`, and `G_P=P^2-PD^{-1}P`.
+
+`P^2` is computed from `<P phi_i,P phi_j>`, so mixed terms are present automatically. The focused regression suite includes exact overlap agreement with `first_prime_matrices()` in the one-prime window, a nonzero `P_2/P_3` cross-term test, and a `{2,3,4}` case at `T=7/10` where `tau_2<1`. This module is not yet connected to a multi-prime certificate exporter or verifier.
+
+### `cert/multi_prime_legendre_schur.py`
+
+Full rigorous post-v1 Legendre-Schur assembler. `assemble_multi_prime_schur()` uses the established potential moment formulas and Suzuki residual coefficients/remainder, with native exact polynomial convolution and assembly-local residual monomial-action reuse on the new path. The arithmetic block comes from `cert/prime_power_terms.py`, which uses native Arb shifts, products, and antiderivative evaluation on the shared partition, with coefficient-certified parity. Outputs include the active terms, combined `P`, operator `P_squared`, `A`, `GV`, `GP`, `GR`, `rho_R`, `mu`, and `schur`. The complement derives each compressed-shift norm from the rigorous path-graph chain length rather than assuming the one-prime `tau>1` geometry. Frozen v1 implementation and mathematical estimates are unchanged.
+
+The P3 bridge tests are deliberate: before the `{2,3}` case is accepted, the generic assembler is compared against the frozen v1 path at four historical supports and dimensions 16 through 32. All relevant matrix/scalar enclosures overlap. Only after that bridge passes does the direct `{2,3}` test verify that the combined operator square contains a strictly nonzero cross term and does not reduce to the sum of the two individual squares.
+
+P3 acceptance closes with the integrated focused target at `31/31` and the complete default Python suite at `574/574`. The frozen `cert/legendre_schur.py` remains unchanged.
+
+### `weil_multi_prime_schur_scout.py`
+
+Floating-only reconnaissance for the post-`p=3` path. It independently enumerates the numerically active prime powers, constructs each compressed translation in NumPy/SciPy quadrature, sums the combined `P`, and forms truncated component tail Grams labelled `GV`, `GP`, and `GR`. It reports per-term complement estimates and combined-prime singular-value/tail conditioning. These values are intentionally not Arb bounds and must never be used as theorem evidence.
+
+### `weil_multi_prime_support_candidate_check.py`
+
+Rigorous generator-side exact candidate stage. It consumes `assemble_multi_prime_schur()`, outward-rounds `A`, `GV`, `GP`, and `GR`, outward-rounds every active term's `c_m b_m` contribution separately, reconstructs the exact complement lower bound and factor-3 Schur matrix, and derives exact rational even/odd congruence witnesses. Output diagnostics include the individual active-term constants, `P/P_squared/GP` width conditioning, explicit `GP` widths, exact even/odd Gershgorin margins, and optional lower-vs-higher Arb precision contraction. `--prec`, `--matrix-bits`, and `--witness-bits` are independent controls; `--compare-prec` is diagnostic-only. `--dimension` is required rather than guessed.
+
+P4 acceptance closes with the focused multi-prime/frozen-v1 target at `24/24` and the complete default Python suite at `578/578`.
+
+### `weil_multi_prime_support_continuation_scout.py`
+
+Rigorous-screen adapter for the multi-prime driver. It assembles `A/GV/GP/GR/mu` with `assemble_multi_prime_schur()` and independently confirms active terms `[2,3]`. Endpoints, widths and widest-entry diagnostics serialize as exact rationals. Midpoint eigendiagnostics use power-of-two scaling before binary64 conversion and restore units as rational numerical values, not certified spectral bounds. Unavailable diagnostics are explicit and require more precision, not failed assembly or mathematical rejection. It does not construct exact candidates.
+
+### `weil_multi_prime_continuation_driver.py`
+
+Canonical continuation workflow for future structural windows, initially hard-limited to `log(3)/2 < T < log(4)/2` with exact active set `{2,3}`. It intentionally duplicates the mature operational orchestration rather than refactoring the historical one-prime driver. Workflow: floating multi-resolution scout → stable dimensions → primary/fallback rigorous Arb precision search → exact matrix/witness bit ladders → generator-side exact candidate → higher Arb precision confirmation → `CANDIDATE_READY` or a fail-closed terminal state. Parallel stages use bounded spawn pools and `as_completed` for immediate observation, then materialize retained output in canonical order. Cache publication and result bundles are atomic; the manifest is the completion seal; worker cleanup must verify zero owned active children before finalization. The old `weil_continuation_driver.py` remains the historical one-prime path.
+
+P5 acceptance closes with focused multi-prime/frozen-v1 tests at `35/35`, bundle/P5 regression at `29/29`, a real parallel CLI smoke with verified cleanup, and the complete default Python suite at `591/591`.
+
+### `cert/certificate_v2_contract.py`
+
+P6 structural contract helper for `rh-weil-certificate-v2`. It loads and validates `docs/contracts/rh-weil-certificate-v2.json`, then applies canonical cross-field checks that JSON Schema alone cannot express: no floats, reduced support/interval rationals, strictly increasing `arithmetic_terms`, prime base validation, `m=base_prime^exponent`, full matrix coordinate coverage, and correct even/odd witness dimensions. This module does **not** export theorem certificates and does not call the Rust verifier. `V2_ALLOWED_CONFIGURATIONS` is deliberately an empty `frozenset`; structure-valid v2 data is not theorem-admitted data.
+
+P6 acceptance closes with `21/21` focused certificate-v2/frozen-v1/admission tests and `602/602` for the complete default Python suite.
+
+P7 adds the independent Rust consumer for this structure under `crates/rh_cert/src/v2.rs` with format routing in `crates/rh_cert/src/dispatch.rs`. The Python helper above remains structural/generator-side tooling and does not call or substitute for the Rust verifier. Rust requires exact first-window terms `[2,3]`, independently derives the exact-rational prime losses and `mu_N`, rebuilds the factor-3 `GV+GP+GR` Schur blocks, and checks exact parity witnesses. The production v2 theorem whitelist is still empty. The Rust trust boundary remains exact-rational: it checks serialized interval arithmetic and relationships but does not independently establish the underlying transcendental Arb enclosures.
+
+P7 closure: Rust `63/63`, strict clippy/rustfmt, focused Python `21/21`, complete default Python `602/602`, and retained theorem replay `8/8`.
+
+P8 hardens the pre-continuation boundary. `certificate_v2_contract.py` now semantically enforces exact first-window terms `[2,3]`, exact `b_m=1`, coefficient/norm/complement relationships, matrix symmetry/parity, and fail-closed strict support from the serialized log intervals. The JSON Schema independently closes the serializable term shape to `[2,3]`. Cross-layer structural cases live in `tests/data/certificate-v2-cross-layer-v1.json`; closed theorem-admission cases live in `tests/data/multi-prime-admission-v2.json`. These are test-only oracles and are never production inputs. P8 closure is focused Python `41/41`, Rust `67/67`, full Python `608/608`, retained replay `8/8`, with strict clippy/rustfmt.
+
+### P9 qualification performance result
+
+The first real `T=11/20` qualification exposed a performance boundary in the generic rigorous path. The floating scout completed normally and selected `N=192` with fallback `N=196`, but two independent retries failed to finish even the first 128-bit rigorous assemblies within external execution allowances of roughly 30 minutes and one hour. The workers remained CPU-active; this was not a deadlock. No rigorous cache entry was committed before termination.
+
+Treat this as **NOT QUALIFIED**, not as a mathematical negative. Do not keep extending the dimension grid or retry the same command expecting cached progress. Before another end-to-end qualification, profile and optimize the generic multi-prime rigorous assembler while preserving P2/P3 equivalence and P8 cross-layer gates.
+
+### `profile_multi_prime_assembly.py`
+
+Manual sequential rigorous-assembly timing CLI. It uses no continuation cache or process pool, permits nonpositive diagnostic complement at small dimensions, records source/runtime provenance, and publishes each completed sample. `--mode timing` measures uninstrumented wall/CPU totals; `--mode stages` reports nested inclusive/exclusive stage timings; `--mode cprofile` retains the hottest cumulative call records. Peak memory is a process-lifetime high-water mark. Interrupted output remains marked running, not completed. Diagnostic strings and JSON conversion occur outside the assembly timer.
+
+```text
+uv run --locked python -m scripts.profile_multi_prime_assembly --support 11/20 --dimensions 32,64,96,128 --precision 128 --residual-order 32 --mode timing --output-json computations/.../data/assembly-timings.json
+```
+
+[Phase 1/2 performance record](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md): 128-bit isolated `N=128` falls from `897.221 s` to `6.779 s`; `N=192/196` complete in `26.259/28.069 s`. Focused tests pass `65/65`, including exact residual-image and unoptimized interval references. These timings do not establish target candidate positivity, higher-precision readiness, full acceptance, or P9 closure. The frozen P9 driver was not run.
+
+Phase 3 extends that record with `121/121` focused checks. `tests/test_multi_prime_assembly_performance.py` compares independent unskipped small references, exact residual coefficients/norms, and tighter high-precision enclosures, and couples bounded work counts to mathematical output comparisons. Driver tests exercise real support/precision cache isolation and generic-source fingerprint invalidation. Candidate tests independently reconstruct outward dyadic bounds, grouped factor-3 Schur blocks, and exact congruence/Gershgorin margins with separate Arb/matrix/witness controls. No runtime thresholds or new production caches were added. The timestamped phase 4 addendum retains higher-precision/throughput measurements and full acceptance executions; its readiness gate is blocked by target conditioning and unrelated workspace formatting failures.
+
+### `profile_multi_prime_workflow.py`
+
+Manual component-cost CLI, not qualification. `--mode throughput` measures uncached assembly in the driver's bounded verified spawn pool; `--mode candidate` times actual sequential candidate assembly, rounding, exact Schur and witness work, retaining expected stage failures and exact native conditioning widths outside the timer; `--mode scout` measures only the floating component over the requested dimension grid/resolutions. Every mode records provenance, lifetime peak memory and atomic JSON publication costs. Pool modes preserve completion observation, canonical result order and cleanup verification. No mode calls `run_driver()`, selects a candidate, uses continuation caches or seals qualification.
+
+```text
+uv run --locked python -m scripts.profile_multi_prime_workflow --mode throughput --support 11/20 --dimensions 192,196 --precision 512 --workers 2 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-throughput-512.json
+uv run --locked python -m scripts.profile_multi_prime_workflow --mode candidate --support 11/20 --dimensions 192,196 --precision 512 --matrix-bits 64 --witness-bits 32 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase4-candidates-512-64-32.json
+```
+
+Phase 4 observes `34.893/37.460 s` isolated 512-bit assembly and `38.208 s` two-worker throughput, but target candidates fail exact midpoint LDL witnesses through Arb 768. Native combined-prime widths remain enormous despite precision contraction; this is not a mathematical negative. Full Python `647/647`, Rust `67/67`, strict Clippy and retained replay `8/8` pass; workspace formatting fails in untouched `rh_engine` files. Stop before P9. The retained cost model estimates a conservative 12-hour external allowance, not a runtime guarantee or launch authorization.
+
+The user subsequently authorized the unchanged phase 5 qualification despite those blockers. [X-20261002-001](../computations/2026-10-02T010121Z-t11-20-multi-prime-qualification-after-hardening/record.md) records natural completion in `168.78 s` at `PRECISION_LIMIT_REACHED`: scout selects `192/196`; 128-bit screens report float-conversion overflow, and 256/384/512 remain insufficient. No candidate construction or mathematical rejection occurred. Source snapshots and final driver artifacts are retained, but phase 6 byte audit/reproduction was not run. P9 remains NOT QUALIFIED; do not change frozen controls to hide the conditioning limit.
+
+Phase 6 independently audits both final manifests and every listed artifact, `18/18` per run, plus ordered result-payload digests. Fresh-cache Run B uses the same source snapshot and settings, naturally finishing in `169.39 s` at `PRECISION_LIMIT_REACHED`. Exact recursive canonical comparison passes with zero mathematical/diagnostic differences after predeclared metadata exclusions; `17/18` artifacts are byte-identical. A separate Windows process scan finds zero qualification survivors. These operational checks pass, but the qualification gate fails because both runs stop before candidate construction. P9 remains NOT QUALIFIED; no admission or further retry occurred.
+
+Phase 7 separates exact-safe multi-prime diagnostics in `multi_prime_precision_diagnostics.py`, leaving the shared frozen-v1 helpers unchanged. Screening and candidate confirmation use exact width, sign and margin-tolerance comparisons, including overflow/underflow cases. The workflow version is `multi-prime-continuation-driver-p9-phase7-v2`; cache contract is `multi-prime-continuation-driver-v2`, with the new numerical dependency fingerprinted. Old float-payload cache entries cannot be reused. Rational-valued diagnostic fields now serialize as strings rather than binary64 numbers.
+
+Phase 7 focused acceptance passes `144/144`. Real uncached 128-bit `192/196` screens complete without conversion exceptions but remain insufficient precision. A known one-prime overlap candidate confirms from Arb `256` to `384` at fixed `64/32` bits; this is not `{2,3}` target readiness. Commands, exact outputs and source hashes are retained in [X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md). No conditioning redesign or qualification retry occurred; P9 remains NOT QUALIFIED.
+
+
+### `profile_multi_prime_conditioning.py`
+
+Enclosure diagnostic, never qualification. `--representations cell-legendre` now exercises production generic arithmetic. `global` and `cell-monomial` are explicit historical controls confined to this diagnostic. `--group-potential` uses production exact harmonic contractions; omitting it selects historical per-moment rounding as a control, not a production fallback. The diagnostic CLI uses canonical Legendre modes; the production operator also accepts arbitrary exact orthogonal polynomial bases.
+
+Profiles retain exact rational widths/coefficient bounds through basis conversion, local affine coefficients, combined images, sampled control products/primitives/endpoints, and full `P/P_squared/PD^-1P/GP/A/GV/GR/Schur` matrices. Local Legendre integration uses diagonal exact norms instead of primitives. Product-stage probes sample diagonal degrees `0,N//2,N-2,N-1`; coefficient/matrix profiles are full. Basis-conversion measurements in local runs are controls. No wall-clock figure or width threshold grants acceptance.
+
+`--witness-precision` requests actual outward candidate construction at that Arb precision, with independent `--matrix-bits` and `--witness-bits`. It reuses the genuinely assembled matrices. Exact rounded inputs are retained in candidate ZIPs, including when witness construction fails; failed inputs do not contain a successful witness. `--rayleigh-check` checks a leading-midpoint-system last-coordinate direction rounded to the requested witness bits against the rigorous even Schur block; it is not a spectral sign oracle. Complete intervals/vectors carry SHA-256 and are diagnostic inputs, never theorem certificates.
+
+```text
+uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 16 --precisions 128,256 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-small-comparison.json
+uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 192,196 --precisions 128,256,384,512 --representations cell-legendre --group-potential --witness-precision 384 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-grouped-potential-targets.json
+uv run --locked python -m scripts.profile_multi_prime_conditioning --dimensions 192,196 --precisions 384 --representations cell-legendre --group-potential --rayleigh-check --matrix-bits 104 --witness-bits 56 --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase8-rayleigh-cli.json
+```
+
+[X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md) records Phase 8 selected Arb-512 full-Schur widths `6.5763e-82/2.1290e-80`, but actual candidates fail at both `64/32` and frozen-maximal `104/56` bits. Strict negative exact interval directions at `192/196` independently replay `2/2`. Phase 9 implements the selected representation without changing the sufficient Schur test, support/grid, bounds or precision caps. P9 remains NOT QUALIFIED/P10 blocked. The rejection is not localized Weil-form negativity or an RH counterexample.
+
+### `audit_multi_prime_candidate.py`
+
+Standalone zero-float replay of `rh-multi-prime-candidate-audit-v1` inputs. Successful `weil_multi_prime_support_candidate_check.run_candidate()` results now contain `audit_inputs`: outward-rounded `A/GV/GP/GR`, exact complement inputs and prime losses, controls/basis/factor, both dyadic witness matrices and exact margins. The auditor reconstructs the positive complement and factor-3 Schur matrix, checks dimensions, parity and scalar relationships, and independently evaluates congruence centers/radii with native rational matrices. Reported margins must match the recomputed strictly positive values.
+
+```text
+uv run --locked python -m scripts.audit_multi_prime_candidate --input computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-base-audit-inputs.json --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-base-audit.json
+uv run --locked python -m scripts.audit_multi_prime_candidate --input computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-confirmation-audit-inputs.json --output-json computations/2026-10-01T215617Z-multi-prime-assembly-performance/data/phase9-overlap-confirmation-audit.json
+```
+
+These exercised inputs are the existing one-prime overlap control `T=2/5,N=40`, with fixed `64/32` bits and real Arb `256 -> 384` confirmation. They are not substitute qualification evidence for frozen `{2,3}` targets. Replay checks serialized rational arithmetic, not upstream transcendental enclosures or theorem admission; it never calls Rust.
+
+The multi-prime workflow/cache versions are `multi-prime-continuation-driver-p9-phase9-v3` / `multi-prime-continuation-driver-v3`. Old cache entries cannot satisfy the new proof-input contract. Source fingerprints include the auditor and bundle publisher. Multi-prime bundle format is `rh-multi-prime-continuation-candidate-bundle-v2`; positive bundles require separate manifest-listed base and fixed-input higher-precision audit artifacts. Frozen one-prime bundle format and behavior remain unchanged.
+
+Production piecewise images in `cert/prime_power_terms.py` expose `PiecewisePolynomial.legendre_coefficients`, representing `t=(x-(lower+upper)/2)/((upper-lower)/2)`. Global monomial `coefficients` and global translation/integration helpers are removed from that production module. An empty local coefficient tuple denotes the zero image on an inactive cell.
+
+Phase 9 implementation/equivalence verification passes `159/159` focused and `696/696` default Python tests. The real frozen `192/196` candidates at Arb 384 and `104/56` bits still fail final even pivots `95/97`. Fresh independent exact replay proves strict negative directions in both complete rounded candidate Schur matrices (`2/2`) and all four Arb-384/512 matrices (`4/4`); all eight matrix-stage widths contract (`16/16`). The positive overlap control and component packaging smoke are not substitute qualification. Full readiness remains **BLOCKED**; no frozen-target positive base/confirmation exists, no qualification ran, and no support/grid/criterion or theorem-admission change occurred. Exact inputs, source snapshots, commands and audits are retained in [X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md).
+
+### Native multi-prime exact witnesses
+
+`cert/multi_prime_exact_witness.py` implements the candidate's exact witness path separately from frozen v1. Fraction-free integer midpoint elimination accumulates inverse unit-lower LDL rows directly; exact quotient/remainder rounding and native midpoint/radius congruence preserve the same dyadic witness and strict Gershgorin margin. The independent auditor remains separate. Cache and candidate-profile fingerprints include the backend.
+
+Phase 11's one retained-input smoke produces identical full rounded candidate inputs/rejection and identical proper-block witness/margin. Actual N196 candidate time falls `541.946 -> 53.525 s`; complete 97-mode proper witness time falls `1306.928 -> 22.725 s`. This is not positive full-target evidence. Post-cutover focused/default Python pass `77/77` and `715/715`; twelve frozen/shared byte controls remain unchanged. The reassessed external allowance is two hours per fresh run, four hours for the pair, not a launch authorization or full-positive runtime bound. Native memory is not claimed measured. See the Phase 11 addendum in [X-20261001-001](../computations/2026-10-01T215617Z-multi-prime-assembly-performance/record.md). No further benchmark sweep or Phase 12 run occurred.
+
+
+## Shared implementation
+
+`rh_tools.py` contains the standard-library Laguerre recurrence, prime sieve, von Mangoldt prime-power enumeration, pole parameters, high-precision trace accumulation, Simpson integration, turning-scale helpers, numerical zeta-zero evaluation via pinned `mpmath`, the retained small-`u` phase approximation, and the exact uniform pre-turning stationary map derived in `A-20260820-005`.
+
+## Interpretation rule
+
+These scripts can:
+
+- falsify proposed identities or bounds;
+- reveal numerical localization and scaling;
+- expose phase loss caused by absolute values;
+- identify unstable cutoff regimes;
+- guide which analytic lemma is worth attempting.
+They cannot prove RH by numerical verification. Retained historical/manual research runs use the established `computations/` record structure (`record.md`, `plots/`, `data/`) with exact parameters and limitations. Canonical continuation-driver runs use the driver's self-contained continuation bundle (`summary.json`, scout/rigorous artifacts, candidate data, and `run-manifest.json`). Both formats must retain enough parameters, provenance, and limitations for audit and reproduction.

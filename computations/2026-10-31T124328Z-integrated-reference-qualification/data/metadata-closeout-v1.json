@@ -1,0 +1,128 @@
+{
+  "format": "metadata-correction-closeout-v1",
+  "created_utc": "2026-11-13T12:49:44Z",
+  "origin_git_commit": "e918bef39ac91963bfb73180e79afe653c29d07b",
+  "status": "CORRECTED_LOCAL_SCOPE",
+  "verification_status": "PASS_CONTROL_ONLY_METADATA_CORRECTION",
+  "successful_case_outcomes": 353,
+  "initial_failed_contract_cases": 1,
+  "xml_results": {
+    "metadata-source-consumers-v1.xml": {
+      "tests": 61,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    "metadata-source-consumers-v2.xml": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "metadata-panel-recovery-consumers-v1.xml": {
+      "tests": 127,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "owned_stages": 30,
+  "reduced_source_entries": 36,
+  "concurrent_staging_workers": 2,
+  "max_owned_budgeted_memory_bytes": 168095744,
+  "files": [
+    {
+      "path": "data/metadata-initial-test-outcomes-v1.json",
+      "size": 1026,
+      "sha256": "9a0839644147c758d36529e455b2e12fc71c59ff9426ecc490fb7d601f5cc79d"
+    },
+    {
+      "path": "data/metadata-source-consumers-v1.xml",
+      "size": 12105,
+      "sha256": "754d4fcf08e6c238afb20ae7d3bf914f023512178803cc6df2cb6cab2ba2e880"
+    },
+    {
+      "path": "data/metadata-source-consumers-v2.xml",
+      "size": 415,
+      "sha256": "c51de7eb694e8b143f45a5d762034b349aa2458da6b5da680591d6c60e6c3a68"
+    },
+    {
+      "path": "data/metadata-panel-recovery-consumers-v1.xml",
+      "size": 19179,
+      "sha256": "c7d232f8d3e376bba5b147a5a9abccff86c687cff420884a476dce2515a3c059"
+    },
+    {
+      "path": "data/metadata-verification-v2.json",
+      "size": 7362,
+      "sha256": "7c10d95d8a6f62eaae5346252e00b440fff3f6eeebd40fb1acaebe279c43c07b"
+    },
+    {
+      "path": "data/metadata-verification-v2-run-inventory.json",
+      "size": 876343,
+      "sha256": "b3a42ff4db24030aaea4d7ee9792181242557873bf0dd455de5ff343b8697cda"
+    },
+    {
+      "path": "data/metadata-final-tested-source-v1/preservation.json",
+      "size": 44979,
+      "sha256": "b0ab3d3953202510e955dcc3b34eadbbe7bb4e3d85dda64f7ef16e314b746523"
+    },
+    {
+      "path": "data/metadata-structural-baseline-v1/result.json",
+      "size": 30807,
+      "sha256": "cb1c8da3beba9308c299bb8d34fad45a02b038909b1ac36a13c0e5bc299662c9"
+    },
+    {
+      "path": "data/metadata-structural-corrected-v1/result.json",
+      "size": 30675,
+      "sha256": "d977dc8664c72326dac248b63c14e080377882f7eea405395d001b17ef88339f"
+    },
+    {
+      "path": "data/inventory-streaming-baseline-v1/result.json",
+      "size": 2875,
+      "sha256": "3de51f931476767dd4aaa5f49d4796b31d23679f32d9f7adf712976ec7fd1f37"
+    },
+    {
+      "path": "data/inventory-streaming-corrected-v1/result.json",
+      "size": 2872,
+      "sha256": "0bfcef440d0e3ab1d41fd3e856c305e4cd842ebb9e63a78e9a71be8127dbe89d"
+    },
+    {
+      "path": "preserve-metadata-source-v1.py",
+      "size": 2496,
+      "sha256": "5a1d23f7d28ced747c07963a81dbe304838d94d442b25038c131d99c3789d7e5"
+    },
+    {
+      "path": "metadata-structural-control-v1.py",
+      "size": 7030,
+      "sha256": "2b5dafb23cbc68852a2bc4611e436c7349e49e90b254482cac4dc2acc0a49efe"
+    },
+    {
+      "path": "metadata-owned-control-v1.py",
+      "size": 1088,
+      "sha256": "f4fe8700dbed0efc64b571bffd9d2f23a6b34d21f4e188ea868f6b9e50b640ac"
+    },
+    {
+      "path": "inventory-streaming-control-v1.py",
+      "size": 5673,
+      "sha256": "a9418b205ee39af142660236621bc5417c82a81e91e3e581935c73f1b3d46180"
+    },
+    {
+      "path": "verify-metadata-correction-v1.py",
+      "size": 8246,
+      "sha256": "49c8036c39e289c8f93d12e2b5a202b91f09efb9988aa21ae0f9f72e32395412"
+    },
+    {
+      "path": "verify-metadata-correction-v2.py",
+      "size": 10492,
+      "sha256": "54464208a6e4d08a5b5802121b745440c93bf8bfa6dacdc686e1534a135f55f9"
+    },
+    {
+      "path": "record.md",
+      "size": 88735,
+      "sha256": "bbfbdbc486a3256a65aefc1de2c50c73d3daf16b2cef4fd8a5213dded32a00a0"
+    }
+  ],
+  "full_qualification_executed": false,
+  "whole_pipeline_speedup_demonstrated": false,
+  "production_admission": false
+}

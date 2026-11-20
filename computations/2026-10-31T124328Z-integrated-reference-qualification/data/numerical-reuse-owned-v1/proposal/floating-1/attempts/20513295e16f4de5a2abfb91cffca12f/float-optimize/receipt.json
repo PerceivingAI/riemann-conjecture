@@ -1,0 +1,70 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\numerical-reuse-owned-v1\\proposal\\floating-1\\attempts\\20513295e16f4de5a2abfb91cffca12f\\runtime\\computations\\2026-10-28T034134Z-t081-resource-execution\\stage_worker_v1.py",
+    "--program",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\numerical-reuse-owned-v1\\proposal\\floating-1\\attempts\\20513295e16f4de5a2abfb91cffca12f\\runtime\\scripts\\whole_source\\execution.py",
+    "--program-sha256",
+    "fedeeee0990b7fc2bbf58a0d7f22a65cd6c9c634c0bb855eb1429c1d87c405b0",
+    "--config",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\numerical-reuse-owned-v1\\proposal\\floating-1\\attempts\\20513295e16f4de5a2abfb91cffca12f\\execution-budget.json",
+    "--config-sha256",
+    "73c36d893d219fae925a9313f98766d70252df973a3988b30593e917a41324ba",
+    "--profile",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\numerical-reuse-owned-v1\\proposal\\floating-1\\attempts\\20513295e16f4de5a2abfb91cffca12f\\float-optimize\\profile.json",
+    "--kind",
+    "fixture",
+    "--",
+    "--stage",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\numerical-reuse-owned-v1\\proposal\\floating-1\\attempts\\20513295e16f4de5a2abfb91cffca12f\\float-optimize-stage.json",
+    "--stage-sha256",
+    "df19e294dff03ef091950aa01e3fc8ea8544c0c16f5ac23de4399f7199a3fa4e"
+  ],
+  "budget": {
+    "cpu_budget": 2,
+    "descendant_pool_workers": 1,
+    "execution_mode": "one owned root plus bounded spawn descendants",
+    "memory_budget_bytes": 2147483648,
+    "native_threads": 2,
+    "required_bytes": 964689920,
+    "reserve_bytes": 1561329664,
+    "workers": 1
+  },
+  "config_sha256": "73c36d893d219fae925a9313f98766d70252df973a3988b30593e917a41324ba",
+  "elapsed_seconds": 7.178970100001607,
+  "error": null,
+  "exit_code": 0,
+  "format": "t081-owned-stage-receipt-v1",
+  "last_metrics": {
+    "active_process_count": 0,
+    "active_process_ids": [],
+    "cpu_budget": 2,
+    "cpu_rate_per_10000": 3333,
+    "cpu_rate_reference": "parent job if rate-controlled, otherwise system",
+    "cpu_seconds": 3.109375,
+    "current_committed_bytes": 77824,
+    "diagnostics": [],
+    "memory_accounting": "JobObjectMemoryUsageInformation",
+    "memory_limit_bytes": 2147483648,
+    "owned_cpu_rate_denominator": 10000,
+    "owned_cpu_rate_units": 3333,
+    "peak_committed_bytes": 167092224,
+    "peak_counter_scope": "raw OS high-water; denied allocation demand may be counted before rollback"
+  },
+  "logs": {
+    "stderr": {
+      "path": "float-optimize\\stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "path": "float-optimize\\stdout.txt",
+      "sha256": "90a5b072b2210fb7853efeecbf409913b17737ebd10455466375faf6ca194550"
+    }
+  },
+  "memory_metric": "job committed memory",
+  "peak_budgeted_memory_bytes": 167092224,
+  "program_sha256": "fedeeee0990b7fc2bbf58a0d7f22a65cd6c9c634c0bb855eb1429c1d87c405b0",
+  "stage": "float-optimize",
+  "worker_cleanup_verified": true
+}

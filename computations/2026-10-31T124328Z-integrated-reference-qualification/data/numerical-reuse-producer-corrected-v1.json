@@ -1,0 +1,40 @@
+{
+  "status": "PASS_CONTROL_ONLY_NUMERICAL_REUSE",
+  "role": "producer",
+  "implementation": "panels",
+  "code_root": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\numerical-reuse-tested-b-v1\\runtime",
+  "mathematical_digest": "82700ec031724b97e2c46a2f3115439f1ae21845dc64fdf0cac512d49de223fb",
+  "counters": {
+    "basis_constructions": 15,
+    "recurrence_walks": 576,
+    "kernel_tiles_consumed": 12
+  },
+  "phase_wall_ns": {
+    "columns-0": 11395300,
+    "head-0": 218700,
+    "final-0": 21737600,
+    "columns-1": 12707700,
+    "head-1": 161700,
+    "final-1": 20831200
+  },
+  "total_wall_ns": 548624600,
+  "precision_bits": 4608,
+  "native_threads": 1,
+  "complete_reduced_inputs": 6,
+  "fullmode_head_inputs": [
+    0,
+    1,
+    86,
+    87,
+    738,
+    739,
+    740,
+    741,
+    824,
+    825
+  ],
+  "fullmode_F": "MANUFACTURED_NONZERO_NOT_EVALUATED_SOURCE",
+  "opposite_evaluator_blocked": true,
+  "full_source_evaluated": false,
+  "production_admission": false
+}

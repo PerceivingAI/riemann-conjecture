@@ -1,0 +1,1 @@
+Integrated qualification rejected: output must be outside sealed retained bundles: [REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\data\wave-recovery-assessment-cli-v1\synthetic-review-fixture\run

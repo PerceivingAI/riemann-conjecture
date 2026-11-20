@@ -1,0 +1,28 @@
+{
+  "format": "whole-source-bounded-qualification-closeout-v1",
+  "created_utc": "2026-11-15T21:07:02Z",
+  "status": "BLOCKED_STORAGE_QUALIFICATION",
+  "reduced_entries_checked": 36,
+  "successful_owned_stages": 68,
+  "failed_owned_stages_with_cleanup": 1,
+  "genuine_cli_boundary_cases": 4,
+  "coordinator_control_scope": "SYNTHETIC_NONAPPROVAL_WITH_REAL_GUARDIAN_AND_ADMISSION",
+  "metadata_validation": "PASS",
+  "full_entries_inspected_without_arithmetic": 512946,
+  "parity_dimensions": [
+    413,
+    413
+  ],
+  "collections_inspected": 18,
+  "retained_transport_accounts_checked": 68,
+  "resource_selection_tests_passed": 28,
+  "final_recovery_and_privacy_tests_passed": 41,
+  "current_junit_reports_identity_checked": 10,
+  "source_retained_demand_forecast_verified": false,
+  "historical_temporary_peak_established": false,
+  "code_capture_files": 159,
+  "extra_code_files": 123,
+  "historical_code_byte_mismatches": 0,
+  "scientific_acceptance": false,
+  "production_admission": false
+}

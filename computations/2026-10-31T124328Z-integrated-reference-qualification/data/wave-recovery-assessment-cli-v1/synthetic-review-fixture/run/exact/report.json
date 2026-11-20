@@ -1,0 +1,1 @@
+{"proof_scope":"SOURCE_CONDITIONAL","proposal":{"artifact":{"path":"proposal.json","sha256":"a7bc7552393204a9cb253d034a9f670be90c5b9035e90089b42981855093aaf2","size":187}},"source":{"manifest":{"path":"source-manifest.json","sha256":"f3f688c9bf76088b2fd6611061f2dd40643ba7c2f7065eba1a2ef26d89e76b25","size":50}},"status":"PASS_EXACT_PAID_LOWER_SOURCE_CONDITIONAL"}

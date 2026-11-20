@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="0.223" timestamp="2026-11-15T09:23:24.843389-05:00"><testcase classname="tests.test_whole_source_resource_snapshot" name="test_frozen_policy_retains_constrained_snapshot_and_validates_without_live_queries" time="0.010"><failure message="assert 34359738368 == (2048 * 1048576)">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001BC45C9E780&gt;
+
+    def test_frozen_policy_retains_constrained_snapshot_and_validates_without_live_queries(monkeypatch):
+        def constrained(value):
+            return {**value, 'available_memory_bytes': 2048*MIB, 'lifecycle_upstream_cpus': 2}
+        monkeypatch.setattr(supervision, 'constrain_detection', constrained)
+        plan = resources.auto_plan(template(), parallel=True, detected=detected())
+&gt;       assert plan.resource_policy['detection']['available_memory_bytes'] == 2048*MIB
+E       assert 34359738368 == (2048 * 1048576)
+
+tests\test_whole_source_resource_snapshot.py:13: AssertionError</failure></testcase><testcase classname="tests.test_whole_source_resource_snapshot" name="test_later_lower_memory_refuses_growth_without_invalidating_frozen_identity" time="0.001" /></testsuite></testsuites>
