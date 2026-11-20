@@ -1,0 +1,85 @@
+{
+  "format": "analytic-budget-correction-verification-v1",
+  "verified_utc": "2026-11-12T19:07:31Z",
+  "status": "PASS_LOCAL_ANALYTICAL_BUDGET_CORRECTION",
+  "origin_git_commit": "b19905565ace1f4a1b9ea1387ce123377c65a0e0",
+  "origin_git_dirty": true,
+  "environment": {
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "python-flint": "0.9.0",
+      "pytest": "9.1.1",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0"
+    }
+  },
+  "tests_passed": 135,
+  "tests_seconds": 70.15,
+  "owned_analytic_guard_domains": 884,
+  "owned_guard_precision_bits": 6144,
+  "reduced_entries_checked": 36,
+  "verified_owned_stages": 22,
+  "pre_change_files_verified": 156,
+  "corrected_capture_files_verified": 158,
+  "historical_audit_preserved": true,
+  "compute_plan_unchanged": true,
+  "private_documents_ignored": true,
+  "full_qualification_executed": false,
+  "members": [
+    {
+      "path": "scripts/whole_source/pipeline.py",
+      "size": 57887,
+      "sha256": "05f76d3b6a2359e082df7da0405fa18e05ba068a5e8bb0766e5d7a41a653cabc"
+    },
+    {
+      "path": "scripts/whole_source/analytic.py",
+      "size": 36845,
+      "sha256": "24834b351a1d28195756d1720e2adaa4087f6c2376ec7886ed91cf4d189cfafc"
+    },
+    {
+      "path": "tests/test_whole_source_pipeline.py",
+      "size": 25063,
+      "sha256": "d9e20f586f9aa7c393cafa575e7e51313320efdfe81b5a2ca5d898b758b0f976"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/analytic-budget-guard-v1.py",
+      "size": 1651,
+      "sha256": "d07c070121a135c42a6492bca964b9505eb0f8738d8c0761a1a43849e60b9ab8"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/verify-analytic-budget-v1.py",
+      "size": 6119,
+      "sha256": "7fd2ffa431e6085a2b68a2d34f730edc1597d7af12ba84babdc912b5e8672e1a"
+    },
+    {
+      "path": "scripts/README.md",
+      "size": 163522,
+      "sha256": "0f7a24585768c8f0a46df020781004b289b1dd8ae98a5d2be60d1c5f41694e05"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/record.md",
+      "size": 65011,
+      "sha256": "80064a7edb18e970223199b74998775b22bea53eacd7abbcd4921ab58fd9d3af"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/analytic-budget-pre-fix-20261112T190020Z/preservation.json",
+      "size": 39122,
+      "sha256": "23cb573600fe8e50e7cac3096dbcb3ad027ed7bc66132a131dbd3b4475d811b2"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/analytic-budget-tested-source-v1/preservation.json",
+      "size": 39550,
+      "sha256": "7b3a5710702cc8164dc0bd58e50cbbb197d664e15fefa11be844d0be0dba3e97"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/analytic-budget-tests-v1.xml",
+      "size": 19724,
+      "sha256": "0bb658273318f3ef09dc71b8c0427ff4e548e1735f25017e035391d0a698f4fb"
+    },
+    {
+      "path": "computations/2026-10-31T124328Z-integrated-reference-qualification/data/analytic-budget-smoke-v1/verification.json",
+      "size": 3778,
+      "sha256": "f89c3930ff78796e6eba73d0bd5970fd135e6a77d46fe3a5a9b1e451dff01e07"
+    }
+  ]
+}

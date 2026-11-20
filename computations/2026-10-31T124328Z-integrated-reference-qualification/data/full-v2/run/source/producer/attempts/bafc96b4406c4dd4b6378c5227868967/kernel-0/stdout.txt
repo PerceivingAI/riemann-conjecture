@@ -1,0 +1,16 @@
+T081_READY {"pid": 22032, "config_sha256": "ca35104e727c2c31143321aefaa7ae763b68538553c4bd699d311bba94b27f45"}
+T081_EVENT {"elapsed_seconds": 0.21348109999962617, "event": "program_started", "kind": "fixture", "threads": 1}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 1, "total": 13, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 2, "total": 13, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 3, "total": 13, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 4, "total": 13, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 5, "total": 13, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 6, "total": 13, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 7, "total": 13, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 8, "total": 13, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 9, "total": 13, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 10, "total": 13, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 11, "total": 13, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 12, "total": 13, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 13, "total": 13, "unit": "bounded task"}
+T081_EVENT {"elapsed_seconds": 12.711510399996769, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 12.497164400003385}

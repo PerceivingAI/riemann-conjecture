@@ -1,0 +1,705 @@
+{
+  "baseline": {
+    "qualification": {
+      "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\qualification.json",
+      "sha256": "d7da7f1ab00bead4fca8c5454b5c42a1c9ff5bc5554cb4c6f0105a7c56bc3916",
+      "size": 164438
+    },
+    "scope": {
+      "exact-sign": "Both413-dimensional signs/widths/nonsingularity using the retained untrusted proposal.",
+      "independent-audit": "All512946 entries plus six native false-source subset probes and scalar/declaration checks.",
+      "not_in_three_phase_total": [
+        "fresh proposal construction",
+        "new workflow scalar reconstruction",
+        "all separate exact controls",
+        "second scientific replay",
+        "reviewed final acceptance"
+      ],
+      "source": "All six source matrices; no fresh proposal search."
+    },
+    "stages": [
+      {
+        "aggregate_owned_cpu_seconds": 4192.0,
+        "memory_limit_bytes": 13285859328,
+        "native_threads": 6,
+        "numerical_process_cpu_seconds": 4191.703125,
+        "peak_owned_committed_bytes": 6911385600,
+        "phase": "source",
+        "profile": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\source\\profile.json",
+          "sha256": "100d519c565d0f2c330d09215994f075de08ea1a62771cb5dd0894abee186813",
+          "size": 1429
+        },
+        "receipt": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\source\\receipt.json",
+          "sha256": "09e6a7b3f3f4a56d85b4d26228141c3288c94aa5ea1fe816829a2a59443a85f1",
+          "size": 5534
+        },
+        "stage_elapsed_seconds": 1767.8659277999977
+      },
+      {
+        "aggregate_owned_cpu_seconds": 8802.515625,
+        "memory_limit_bytes": 13285859328,
+        "native_threads": 6,
+        "numerical_process_cpu_seconds": 8798.296875,
+        "peak_owned_committed_bytes": 8441458688,
+        "phase": "independent-audit",
+        "profile": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\independent-audit\\profile.json",
+          "sha256": "ec82b7096211b96b3f9ca2e4699e4bce95fe399e128cd4c862a91f41194e7145",
+          "size": 2932
+        },
+        "receipt": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\independent-audit\\receipt.json",
+          "sha256": "09e7e6afd0aa10b3afaa420e1848646e8735149b680126cad7a0499503c1bba5",
+          "size": 5738
+        },
+        "stage_elapsed_seconds": 2845.0065998999926
+      },
+      {
+        "aggregate_owned_cpu_seconds": 32.5625,
+        "memory_limit_bytes": 13285859328,
+        "native_threads": 6,
+        "numerical_process_cpu_seconds": 32.28125,
+        "peak_owned_committed_bytes": 1066262528,
+        "phase": "exact-sign",
+        "profile": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\exact-sign\\profile.json",
+          "sha256": "a3a31b51b277d929ccc729571553a6b0a6618d25c6ef485b29fb914b12d2317b",
+          "size": 691
+        },
+        "receipt": {
+          "path": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1\\exact-sign\\receipt.json",
+          "sha256": "5c0be1166bb4a893450ddc3d440f7269574b60715ae7b5cab3045ffee2e699df",
+          "size": 5867
+        },
+        "stage_elapsed_seconds": 27.854759800000465
+      }
+    ]
+  },
+  "created_utc": "2026-10-31T18:15:46Z",
+  "disk": {
+    "baseline": {
+      "controls": {
+        "limit": null,
+        "max_depth": null,
+        "path_mode": "relative"
+      },
+      "extensions": [
+        {
+          "extension": "gz",
+          "file_count": 64,
+          "size_bytes": 229980604
+        },
+        {
+          "extension": "json",
+          "file_count": 40,
+          "size_bytes": 3865670
+        },
+        {
+          "extension": "py",
+          "file_count": 11,
+          "size_bytes": 142067
+        },
+        {
+          "extension": "jsonl",
+          "file_count": 1,
+          "size_bytes": 112493
+        },
+        {
+          "extension": "txt",
+          "file_count": 12,
+          "size_bytes": 63839
+        },
+        {
+          "extension": "lock",
+          "file_count": 1,
+          "size_bytes": 208
+        }
+      ],
+      "largest_directory": {
+        "file_count": 50,
+        "path": "native-controls",
+        "size_bytes": 131009994
+      },
+      "largest_file": {
+        "path": "exact-controls\\synthetic-selected-negative\\proposal.json.gz",
+        "size_bytes": 4865296
+      },
+      "root": "[REPO_ROOT]\\computations\\2026-10-28T034134Z-t081-resource-execution\\data\\run-v1",
+      "schema_version": 1,
+      "stats": {
+        "directories_seen": 31,
+        "elapsed_ms": 57,
+        "extensions_returned": 6,
+        "extensions_total": 6,
+        "extensions_truncated": false,
+        "files_seen": 129,
+        "total_file_bytes": 234164881,
+        "warning_count": 0
+      },
+      "type": "info",
+      "warnings": {
+        "count": 0,
+        "samples": [],
+        "samples_truncated": false
+      }
+    },
+    "new": {
+      "controls": {
+        "limit": null,
+        "max_depth": null,
+        "path_mode": "relative"
+      },
+      "extensions": [
+        {
+          "extension": "json",
+          "file_count": 1073,
+          "size_bytes": 90831164
+        },
+        {
+          "extension": "<none>",
+          "file_count": 911,
+          "size_bytes": 33921627
+        },
+        {
+          "extension": "py",
+          "file_count": 972,
+          "size_bytes": 16409883
+        },
+        {
+          "extension": "lock",
+          "file_count": 69,
+          "size_bytes": 7583919
+        },
+        {
+          "extension": "jsonl",
+          "file_count": 67,
+          "size_bytes": 188514
+        },
+        {
+          "extension": "toml",
+          "file_count": 36,
+          "size_bytes": 51552
+        },
+        {
+          "extension": "txt",
+          "file_count": 62,
+          "size_bytes": 35166
+        }
+      ],
+      "largest_directory": {
+        "file_count": 1671,
+        "path": "proposal",
+        "size_bytes": 96025153
+      },
+      "largest_file": {
+        "path": "audit\\analytic\\attempts\\a75d0aa8272c4d8c9d385190cbb6895b\\runtime\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\captured-inputs-v1\\computations\\2026-10-27T132236Z-t081-prime-five-qualification\\data\\reference-source-v2.json",
+        "size_bytes": 1209811
+      },
+      "root": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3",
+      "schema_version": 1,
+      "stats": {
+        "directories_seen": 588,
+        "elapsed_ms": 77,
+        "extensions_returned": 7,
+        "extensions_total": 7,
+        "extensions_truncated": false,
+        "files_seen": 3190,
+        "total_file_bytes": 149021825,
+        "warning_count": 0
+      },
+      "type": "info",
+      "warnings": {
+        "count": 0,
+        "samples": [],
+        "samples_truncated": false
+      }
+    }
+  },
+  "format": "whole-source-retained-execution-comparison-v1",
+  "limits": [
+    "No matched full-pipeline speedup: baseline reuses a proposal and stage/control/replay boundaries differ.",
+    "Native stage sums exclude inter-stage owner work; owner wall excludes final caller read-through.",
+    "Unowned supervisor CPU is not captured by job CPU counters.",
+    "Disk census is retained logical file bytes, not transient write traffic or physical device I/O; OS I/O counters were not retained.",
+    "One execution per implementation is not a statistical scaling study."
+  ],
+  "new": {
+    "all_owned_cleanup_verified": true,
+    "counter_scope": "Owned job cumulative CPU includes descendants. Owner wall includes inter-stage publication; final caller read-through and unowned CPU are not included.",
+    "owned_receipts_verified": 29,
+    "phases": {
+      "exact-sign": {
+        "aggregate_cpu_per_owner_wall": 0.3711832061068702,
+        "collection_owner_elapsed_seconds": 16.375,
+        "collection_owners": 1,
+        "configured_cpu_budgets": [
+          6
+        ],
+        "configured_native_threads_per_worker": [
+          6
+        ],
+        "configured_worker_budgets": [
+          1
+        ],
+        "cpu_counter_missing": 0,
+        "max_concurrently_observed_workers": 1,
+        "owned_cpu_seconds": 6.078125,
+        "peak_owned_committed_bytes": 90292224,
+        "peak_sampled_external_increment_bytes": 1769472,
+        "stage_elapsed_seconds": 11.641355900006602,
+        "stages": 3
+      },
+      "fresh-proposal": {
+        "aggregate_cpu_per_owner_wall": 0.27868565425469827,
+        "collection_owner_elapsed_seconds": 42.835,
+        "collection_owners": 6,
+        "configured_cpu_budgets": [
+          6
+        ],
+        "configured_native_threads_per_worker": [
+          6
+        ],
+        "configured_worker_budgets": [
+          1
+        ],
+        "cpu_counter_missing": 0,
+        "max_concurrently_observed_workers": 1,
+        "owned_cpu_seconds": 11.9375,
+        "peak_owned_committed_bytes": 469979136,
+        "peak_sampled_external_increment_bytes": 1777664,
+        "stage_elapsed_seconds": 23.06325549999019,
+        "stages": 6
+      },
+      "independent-audit": {
+        "aggregate_cpu_per_owner_wall": 0.5361010171471213,
+        "collection_owner_elapsed_seconds": 61.643,
+        "collection_owners": 1,
+        "configured_cpu_budgets": [
+          6
+        ],
+        "configured_native_threads_per_worker": [
+          1
+        ],
+        "configured_worker_budgets": [
+          6
+        ],
+        "cpu_counter_missing": 0,
+        "max_concurrently_observed_workers": 6,
+        "owned_cpu_seconds": 33.046875,
+        "peak_owned_committed_bytes": 273813504,
+        "peak_sampled_external_increment_bytes": 3141632,
+        "stage_elapsed_seconds": 52.65841360000195,
+        "stages": 10
+      },
+      "source": {
+        "aggregate_cpu_per_owner_wall": 0.5856686549253521,
+        "collection_owner_elapsed_seconds": 56.666,
+        "collection_owners": 1,
+        "configured_cpu_budgets": [
+          6
+        ],
+        "configured_native_threads_per_worker": [
+          1
+        ],
+        "configured_worker_budgets": [
+          6
+        ],
+        "cpu_counter_missing": 0,
+        "max_concurrently_observed_workers": 6,
+        "owned_cpu_seconds": 33.1875,
+        "peak_owned_committed_bytes": 270487552,
+        "peak_sampled_external_increment_bytes": 4096000,
+        "stage_elapsed_seconds": 48.1868845000281,
+        "stages": 10
+      }
+    },
+    "stages": [
+      {
+        "aggregate_owned_cpu_seconds": 2.6875,
+        "cleanup_verified": true,
+        "elapsed_seconds": 5.178593500007992,
+        "peak_owned_committed_bytes": 153014272,
+        "phase": "independent-audit",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\audit\\analytic\\attempts\\a75d0aa8272c4d8c9d385190cbb6895b\\columns-0\\receipt.json",
+          "sha256": "fc54589a00b4717aae5072bca49deaa8718e9b61b2872f6a348d345f2ffb25ce",
+          "size": 3225
+        },
+        "sampled_external_increment_bytes": 2379776
+      },
+      {
+        "aggregate_owned_cpu_seconds": 2.953125,
+        "cleanup_verified": true,
+        "elapsed_seconds": 5.126280600001337,
+        "peak_owned_committed_bytes": 161058816,
+        "phase": "independent-audit",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\audit\\analytic\\attempts\\a75d0aa8272c4d8c9d385190cbb6895b\\columns-1\\receipt.json",
+          "sha256": "4d76d6cab102ca79e6501a666ed0c17322481db167ec6d8269b600e6aefba22f",
+          "size": 3227
+        },
+        "sampled_external_increment_bytes": 3141632
+      },
+      {
+        "aggregate_owned_cpu_seconds": 3.0625,
+        "cleanup_verified": true,
+        "elapsed_seconds": 5.2059242999966955,
+        "peak_owned_committed_bytes": 166989824,
+        "phase": "independent-audit",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\audit\\analytic\\attempts\\a75d0aa8272c4d8c9d385190cbb6895b\\final-0\\receipt.json",
+          "sha256": "050a6f3c984304eab29a43d7af386e5df226ab62cd2d70d383b42f595c34cbd1",
+          "size": 3216
+        },
+        "sampled_external_increment_bytes": 2846720
+      },
+      {
+        "aggregate_owned_cpu_seconds": 2.9375,
+        "cleanup_verified": true,
+        "elapsed_seconds": 4.7222889000113355,
+        "peak_owned_committed_bytes": 167841792,
+        "phase": "independent-audit",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\audit\\analytic\\attempts\\a75d0aa8272c4d8c9d385190cbb6895b\\final-1\\receipt.json",
+          "sha256": "d96b5e3e859fb4fde2ec34704eea3391270e23fdb9f09d7b21797059ce83b2d9",
+          "size": 3216
+        },
+        "sampled_external_increment_bytes": 3141632
+      },
+      {
+        "aggregate_owned_cpu_seconds": 2.921875,
+        "cleanup_verified": true,
+        "elapsed_seconds": 5.29437939998752,
+        "peak_owned_committed_bytes": 164716544,
+        "phase": "independent-audit",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\audit\\analytic\\attempts\\a75d0aa8272c4d8c9d385190cbb6895b\\head-0\\receipt.json",
+          "sha256": "77894f8e20880b6cd8ca62a33ee6596b87a6dd04dc5148704617810f78aa9df2",
+          "size": 3211
+        },
+        "sampled_external_increment_bytes": 2846720
+      },
+      {
+        "aggregate_owned_cpu_seconds": 2.9375,
+        "cleanup_verified": true,
+        "elapsed_seconds": 5.278368900006171,
+        "peak_owned_committed_bytes": 168824832,
+        "phase": "independent-audit",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\audit\\analytic\\attempts\\a75d0aa8272c4d8c9d385190cbb6895b\\head-1\\receipt.json",
+          "sha256": "222e9b4ec45c138e913228ab39e06525ec1d0df5b91d2b97a2ccdee0ba19562d",
+          "size": 3210
+        },
+        "sampled_external_increment_bytes": 3141632
+      },
+      {
+        "aggregate_owned_cpu_seconds": 1.984375,
+        "cleanup_verified": true,
+        "elapsed_seconds": 3.102043099992443,
+        "peak_owned_committed_bytes": 119861248,
+        "phase": "independent-audit",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\audit\\analytic\\attempts\\a75d0aa8272c4d8c9d385190cbb6895b\\kernel-0\\receipt.json",
+          "sha256": "941686b8495b3056106bb2f9a5997dc599eec14af09d72961e42628b95317b67",
+          "size": 3222
+        },
+        "sampled_external_increment_bytes": 2379776
+      },
+      {
+        "aggregate_owned_cpu_seconds": 1.953125,
+        "cleanup_verified": true,
+        "elapsed_seconds": 3.102196699997876,
+        "peak_owned_committed_bytes": 119914496,
+        "phase": "independent-audit",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\audit\\analytic\\attempts\\a75d0aa8272c4d8c9d385190cbb6895b\\kernel-1\\receipt.json",
+          "sha256": "aeb7334c88c1082f2130c0906309eec5c0599dea0e2196d166f98c34fcbf8579",
+          "size": 3222
+        },
+        "sampled_external_increment_bytes": 2969600
+      },
+      {
+        "aggregate_owned_cpu_seconds": 5.921875,
+        "cleanup_verified": true,
+        "elapsed_seconds": 7.3259694000007585,
+        "peak_owned_committed_bytes": 268398592,
+        "phase": "independent-audit",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\audit\\analytic\\attempts\\a75d0aa8272c4d8c9d385190cbb6895b\\kernel-groups-0\\receipt.json",
+          "sha256": "365663be1c4b29c67bb1d65f73ad3ed70f26b5c4ade720f9892340949598d25a",
+          "size": 3258
+        },
+        "sampled_external_increment_bytes": 1069056
+      },
+      {
+        "aggregate_owned_cpu_seconds": 5.6875,
+        "cleanup_verified": true,
+        "elapsed_seconds": 8.322368799999822,
+        "peak_owned_committed_bytes": 273813504,
+        "phase": "independent-audit",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\audit\\analytic\\attempts\\a75d0aa8272c4d8c9d385190cbb6895b\\kernel-groups-1\\receipt.json",
+          "sha256": "4c73e2546e3f68e1bcc6354e63e417f32fd740a188f89956d492886ca7a66ae0",
+          "size": 3255
+        },
+        "sampled_external_increment_bytes": 2969600
+      },
+      {
+        "aggregate_owned_cpu_seconds": 1.609375,
+        "cleanup_verified": true,
+        "elapsed_seconds": 3.4048411000112537,
+        "peak_owned_committed_bytes": 89968640,
+        "phase": "exact-sign",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\exact\\collection\\attempts\\fa1c40441002480390b99ae36a922534\\assess\\receipt.json",
+          "sha256": "e3150c14acec393148f6b6ef6aaced6ac4fdc5b939a8dafa858cc7b540f4695d",
+          "size": 3221
+        },
+        "sampled_external_increment_bytes": 1769472
+      },
+      {
+        "aggregate_owned_cpu_seconds": 2.203125,
+        "cleanup_verified": true,
+        "elapsed_seconds": 4.146529999998165,
+        "peak_owned_committed_bytes": 89288704,
+        "phase": "exact-sign",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\exact\\collection\\attempts\\fa1c40441002480390b99ae36a922534\\parity-0\\receipt.json",
+          "sha256": "2c8b3d58af80835983602df19dc6026db852b7f47ac0394e535d9a69317151bb",
+          "size": 3230
+        },
+        "sampled_external_increment_bytes": 782336
+      },
+      {
+        "aggregate_owned_cpu_seconds": 2.265625,
+        "cleanup_verified": true,
+        "elapsed_seconds": 4.089984799997183,
+        "peak_owned_committed_bytes": 90292224,
+        "phase": "exact-sign",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\exact\\collection\\attempts\\fa1c40441002480390b99ae36a922534\\parity-1\\receipt.json",
+          "sha256": "203d64cef85aee73f985754d599c305b70599fb3299b8e9af6521456119cf02a",
+          "size": 3230
+        },
+        "sampled_external_increment_bytes": 1286144
+      },
+      {
+        "aggregate_owned_cpu_seconds": 1.96875,
+        "cleanup_verified": true,
+        "elapsed_seconds": 3.956960600000457,
+        "peak_owned_committed_bytes": 469979136,
+        "phase": "fresh-proposal",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\proposal\\floating-0\\attempts\\762ce96430614986902d4884d8ac368d\\float-optimize\\receipt.json",
+          "sha256": "fbcfba43ceba6c8d876fb4eb5416b73e0ab3494eff9ef0afd6c5334f81e8dd19",
+          "size": 3276
+        },
+        "sampled_external_increment_bytes": 1777664
+      },
+      {
+        "aggregate_owned_cpu_seconds": 2.0,
+        "cleanup_verified": true,
+        "elapsed_seconds": 3.556379300003755,
+        "peak_owned_committed_bytes": 468934656,
+        "phase": "fresh-proposal",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\proposal\\floating-1\\attempts\\93e1b834f387420ab75c7e823e28f2f3\\float-optimize\\receipt.json",
+          "sha256": "fd5a7612cf8da18dbb180ffd8e69c65717498e3ca58dc92df7c4c0dd4c7d8bc6",
+          "size": 3272
+        },
+        "sampled_external_increment_bytes": 479232
+      },
+      {
+        "aggregate_owned_cpu_seconds": 2.390625,
+        "cleanup_verified": true,
+        "elapsed_seconds": 4.407419399998616,
+        "peak_owned_committed_bytes": 88875008,
+        "phase": "fresh-proposal",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\proposal\\native-0\\attempts\\f281c0cd6d2d4686a6a9f33c2823ae2e\\factor-whiten\\receipt.json",
+          "sha256": "edead42738fb496bb027d2845f1dbc0dad2e39c2b8897b15c2320e3ecab1c170",
+          "size": 3260
+        },
+        "sampled_external_increment_bytes": 1380352
+      },
+      {
+        "aggregate_owned_cpu_seconds": 2.46875,
+        "cleanup_verified": true,
+        "elapsed_seconds": 4.453256699998747,
+        "peak_owned_committed_bytes": 89169920,
+        "phase": "fresh-proposal",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\proposal\\native-1\\attempts\\622ad9a3c6044d07b50134fc6c06a20e\\factor-whiten\\receipt.json",
+          "sha256": "3dc28671565083038a968a92658358c82115064cbaa45a297cda1ee55f7780ac",
+          "size": 3259
+        },
+        "sampled_external_increment_bytes": 778240
+      },
+      {
+        "aggregate_owned_cpu_seconds": 1.5625,
+        "cleanup_verified": true,
+        "elapsed_seconds": 3.3409459999966202,
+        "peak_owned_committed_bytes": 82280448,
+        "phase": "fresh-proposal",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\proposal\\solve-0\\attempts\\08355bd8125f43da818cb970ee685b35\\backsolve-quantize\\receipt.json",
+          "sha256": "89cf661dfc378db9ccc5df4970d3ffb900bf64e04a4cce705bd5fa3730c7d6c6",
+          "size": 3279
+        },
+        "sampled_external_increment_bytes": 1085440
+      },
+      {
+        "aggregate_owned_cpu_seconds": 1.546875,
+        "cleanup_verified": true,
+        "elapsed_seconds": 3.348293499991996,
+        "peak_owned_committed_bytes": 82554880,
+        "phase": "fresh-proposal",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\proposal\\solve-1\\attempts\\99defb09df084c00bdda65cb385e4b44\\backsolve-quantize\\receipt.json",
+          "sha256": "e9dded859f28f635c320fde93356603e1177d7cd9eceb695afc247eb0ac8ff12",
+          "size": 3280
+        },
+        "sampled_external_increment_bytes": 0
+      },
+      {
+        "aggregate_owned_cpu_seconds": 3.0,
+        "cleanup_verified": true,
+        "elapsed_seconds": 5.152445300002,
+        "peak_owned_committed_bytes": 164737024,
+        "phase": "source",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\source\\producer\\attempts\\d2c53aac6e12474e9436984707ac1745\\columns-0\\receipt.json",
+          "sha256": "331e6d2c2b4308ff630b57bf608cbf8b36d5cac14a4ee8b644ade9e9286af824",
+          "size": 3224
+        },
+        "sampled_external_increment_bytes": 3502080
+      },
+      {
+        "aggregate_owned_cpu_seconds": 2.796875,
+        "cleanup_verified": true,
+        "elapsed_seconds": 5.127436499999021,
+        "peak_owned_committed_bytes": 160133120,
+        "phase": "source",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\source\\producer\\attempts\\d2c53aac6e12474e9436984707ac1745\\columns-1\\receipt.json",
+          "sha256": "e504911f48e12ab98661cfaf03198c7d27e807f9091beff1846a7244e13b4fbe",
+          "size": 3232
+        },
+        "sampled_external_increment_bytes": 4096000
+      },
+      {
+        "aggregate_owned_cpu_seconds": 3.0,
+        "cleanup_verified": true,
+        "elapsed_seconds": 5.260315600011381,
+        "peak_owned_committed_bytes": 166477824,
+        "phase": "source",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\source\\producer\\attempts\\d2c53aac6e12474e9436984707ac1745\\final-0\\receipt.json",
+          "sha256": "d0d61ba8cc55dccac0d036def211223711bfa1f2f895ae0663ecfd00e9885503",
+          "size": 3217
+        },
+        "sampled_external_increment_bytes": 4063232
+      },
+      {
+        "aggregate_owned_cpu_seconds": 3.21875,
+        "cleanup_verified": true,
+        "elapsed_seconds": 5.282282400003169,
+        "peak_owned_committed_bytes": 167510016,
+        "phase": "source",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\source\\producer\\attempts\\d2c53aac6e12474e9436984707ac1745\\final-1\\receipt.json",
+          "sha256": "1d92f9cd42e116c05955ebfa9bf0a4ea8dd300609c331ce2064646af72d6cad1",
+          "size": 3221
+        },
+        "sampled_external_increment_bytes": 4096000
+      },
+      {
+        "aggregate_owned_cpu_seconds": 2.9375,
+        "cleanup_verified": true,
+        "elapsed_seconds": 5.352236400009133,
+        "peak_owned_committed_bytes": 166916096,
+        "phase": "source",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\source\\producer\\attempts\\d2c53aac6e12474e9436984707ac1745\\head-0\\receipt.json",
+          "sha256": "de95fbe7115fe0f3144f13d98f61738f4b0dc693deaaf4840c8c0676af64a720",
+          "size": 3215
+        },
+        "sampled_external_increment_bytes": 4063232
+      },
+      {
+        "aggregate_owned_cpu_seconds": 2.921875,
+        "cleanup_verified": true,
+        "elapsed_seconds": 5.216675899995607,
+        "peak_owned_committed_bytes": 165392384,
+        "phase": "source",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\source\\producer\\attempts\\d2c53aac6e12474e9436984707ac1745\\head-1\\receipt.json",
+          "sha256": "29c8cd505ae74121d55a6d039722f6ef01d09d93afc5e78e22efa0d27a8df138",
+          "size": 3217
+        },
+        "sampled_external_increment_bytes": 4096000
+      },
+      {
+        "aggregate_owned_cpu_seconds": 1.9375,
+        "cleanup_verified": true,
+        "elapsed_seconds": 3.128528400004143,
+        "peak_owned_committed_bytes": 117252096,
+        "phase": "source",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\source\\producer\\attempts\\d2c53aac6e12474e9436984707ac1745\\kernel-0\\receipt.json",
+          "sha256": "2a2fb930ec0d6af1c2b1f7c1bc9d6e42154e8368353f551ddeb3cbc298f569e7",
+          "size": 3225
+        },
+        "sampled_external_increment_bytes": 2846720
+      },
+      {
+        "aggregate_owned_cpu_seconds": 1.953125,
+        "cleanup_verified": true,
+        "elapsed_seconds": 3.140404799996759,
+        "peak_owned_committed_bytes": 119291904,
+        "phase": "source",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\source\\producer\\attempts\\d2c53aac6e12474e9436984707ac1745\\kernel-1\\receipt.json",
+          "sha256": "f6d7261fab41f8ec5f4f6609d7c6b6ef66d1bff0c4bcb79e40d400f1a3efec43",
+          "size": 3227
+        },
+        "sampled_external_increment_bytes": 4096000
+      },
+      {
+        "aggregate_owned_cpu_seconds": 5.5625,
+        "cleanup_verified": true,
+        "elapsed_seconds": 5.340673400001833,
+        "peak_owned_committed_bytes": 270487552,
+        "phase": "source",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\source\\producer\\attempts\\d2c53aac6e12474e9436984707ac1745\\kernel-groups-0\\receipt.json",
+          "sha256": "08c875a6ca4b1f5a7cdc520915ea65bc0e41a128a7536aefe2df4f2499a3d2a0",
+          "size": 3260
+        },
+        "sampled_external_increment_bytes": 2408448
+      },
+      {
+        "aggregate_owned_cpu_seconds": 5.859375,
+        "cleanup_verified": true,
+        "elapsed_seconds": 5.185885800005053,
+        "peak_owned_committed_bytes": 270168064,
+        "phase": "source",
+        "receipt": {
+          "path": "[REPO_ROOT]\\.pytest_cache\\resource-capacity-8a39042cd0544685968cb6560c2a3ef3\\source\\producer\\attempts\\d2c53aac6e12474e9436984707ac1745\\kernel-groups-1\\receipt.json",
+          "sha256": "72e1be71224ff3018959e1d6ef49f9c004df4903e64627eaf4e24a394cd8dc07",
+          "size": 3262
+        },
+        "sampled_external_increment_bytes": 4063232
+      }
+    ]
+  },
+  "production_admission": false,
+  "program": {
+    "path": "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\compare-execution-v1.py",
+    "sha256": "6460e818eb44637621b403fa12b85759a25f30e5ced88c0dcb1de43bb39bd89a",
+    "size": 12666
+  },
+  "status": "OPERATIONAL_AND_DIAGNOSTIC_COMPARISON_ONLY"
+}

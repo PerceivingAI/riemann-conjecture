@@ -1,0 +1,16 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0
+rootdir: [REPO_ROOT]
+configfile: pyproject.toml
+plugins: hypothesis-6.165.10, xdist-3.8.0
+collected 135 items
+
+tests\test_whole_source_pipeline.py .................................... [ 26%]
+.............                                                            [ 36%]
+tests\test_whole_source_resources.py .........................           [ 54%]
+tests\test_whole_source_tiles.py .............                           [ 64%]
+tests\test_whole_source_gram.py ........................................ [ 94%]
+........                                                                 [100%]
+
+- generated xml file: [REPO_ROOT]\computations\2026-10-31T124328Z-integrated-reference-qualification\data\analytic-budget-tests-v1.xml -
+======================= 135 passed in 70.15s (0:01:10) ========================

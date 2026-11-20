@@ -1,0 +1,79 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\full-v2\\run\\source\\producer\\attempts\\bafc96b4406c4dd4b6378c5227868967\\runtime\\computations\\2026-10-28T034134Z-t081-resource-execution\\stage_worker_v1.py",
+    "--program",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\full-v2\\run\\source\\producer\\attempts\\bafc96b4406c4dd4b6378c5227868967\\runtime\\scripts\\whole_source\\execution.py",
+    "--program-sha256",
+    "b6cf38055e29271438c77e35bef7deeb1050a6d7d3868384db096c6ae93c50ea",
+    "--config",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\full-v2\\run\\source\\producer\\attempts\\bafc96b4406c4dd4b6378c5227868967\\execution-budget.json",
+    "--config-sha256",
+    "ca35104e727c2c31143321aefaa7ae763b68538553c4bd699d311bba94b27f45",
+    "--profile",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\full-v2\\run\\source\\producer\\attempts\\bafc96b4406c4dd4b6378c5227868967\\columns-0\\profile.json",
+    "--kind",
+    "fixture",
+    "--",
+    "--stage",
+    "[REPO_ROOT]\\computations\\2026-10-31T124328Z-integrated-reference-qualification\\data\\full-v2\\run\\source\\producer\\attempts\\bafc96b4406c4dd4b6378c5227868967\\columns-0-stage.json",
+    "--stage-sha256",
+    "dc6728e9b9beb31d66cb5b7eabaa2ab2e95b0c23d1e34f733c82d97681ed3f0c"
+  ],
+  "budget": {
+    "cpu_budget": 6,
+    "descendant_pool_workers": 6,
+    "execution_mode": "one owned root plus bounded spawn descendants",
+    "memory_budget_bytes": 14778630144,
+    "native_threads": 1,
+    "required_bytes": 4275044352,
+    "reserve_bytes": 1672478720,
+    "workers": 1
+  },
+  "config_sha256": "ca35104e727c2c31143321aefaa7ae763b68538553c4bd699d311bba94b27f45",
+  "elapsed_seconds": 2071.076419799996,
+  "error": "PermissionError: [WinError 5] Access is denied: '[REPO_ROOT]\\\\computations\\\\2026-10-31T124328Z-integrated-reference-qualification\\\\data\\\\full-v2\\\\run\\\\source\\\\producer\\\\attempts\\\\bafc96b4406c4dd4b6378c5227868967\\\\.live\\\\.run-status.json.17528.fc65d64aa2eb4c4da5ea27c8d281a160.tmp' -> '[REPO_ROOT]\\\\computations\\\\2026-10-31T124328Z-integrated-reference-qualification\\\\data\\\\full-v2\\\\run\\\\source\\\\producer\\\\attempts\\\\bafc96b4406c4dd4b6378c5227868967\\\\.live\\\\run-status.json'",
+  "exit_code": 1,
+  "format": "t081-owned-stage-receipt-v1",
+  "last_metrics": {
+    "active_process_count": 8,
+    "active_process_ids": [
+      31944,
+      27940,
+      14136,
+      23200,
+      13992,
+      14536,
+      6592,
+      3132
+    ],
+    "cpu_budget": 6,
+    "cpu_rate_per_10000": 10000,
+    "cpu_rate_reference": "parent job if rate-controlled, otherwise system",
+    "cpu_seconds": 10105.0,
+    "current_committed_bytes": 614244352,
+    "diagnostics": [],
+    "memory_accounting": "JobObjectMemoryUsageInformation",
+    "memory_limit_bytes": 14778630144,
+    "owned_cpu_rate_denominator": 10000,
+    "owned_cpu_rate_units": 10000,
+    "peak_committed_bytes": 626556928,
+    "peak_counter_scope": "raw OS high-water; denied allocation demand may be counted before rollback"
+  },
+  "logs": {
+    "stderr": {
+      "path": "columns-0\\stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "path": "columns-0\\stdout.txt",
+      "sha256": "e3e2cd26cf71d137f436d8debb28d0efe3550fac7ea43ac31adbc70cf7389002"
+    }
+  },
+  "memory_metric": "job committed memory",
+  "peak_budgeted_memory_bytes": 626556928,
+  "program_sha256": "b6cf38055e29271438c77e35bef7deeb1050a6d7d3868384db096c6ae93c50ea",
+  "stage": "columns-0",
+  "worker_cleanup_verified": true
+}
