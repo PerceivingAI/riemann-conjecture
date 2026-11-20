@@ -1,0 +1,170 @@
+{
+  "initial": [
+    {
+      "profile": "retained-t081",
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-B",
+        "-m",
+        "scripts.weil_whole_source_split",
+        "inspect",
+        "--profile",
+        "retained-t081",
+        "--output-dir",
+        "computations/2026-10-29T175545Z-whole-source-profile-binding/data/retained-t081"
+      ],
+      "exit": 0,
+      "wall_seconds": 3.3742086999991443,
+      "stdout": "BOUND_RETAINED_PROFILE_METADATA: retained-t081 T=81/100 N=826 K=86 problem=b63b9326b0b3d63e871bd4b52bf9d114399aecf1af37261e8cce8435fa315363\n",
+      "stderr": ""
+    },
+    {
+      "profile": "selected-t1",
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-B",
+        "-m",
+        "scripts.weil_whole_source_split",
+        "inspect",
+        "--profile",
+        "selected-t1",
+        "--output-dir",
+        "computations/2026-10-29T175545Z-whole-source-profile-binding/data/selected-t1"
+      ],
+      "exit": 0,
+      "wall_seconds": 2.253928199999791,
+      "stdout": "BOUND_RETAINED_PROFILE_METADATA: selected-t1 T=1 N=5564 K=132 problem=2113626a6b4b6d836921c20c5b08e72fb489b32e2c3dbdf7f9089981a35dd078\n",
+      "stderr": ""
+    }
+  ],
+  "isolated_final": [
+    {
+      "profile": "retained-t081",
+      "argv": [
+        "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+        "-I",
+        "-S",
+        "-B",
+        "computations/2026-10-29T175545Z-whole-source-profile-binding/inspect-stdlib-v1.py",
+        "inspect",
+        "--profile",
+        "retained-t081",
+        "--output-dir",
+        "computations/2026-10-29T175545Z-whole-source-profile-binding/data/final-retained-t081"
+      ],
+      "exit": 0,
+      "wall_seconds": 1.1430293999983405,
+      "stdout": "BOUND_RETAINED_PROFILE_METADATA: retained-t081 T=81/100 N=826 K=86 problem=92936dd612e1558c2e392af2d081cbf470ebece583a3a5414773c43a214e3fe0\nSTDLIB_ONLY_INSPECTION_CONFIRMED\n",
+      "stderr": ""
+    },
+    {
+      "profile": "selected-t1",
+      "argv": [
+        "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+        "-I",
+        "-S",
+        "-B",
+        "computations/2026-10-29T175545Z-whole-source-profile-binding/inspect-stdlib-v1.py",
+        "inspect",
+        "--profile",
+        "selected-t1",
+        "--output-dir",
+        "computations/2026-10-29T175545Z-whole-source-profile-binding/data/final-selected-t1"
+      ],
+      "exit": 0,
+      "wall_seconds": 2.039988699998503,
+      "stdout": "BOUND_RETAINED_PROFILE_METADATA: selected-t1 T=1 N=5564 K=132 problem=7235afd4001ef31f07473fffa012ef27c926c73008844464fee44d8849a32c8b\nSTDLIB_ONLY_INSPECTION_CONFIRMED\n",
+      "stderr": ""
+    }
+  ],
+  "python312": [
+    {
+      "profile": "retained-t081",
+      "argv": [
+        "<USER_HOME>\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+        "-I",
+        "-S",
+        "-B",
+        "computations/2026-10-29T175545Z-whole-source-profile-binding/inspect-stdlib-v1.py",
+        "inspect",
+        "--profile",
+        "retained-t081",
+        "--output-dir",
+        "computations/2026-10-29T175545Z-whole-source-profile-binding/data/python312-retained-t081"
+      ],
+      "exit": 0,
+      "wall_seconds": 1.256895099999383,
+      "stdout": "BOUND_RETAINED_PROFILE_METADATA: retained-t081 T=81/100 N=826 K=86 problem=92936dd612e1558c2e392af2d081cbf470ebece583a3a5414773c43a214e3fe0\nSTDLIB_ONLY_INSPECTION_CONFIRMED\n",
+      "stderr": ""
+    },
+    {
+      "profile": "selected-t1",
+      "argv": [
+        "<USER_HOME>\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+        "-I",
+        "-S",
+        "-B",
+        "computations/2026-10-29T175545Z-whole-source-profile-binding/inspect-stdlib-v1.py",
+        "inspect",
+        "--profile",
+        "selected-t1",
+        "--output-dir",
+        "computations/2026-10-29T175545Z-whole-source-profile-binding/data/python312-selected-t1"
+      ],
+      "exit": 0,
+      "wall_seconds": 1.8837876999969012,
+      "stdout": "BOUND_RETAINED_PROFILE_METADATA: selected-t1 T=1 N=5564 K=132 problem=7235afd4001ef31f07473fffa012ef27c926c73008844464fee44d8849a32c8b\nSTDLIB_ONLY_INSPECTION_CONFIRMED\n",
+      "stderr": ""
+    }
+  ],
+  "negative_controls": [
+    {
+      "control": "wrong-reviewed-manifest",
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-B",
+        "-m",
+        "scripts.weil_whole_source_split",
+        "inspect",
+        "--profile",
+        "selected-t1",
+        "--input-manifest",
+        "computations/2026-10-27T132236Z-t081-prime-five-qualification/manifest.json",
+        "--output-dir",
+        "computations/2026-10-29T175545Z-whole-source-profile-binding/data/rejected-manifest"
+      ],
+      "exit": 2,
+      "stdout": "",
+      "stderr": "Profile inspection rejected: wrong input manifest for profile\n"
+    },
+    {
+      "control": "existing-directory-unchanged",
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-B",
+        "-m",
+        "scripts.weil_whole_source_split",
+        "inspect",
+        "--profile",
+        "selected-t1",
+        "--output-dir",
+        "[REPO_ROOT]\\computations\\2026-10-29T175545Z-whole-source-profile-binding\\data\\final-selected-t1"
+      ],
+      "exit": 2,
+      "stdout": "",
+      "stderr": "Profile inspection rejected: [WinError 183] Cannot create a file when that file already exists: '[REPO_ROOT]\\\\computations\\\\2026-10-29T175545Z-whole-source-profile-binding\\\\data\\\\final-selected-t1'\n"
+    }
+  ]
+}

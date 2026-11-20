@@ -1,0 +1,1 @@
+Profile inspection rejected: wrong input manifest for profile

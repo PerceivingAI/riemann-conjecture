@@ -1,0 +1,18 @@
+[
+  {
+    "version": "v1",
+    "cases": 68,
+    "failures": 1,
+    "errors": 0,
+    "skips": 0,
+    "junit": "computations/2026-10-29T175545Z-whole-source-profile-binding/data/contract-tests-v1.xml"
+  },
+  {
+    "version": "v2",
+    "cases": 67,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "junit": "computations/2026-10-29T175545Z-whole-source-profile-binding/data/contract-tests-v2.xml"
+  }
+]

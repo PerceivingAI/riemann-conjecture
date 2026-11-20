@@ -1,0 +1,96 @@
+"""Inspect exact scalar research profiles without running numerical verification."""
+from __future__ import annotations
+
+import argparse
+from datetime import datetime, timezone
+import hashlib
+import json
+import os
+from pathlib import Path
+import sys
+
+from scripts.whole_source.contract import (
+    ContractError, GateReceipt, PROFILES, QuantityKey, bind_problem,
+    canonical_bytes, collection_id, expected_domain, inspection_plan, problem_id,
+)
+
+
+def _write_new(path: Path, document: dict) -> dict:
+    raw = canonical_bytes(document)
+    with path.open("xb") as stream:
+        stream.write(raw)
+        stream.flush()
+        os.fsync(stream.fileno())
+    return {"path": path.name, "sha256": hashlib.sha256(raw).hexdigest(), "size": len(raw)}
+
+
+def inspect_profile(profile: str, output_dir: Path, input_manifest: Path | None = None,
+                    *, root: Path | None = None) -> dict:
+    """Write one new inspection bundle; never overwrite or resume any directory.
+
+    A rejected binding retains failure.json if the fresh output is writable.
+    inspection.json is written last and is not an analytical acceptance receipt.
+    """
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=False)
+    created = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    try:
+        kwargs = {} if root is None else {"root": root}
+        spec = bind_problem(profile, input_manifest, **kwargs)
+        plan = inspection_plan(spec)
+        pid, cid = problem_id(spec), collection_id(spec, plan)
+        domains = tuple(expected_domain(spec, QuantityKey(name, parity))
+                        for parity in (0, 1)
+                        for name in ("A_model", "weighted_head", "weighted_complete_tail", "F_H", "R_H", "K_H"))
+        problem = spec.to_dict()
+        problem["problem_id"] = pid
+        problem_ref = _write_new(output_dir / "problem.json", problem)
+        plan_ref = _write_new(output_dir / "inspection-plan.json", {
+            "format": "whole-source-split-inspection-plan-v1", "plan": plan,
+            "collection_id": cid, "domains": domains,
+            "partition_meaning": "complete logical ranges, not native allocation or resource admission",
+            "execution_authorized": False,
+        })
+        report = GateReceipt(pid, cid).to_dict()
+        report.update(created_utc=created, profile=profile, support=str(spec.support),
+                      N=spec.N, M=spec.M, K=spec.K,
+                      reference_kind=spec.reference_kind,
+                      evidence_files=len(spec.evidence),
+                      bound_bytes=sum(ref.size for ref in spec.evidence),
+                      artifacts=[problem_ref, plan_ref])
+        _write_new(output_dir / "inspection.json", report)
+        return report
+    except (ContractError, OSError, ValueError, TypeError, KeyError) as exc:
+        failure = {"format": "whole-source-split-inspection-failure-v1", "created_utc": created,
+                   "profile": profile, "status": "PROFILE_BINDING_REJECTED",
+                   "error": str(exc), "native_verification_executed": False,
+                   "execution_authorized": False}
+        try:
+            _write_new(output_dir / "failure.json", failure)
+        except OSError:
+            pass  # The original error is still returned to the caller on unwritable output.
+        raise
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    commands = parser.add_subparsers(dest="command", required=True)
+    inspect = commands.add_parser("inspect", help="Bind reviewed scalar/code metadata only")
+    inspect.add_argument("--profile", choices=PROFILES, required=True)
+    inspect.add_argument("--input-manifest", type=Path,
+                         help="The profile's canonical reviewed manifest beneath the source root")
+    inspect.add_argument("--output-dir", type=Path, required=True,
+                         help="A new, nonexistent output directory")
+    args = parser.parse_args(argv)
+    try:
+        report = inspect_profile(args.profile, args.output_dir, args.input_manifest)
+    except (ContractError, OSError, ValueError, TypeError, KeyError) as exc:
+        print("Profile inspection rejected: " + str(exc), file=sys.stderr)
+        return 2
+    print(f"{report['status']}: {report['profile']} T={report['support']} "
+          f"N={report['N']} K={report['K']} problem={report['problem_id']}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

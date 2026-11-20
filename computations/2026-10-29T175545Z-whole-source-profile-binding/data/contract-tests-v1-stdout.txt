@@ -1,0 +1,33 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0
+rootdir: [REPO_ROOT]
+configfile: pyproject.toml
+plugins: hypothesis-6.165.10, xdist-3.8.0
+collected 68 items
+
+tests\test_whole_source_contract.py .................................... [ 52%]
+.......................F........                                         [100%]
+
+================================== FAILURES ===================================
+______ test_invalid_contract_values_are_rejected[ArithmeticPolicy-args7] ______
+
+factory = <class 'scripts.whole_source.contract.ArithmeticPolicy'>
+args = (512, 512)
+
+    @pytest.mark.parametrize("factory,args", [
+        (ModeRange, (0, 0)), (ModeRange, (0, 8, 1)), (ModeRange, (True, 8)),
+        (QuantityKey, ("computed_chunk", 0)), (QuantityKey, ("A_model", True)),
+        (QuantityKey, ("A_model", 2)), (PartitionSpec, (0, 1, 1)),
+        (ArithmeticPolicy, (512, 512)), (ArithmeticPolicy, (2048, 1024)),
+        (ArtifactRef, ("../outside", "0" * 64, 1)),
+    ])
+    def test_invalid_contract_values_are_rejected(factory, args):
+>       with pytest.raises(ContractError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ContractError
+
+tests\test_whole_source_contract.py:334: Failed
+- generated xml file: [REPO_ROOT]\computations\2026-10-29T175545Z-whole-source-profile-binding\data\contract-tests-v1.xml -
+=========================== short test summary info ===========================
+FAILED tests/test_whole_source_contract.py::test_invalid_contract_values_are_rejected[ArithmeticPolicy-args7]
+=================== 1 failed, 67 passed in 94.11s (0:01:34) ===================
