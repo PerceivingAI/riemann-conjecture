@@ -1,0 +1,85 @@
+{
+  "created_utc": "2026-10-29T02:01:19Z",
+  "flint_version": "3.6.0",
+  "initial_resource_snapshot": {
+    "affinity_cpus": 6,
+    "available_memory_bytes": 6615715840,
+    "cpu_detection_complete": true,
+    "cpu_diagnostics": [],
+    "cpu_sources": [],
+    "diagnostics": [],
+    "effective_cpu_budget": 6,
+    "fractional_quota_policy": "floor above one CPU; one throttled native thread below one CPU",
+    "logical_cpus": 6,
+    "memory_detection_complete": true,
+    "memory_diagnostics": [],
+    "memory_sources": [
+      {
+        "available_bytes": 10488594432,
+        "source": "windows.available_physical"
+      },
+      {
+        "available_bytes": 6615715840,
+        "source": "windows.available_commit"
+      },
+      {
+        "available_bytes": 140732947296256,
+        "source": "windows.available_virtual"
+      }
+    ],
+    "platform": "win32",
+    "quota_cpu_limit": null,
+    "visibility": "Linux visible cgroup ancestors only; Windows immediate job only; snapshots are not memory reservations",
+    "windows": {
+      "affinity_cpus": 6,
+      "cpu_detection_complete": true,
+      "diagnostics": [
+        "Windows ancestor job limits are not enumerable; only the immediate job is sampled"
+      ],
+      "host": {
+        "available_commit_bytes": 6615715840,
+        "available_physical_bytes": 10488594432,
+        "total_commit_bytes": 50345074688,
+        "total_physical_bytes": 33702076416
+      },
+      "job": {
+        "cpu_control_flags": 0,
+        "cpu_rate_raw": 0,
+        "job_memory_limit_bytes": null,
+        "limit_flags": 12288,
+        "process_memory_limit_bytes": null,
+        "visibility": "immediate job only; ancestor handles are not available"
+      },
+      "job_cpu_fraction": null,
+      "logical_cpus": 6,
+      "memory_candidates": [
+        {
+          "available_bytes": 10488594432,
+          "source": "windows.available_physical"
+        },
+        {
+          "available_bytes": 6615715840,
+          "source": "windows.available_commit"
+        },
+        {
+          "available_bytes": 140732947296256,
+          "source": "windows.available_virtual"
+        }
+      ],
+      "memory_detection_complete": true,
+      "process": {
+        "committed_bytes": 85606400,
+        "peak_committed_bytes": 97787904,
+        "peak_working_set_bytes": 94228480,
+        "working_set_bytes": 44425216
+      }
+    }
+  },
+  "machine": "AMD64",
+  "native_library_name": "libflint.24.0.0-c6509b45c893bda479323064e312b577.dll",
+  "native_library_sha256": "39e37ec4b7646bb857f88b18b6318858f1459fb6f98db45d47f7d95044da20e8",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "python_flint": "0.9.0",
+  "scope": "Windows native execution only; no cloud, VM or live other-OS qualification."
+}

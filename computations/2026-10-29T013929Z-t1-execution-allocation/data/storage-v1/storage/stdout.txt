@@ -1,0 +1,13 @@
+T081_READY {"pid": 16172, "config_sha256": "2508ed2e8262a459da94b6af5be5bef453f6f001af2eb5777ebc6ade3bc4c755"}
+T081_EVENT {"elapsed_seconds": 0.0033183999767061323, "event": "program_started", "kind": "fixture", "threads": 6}
+MOMENT_CENSUS {"prime_power": 2, "precision": 25600, "wall_seconds": 3.753543600003468}
+MOMENT_CENSUS {"prime_power": 3, "precision": 25600, "wall_seconds": 3.492086400015978}
+MOMENT_CENSUS {"prime_power": 4, "precision": 25600, "wall_seconds": 3.5489718999888282}
+MOMENT_CENSUS {"prime_power": 5, "precision": 25600, "wall_seconds": 3.4585281999898143}
+MOMENT_CENSUS {"prime_power": 7, "precision": 25600, "wall_seconds": 3.4978603000054136}
+MOMENT_CENSUS {"prime_power": 2, "precision": 34304, "wall_seconds": 4.86546920001274}
+MOMENT_CENSUS {"prime_power": 3, "precision": 34304, "wall_seconds": 5.227323799976148}
+MOMENT_CENSUS {"prime_power": 4, "precision": 34304, "wall_seconds": 4.8614031999895815}
+MOMENT_CENSUS {"prime_power": 5, "precision": 34304, "wall_seconds": 4.785064700001385}
+MOMENT_CENSUS {"prime_power": 7, "precision": 34304, "wall_seconds": 4.834746799984714}
+T081_EVENT {"elapsed_seconds": 42.74540509999497, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 42.7410772999865}

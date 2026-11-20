@@ -1,0 +1,15 @@
+{
+  "copied_files": 111,
+  "exit_code": 0,
+  "format": "t1-relocated-evidence-qualification-replay-v1",
+  "owned_temporary_tree_removed": true,
+  "production_admission": false,
+  "program_sha256": "323ffedb67d6f4f2c85a6f40e4d5f70c9a4d5d3651a4956531d070c021e23599",
+  "qualification_sha256": "4964b047cc696448e4f9b897050b964e3da051c967b9b8743b8bf5ad6678696c",
+  "scope": "Only retained evidence qualification is replayed. No matrix, scalar mathematical proof or native arithmetic is rerun.",
+  "status": "PASS_BYTE_IDENTICAL_EVIDENCE_QUALIFICATION",
+  "stderr": "",
+  "stdout": "{\"status\": \"PASS_SCOPED_EXECUTION_ASSESSMENT_NOT_FULL_TARGET_ADMISSION\", \"completed_runs\": 5, \"preserved_failed_runs\": 2, \"full_target_execution_decision\": \"NOT_ADMITTED\"}\n",
+  "target_positivity_proved": false,
+  "withheld_expected_qualification_reports": 2
+}

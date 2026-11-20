@@ -1,0 +1,42 @@
+{
+  "RH_status": "UNRESOLVED",
+  "documents": {
+    "computations/2026-10-29T013929Z-t1-execution-allocation/allocation-contract-v1.md": {
+      "local_links": 3,
+      "missing": []
+    },
+    "computations/2026-10-29T013929Z-t1-execution-allocation/record.md": {
+      "local_links": 6,
+      "missing": []
+    },
+    "docs/INDEX.md": {
+      "local_links": 257,
+      "missing": []
+    },
+    "docs/LOG.md": {
+      "local_links": 162,
+      "missing": []
+    },
+    "docs/STATUS.md": {
+      "local_links": 178,
+      "missing": []
+    },
+    "docs/TOOL_CAPABILITIES.md": {
+      "local_links": 48,
+      "missing": []
+    },
+    "findings/2026-10-29T020119Z-t1-dense-layout-obstruction.md": {
+      "local_links": 3,
+      "missing": []
+    },
+    "scripts/README.md": {
+      "local_links": 79,
+      "missing": []
+    }
+  },
+  "full_target_executed": false,
+  "public_reference_check": "PASS",
+  "scientific_files_preserved": 300,
+  "status": "PASS",
+  "upstream_declaration_manifest_unchanged": true
+}

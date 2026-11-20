@@ -1,0 +1,808 @@
+{
+  "K": 132,
+  "M": 11128,
+  "N": 5564,
+  "active_terms": [
+    {
+      "coefficient": {
+        "lower": "3076590046746671731354690407983923866278462868614970885663/6277101735386680763835789423207666416102355444464034512896",
+        "upper": "1538295023373335865677345203991961933139231434307485442833/3138550867693340381917894711603833208051177722232017256448"
+      },
+      "exponent": 1,
+      "m": 2,
+      "prime": 2
+    },
+    {
+      "coefficient": {
+        "lower": "3981465828589148838478137842650780424120556151483234666217/6277101735386680763835789423207666416102355444464034512896",
+        "upper": "995366457147287209619534460662695106030139037870808666555/1569275433846670190958947355801916604025588861116008628224"
+      },
+      "exponent": 1,
+      "m": 3,
+      "prime": 3
+    },
+    {
+      "coefficient": {
+        "lower": "2175477684985608827238781545112397082682172448338067872533/6277101735386680763835789423207666416102355444464034512896",
+        "upper": "271934710623201103404847693139049635335271556042258484067/784637716923335095479473677900958302012794430558004314112"
+      },
+      "exponent": 2,
+      "m": 4,
+      "prime": 2
+    },
+    {
+      "coefficient": {
+        "lower": "35297051058185847251719982380616786484639844773008020421/49039857307708443467467104868809893875799651909875269632",
+        "upper": "4518022535447788448220157744718948670033900130945026613891/6277101735386680763835789423207666416102355444464034512896"
+      },
+      "exponent": 1,
+      "m": 5,
+      "prime": 5
+    },
+    {
+      "coefficient": {
+        "lower": "2308356783659071864624697824856404196300537552185220003347/3138550867693340381917894711603833208051177722232017256448",
+        "upper": "4616713567318143729249395649712808392601075104370440006697/6277101735386680763835789423207666416102355444464034512896"
+      },
+      "exponent": 1,
+      "m": 7,
+      "prime": 7
+    }
+  ],
+  "cases": [
+    {
+      "cpu_seconds": 3.40625,
+      "moment_bits_histogram": {
+        "25583": 1,
+        "25585": 1,
+        "25586": 2,
+        "25587": 6,
+        "25588": 11,
+        "25589": 10,
+        "25590": 13,
+        "25591": 18,
+        "25592": 33,
+        "25593": 68,
+        "25594": 126,
+        "25595": 269,
+        "25596": 529,
+        "25597": 1015,
+        "25598": 2081,
+        "25599": 4185,
+        "25600": 8323
+      },
+      "moment_count": 16691,
+      "native_heap_bytes_histogram": {
+        "3200": 16691
+      },
+      "native_struct_bytes": 48,
+      "native_vector_crosscheck": {
+        "entries": 4096,
+        "exact_agreement": true,
+        "native_allocated_bytes": 13303808,
+        "scalar_sum_bytes": 13303808
+      },
+      "parity_accounts": [
+        {
+          "dense_native_copy_account_bytes": 100551895808,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 99065907200,
+          "native_fresh_copy_heap_bytes": 99065907200,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 0
+        },
+        {
+          "dense_native_copy_account_bytes": 100551895808,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 99065907200,
+          "native_fresh_copy_heap_bytes": 99065907200,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 1
+        }
+      ],
+      "precision": 25600,
+      "prime_power": 2,
+      "process_after": {
+        "committed_bytes": 154505216,
+        "peak_committed_bytes": 206655488,
+        "peak_working_set_bytes": 215314432,
+        "working_set_bytes": 164847616
+      },
+      "process_before": {
+        "committed_bytes": 24305664,
+        "peak_committed_bytes": 39186432,
+        "peak_working_set_bytes": 51224576,
+        "working_set_bytes": 36511744
+      },
+      "reflected_window_exact_ball_equality": true,
+      "support": "1",
+      "wall_seconds": 3.753543600003468,
+      "window": [
+        "-1",
+        "1-log(m)"
+      ]
+    },
+    {
+      "cpu_seconds": 3.421875,
+      "moment_bits_histogram": {
+        "25585": 1,
+        "25586": 5,
+        "25587": 40,
+        "25588": 41,
+        "25589": 26,
+        "25590": 36,
+        "25591": 33,
+        "25592": 35,
+        "25593": 60,
+        "25594": 126,
+        "25595": 252,
+        "25596": 502,
+        "25597": 1079,
+        "25598": 1923,
+        "25599": 4166,
+        "25600": 8366
+      },
+      "moment_count": 16691,
+      "native_heap_bytes_histogram": {
+        "3200": 16691
+      },
+      "native_struct_bytes": 48,
+      "native_vector_crosscheck": {
+        "entries": 4096,
+        "exact_agreement": true,
+        "native_allocated_bytes": 13303808,
+        "scalar_sum_bytes": 13303808
+      },
+      "parity_accounts": [
+        {
+          "dense_native_copy_account_bytes": 100551895808,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 99065907200,
+          "native_fresh_copy_heap_bytes": 99065907200,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 0
+        },
+        {
+          "dense_native_copy_account_bytes": 100551895808,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 99065907200,
+          "native_fresh_copy_heap_bytes": 99065907200,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 1
+        }
+      ],
+      "precision": 25600,
+      "prime_power": 3,
+      "process_after": {
+        "committed_bytes": 153870336,
+        "peak_committed_bytes": 208801792,
+        "peak_working_set_bytes": 217337856,
+        "working_set_bytes": 164556800
+      },
+      "process_before": {
+        "committed_bytes": 31571968,
+        "peak_committed_bytes": 206655488,
+        "peak_working_set_bytes": 215314432,
+        "working_set_bytes": 43405312
+      },
+      "reflected_window_exact_ball_equality": true,
+      "support": "1",
+      "wall_seconds": 3.492086400015978,
+      "window": [
+        "-1",
+        "1-log(m)"
+      ]
+    },
+    {
+      "cpu_seconds": 3.40625,
+      "moment_bits_histogram": {
+        "25585": 1,
+        "25588": 6,
+        "25589": 6,
+        "25590": 6,
+        "25591": 20,
+        "25592": 35,
+        "25593": 62,
+        "25594": 148,
+        "25595": 260,
+        "25596": 509,
+        "25597": 1018,
+        "25598": 2083,
+        "25599": 4244,
+        "25600": 8293
+      },
+      "moment_count": 16691,
+      "native_heap_bytes_histogram": {
+        "3200": 16691
+      },
+      "native_struct_bytes": 48,
+      "native_vector_crosscheck": {
+        "entries": 4096,
+        "exact_agreement": true,
+        "native_allocated_bytes": 13303808,
+        "scalar_sum_bytes": 13303808
+      },
+      "parity_accounts": [
+        {
+          "dense_native_copy_account_bytes": 100551895808,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 99065907200,
+          "native_fresh_copy_heap_bytes": 99065907200,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 0
+        },
+        {
+          "dense_native_copy_account_bytes": 100551895808,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 99065907200,
+          "native_fresh_copy_heap_bytes": 99065907200,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 1
+        }
+      ],
+      "precision": 25600,
+      "prime_power": 4,
+      "process_after": {
+        "committed_bytes": 152952832,
+        "peak_committed_bytes": 210276352,
+        "peak_working_set_bytes": 217337856,
+        "working_set_bytes": 163590144
+      },
+      "process_before": {
+        "committed_bytes": 32382976,
+        "peak_committed_bytes": 208801792,
+        "peak_working_set_bytes": 217337856,
+        "working_set_bytes": 45006848
+      },
+      "reflected_window_exact_ball_equality": true,
+      "support": "1",
+      "wall_seconds": 3.5489718999888282,
+      "window": [
+        "-1",
+        "1-log(m)"
+      ]
+    },
+    {
+      "cpu_seconds": 3.375,
+      "moment_bits_histogram": {
+        "25586": 1,
+        "25588": 3,
+        "25589": 3,
+        "25590": 8,
+        "25591": 19,
+        "25592": 43,
+        "25593": 60,
+        "25594": 121,
+        "25595": 253,
+        "25596": 535,
+        "25597": 1062,
+        "25598": 2081,
+        "25599": 4206,
+        "25600": 8296
+      },
+      "moment_count": 16691,
+      "native_heap_bytes_histogram": {
+        "3200": 16691
+      },
+      "native_struct_bytes": 48,
+      "native_vector_crosscheck": {
+        "entries": 4096,
+        "exact_agreement": true,
+        "native_allocated_bytes": 13303808,
+        "scalar_sum_bytes": 13303808
+      },
+      "parity_accounts": [
+        {
+          "dense_native_copy_account_bytes": 100551895808,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 99065907200,
+          "native_fresh_copy_heap_bytes": 99065907200,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 0
+        },
+        {
+          "dense_native_copy_account_bytes": 100551895808,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 99065907200,
+          "native_fresh_copy_heap_bytes": 99065907200,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 1
+        }
+      ],
+      "precision": 25600,
+      "prime_power": 5,
+      "process_after": {
+        "committed_bytes": 154951680,
+        "peak_committed_bytes": 210436096,
+        "peak_working_set_bytes": 217415680,
+        "working_set_bytes": 165670912
+      },
+      "process_before": {
+        "committed_bytes": 33996800,
+        "peak_committed_bytes": 210276352,
+        "peak_working_set_bytes": 217337856,
+        "working_set_bytes": 45809664
+      },
+      "reflected_window_exact_ball_equality": true,
+      "support": "1",
+      "wall_seconds": 3.4585281999898143,
+      "window": [
+        "-1",
+        "1-log(m)"
+      ]
+    },
+    {
+      "cpu_seconds": 3.34375,
+      "moment_bits_histogram": {
+        "25581": 1,
+        "25586": 1,
+        "25587": 2,
+        "25588": 1,
+        "25589": 6,
+        "25590": 9,
+        "25591": 17,
+        "25592": 39,
+        "25593": 56,
+        "25594": 142,
+        "25595": 276,
+        "25596": 493,
+        "25597": 1047,
+        "25598": 2079,
+        "25599": 4222,
+        "25600": 8300
+      },
+      "moment_count": 16691,
+      "native_heap_bytes_histogram": {
+        "3200": 16691
+      },
+      "native_struct_bytes": 48,
+      "native_vector_crosscheck": {
+        "entries": 4096,
+        "exact_agreement": true,
+        "native_allocated_bytes": 13303808,
+        "scalar_sum_bytes": 13303808
+      },
+      "parity_accounts": [
+        {
+          "dense_native_copy_account_bytes": 100551895808,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 99065907200,
+          "native_fresh_copy_heap_bytes": 99065907200,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 0
+        },
+        {
+          "dense_native_copy_account_bytes": 100551895808,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 99065907200,
+          "native_fresh_copy_heap_bytes": 99065907200,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 1
+        }
+      ],
+      "precision": 25600,
+      "prime_power": 7,
+      "process_after": {
+        "committed_bytes": 162209792,
+        "peak_committed_bytes": 210481152,
+        "peak_working_set_bytes": 217419776,
+        "working_set_bytes": 172683264
+      },
+      "process_before": {
+        "committed_bytes": 34762752,
+        "peak_committed_bytes": 210436096,
+        "peak_working_set_bytes": 217415680,
+        "working_set_bytes": 46587904
+      },
+      "reflected_window_exact_ball_equality": true,
+      "support": "1",
+      "wall_seconds": 3.4978603000054136,
+      "window": [
+        "-1",
+        "1-log(m)"
+      ]
+    },
+    {
+      "cpu_seconds": 4.65625,
+      "moment_bits_histogram": {
+        "34289": 1,
+        "34292": 4,
+        "34293": 10,
+        "34294": 9,
+        "34295": 17,
+        "34296": 37,
+        "34297": 74,
+        "34298": 124,
+        "34299": 245,
+        "34300": 521,
+        "34301": 1073,
+        "34302": 2080,
+        "34303": 4084,
+        "34304": 8412
+      },
+      "moment_count": 16691,
+      "native_heap_bytes_histogram": {
+        "4288": 16691
+      },
+      "native_struct_bytes": 48,
+      "native_vector_crosscheck": {
+        "entries": 4096,
+        "exact_agreement": true,
+        "native_allocated_bytes": 17760256,
+        "scalar_sum_bytes": 17760256
+      },
+      "parity_accounts": [
+        {
+          "dense_native_copy_account_bytes": 134234304256,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 132748315648,
+          "native_fresh_copy_heap_bytes": 132748315648,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 0
+        },
+        {
+          "dense_native_copy_account_bytes": 134234304256,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 132748315648,
+          "native_fresh_copy_heap_bytes": 132748315648,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 1
+        }
+      ],
+      "precision": 34304,
+      "prime_power": 2,
+      "process_after": {
+        "committed_bytes": 223174656,
+        "peak_committed_bytes": 278581248,
+        "peak_working_set_bytes": 283627520,
+        "working_set_bytes": 231362560
+      },
+      "process_before": {
+        "committed_bytes": 34557952,
+        "peak_committed_bytes": 210481152,
+        "peak_working_set_bytes": 217419776,
+        "working_set_bytes": 46678016
+      },
+      "reflected_window_exact_ball_equality": true,
+      "support": "1",
+      "wall_seconds": 4.86546920001274,
+      "window": [
+        "-1",
+        "1-log(m)"
+      ]
+    },
+    {
+      "cpu_seconds": 4.59375,
+      "moment_bits_histogram": {
+        "34291": 4,
+        "34293": 9,
+        "34294": 13,
+        "34295": 22,
+        "34296": 33,
+        "34297": 57,
+        "34298": 140,
+        "34299": 279,
+        "34300": 531,
+        "34301": 1043,
+        "34302": 2145,
+        "34303": 4146,
+        "34304": 8269
+      },
+      "moment_count": 16691,
+      "native_heap_bytes_histogram": {
+        "4288": 16691
+      },
+      "native_struct_bytes": 48,
+      "native_vector_crosscheck": {
+        "entries": 4096,
+        "exact_agreement": true,
+        "native_allocated_bytes": 17760256,
+        "scalar_sum_bytes": 17760256
+      },
+      "parity_accounts": [
+        {
+          "dense_native_copy_account_bytes": 134234304256,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 132748315648,
+          "native_fresh_copy_heap_bytes": 132748315648,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 0
+        },
+        {
+          "dense_native_copy_account_bytes": 134234304256,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 132748315648,
+          "native_fresh_copy_heap_bytes": 132748315648,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 1
+        }
+      ],
+      "precision": 34304,
+      "prime_power": 3,
+      "process_after": {
+        "committed_bytes": 253698048,
+        "peak_committed_bytes": 279941120,
+        "peak_working_set_bytes": 284516352,
+        "working_set_bytes": 262557696
+      },
+      "process_before": {
+        "committed_bytes": 36581376,
+        "peak_committed_bytes": 278581248,
+        "peak_working_set_bytes": 283627520,
+        "working_set_bytes": 47284224
+      },
+      "reflected_window_exact_ball_equality": true,
+      "support": "1",
+      "wall_seconds": 5.227323799976148,
+      "window": [
+        "-1",
+        "1-log(m)"
+      ]
+    },
+    {
+      "cpu_seconds": 4.6875,
+      "moment_bits_histogram": {
+        "34288": 4,
+        "34289": 1,
+        "34291": 1,
+        "34292": 2,
+        "34293": 2,
+        "34294": 5,
+        "34295": 17,
+        "34296": 32,
+        "34297": 70,
+        "34298": 135,
+        "34299": 262,
+        "34300": 506,
+        "34301": 1087,
+        "34302": 2120,
+        "34303": 4099,
+        "34304": 8348
+      },
+      "moment_count": 16691,
+      "native_heap_bytes_histogram": {
+        "4288": 16691
+      },
+      "native_struct_bytes": 48,
+      "native_vector_crosscheck": {
+        "entries": 4096,
+        "exact_agreement": true,
+        "native_allocated_bytes": 17760256,
+        "scalar_sum_bytes": 17760256
+      },
+      "parity_accounts": [
+        {
+          "dense_native_copy_account_bytes": 134234304256,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 132748315648,
+          "native_fresh_copy_heap_bytes": 132748315648,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 0
+        },
+        {
+          "dense_native_copy_account_bytes": 134234304256,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 132748315648,
+          "native_fresh_copy_heap_bytes": 132748315648,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 1
+        }
+      ],
+      "precision": 34304,
+      "prime_power": 4,
+      "process_after": {
+        "committed_bytes": 254345216,
+        "peak_committed_bytes": 281042944,
+        "peak_working_set_bytes": 284516352,
+        "working_set_bytes": 262381568
+      },
+      "process_before": {
+        "committed_bytes": 35749888,
+        "peak_committed_bytes": 279941120,
+        "peak_working_set_bytes": 284516352,
+        "working_set_bytes": 48230400
+      },
+      "reflected_window_exact_ball_equality": true,
+      "support": "1",
+      "wall_seconds": 4.8614031999895815,
+      "window": [
+        "-1",
+        "1-log(m)"
+      ]
+    },
+    {
+      "cpu_seconds": 4.703125,
+      "moment_bits_histogram": {
+        "34289": 1,
+        "34290": 3,
+        "34292": 1,
+        "34293": 9,
+        "34294": 15,
+        "34295": 18,
+        "34296": 35,
+        "34297": 56,
+        "34298": 118,
+        "34299": 292,
+        "34300": 549,
+        "34301": 1005,
+        "34302": 2089,
+        "34303": 4212,
+        "34304": 8288
+      },
+      "moment_count": 16691,
+      "native_heap_bytes_histogram": {
+        "4288": 16691
+      },
+      "native_struct_bytes": 48,
+      "native_vector_crosscheck": {
+        "entries": 4096,
+        "exact_agreement": true,
+        "native_allocated_bytes": 17760256,
+        "scalar_sum_bytes": 17760256
+      },
+      "parity_accounts": [
+        {
+          "dense_native_copy_account_bytes": 134234304256,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 132748315648,
+          "native_fresh_copy_heap_bytes": 132748315648,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 0
+        },
+        {
+          "dense_native_copy_account_bytes": 134234304256,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 132748315648,
+          "native_fresh_copy_heap_bytes": 132748315648,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 1
+        }
+      ],
+      "precision": 34304,
+      "prime_power": 5,
+      "process_after": {
+        "committed_bytes": 253763584,
+        "peak_committed_bytes": 281042944,
+        "peak_working_set_bytes": 284798976,
+        "working_set_bytes": 262967296
+      },
+      "process_before": {
+        "committed_bytes": 37474304,
+        "peak_committed_bytes": 281042944,
+        "peak_working_set_bytes": 284516352,
+        "working_set_bytes": 49364992
+      },
+      "reflected_window_exact_ball_equality": true,
+      "support": "1",
+      "wall_seconds": 4.785064700001385,
+      "window": [
+        "-1",
+        "1-log(m)"
+      ]
+    },
+    {
+      "cpu_seconds": 4.625,
+      "moment_bits_histogram": {
+        "34290": 2,
+        "34291": 1,
+        "34292": 7,
+        "34293": 5,
+        "34294": 11,
+        "34295": 21,
+        "34296": 42,
+        "34297": 74,
+        "34298": 123,
+        "34299": 285,
+        "34300": 498,
+        "34301": 1054,
+        "34302": 2059,
+        "34303": 4161,
+        "34304": 8348
+      },
+      "moment_count": 16691,
+      "native_heap_bytes_histogram": {
+        "4288": 16691
+      },
+      "native_struct_bytes": 48,
+      "native_vector_crosscheck": {
+        "entries": 4096,
+        "exact_agreement": true,
+        "native_allocated_bytes": 17760256,
+        "scalar_sum_bytes": 17760256
+      },
+      "parity_accounts": [
+        {
+          "dense_native_copy_account_bytes": 134234304256,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 132748315648,
+          "native_fresh_copy_heap_bytes": 132748315648,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 0
+        },
+        {
+          "dense_native_copy_account_bytes": 134234304256,
+          "entries": 30958096,
+          "matrix_columns": 5564,
+          "matrix_rows": 5564,
+          "midpoint_limb_payload_lower_bytes": 132748315648,
+          "native_fresh_copy_heap_bytes": 132748315648,
+          "native_struct_array_bytes": 1485988608,
+          "parity": 1
+        }
+      ],
+      "precision": 34304,
+      "prime_power": 7,
+      "process_after": {
+        "committed_bytes": 255262720,
+        "peak_committed_bytes": 281042944,
+        "peak_working_set_bytes": 284831744,
+        "working_set_bytes": 264265728
+      },
+      "process_before": {
+        "committed_bytes": 37793792,
+        "peak_committed_bytes": 281042944,
+        "peak_working_set_bytes": 284798976,
+        "working_set_bytes": 49819648
+      },
+      "reflected_window_exact_ball_equality": true,
+      "support": "1",
+      "wall_seconds": 4.834746799984714,
+      "window": [
+        "-1",
+        "1-log(m)"
+      ]
+    }
+  ],
+  "consumer_sha256": "59cd5b1e891d84d1fdb6d5849cd6a073d29bd8f49fce171fe6c411fb5cbc45c3",
+  "cpu_seconds": 40.59375,
+  "format": "t1-target-moment-storage-census-v1",
+  "inputs_sha256": "fbd2a2afb0ccf0245edbfa4177ba6147f48d4cde3afa49545ecc6e5d94c71330",
+  "native_library_sha256": "39e37ec4b7646bb857f88b18b6318858f1459fb6f98db45d47f7d95044da20e8",
+  "native_threads": 6,
+  "production_admission": false,
+  "program_sha256": "7897a6be0fa7a2671fc67d5c4a10b34b510dc4c528d087386dfe78e1db4c67e2",
+  "status": "MEASURED_VECTOR_AND_NATIVE_COPY_ACCOUNT_NOT_TARGET_EXECUTION",
+  "support": "1",
+  "target_dense_matrix_allocated": false,
+  "target_numerical_goals_checked": false,
+  "target_positivity_proved": false,
+  "wall_seconds": 42.687426000018604
+}

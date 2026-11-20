@@ -1,0 +1,3 @@
+T081_READY {"pid": 18216, "config_sha256": "dbec361d0e80aec934753837143d96fea79f9f23c170e0538f9948f8f1700f22"}
+T081_EVENT {"elapsed_seconds": 0.004752199980430305, "event": "program_started", "kind": "fixture", "threads": 6}
+PRODUCT_SETUP {"algorithm": "convolution", "wall_seconds": 26.753879800002323}

@@ -1,0 +1,35 @@
+{
+  "N": 5564,
+  "algorithm": "dense",
+  "arithmetic_program_sha256": "d656fdfdceb319975a246c191b3ba68a8a041290134bf3020f42451427753d41",
+  "arithmetic_result_sha256": "aa10fd4c674c8788bfa73e7bbaa07129a77fefbaecf1338fba6c956ce982d372",
+  "format": "t1-live-hankel-allocations-v2",
+  "full_inner_powers": 5564,
+  "observations": [
+    {
+      "before_native_matrix": {
+        "committed_bytes": 250658816,
+        "peak_committed_bytes": 917069824,
+        "peak_working_set_bytes": 918814720,
+        "working_set_bytes": 247189504
+      },
+      "columns": 5564,
+      "committed_delta_bytes": 316465152,
+      "construction_wall_seconds": 0.16135330000543036,
+      "native_matrix_live": {
+        "committed_bytes": 567123968,
+        "peak_committed_bytes": 917069824,
+        "peak_working_set_bytes": 918814720,
+        "working_set_bytes": 551895040
+      },
+      "rows": 12,
+      "working_set_delta_bytes": 304705536
+    }
+  ],
+  "precision": 34304,
+  "production_admission": false,
+  "program_sha256": "80aec1fb945860e8691b06e14f2945a6178a05f2e4783e33e16bcda765b9a7d9",
+  "status": "PASS_OBSERVED_UNCHANGED_CONTRACTION",
+  "support": "1",
+  "target_positivity_proved": false
+}

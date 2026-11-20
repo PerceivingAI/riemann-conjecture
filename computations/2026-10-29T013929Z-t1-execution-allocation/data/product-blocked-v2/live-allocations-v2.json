@@ -1,0 +1,130 @@
+{
+  "N": 5564,
+  "algorithm": "blocked",
+  "arithmetic_program_sha256": "d656fdfdceb319975a246c191b3ba68a8a041290134bf3020f42451427753d41",
+  "arithmetic_result_sha256": "c81f11667f8933494b06328f10c3c6274264eeabaf84c31495fe72134e7107ed",
+  "format": "t1-live-hankel-allocations-v2",
+  "full_inner_powers": 5564,
+  "observations": [
+    {
+      "before_native_matrix": {
+        "committed_bytes": 252010496,
+        "peak_committed_bytes": 916623360,
+        "peak_working_set_bytes": 918839296,
+        "working_set_bytes": 250544128
+      },
+      "columns": 5564,
+      "committed_delta_bytes": 53493760,
+      "construction_wall_seconds": 0.025897799991071224,
+      "native_matrix_live": {
+        "committed_bytes": 305504256,
+        "peak_committed_bytes": 916623360,
+        "peak_working_set_bytes": 918839296,
+        "working_set_bytes": 300404736
+      },
+      "rows": 2,
+      "working_set_delta_bytes": 49860608
+    },
+    {
+      "before_native_matrix": {
+        "committed_bytes": 265752576,
+        "peak_committed_bytes": 916623360,
+        "peak_working_set_bytes": 918839296,
+        "working_set_bytes": 274440192
+      },
+      "columns": 5564,
+      "committed_delta_bytes": 21696512,
+      "construction_wall_seconds": 0.017453600012231618,
+      "native_matrix_live": {
+        "committed_bytes": 287449088,
+        "peak_committed_bytes": 916623360,
+        "peak_working_set_bytes": 918839296,
+        "working_set_bytes": 295813120
+      },
+      "rows": 2,
+      "working_set_delta_bytes": 21372928
+    },
+    {
+      "before_native_matrix": {
+        "committed_bytes": 264355840,
+        "peak_committed_bytes": 916623360,
+        "peak_working_set_bytes": 918839296,
+        "working_set_bytes": 273567744
+      },
+      "columns": 5564,
+      "committed_delta_bytes": 22507520,
+      "construction_wall_seconds": 0.016358099994249642,
+      "native_matrix_live": {
+        "committed_bytes": 286863360,
+        "peak_committed_bytes": 916623360,
+        "peak_working_set_bytes": 918839296,
+        "working_set_bytes": 295501824
+      },
+      "rows": 2,
+      "working_set_delta_bytes": 21934080
+    },
+    {
+      "before_native_matrix": {
+        "committed_bytes": 265420800,
+        "peak_committed_bytes": 916623360,
+        "peak_working_set_bytes": 918839296,
+        "working_set_bytes": 274190336
+      },
+      "columns": 5564,
+      "committed_delta_bytes": 21954560,
+      "construction_wall_seconds": 0.017966999992495403,
+      "native_matrix_live": {
+        "committed_bytes": 287375360,
+        "peak_committed_bytes": 916623360,
+        "peak_working_set_bytes": 918839296,
+        "working_set_bytes": 295825408
+      },
+      "rows": 2,
+      "working_set_delta_bytes": 21635072
+    },
+    {
+      "before_native_matrix": {
+        "committed_bytes": 265756672,
+        "peak_committed_bytes": 916623360,
+        "peak_working_set_bytes": 918839296,
+        "working_set_bytes": 274436096
+      },
+      "columns": 5564,
+      "committed_delta_bytes": 21696512,
+      "construction_wall_seconds": 0.016521799989277497,
+      "native_matrix_live": {
+        "committed_bytes": 287453184,
+        "peak_committed_bytes": 916623360,
+        "peak_working_set_bytes": 918839296,
+        "working_set_bytes": 295981056
+      },
+      "rows": 2,
+      "working_set_delta_bytes": 21544960
+    },
+    {
+      "before_native_matrix": {
+        "committed_bytes": 267522048,
+        "peak_committed_bytes": 916623360,
+        "peak_working_set_bytes": 918839296,
+        "working_set_bytes": 276148224
+      },
+      "columns": 5564,
+      "committed_delta_bytes": 20582400,
+      "construction_wall_seconds": 0.016450900002382696,
+      "native_matrix_live": {
+        "committed_bytes": 288104448,
+        "peak_committed_bytes": 916623360,
+        "peak_working_set_bytes": 918839296,
+        "working_set_bytes": 296443904
+      },
+      "rows": 2,
+      "working_set_delta_bytes": 20295680
+    }
+  ],
+  "precision": 34304,
+  "production_admission": false,
+  "program_sha256": "80aec1fb945860e8691b06e14f2945a6178a05f2e4783e33e16bcda765b9a7d9",
+  "status": "PASS_OBSERVED_UNCHANGED_CONTRACTION",
+  "support": "1",
+  "target_positivity_proved": false
+}

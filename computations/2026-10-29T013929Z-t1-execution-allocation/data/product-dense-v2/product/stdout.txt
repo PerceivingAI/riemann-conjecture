@@ -1,0 +1,5 @@
+T081_READY {"pid": 34356, "config_sha256": "f83be884bd989c0cef2acd8f571047600f7f3a42e2c06b5839fb92c44ac77bde"}
+T081_EVENT {"elapsed_seconds": 0.003384399984497577, "event": "program_started", "kind": "fixture", "threads": 6}
+PRODUCT_SETUP {"algorithm": "dense", "wall_seconds": 27.322608200018294}
+PRODUCT_COMPLETE {"algorithm": "dense", "checked_entries": 48, "wall_seconds": 54.00578060001135}
+T081_EVENT {"elapsed_seconds": 54.09234699999797, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 54.08830260002287}

@@ -1,0 +1,99 @@
+{
+  "K": 132,
+  "M": 11128,
+  "N": 5564,
+  "bindings": {
+    "consumer": {
+      "path": "computations/2026-10-28T034134Z-t081-resource-execution/verify-whole-source-v2.py",
+      "sha256": "59cd5b1e891d84d1fdb6d5849cd6a073d29bd8f49fce171fe6c411fb5cbc45c3"
+    },
+    "declaration": {
+      "path": "computations/2026-10-29T004611Z-t1-direct-reference/data/source-v1.json",
+      "sha256": "50a16676a7fb36999485c712c76e9d416eada395b92649f0f6a479e8a6b2dfb6"
+    },
+    "declaration_audit": {
+      "path": "computations/2026-10-29T004611Z-t1-direct-reference/data/audit-v1.json",
+      "sha256": "aecbeec9a8bfb2cbef31dc4c461e34451c02c0720c1e1e53d24df7b39f53126e"
+    },
+    "declaration_manifest": {
+      "path": "computations/2026-10-29T004611Z-t1-direct-reference/manifest.json",
+      "sha256": "a219367eb15c168b92aef9f32a5ecb43ea5e7e1539b9b847aa9bc5b6d3a5ebab"
+    },
+    "events": {
+      "path": "computations/2026-10-28T034134Z-t081-resource-execution/execution_events_v1.py",
+      "sha256": "f89c177e4622b3b939b729d8daa9dd1089942734d5fafe3cbf689ff486c5690f"
+    },
+    "limits": {
+      "path": "computations/2026-10-28T034134Z-t081-resource-execution/resource_limits_v1.py",
+      "sha256": "b6258b25377244cf97fb094e20c017dd3438a66c69cc33aeb737f5333b53b717"
+    },
+    "observability": {
+      "path": "scripts/run_observability.py",
+      "sha256": "e7103e5ae1127b796bd19b961e9e8c0bf9f9983bdd2c3ef09ed85cc2f8c58a95"
+    },
+    "policy": {
+      "path": "computations/2026-10-28T034134Z-t081-resource-execution/execution_resources_v2.py",
+      "sha256": "8f3fc4d3bf0ddbba99ff6686ccb4acbe81ed583f8f3fc0ac6572e4acf473a9e2"
+    },
+    "producer": {
+      "path": "computations/2026-10-28T034134Z-t081-resource-execution/build-whole-source-v4.py",
+      "sha256": "aacfb2d122b2bf62b1cf7940cb4aace764cdb11b413a504c81f15ca7b8427976"
+    },
+    "storage_measurement": {
+      "path": "computations/2026-10-29T013929Z-t1-execution-allocation/data/storage-v1/result.json",
+      "sha256": "0b3d6468d5c5de89cb5c04558959553b86418e0d49f416763b2125ed4b038aa6"
+    },
+    "supervisor": {
+      "path": "computations/2026-10-28T034134Z-t081-resource-execution/execution_supervisor_v1.py",
+      "sha256": "cc1c10f9d54a0cff7250d3a53f72480c5e56a49262176d32d0b1de98090d334c"
+    },
+    "worker": {
+      "path": "computations/2026-10-28T034134Z-t081-resource-execution/stage_worker_v1.py",
+      "sha256": "3ecc6c00630b7d7eb2bffd8d544f61f18ade7ec30b9b7fc2348e7274d22faeee"
+    }
+  },
+  "created_utc": "2026-10-29T01:39:29Z",
+  "format": "t1-execution-allocation-inputs-v1",
+  "native_library": {
+    "path": ".venv/Lib/site-packages/python_flint.libs/libflint.24.0.0-c6509b45c893bda479323064e312b577.dll",
+    "sha256": "39e37ec4b7646bb857f88b18b6318858f1459fb6f98db45d47f7d95044da20e8"
+  },
+  "precisions": [
+    25600,
+    34304
+  ],
+  "product": {
+    "N": 5564,
+    "algorithm": "dense",
+    "block_rows": 2,
+    "input_modes": [
+      5557,
+      5559,
+      5561,
+      5563
+    ],
+    "parity": 1,
+    "power_rows": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      1391,
+      2782,
+      4173,
+      5561,
+      5562,
+      5563
+    ],
+    "precision": 34304,
+    "prime_power": 2,
+    "selection_basis": "Measured target arithmetic tail_moments allocation; preserve all5564 inner powers, actual high modes and highest target power rows. Selected rows/columns only, not full target.",
+    "support": "1"
+  },
+  "production_admission": false,
+  "support": "1",
+  "target_dense_matrix_execution_authorized": false,
+  "validation_vector_entries": 4096
+}
