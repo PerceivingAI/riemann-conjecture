@@ -1,0 +1,54 @@
+{
+  "candidate_rejected_by_certified_finite_witness": true,
+  "direct_pointwise_beta_grid_floor": "2977/1024",
+  "documents": {
+    "computations/2026-10-29T004611Z-t1-direct-reference/record.md": {
+      "local_links": 4,
+      "missing": []
+    },
+    "computations/2026-10-29T004611Z-t1-direct-reference/reference-contract-v1.md": {
+      "local_links": 0,
+      "missing": []
+    },
+    "docs/CLAIMS.md": {
+      "local_links": 117,
+      "missing": []
+    },
+    "docs/INDEX.md": {
+      "local_links": 254,
+      "missing": []
+    },
+    "docs/LOG.md": {
+      "local_links": 160,
+      "missing": []
+    },
+    "docs/STATUS.md": {
+      "local_links": 176,
+      "missing": []
+    },
+    "docs/TOOL_CAPABILITIES.md": {
+      "local_links": 47,
+      "missing": []
+    },
+    "findings/2026-10-29T010501Z-t1-direct-reference-improvement.md": {
+      "local_links": 2,
+      "missing": []
+    },
+    "scripts/README.md": {
+      "local_links": 78,
+      "missing": []
+    }
+  },
+  "exact_N_ratio": "1391/2268",
+  "exact_beta_improvement": "189/512",
+  "exact_entry_ratio": "297781/791532",
+  "pointwise_sup_gap": "6101390902993873279306144744877704199439907282137024469/1569275433846670190958947355801916604025588861116008628224",
+  "prior_manifest_sha256": "cca77386d39105a7d314e0422b385c5fe02bb971cece6604fd5eba4cb1fbca21",
+  "prior_scientific_bundle_members_unchanged": 70,
+  "proof_gap_within_1_over_256": true,
+  "published_beta": "2981/1024",
+  "rejected_pointwise_candidate": "29/10",
+  "status": "PASS",
+  "target_matrix_computed": false,
+  "target_positivity_proved": false
+}

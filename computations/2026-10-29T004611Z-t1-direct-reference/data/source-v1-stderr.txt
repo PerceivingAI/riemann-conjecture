@@ -1,0 +1,4 @@
+{"frequency_boundary": "256", "leaves": 1703, "whole_line_gap_met": false}
+{"frequency_boundary": "512", "leaves": 3156, "whole_line_gap_met": false}
+{"frequency_boundary": "1024", "leaves": 5463, "whole_line_gap_met": false}
+{"frequency_boundary": "2048", "leaves": 9916, "whole_line_gap_met": true}

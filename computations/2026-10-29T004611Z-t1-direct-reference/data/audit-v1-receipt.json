@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-29T004611Z-t1-direct-reference/verify-direct-v1.py",
+    "--inputs",
+    "computations/2026-10-29T004611Z-t1-direct-reference/inputs-v1.json",
+    "--source",
+    "computations/2026-10-29T004611Z-t1-direct-reference/data/source-v1.json",
+    "--output",
+    "computations/2026-10-29T004611Z-t1-direct-reference/data/audit-v1.json"
+  ],
+  "started_utc": "2026-10-29T00:55:01Z",
+  "elapsed_seconds": 13.754797400004463,
+  "exit_code": 0
+}

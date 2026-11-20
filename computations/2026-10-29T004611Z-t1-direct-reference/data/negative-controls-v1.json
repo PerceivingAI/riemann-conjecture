@@ -1,0 +1,99 @@
+{
+  "case_count": 10,
+  "cases": [
+    {
+      "exit_code": 2,
+      "expected": "native containment failed: Lambda/sqrt(m) at 7",
+      "name": "prime7-coefficient",
+      "no_pass_file": true,
+      "observed": "native containment failed: Lambda/sqrt(m) at 7",
+      "receipt_sha256": "82da997a1b35740810f9cc69eacac94a8f2b5fc6037ac661201974b7c6f65f82",
+      "source_sha256": "ddcb4af385917af6a99eb173fa9a7e5bbc51d76671b927eede0e5c5a59c8dc01"
+    },
+    {
+      "exit_code": 2,
+      "expected": "false direct cell upper at leaf 0",
+      "name": "false-cell-upper",
+      "no_pass_file": true,
+      "observed": "false direct cell upper at leaf 0",
+      "receipt_sha256": "ea1ecb26962d50cbc4e57d9a3e26f0319deb69a2f37bd2def6d49a30fdec6d79",
+      "source_sha256": "a3bf9b02edb2e51a03ba8fa32e94dfac31aeb0d2cb76dfde46f0a54ad0d69b55"
+    },
+    {
+      "exit_code": 2,
+      "expected": "frequency cover has a gap",
+      "name": "frequency-gap",
+      "no_pass_file": true,
+      "observed": "frequency cover has a gap, overlap, reversed cell or missing endpoint at leaf 0",
+      "receipt_sha256": "a93e9e398474cde80a9a50552967664259b830a804706e8c58ce2a2dc26818ee",
+      "source_sha256": "d789174b3d61fc04751503ea9b233bd8dbff36829bc3c8ef9f961e356e4ebab9"
+    },
+    {
+      "exit_code": 2,
+      "expected": "unpaid infinite frequency tail",
+      "name": "unpaid-frequency-infinity",
+      "no_pass_file": true,
+      "observed": "unpaid infinite frequency tail: false analytic infinity cap",
+      "receipt_sha256": "fa8980accaa861303a17d12ade27100995df21c4244cfe85bd2a844508bc3a82",
+      "source_sha256": "f9ddd88df15ab39f18c96ff84020a1cde10831c54d17960dab3768fd5a1c1633"
+    },
+    {
+      "exit_code": 2,
+      "expected": "false finite witness lower bound",
+      "name": "false-finite-witness",
+      "no_pass_file": true,
+      "observed": "false finite witness lower bound",
+      "receipt_sha256": "c9bd22313bc9ac59eaa7324af69f9c06d328f7615797bcc7b52204a6ef41041c",
+      "source_sha256": "df4f7f160b6bf38d7f8e9aa26564eb709536c686ffba8d9eb5ba086aee79fed5"
+    },
+    {
+      "exit_code": 2,
+      "expected": "canonical exact residual coefficients disagree",
+      "name": "canonical-polar",
+      "no_pass_file": true,
+      "observed": "canonical exact residual coefficients disagree with formal division",
+      "receipt_sha256": "f09f7b7a774b209e6227a89420418262f8ad05f53ee7a53a8c2279957a4feb4b",
+      "source_sha256": "ba38dce10aff7ab9166e320b67b73197f54bd714451b560868ba6111cb960f4f"
+    },
+    {
+      "exit_code": 2,
+      "expected": "false rational upper: frequency step 59",
+      "name": "terminal-inverse",
+      "no_pass_file": true,
+      "observed": "false rational upper: frequency step 59",
+      "receipt_sha256": "b2514331b0a89e264eb56cf2da5ca313e8053c9c2516997d83d588181c727b26",
+      "source_sha256": "76e7f287e5a3e77613e5981d2b81e9ca1e86d63fa975f1c38f39b9506fd0381b"
+    },
+    {
+      "exit_code": 2,
+      "expected": "incorrect residual Lambda upper",
+      "name": "model-discrepancy",
+      "no_pass_file": true,
+      "observed": "incorrect residual Lambda upper",
+      "receipt_sha256": "08c2ce9ff6ce2bd0074c4221c53b30f08baebfd61c051b302ac606619ab1221b",
+      "source_sha256": "0dccb28582ff79958fef86dd498543e3cfc81d219884f65b9d9fb141f6761480"
+    },
+    {
+      "exit_code": 2,
+      "expected": "nonexact JSON number",
+      "name": "floating-math",
+      "no_pass_file": true,
+      "observed": "nonexact JSON number",
+      "receipt_sha256": "5fbd45c828d4e3ec79590a11e0659e6588034fa0b2d513fa16b04c100d617782",
+      "source_sha256": "5715053433f397dabb153cc3c93071191d0094d6131173e45b27b38c87202c40"
+    },
+    {
+      "exit_code": 2,
+      "expected": "incorrect unachieved numerical declaration.high_mode_widths_achieved",
+      "name": "false-achieved-width",
+      "no_pass_file": true,
+      "observed": "incorrect unachieved numerical declaration.high_mode_widths_achieved",
+      "receipt_sha256": "2336ccdaafa11cefe55b7bba4facae8920763c00ca0330a02c69f9ea70a643e2",
+      "source_sha256": "6c070446fe1def7009abf9895ba2525952b4077e3ac79d1268126ee3c5beb923"
+    }
+  ],
+  "format": "t1-direct-mathematical-controls-v1",
+  "positive_control_audit_sha256": "aecbeec9a8bfb2cbef31dc4c461e34451c02c0720c1e1e53d24df7b39f53126e",
+  "status": "PASS",
+  "target_matrix_computed": false
+}

@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "[REPO_ROOT]\\computations\\2026-10-29T004611Z-t1-direct-reference\\verify-direct-v1.py",
+    "--inputs",
+    "[REPO_ROOT]\\computations\\2026-10-29T004611Z-t1-direct-reference\\inputs-v1.json",
+    "--source",
+    "computations\\2026-10-29T004611Z-t1-direct-reference\\data\\negative-controls-v1-cases\\prime7-coefficient\\source.json",
+    "--output",
+    "computations\\2026-10-29T004611Z-t1-direct-reference\\data\\negative-controls-v1-cases\\prime7-coefficient\\audit.json"
+  ],
+  "elapsed_seconds": 3.7766751000017393,
+  "exit_code": 2,
+  "stderr": "",
+  "stdout": "{\"status\": \"REJECTED\", \"error\": \"native containment failed: Lambda/sqrt(m) at 7\"}\n"
+}

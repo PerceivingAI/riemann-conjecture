@@ -1,0 +1,56 @@
+{
+  "capture_sha256": "3b24cd402ad4f97e761f3552bfb32f39d32860f951702d0a30f87bb5fcbccd56",
+  "comparisons": [
+    {
+      "byte_identical": true,
+      "name": "source-v1.json",
+      "sha256": "50a16676a7fb36999485c712c76e9d416eada395b92649f0f6a479e8a6b2dfb6"
+    },
+    {
+      "byte_identical": true,
+      "name": "audit-v1.json",
+      "sha256": "aecbeec9a8bfb2cbef31dc4c461e34451c02c0720c1e1e53d24df7b39f53126e"
+    }
+  ],
+  "destinations": 27,
+  "expected_outputs_withheld": true,
+  "format": "t1-captured-direct-reference-replay-v1",
+  "owned_tree_removed": true,
+  "receipts": [
+    {
+      "argv": [
+        "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+        "-B",
+        "<USER_HOME>\\AppData\\Local\\Temp\\t1_direct_replay_b1llwbdu\\computations\\2026-10-29T004611Z-t1-direct-reference\\qualify-direct-v1.py",
+        "--inputs",
+        "<USER_HOME>\\AppData\\Local\\Temp\\t1_direct_replay_b1llwbdu\\computations\\2026-10-29T004611Z-t1-direct-reference\\inputs-v1.json",
+        "--output",
+        "<USER_HOME>\\AppData\\Local\\Temp\\t1_direct_replay_b1llwbdu\\computations\\2026-10-29T004611Z-t1-direct-reference\\fresh-results\\source-v1.json"
+      ],
+      "elapsed_seconds": 4.501082400005544,
+      "exit_code": 0,
+      "stderr": "{\"frequency_boundary\": \"256\", \"leaves\": 1703, \"whole_line_gap_met\": false}\n{\"frequency_boundary\": \"512\", \"leaves\": 3156, \"whole_line_gap_met\": false}\n{\"frequency_boundary\": \"1024\", \"leaves\": 5463, \"whole_line_gap_met\": false}\n{\"frequency_boundary\": \"2048\", \"leaves\": 9916, \"whole_line_gap_met\": true}\n",
+      "stdout": "{\"status\": \"DIRECT_REFERENCE_AND_ERROR_QUALIFIED_NOT_POSITIVITY\", \"support\": \"1\", \"beta\": \"2981/1024\", \"R\": 4060, \"N\": 5564, \"M\": 11128, \"K\": 132, \"precision\": {\"source_bits\": 25600, \"audit_bits\": 34304, \"matrix_publication_bits\": 256, \"source_amplification_bits\": 24435, \"audit_amplification_bits\": 33254, \"bessel_amplification_bits\": 19441, \"source_gauss_order\": 8346, \"audit_square_gauss_order\": 5564}, \"shape\": {\"parity_dimension\": 2782, \"six_triangular_entries\": 23226918, \"translation_cells\": 11}}\n"
+    },
+    {
+      "argv": [
+        "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+        "-B",
+        "<USER_HOME>\\AppData\\Local\\Temp\\t1_direct_replay_b1llwbdu\\computations\\2026-10-29T004611Z-t1-direct-reference\\verify-direct-v1.py",
+        "--inputs",
+        "<USER_HOME>\\AppData\\Local\\Temp\\t1_direct_replay_b1llwbdu\\computations\\2026-10-29T004611Z-t1-direct-reference\\inputs-v1.json",
+        "--source",
+        "<USER_HOME>\\AppData\\Local\\Temp\\t1_direct_replay_b1llwbdu\\computations\\2026-10-29T004611Z-t1-direct-reference\\fresh-results\\source-v1.json",
+        "--output",
+        "<USER_HOME>\\AppData\\Local\\Temp\\t1_direct_replay_b1llwbdu\\computations\\2026-10-29T004611Z-t1-direct-reference\\fresh-results\\audit-v1.json"
+      ],
+      "elapsed_seconds": 13.670110899984138,
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS\", \"beta\": \"2981/1024\", \"R\": 4060, \"N\": 5564, \"M\": 11128, \"K\": 132, \"precision\": {\"source_bits\": 25600, \"audit_bits\": 34304, \"matrix_publication_bits\": 256, \"source_amplification_bits\": 24435, \"audit_amplification_bits\": 33254, \"bessel_amplification_bits\": 19441, \"source_gauss_order\": 8346, \"audit_square_gauss_order\": 5564}, \"shape\": {\"parity_dimension\": 2782, \"six_triangular_entries\": 23226918, \"translation_cells\": 11}}\n"
+    }
+  ],
+  "status": "PASS",
+  "target_matrix_computed": false,
+  "trust": "captured source/input isolation; shared installed Python/FLINT, not an OS sandbox"
+}

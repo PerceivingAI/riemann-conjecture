@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-29T004611Z-t1-direct-reference/exercise-direct-v1.py",
+    "--mode",
+    "replay",
+    "--capture",
+    "computations/2026-10-29T004611Z-t1-direct-reference/captured-source-inputs-v1.json",
+    "--output",
+    "computations/2026-10-29T004611Z-t1-direct-reference/data/isolated-replay-v1.json"
+  ],
+  "started_utc": "2026-10-29T01:00:51Z",
+  "elapsed_seconds": 18.488285100000212,
+  "exit_code": 0
+}

@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-B",
+    "computations/2026-10-29T004611Z-t1-direct-reference/exercise-direct-v1.py",
+    "--mode",
+    "controls",
+    "--output",
+    "computations/2026-10-29T004611Z-t1-direct-reference/data/negative-controls-v1.json"
+  ],
+  "started_utc": "2026-10-29T00:58:32Z",
+  "elapsed_seconds": 52.774854100018274,
+  "exit_code": 0
+}

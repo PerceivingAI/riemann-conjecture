@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "[REPO_ROOT]\\computations\\2026-10-29T004611Z-t1-direct-reference\\verify-direct-v1.py",
+    "--inputs",
+    "[REPO_ROOT]\\computations\\2026-10-29T004611Z-t1-direct-reference\\inputs-v1.json",
+    "--source",
+    "computations\\2026-10-29T004611Z-t1-direct-reference\\data\\negative-controls-v1-cases\\false-finite-witness\\source.json",
+    "--output",
+    "computations\\2026-10-29T004611Z-t1-direct-reference\\data\\negative-controls-v1-cases\\false-finite-witness\\audit.json"
+  ],
+  "elapsed_seconds": 13.248183599993354,
+  "exit_code": 2,
+  "stderr": "",
+  "stdout": "{\"status\": \"REJECTED\", \"error\": \"false finite witness lower bound\"}\n"
+}
