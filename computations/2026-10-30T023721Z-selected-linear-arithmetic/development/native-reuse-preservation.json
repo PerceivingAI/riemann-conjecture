@@ -1,0 +1,7 @@
+{
+  "compared_complete_checkpoint_records": 59472,
+  "payload_chunks": 240,
+  "all_checkpoint_endpoints_identical": true,
+  "canonical_payload_records_sha256": "7857757801953f181aa3e7bc74909683d0c04d508ddeabfd4825b02c80e3a530",
+  "scope": "producer mathematical preservation between development versions; neither failed receipt is an acceptance"
+}

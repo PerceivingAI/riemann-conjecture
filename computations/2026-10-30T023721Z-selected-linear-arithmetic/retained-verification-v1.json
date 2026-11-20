@@ -1,0 +1,11 @@
+{
+  "complete_entries": 6,
+  "full_source": false,
+  "mathematical_rejections": 12,
+  "matrix_positivity": false,
+  "members_verified": 116080,
+  "production_admission": false,
+  "scientific_recovery_cuts": 13,
+  "scope": "READ_ONLY_RETAINED_DATA_NOT_FRESH_NATIVE_RECONSTRUCTION",
+  "status": "PASS_RETAINED_SELECTED_ARITHMETIC_EVIDENCE"
+}

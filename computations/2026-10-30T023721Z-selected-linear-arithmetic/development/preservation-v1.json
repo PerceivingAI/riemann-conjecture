@@ -1,0 +1,22 @@
+{
+  "status": "PASS_ORIGINAL_SEALED_EVIDENCE_UNCHANGED",
+  "records": [
+    {
+      "manifest": "computations\\2026-10-29T112025Z-bounded-native-resource-probes\\manifest.json",
+      "unchanged_members": 95,
+      "unchanged_dependencies": 50
+    },
+    {
+      "manifest": "computations\\2026-10-29T175545Z-whole-source-profile-binding\\manifest.json",
+      "unchanged_members": 53,
+      "unchanged_dependencies": 123
+    },
+    {
+      "manifest": "computations\\2026-10-29T220733Z-bounded-artifact-execution\\manifest.json",
+      "unchanged_members": 2332,
+      "unchanged_dependencies": 123
+    }
+  ],
+  "distinct_original_dependency_files": 155,
+  "pinned_neutral_helpers_unchanged": 5
+}

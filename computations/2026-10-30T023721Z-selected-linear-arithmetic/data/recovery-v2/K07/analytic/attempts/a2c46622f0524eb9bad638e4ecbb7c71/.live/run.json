@@ -1,0 +1,16 @@
+{
+  "format": "riemann-run-identity-v1",
+  "run_id": "20261030T043643Z-643615e0",
+  "driver": "whole-source-owned-execution-v1",
+  "driver_version": "whole-source-owned-execution-v1:f3c44b39acf6497d672452f995e5326e373f79294ba8c541d98e8583edac5162",
+  "support": "81/100",
+  "dimensions": [
+    826,
+    1652,
+    86
+  ],
+  "pid": 33772,
+  "started_at_utc": "2026-10-30T04:36:43Z",
+  "git_commit": "a7d43f501cd7cf6ea74360c4092ecaa11392dbef",
+  "git_dirty": true
+}

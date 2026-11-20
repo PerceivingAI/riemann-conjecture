@@ -1,0 +1,53 @@
+preparation: {"elapsed_seconds": 0.11380859999917448, "event": "program_started", "kind": "fixture", "threads": 1}
+preparation: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+preparation: {"elapsed_seconds": 1.134820999999647, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.0201750999985961}
+validate_0: {"elapsed_seconds": 0.11375450000195997, "event": "program_started", "kind": "fixture", "threads": 1}
+validate_0: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+validate_0: {"elapsed_seconds": 6.205777499999385, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 6.091188200000033}
+validate_1: {"elapsed_seconds": 0.11484690000361297, "event": "program_started", "kind": "fixture", "threads": 1}
+validate_1: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+validate_1: {"elapsed_seconds": 6.544950100003916, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 6.42914639999799}
+validate_2: {"elapsed_seconds": 0.11497729999973672, "event": "program_started", "kind": "fixture", "threads": 1}
+validate_2: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+validate_2: {"elapsed_seconds": 6.0648428999993484, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 5.948836800002027}
+validate_3: {"elapsed_seconds": 0.12023789999511791, "event": "program_started", "kind": "fixture", "threads": 1}
+validate_3: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+validate_3: {"elapsed_seconds": 6.076384499996493, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 5.955369600000267}
+validate_4: {"elapsed_seconds": 0.1182046000030823, "event": "program_started", "kind": "fixture", "threads": 1}
+validate_4: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+validate_4: {"elapsed_seconds": 6.222302400004992, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 6.103064499999164}
+validate_5: {"elapsed_seconds": 0.11634390000108397, "event": "program_started", "kind": "fixture", "threads": 1}
+validate_5: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+validate_5: {"elapsed_seconds": 5.976526300000842, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 5.8593772000022}
+preparation: {"elapsed_seconds": 0.12149510000017472, "event": "program_started", "kind": "fixture", "threads": 1}
+preparation: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+preparation: {"elapsed_seconds": 1.2062621000004583, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.0839701000004425}
+arithmetic: {"elapsed_seconds": 0.1210265999980038, "event": "program_started", "kind": "fixture", "threads": 1}
+arithmetic: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 8, "unit": "bounded task"}
+arithmetic: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 8, "unit": "bounded task"}
+arithmetic: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 8, "unit": "bounded task"}
+arithmetic: {"completed": 4, "event": "work", "phase": "owned_tasks", "total": 8, "unit": "bounded task"}
+arithmetic: {"completed": 5, "event": "work", "phase": "owned_tasks", "total": 8, "unit": "bounded task"}
+arithmetic: {"completed": 6, "event": "work", "phase": "owned_tasks", "total": 8, "unit": "bounded task"}
+arithmetic: {"completed": 7, "event": "work", "phase": "owned_tasks", "total": 8, "unit": "bounded task"}
+arithmetic: {"completed": 8, "event": "work", "phase": "owned_tasks", "total": 8, "unit": "bounded task"}
+arithmetic: {"elapsed_seconds": 4.8163764999990235, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 4.694154400000116}
+reduce_da058ff5d8374c3780ffead34647e7d8: {"elapsed_seconds": 0.11214270000346005, "event": "program_started", "kind": "fixture", "threads": 1}
+reduce_da058ff5d8374c3780ffead34647e7d8: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+reduce_da058ff5d8374c3780ffead34647e7d8: {"elapsed_seconds": 1.2803052000017487, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.1672666999947978}
+reduce_8ae436273e284ace8e5d1a9ee108e571: {"elapsed_seconds": 0.11506609999923967, "event": "program_started", "kind": "fixture", "threads": 1}
+reduce_8ae436273e284ace8e5d1a9ee108e571: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+reduce_8ae436273e284ace8e5d1a9ee108e571: {"elapsed_seconds": 1.2880853000024217, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.1722506000005524}
+reduce_9e24a1cc1a9341a98bc1b7186f7ea5bf: {"elapsed_seconds": 0.11512239999865415, "event": "program_started", "kind": "fixture", "threads": 1}
+reduce_9e24a1cc1a9341a98bc1b7186f7ea5bf: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+reduce_9e24a1cc1a9341a98bc1b7186f7ea5bf: {"elapsed_seconds": 1.2756796999965445, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.1596826000022702}
+reduce_138496ee571d48c5818375db6d9b22fa: {"elapsed_seconds": 0.11630449999938719, "event": "program_started", "kind": "fixture", "threads": 1}
+reduce_138496ee571d48c5818375db6d9b22fa: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+reduce_138496ee571d48c5818375db6d9b22fa: {"elapsed_seconds": 1.3381671000024653, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.2210097999995924}
+reduce_6aa36ccd858b4c0bb94b6b0d8268be12: {"elapsed_seconds": 0.11150369999813847, "event": "program_started", "kind": "fixture", "threads": 1}
+reduce_6aa36ccd858b4c0bb94b6b0d8268be12: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+reduce_6aa36ccd858b4c0bb94b6b0d8268be12: {"elapsed_seconds": 1.2724850999948103, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.1596403000003193}
+reduce_00cd61a61a354586899815f108e2b9c2: {"elapsed_seconds": 0.11287399999855552, "event": "program_started", "kind": "fixture", "threads": 1}
+reduce_00cd61a61a354586899815f108e2b9c2: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+reduce_00cd61a61a354586899815f108e2b9c2: {"elapsed_seconds": 1.2962303000022075, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.1823953999992227}
+VERIFIED_SELECTED_COMPLETE_ARITHMETIC: retained-t081 entries=6 scope=SELECTION_ONLY

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 838, in main
+    outcome = function(args, helper, expected, directory, logs)
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 654, in control_k13
+    positive = run(cli_command(inputs, target, root, resume=False), logs, "K13-captured-replay", helper, cwd=root)
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 136, in run
+    require(process.returncode == expected,
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            label+": unexpected exit "+str(process.returncode)+"; "+stderr_path.read_text(errors="replace"))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 36, in require
+    raise AssertionError(message)
+AssertionError: K13-captured-replay: unexpected exit 2; Arithmetic slice rejected: preparation exited 1; inspect retained stderr and profile
+

@@ -1,0 +1,7 @@
+preparation: Traceback (most recent call last):
+preparation:   File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\data\boundaries-v1\K13\fresh-replay\producer\attempts\3becb51e987d42f08a03fa8363ec954f\runtime\computations\2026-10-28T034134Z-t081-resource-execution\stage_worker_v1.py", line 79, in <module>
+preparation:     if __name__=='__main__':raise SystemExit(main())
+preparation:                                              ~~~~^^
+preparation:   File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\data\boundaries-v1\K13\fresh-replay\producer\attempts\3becb51e987d42f08a03fa8363ec954f\runtime\computations\2026-10-28T034134Z-t081-resource-execution\stage_worker_v1.py", line 34, in main
+preparation:     from resource_limits_v1 import apply_posix_memory_limit
+preparation: ModuleNotFoundError: No module named 'resource_limits_v1'

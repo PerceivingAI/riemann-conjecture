@@ -1,0 +1,95 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0
+rootdir: [REPO_ROOT]
+configfile: pyproject.toml
+plugins: hypothesis-6.165.10, xdist-3.8.0
+collected 183 items
+
+tests\test_whole_source_contract.py .................................... [ 19%]
+...............................                                          [ 36%]
+tests\test_whole_source_arithmetic.py ...F.........                      [ 43%]
+tests\test_whole_source_analytic.py ..........F....F.................... [ 63%]
+.......                                                                  [ 67%]
+tests\test_whole_source_artifacts.py ................................... [ 86%]
+...                                                                      [ 87%]
+tests\test_whole_source_execution.py ......................              [100%]
+
+================================== FAILURES ===================================
+____ test_streamed_recurrence_encloses_exact_requested_polynomials[point3] ____
+
+point = 2/5
+
+    @pytest.mark.parametrize("point", [fmpq(-1), fmpq(-3, 7), fmpq(0), fmpq(2, 5), fmpq(1)])
+    def test_streamed_recurrence_encloses_exact_requested_polynomials(point):
+        with ctx.workprec(256):
+            values = producer.legendre_values(arb(point), 19)
+            for n, value in enumerate(values):
+>               assert value.contains(producer.basis(n)(point))
+E               assert False
+E                +  where False = contains(-13/50)
+E                +    where contains = [-0.2600000000000000000000000000000000000000000000000000000000000000000000000000 +/- 1.29e-77].contains
+E                +    and   -13/50 = 3/2*x^2 + (-1/2)(2/5)
+E                +      where 3/2*x^2 + (-1/2) = <function basis at 0x0000025CCAE001A0>(2)
+E                +        where <function basis at 0x0000025CCAE001A0> = producer.basis
+
+tests\test_whole_source_arithmetic.py:24: AssertionError
+__________ test_signed_rational_window_matches_exact_integral[0-0-0] __________
+
+m = 0, n = 0, window = 0
+
+    @pytest.mark.parametrize("m,n", [(0, 0), (1, 1), (2, 3), (5, 4), (6, 6)])
+    @pytest.mark.parametrize("window", [0, 1])
+    def test_signed_rational_window_matches_exact_integral(m, n, window):
+        tau = fmpq(3, 7)
+        left, right, shift = ((fmpq(-1), 1 - tau, tau) if window == 0 else
+                              (-1 + tau, fmpq(1), -tau))
+        row, column = fmpq_poly.legendre_p(m), fmpq_poly.legendre_p(n)
+        expected = exact_window(row, column, shift, left, right)
+        with ctx.workprec(512):
+            shifted = analytic.binomial_shift(analytic.rodrigues_ratio(n), arb(shift),
+                                              [factorial(k) for k in range(12)], 12)
+            moments = analytic.power_window_moments(arb(left), arb(right), m + 11)
+            actual = analytic.integrate_window(analytic.rodrigues_ratio(m), shifted, moments)
+>           assert actual.contains(expected)
+E           assert False
+E            +  where False = contains(11/7)
+E            +    where contains = [1.57142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857 +/- 1.49e-153].contains
+
+tests\test_whole_source_analytic.py:69: AssertionError
+__________ test_signed_rational_window_matches_exact_integral[1-0-0] __________
+
+m = 0, n = 0, window = 1
+
+    @pytest.mark.parametrize("m,n", [(0, 0), (1, 1), (2, 3), (5, 4), (6, 6)])
+    @pytest.mark.parametrize("window", [0, 1])
+    def test_signed_rational_window_matches_exact_integral(m, n, window):
+        tau = fmpq(3, 7)
+        left, right, shift = ((fmpq(-1), 1 - tau, tau) if window == 0 else
+                              (-1 + tau, fmpq(1), -tau))
+        row, column = fmpq_poly.legendre_p(m), fmpq_poly.legendre_p(n)
+        expected = exact_window(row, column, shift, left, right)
+        with ctx.workprec(512):
+            shifted = analytic.binomial_shift(analytic.rodrigues_ratio(n), arb(shift),
+                                              [factorial(k) for k in range(12)], 12)
+            moments = analytic.power_window_moments(arb(left), arb(right), m + 11)
+            actual = analytic.integrate_window(analytic.rodrigues_ratio(m), shifted, moments)
+>           assert actual.contains(expected)
+E           assert False
+E            +  where False = contains(11/7)
+E            +    where contains = [1.57142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857 +/- 1.49e-153].contains
+
+tests\test_whole_source_analytic.py:69: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_whole_source_arithmetic.py::test_streamed_recurrence_encloses_exact_requested_polynomials[point3] - assert False
+ +  where False = contains(-13/50)
+ +    where contains = [-0.2600000000000000000000000000000000000000000000000000000000000000000000000000 +/- 1.29e-77].contains
+ +    and   -13/50 = 3/2*x^2 + (-1/2)(2/5)
+ +      where 3/2*x^2 + (-1/2) = <function basis at 0x0000025CCAE001A0>(2)
+ +        where <function basis at 0x0000025CCAE001A0> = producer.basis
+FAILED tests/test_whole_source_analytic.py::test_signed_rational_window_matches_exact_integral[0-0-0] - assert False
+ +  where False = contains(11/7)
+ +    where contains = [1.57142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857 +/- 1.49e-153].contains
+FAILED tests/test_whole_source_analytic.py::test_signed_rational_window_matches_exact_integral[1-0-0] - assert False
+ +  where False = contains(11/7)
+ +    where contains = [1.57142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857 +/- 1.49e-153].contains
+================== 3 failed, 180 passed in 333.31s (0:05:33) ==================

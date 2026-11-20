@@ -1,0 +1,15 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "--python",
+    "3.14",
+    "python",
+    "-B",
+    "[REPO_ROOT]\\computations\\2026-10-30T023721Z-selected-linear-arithmetic\\development\\long-import-probe\\pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp\\probe-import-context-v1.py"
+  ],
+  "exit": 0,
+  "stdout": "{\"script_length\": 275, \"script_directory_length\": 248, \"sys_path\": [\"\", \"<USER_HOME>\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python314\\\\python314.zip\", \"<USER_HOME>\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python314\\\\DLLs\", \"<USER_HOME>\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python314\\\\Lib\", \"<USER_HOME>\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python314\", \"[REPO_ROOT]\\\\.venv\", \"[REPO_ROOT]\\\\.venv\\\\Lib\\\\site-packages\"], \"safe_path\": false, \"pythonpath\": null, \"implicit_helper\": \"None\"}\n{\"explicit_helper\": \"ModuleSpec(name='resource_limits_v1', loader=<_frozen_importlib_external.SourceFileLoader object at 0x000002A1A526EE70>, origin='[REPO_ROOT]\\\\\\\\computations\\\\\\\\2026-10-30T023721Z-selected-linear-arithmetic\\\\\\\\development\\\\\\\\long-import-probe\\\\\\\\pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp\\\\\\\\resource_limits_v1.py')\"}\n",
+  "stderr": ""
+}

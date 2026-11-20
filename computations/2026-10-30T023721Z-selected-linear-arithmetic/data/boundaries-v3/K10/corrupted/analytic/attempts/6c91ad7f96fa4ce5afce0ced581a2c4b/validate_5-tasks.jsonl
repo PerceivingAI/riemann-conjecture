@@ -1,0 +1,1 @@
+{"operation":"read-prefix","task":{"axes":[{"name":"term","start":0,"step":1,"stop":4},{"name":"window","start":0,"step":1,"stop":2}],"columns":{"start":825,"step":2,"stop":826},"quantity":{"entry":[1651,825],"name":"P_H","parity":1},"rows":{"start":1651,"step":2,"stop":1652}},"task_id":"2f7a70157fa5948d24a36b807101e2f1b95aaf0f6a5e783575055bf9b538b1dc"}

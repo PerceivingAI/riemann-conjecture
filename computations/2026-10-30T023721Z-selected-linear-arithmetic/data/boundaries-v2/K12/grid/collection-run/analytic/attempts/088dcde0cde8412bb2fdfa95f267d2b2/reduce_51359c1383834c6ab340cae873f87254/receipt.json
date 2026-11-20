@@ -1,0 +1,70 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "[REPO_ROOT]\\computations\\2026-10-30T023721Z-selected-linear-arithmetic\\data\\boundaries-v2\\K12\\grid\\collection-run\\analytic\\attempts\\088dcde0cde8412bb2fdfa95f267d2b2\\runtime\\computations\\2026-10-28T034134Z-t081-resource-execution\\stage_worker_v1.py",
+    "--program",
+    "[REPO_ROOT]\\computations\\2026-10-30T023721Z-selected-linear-arithmetic\\data\\boundaries-v2\\K12\\grid\\collection-run\\analytic\\attempts\\088dcde0cde8412bb2fdfa95f267d2b2\\runtime\\scripts\\whole_source\\execution.py",
+    "--program-sha256",
+    "a8a25a01186211c7065c40803e3e026dac6b78a8ae2830e64eede92d51ab9eae",
+    "--config",
+    "[REPO_ROOT]\\computations\\2026-10-30T023721Z-selected-linear-arithmetic\\data\\boundaries-v2\\K12\\grid\\collection-run\\analytic\\attempts\\088dcde0cde8412bb2fdfa95f267d2b2\\execution-budget.json",
+    "--config-sha256",
+    "2e7878ec29cf36cdf350b62f22c158b4ea66a738ca0ce3c64f8ce9f8332791ef",
+    "--profile",
+    "[REPO_ROOT]\\computations\\2026-10-30T023721Z-selected-linear-arithmetic\\data\\boundaries-v2\\K12\\grid\\collection-run\\analytic\\attempts\\088dcde0cde8412bb2fdfa95f267d2b2\\reduce_51359c1383834c6ab340cae873f87254\\profile.json",
+    "--kind",
+    "fixture",
+    "--",
+    "--stage",
+    "[REPO_ROOT]\\computations\\2026-10-30T023721Z-selected-linear-arithmetic\\data\\boundaries-v2\\K12\\grid\\collection-run\\analytic\\attempts\\088dcde0cde8412bb2fdfa95f267d2b2\\reduce_51359c1383834c6ab340cae873f87254-stage.json",
+    "--stage-sha256",
+    "6918401c5e41329ae2e15042cd66c65e63eb349e86b0029bfec7635d7dbfaf46"
+  ],
+  "budget": {
+    "cpu_budget": 1,
+    "descendant_pool_workers": 1,
+    "execution_mode": "one owned root plus bounded spawn descendants",
+    "memory_budget_bytes": 1610612736,
+    "native_threads": 1,
+    "required_bytes": 830472192,
+    "reserve_bytes": 134217728,
+    "workers": 1
+  },
+  "config_sha256": "2e7878ec29cf36cdf350b62f22c158b4ea66a738ca0ce3c64f8ce9f8332791ef",
+  "elapsed_seconds": 2.0428051999988384,
+  "error": null,
+  "exit_code": 0,
+  "format": "t081-owned-stage-receipt-v1",
+  "last_metrics": {
+    "active_process_count": 0,
+    "active_process_ids": [],
+    "cpu_budget": 1,
+    "cpu_rate_per_10000": 1666,
+    "cpu_rate_reference": "parent job if rate-controlled, otherwise system",
+    "cpu_seconds": 1.296875,
+    "current_committed_bytes": 77824,
+    "diagnostics": [],
+    "memory_accounting": "JobObjectMemoryUsageInformation",
+    "memory_limit_bytes": 1610612736,
+    "owned_cpu_rate_denominator": 10000,
+    "owned_cpu_rate_units": 1666,
+    "peak_committed_bytes": 71831552,
+    "peak_counter_scope": "raw OS high-water; denied allocation demand may be counted before rollback"
+  },
+  "logs": {
+    "stderr": {
+      "path": "reduce_51359c1383834c6ab340cae873f87254\\stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "path": "reduce_51359c1383834c6ab340cae873f87254\\stdout.txt",
+      "sha256": "82e636d918daa53f7bb47f41c33e220e8288a803959b19916861fdf4c5ebedc4"
+    }
+  },
+  "memory_metric": "job committed memory",
+  "peak_budgeted_memory_bytes": 71831552,
+  "program_sha256": "a8a25a01186211c7065c40803e3e026dac6b78a8ae2830e64eede92d51ab9eae",
+  "stage": "reduce_51359c1383834c6ab340cae873f87254",
+  "worker_cleanup_verified": true
+}

@@ -1,0 +1,6 @@
+preparation: {"elapsed_seconds": 0.17210549999435898, "event": "program_started", "kind": "fixture", "threads": 1}
+preparation: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+preparation: {"elapsed_seconds": 1.351304199997685, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.1783758000019589}
+arithmetic: {"elapsed_seconds": 0.12475439999980154, "event": "program_started", "kind": "fixture", "threads": 1}
+arithmetic: BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
+arithmetic: {"elapsed_seconds": 4.230911099999503, "event": "program_finished", "exit_code": 1, "kind": "fixture", "wall_seconds": 4.105185699998401}

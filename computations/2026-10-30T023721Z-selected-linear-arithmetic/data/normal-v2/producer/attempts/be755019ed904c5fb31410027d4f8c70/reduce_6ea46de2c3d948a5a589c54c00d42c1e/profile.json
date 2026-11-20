@@ -1,0 +1,22 @@
+{
+  "containment": {
+    "mechanism": "owned Windows job installed before GO"
+  },
+  "cpu_seconds": 0.0625,
+  "error": null,
+  "exit_code": 0,
+  "format": "t081-budgeted-stage-profile-v1",
+  "kind": "fixture",
+  "native_threads": 1,
+  "phases": {},
+  "precision": 53,
+  "process_memory": {
+    "committed_bytes": 24735744,
+    "peak_committed_bytes": 32079872,
+    "peak_working_set_bytes": 44961792,
+    "working_set_bytes": 37326848
+  },
+  "program_sha256": "04241bad5844f841cde2dd12ca443aca7bc758fb044942fe0018eeb32449bc60",
+  "timing_note": "inclusive includes nested calls; exclusive subtracts wrapped children; CPU is current process only",
+  "wall_seconds": 5.616444599996612
+}

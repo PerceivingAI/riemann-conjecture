@@ -1,0 +1,43 @@
+T081_READY {"pid": 51404, "config_sha256": "2e7878ec29cf36cdf350b62f22c158b4ea66a738ca0ce3c64f8ce9f8332791ef"}
+T081_EVENT {"elapsed_seconds": 0.12084669999603648, "event": "program_started", "kind": "fixture", "threads": 1}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 1, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 2, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 3, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 4, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 5, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 6, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 7, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 8, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 9, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 10, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 11, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 12, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 13, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 14, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 15, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 16, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 17, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 18, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 19, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 20, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 21, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 22, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 23, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 24, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 25, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 26, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 27, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 28, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 29, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 30, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 31, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 32, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 33, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 34, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 35, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 36, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 37, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 38, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 39, "total": 40, "unit": "bounded task"}
+T081_EVENT {"event": "work", "phase": "owned_tasks", "completed": 40, "total": 40, "unit": "bounded task"}
+T081_EVENT {"elapsed_seconds": 115.51207270000305, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 115.39010279999638}

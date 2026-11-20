@@ -1,0 +1,53 @@
+{
+  "different_packets": 1,
+  "details": [
+    {
+      "task": {
+        "axes": [
+          {
+            "name": "term",
+            "start": 3,
+            "step": 1,
+            "stop": 4
+          },
+          {
+            "name": "window",
+            "start": 1,
+            "step": 1,
+            "stop": 2
+          },
+          {
+            "name": "node",
+            "start": 1028,
+            "step": 1,
+            "stop": 1239
+          }
+        ],
+        "columns": {
+          "start": 0,
+          "step": 2,
+          "stop": 2
+        },
+        "quantity": {
+          "entry": [
+            0,
+            0
+          ],
+          "name": "P_L",
+          "parity": 0
+        },
+        "rows": {
+          "start": 0,
+          "step": 2,
+          "stop": 2
+        }
+      },
+      "normal_sha256": "40395e44d41042d874c6369aa1a4b36849e39cad9b23d65504f21fa3487174e4",
+      "paused_sha256": "6e7417bbb78355fb83581adc59a4630164e2fc6d91a07c6c7907fdbee8a95199",
+      "normal_bytes": 18854,
+      "paused_bytes": 18720,
+      "decoded_bytes_identical": true
+    }
+  ],
+  "cause": "qualification flush of gzip compressor changes compressed bytes without changing canonical decoded native records"
+}

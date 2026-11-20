@@ -1,0 +1,6 @@
+preparation: {"elapsed_seconds": 0.12197339999693213, "event": "program_started", "kind": "fixture", "threads": 1}
+preparation: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+preparation: {"elapsed_seconds": 1.2317254000008688, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.1088400000007823}
+arithmetic: {"elapsed_seconds": 0.11729829999967478, "event": "program_started", "kind": "fixture", "threads": 1}
+arithmetic: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+arithmetic: {"elapsed_seconds": 4.043718599998101, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 3.9248363000006066}

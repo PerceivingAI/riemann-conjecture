@@ -1,0 +1,3 @@
+{"fault":"omit-power","operation":"false-quantity","task_id":"fcb0cf97c23362248f76454817957c256e186df074a7d3a9f569634be29c80ac"}
+{"fault":"reverse-shift","operation":"false-quantity","task_id":"eef976a07c342806c89fcfabb365d6cb2934d4ac5b40f51ba4addb2129cdf328"}
+{"fault":"premature-arithmetic-grid","operation":"false-quantity","task_id":"8bebd59d19cc50bc3fe7b451c239a4a338fbea649261e10330afcad33ad4b926"}

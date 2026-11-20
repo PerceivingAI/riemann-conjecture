@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 838, in main
+    outcome = function(args, helper, expected, directory, logs)
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 334, in control_k09
+    comparison = math_evidence(helper, expected, target)
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 143, in math_evidence
+    helper.same_math(expected, actual)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-recovery-v1.py", line 149, in same_math
+    assert actual['roles'][role]['quantity_seals'] == expected['roles'][role]['quantity_seals']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

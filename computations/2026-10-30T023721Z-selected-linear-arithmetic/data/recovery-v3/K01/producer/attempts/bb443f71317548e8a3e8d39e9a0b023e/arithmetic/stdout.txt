@@ -1,0 +1,3 @@
+T081_READY {"pid": 35792, "config_sha256": "2e7878ec29cf36cdf350b62f22c158b4ea66a738ca0ce3c64f8ce9f8332791ef"}
+T081_EVENT {"elapsed_seconds": 0.11224480000237236, "event": "program_started", "kind": "fixture", "threads": 1}
+T081_EVENT {"elapsed_seconds": 3.5265188999983366, "event": "program_finished", "exit_code": 1, "kind": "fixture", "wall_seconds": 3.4134627000021283}

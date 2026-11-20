@@ -1,0 +1,43 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 838, in main
+    outcome = function(args, helper, expected, directory, logs)
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 370, in control_k10
+    result = run(cli_command(args.inputs, target), logs, "K10-"+mode, helper, expected=2)
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 136, in run
+    require(process.returncode == expected,
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            label+": unexpected exit "+str(process.returncode)+"; "+stderr_path.read_text(errors="replace"))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 36, in require
+    raise AssertionError(message)
+AssertionError: K10-corrupted: unexpected exit 1; Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "[REPO_ROOT]\scripts\weil_whole_source_split.py", line 176, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "[REPO_ROOT]\scripts\weil_whole_source_split.py", line 147, in main
+    report = run_slice(args.problem, args.cases, args.execution, args.output_dir,
+        resume=args.resume, qualification_stop=args.qualification_stop,
+        qualification_role=args.qualification_role, **kwargs)
+  File "[REPO_ROOT]\scripts\whole_source\slice.py", line 328, in run_slice
+    roles[role] = _run_role(child_root, spec, plan, code_root=root,
+                  ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        resume=resume and (child_root/"collection.json").exists(),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        qualification_stop=qualification_stop if qualification_role == role else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\slice.py", line 176, in _run_role
+    with CollectionLock.acquire(root, spec, resume=resume) as lock:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\artifacts.py", line 526, in acquire
+    lock._validate_log()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "[REPO_ROOT]\scripts\whole_source\artifacts.py", line 706, in _validate_log
+    self._validate_seal(_json(raw, self.spec.bounds.max_header_bytes))
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\scripts\whole_source\artifacts.py", line 759, in _validate_seal
+    _validate_output_records(self.spec, task, state.get("records"))
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name '_validate_output_records' is not defined
+

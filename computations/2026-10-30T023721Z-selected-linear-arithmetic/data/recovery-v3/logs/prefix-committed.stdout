@@ -1,0 +1,6 @@
+preparation: {"elapsed_seconds": 0.11965690000215545, "event": "program_started", "kind": "fixture", "threads": 1}
+preparation: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+preparation: {"elapsed_seconds": 1.159356600001047, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.0388304999942193}
+reduce_d2c535bcc20d455bbde48d6d7d24bd8f: {"elapsed_seconds": 0.11486380000133067, "event": "program_started", "kind": "fixture", "threads": 1}
+reduce_d2c535bcc20d455bbde48d6d7d24bd8f: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+reduce_d2c535bcc20d455bbde48d6d7d24bd8f: {"elapsed_seconds": 6.299340999998094, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 6.183583199999703}

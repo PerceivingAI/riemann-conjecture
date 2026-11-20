@@ -1,0 +1,10 @@
+{
+  "diagnostic_dimension": 4,
+  "format": "t081-prime-five-topology-inputs-v1",
+  "full_target_low_coupling_matrix_permitted": false,
+  "independent_precision_bits": 768,
+  "producer_precision_bits": 512,
+  "production_admission": false,
+  "publication_bits": 192,
+  "support": "81/100"
+}

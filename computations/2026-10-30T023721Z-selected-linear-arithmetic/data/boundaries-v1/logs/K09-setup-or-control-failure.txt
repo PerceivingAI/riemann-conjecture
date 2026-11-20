@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 838, in main
+    outcome = function(args, helper, expected, directory, logs)
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 304, in control_k09
+    marker, ownership = wait_barrier(first, target, prior, stderr_path)
+                        ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 286, in wait_barrier
+    require(process.poll() is None, "setup failure: first CLI exited before barrier; "+stderr.read_text(errors="replace"))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[REPO_ROOT]\computations\2026-10-30T023721Z-selected-linear-arithmetic\qualify-boundaries-v1.py", line 36, in require
+    raise AssertionError(message)
+AssertionError: setup failure: first CLI exited before barrier; Arithmetic slice rejected: preparation exited 1; inspect retained stderr and profile
+
