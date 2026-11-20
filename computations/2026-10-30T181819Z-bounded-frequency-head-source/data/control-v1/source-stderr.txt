@@ -1,0 +1,1 @@
+Source operation rejected: columns-0 exited 1; inspect retained stderr and profile

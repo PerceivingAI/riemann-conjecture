@@ -1,0 +1,6 @@
+kernel-0: {"elapsed_seconds": 0.11857999999483582, "event": "program_started", "kind": "fixture", "threads": 1}
+kernel-0: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+kernel-0: {"elapsed_seconds": 7.478790099994512, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 7.359417400002712}
+columns-0: {"elapsed_seconds": 0.12482650000310969, "event": "program_started", "kind": "fixture", "threads": 1}
+columns-0: ArtifactError: task does not match frozen partition
+columns-0: {"elapsed_seconds": 1.0571920000074897, "event": "program_finished", "exit_code": 1, "kind": "fixture", "wall_seconds": 0.9313818999944488}

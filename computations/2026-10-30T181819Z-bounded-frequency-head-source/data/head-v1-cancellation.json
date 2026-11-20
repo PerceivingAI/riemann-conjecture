@@ -1,0 +1,19 @@
+{
+  "analytical_acceptance": false,
+  "cancelled_root_pid": 51800,
+  "completed_even_kernel_cleanup_verified": true,
+  "completed_even_kernel_elapsed_seconds_hex": "0x1.95ebf0223c680p+10",
+  "completed_even_kernel_owned_peak_bytes": 80617472,
+  "completed_even_kernel_receipt_sha256": "5c7398ea3629baee1f1ba8647aa65234889de2402412610a6c8790ce8673120a",
+  "created_utc": "2026-10-30T19:30:42.320858+00:00",
+  "format": "controlled-experiment-cancellation-v1",
+  "hardware_capacity_finding": false,
+  "interrupted_stage": "kernel-1",
+  "interrupted_stage_cleanup_receipt_verified": false,
+  "interrupted_stage_has_success_receipt": false,
+  "mathematical_negative": false,
+  "post_cancel_root_and_direct_children_observed": 0,
+  "reason": "Replace repeated on-disk anchor prefixes and quota scans with bounded compact integer accumulation; preserve all mathematical anchors and precision.",
+  "run": "data/head-v1",
+  "status": "SUPERSEDED_BEFORE_INDEPENDENT_ACCEPTANCE"
+}

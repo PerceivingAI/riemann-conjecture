@@ -1,0 +1,1 @@
+Source operation rejected: head-0 exited 1; inspect retained stderr and profile

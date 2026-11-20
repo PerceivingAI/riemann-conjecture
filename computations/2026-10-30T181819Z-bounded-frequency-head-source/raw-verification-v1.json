@@ -1,0 +1,15 @@
+{
+  "external_bindings": 107,
+  "external_bytes": 14327817,
+  "format": "frequency-head-raw-verification-v1",
+  "fresh_native_reconstruction": false,
+  "full_source_run": false,
+  "manifest_sha256": "ccd2f2f2a2ac642b54d0f12508072998292fa88285011eae33b6acd6ceec6144",
+  "mathematical_acceptance_repeated": false,
+  "matrix_positivity": false,
+  "production_admission": false,
+  "retained_bytes": 192567211,
+  "retained_members": 5529,
+  "scope": "RAW_BINDINGS_ONLY",
+  "status": "PASS_RETAINED_FREQUENCY_HEAD_RAW_BINDINGS"
+}

@@ -1,0 +1,8 @@
+{
+  "format": "riemann-run-failure-v1",
+  "run_id": "20261030T181909Z-c83d7f49",
+  "state": "RUN_FAILED",
+  "time_utc": "2026-10-30T18:19:22Z",
+  "error_type": "RuntimeError",
+  "error": "columns-0 exited 1; inspect retained stderr and profile"
+}

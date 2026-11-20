@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "scripts.weil_whole_source_split",
+    "source",
+    "--problem",
+    "[REPO_ROOT]\\computations\\2026-10-30T181819Z-bounded-frequency-head-source\\data\\control-v6\\inputs\\problem.json",
+    "--execution",
+    "[REPO_ROOT]\\computations\\2026-10-30T181819Z-bounded-frequency-head-source\\data\\control-v6\\inputs\\execution.json",
+    "--output-dir",
+    "[REPO_ROOT]\\computations\\2026-10-30T181819Z-bounded-frequency-head-source\\data\\control-v6\\source",
+    "--resume"
+  ],
+  "created_utc": "2026-10-30T19:41:31.550955+00:00",
+  "elapsed_seconds_hex": "0x1.b39e690c30000p+1",
+  "exit_code": 0,
+  "program_sha256": "33b904bf37d9bdf9abfb3ca393c2071f38e5268d41e5654184d25458e051f444",
+  "scope": "CONTROL_ONLY_REDUCED_MODEL",
+  "stderr": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  "stdout": {
+    "sha256": "22691ffc2c51e90b993544c7ff2d9cc88202d1fabc4f8a314cdb7d23360403e7",
+    "size": 74
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "actual_head_entries_checked": 6,
+  "actual_kernel_entries_checked": 170982,
+  "control_entries_checked": 36,
+  "format": "retained-frequency-head-verification-v1",
+  "fresh_native_reconstruction": false,
+  "full_source_run": false,
+  "matrix_positivity": false,
+  "maximum_observed_owned_peak_bytes": 96264192,
+  "owned_stages_cleanup_verified": 38,
+  "physical_row_width_accepted": false,
+  "production_admission": false,
+  "resumed_control_entries_checked": 36,
+  "scope": "RETAINED_EXACT_BYTES_AND_CONTAINMENT_ONLY",
+  "selected_physical_entry_width_goal": true,
+  "status": "PASS_RETAINED_FREQUENCY_HEAD_EVIDENCE",
+  "supplementary_retained_head_comparisons": 6
+}

@@ -1,0 +1,11 @@
+kernel-0: {"elapsed_seconds": 0.12131519999820739, "event": "program_started", "kind": "fixture", "threads": 1}
+kernel-0: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+kernel-0: {"elapsed_seconds": 7.6889060999965295, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 7.566815099999076}
+columns-0: {"elapsed_seconds": 0.11071880000235979, "event": "program_started", "kind": "fixture", "threads": 1}
+columns-0: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+columns-0: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+columns-0: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+columns-0: {"elapsed_seconds": 1.1498399999982212, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.0380167000112124}
+head-0: {"elapsed_seconds": 0.11633180000353605, "event": "program_started", "kind": "fixture", "threads": 1}
+head-0: NameError: name 'arb_mat' is not defined
+head-0: {"elapsed_seconds": 1.3968540000059875, "event": "program_finished", "exit_code": 1, "kind": "fixture", "wall_seconds": 1.279430599999614}

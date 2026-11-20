@@ -1,0 +1,27 @@
+{
+  "actual_test_cases": 93,
+  "compiled_lf_whitespace_python_files": 21,
+  "final_test_capture_files": 6,
+  "full_source_run": false,
+  "mathematical_module_bindings_match_selected_run": true,
+  "new_public_links": [
+    {
+      "source": "scripts/README.md",
+      "target": "../computations/2026-10-30T181819Z-bounded-frequency-head-source/record.md"
+    },
+    {
+      "source": "docs/TOOL_CAPABILITIES.md",
+      "target": "../computations/2026-10-30T181819Z-bounded-frequency-head-source/record.md"
+    },
+    {
+      "source": "docs/LOG.md",
+      "target": "../computations/2026-10-30T181819Z-bounded-frequency-head-source/record.md"
+    },
+    {
+      "source": "docs/INDEX.md",
+      "target": "../computations/2026-10-30T181819Z-bounded-frequency-head-source/record.md"
+    }
+  ],
+  "production_admission": false,
+  "status": "PASS_FREQUENCY_HEAD_PRESEAL_SCOPE_CHECKS"
+}

@@ -1,0 +1,3 @@
+kernel-0: {"elapsed_seconds": 0.11950729999807663, "event": "program_started", "kind": "fixture", "threads": 1}
+kernel-0: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+kernel-0: {"elapsed_seconds": 2.256032100005541, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 2.135373500001151}

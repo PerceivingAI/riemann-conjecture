@@ -1,0 +1,37 @@
+kernel-0: {"elapsed_seconds": 0.1278055000002496, "event": "program_started", "kind": "fixture", "threads": 1}
+kernel-0: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+kernel-0: {"elapsed_seconds": 9.37504899999476, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 9.24623919998703}
+columns-0: {"elapsed_seconds": 0.12668970000231639, "event": "program_started", "kind": "fixture", "threads": 1}
+columns-0: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+columns-0: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+columns-0: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+columns-0: {"elapsed_seconds": 1.2485470999963582, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.1210647999978391}
+head-0: {"elapsed_seconds": 0.12631200000760145, "event": "program_started", "kind": "fixture", "threads": 1}
+head-0: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+head-0: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+head-0: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+head-0: {"elapsed_seconds": 1.3699354000127641, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.2427825999911875}
+final-0: {"elapsed_seconds": 0.16380819999903906, "event": "program_started", "kind": "fixture", "threads": 1}
+final-0: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+final-0: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+final-0: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+final-0: {"elapsed_seconds": 2.107514200004516, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.9428122999961488}
+kernel-1: {"elapsed_seconds": 0.13769459999457467, "event": "program_started", "kind": "fixture", "threads": 1}
+kernel-1: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+kernel-1: {"elapsed_seconds": 9.958340800003498, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 9.819733300013468}
+columns-1: {"elapsed_seconds": 0.13117130000318866, "event": "program_started", "kind": "fixture", "threads": 1}
+columns-1: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+columns-1: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+columns-1: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+columns-1: {"elapsed_seconds": 1.3120197000098415, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.1796759999997448}
+head-1: {"elapsed_seconds": 0.12006609998934437, "event": "program_started", "kind": "fixture", "threads": 1}
+head-1: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+head-1: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+head-1: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+head-1: {"elapsed_seconds": 1.4600790999975288, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.3389833999972325}
+final-1: {"elapsed_seconds": 0.12412869998661336, "event": "program_started", "kind": "fixture", "threads": 1}
+final-1: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+final-1: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+final-1: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 3, "unit": "bounded task"}
+final-1: {"elapsed_seconds": 1.60255439998582, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.4775417000055313}
+COMPLETE_SOURCE_EXPRESSIONS: entries=36 scope=CONTROL_ONLY_REDUCED_MODEL

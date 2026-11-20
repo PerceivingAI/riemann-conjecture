@@ -1,0 +1,51 @@
+{
+  "format": "riemann-live-run-v1",
+  "run_id": "20261030T183650Z-6d30b31d",
+  "command": "whole-source-owned-execution-v1",
+  "support": "81/100",
+  "pid": 46448,
+  "started_at_utc": "2026-10-30T18:36:50Z",
+  "last_heartbeat_utc": "2026-10-30T19:16:32Z",
+  "elapsed_seconds": 2381.662,
+  "workflow_state": "RUNNING",
+  "current_operation": {
+    "stage": "kernel-1",
+    "elapsed_seconds": 0.13075880000542384,
+    "event": "program_started",
+    "kind": "fixture",
+    "threads": 1,
+    "budget": {
+      "cpu_budget": 1,
+      "native_threads": 1,
+      "workers": 1,
+      "memory_budget_bytes": 1610612736,
+      "reserve_bytes": 134217728,
+      "required_bytes": 830472192,
+      "descendant_pool_workers": 1,
+      "execution_mode": "one owned root plus bounded spawn descendants"
+    },
+    "remaining_estimate_seconds": null,
+    "stage_elapsed_seconds": 713.9548723000044,
+    "resources": {
+      "current_committed_bytes": 71073792,
+      "peak_committed_bytes": 80621568,
+      "active_process_ids": [
+        62652,
+        61368,
+        51800
+      ],
+      "active_process_count": 3,
+      "cpu_seconds": 621.78125,
+      "peak_counter_scope": "raw OS high-water; denied allocation demand may be counted before rollback",
+      "memory_accounting": "JobObjectMemoryUsageInformation",
+      "diagnostics": [],
+      "memory_limit_bytes": 1610612736,
+      "cpu_budget": 1,
+      "cpu_rate_per_10000": 1666,
+      "cpu_rate_reference": "parent job if rate-controlled, otherwise system",
+      "owned_cpu_rate_units": 1666,
+      "owned_cpu_rate_denominator": 10000
+    }
+  },
+  "terminal": false
+}
