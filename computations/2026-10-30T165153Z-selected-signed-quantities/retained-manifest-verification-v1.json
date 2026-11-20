@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-30T17:52:20Z",
+  "external_bindings_verified": 26,
+  "format": "selected-signed-raw-binding-verification-v1",
+  "fresh_native_reconstruction": false,
+  "manifest_sha256": "416bd0b5822d9c8605688ecbf53cd14b62cb54179dc20bea1705572eca375ab5",
+  "matrix_positivity": false,
+  "members_verified": 1129,
+  "production_admission": false,
+  "retained_member_bytes": 33632014,
+  "scope": "RAW_BYTE_BINDING_VERIFICATION_ONLY",
+  "status": "PASS_RETAINED_SIGNED_RAW_BINDINGS"
+}

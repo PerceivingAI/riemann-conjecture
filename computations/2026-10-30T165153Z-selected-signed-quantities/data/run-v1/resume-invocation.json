@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "scripts.weil_whole_source_split",
+    "slice",
+    "--problem",
+    "[REPO_ROOT]\\computations\\2026-10-30T165153Z-selected-signed-quantities\\data\\run-v1\\inputs\\problem.json",
+    "--cases",
+    "[REPO_ROOT]\\computations\\2026-10-30T165153Z-selected-signed-quantities\\data\\run-v1\\inputs\\cases.json",
+    "--execution",
+    "[REPO_ROOT]\\computations\\2026-10-30T165153Z-selected-signed-quantities\\data\\run-v1\\inputs\\execution.json",
+    "--output-dir",
+    "[REPO_ROOT]\\computations\\2026-10-30T165153Z-selected-signed-quantities\\data\\run-v1\\collection",
+    "--resume"
+  ],
+  "created_utc": "2026-10-30T17:34:02+00:00",
+  "elapsed_seconds_hex": "0x1.4b795f2452c80p+9",
+  "exit_code": 0,
+  "program_sha256": "59ef72b7d8aa96145c24b75fbce6ad5a0060708e7b925bcb9a0399ddd4a839bf",
+  "scope": "SELECTED_COMPLETE_QUANTITIES_NOT_FULL_SOURCE",
+  "stderr": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  "stdout": {
+    "sha256": "3809d243840a1f9e6324d514a487ecdfd4ae0876b294d8b357e33a0164eff93f",
+    "size": 3168
+  }
+}

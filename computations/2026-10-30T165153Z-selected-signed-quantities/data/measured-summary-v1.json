@@ -1,0 +1,70 @@
+{
+  "audit_bits": 6144,
+  "checkpoint_bits": 512,
+  "complete_column_entries": 3304,
+  "format": "selected-signed-measurements-v1",
+  "fresh_status": "VERIFIED_SELECTED_COMPLETE_SIGNED_QUANTITIES",
+  "fresh_wall_seconds": 1328.204007799999,
+  "hard_cap_mib": 1536,
+  "matrix_positivity": false,
+  "native_threads": 1,
+  "native_workers": 1,
+  "owned_account_mib": 792,
+  "production_admission": false,
+  "publication_bits": 256,
+  "reference_comparisons": 12,
+  "resources": {
+    "analytic": {
+      "stages": [
+        {
+          "cleanup_verified": true,
+          "external_increment_bytes": 1372160,
+          "owned_peak_bytes": 103649280,
+          "stage": "columns"
+        },
+        {
+          "cleanup_verified": true,
+          "external_increment_bytes": 1400832,
+          "owned_peak_bytes": 87891968,
+          "stage": "gram"
+        },
+        {
+          "cleanup_verified": true,
+          "external_increment_bytes": 1409024,
+          "owned_peak_bytes": 74575872,
+          "stage": "residual"
+        }
+      ],
+      "task_wall_seconds": 642.8189233,
+      "tasks": 22
+    },
+    "producer": {
+      "stages": [
+        {
+          "cleanup_verified": true,
+          "external_increment_bytes": 1560576,
+          "owned_peak_bytes": 132792320,
+          "stage": "columns"
+        },
+        {
+          "cleanup_verified": true,
+          "external_increment_bytes": 1855488,
+          "owned_peak_bytes": 85209088,
+          "stage": "gram"
+        },
+        {
+          "cleanup_verified": true,
+          "external_increment_bytes": 1855488,
+          "owned_peak_bytes": 72032256,
+          "stage": "residual"
+        }
+      ],
+      "task_wall_seconds": 641.990229,
+      "tasks": 22
+    }
+  },
+  "scope": "SELECTION_ONLY",
+  "selected_quantities": 68,
+  "source_bits": 4608,
+  "tests_passed": 59
+}

@@ -1,0 +1,37 @@
+{
+  "all_column_chunk_references_identical": true,
+  "complete_column_entries": 3304,
+  "format": "selected-signed-resume-comparison-v1",
+  "fresh_acceptance": "data/run-v1/collection/acceptances/032f46fa6a724a1c8f6c432127942352.json",
+  "fresh_acceptance_sha256": "f41cfbcabbfeb7c8c163a3c945754f8c8ad2cae1322ba8a017439b0fb85dd23f",
+  "fresh_native_analytic_tasks": 22,
+  "fresh_native_producer_tasks": 0,
+  "new_process_interruption_qualification": false,
+  "owned_stages": [
+    {
+      "cleanup_verified": true,
+      "owned_peak_bytes": 102596608,
+      "sampled_external_increment_bytes": 1957888,
+      "stage": "columns"
+    },
+    {
+      "cleanup_verified": true,
+      "owned_peak_bytes": 88530944,
+      "sampled_external_increment_bytes": 1957888,
+      "stage": "gram"
+    },
+    {
+      "cleanup_verified": true,
+      "owned_peak_bytes": 74604544,
+      "sampled_external_increment_bytes": 2117632,
+      "stage": "residual"
+    }
+  ],
+  "resume_acceptance": "data/run-v1/collection/acceptances/721174b3d17f4271b72fd70a331bb529.json",
+  "resume_acceptance_sha256": "c06c7bee5be0a73ccdbf024ebdf4676627c1360dd2e38ae3488f22c49ea5b941",
+  "resume_wall_seconds_hex": "0x1.4b795f2452c80p+9",
+  "scalar_endpoints_and_publications_identical": true,
+  "scope": "SELECTION_ONLY",
+  "selected_quantities": 68,
+  "status": "PASS_COMPATIBLE_SELECTED_SIGNED_RESUME"
+}

@@ -1,0 +1,145 @@
+{
+  "all_owned_cleanup_verified": true,
+  "complete_column_entries": 3304,
+  "format": "retained-selected-signed-verification-v1",
+  "fresh_native_reconstruction": false,
+  "matrix_positivity": false,
+  "production_admission": false,
+  "reference_comparisons": [
+    {
+      "enclosures_intersect": true,
+      "quantity": {
+        "entry": [
+          0,
+          0
+        ],
+        "name": "A_model",
+        "parity": 0
+      }
+    },
+    {
+      "enclosures_intersect": true,
+      "quantity": {
+        "entry": [
+          0,
+          824
+        ],
+        "name": "A_model",
+        "parity": 0
+      }
+    },
+    {
+      "enclosures_intersect": true,
+      "quantity": {
+        "entry": [
+          824,
+          824
+        ],
+        "name": "A_model",
+        "parity": 0
+      }
+    },
+    {
+      "enclosures_intersect": true,
+      "quantity": {
+        "entry": [
+          1,
+          1
+        ],
+        "name": "A_model",
+        "parity": 1
+      }
+    },
+    {
+      "enclosures_intersect": true,
+      "quantity": {
+        "entry": [
+          1,
+          825
+        ],
+        "name": "A_model",
+        "parity": 1
+      }
+    },
+    {
+      "enclosures_intersect": true,
+      "quantity": {
+        "entry": [
+          825,
+          825
+        ],
+        "name": "A_model",
+        "parity": 1
+      }
+    },
+    {
+      "enclosures_intersect": true,
+      "quantity": {
+        "entry": [
+          0,
+          0
+        ],
+        "name": "weighted_complete_tail",
+        "parity": 0
+      }
+    },
+    {
+      "enclosures_intersect": true,
+      "quantity": {
+        "entry": [
+          0,
+          824
+        ],
+        "name": "weighted_complete_tail",
+        "parity": 0
+      }
+    },
+    {
+      "enclosures_intersect": true,
+      "quantity": {
+        "entry": [
+          824,
+          824
+        ],
+        "name": "weighted_complete_tail",
+        "parity": 0
+      }
+    },
+    {
+      "enclosures_intersect": true,
+      "quantity": {
+        "entry": [
+          1,
+          1
+        ],
+        "name": "weighted_complete_tail",
+        "parity": 1
+      }
+    },
+    {
+      "enclosures_intersect": true,
+      "quantity": {
+        "entry": [
+          1,
+          825
+        ],
+        "name": "weighted_complete_tail",
+        "parity": 1
+      }
+    },
+    {
+      "enclosures_intersect": true,
+      "quantity": {
+        "entry": [
+          825,
+          825
+        ],
+        "name": "weighted_complete_tail",
+        "parity": 1
+      }
+    }
+  ],
+  "scope": "RETAINED_EXACT_ENDPOINT_AND_IDENTITY_CHECK_ONLY",
+  "selected_quantities": 68,
+  "status": "PASS_RETAINED_SELECTED_SIGNED_EVIDENCE"
+}

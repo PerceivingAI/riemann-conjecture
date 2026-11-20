@@ -1,0 +1,57 @@
+columns: {"elapsed_seconds": 0.11172619998978917, "event": "program_started", "kind": "fixture", "threads": 1}
+columns: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 4, "unit": "bounded task"}
+columns: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 4, "unit": "bounded task"}
+columns: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 4, "unit": "bounded task"}
+columns: {"completed": 4, "event": "work", "phase": "owned_tasks", "total": 4, "unit": "bounded task"}
+columns: {"elapsed_seconds": 410.1044550999941, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 409.9917824000004}
+gram: {"elapsed_seconds": 0.16632920000120066, "event": "program_started", "kind": "fixture", "threads": 1}
+gram: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 6, "unit": "bounded task"}
+gram: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 6, "unit": "bounded task"}
+gram: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 6, "unit": "bounded task"}
+gram: {"completed": 4, "event": "work", "phase": "owned_tasks", "total": 6, "unit": "bounded task"}
+gram: {"completed": 5, "event": "work", "phase": "owned_tasks", "total": 6, "unit": "bounded task"}
+gram: {"completed": 6, "event": "work", "phase": "owned_tasks", "total": 6, "unit": "bounded task"}
+gram: {"elapsed_seconds": 233.79068059999554, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 233.62331510000513}
+residual: {"elapsed_seconds": 0.11851700000988785, "event": "program_started", "kind": "fixture", "threads": 1}
+residual: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 4, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 5, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 6, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 7, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 8, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 9, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 10, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 11, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 12, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"elapsed_seconds": 1.5666789000097197, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.4473813999939011}
+columns: {"elapsed_seconds": 0.11795070000516716, "event": "program_started", "kind": "fixture", "threads": 1}
+columns: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 4, "unit": "bounded task"}
+columns: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 4, "unit": "bounded task"}
+columns: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 4, "unit": "bounded task"}
+columns: {"completed": 4, "event": "work", "phase": "owned_tasks", "total": 4, "unit": "bounded task"}
+columns: {"elapsed_seconds": 633.8899710000114, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 633.7712538999913}
+gram: {"elapsed_seconds": 0.11174469999969006, "event": "program_started", "kind": "fixture", "threads": 1}
+gram: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 6, "unit": "bounded task"}
+gram: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 6, "unit": "bounded task"}
+gram: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 6, "unit": "bounded task"}
+gram: {"completed": 4, "event": "work", "phase": "owned_tasks", "total": 6, "unit": "bounded task"}
+gram: {"completed": 5, "event": "work", "phase": "owned_tasks", "total": 6, "unit": "bounded task"}
+gram: {"completed": 6, "event": "work", "phase": "owned_tasks", "total": 6, "unit": "bounded task"}
+gram: {"elapsed_seconds": 10.252939900005003, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 10.140005499997642}
+residual: {"elapsed_seconds": 0.18482519999088254, "event": "program_started", "kind": "fixture", "threads": 1}
+residual: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 2, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 3, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 4, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 5, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 6, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 7, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 8, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 9, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 10, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 11, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"completed": 12, "event": "work", "phase": "owned_tasks", "total": 12, "unit": "bounded task"}
+residual: {"elapsed_seconds": 2.0676288999966346, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.881998199998634}
+VERIFIED_SELECTED_COMPLETE_SIGNED_QUANTITIES: retained-t081 entries=68 scope=SELECTION_ONLY
