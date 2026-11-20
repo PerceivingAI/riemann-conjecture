@@ -1,0 +1,74 @@
+{
+  "argv": [
+    "[REPO_ROOT]\\.venv\\Scripts\\python.exe",
+    "-B",
+    "<USER_HOME>\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-9\\test_unbounded_stdout_is_refus0\\collection\\attempts\\69ff291623ce4e87afd4fdc3c9032c8d\\runtime\\computations\\2026-10-28T034134Z-t081-resource-execution\\stage_worker_v1.py",
+    "--program",
+    "<USER_HOME>\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-9\\test_unbounded_stdout_is_refus0\\collection\\attempts\\69ff291623ce4e87afd4fdc3c9032c8d\\runtime\\scripts\\whole_source\\execution.py",
+    "--program-sha256",
+    "4278ebc3127c3087bd1cc9455496dd0fbae10af19b475b9eea8c53b198182ba0",
+    "--config",
+    "<USER_HOME>\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-9\\test_unbounded_stdout_is_refus0\\collection\\attempts\\69ff291623ce4e87afd4fdc3c9032c8d\\execution-budget.json",
+    "--config-sha256",
+    "a30a6bab8075855e111dec8b54d03dc55424eb5ccff925a4abfa4a8a31d19285",
+    "--profile",
+    "<USER_HOME>\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-9\\test_unbounded_stdout_is_refus0\\collection\\attempts\\69ff291623ce4e87afd4fdc3c9032c8d\\control\\profile.json",
+    "--kind",
+    "fixture",
+    "--",
+    "--stage",
+    "<USER_HOME>\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-9\\test_unbounded_stdout_is_refus0\\collection\\attempts\\69ff291623ce4e87afd4fdc3c9032c8d\\control-stage.json",
+    "--stage-sha256",
+    "ba7035cac280b0ad24d7cbd30c41c28963448d37c38ee7800bdc4b2b457fb5ba"
+  ],
+  "budget": {
+    "cpu_budget": 1,
+    "descendant_pool_workers": 1,
+    "execution_mode": "one owned root plus bounded spawn descendants",
+    "memory_budget_bytes": 805306368,
+    "native_threads": 1,
+    "required_bytes": 411041792,
+    "reserve_bytes": 67108864,
+    "workers": 1
+  },
+  "config_sha256": "a30a6bab8075855e111dec8b54d03dc55424eb5ccff925a4abfa4a8a31d19285",
+  "elapsed_seconds": 1.8053531999976258,
+  "error": "KeyboardInterrupt: owned execution cancelled",
+  "exit_code": 1,
+  "format": "t081-owned-stage-receipt-v1",
+  "last_metrics": {
+    "active_process_count": 3,
+    "active_process_ids": [
+      43948,
+      60844,
+      62756
+    ],
+    "cpu_budget": 1,
+    "cpu_rate_per_10000": 1666,
+    "cpu_rate_reference": "parent job if rate-controlled, otherwise system",
+    "cpu_seconds": 0.6875,
+    "current_committed_bytes": 55988224,
+    "diagnostics": [],
+    "memory_accounting": "JobObjectMemoryUsageInformation",
+    "memory_limit_bytes": 805306368,
+    "owned_cpu_rate_denominator": 10000,
+    "owned_cpu_rate_units": 1666,
+    "peak_committed_bytes": 56016896,
+    "peak_counter_scope": "raw OS high-water; denied allocation demand may be counted before rollback"
+  },
+  "logs": {
+    "stderr": {
+      "path": "control\\stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "path": "control\\stdout.txt",
+      "sha256": "19c60c8235664ee77c464368b5b66409cf91b6622e81c38fbbca7c712dbf3285"
+    }
+  },
+  "memory_metric": "job committed memory",
+  "peak_budgeted_memory_bytes": 56016896,
+  "program_sha256": "4278ebc3127c3087bd1cc9455496dd0fbae10af19b475b9eea8c53b198182ba0",
+  "stage": "control",
+  "worker_cleanup_verified": true
+}

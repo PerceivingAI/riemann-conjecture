@@ -1,0 +1,55 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0
+rootdir: [REPO_ROOT]
+configfile: pyproject.toml
+plugins: hypothesis-6.165.10, xdist-3.8.0
+collected 123 items
+
+tests\test_whole_source_contract.py .................................... [ 29%]
+...............................                                          [ 54%]
+tests\test_whole_source_artifacts.py ................................... [ 82%]
+...                                                                      [ 85%]
+tests\test_whole_source_execution.py ................F.                  [100%]
+
+================================== FAILURES ===================================
+____ test_real_two_worker_pool_requires_and_records_aggregate_observation _____
+
+tmp_path = WindowsPath('<USER_HOME>/AppData/Local/Temp/pytest-of-USER/pytest-4/test_real_two_worker_pool_requ0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_real_two_worker_pool_requires_and_records_aggregate_observation(tmp_path, problems):
+        captured, spec, plan = case(tmp_path, problems["retained-t081"], workers=2)
+        allowed = detect_budget(replace(plan, cpus=1, workers=1), repository=tmp_path, temporary=tmp_path, helper_root=captured)
+        if allowed.detected["effective_cpu_budget"] < 2:
+            pytest.skip("host exposes fewer than two CPU slots")
+        release = tmp_path / "release"
+        ready = [tmp_path / ("ready"+str(i)) for i in range(2)]
+        result = {}
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            execution = WorkloadExecution(lock, spec, plan, code_root=captured, qualify_pool=True)
+            def run():
+                try:
+                    with execution:
+                        result["complete"] = execution.run_stage("control", [task(i, mode="native_wait", ready=str(path), release=str(release)) for i, path in enumerate(ready)])
+                except BaseException as exc:
+                    result["error"] = exc
+            thread = threading.Thread(target=run)
+            thread.start()
+            try:
+                wait_for(lambda: all(p.exists() for p in ready) or result)
+>               assert all(p.exists() for p in ready), result
+E               AssertionError: {'error': RuntimeError('control exited 1; inspect retained stderr and profile')}
+E               assert False
+E                +  where False = all(<generator object test_real_two_worker_pool_requires_and_records_aggregate_observation.<locals>.<genexpr> at 0x0000018B8002D8A0>)
+
+tests\test_whole_source_execution.py:328: AssertionError
+---------------------------- Captured stdout call -----------------------------
+control: {"elapsed_seconds": 0.11198540000259527, "event": "program_started", "kind": "fixture", "threads": 1}
+control: ContractError: CPU allowance reduced before task
+control: {"elapsed_seconds": 1.757927099999506, "event": "program_finished", "exit_code": 1, "kind": "fixture", "wall_seconds": 1.6436844999989262}
+- generated xml file: [REPO_ROOT]\computations\2026-10-29T220733Z-bounded-artifact-execution\data\operational-tests-v2.xml -
+=========================== short test summary info ===========================
+FAILED tests/test_whole_source_execution.py::test_real_two_worker_pool_requires_and_records_aggregate_observation - AssertionError: {'error': RuntimeError('control exited 1; inspect retained stderr and profile')}
+assert False
+ +  where False = all(<generator object test_real_two_worker_pool_requires_and_records_aggregate_observation.<locals>.<genexpr> at 0x0000018B8002D8A0>)
+================== 1 failed, 122 passed in 321.74s (0:05:21) ==================

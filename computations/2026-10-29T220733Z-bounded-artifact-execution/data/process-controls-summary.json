@@ -1,0 +1,56 @@
+[
+  {
+    "case": "native-t1",
+    "exit_code": 0,
+    "peak_bytes": 72933376,
+    "cleanup_verified": true
+  },
+  {
+    "case": "memory-error",
+    "exit_code": 75,
+    "peak_bytes": 71958528,
+    "cleanup_verified": true
+  },
+  {
+    "case": "native-exit",
+    "exit_code": 1,
+    "peak_bytes": 70901760,
+    "cleanup_verified": true
+  },
+  {
+    "case": "native-denial",
+    "exit_code": 1,
+    "peak_bytes": 71094272,
+    "cleanup_verified": true
+  },
+  {
+    "case": "attachment-refusal",
+    "exit_code": 1,
+    "peak_bytes": 0,
+    "cleanup_verified": true
+  },
+  {
+    "case": "cancellation",
+    "exit_code": 1,
+    "peak_bytes": 71925760,
+    "cleanup_verified": true
+  },
+  {
+    "case": "pipe-holder",
+    "exit_code": 0,
+    "peak_bytes": 70418432,
+    "cleanup_verified": true
+  },
+  {
+    "case": "transport-refusal",
+    "exit_code": 1,
+    "peak_bytes": 56016896,
+    "cleanup_verified": true
+  },
+  {
+    "case": "aggregate-pool",
+    "exit_code": 0,
+    "peak_bytes": 116523008,
+    "cleanup_verified": true
+  }
+]

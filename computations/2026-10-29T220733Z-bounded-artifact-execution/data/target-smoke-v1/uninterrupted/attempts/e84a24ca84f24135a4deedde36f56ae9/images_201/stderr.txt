@@ -1,0 +1,1 @@
+ContractError: owned memory job is not installed before task imports

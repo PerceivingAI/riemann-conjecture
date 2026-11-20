@@ -1,0 +1,44 @@
+[
+  {
+    "file": "data/operational-tests-v1.xml",
+    "tests": 120,
+    "failures": 28,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "data/cause-check-v1.xml",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "data/operational-tests-v2.xml",
+    "tests": 123,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "data/pool-cause-check-v1.xml",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "data/operational-tests-v3.xml",
+    "tests": 127,
+    "failures": 7,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "file": "data/context-cause-check-v1.xml",
+    "tests": 1,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0
+  }
+]

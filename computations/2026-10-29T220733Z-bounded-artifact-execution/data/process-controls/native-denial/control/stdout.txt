@@ -1,0 +1,5 @@
+T081_READY {"pid": 62876, "config_sha256": "a30a6bab8075855e111dec8b54d03dc55424eb5ccff925a4abfa4a8a31d19285"}
+T081_EVENT {"elapsed_seconds": 0.11048519999894779, "event": "program_started", "kind": "fixture", "threads": 1}
+FLINT exception (General error):
+    Unable to allocate memory (76800000000).
+T081_EVENT {"elapsed_seconds": 4.3883785999933025, "event": "program_finished", "exit_code": 1, "kind": "fixture", "wall_seconds": 4.276611499997671}

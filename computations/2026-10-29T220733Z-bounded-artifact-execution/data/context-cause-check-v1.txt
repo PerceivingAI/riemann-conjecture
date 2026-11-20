@@ -1,0 +1,145 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0
+rootdir: [REPO_ROOT]
+configfile: pyproject.toml
+plugins: hypothesis-6.165.10, xdist-3.8.0
+collected 1 item
+
+tests\test_whole_source_execution.py F                                   [100%]
+
+================================== FAILURES ===================================
+________ test_native_task_and_t1_identity_in_captured_root_without_git ________
+
+tmp_path = WindowsPath('<USER_HOME>/AppData/Local/Temp/pytest-of-USER/pytest-7/test_native_task_and_t1_identi0')
+problems = {'retained-t081': ProblemSpec(profile='retained-t081', support=Fraction(81, 100), N=826, M=1652, K=86, R=710, Rc=1420,... ArtifactRef(path='uv.lock', sha256='0aadc479a27eb450203b8f8b92015317dd210ecc3d2d0bedfafb9561a8e3979a', size=210571)))}
+
+    def test_native_task_and_t1_identity_in_captured_root_without_git(tmp_path, problems):
+        captured, spec, plan = case(tmp_path, problems["selected-t1"])
+        assert not (captured / ".git").exists()
+        with CollectionLock.acquire(tmp_path / "collection", spec) as lock:
+            with WorkloadExecution(lock, spec, plan, code_root=captured) as execution:
+>               complete = execution.run_stage("control", [task(mode="native", x=-3)])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_whole_source_execution.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\whole_source\execution.py:609: in run_stage
+    receipt = self.backend.run(name, self.runtime_root / "scripts/whole_source/execution.py",
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <whole_source_supervisor.Execution object at 0x0000025CD1DB2270>
+name = 'control'
+program = WindowsPath('<USER_HOME>/AppData/Local/Temp/pytest-of-USER/pytest-7/test_native_task_and_t1_identi0/collection/attempts/aabe91a9fabb40beb0f795c3d0ccd933/runtime/scripts/whole_source/execution.py')
+arguments = ['--stage', '<USER_HOME>\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-7\\test_native_task_and_t1_identi0\\colle...5c3d0ccd933\\control-stage.json', '--stage-sha256', '2be23e4036978e3d7a7a49621b37299583fe6dade38d4d68f8edf91878744f98']
+kind = 'fixture', environment = None, expected_codes = (0,)
+
+    def run(self,name,program,arguments,*,kind,environment=None,expected_codes=(0,)):
+        folder=self.output/name;folder.mkdir()
+        program=Path(program).resolve()
+        command=[sys.executable,'-B',str(self.worker),'--program',str(program),
+            '--program-sha256',sha(program.read_bytes()),'--config',str(self.config),
+            '--config-sha256',self.config_sha,'--profile',str(folder/'profile.json'),
+            '--kind',kind,'--',*map(str,arguments)]
+        env=os.environ.copy();env.pop('PYTHONPATH',None);env['PYTHONDONTWRITEBYTECODE']='1'
+        for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS','FLINT_NUM_THREADS'):
+            env[key]='1'
+        if environment:env.update(environment)
+        messages=queue.Queue();readers=[];job=None;process=None
+        started=time.monotonic();metrics={};peak=0;cleanup=False;error=None;history={}
+        self.writer.event('STAGE_STARTED',stage=name,argv=command)
+        self.writer.update(workflow_state='RUNNING',current_operation={'stage':name,'phase':'initializing','budget':self.budget})
+        logs={channel:(folder/(channel+'.txt')).open('x',encoding='utf-8',newline='\n') for channel in ('stdout','stderr')}
+        def read(channel,stream):
+            try:
+                for line in stream:messages.put((channel,line))
+            finally:messages.put((channel,None))
+        try:
+            process=subprocess.Popen(command,cwd=self.root,env=env,stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding='utf-8',start_new_session=os.name=='posix')
+            if os.name=='nt':
+                job=WindowsJob(self.budget['memory_budget_bytes'],self.budget['cpu_budget']);job.attach(process)
+            for channel in ('stdout','stderr'):
+                reader=threading.Thread(target=read,args=(channel,getattr(process,channel)),daemon=True)
+                reader.start();readers.append(reader)
+            # The actual interpreter can differ from Popen.pid on Windows venvs.
+            deadline=time.monotonic()+15;worker_pid=None
+            while worker_pid is None:
+                channel,line=messages.get(timeout=max(.01,deadline-time.monotonic()))
+                if line is None:raise RuntimeError('worker exited before READY')
+                logs[channel].write(line);logs[channel].flush()
+                if channel=='stdout' and line.startswith('T081_READY '):
+                    ready=json.loads(line[len('T081_READY '):])
+                    if ready['config_sha256']!=self.config_sha:raise ValueError('worker READY identity mismatch')
+                    worker_pid=ready['pid']
+                if time.monotonic()>deadline:raise TimeoutError('worker READY deadline exceeded')
+            if job:job.attach_worker_pid(worker_pid)
+            process.stdin.write('GO\n');process.stdin.flush();process.stdin.close()
+            completed_streams=set();operation={'stage':name,'phase':'program','budget':self.budget}
+            next_sample=0.0
+            while process.poll() is None or len(completed_streams)<2:
+                if self.cancelled.is_set():raise KeyboardInterrupt('owned execution cancelled')
+                # Reap descendants before waiting on inherited stdout/stderr EOF.
+                if process.poll() is not None:
+                    if job and job.usage()['active_process_count']:
+                        job.terminate()
+                    elif os.name=='posix' and _posix_metrics(process.pid)['active_process_ids']:
+                        os.killpg(process.pid,signal.SIGKILL)
+                try:channel,line=messages.get(timeout=.5)
+                except queue.Empty:channel=line=None
+                if channel is not None:
+                    if line is None:completed_streams.add(channel)
+                    else:
+                        logs[channel].write(line);logs[channel].flush()
+                        if line.startswith('T081_EVENT '):
+                            event=json.loads(line[len('T081_EVENT '):]);self.writer.event('STAGE_PROGRESS',stage=name,detail=event)
+                            operation={'stage':name,**event,'budget':self.budget,'remaining_estimate_seconds':None}
+                            if event['event']=='work' and 'completed' in event and 'total' in event:
+                                key=tuple(event.get(k) for k in ('phase','parity','kind','unit'))
+                                old=history.get(key);now=time.monotonic();done=event['completed']
+                                if old and done>old[0]:
+                                    operation['remaining_estimate_seconds']=(now-old[1])/(done-old[0])*(event['total']-done)
+                                    operation['estimate_basis']='last comparable observed work-unit interval, not wall-time percentage'
+                                history[key]=(done,now)
+                            print(name+': '+json.dumps(event,sort_keys=True),flush=True)
+                        else:print(name+': '+line,end='',flush=True)
+                now=time.monotonic()
+                if now>=next_sample:
+                    next_sample=now+1
+                    if job:
+                        metrics=job.usage();peak=max(peak,metrics['peak_committed_bytes'])
+                    else:
+                        # RLIMIT_AS is inherited; the aggregate is monitored separately.
+                        metrics=_posix_metrics(process.pid);rss=metrics['aggregate_rss_bytes']
+                        peak=max(peak,rss)
+                        if rss>self.budget['memory_budget_bytes']:raise MemoryError('owned stage aggregate RSS exceeded memory budget')
+                    operation.update({'stage_elapsed_seconds':now-started,'resources':metrics})
+                    self.writer.update(current_operation=operation)
+            process.wait()
+            if job:
+                metrics=job.usage();peak=max(peak,metrics['peak_committed_bytes'])
+                if metrics['active_process_count']:
+                    job.terminate()
+                    deadline=time.monotonic()+10
+                    while job.usage()['active_process_count'] and time.monotonic()<deadline:time.sleep(.05)
+                cleanup=job.usage()['active_process_count']==0
+            else:
+                metrics=_posix_metrics(process.pid)
+                if metrics['active_process_ids']:
+                    os.killpg(process.pid,signal.SIGKILL)
+                    deadline=time.monotonic()+10
+                    while _posix_metrics(process.pid)['active_process_ids'] and time.monotonic()<deadline:time.sleep(.05)
+                cleanup=not _posix_metrics(process.pid)['active_process_ids']
+            if not cleanup:raise RuntimeError('owned numerical descendants remain after stage exit')
+>           if process.returncode not in expected_codes:raise RuntimeError(name+' exited '+str(process.returncode)+'; inspect retained stderr and profile')
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: control exited 1; inspect retained stderr and profile
+
+<USER_HOME>\AppData\Local\Temp\pytest-of-USER\pytest-7\test_native_task_and_t1_identi0\captured\computations\2026-10-28T034134Z-t081-resource-execution\execution_supervisor_v1.py:159: RuntimeError
+---------------------------- Captured stdout call -----------------------------
+control: {"elapsed_seconds": 0.1082897000014782, "event": "program_started", "kind": "fixture", "threads": 1}
+control: ContractError: owned memory job is not installed before task imports; observed {'visibility': 'immediate job only; ancestor handles are not available', 'limit_flags': 12288, 'process_memory_limit_bytes': None, 'job_memory_limit_bytes': None, 'cpu_control_flags': 0, 'cpu_rate_raw': 0}
+control: {"elapsed_seconds": 0.18289210000511957, "event": "program_finished", "exit_code": 1, "kind": "fixture", "wall_seconds": 0.07325400000263471}
+- generated xml file: [REPO_ROOT]\computations\2026-10-29T220733Z-bounded-artifact-execution\data\context-cause-check-v1.xml -
+=========================== short test summary info ===========================
+FAILED tests/test_whole_source_execution.py::test_native_task_and_t1_identity_in_captured_root_without_git - RuntimeError: control exited 1; inspect retained stderr and profile
+============================== 1 failed in 7.32s ==============================

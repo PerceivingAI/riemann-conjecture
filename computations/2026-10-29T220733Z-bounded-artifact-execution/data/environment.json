@@ -1,0 +1,8 @@
+{
+  "created_utc": "2026-10-29T22:07:33.693254+00:00",
+  "scope": "OPERATIONAL_CONTROLS_ONLY",
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "win32",
+  "origin_commit": "a7d43f501cd7cf6ea74360c4092ecaa11392dbef",
+  "origin_dirty": true
+}

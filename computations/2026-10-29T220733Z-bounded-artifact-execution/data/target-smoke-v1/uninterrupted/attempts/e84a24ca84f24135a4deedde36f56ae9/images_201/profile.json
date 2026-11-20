@@ -1,0 +1,22 @@
+{
+  "containment": {
+    "mechanism": "owned Windows job installed before GO"
+  },
+  "cpu_seconds": 0.046875,
+  "error": "ContractError: owned memory job is not installed before task imports",
+  "exit_code": 1,
+  "format": "t081-budgeted-stage-profile-v1",
+  "kind": "fixture",
+  "native_threads": 1,
+  "phases": {},
+  "precision": 53,
+  "process_memory": {
+    "committed_bytes": 23506944,
+    "peak_committed_bytes": 32194560,
+    "peak_working_set_bytes": 44986368,
+    "working_set_bytes": 36368384
+  },
+  "program_sha256": "4c7b16df74536b7495d0241be85523179d7801f61491a7df6fe8d8a1249d0093",
+  "timing_note": "inclusive includes nested calls; exclusive subtracts wrapped children; CPU is current process only",
+  "wall_seconds": 0.0768365999974776
+}

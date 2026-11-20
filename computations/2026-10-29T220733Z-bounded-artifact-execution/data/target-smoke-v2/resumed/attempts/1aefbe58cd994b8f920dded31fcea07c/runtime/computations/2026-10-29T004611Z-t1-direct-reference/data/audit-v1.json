@@ -1,0 +1,120 @@
+{
+  "K": 132,
+  "M": 11128,
+  "N": 5564,
+  "R": 4060,
+  "RH_status": "UNRESOLVED",
+  "Rc": 8120,
+  "accuracy_goal": "1/302231454903657293676544",
+  "accuracy_is_not_target_gap": true,
+  "alpha": "1/4",
+  "audit_code_sha256": "fca7f8a415be5dc032eb7eb90fe2c2ecbe5da9b73bd21b5f497a1608038b585e",
+  "audit_precision_bits": 1024,
+  "beta": "2981/1024",
+  "checks": {
+    "active_terms_per_precision": 5,
+    "comparison_complete_native_proof_replays": 1,
+    "direct_boundary_stages": 4,
+    "direct_leaves": 9916,
+    "direct_native_cell_upper_checks": 19832,
+    "direct_native_infinity_checks": 6,
+    "direct_native_witness_checks": 1,
+    "direct_precision_bits": 768,
+    "frequency_steps_per_precision": 60,
+    "geometric_invalid_even_cutoffs_excluded": 1014,
+    "native_interval_containments": 296,
+    "native_precisions": [
+      512,
+      1024
+    ],
+    "policy_even_cutoffs_covered": 2782,
+    "rational_upper_checks": 252,
+    "residual_even_orders_per_precision": 66,
+    "translation_breakpoints_per_precision": 12,
+    "valid_even_cutoffs_covered_by_monotonicity": 1768
+  },
+  "comparison_N": 9072,
+  "comparison_audit_code_sha256": "0606800c3df24fe47474e0e75810d6d6bc25ece82274c753227d4fee34a516df",
+  "comparison_beta": "3359/1024",
+  "complete_inverse_qualified": true,
+  "direct_improves_inherited": true,
+  "direct_precision_bits": 768,
+  "direct_proof": {
+    "finite_witness_lower": "18246746661663895207665528308057693785119173016737036105493/6277101735386680763835789423207666416102355444464034512896",
+    "frequency_proof_boundary": "2048",
+    "independent_finite_upper": "282298314210785014945156797054439371907732727377740036213845720012324230705561000644359439046950041481434513362050372208525602389435815312878351796237983333821130721688743792406659237685413833101023116302389645470559446242222624385/97032380768794308446811218028906409703555376069793538196190752376628184542898555395679900551790404871905483168570692075385723752757175899465267954690073821200278436001303119096891580351974902801578937449607279296930802928363503616",
+    "independent_infinite_upper": "1092736693110902668215533561824962126109077619842081685196652170685490672054763183950079319767254919853202559796203457707728501648221747358479227743276783978222071840199775018890556153925857226672950488689911320635582486772575803029/388129523075177233787244872115625638814221504279174152784763009506512738171594221582719602207161619487621932674282768301542895011028703597861071818760295284801113744005212476387566321407899611206315749798429117187723211713454014464",
+    "independent_lipschitz": "arithmetic_lip+8",
+    "negative_frequencies_by_evenness": true,
+    "source_coarse_lipschitz_checked": true,
+    "uniform_binet_order": 64,
+    "uniform_binet_prefix_terms": 128,
+    "whole_line_upper": "18271152225275870700782752887037204601916932645865584203369/6277101735386680763835789423207666416102355444464034512896"
+  },
+  "eta": "340282366920938463463374607431768211455/340282366920938463463374607431768211456",
+  "format": "t1-direct-reference-audit-v1",
+  "gauss_accuracy_achieved": false,
+  "gauss_polynomial_degree_policy_checked": true,
+  "high_mode_widths_achieved": false,
+  "imported_project_module_sha256": {
+    "scripts/cert/__init__.py": "1375ddaa91b8795ade7a9d8c13a0411ac02012b813d9beaeb98a05e52c82e092",
+    "scripts/cert/constants.py": "134cca3563c22ef092f4458a5469c9618d94ba490100508b266e67c871726bfb",
+    "scripts/cert/prime_power_terms.py": "6faf4cfebb3da80a9ad65d50808ac182049a036719c6eeb72facc42eb5ab6357",
+    "scripts/cert/quadrature.py": "c8bc5bc04655722f394dba6c46655494cd90e5e68117e3361a835ac10e719663",
+    "scripts/cert/residual_kernel.py": "63909a109443187a573a8b0b6b7907e52be6f9f35830ff0fdd56879597cfbfd1",
+    "scripts/weil_reference_route_controls.py": "adee8020419038735b8e1b8f7bff830d6d22adb06a3e09597902d0454fba1b13"
+  },
+  "inputs_sha256": "7450b2ecf6c5d7607ddcdf9d6bcaacb6da6d4963bb7c9180ef083bcbc5849a32",
+  "m": "1/3",
+  "precision": {
+    "audit_amplification_bits": 33254,
+    "audit_bits": 34304,
+    "audit_square_gauss_order": 5564,
+    "bessel_amplification_bits": 19441,
+    "matrix_publication_bits": 256,
+    "source_amplification_bits": 24435,
+    "source_bits": 25600,
+    "source_gauss_order": 8346
+  },
+  "producer_sha256": "99816553e1349fb10695301ea89953c7922209027feeec9a67ece436e256aef6",
+  "production_admission": false,
+  "publication_bits": 192,
+  "reference_kind": "direct_whole_line_multiplier",
+  "retained_pins": {
+    "accuracy_control": {
+      "path": "computations/2026-10-28T183329Z-t081-retained-completion/data/run-v1/retained-acceptance-v1.json",
+      "sha256": "3537ac3b419ce9e77241ae278fd1b0ef1301290e9b0e7d3125ccdf985c4474d5"
+    },
+    "comparison_audit": {
+      "path": "computations/2026-10-28T220029Z-t1-reference-cost-qualification/data/audit-v2.json",
+      "sha256": "53fe8418ee5e5e6fce981f24dd704593a52e9f1646ce860966511cf8cba9f2e4"
+    },
+    "comparison_inputs": {
+      "path": "computations/2026-10-28T220029Z-t1-reference-cost-qualification/inputs-v1.json",
+      "sha256": "59a067a652d4ac7b13add553116d092a3a8e492a2cacca6b1bc92d2554d9bde7"
+    },
+    "comparison_manifest": {
+      "path": "computations/2026-10-28T220029Z-t1-reference-cost-qualification/manifest.json",
+      "sha256": "cca77386d39105a7d314e0422b385c5fe02bb971cece6604fd5eba4cb1fbca21"
+    },
+    "comparison_source": {
+      "path": "computations/2026-10-28T220029Z-t1-reference-cost-qualification/data/source-v1.json",
+      "sha256": "7238a102652c3c1519eca2555d8b167735452697c068a4aa9b76aca7d3ce997a"
+    }
+  },
+  "scalar_N_policy": "first positive even N with r_N<1, outside>m and eta_loss<2^-128; endpoint failure plus strict complete-leakage monotonicity",
+  "shape": {
+    "parity_dimension": 2782,
+    "six_triangular_entries": 23226918,
+    "translation_cells": 11
+  },
+  "shared_trust": "FLINT/Arb arithmetic and transcendental enclosures",
+  "source_sha256": "50a16676a7fb36999485c712c76e9d416eada395b92649f0f6a479e8a6b2dfb6",
+  "status": "PASS",
+  "support": "1",
+  "target_matrix_computed": false,
+  "target_memory_measured": false,
+  "target_positivity_proved": false,
+  "target_runtime_measured": false,
+  "terminal_infinity_step_checked": true
+}
