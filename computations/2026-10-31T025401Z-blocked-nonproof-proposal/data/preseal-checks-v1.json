@@ -1,0 +1,31 @@
+{
+  "both_final_runtime_code_closures_match": true,
+  "compiled_lf_whitespace_files": 26,
+  "final_test_captures": 8,
+  "full_supported_proposal": false,
+  "junit_cases": 149,
+  "new_public_links": [
+    {
+      "source": "scripts/README.md",
+      "target": "../computations/2026-10-31T025401Z-blocked-nonproof-proposal/record.md"
+    },
+    {
+      "source": "docs/TOOL_CAPABILITIES.md",
+      "target": "../computations/2026-10-31T025401Z-blocked-nonproof-proposal/record.md"
+    },
+    {
+      "source": "docs/LOG.md",
+      "target": "../computations/2026-10-31T025401Z-blocked-nonproof-proposal/record.md"
+    },
+    {
+      "source": "docs/INDEX.md",
+      "target": "../computations/2026-10-31T025401Z-blocked-nonproof-proposal/record.md"
+    },
+    {
+      "source": "computations/2026-10-31T025401Z-blocked-nonproof-proposal/record.md",
+      "target": "../2026-10-30T181819Z-bounded-frequency-head-source/record.md"
+    }
+  ],
+  "production_admission": false,
+  "status": "PASS_NONPROOF_PROPOSAL_PRESEAL_CHECKS"
+}

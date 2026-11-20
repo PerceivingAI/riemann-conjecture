@@ -1,0 +1,19 @@
+factor-whiten: {"elapsed_seconds": 0.11359439999978349, "event": "program_started", "kind": "fixture", "threads": 1}
+factor-whiten: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+factor-whiten: {"elapsed_seconds": 2.6679222000002483, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 2.5528871999995317}
+float-optimize: {"elapsed_seconds": 0.1100375999994867, "event": "program_started", "kind": "fixture", "threads": 1}
+float-optimize: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+float-optimize: {"elapsed_seconds": 2.7328818999994837, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 2.622083100000964}
+backsolve-quantize: {"elapsed_seconds": 0.11223700000118697, "event": "program_started", "kind": "fixture", "threads": 1}
+backsolve-quantize: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+backsolve-quantize: {"elapsed_seconds": 1.5931754000012006, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.4798068999989482}
+factor-whiten: {"elapsed_seconds": 0.11523060000035912, "event": "program_started", "kind": "fixture", "threads": 1}
+factor-whiten: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+factor-whiten: {"elapsed_seconds": 2.755336799998986, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 2.6390802999994776}
+float-optimize: {"elapsed_seconds": 0.12116500000047381, "event": "program_started", "kind": "fixture", "threads": 1}
+float-optimize: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+float-optimize: {"elapsed_seconds": 2.376392799998939, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 2.254114800000025}
+backsolve-quantize: {"elapsed_seconds": 0.11407359999975597, "event": "program_started", "kind": "fixture", "threads": 1}
+backsolve-quantize: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+backsolve-quantize: {"elapsed_seconds": 1.6387713999993139, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 1.5236509000005753}
+NONPROOF_ONLY: blocks=2 scope=NONPROOF_PROPOSAL_ONLY

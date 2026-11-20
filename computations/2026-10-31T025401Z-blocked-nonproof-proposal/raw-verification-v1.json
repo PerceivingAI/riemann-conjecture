@@ -1,0 +1,15 @@
+{
+  "external_bindings": 118,
+  "external_bytes": 6384872,
+  "format": "nonproof-proposal-raw-verification-v1",
+  "fresh_native_reconstruction": false,
+  "full_source_run": false,
+  "manifest_sha256": "565546b25f6616e87b1dde421d6e50e9b5715f259d52395121c2abb98cce4220",
+  "mathematical_acceptance_repeated": false,
+  "matrix_positivity": false,
+  "production_admission": false,
+  "retained_bytes": 442620234,
+  "retained_members": 7551,
+  "scope": "RAW_BINDINGS_ONLY",
+  "status": "PASS_RETAINED_NONPROOF_PROPOSAL_RAW_BINDINGS"
+}

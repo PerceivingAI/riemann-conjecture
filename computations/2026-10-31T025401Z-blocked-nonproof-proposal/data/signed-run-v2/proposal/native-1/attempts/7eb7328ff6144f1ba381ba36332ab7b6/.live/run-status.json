@@ -1,0 +1,13 @@
+{
+  "format": "riemann-live-run-v1",
+  "run_id": "20261031T030457Z-46ba12c7",
+  "command": "whole-source-owned-execution-v1",
+  "support": "81/100",
+  "pid": 3556,
+  "started_at_utc": "2026-10-31T03:04:57Z",
+  "last_heartbeat_utc": "2026-10-31T03:05:04Z",
+  "elapsed_seconds": 7.783,
+  "workflow_state": "RUN_COMPLETED",
+  "current_operation": null,
+  "terminal": true
+}
