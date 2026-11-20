@@ -1,0 +1,30 @@
+{
+  "adversarial_execution": false,
+  "all_owned_cleanup_verified": true,
+  "created_utc": "2026-10-30T13:15:26Z",
+  "format": "uncommitted-implementation-ordinary-audit-v1",
+  "fresh_analytic_windows": 8,
+  "fresh_owned_stages": 16,
+  "fresh_producer_batches": 40,
+  "fresh_status": "VERIFIED_SELECTED_COMPLETE_ARITHMETIC",
+  "identical_exact_entries": 6,
+  "identical_quantity_seals": 12,
+  "ordinary_tests_passed": 67,
+  "origin_git_commit": "a7d43f501cd7cf6ea74360c4092ecaa11392dbef",
+  "origin_git_dirty": true,
+  "resumed_analytic_windows": 8,
+  "resumed_owned_stages": 15,
+  "resumed_producer_batches": 0,
+  "resumed_status": "VERIFIED_SELECTED_COMPLETE_ARITHMETIC",
+  "retained_natural_failure_without_profile_checked_read_only": true,
+  "retained_observation_modes": 9,
+  "retained_observation_status": "PASS_RETAINED_SCOPED_OBSERVATIONS",
+  "runtime": "Windows/Python3.14",
+  "scope": "Implementation verification only; no new mathematical or production admission; temporary numerical outputs removed",
+  "sources": {
+    "scripts/verify_bounded_resource_observations_v1.py": "0edb4df5050e8097dec4819c64caec7acbf44884ed8364f164ae6d8f584973c7",
+    "scripts/whole_source/artifacts.py": "7abd00158cc352748d97f4775757172ea73d6a24d9997d3bcc16479212158b9d",
+    "scripts/whole_source/slice.py": "6b1f33f6a2a80918bfa2f1bdc185d9c1e5e4962a073b3b4e0ec47e0dbc87d72c",
+    "tests/test_whole_source_review.py": "653654a4f6a87274ff0c258193aac6e9d6e5359a1b068773eb60846692d6b254"
+  }
+}
