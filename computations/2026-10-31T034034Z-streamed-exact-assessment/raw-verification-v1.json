@@ -1,0 +1,15 @@
+{
+  "external_bindings": 114,
+  "external_bytes": 29559828,
+  "format": "streamed-exact-raw-verification-v1",
+  "fresh_native_reconstruction": false,
+  "full_source_run": false,
+  "manifest_sha256": "b422ff931c9951aae97bdc632e97b6c419e9d022e45b66cb6662dd4fcd4ad112",
+  "mathematical_acceptance_repeated": false,
+  "matrix_positivity": false,
+  "production_admission": false,
+  "retained_bytes": 244898380,
+  "retained_members": 3589,
+  "scope": "RAW_BINDINGS_ONLY",
+  "status": "PASS_RETAINED_STREAMED_EXACT_RAW_BINDINGS"
+}

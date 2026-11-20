@@ -1,0 +1,10 @@
+parity-0: {"elapsed_seconds": 0.30299770000056014, "event": "program_started", "kind": "fixture", "threads": 1}
+parity-0: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+parity-0: {"elapsed_seconds": 2.8165522999988752, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 2.5118463000035263}
+parity-1: {"elapsed_seconds": 0.11866440000085277, "event": "program_started", "kind": "fixture", "threads": 1}
+parity-1: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+parity-1: {"elapsed_seconds": 2.5101706000023114, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 2.3906826000020374}
+assess: {"elapsed_seconds": 0.11819159999868134, "event": "program_started", "kind": "fixture", "threads": 1}
+assess: {"completed": 1, "event": "work", "phase": "owned_tasks", "total": 1, "unit": "bounded task"}
+assess: {"elapsed_seconds": 2.48782779999965, "event": "program_finished", "exit_code": 0, "kind": "fixture", "wall_seconds": 2.3682977000025858}
+SELECTED_PAID_LOWER_NEGATIVE_NOT_WEIL_NEGATIVITY: scope=CONTROL_ONLY
